@@ -98,13 +98,16 @@ function saveStaffForm() {
     if (editingStaffId) {
         const idx = staff.findIndex(s => s.id === editingStaffId);
         staff[idx] = { ...staff[idx], name, role, phone, salary, incentive };
+        if (typeof DBService !== 'undefined') DBService.upsertStaff(staff[idx]);
         showToast('Staff member updated');
     } else {
-        staff.push({
+        const newStaff = {
             id: 'st_' + Date.now(),
             name, role, phone, salary, incentive,
             color: AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)]
-        });
+        };
+        staff.push(newStaff);
+        if (typeof DBService !== 'undefined') DBService.upsertStaff(newStaff);
         showToast('Staff member added');
     }
 
@@ -118,6 +121,7 @@ function deleteStaff(id) {
     if (!confirm('Remove this staff profile?')) return;
     staff = staff.filter(s => s.id !== id);
     saveState();
+    if (typeof DBService !== 'undefined') DBService.deleteStaff(id);
     renderStaffTable();
     renderDashboard();
     showToast('Staff member removed', 'danger');

@@ -181,6 +181,7 @@ function saveFeePayment() {
 
     payments.push(paymentRecord);
     saveState();
+    if (typeof DBService !== 'undefined') DBService.insertPayment(paymentRecord);
 
     closeModal('collectFeeModal');
     showToast(`₹${amount.toLocaleString()} recorded for ${s.name}`);
@@ -230,7 +231,7 @@ function saveSalaryPayout() {
     const now = new Date();
     const dateStr = now.toLocaleDateString('en-IN');
 
-    salaryPayouts.push({
+    const payoutRecord = {
         id: 'sp_' + Date.now(),
         recipientId: activeSalaryRecipientId,
         type: activeSalaryRecipientType,
@@ -238,9 +239,12 @@ function saveSalaryPayout() {
         amount,
         mode,
         date: dateStr
-    });
+    };
+
+    salaryPayouts.push(payoutRecord);
 
     saveState();
+    if (typeof DBService !== 'undefined') DBService.insertSalaryPayout(payoutRecord);
     closeModal('salaryPayoutModal');
     showToast(`Salary payout of ₹${amount.toLocaleString()} recorded`);
 

@@ -132,13 +132,16 @@ function saveTeacherForm() {
     if (editingTeacherId) {
         const idx = teachers.findIndex(t => t.id === editingTeacherId);
         teachers[idx] = { ...teachers[idx], name, subjects, classes, phone, salary, incentive };
+        if (typeof DBService !== 'undefined') DBService.upsertTeacher(teachers[idx]);
         showToast('Teacher profile updated');
     } else {
-        teachers.push({
+        const newTeacher = {
             id: 't_' + Date.now(),
             name, subjects, classes, phone, salary, incentive,
             color: AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)]
-        });
+        };
+        teachers.push(newTeacher);
+        if (typeof DBService !== 'undefined') DBService.upsertTeacher(newTeacher);
         showToast('Teacher added successfully');
     }
 
@@ -152,6 +155,7 @@ function deleteTeacher(id) {
     if (!confirm('Remove this teacher profile?')) return;
     teachers = teachers.filter(t => t.id !== id);
     saveState();
+    if (typeof DBService !== 'undefined') DBService.deleteTeacher(id);
     renderTeachersTable();
     renderDashboard();
     showToast('Teacher profile removed', 'danger');

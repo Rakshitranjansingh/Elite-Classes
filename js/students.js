@@ -28,6 +28,7 @@ function setStudentScholarship(studentId) {
 
     s.scholarshipPct = pct;
     saveState();
+    if (typeof DBService !== 'undefined') DBService.upsertStudent(s);
     showToast(`${pct}% scholarship applied for ${s.name}`);
     openStudentDetailModal(studentId);
     renderStudentsTable();
@@ -353,6 +354,7 @@ function saveStudentForm() {
             doa: document.getElementById('f-sdoa').value,
             school: document.getElementById('f-sschool').value.trim()
         };
+        if (typeof DBService !== 'undefined') DBService.upsertStudent(students[idx]);
         showToast('Student details updated successfully!');
     } else {
         const newStudent = {
@@ -366,6 +368,7 @@ function saveStudentForm() {
             color: AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)]
         };
         students.push(newStudent);
+        if (typeof DBService !== 'undefined') DBService.upsertStudent(newStudent);
         showToast('New student added successfully!');
     }
 
@@ -380,6 +383,7 @@ function deleteStudent(studentId) {
     students = students.filter(s => s.id !== studentId);
     payments = payments.filter(p => p.studentId !== studentId);
     saveState();
+    if (typeof DBService !== 'undefined') DBService.deleteStudent(studentId);
     renderStudentsTable();
     renderDashboard();
     showToast('Student profile deleted', 'danger');

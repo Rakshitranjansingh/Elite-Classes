@@ -181,15 +181,21 @@ function initSeedData() {
 }
 
 // Coaching Key Authentication System
-const VALID_COACHING_KEY = '987654';
+let VALID_COACHING_KEY = '987654';
 
-function verifyCoachingKey() {
+async function verifyCoachingKey() {
     const inputEl = document.getElementById('coaching-key-input');
     const errEl = document.getElementById('auth-error-msg');
     const authScreen = document.getElementById('auth-screen');
 
     if (!inputEl) return;
     const enteredKey = inputEl.value.trim();
+
+    // Fetch live coaching key from DB if connected
+    if (typeof DBService !== 'undefined' && isSupabaseConnected()) {
+        const dbKey = await DBService.getCoachingKey();
+        if (dbKey) VALID_COACHING_KEY = dbKey;
+    }
 
     if (enteredKey === VALID_COACHING_KEY) {
         if (errEl) errEl.style.display = 'none';
@@ -208,7 +214,7 @@ function verifyCoachingKey() {
 function checkCoachingAuthOnLoad() {
     const savedKey = sessionStorage.getItem('ec_authenticated_key');
     const authScreen = document.getElementById('auth-screen');
-    if (savedKey === VALID_COACHING_KEY) {
+    if (savedKey) {
         if (authScreen) authScreen.style.display = 'none';
     } else {
         if (authScreen) authScreen.style.display = 'flex';
@@ -224,9 +230,60 @@ function lockCoachingPortal() {
     showToast('Coaching Portal Locked', 'warning');
 }
 
+// Supabase Settings Modal Helpers
+function openSupabaseModal() {
+    const urlEl = document.getElementById('cfg-supa-url');
+    const keyEl = document.getElementById('cfg-supa-key');
+    if (urlEl) urlEl.value = localStorage.getItem('ec_supabase_url') || '';
+    if (keyEl) keyEl.value = localStorage.getItem('ec_supabase_key') || '';
+    openModal('supabaseModal');
+}
+
+function saveSupabaseSettingsFromModal() {
+    const url = document.getElementById('cfg-supa-url').value.trim();
+    const key = document.getElementById('cfg-supa-key').value.trim();
+
+    if (!url || !key) {
+        showToast('Enter both Supabase URL and Anon Key', 'danger');
+        return;
+    }
+
+    const ok = saveSupabaseCredentials(url, key);
+    if (ok) {
+        showToast('Connected to Supabase Cloud Database!');
+        closeModal('supabaseModal');
+        syncDataFromSupabase();
+    } else {
+        showToast('Supabase connection failed. Check credentials.', 'danger');
+    }
+}
+
+async function syncDataFromSupabase() {
+    if (typeof isSupabaseConnected !== 'function' || !isSupabaseConnected()) return;
+
+    try {
+        students = await DBService.fetchStudents();
+        teachers = await DBService.fetchTeachers();
+        staff = await DBService.fetchStaff();
+        payments = await DBService.fetchPayments();
+        salaryPayouts = await DBService.fetchSalaryPayouts();
+
+        saveState();
+        renderDashboard();
+        if (typeof renderActiveProfileView === 'function') renderActiveProfileView();
+        showToast('Data synchronized from Supabase Cloud Database!');
+    } catch (e) {
+        console.error('[Supabase Sync Error]:', e);
+    }
+}
+
 // Initial App Boot
 document.addEventListener('DOMContentLoaded', () => {
     initSeedData();
+    if (typeof initSupabaseClient === 'function') initSupabaseClient();
     checkCoachingAuthOnLoad();
     renderDashboard();
+    if (typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
+        syncDataFromSupabase();
+    }
 });
