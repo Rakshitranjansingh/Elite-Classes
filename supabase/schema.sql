@@ -122,7 +122,15 @@ CREATE INDEX IF NOT EXISTS idx_exam_results_student ON exam_results(student_id);
 
 -- =========================================================
 -- DISABLE RLS OR ALLOW PUBLIC ANONYMOUS ACCESS FOR FRONTEND
--- =========================================================
+-- 10. NOTICES TICKER TABLE
+CREATE TABLE IF NOT EXISTS notices (
+    id VARCHAR(50) PRIMARY KEY DEFAULT 'n1',
+    content TEXT NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- DISABLE RLS OR ALLOW PUBLIC ANONYMOUS ACCESS FOR FRONTEND
 ALTER TABLE coaching_settings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE students ENABLE ROW LEVEL SECURITY;
 ALTER TABLE teachers ENABLE ROW LEVEL SECURITY;
@@ -132,6 +140,7 @@ ALTER TABLE payments ENABLE ROW LEVEL SECURITY;
 ALTER TABLE salary_payouts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE attendance ENABLE ROW LEVEL SECURITY;
 ALTER TABLE exam_results ENABLE ROW LEVEL SECURITY;
+ALTER TABLE notices ENABLE ROW LEVEL SECURITY;
 
 -- Create Permissive Policies for Web Application Access
 CREATE POLICY "Public Read/Write coaching_settings" ON coaching_settings FOR ALL USING (true) WITH CHECK (true);
@@ -143,6 +152,7 @@ CREATE POLICY "Public Read/Write payments" ON payments FOR ALL USING (true) WITH
 CREATE POLICY "Public Read/Write salary_payouts" ON salary_payouts FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write attendance" ON attendance FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write exam_results" ON exam_results FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Public Read/Write notices" ON notices FOR ALL USING (true) WITH CHECK (true);
 
 -- =========================================================
 -- INITIAL SEED DATA
@@ -150,6 +160,10 @@ CREATE POLICY "Public Read/Write exam_results" ON exam_results FOR ALL USING (tr
 INSERT INTO coaching_settings (id, coaching_name, access_key)
 VALUES ('coaching_main', 'Elite Classes', '987654')
 ON CONFLICT (id) DO UPDATE SET access_key = EXCLUDED.access_key;
+
+INSERT INTO notices (id, content, is_active)
+VALUES ('n1', '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations begin next week!', true)
+ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO students (id, name, cls, parent_name, phone, monthly_fee, fee_due_day, scholarship_pct, subjects, date_of_admission, school_name, avatar_color)
 VALUES

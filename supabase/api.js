@@ -271,5 +271,25 @@ const DBService = {
         } catch (e) {
             console.error('[DBService] Insert salary payout failed:', e);
         }
+    },
+
+    // ---------------------------------------------------------
+    // 7. NOTICES TICKER
+    // ---------------------------------------------------------
+    async fetchActiveNotice() {
+        if (!isSupabaseConnected()) return '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations schedule announced!';
+        try {
+            const { data, error } = await supabaseClient
+                .from('notices')
+                .select('content')
+                .eq('is_active', true)
+                .order('created_at', { ascending: false })
+                .limit(1);
+
+            if (error || !data || data.length === 0) return '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations schedule announced!';
+            return data[0].content;
+        } catch (e) {
+            return '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations schedule announced!';
+        }
     }
 };

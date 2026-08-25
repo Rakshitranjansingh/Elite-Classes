@@ -27,24 +27,40 @@
         </div>
     </div>
 
-    <!-- TOP BRAND BANNER (NO NAVIGATION HEADER BAR) -->
-    <div class="top-banner">
-        <div class="brand-wrapper" onclick="navigateToView('dashboard')">
-            <div class="brand-logo-icon">EC</div>
-            <div>
-                <div class="brand-text">elite<span>.</span>classes</div>
-                <div class="brand-sub">Admin Dashboard</div>
+    <!-- STICKY FIXED HEADER CONTAINER -->
+    <header class="app-header-sticky">
+        <!-- 1. TOP DARK BRAND BANNER -->
+        <div class="top-banner">
+            <div class="brand-wrapper" onclick="navigateToView('dashboard')">
+                <div class="brand-logo-icon">EC</div>
+                <div>
+                    <div class="brand-text">elite<span>.</span>classes</div>
+                    <div class="brand-sub">Admin Dashboard</div>
+                </div>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:14px;">
+                <div class="admin-chip">
+                    <div class="admin-avatar">EC</div>
+                    <div class="admin-name">Admin</div>
+                </div>
             </div>
         </div>
 
-        <div style="display:flex; align-items:center; gap:14px;">
-            <div id="dash-today-date" style="font-size:12.5px; color:#cbd5e1; font-weight:600;"></div>
-            <div class="admin-chip">
-                <div class="admin-avatar">EC</div>
-                <div class="admin-name">Admin</div>
+        <!-- 2. OFF-WHITE TRANSPARENT SUB-HEADER BAR -->
+        <div class="sub-header-bar">
+            <!-- Scrolling Notice Ticker (Right-to-Left Scroll) -->
+            <div class="notice-ticker-wrap">
+                <span class="notice-badge">NOTICE</span>
+                <div class="marquee-track">
+                    <span id="active-db-notice" class="marquee-content">📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations begin next week!</span>
+                </div>
             </div>
+
+            <!-- Formatted Date (e.g. 25 Aug 26 TUE) -->
+            <div id="sub-header-date" class="sub-header-date">25 Aug 26 TUE</div>
         </div>
-    </div>
+    </header>
 
     <!-- MAIN CONTENT VIEWS -->
     <main class="main-content">

@@ -131,12 +131,24 @@ function renderDashboard() {
     const markedCount = Object.keys(attRecs).length;
     const presentCount = Object.values(attRecs).filter(v => v === 'present').length;
     const attRate = markedCount > 0 ? Math.round((presentCount / markedCount) * 100) : 95;
-    const attendanceEl = document.getElementById('dash-stat-attendance');
-    if (attendanceEl) attendanceEl.textContent = `${attRate}% Present`;
+    // Set formatted sub-header date (e.g., 25 Aug 26 TUE)
+    updateSubHeaderDate();
+}
 
-    // Set today date
-    const dateEl = document.getElementById('dash-today-date');
-    if (dateEl) dateEl.textContent = new Date().toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+function formatSubHeaderDate(d = new Date()) {
+    const day = String(d.getDate()).padStart(2, '0');
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const month = monthNames[d.getMonth()];
+    const yearShort = String(d.getFullYear()).slice(-2);
+    const dayNames = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    const dayName = dayNames[d.getDay()];
+
+    return `${day} ${month} ${yearShort} ${dayName}`;
+}
+
+function updateSubHeaderDate() {
+    const subDateEl = document.getElementById('sub-header-date');
+    if (subDateEl) subDateEl.textContent = formatSubHeaderDate(new Date());
 }
 
 // Sample Seed Data Initialization
@@ -267,6 +279,12 @@ async function syncDataFromSupabase() {
         staff = await DBService.fetchStaff();
         payments = await DBService.fetchPayments();
         salaryPayouts = await DBService.fetchSalaryPayouts();
+
+        if (typeof DBService.fetchActiveNotice === 'function') {
+            const dbNotice = await DBService.fetchActiveNotice();
+            const noticeEl = document.getElementById('active-db-notice');
+            if (noticeEl && dbNotice) noticeEl.textContent = dbNotice;
+        }
 
         saveState();
         renderDashboard();
