@@ -1,6 +1,6 @@
 -- =========================================================
 -- ELITE CLASSES — SUPABASE RELATIONAL DATABASE SCHEMA & MIGRATION
--- Copy and paste this script directly into Supabase SQL Editor & click Run.
+-- 100% Idempotent Script: Safe to click Run multiple times!
 -- =========================================================
 
 -- 1. COACHING SETTINGS & SECURITY TABLE
@@ -11,6 +11,10 @@ CREATE TABLE IF NOT EXISTS coaching_settings (
     student_access_key VARCHAR(50) NOT NULL DEFAULT '123456',
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+-- Ensure column exists if table was created in an earlier migration
+ALTER TABLE coaching_settings 
+ADD COLUMN IF NOT EXISTS student_access_key VARCHAR(50) NOT NULL DEFAULT '123456';
 
 -- 2. STUDENTS TABLE
 CREATE TABLE IF NOT EXISTS students (
@@ -167,7 +171,7 @@ CREATE INDEX IF NOT EXISTS idx_test_series_cls ON test_series(cls);
 CREATE INDEX IF NOT EXISTS idx_student_stats_student ON student_stats(student_id);
 
 -- =========================================================
--- DISABLE RLS OR ALLOW PUBLIC ANONYMOUS ACCESS FOR FRONTEND
+-- ENABLE RLS & CREATE POLICIES (SAFE FOR MULTIPLE RE-RUNS)
 -- =========================================================
 ALTER TABLE coaching_settings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE students ENABLE ROW LEVEL SECURITY;
@@ -182,6 +186,21 @@ ALTER TABLE notices ENABLE ROW LEVEL SECURITY;
 ALTER TABLE courses ENABLE ROW LEVEL SECURITY;
 ALTER TABLE test_series ENABLE ROW LEVEL SECURITY;
 ALTER TABLE student_stats ENABLE ROW LEVEL SECURITY;
+
+-- Drop existing policies if re-running script to avoid duplicate policy error
+DROP POLICY IF EXISTS "Public Read/Write coaching_settings" ON coaching_settings;
+DROP POLICY IF EXISTS "Public Read/Write students" ON students;
+DROP POLICY IF EXISTS "Public Read/Write teachers" ON teachers;
+DROP POLICY IF EXISTS "Public Read/Write staff" ON staff;
+DROP POLICY IF EXISTS "Public Read/Write admins" ON admins;
+DROP POLICY IF EXISTS "Public Read/Write payments" ON payments;
+DROP POLICY IF EXISTS "Public Read/Write salary_payouts" ON salary_payouts;
+DROP POLICY IF EXISTS "Public Read/Write attendance" ON attendance;
+DROP POLICY IF EXISTS "Public Read/Write exam_results" ON exam_results;
+DROP POLICY IF EXISTS "Public Read/Write notices" ON notices;
+DROP POLICY IF EXISTS "Public Read/Write courses" ON courses;
+DROP POLICY IF EXISTS "Public Read/Write test_series" ON test_series;
+DROP POLICY IF EXISTS "Public Read/Write student_stats" ON student_stats;
 
 -- Create Permissive Policies for Web Application Access
 CREATE POLICY "Public Read/Write coaching_settings" ON coaching_settings FOR ALL USING (true) WITH CHECK (true);
@@ -199,7 +218,7 @@ CREATE POLICY "Public Read/Write test_series" ON test_series FOR ALL USING (true
 CREATE POLICY "Public Read/Write student_stats" ON student_stats FOR ALL USING (true) WITH CHECK (true);
 
 -- =========================================================
--- INITIAL SEED DATA
+-- INITIAL SEED DATA (SAFE FOR MULTIPLE RE-RUNS)
 -- =========================================================
 INSERT INTO coaching_settings (id, coaching_name, access_key, student_access_key)
 VALUES ('coaching_main', 'Elite Classes', '987654', '123456')
@@ -255,4 +274,5 @@ VALUES
 ('ts3', 'Class 8 Science Mid-Term Mock Exam', 'Class 8', 'Science', 60, 100, 40, '2025-09-08'),
 ('ts4', 'Class 10 Physics Electricity & Magnetism Test', 'Class 10', 'Physics', 60, 100, 35, '2025-09-12')
 ON CONFLICT (id) DO NOTHING;
+
 
