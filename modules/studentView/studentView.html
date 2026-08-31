@@ -1,0 +1,69 @@
+<!-- Student Portal & Dashboard Main View Template -->
+<section class="page-view" id="view-student-portal">
+    <div class="page-header" style="background:#ffffff; padding:20px; border-radius:16px; border:1px solid var(--border); box-shadow:0 4px 12px rgba(0,0,0,0.03); margin-bottom:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; width:100%;">
+            <div style="display:flex; align-items:center; gap:14px;">
+                <div id="st-portal-avatar" class="avatar" style="width:50px; height:50px; font-size:20px; border-radius:14px; background:#2563eb;">ST</div>
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                        <h1 style="font-size:22px; font-weight:800; margin:0;" id="st-portal-name">Student Dashboard</h1>
+                        <span id="st-portal-class-badge" class="badge badge-primary">Class Standard</span>
+                        <button class="btn btn-outline btn-sm" onclick="openModal('studentSettingsModal')" style="display:inline-flex; align-items:center; gap:4px; font-weight:600; padding:3px 10px; font-size:12px;">👤 Profile</button>
+                    </div>
+                    <div style="font-size:13px; color:var(--text-muted); margin-top:4px;" id="st-portal-sub">Access your course materials, test series, attendance, and fee receipts.</div>
+                </div>
+            </div>
+            <div style="display:flex; gap:10px;">
+                <button class="btn btn-outline btn-sm" onclick="openModal('postNoticeModal')" id="st-admin-notice-btn" style="display:none;">+ Post Notice</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTICES MODULE PLACEHOLDER -->
+    <div id="module-notices-container"></div>
+
+    <!-- STUDENT PORTAL TAB NAVIGATION -->
+    <div class="profile-switcher" style="margin-bottom:20px;">
+        <div class="profile-tab active" data-sttab="courses" onclick="switchStudentTab('courses')">📚 My Courses & Materials</div>
+        <div class="profile-tab" data-sttab="testseries" onclick="switchStudentTab('testseries')">📝 Test Series & Exams</div>
+        <div class="profile-tab" data-sttab="attendance" onclick="switchStudentTab('attendance')">📊 My Attendance</div>
+        <div class="profile-tab" data-sttab="fees" onclick="switchStudentTab('fees')">📜 Fee Receipts & Ledger</div>
+        <div class="profile-tab" data-sttab="exams" onclick="switchStudentTab('exams')">🎓 Exam Results & Marks</div>
+    </div>
+
+    <!-- COURSES MODULE PLACEHOLDER -->
+    <div id="module-courses-container"></div>
+
+    <!-- TEST SERIES MODULE PLACEHOLDER -->
+    <div id="module-testseries-container"></div>
+
+    <!-- TAB 3: ATTENDANCE SUMMARY -->
+    <div id="st-tab-section-attendance" class="st-tab-section" style="display:none;">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">My Attendance Record</span>
+            </div>
+            <div class="card-body" id="st-attendance-summary-container"></div>
+        </div>
+    </div>
+
+    <!-- TAB 4: FEE PAYMENTS & RECEIPTS -->
+    <div id="st-tab-section-fees" class="st-tab-section" style="display:none;">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Fee Payment History & Official Receipts</span>
+            </div>
+            <div class="card-body" id="st-fee-ledger-container"></div>
+        </div>
+    </div>
+
+    <!-- TAB 5: EXAM RESULTS & REPORT CARD -->
+    <div id="st-tab-section-exams" class="st-tab-section" style="display:none;">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Exam Marks & Academic Report Cards</span>
+            </div>
+            <div class="card-body" id="st-exam-results-container"></div>
+        </div>
+    </div>
+</section>
