@@ -67,6 +67,9 @@ async function verifyStudentLogin() {
     localStorage.setItem('ec_user_role', 'student');
     localStorage.setItem('ec_student_id', matched.id);
 
+    if (typeof initInactivityListeners === 'function') initInactivityListeners();
+    if (typeof resetInactivityTimer === 'function') resetInactivityTimer();
+
     showToast(`Welcome back, ${matched.name}!`, 'success');
     
     // Hide Auth Screen & Load Student Dashboard
@@ -79,6 +82,8 @@ function logoutStudent() {
     currentStudent = null;
     localStorage.removeItem('ec_user_role');
     localStorage.removeItem('ec_student_id');
+    localStorage.removeItem('ec_last_activity');
+    if (typeof inactivityTimer !== 'undefined' && inactivityTimer) clearTimeout(inactivityTimer);
 
     const adminChip = document.getElementById('app-header-admin-chip');
     if (adminChip) adminChip.style.display = 'flex';

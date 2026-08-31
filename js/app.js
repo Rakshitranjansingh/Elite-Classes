@@ -240,9 +240,57 @@ async function verifyCoachingKey() {
     }
 }
 
+// 10-Minute Inactivity Auto-Logout System
+const INACTIVITY_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes in milliseconds
+let inactivityTimer = null;
+
+function resetInactivityTimer() {
+    const role = localStorage.getItem('ec_user_role');
+    if (!role) return;
+
+    localStorage.setItem('ec_last_activity', Date.now().toString());
+
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+
+    inactivityTimer = setTimeout(() => {
+        handleInactivityAutoLogout();
+    }, INACTIVITY_TIMEOUT_MS);
+}
+
+function handleInactivityAutoLogout() {
+    const role = localStorage.getItem('ec_user_role');
+    if (!role) return;
+
+    if (role === 'student' && typeof logoutStudent === 'function') {
+        logoutStudent();
+    } else {
+        lockCoachingPortal();
+    }
+    showToast('Logged out due to 10 minutes of inactivity for security.', 'warning');
+}
+
+function initInactivityListeners() {
+    const events = ['mousemove', 'keydown', 'click', 'touchstart', 'scroll'];
+    events.forEach(evt => {
+        window.addEventListener(evt, () => resetInactivityTimer(), { passive: true });
+    });
+}
+
 async function checkCoachingAuthOnLoad() {
     const authScreen = document.getElementById('auth-screen');
     const role = localStorage.getItem('ec_user_role');
+
+    // Check if session has expired after 10 minutes of inactivity
+    const lastActivity = parseInt(localStorage.getItem('ec_last_activity') || '0');
+    if (role && lastActivity && (Date.now() - lastActivity > INACTIVITY_TIMEOUT_MS)) {
+        localStorage.removeItem('ec_user_role');
+        localStorage.removeItem('ec_authenticated_key');
+        localStorage.removeItem('ec_student_id');
+        localStorage.removeItem('ec_last_activity');
+        showToast('Session expired after 10 minutes of inactivity.', 'info');
+        if (authScreen) authScreen.style.display = 'flex';
+        return;
+    }
 
     if (role === 'admin') {
         const savedKey = localStorage.getItem('ec_authenticated_key');
@@ -254,6 +302,9 @@ async function checkCoachingAuthOnLoad() {
             if (noticeBtn) noticeBtn.style.display = 'inline-block';
             if (courseBtn) courseBtn.style.display = 'inline-block';
             if (testBtn) testBtn.style.display = 'inline-block';
+            
+            initInactivityListeners();
+            resetInactivityTimer();
             return;
         }
     } else if (role === 'student') {
@@ -270,6 +321,8 @@ async function checkCoachingAuthOnLoad() {
                     if (typeof loadStudentDashboard === 'function') {
                         await loadStudentDashboard();
                     }
+                    initInactivityListeners();
+                    resetInactivityTimer();
                     return;
                 }
             }
@@ -283,6 +336,9 @@ function lockCoachingPortal() {
     localStorage.removeItem('ec_user_role');
     localStorage.removeItem('ec_authenticated_key');
     localStorage.removeItem('ec_student_id');
+    localStorage.removeItem('ec_last_activity');
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+
     const authScreen = document.getElementById('auth-screen');
     const inputEl = document.getElementById('coaching-key-input');
     if (inputEl) inputEl.value = '';
