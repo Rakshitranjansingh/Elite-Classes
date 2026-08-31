@@ -68,7 +68,7 @@
             </div>
 
             <div style="display:flex; align-items:center; gap:14px;">
-                <div class="admin-chip">
+                <div class="admin-chip" id="app-header-admin-chip">
                     <div class="admin-avatar">EC</div>
                     <div class="admin-name">Admin</div>
                 </div>
@@ -519,12 +519,12 @@
                     <div style="display:flex; align-items:center; gap:14px;">
                         <div id="st-portal-avatar" class="avatar" style="width:50px; height:50px; font-size:20px; border-radius:14px; background:#2563eb;">ST</div>
                         <div>
-                            <div style="display:flex; align-items:center; gap:8px;">
+                            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
                                 <h1 style="font-size:22px; font-weight:800; margin:0;" id="st-portal-name">Student Dashboard</h1>
                                 <span id="st-portal-class-badge" class="badge badge-primary">Class Standard</span>
-                                <span class="badge badge-success" style="font-size:10px;">🔒 Read-Only Profile</span>
+                                <button class="btn btn-outline btn-sm" onclick="openModal('studentSettingsModal')" style="display:inline-flex; align-items:center; gap:4px; font-weight:600; padding:3px 10px; font-size:12px;">⚙️ Settings / My Profile</button>
                             </div>
-                            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;" id="st-portal-sub">Welcome to your personalized Elite Classes portal</div>
+                            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;" id="st-portal-sub">Access your course materials, test series, attendance, and fee receipts.</div>
                         </div>
                     </div>
                     <div style="display:flex; gap:10px;">
@@ -557,17 +557,6 @@
                             <div>⏰ Special doubt clearing sessions scheduled every Saturday for Class 8 to 10.</div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- READ-ONLY PERSONAL PROFILE SUMMARY -->
-            <div class="card" style="margin-bottom:24px;">
-                <div class="card-header">
-                    <span class="card-title">My Personal Profile (Read-Only)</span>
-                    <span style="font-size:12px; color:var(--text-muted); font-weight:500;">Information managed by Coaching Admin</span>
-                </div>
-                <div class="card-body">
-                    <div class="student-info-grid" id="st-profile-info-grid"></div>
                 </div>
             </div>
 
@@ -1086,6 +1075,25 @@
             <div class="modal-footer">
                 <button class="btn btn-outline" onclick="closeModal('addTestSeriesModal')">Cancel</button>
                 <button class="btn btn-primary" onclick="submitNewTestSeries()">Create Test Series</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- STUDENT SETTINGS & PROFILE MODAL -->
+    <div class="modal-overlay" id="studentSettingsModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <span class="modal-title">⚙️ My Student Profile & Account Details</span>
+                <button class="modal-close" onclick="closeModal('studentSettingsModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">
+                    Personal registration details on record with Elite Classes:
+                </div>
+                <div class="student-info-grid" id="st-settings-info-grid"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal('studentSettingsModal')">Close Settings</button>
             </div>
         </div>
     </div>

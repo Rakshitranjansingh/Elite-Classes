@@ -77,6 +77,9 @@ async function verifyStudentLogin() {
 // Logout & Return to Gateway Screen
 function logoutStudent() {
     currentStudent = null;
+    const adminChip = document.getElementById('app-header-admin-chip');
+    if (adminChip) adminChip.style.display = 'flex';
+
     document.getElementById('auth-screen').style.display = 'flex';
     document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
     document.getElementById('view-dashboard').classList.add('active');
@@ -86,6 +89,10 @@ function logoutStudent() {
 // Load Student Dashboard View & Data
 async function loadStudentDashboard() {
     if (!currentStudent) return;
+
+    // Hide Top Right Admin Icon in Student View
+    const adminChip = document.getElementById('app-header-admin-chip');
+    if (adminChip) adminChip.style.display = 'none';
 
     // Navigate to Student View
     document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
@@ -101,14 +108,14 @@ async function loadStudentDashboard() {
 
     document.getElementById('st-portal-name').textContent = `Hello, ${currentStudent.name}`;
     document.getElementById('st-portal-class-badge').textContent = currentStudent.cls || 'Student';
-    document.getElementById('st-portal-sub').textContent = `School: ${currentStudent.school || 'Elite Coaching'} • WhatsApp: ${currentStudent.phone}`;
+    document.getElementById('st-portal-sub').textContent = `Access your class courses, test series, attendance, and fee receipts.`;
 
     // Load persistent stats
     studentStats = await DBService.fetchStudentStats(currentStudent.id);
     if (!studentStats.testAttempts) studentStats.testAttempts = {};
     if (!studentStats.courseProgress) studentStats.courseProgress = {};
 
-    // Render Read-Only Profile Cards
+    // Render Profile Info Cards in Settings Modal
     renderStudentProfileCards();
 
     // Render Right-to-Left Scrolling Notice Slides
@@ -118,9 +125,9 @@ async function loadStudentDashboard() {
     switchStudentTab(activeStudentTab);
 }
 
-// Render Read-Only Profile Info Cards
+// Render Profile Info Cards inside Settings Modal
 function renderStudentProfileCards() {
-    const grid = document.getElementById('st-profile-info-grid');
+    const grid = document.getElementById('st-settings-info-grid');
     if (!grid || !currentStudent) return;
 
     const cardsHtml = `
