@@ -522,14 +522,13 @@
                             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
                                 <h1 style="font-size:22px; font-weight:800; margin:0;" id="st-portal-name">Student Dashboard</h1>
                                 <span id="st-portal-class-badge" class="badge badge-primary">Class Standard</span>
-                                <button class="btn btn-outline btn-sm" onclick="openModal('studentSettingsModal')" style="display:inline-flex; align-items:center; gap:4px; font-weight:600; padding:3px 10px; font-size:12px;">⚙️ Settings / My Profile</button>
+                                <button class="btn btn-outline btn-sm" onclick="openModal('studentSettingsModal')" style="display:inline-flex; align-items:center; gap:4px; font-weight:600; padding:3px 10px; font-size:12px;">👤 Profile</button>
                             </div>
                             <div style="font-size:13px; color:var(--text-muted); margin-top:4px;" id="st-portal-sub">Access your course materials, test series, attendance, and fee receipts.</div>
                         </div>
                     </div>
                     <div style="display:flex; gap:10px;">
                         <button class="btn btn-outline btn-sm" onclick="openModal('postNoticeModal')" id="st-admin-notice-btn" style="display:none;">+ Post Notice</button>
-                        <button class="btn btn-outline btn-sm" onclick="logoutStudent()">🔒 Switch / Logout</button>
                     </div>
                 </div>
             </div>
@@ -1079,11 +1078,11 @@
         </div>
     </div>
 
-    <!-- STUDENT SETTINGS & PROFILE MODAL -->
+    <!-- STUDENT PROFILE MODAL -->
     <div class="modal-overlay" id="studentSettingsModal">
         <div class="modal modal-lg">
             <div class="modal-header">
-                <span class="modal-title">⚙️ My Student Profile & Account Details</span>
+                <span class="modal-title">👤 My Profile</span>
                 <button class="modal-close" onclick="closeModal('studentSettingsModal')">✕</button>
             </div>
             <div class="modal-body">
@@ -1092,8 +1091,9 @@
                 </div>
                 <div class="student-info-grid" id="st-settings-info-grid"></div>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" onclick="closeModal('studentSettingsModal')">Close Settings</button>
+            <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <button class="btn btn-outline danger btn-sm" onclick="closeModal('studentSettingsModal'); logoutStudent();" style="border-color:#ef4444; color:#ef4444;">🔒 Logout / Switch Account</button>
+                <button class="btn btn-primary btn-sm" onclick="closeModal('studentSettingsModal')">Close Profile</button>
             </div>
         </div>
     </div>
