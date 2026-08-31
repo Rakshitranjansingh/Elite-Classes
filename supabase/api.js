@@ -11,7 +11,7 @@ const DBService = {
                 .from('coaching_settings')
                 .select('access_key')
                 .eq('id', 'coaching_main')
-                .single();
+                .maybeSingle();
 
             if (error || !data) return '987654';
             return data.access_key;
@@ -28,7 +28,7 @@ const DBService = {
                 .from('coaching_settings')
                 .select('student_access_key')
                 .eq('id', 'coaching_main')
-                .single();
+                .maybeSingle();
 
             if (error || !data || !data.student_access_key) return '123456';
             return data.student_access_key;
@@ -448,7 +448,7 @@ const DBService = {
         const localKey = `ec_stats_${studentId}`;
         if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem(localKey) || '{"testAttempts":{}, "courseProgress":{}}');
         try {
-            const { data, error } = await supabaseClient.from('student_stats').select('stats_json').eq('student_id', studentId).single();
+            const { data, error } = await supabaseClient.from('student_stats').select('stats_json').eq('student_id', studentId).maybeSingle();
             if (error || !data) return JSON.parse(localStorage.getItem(localKey) || '{"testAttempts":{}, "courseProgress":{}}');
             return data.stats_json || { testAttempts: {}, courseProgress: {} };
         } catch (e) {
