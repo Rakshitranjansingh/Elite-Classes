@@ -218,7 +218,8 @@ async function verifyCoachingKey() {
 
     if (enteredKey === VALID_COACHING_KEY) {
         if (errEl) errEl.style.display = 'none';
-        sessionStorage.setItem('ec_authenticated_key', enteredKey);
+        localStorage.setItem('ec_user_role', 'admin');
+        localStorage.setItem('ec_authenticated_key', enteredKey);
         if (authScreen) authScreen.style.display = 'none';
 
         // Reveal Admin management buttons in Student View if Admin logs in
@@ -239,18 +240,49 @@ async function verifyCoachingKey() {
     }
 }
 
-function checkCoachingAuthOnLoad() {
-    const savedKey = sessionStorage.getItem('ec_authenticated_key');
+async function checkCoachingAuthOnLoad() {
     const authScreen = document.getElementById('auth-screen');
-    if (savedKey) {
-        if (authScreen) authScreen.style.display = 'none';
-    } else {
-        if (authScreen) authScreen.style.display = 'flex';
+    const role = localStorage.getItem('ec_user_role');
+
+    if (role === 'admin') {
+        const savedKey = localStorage.getItem('ec_authenticated_key');
+        if (savedKey) {
+            if (authScreen) authScreen.style.display = 'none';
+            const noticeBtn = document.getElementById('st-admin-notice-btn');
+            const courseBtn = document.getElementById('st-admin-add-course-btn');
+            const testBtn = document.getElementById('st-admin-add-test-btn');
+            if (noticeBtn) noticeBtn.style.display = 'inline-block';
+            if (courseBtn) courseBtn.style.display = 'inline-block';
+            if (testBtn) testBtn.style.display = 'inline-block';
+            return;
+        }
+    } else if (role === 'student') {
+        const studentId = localStorage.getItem('ec_student_id');
+        if (studentId) {
+            if (typeof DBService !== 'undefined') {
+                if (!students || students.length === 0) {
+                    students = await DBService.fetchStudents();
+                }
+                const found = students.find(s => s.id === studentId);
+                if (found) {
+                    currentStudent = found;
+                    if (authScreen) authScreen.style.display = 'none';
+                    if (typeof loadStudentDashboard === 'function') {
+                        await loadStudentDashboard();
+                    }
+                    return;
+                }
+            }
+        }
     }
+
+    if (authScreen) authScreen.style.display = 'flex';
 }
 
 function lockCoachingPortal() {
-    sessionStorage.removeItem('ec_authenticated_key');
+    localStorage.removeItem('ec_user_role');
+    localStorage.removeItem('ec_authenticated_key');
+    localStorage.removeItem('ec_student_id');
     const authScreen = document.getElementById('auth-screen');
     const inputEl = document.getElementById('coaching-key-input');
     if (inputEl) inputEl.value = '';

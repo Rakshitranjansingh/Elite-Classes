@@ -8,7 +8,15 @@ async function renderStudentNoticeSlides() {
     if (!track) return;
 
     cachedNoticesList = await DBService.fetchNoticeList();
-    if (!cachedNoticesList || cachedNoticesList.length === 0) return;
+    if (!cachedNoticesList || cachedNoticesList.length === 0) {
+        track.innerHTML = `
+            <div class="notice-card-slide">
+                <span class="notice-card-slide-badge">ANNOUNCEMENT</span>
+                <div>📢 Welcome to Elite Classes Portal! Active coaching announcements will appear here.</div>
+            </div>
+        `;
+        return;
+    }
 
     // Render continuous Right-to-Left sliding cards
     let slidesHtml = '';

@@ -258,21 +258,5 @@ VALUES
 ('a1', 'Elite Admin Main', 'admin@eliteclasses.com', 'Super Admin', '9800000000', '#2563eb')
 ON CONFLICT (id) DO NOTHING;
 
-INSERT INTO courses (id, title, cls, subject, instructor, description, lessons_count)
-VALUES
-('c1', 'Class 5 Mathematics Masterclass', 'Class 5', 'Mathematics', 'Sunita Rao', 'Fractions, Decimals, Basic Geometry & Problem Solving', 12),
-('c2', 'Class 5 General Science & Experiments', 'Class 5', 'Science', 'Sunita Rao', 'Plants, Animals, Human Body & Simple Machines', 10),
-('c3', 'Class 8 Advanced Algebra & Geometry', 'Class 8', 'Mathematics', 'Dr. Ramesh Kumar', 'Linear Equations, Triangles, Quadrilaterals & Exponents', 15),
-('c4', 'Class 8 Fundamentals of Physics & Chemistry', 'Class 8', 'Science', 'Dr. Ramesh Kumar', 'Force, Pressure, Chemical Reactions & Combustion', 14),
-('c5', 'Class 10 CBSE Board Physics & Mathematics', 'Class 10', 'Mathematics', 'Dr. Ramesh Kumar', 'Quadratic Equations, Trigonometry, Light & Electricity', 20)
-ON CONFLICT (id) DO NOTHING;
-
-INSERT INTO test_series (id, title, cls, subject, duration_mins, total_marks, questions_count, test_date)
-VALUES
-('ts1', 'Class 5 Maths Monthly Olympiad Mock', 'Class 5', 'Mathematics', 45, 50, 25, '2025-09-05'),
-('ts2', 'Class 5 Science Chapter-wise Assessment', 'Class 5', 'Science', 30, 40, 20, '2025-09-10'),
-('ts3', 'Class 8 Science Mid-Term Mock Exam', 'Class 8', 'Science', 60, 100, 40, '2025-09-08'),
-('ts4', 'Class 10 Physics Electricity & Magnetism Test', 'Class 10', 'Physics', 60, 100, 35, '2025-09-12')
-ON CONFLICT (id) DO NOTHING;
 
 

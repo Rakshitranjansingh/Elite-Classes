@@ -64,6 +64,9 @@ async function verifyStudentLogin() {
 
     // Login Success
     currentStudent = matched;
+    localStorage.setItem('ec_user_role', 'student');
+    localStorage.setItem('ec_student_id', matched.id);
+
     showToast(`Welcome back, ${matched.name}!`, 'success');
     
     // Hide Auth Screen & Load Student Dashboard
@@ -74,6 +77,9 @@ async function verifyStudentLogin() {
 // Logout & Return to Gateway Screen
 function logoutStudent() {
     currentStudent = null;
+    localStorage.removeItem('ec_user_role');
+    localStorage.removeItem('ec_student_id');
+
     const adminChip = document.getElementById('app-header-admin-chip');
     if (adminChip) adminChip.style.display = 'flex';
 
@@ -242,10 +248,8 @@ function renderStudentAttendance() {
 
     // Defaults for demonstration if attendance sheet is fresh
     if (totalDays === 0) {
-        totalDays = 24;
-        presentCount = 22;
-        absentCount = 1;
-        lateCount = 1;
+        container.innerHTML = `<div style="padding:24px; text-align:center; color:var(--text-muted);">No attendance records entered yet for ${currentStudent.name}.</div>`;
+        return;
     }
 
     const pct = Math.round((presentCount / totalDays) * 100);
@@ -392,22 +396,22 @@ function renderStudentExamResults() {
     const container = document.getElementById('st-exam-results-container');
     if (!container || !currentStudent) return;
 
-    // Default academic report cards for student
-    const defaultExams = [
-        { exam: 'Mid-Term Assessment 2025', subject: 'Mathematics', score: 92, max: 100, grade: 'A+' },
-        { exam: 'Mid-Term Assessment 2025', subject: 'Science', score: 88, max: 100, grade: 'A' },
-        { exam: 'Monthly Olympiad Quiz', subject: 'English', score: 45, max: 50, grade: 'A+' }
-    ];
+    const studentExams = (typeof examResults !== 'undefined' ? examResults : []).filter(e => e.student_id === currentStudent.id);
+
+    if (studentExams.length === 0) {
+        container.innerHTML = `<div style="padding:24px; text-align:center; color:var(--text-muted);">No exam scores recorded yet for ${currentStudent.name}.</div>`;
+        return;
+    }
 
     let rowsHtml = '';
-    defaultExams.forEach(e => {
+    studentExams.forEach(e => {
         rowsHtml += `
             <tr>
-                <td><b>${e.exam}</b></td>
+                <td><b>${e.exam_name}</b></td>
                 <td><span class="badge badge-primary">${e.subject}</span></td>
-                <td><b>${e.score} / ${e.max}</b></td>
-                <td>${Math.round((e.score/e.max)*100)}%</td>
-                <td><span class="badge badge-success">${e.grade}</span></td>
+                <td><b>${e.marks_obtained} / ${e.max_marks}</b></td>
+                <td>${Math.round((e.marks_obtained/e.max_marks)*100)}%</td>
+                <td><span class="badge badge-success">${e.grade || 'A'}</span></td>
             </tr>
         `;
     });

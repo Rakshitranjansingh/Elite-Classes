@@ -311,18 +311,13 @@ const DBService = {
     },
 
     async fetchNoticeList() {
-        const defaultNotices = [
-            { id: 'n1', content: '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations begin next week!', is_active: true },
-            { id: 'n2', content: '🏆 Monthly Science & Mathematics Talent Hunt Olympiad results published on student portal.', is_active: true },
-            { id: 'n3', content: '⏰ Special doubt clearing sessions scheduled every Saturday for Class 8 to 10.', is_active: true }
-        ];
-        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_notices') || JSON.stringify(defaultNotices));
+        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_notices') || '[]');
         try {
             const { data, error } = await supabaseClient.from('notices').select('*').order('created_at', { ascending: false });
-            if (error || !data || data.length === 0) return defaultNotices;
+            if (error || !data) return [];
             return data;
         } catch (e) {
-            return defaultNotices;
+            return [];
         }
     },
 
@@ -346,17 +341,10 @@ const DBService = {
     // 8. COURSES CRUD
     // ---------------------------------------------------------
     async fetchCourses() {
-        const defaultCourses = [
-            { id: 'c1', title: 'Class 5 Mathematics Masterclass', cls: 'Class 5', subject: 'Mathematics', instructor: 'Sunita Rao', description: 'Fractions, Decimals, Basic Geometry & Problem Solving', lessons_count: 12 },
-            { id: 'c2', title: 'Class 5 General Science & Experiments', cls: 'Class 5', subject: 'Science', instructor: 'Sunita Rao', description: 'Plants, Animals, Human Body & Simple Machines', lessons_count: 10 },
-            { id: 'c3', title: 'Class 8 Advanced Algebra & Geometry', cls: 'Class 8', subject: 'Mathematics', instructor: 'Dr. Ramesh Kumar', description: 'Linear Equations, Triangles, Quadrilaterals & Exponents', lessons_count: 15 },
-            { id: 'c4', title: 'Class 8 Fundamentals of Physics & Chemistry', cls: 'Class 8', subject: 'Science', instructor: 'Dr. Ramesh Kumar', description: 'Force, Pressure, Chemical Reactions & Combustion', lessons_count: 14 },
-            { id: 'c5', title: 'Class 10 CBSE Board Physics & Mathematics', cls: 'Class 10', subject: 'Mathematics', instructor: 'Dr. Ramesh Kumar', description: 'Quadratic Equations, Trigonometry, Light & Electricity', lessons_count: 20 }
-        ];
-        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_courses') || JSON.stringify(defaultCourses));
+        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_courses') || '[]');
         try {
             const { data, error } = await supabaseClient.from('courses').select('*').order('created_at', { ascending: false });
-            if (error || !data || data.length === 0) return defaultCourses;
+            if (error || !data) return [];
             return data.map(c => ({
                 id: c.id,
                 title: c.title,
@@ -367,7 +355,7 @@ const DBService = {
                 lessons_count: c.lessons_count || 10
             }));
         } catch (e) {
-            return defaultCourses;
+            return [];
         }
     },
 
@@ -399,19 +387,13 @@ const DBService = {
     // 9. TEST SERIES CRUD
     // ---------------------------------------------------------
     async fetchTestSeries() {
-        const defaultTests = [
-            { id: 'ts1', title: 'Class 5 Maths Monthly Olympiad Mock', cls: 'Class 5', subject: 'Mathematics', duration_mins: 45, total_marks: 50, questions_count: 25, test_date: '2025-09-05' },
-            { id: 'ts2', title: 'Class 5 Science Chapter-wise Assessment', cls: 'Class 5', subject: 'Science', duration_mins: 30, total_marks: 40, questions_count: 20, test_date: '2025-09-10' },
-            { id: 'ts3', title: 'Class 8 Science Mid-Term Mock Exam', cls: 'Class 8', subject: 'Science', duration_mins: 60, total_marks: 100, questions_count: 40, test_date: '2025-09-08' },
-            { id: 'ts4', title: 'Class 10 Physics Electricity & Magnetism Test', cls: 'Class 10', subject: 'Physics', duration_mins: 60, total_marks: 100, questions_count: 35, test_date: '2025-09-12' }
-        ];
-        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_test_series') || JSON.stringify(defaultTests));
+        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_test_series') || '[]');
         try {
             const { data, error } = await supabaseClient.from('test_series').select('*').order('created_at', { ascending: false });
-            if (error || !data || data.length === 0) return defaultTests;
+            if (error || !data) return [];
             return data;
         } catch (e) {
-            return defaultTests;
+            return [];
         }
     },
 
