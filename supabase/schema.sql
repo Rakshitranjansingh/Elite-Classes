@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS coaching_settings (
     id VARCHAR(50) PRIMARY KEY DEFAULT 'coaching_main',
     coaching_name VARCHAR(255) NOT NULL DEFAULT 'Elite Classes',
     access_key VARCHAR(50) NOT NULL DEFAULT '987654',
+    student_access_key VARCHAR(50) NOT NULL DEFAULT '123456',
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
@@ -110,6 +111,48 @@ CREATE TABLE IF NOT EXISTS exam_results (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- 10. NOTICES TICKER & ANNOUNCEMENTS TABLE
+CREATE TABLE IF NOT EXISTS notices (
+    id VARCHAR(50) PRIMARY KEY,
+    content TEXT NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 11. COURSES & STUDY MATERIAL TABLE
+CREATE TABLE IF NOT EXISTS courses (
+    id VARCHAR(50) PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    cls VARCHAR(50) NOT NULL,
+    subject VARCHAR(100) NOT NULL,
+    instructor VARCHAR(255),
+    description TEXT,
+    lessons_count INT DEFAULT 10,
+    resources_json JSONB,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 12. TEST SERIES & MOCK EXAMS TABLE
+CREATE TABLE IF NOT EXISTS test_series (
+    id VARCHAR(50) PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    cls VARCHAR(50) NOT NULL,
+    subject VARCHAR(100) NOT NULL,
+    duration_mins INT DEFAULT 45,
+    total_marks NUMERIC(5, 2) DEFAULT 100,
+    questions_count INT DEFAULT 25,
+    test_date VARCHAR(50),
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 13. STUDENT STATS & ACTIVITY PERSISTENCE TABLE
+CREATE TABLE IF NOT EXISTS student_stats (
+    id VARCHAR(50) PRIMARY KEY,
+    student_id VARCHAR(50) REFERENCES students(id) ON DELETE CASCADE,
+    stats_json JSONB NOT NULL,
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- =========================================================
 -- INDEXES FOR PERFORMANCE OPTIMIZATION
 -- =========================================================
@@ -119,18 +162,13 @@ CREATE INDEX IF NOT EXISTS idx_payments_month ON payments(month);
 CREATE INDEX IF NOT EXISTS idx_salary_payouts_recipient ON salary_payouts(recipient_id);
 CREATE INDEX IF NOT EXISTS idx_attendance_date ON attendance(date);
 CREATE INDEX IF NOT EXISTS idx_exam_results_student ON exam_results(student_id);
+CREATE INDEX IF NOT EXISTS idx_courses_cls ON courses(cls);
+CREATE INDEX IF NOT EXISTS idx_test_series_cls ON test_series(cls);
+CREATE INDEX IF NOT EXISTS idx_student_stats_student ON student_stats(student_id);
 
 -- =========================================================
 -- DISABLE RLS OR ALLOW PUBLIC ANONYMOUS ACCESS FOR FRONTEND
--- 10. NOTICES TICKER TABLE
-CREATE TABLE IF NOT EXISTS notices (
-    id VARCHAR(50) PRIMARY KEY DEFAULT 'n1',
-    content TEXT NOT NULL,
-    is_active BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
--- DISABLE RLS OR ALLOW PUBLIC ANONYMOUS ACCESS FOR FRONTEND
+-- =========================================================
 ALTER TABLE coaching_settings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE students ENABLE ROW LEVEL SECURITY;
 ALTER TABLE teachers ENABLE ROW LEVEL SECURITY;
@@ -141,6 +179,9 @@ ALTER TABLE salary_payouts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE attendance ENABLE ROW LEVEL SECURITY;
 ALTER TABLE exam_results ENABLE ROW LEVEL SECURITY;
 ALTER TABLE notices ENABLE ROW LEVEL SECURITY;
+ALTER TABLE courses ENABLE ROW LEVEL SECURITY;
+ALTER TABLE test_series ENABLE ROW LEVEL SECURITY;
+ALTER TABLE student_stats ENABLE ROW LEVEL SECURITY;
 
 -- Create Permissive Policies for Web Application Access
 CREATE POLICY "Public Read/Write coaching_settings" ON coaching_settings FOR ALL USING (true) WITH CHECK (true);
@@ -153,16 +194,22 @@ CREATE POLICY "Public Read/Write salary_payouts" ON salary_payouts FOR ALL USING
 CREATE POLICY "Public Read/Write attendance" ON attendance FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write exam_results" ON exam_results FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write notices" ON notices FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Public Read/Write courses" ON courses FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Public Read/Write test_series" ON test_series FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Public Read/Write student_stats" ON student_stats FOR ALL USING (true) WITH CHECK (true);
 
 -- =========================================================
 -- INITIAL SEED DATA
 -- =========================================================
-INSERT INTO coaching_settings (id, coaching_name, access_key)
-VALUES ('coaching_main', 'Elite Classes', '987654')
-ON CONFLICT (id) DO UPDATE SET access_key = EXCLUDED.access_key;
+INSERT INTO coaching_settings (id, coaching_name, access_key, student_access_key)
+VALUES ('coaching_main', 'Elite Classes', '987654', '123456')
+ON CONFLICT (id) DO UPDATE SET access_key = EXCLUDED.access_key, student_access_key = EXCLUDED.student_access_key;
 
 INSERT INTO notices (id, content, is_active)
-VALUES ('n1', '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations begin next week!', true)
+VALUES 
+('n1', '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations begin next week!', true),
+('n2', '🏆 Monthly Science & Mathematics Talent Hunt Olympiad results published on student portal.', true),
+('n3', '⏰ Special doubt clearing sessions scheduled every Saturday for Class 8 to 10.', true)
 ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO students (id, name, cls, parent_name, phone, monthly_fee, fee_due_day, scholarship_pct, subjects, date_of_admission, school_name, avatar_color)
@@ -191,3 +238,21 @@ INSERT INTO admins (id, name, email, role, phone, avatar_color)
 VALUES
 ('a1', 'Elite Admin Main', 'admin@eliteclasses.com', 'Super Admin', '9800000000', '#2563eb')
 ON CONFLICT (id) DO NOTHING;
+
+INSERT INTO courses (id, title, cls, subject, instructor, description, lessons_count)
+VALUES
+('c1', 'Class 5 Mathematics Masterclass', 'Class 5', 'Mathematics', 'Sunita Rao', 'Fractions, Decimals, Basic Geometry & Problem Solving', 12),
+('c2', 'Class 5 General Science & Experiments', 'Class 5', 'Science', 'Sunita Rao', 'Plants, Animals, Human Body & Simple Machines', 10),
+('c3', 'Class 8 Advanced Algebra & Geometry', 'Class 8', 'Mathematics', 'Dr. Ramesh Kumar', 'Linear Equations, Triangles, Quadrilaterals & Exponents', 15),
+('c4', 'Class 8 Fundamentals of Physics & Chemistry', 'Class 8', 'Science', 'Dr. Ramesh Kumar', 'Force, Pressure, Chemical Reactions & Combustion', 14),
+('c5', 'Class 10 CBSE Board Physics & Mathematics', 'Class 10', 'Mathematics', 'Dr. Ramesh Kumar', 'Quadratic Equations, Trigonometry, Light & Electricity', 20)
+ON CONFLICT (id) DO NOTHING;
+
+INSERT INTO test_series (id, title, cls, subject, duration_mins, total_marks, questions_count, test_date)
+VALUES
+('ts1', 'Class 5 Maths Monthly Olympiad Mock', 'Class 5', 'Mathematics', 45, 50, 25, '2025-09-05'),
+('ts2', 'Class 5 Science Chapter-wise Assessment', 'Class 5', 'Science', 30, 40, 20, '2025-09-10'),
+('ts3', 'Class 8 Science Mid-Term Mock Exam', 'Class 8', 'Science', 60, 100, 40, '2025-09-08'),
+('ts4', 'Class 10 Physics Electricity & Magnetism Test', 'Class 10', 'Physics', 60, 100, 35, '2025-09-12')
+ON CONFLICT (id) DO NOTHING;
+

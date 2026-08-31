@@ -10,19 +10,47 @@
 
 <body>
 
-    <!-- COACHING KEY AUTHENTICATION GATEWAY -->
+    <!-- COACHING KEY & STUDENT AUTHENTICATION GATEWAY -->
     <div id="auth-screen" style="position:fixed; top:0; left:0; right:0; bottom:0; background:#0b1329; z-index:999; display:flex; align-items:center; justify-content:center; padding:20px;">
-        <div style="background:#ffffff; border-radius:18px; max-width:420px; width:100%; padding:36px 30px; text-align:center; box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);">
-            <div style="width:56px; height:56px; border-radius:14px; background:linear-gradient(135deg, #3b82f6, #1d4ed8); color:#fff; font-size:22px; font-weight:800; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">EC</div>
-            <h2 style="font-size:22px; font-weight:800; color:#0f172a; margin-bottom:6px;">elite<span style="color:#f59e0b;">.</span>classes</h2>
-            <div style="font-size:13px; color:#64748b; font-weight:500; margin-bottom:24px;">Enter Coaching Access Key to unlock portal</div>
+        <div style="background:#ffffff; border-radius:18px; max-width:420px; width:100%; padding:32px 28px; text-align:center; box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);">
+            <div style="width:54px; height:54px; border-radius:14px; background:linear-gradient(135deg, #3b82f6, #1d4ed8); color:#fff; font-size:22px; font-weight:800; display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">EC</div>
+            <h2 style="font-size:22px; font-weight:800; color:#0f172a; margin-bottom:4px;">elite<span style="color:#f59e0b;">.</span>classes</h2>
+            <div style="font-size:12.5px; color:#64748b; font-weight:500; margin-bottom:18px;">Select your access portal to enter</div>
 
-            <div style="display:flex; flex-direction:column; gap:12px;">
+            <!-- Mode Switcher (Admin vs Student) -->
+            <div class="auth-mode-switcher">
+                <button type="button" class="auth-tab-btn active" id="auth-tab-student" onclick="switchAuthTab('student')">👨‍🎓 Student Login</button>
+                <button type="button" class="auth-tab-btn" id="auth-tab-admin" onclick="switchAuthTab('admin')">🔑 Admin Access</button>
+            </div>
+
+            <!-- Student Login Form -->
+            <div id="auth-form-student" style="display:flex; flex-direction:column; gap:12px;">
                 <div>
-                    <input type="password" id="coaching-key-input" placeholder="Enter Coaching Key" style="width:100%; padding:12px 16px; border-radius:10px; border:2px solid #e2e8f0; font-size:15px; text-align:center; font-weight:700; letter-spacing:2px; outline:none;" onkeyup="if(event.key==='Enter') verifyCoachingKey()">
+                    <label style="display:block; font-size:11px; font-weight:700; color:#64748b; text-align:left; margin-bottom:4px;">Coaching Student Code *</label>
+                    <input type="password" id="student-code-input" placeholder="Enter Code (e.g. 123456)" value="123456" style="width:100%; padding:10px 14px; border-radius:8px; border:2px solid #e2e8f0; font-size:14px; text-align:center; font-weight:700; letter-spacing:1px; outline:none;">
                 </div>
-                <div id="auth-error-msg" style="display:none; font-size:12px; color:#ef4444; font-weight:600;">Invalid Coaching Key. Please check your key.</div>
-                <button class="btn btn-primary" style="width:100%; padding:12px; font-size:14px; border-radius:10px;" onclick="verifyCoachingKey()">Unlock Admin Portal →</button>
+                <div>
+                    <label style="display:block; font-size:11px; font-weight:700; color:#64748b; text-align:left; margin-bottom:4px;">Registered WhatsApp Number *</label>
+                    <input type="tel" id="student-phone-input" placeholder="e.g. 9876543210" style="width:100%; padding:10px 14px; border-radius:8px; border:2px solid #e2e8f0; font-size:14px; text-align:center; font-weight:600; outline:none;" onkeyup="if(event.key==='Enter') verifyStudentLogin()">
+                </div>
+                <div id="student-auth-error" style="display:none; font-size:12px; color:#ef4444; font-weight:600; text-align:center;"></div>
+                <button class="btn btn-primary" style="width:100%; padding:11px; font-size:14px; border-radius:8px; margin-top:4px;" onclick="verifyStudentLogin()">Enter Student Portal →</button>
+                
+                <div style="font-size:11.5px; color:#94a3b8; margin-top:6px;">
+                    Demo WhatsApp Numbers: <br>
+                    <span style="color:#2563eb; font-weight:600; cursor:pointer;" onclick="document.getElementById('student-phone-input').value='9876543210'">9876543210 (Class 5)</span> • 
+                    <span style="color:#2563eb; font-weight:600; cursor:pointer;" onclick="document.getElementById('student-phone-input').value='9876543214'">9876543214 (Class 10)</span>
+                </div>
+            </div>
+
+            <!-- Admin Login Form -->
+            <div id="auth-form-admin" style="display:none; flex-direction:column; gap:12px;">
+                <div>
+                    <label style="display:block; font-size:11px; font-weight:700; color:#64748b; text-align:left; margin-bottom:4px;">Admin Access Key *</label>
+                    <input type="password" id="coaching-key-input" placeholder="Enter Coaching Key" style="width:100%; padding:10px 14px; border-radius:8px; border:2px solid #e2e8f0; font-size:14px; text-align:center; font-weight:700; letter-spacing:2px; outline:none;" onkeyup="if(event.key==='Enter') verifyCoachingKey()">
+                </div>
+                <div id="auth-error-msg" style="display:none; font-size:12px; color:#ef4444; font-weight:600;">Invalid Admin Coaching Key.</div>
+                <button class="btn btn-primary" style="width:100%; padding:11px; font-size:14px; border-radius:8px; margin-top:4px;" onclick="verifyCoachingKey()">Unlock Admin Portal →</button>
             </div>
         </div>
     </div>
@@ -484,6 +512,123 @@
             </div>
         </section>
 
+        <!-- 6. STUDENT PORTAL DASHBOARD VIEW -->
+        <section class="page-view" id="view-student-portal">
+            <div class="page-header" style="background:#ffffff; padding:20px; border-radius:16px; border:1px solid var(--border); box-shadow:0 4px 12px rgba(0,0,0,0.03); margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; width:100%;">
+                    <div style="display:flex; align-items:center; gap:14px;">
+                        <div id="st-portal-avatar" class="avatar" style="width:50px; height:50px; font-size:20px; border-radius:14px; background:#2563eb;">ST</div>
+                        <div>
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <h1 style="font-size:22px; font-weight:800; margin:0;" id="st-portal-name">Student Dashboard</h1>
+                                <span id="st-portal-class-badge" class="badge badge-primary">Class Standard</span>
+                                <span class="badge badge-success" style="font-size:10px;">🔒 Read-Only Profile</span>
+                            </div>
+                            <div style="font-size:13px; color:var(--text-muted); margin-top:2px;" id="st-portal-sub">Welcome to your personalized Elite Classes portal</div>
+                        </div>
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn btn-outline btn-sm" onclick="openModal('postNoticeModal')" id="st-admin-notice-btn" style="display:none;">+ Post Notice</button>
+                        <button class="btn btn-outline btn-sm" onclick="logoutStudent()">🔒 Switch / Logout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT-TO-LEFT SCROLLING SLIDES NOTICE BOARD -->
+            <div class="card" style="margin-bottom:24px; border:none; background:transparent; box-shadow:none;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                    <div style="font-weight:800; font-size:15px; color:#0f172a; display:flex; align-items:center; gap:6px;">
+                        📢 Notice Board & Announcements 
+                        <span style="font-size:11px; font-weight:600; color:#64748b; background:#e2e8f0; padding:2px 8px; border-radius:12px;">Right-to-Left Slides</span>
+                    </div>
+                </div>
+                <div class="notice-slider-container">
+                    <div class="notice-slider-track" id="student-notice-slides-track">
+                        <div class="notice-card-slide">
+                            <span class="notice-card-slide-badge">ANNOUNCEMENT</span>
+                            <div>📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations schedule announced!</div>
+                        </div>
+                        <div class="notice-card-slide">
+                            <span class="notice-card-slide-badge">OLYMPIAD</span>
+                            <div>🏆 Monthly Science & Mathematics Talent Hunt Olympiad results published on student portal.</div>
+                        </div>
+                        <div class="notice-card-slide">
+                            <span class="notice-card-slide-badge">SCHEDULE</span>
+                            <div>⏰ Special doubt clearing sessions scheduled every Saturday for Class 8 to 10.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- READ-ONLY PERSONAL PROFILE SUMMARY -->
+            <div class="card" style="margin-bottom:24px;">
+                <div class="card-header">
+                    <span class="card-title">My Personal Profile (Read-Only)</span>
+                    <span style="font-size:12px; color:var(--text-muted); font-weight:500;">Information managed by Coaching Admin</span>
+                </div>
+                <div class="card-body">
+                    <div class="student-info-grid" id="st-profile-info-grid"></div>
+                </div>
+            </div>
+
+            <!-- STUDENT PORTAL TAB NAVIGATION -->
+            <div class="profile-switcher" style="margin-bottom:20px;">
+                <div class="profile-tab active" data-sttab="courses" onclick="switchStudentTab('courses')">📚 My Courses & Materials</div>
+                <div class="profile-tab" data-sttab="testseries" onclick="switchStudentTab('testseries')">📝 Test Series & Exams</div>
+                <div class="profile-tab" data-sttab="attendance" onclick="switchStudentTab('attendance')">📊 My Attendance</div>
+                <div class="profile-tab" data-sttab="fees" onclick="switchStudentTab('fees')">📜 Fee Receipts & Ledger</div>
+                <div class="profile-tab" data-sttab="exams" onclick="switchStudentTab('exams')">🎓 Exam Results & Marks</div>
+            </div>
+
+            <!-- TAB 1: COURSES & STUDY MATERIAL -->
+            <div id="st-tab-section-courses" class="st-tab-section" style="display:block;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                    <h3 style="font-size:16px; font-weight:700; margin:0;" id="st-courses-heading">Courses & Study Materials</h3>
+                    <button class="btn btn-primary btn-sm" onclick="openModal('addCourseModal')" id="st-admin-add-course-btn" style="display:none;">+ Add Course (Admin)</button>
+                </div>
+                <div class="content-cards-grid" id="st-courses-container"></div>
+            </div>
+
+            <!-- TAB 2: TEST SERIES & MOCK EXAMS -->
+            <div id="st-tab-section-testseries" class="st-tab-section" style="display:none;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                    <h3 style="font-size:16px; font-weight:700; margin:0;" id="st-tests-heading">Available Test Series</h3>
+                    <button class="btn btn-primary btn-sm" onclick="openModal('addTestSeriesModal')" id="st-admin-add-test-btn" style="display:none;">+ Create Test Series (Admin)</button>
+                </div>
+                <div class="content-cards-grid" id="st-testseries-container"></div>
+            </div>
+
+            <!-- TAB 3: ATTENDANCE SUMMARY -->
+            <div id="st-tab-section-attendance" class="st-tab-section" style="display:none;">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">My Attendance Record</span>
+                    </div>
+                    <div class="card-body" id="st-attendance-summary-container"></div>
+                </div>
+            </div>
+
+            <!-- TAB 4: FEE PAYMENTS & RECEIPTS -->
+            <div id="st-tab-section-fees" class="st-tab-section" style="display:none;">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Fee Payment History & Official Receipts</span>
+                    </div>
+                    <div class="card-body" id="st-fee-ledger-container"></div>
+                </div>
+            </div>
+
+            <!-- TAB 5: EXAM RESULTS & REPORT CARD -->
+            <div id="st-tab-section-exams" class="st-tab-section" style="display:none;">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Exam Marks & Academic Report Cards</span>
+                    </div>
+                    <div class="card-body" id="st-exam-results-container"></div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
 
@@ -827,6 +972,133 @@
                 <button class="btn btn-primary" onclick="saveSupabaseSettingsFromModal()">Save & Connect Database</button>
             </div>
         </div>
+    <!-- POST NOTICE MODAL (ADMIN) -->
+    <div class="modal-overlay" id="postNoticeModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">Post New Notice (Right-to-Left Slide)</span>
+                <button class="modal-close" onclick="closeModal('postNoticeModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group full">
+                    <label>Announcement Content *</label>
+                    <textarea id="f-notice-content" rows="3" placeholder="e.g. 📢 Mid-Term Exam schedule has been published for Class 5 to 10..." style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border); outline:none;"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('postNoticeModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitNewNotice()">Publish Announcement</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD COURSE MODAL (ADMIN) -->
+    <div class="modal-overlay" id="addCourseModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">Publish Course / Study Material</span>
+                <button class="modal-close" onclick="closeModal('addCourseModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Course Title *</label>
+                        <input type="text" id="f-course-title" placeholder="e.g. Class 5 Mathematics Masterclass">
+                    </div>
+                    <div class="form-group">
+                        <label>Class Standard *</label>
+                        <select id="f-course-class">
+                            <option>Class 5</option>
+                            <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+                            <option>Class 9</option><option>Class 10</option>
+                            <option>LKG</option><option>UKG</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" id="f-course-subject" placeholder="e.g. Mathematics">
+                    </div>
+                    <div class="form-group">
+                        <label>Instructor Name</label>
+                        <input type="text" id="f-course-instructor" placeholder="e.g. Dr. Ramesh Kumar">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Lessons / Modules</label>
+                        <input type="number" id="f-course-lessons" value="10">
+                    </div>
+                    <div class="form-group full">
+                        <label>Course Summary / Description</label>
+                        <textarea id="f-course-desc" rows="2" placeholder="Course syllabus overview..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('addCourseModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitNewCourse()">Save & Publish Course</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CREATE TEST SERIES MODAL (ADMIN) -->
+    <div class="modal-overlay" id="addTestSeriesModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">Create Test Series & Mock Exam</span>
+                <button class="modal-close" onclick="closeModal('addTestSeriesModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Test Title *</label>
+                        <input type="text" id="f-test-title" placeholder="e.g. Class 5 Science Chapter-wise Test">
+                    </div>
+                    <div class="form-group">
+                        <label>Class Standard *</label>
+                        <select id="f-test-class">
+                            <option>Class 5</option>
+                            <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+                            <option>Class 9</option><option>Class 10</option>
+                            <option>LKG</option><option>UKG</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" id="f-test-subject" placeholder="e.g. Science">
+                    </div>
+                    <div class="form-group">
+                        <label>Duration (Minutes)</label>
+                        <input type="number" id="f-test-duration" value="45">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Marks</label>
+                        <input type="number" id="f-test-marks" value="50">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Questions</label>
+                        <input type="number" id="f-test-questions" value="25">
+                    </div>
+                    <div class="form-group">
+                        <label>Scheduled Test Date</label>
+                        <input type="date" id="f-test-date">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('addTestSeriesModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitNewTestSeries()">Create Test Series</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAKE TEST INTERACTIVE MODAL (STUDENT) -->
+    <div class="modal-overlay" id="takeTestModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <span class="modal-title" id="testModalTitle">Online Test Assessment</span>
+                <button class="modal-close" onclick="closeModal('takeTestModal')">✕</button>
+            </div>
+            <div class="modal-body" id="takeTestModalBody"></div>
+        </div>
     </div>
 
     <!-- APP TOAST -->
@@ -851,6 +1123,7 @@
     <script src="js/finances.js"></script>
     <script src="js/classes.js"></script>
     <script src="js/attendance.js"></script>
+    <script src="js/studentView.js"></script>
 </body>
 
 </html>

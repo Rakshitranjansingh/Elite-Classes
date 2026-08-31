@@ -203,6 +203,13 @@ async function verifyCoachingKey() {
     if (!inputEl) return;
     const enteredKey = inputEl.value.trim();
 
+    // If student code 123456 is typed in Admin box, switch tab automatically
+    if (enteredKey === '123456') {
+        switchAuthTab('student');
+        showToast('Switched to Student Portal Login', 'info');
+        return;
+    }
+
     // Fetch live coaching key from DB if connected
     if (typeof DBService !== 'undefined' && isSupabaseConnected()) {
         const dbKey = await DBService.getCoachingKey();
@@ -213,10 +220,19 @@ async function verifyCoachingKey() {
         if (errEl) errEl.style.display = 'none';
         sessionStorage.setItem('ec_authenticated_key', enteredKey);
         if (authScreen) authScreen.style.display = 'none';
-        showToast('Coaching Portal Unlocked Successfully!');
+
+        // Reveal Admin management buttons in Student View if Admin logs in
+        const noticeBtn = document.getElementById('st-admin-notice-btn');
+        const courseBtn = document.getElementById('st-admin-add-course-btn');
+        const testBtn = document.getElementById('st-admin-add-test-btn');
+        if (noticeBtn) noticeBtn.style.display = 'inline-block';
+        if (courseBtn) courseBtn.style.display = 'inline-block';
+        if (testBtn) testBtn.style.display = 'inline-block';
+
+        showToast('Admin Portal Unlocked Successfully!');
     } else {
         if (errEl) {
-            errEl.textContent = 'Invalid Coaching Key. Please check your credentials.';
+            errEl.textContent = 'Invalid Admin Coaching Key. Try Student Login with Code 123456.';
             errEl.style.display = 'block';
         }
         inputEl.style.borderColor = '#ef4444';
