@@ -137,9 +137,10 @@ CREATE TABLE IF NOT EXISTS attendance (
     id VARCHAR(50) PRIMARY KEY,
     date DATE NOT NULL,
     student_id VARCHAR(50) REFERENCES students(id) ON DELETE CASCADE,
+    subject VARCHAR(100) DEFAULT 'General',
     status VARCHAR(20) NOT NULL CHECK (status IN ('present', 'absent', 'late', 'excused')),
     created_at TIMESTAMPTZ DEFAULT NOW(),
-    CONSTRAINT unique_student_daily_att UNIQUE (date, student_id)
+    CONSTRAINT unique_student_subject_daily_att UNIQUE (date, student_id, subject)
 );
 
 -- 11. EXAM RESULTS & MARKS

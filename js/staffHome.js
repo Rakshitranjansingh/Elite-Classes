@@ -372,7 +372,8 @@ function renderStaffAttendanceSheet() {
     const dateInput = document.getElementById('staff-att-date');
     const selectedDate = (dateInput && dateInput.value) ? dateInput.value : new Date().toISOString().split('T')[0];
 
-    const dayRecords = (typeof attendanceRecords !== 'undefined' && attendanceRecords[selectedDate]) ? attendanceRecords[selectedDate] : {};
+    const subKey = `${selectedDate}_${selectedAttendanceSubject}`;
+    const dayRecords = (typeof attendanceRecords !== 'undefined') ? (attendanceRecords[subKey] || attendanceRecords[selectedDate] || {}) : {};
 
     const filtered = (students || []).filter(s => {
         const matchClass = selectedAttendanceClass === 'All' || s.cls === selectedAttendanceClass;
@@ -391,7 +392,7 @@ function renderStaffAttendanceSheet() {
             <div style="font-size:13.5px; font-weight:700; color:var(--text);">
                 Roster: <span class="badge badge-primary">${selectedAttendanceClass}</span> <span class="badge badge-purple">${selectedAttendanceSubject}</span> • <b>${filtered.length}</b> Students
             </div>
-            <button class="btn btn-sm btn-success" onclick="markAllStaffStudentsPresent('${selectedDate}', '${selectedAttendanceClass}')">
+            <button class="btn btn-sm btn-success" onclick="markAllStaffStudentsPresent('${selectedDate}', '${selectedAttendanceClass}', '${selectedAttendanceSubject}')">
                 ✓ Mark All Present
             </button>
         </div>
@@ -400,10 +401,8 @@ function renderStaffAttendanceSheet() {
                 <thead>
                     <tr>
                         <th>Student Name</th>
-                        <th>Class</th>
-                        <th>Enrolled Subjects</th>
-                        <th>Status</th>
-                        <th>Attendance Toggle</th>
+                        <th>Attendance Status</th>
+                        <th>Quick Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -412,15 +411,21 @@ function renderStaffAttendanceSheet() {
                         const badge = status === 'present' ? '<span class="badge badge-success">Present</span>' : status === 'absent' ? '<span class="badge badge-danger">Absent</span>' : '<span class="badge badge-warning">Late</span>';
                         return `
                             <tr>
-                                <td><b>${s.name}</b></td>
-                                <td><span class="badge badge-primary">${s.cls}</span></td>
-                                <td style="font-size:12px; color:var(--text-muted);">${s.subjects || 'General'}</td>
+                                <td>
+                                    <div style="display:flex; align-items:center; gap:10px;">
+                                        <div class="avatar avatar-sm" style="background:${s.color || '#2563eb'}; width:32px; height:32px; font-size:12px;">${getInitials(s.name)}</div>
+                                        <div>
+                                            <b>${s.name}</b>
+                                            <div style="font-size:11px; color:var(--text-muted);">ID: #${s.id}</div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>${badge}</td>
                                 <td>
                                     <div class="action-group">
-                                        <button class="btn btn-sm ${status === 'present' ? 'btn-success' : 'btn-outline'}" onclick="setStaffStudentAttendance('${selectedDate}', '${s.id}', 'present')">Present</button>
-                                        <button class="btn btn-sm ${status === 'absent' ? 'btn-danger' : 'btn-outline'}" onclick="setStaffStudentAttendance('${selectedDate}', '${s.id}', 'absent')" style="border-color:#ef4444; color:${status==='absent'?'#fff':'#ef4444'};">Absent</button>
-                                        <button class="btn btn-sm ${status === 'late' ? 'btn-warning' : 'btn-outline'}" onclick="setStaffStudentAttendance('${selectedDate}', '${s.id}', 'late')">Late</button>
+                                        <button class="btn btn-sm ${status === 'present' ? 'btn-success' : 'btn-outline'}" onclick="setStaffStudentAttendance('${selectedDate}', '${s.id}', 'present', '${selectedAttendanceSubject}')">Present</button>
+                                        <button class="btn btn-sm ${status === 'absent' ? 'btn-danger' : 'btn-outline'}" onclick="setStaffStudentAttendance('${selectedDate}', '${s.id}', 'absent', '${selectedAttendanceSubject}')" style="border-color:#ef4444; color:${status==='absent'?'#fff':'#ef4444'};">Absent</button>
+                                        <button class="btn btn-sm ${status === 'late' ? 'btn-warning' : 'btn-outline'}" onclick="setStaffStudentAttendance('${selectedDate}', '${s.id}', 'late', '${selectedAttendanceSubject}')">Late</button>
                                     </div>
                                 </td>
                             </tr>
@@ -432,29 +437,53 @@ function renderStaffAttendanceSheet() {
     `;
 }
 
-function setStaffStudentAttendance(date, studentId, status) {
+async function setStaffStudentAttendance(date, studentId, status, subject = 'General') {
     if (typeof attendanceRecords === 'undefined') attendanceRecords = {};
+    const subKey = `${date}_${subject}`;
+    if (!attendanceRecords[subKey]) attendanceRecords[subKey] = {};
+    attendanceRecords[subKey][studentId] = status;
+
     if (!attendanceRecords[date]) attendanceRecords[date] = {};
     attendanceRecords[date][studentId] = status;
+
     if (typeof saveState === 'function') saveState();
+
+    if (typeof DBService !== 'undefined' && typeof DBService.saveAttendanceStatus === 'function') {
+        await DBService.saveAttendanceStatus(date, studentId, subject, status);
+    }
+
     renderStaffAttendanceSheet();
-    showToast(`Attendance marked as ${status}`);
+    showToast(`Marked ${status.toUpperCase()} for ${subject}`, 'success');
 }
 
-function markAllStaffStudentsPresent(date, cls) {
+async function markAllStaffStudentsPresent(date, cls, subject = 'General') {
     if (typeof attendanceRecords === 'undefined') attendanceRecords = {};
+    const subKey = `${date}_${subject}`;
+    if (!attendanceRecords[subKey]) attendanceRecords[subKey] = {};
     if (!attendanceRecords[date]) attendanceRecords[date] = {};
+
     const assignedClasses = currentStaffUser && currentStaffUser.classes ? currentStaffUser.classes.split(',').map(c => c.trim()) : [];
+    const batch = [];
+
     (students || []).forEach(s => {
         const matchClass = cls === 'All' || s.cls === cls;
         const matchAssigned = assignedClasses.length === 0 || assignedClasses.includes(s.cls) || assignedClasses.includes('All');
-        if (matchClass && matchAssigned) {
+        const matchSubject = subject === 'All' || !s.subjects || s.subjects.toLowerCase().includes(subject.toLowerCase());
+        if (matchClass && matchAssigned && matchSubject) {
+            attendanceRecords[subKey][s.id] = 'present';
             attendanceRecords[date][s.id] = 'present';
+            batch.push({ date: date, student_id: s.id, subject: subject, status: 'present' });
         }
     });
+
     if (typeof saveState === 'function') saveState();
+
+    if (typeof DBService !== 'undefined' && typeof DBService.saveAttendanceBatch === 'function') {
+        await DBService.saveAttendanceBatch(batch);
+    }
+
     renderStaffAttendanceSheet();
-    showToast('All students marked Present for today');
+    showToast(`All students marked Present for ${subject} (${date})`, 'success');
 }
 
 // ---------------------------------------------------------

@@ -965,5 +965,101 @@ const DBService = {
             console.error('[DBService] Insert salary payout error:', e);
             return payout;
         }
+    },
+
+    // ---------------------------------------------------------
+    // 17. ATTENDANCE CRUD (DATE & SUBJECT SCOPED)
+    // ---------------------------------------------------------
+    async fetchAttendanceRecords(date = null, subject = null) {
+        if (!isSupabaseConnected()) {
+            return JSON.parse(localStorage.getItem('ec_attendance') || '{}');
+        }
+        try {
+            let query = supabaseClient.from('attendance').select('*');
+            if (date) query = query.eq('date', date);
+            if (subject && subject !== 'All') query = query.eq('subject', subject);
+            const { data, error } = await query;
+            if (error || !data) return JSON.parse(localStorage.getItem('ec_attendance') || '{}');
+
+            const records = JSON.parse(localStorage.getItem('ec_attendance') || '{}');
+            data.forEach(row => {
+                const sub = row.subject || 'General';
+                const key = `${row.date}_${sub}`;
+                if (!records[key]) records[key] = {};
+                records[key][row.student_id] = row.status;
+
+                if (!records[row.date]) records[row.date] = {};
+                records[row.date][row.student_id] = row.status;
+            });
+            return records;
+        } catch (e) {
+            return JSON.parse(localStorage.getItem('ec_attendance') || '{}');
+        }
+    },
+
+    async saveAttendanceStatus(date, studentId, subject, status) {
+        const sub = subject && subject !== 'All' ? subject : 'General';
+        const key = `${date}_${sub}`;
+        const records = JSON.parse(localStorage.getItem('ec_attendance') || '{}');
+        if (!records[key]) records[key] = {};
+        records[key][studentId] = status;
+
+        if (!records[date]) records[date] = {};
+        records[date][studentId] = status;
+
+        localStorage.setItem('ec_attendance', JSON.stringify(records));
+
+        if (!isSupabaseConnected()) return true;
+        try {
+            const attId = `att_${date}_${studentId}_${sub.replace(/[^a-zA-Z0-9]/g, '_')}`;
+            await supabaseClient.from('attendance').upsert({
+                id: attId,
+                date: date,
+                student_id: studentId,
+                subject: sub,
+                status: status,
+                created_at: new Date().toISOString()
+            });
+            return true;
+        } catch (e) {
+            console.error('[DBService] Save attendance status error:', e);
+            return true;
+        }
+    },
+
+    async saveAttendanceBatch(recordsArray) {
+        if (!recordsArray || recordsArray.length === 0) return true;
+
+        const records = JSON.parse(localStorage.getItem('ec_attendance') || '{}');
+        recordsArray.forEach(r => {
+            const sub = r.subject && r.subject !== 'All' ? r.subject : 'General';
+            const key = `${r.date}_${sub}`;
+            if (!records[key]) records[key] = {};
+            records[key][r.student_id] = r.status;
+
+            if (!records[r.date]) records[r.date] = {};
+            records[r.date][r.student_id] = r.status;
+        });
+        localStorage.setItem('ec_attendance', JSON.stringify(records));
+
+        if (!isSupabaseConnected()) return true;
+        try {
+            const rows = recordsArray.map(r => {
+                const sub = r.subject && r.subject !== 'All' ? r.subject : 'General';
+                return {
+                    id: `att_${r.date}_${r.student_id}_${sub.replace(/[^a-zA-Z0-9]/g, '_')}`,
+                    date: r.date,
+                    student_id: r.student_id,
+                    subject: sub,
+                    status: r.status,
+                    created_at: new Date().toISOString()
+                };
+            });
+            await supabaseClient.from('attendance').upsert(rows);
+            return true;
+        } catch (e) {
+            console.error('[DBService] Save attendance batch error:', e);
+            return true;
+        }
     }
 };
