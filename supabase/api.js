@@ -908,5 +908,62 @@ const DBService = {
             console.error('[DBService] Insert remark error:', e);
             return item;
         }
+    },
+
+    // ---------------------------------------------------------
+    // 16. SALARY PAYOUTS & DISBURSEMENTS
+    // ---------------------------------------------------------
+    async fetchSalaryPayouts() {
+        if (!isSupabaseConnected()) {
+            return JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
+        }
+        try {
+            const { data, error } = await supabaseClient.from('salary_payouts').select('*').order('created_at', { ascending: false });
+            if (error || !data || data.length === 0) {
+                return JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
+            }
+            return data.map(p => ({
+                id: p.id,
+                recipientId: p.recipient_id,
+                recipientName: p.recipient_name || 'Faculty Member',
+                recipientType: p.recipient_type,
+                month: p.month,
+                amount: parseFloat(p.amount) || 0,
+                mode: p.mode,
+                date: p.payout_date || p.date,
+                refNo: p.ref_no || `TXN${Math.floor(100000 + Math.random() * 900000)}`,
+                note: p.note || 'Monthly Salary'
+            }));
+        } catch (e) {
+            return JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
+        }
+    },
+
+    async insertSalaryPayout(payout) {
+        const item = {
+            id: payout.id || 'sp_' + Date.now(),
+            recipient_id: payout.recipientId || payout.recipient_id,
+            recipient_name: payout.recipientName || payout.recipient_name || '',
+            recipient_type: payout.recipientType || payout.recipient_type || 'teacher',
+            amount: payout.amount,
+            month: payout.month,
+            mode: payout.mode || 'Bank Transfer',
+            payout_date: payout.date || payout.payout_date || new Date().toISOString().split('T')[0],
+            ref_no: payout.refNo || payout.ref_no || '',
+            note: payout.note || ''
+        };
+
+        const list = JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
+        list.unshift(payout);
+        localStorage.setItem('ec_salary_payouts', JSON.stringify(list));
+
+        if (!isSupabaseConnected()) return payout;
+        try {
+            await supabaseClient.from('salary_payouts').insert(item);
+            return payout;
+        } catch (e) {
+            console.error('[DBService] Insert salary payout error:', e);
+            return payout;
+        }
     }
 };

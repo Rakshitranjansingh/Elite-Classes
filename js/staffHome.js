@@ -620,10 +620,14 @@ async function submitStaffNotice() {
     if (typeof renderStudentNoticeSlides === 'function') renderStudentNoticeSlides();
 }
 
-// Render Profile Modal Info Cards
+// ---------------------------------------------------------
+// 4. STAFF PROFILE & PIN-PROTECTED SALARY DETAILS
+// ---------------------------------------------------------
 function renderStaffProfileModal() {
     const grid = document.getElementById('staff-profile-info-grid');
     if (!grid || !currentStaffUser) return;
+
+    const isTeacher = currentStaffUser.type === 'teacher' || currentStaffUser.is_teacher === true || !!currentStaffUser.subjects;
 
     grid.innerHTML = `
         <div class="student-info-card">
@@ -635,10 +639,20 @@ function renderStaffProfileModal() {
         </div>
 
         <div class="student-info-card">
+            <div class="student-info-icon">🏛️</div>
+            <div>
+                <div class="student-info-label">Staff Type</div>
+                <div class="student-info-value">
+                    ${isTeacher ? '<span class="badge badge-purple" style="font-size:12px;">Teaching Faculty</span>' : '<span class="badge badge-primary" style="font-size:12px;">Support Staff / Non-Teaching</span>'}
+                </div>
+            </div>
+        </div>
+
+        <div class="student-info-card">
             <div class="student-info-icon">💼</div>
             <div>
-                <div class="student-info-label">Role / Faculty</div>
-                <div class="student-info-value">${currentStaffUser.role || currentStaffUser.subjects + ' Faculty'}</div>
+                <div class="student-info-label">Role / Department</div>
+                <div class="student-info-value">${currentStaffUser.role || (isTeacher ? (currentStaffUser.subjects || 'General') + ' Faculty' : 'Institute Staff')}</div>
             </div>
         </div>
 
@@ -651,14 +665,6 @@ function renderStaffProfileModal() {
         </div>
 
         <div class="student-info-card">
-            <div class="student-info-icon">🏫</div>
-            <div>
-                <div class="student-info-label">Assigned Classes</div>
-                <div class="student-info-value">${currentStaffUser.classes || 'All Institute Classes'}</div>
-            </div>
-        </div>
-
-        <div class="student-info-card">
             <div class="student-info-icon">📧</div>
             <div>
                 <div class="student-info-label">Email Address</div>
@@ -667,19 +673,139 @@ function renderStaffProfileModal() {
         </div>
 
         <div class="student-info-card">
-            <div class="student-info-icon">💵</div>
+            <div class="student-info-icon">🏫</div>
             <div>
-                <div class="student-info-label">Base Monthly Salary</div>
-                <div class="student-info-value">₹${(currentStaffUser.salary || currentStaffUser.base_salary || 0).toLocaleString()}</div>
+                <div class="student-info-label">Assigned Classes</div>
+                <div class="student-info-value">${isTeacher ? (currentStaffUser.classes || currentStaffUser.assigned_classes || 'All Institute Classes') : 'Administrative Scope'}</div>
+            </div>
+        </div>
+    `;
+}
+
+function openStaffSalaryPinModal() {
+    const pinInput = document.getElementById('staff-salary-pin-input');
+    const errEl = document.getElementById('staff-salary-pin-error');
+    if (pinInput) pinInput.value = '';
+    if (errEl) errEl.textContent = '';
+    openModal('staffSalaryPinModal');
+    setTimeout(() => { if (pinInput) pinInput.focus(); }, 150);
+}
+
+function verifyStaffSalaryPin() {
+    const pinInput = document.getElementById('staff-salary-pin-input');
+    const errEl = document.getElementById('staff-salary-pin-error');
+    const entered = pinInput ? pinInput.value.trim() : '';
+
+    const expectedPin = (currentStaffUser && currentStaffUser.pin) ? String(currentStaffUser.pin) : '123456';
+
+    if (!entered) {
+        if (errEl) errEl.textContent = 'Please enter your 6-digit PIN.';
+        return;
+    }
+
+    if (entered !== expectedPin) {
+        if (errEl) errEl.textContent = '❌ Incorrect PIN. Please enter your profile PIN.';
+        if (pinInput) {
+            pinInput.value = '';
+            pinInput.focus();
+        }
+        return;
+    }
+
+    closeModal('staffSalaryPinModal');
+    renderStaffSalaryDetailsModal();
+    openModal('staffSalaryDetailsModal');
+}
+
+function renderStaffSalaryDetailsModal() {
+    const body = document.getElementById('staffSalaryDetailsBody');
+    if (!body || !currentStaffUser) return;
+
+    const baseSalary = parseFloat(currentStaffUser.salary || currentStaffUser.base_salary || 0);
+    const incentive = parseFloat(currentStaffUser.incentive || 0);
+    const totalMonthlySalary = baseSalary + incentive;
+
+    // Calculate Next Salary Date (5th of next month)
+    const now = new Date();
+    const nextSalaryDate = new Date(now.getFullYear(), now.getMonth() + 1, 5);
+    const nextSalaryStr = nextSalaryDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    // Filter salary payouts for this staff member
+    const myPayouts = (salaryPayouts || []).filter(p => 
+        p.recipientId === currentStaffUser.id || 
+        p.recipient_id === currentStaffUser.id || 
+        (p.recipientName && p.recipientName.toLowerCase() === currentStaffUser.name.toLowerCase())
+    );
+
+    body.innerHTML = `
+        <!-- TOP COMBINED SALARY & NEXT PAYOUT SUMMARY -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px; margin-bottom:20px;">
+            <div style="background:linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border:1px solid #bfdbfe; border-radius:14px; padding:18px 20px;">
+                <div style="font-size:11.5px; font-weight:700; color:#1e40af; text-transform:uppercase; letter-spacing:0.5px;">
+                    💵 Total Monthly Salary
+                </div>
+                <div style="font-size:28px; font-weight:800; color:#1e3a8a; margin:8px 0;">
+                    ₹${totalMonthlySalary.toLocaleString()}
+                </div>
+                <div style="font-size:12px; color:#3b82f6; font-weight:600;">
+                    (Base Pay: ₹${baseSalary.toLocaleString()} + Monthly Incentive: ₹${incentive.toLocaleString()})
+                </div>
+            </div>
+
+            <div style="background:linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border:1px solid #bbf7d0; border-radius:14px; padding:18px 20px;">
+                <div style="font-size:11.5px; font-weight:700; color:#166534; text-transform:uppercase; letter-spacing:0.5px;">
+                    📅 Next Scheduled Salary Date
+                </div>
+                <div style="font-size:22px; font-weight:800; color:#14532d; margin:8px 0;">
+                    ${nextSalaryStr}
+                </div>
+                <div style="font-size:12px; color:#16a34a; font-weight:600;">
+                    ⏱️ Disbursed automatically on the 5th of every month
+                </div>
             </div>
         </div>
 
-        <div class="student-info-card">
-            <div class="student-info-icon">🎁</div>
-            <div>
-                <div class="student-info-label">Monthly Incentive</div>
-                <div class="student-info-value">₹${(currentStaffUser.incentive || 0).toLocaleString()}</div>
+        <!-- SALARY DISBURSEMENT HISTORY -->
+        <div style="margin-top:10px;">
+            <div style="font-size:14.5px; font-weight:700; color:var(--text); margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+                <span>📋 Salary Payments Received</span>
+                <span class="badge badge-purple">${myPayouts.length} Disbursement(s)</span>
             </div>
+
+            ${myPayouts.length === 0 ? `
+                <div style="padding:28px; text-align:center; background:#f8fafc; border-radius:12px; border:1px dashed var(--border); color:var(--text-muted);">
+                    <div style="font-size:24px; margin-bottom:6px;">🧾</div>
+                    <div style="font-weight:600; font-size:13.5px; color:var(--text);">No historical salary payouts on record yet.</div>
+                    <div style="font-size:12px; margin-top:4px;">Disbursements processed by administration on the 5th will appear in this ledger.</div>
+                </div>
+            ` : `
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Salary Month</th>
+                                <th>Disbursement Date</th>
+                                <th>Payment Mode</th>
+                                <th>Reference / Txn No.</th>
+                                <th>Amount Paid</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${myPayouts.map(p => `
+                                <tr>
+                                    <td><b>${p.month || 'Current Month'}</b></td>
+                                    <td>${p.date || '5th of Month'}</td>
+                                    <td><span class="badge badge-primary">${p.mode || 'Bank Transfer'}</span></td>
+                                    <td style="font-size:12px; color:var(--text-muted);">${p.refNo || 'TXN-DIRECT'}</td>
+                                    <td style="font-weight:700; color:#16a34a;">₹${(p.amount || totalMonthlySalary).toLocaleString()}</td>
+                                    <td><span class="badge badge-success">Received</span></td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `}
         </div>
     `;
 }

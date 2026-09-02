@@ -151,7 +151,7 @@
     <div class="modal-overlay" id="staffProfileModal">
         <div class="modal modal-lg">
             <div class="modal-header">
-                <span class="modal-title">👤 Faculty Profile Details</span>
+                <span class="modal-title">👤 Staff Profile</span>
                 <button class="modal-close" onclick="closeModal('staffProfileModal')">✕</button>
             </div>
             <div class="modal-body">
@@ -159,6 +159,22 @@
                     Your official employment and assignment details on record:
                 </div>
                 <div class="student-info-grid" id="staff-profile-info-grid"></div>
+
+                <!-- SALARY CARD (SECURED BY PIN) -->
+                <div style="margin-top:16px; padding:16px 20px; background:linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border:1px solid var(--border); border-radius:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <div style="width:40px; height:40px; border-radius:10px; background:#eff6ff; color:#2563eb; display:flex; align-items:center; justify-content:center; font-size:20px;">
+                            💵
+                        </div>
+                        <div>
+                            <div style="font-weight:700; font-size:14px; color:var(--text);">Monthly Salary & Compensation</div>
+                            <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">Protected by secure profile authentication PIN</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="openStaffSalaryPinModal()" style="display:inline-flex; align-items:center; gap:6px;">
+                        🔒 View Salary Details
+                    </button>
+                </div>
             </div>
             <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
                 <button class="btn btn-outline danger btn-sm" onclick="closeModal('staffProfileModal'); logoutToGateway();" style="border-color:#ef4444; color:#ef4444;">🔒 Logout / Switch Account</button>
@@ -166,6 +182,43 @@
                     <button class="btn btn-primary btn-sm" onclick="closeModal('staffProfileModal'); openAddStaffNoticeModal();">📢 Add Notice</button>
                     <button class="btn btn-outline btn-sm" onclick="closeModal('staffProfileModal')">Close</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STAFF SALARY PIN VERIFICATION MODAL -->
+    <div class="modal-overlay" id="staffSalaryPinModal">
+        <div class="modal" style="max-width:400px; text-align:center;">
+            <div class="modal-header" style="justify-content:center; position:relative;">
+                <span class="modal-title">🔒 Security Verification</span>
+                <button class="modal-close" style="position:absolute; right:16px;" onclick="closeModal('staffSalaryPinModal')">✕</button>
+            </div>
+            <div class="modal-body" style="padding:24px 20px;">
+                <div style="font-size:36px; margin-bottom:10px;">🔐</div>
+                <div style="font-weight:700; font-size:15px; color:var(--text); margin-bottom:6px;">Enter Profile PIN</div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:20px;">
+                    Please enter your 6-digit Portal PIN to unlock your salary breakdown, disbursement history, and payout schedule.
+                </div>
+                <input type="password" id="staff-salary-pin-input" maxlength="6" class="select-input" placeholder="••••••" style="font-size:22px; letter-spacing:8px; text-align:center; font-weight:700; width:190px; margin:0 auto 12px auto; display:block;" onkeyup="if(event.key==='Enter') verifyStaffSalaryPin()">
+                <div id="staff-salary-pin-error" style="font-size:12px; color:#ef4444; font-weight:600; min-height:18px;"></div>
+            </div>
+            <div class="modal-footer" style="justify-content:center; gap:10px;">
+                <button class="btn btn-outline" onclick="closeModal('staffSalaryPinModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="verifyStaffSalaryPin()">Unlock Salary</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- STAFF SALARY & COMPENSATION BREAKDOWN MODAL -->
+    <div class="modal-overlay" id="staffSalaryDetailsModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <span class="modal-title">💵 Salary & Compensation Details</span>
+                <button class="modal-close" onclick="closeModal('staffSalaryDetailsModal')">✕</button>
+            </div>
+            <div class="modal-body" id="staffSalaryDetailsBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('staffSalaryDetailsModal')">Close</button>
             </div>
         </div>
     </div>
