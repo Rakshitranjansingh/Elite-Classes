@@ -62,6 +62,32 @@ const CBTPlayer = {
         `;
 
         overlay.innerHTML = `
+            <style>
+                /* Responsive CBT Layout Rules */
+                .cbt-desktop-sidebar {
+                    display: flex;
+                    width: 290px;
+                    background: #f8fafc;
+                    border-left: 1px solid #e2e8f0;
+                    flex-direction: column;
+                    flex-shrink: 0;
+                }
+                .cbt-mobile-top-ribbon {
+                    display: none;
+                }
+                @media (max-width: 768px) {
+                    .cbt-desktop-sidebar {
+                        display: none !important;
+                    }
+                    .cbt-mobile-top-ribbon {
+                        display: block !important;
+                    }
+                    .cbt-workspace-split {
+                        flex-direction: column !important;
+                    }
+                }
+            </style>
+
             <!-- TOP STICKY CBT HEADER -->
             <header style="background:#0b1329; color:#ffffff; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); flex-shrink:0;">
                 <div style="display:flex; align-items:center; gap:12px;">
@@ -88,10 +114,26 @@ const CBTPlayer = {
                 </div>
             </header>
 
-            <!-- SPLIT WORKSPACE -->
-            <div style="flex:1; display:flex; overflow:hidden; background:#f8fafc;">
+            <!-- 1. MOBILE ONLY: TOP HORIZONTAL SCROLLING QUESTION RIBBON -->
+            <div class="cbt-mobile-top-ribbon" style="background:#ffffff; border-bottom:1px solid #e2e8f0; flex-shrink:0; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:6px 16px 2px; font-size:11px; color:#64748b; font-weight:600;">
+                    <span style="font-weight:700; color:#0f172a;">Jump to Question:</span>
+                    <div style="display:flex; gap:10px;">
+                        <span style="display:inline-flex; align-items:center; gap:3px;"><span style="width:8px; height:8px; border-radius:2px; background:#10b981; display:inline-block;"></span> Ans (<span id="pal-c-ans-m">0</span>)</span>
+                        <span style="display:inline-flex; align-items:center; gap:3px;"><span style="width:8px; height:8px; border-radius:2px; background:#8b5cf6; display:inline-block;"></span> Rev (<span id="pal-c-rev-m">0</span>)</span>
+                        <span style="display:inline-flex; align-items:center; gap:3px;"><span style="width:8px; height:8px; border-radius:2px; background:#f1f5f9; border:1px solid #cbd5e1; display:inline-block;"></span> Un (<span id="pal-c-un-m">0</span>)</span>
+                    </div>
+                </div>
                 
-                <!-- LEFT/CENTER: QUESTION VIEWPORT -->
+                <div id="cbt-palette-horizontal-bar" style="display:flex; gap:6px; overflow-x:auto; padding:6px 16px 8px; scroll-behavior:smooth; -webkit-overflow-scrolling:touch;">
+                    <!-- Horizontal buttons for Mobile -->
+                </div>
+            </div>
+
+            <!-- 2. MAIN WORKSPACE -->
+            <div class="cbt-workspace-split" style="flex:1; display:flex; overflow:hidden; background:#f8fafc;">
+                
+                <!-- QUESTION VIEWPORT -->
                 <main style="flex:1; display:flex; flex-direction:column; justify-content:space-between; padding:22px 28px; background:#ffffff; overflow-y:auto;">
                     <div>
                         <!-- META BAR -->
@@ -139,21 +181,20 @@ const CBTPlayer = {
                     </div>
                 </main>
 
-                <!-- RIGHT SIDEBAR: QUESTION PALETTE -->
-                <aside style="width:310px; background:#f8fafc; border-left:1px solid #e2e8f0; display:flex; flex-direction:column; flex-shrink:0;">
+                <!-- DESKTOP ONLY: RIGHT SIDEBAR QUESTION PALETTE -->
+                <aside class="cbt-desktop-sidebar">
                     <div style="padding:14px; background:#ffffff; border-bottom:1px solid #e2e8f0;">
-                        <div style="font-size:12px; font-weight:800; color:#0f172a; margin-bottom:8px;">Question Palette Legend</div>
+                        <div style="font-size:12px; font-weight:800; color:#0f172a; margin-bottom:8px;">Question Palette</div>
                         <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:11px; color:#64748b; font-weight:600;">
-                            <div style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; border-radius:3px; background:#10b981;"></span>Answered (<span id="pal-c-ans">0</span>)</div>
-                            <div style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; border-radius:3px; background:#8b5cf6;"></span>Review (<span id="pal-c-rev">0</span>)</div>
-                            <div style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; border-radius:3px; background:#e2e8f0; border:1px solid #cbd5e1;"></span>Unattempted (<span id="pal-c-un">0</span>)</div>
-                            <div style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:12px; border-radius:3px; background:#f59e0b;"></span>Ans+Marked (<span id="pal-c-both">0</span>)</div>
+                            <div style="display:flex; align-items:center; gap:5px;"><span style="width:10px; height:10px; border-radius:2px; background:#10b981;"></span>Answered (<span id="pal-c-ans-d">0</span>)</div>
+                            <div style="display:flex; align-items:center; gap:5px;"><span style="width:10px; height:10px; border-radius:2px; background:#8b5cf6;"></span>Review (<span id="pal-c-rev-d">0</span>)</div>
+                            <div style="display:flex; align-items:center; gap:5px;"><span style="width:10px; height:10px; border-radius:2px; background:#f1f5f9; border:1px solid #cbd5e1;"></span>Unattempted (<span id="pal-c-un-d">0</span>)</div>
                         </div>
                     </div>
 
                     <div style="flex:1; overflow-y:auto; padding:12px;">
-                        <div id="cbt-palette-buttons-grid" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:6px;">
-                            <!-- 1 to 100 buttons -->
+                        <div id="cbt-palette-desktop-grid" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:6px;">
+                            <!-- Desktop 1 to 100 buttons -->
                         </div>
                     </div>
 
@@ -273,21 +314,23 @@ const CBTPlayer = {
     },
 
     renderPalette() {
-        const grid = document.getElementById('cbt-palette-buttons-grid');
-        if (!grid || !this.activeTest) return;
+        const bar = document.getElementById('cbt-palette-horizontal-bar');
+        const grid = document.getElementById('cbt-palette-desktop-grid');
+        if (!this.activeTest) return;
 
         let answeredCount = 0;
         let reviewCount = 0;
         let unattemptedCount = 0;
-        let bothCount = 0;
 
-        let html = '';
+        let mobileHtml = '';
+        let desktopHtml = '';
+
         this.activeTest.questions.forEach((q, idx) => {
             const isAns = this.userAnswers[idx] !== undefined;
             const isRev = this.flaggedReview[idx] === true;
             const isCurrent = this.currentQIdx === idx;
 
-            let bgColor = '#f1f5f9';
+            let bgColor = '#f8fafc';
             let textColor = '#475569';
             let borderColor = '#cbd5e1';
 
@@ -295,7 +338,7 @@ const CBTPlayer = {
                 bgColor = '#f59e0b';
                 textColor = '#ffffff';
                 borderColor = '#d97706';
-                bothCount++;
+                answeredCount++;
             } else if (isAns) {
                 bgColor = '#10b981';
                 textColor = '#ffffff';
@@ -310,28 +353,78 @@ const CBTPlayer = {
                 unattemptedCount++;
             }
 
-            html += `
-                <button onclick="CBTPlayer.jumpTo(${idx})" style="
+            // Mobile Button (Horizontal Ribbon)
+            mobileHtml += `
+                <button id="cbt-pal-btn-m-${idx}" onclick="CBTPlayer.jumpTo(${idx})" style="
+                    min-width: 36px;
+                    height: 30px;
+                    padding: 0 6px;
+                    border-radius: 6px;
+                    border: ${isCurrent ? '2px solid #2563eb' : `1px solid ${borderColor}`};
+                    background: ${bgColor};
+                    color: ${textColor};
+                    font-weight: 800;
+                    font-size: 11.5px;
+                    cursor: pointer;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    box-shadow: ${isCurrent ? '0 0 0 2px #bfdbfe' : 'none'};
+                    transform: ${isCurrent ? 'scale(1.06)' : 'none'};
+                ">
+                    ${idx + 1}
+                </button>
+            `;
+
+            // Desktop Button (Sidebar Grid)
+            desktopHtml += `
+                <button id="cbt-pal-btn-d-${idx}" onclick="CBTPlayer.jumpTo(${idx})" style="
                     height: 32px;
                     border-radius: 6px;
                     border: ${isCurrent ? '2px solid #2563eb' : `1px solid ${borderColor}`};
                     background: ${bgColor};
                     color: ${textColor};
                     font-weight: 800;
-                    font-size: 11px;
+                    font-size: 11.5px;
                     cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     outline: ${isCurrent ? '2px solid #93c5fd' : 'none'};
+                    transition: all 0.15s ease;
                 ">
                     ${idx + 1}
                 </button>
             `;
         });
 
-        grid.innerHTML = html;
-        document.getElementById('pal-c-ans').textContent = answeredCount;
-        document.getElementById('pal-c-rev').textContent = reviewCount;
-        document.getElementById('pal-c-un').textContent = unattemptedCount;
-        document.getElementById('pal-c-both').textContent = bothCount;
+        if (bar) bar.innerHTML = mobileHtml;
+        if (grid) grid.innerHTML = desktopHtml;
+
+        // Update Mobile Badges
+        const amEl = document.getElementById('pal-c-ans-m');
+        const rmEl = document.getElementById('pal-c-rev-m');
+        const umEl = document.getElementById('pal-c-un-m');
+        if (amEl) amEl.textContent = answeredCount;
+        if (rmEl) rmEl.textContent = reviewCount;
+        if (umEl) umEl.textContent = unattemptedCount;
+
+        // Update Desktop Badges
+        const adEl = document.getElementById('pal-c-ans-d');
+        const rdEl = document.getElementById('pal-c-rev-d');
+        const udEl = document.getElementById('pal-c-un-d');
+        if (adEl) adEl.textContent = answeredCount;
+        if (rdEl) rdEl.textContent = reviewCount;
+        if (udEl) udEl.textContent = unattemptedCount;
+
+        // Auto-scroll active question chip into center view on mobile
+        setTimeout(() => {
+            const activeBtn = document.getElementById(`cbt-pal-btn-m-${this.currentQIdx}`);
+            if (activeBtn) {
+                activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+        }, 50);
     },
 
     startTimer() {
