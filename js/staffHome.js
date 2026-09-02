@@ -161,9 +161,9 @@ async function renderStaffStudentsList() {
 
     container.innerHTML = filtered.map(s => {
         const initials = getInitials(s.name);
-        const studentRemarks = allRemarks.filter(r => r.student_id === s.id || r.studentId === s.id);
-        const remarkBadge = studentRemarks.length > 0
-            ? `<button class="badge badge-purple" style="border:none; cursor:pointer; font-size:11.5px; padding:4px 8px;" onclick="openViewRemarksModal('${s.id}', '${s.name.replace(/'/g, "\\'")}')" title="View ${studentRemarks.length} remark(s)">📋 ${studentRemarks.length} Note(s)</button>`
+        const studentPendingRemarks = allRemarks.filter(r => (r.student_id === s.id || r.studentId === s.id) && (r.status === 'inReview' || !r.status));
+        const remarkBadge = studentPendingRemarks.length > 0
+            ? `<button class="badge badge-warning" style="border:none; cursor:pointer; font-size:11.5px; padding:4px 8px; display:inline-flex; align-items:center; gap:4px;" onclick="openViewRemarksModal('${s.id}', '${s.name.replace(/'/g, "\\'")}')" title="${studentPendingRemarks.length} open note(s) in review">🟡 ${studentPendingRemarks.length} In Review</button>`
             : '';
 
         return `
@@ -242,6 +242,7 @@ async function submitTeacherRemark() {
         staff_name: currentStaffUser ? currentStaffUser.name : 'Faculty Member',
         category: category,
         remark: text,
+        status: 'inReview',
         created_at: new Date().toISOString()
     };
 
@@ -254,7 +255,7 @@ async function submitTeacherRemark() {
     }
 
     closeModal('staffAddRemarkModal');
-    showToast(`Remark saved for ${studentName}! Admins can review it in Student Profile.`, 'success');
+    showToast(`Remark submitted (Status: In Review). Administrators can review and resolve it.`, 'success');
     renderStaffStudentsList();
 }
 
@@ -263,7 +264,7 @@ async function openViewRemarksModal(studentId, studentName) {
     currentRemarkStudent = { id: studentId, name: studentName };
     const titleEl = document.getElementById('staffViewRemarksTitle');
     const bodyEl = document.getElementById('staffViewRemarksBody');
-    if (titleEl) titleEl.textContent = `📋 Remarks History for ${studentName}`;
+    if (titleEl) titleEl.textContent = `📋 Pending Remarks for ${studentName}`;
 
     if (bodyEl) {
         bodyEl.innerHTML = `<div style="text-align:center; padding:20px; color:var(--text-muted);">Loading remarks...</div>`;
@@ -281,21 +282,27 @@ async function openViewRemarksModal(studentId, studentName) {
 
     if (!bodyEl) return;
 
-    if (!remarks || remarks.length === 0) {
-        bodyEl.innerHTML = `<div style="padding:24px; text-align:center; color:var(--text-muted); background:#f8fafc; border-radius:8px; border:1px dashed var(--border);">No teacher remarks recorded for ${studentName} yet.</div>`;
+    // Filter to only active/inReview remarks for staff view
+    const pendingRemarks = (remarks || []).filter(r => (r.status || 'inReview') === 'inReview');
+
+    if (pendingRemarks.length === 0) {
+        bodyEl.innerHTML = `<div style="padding:24px; text-align:center; color:var(--text-muted); background:#f8fafc; border-radius:8px; border:1px dashed var(--border);">No active remarks in review for ${studentName}. All observations have been reviewed and resolved by administration.</div>`;
         return;
     }
 
     bodyEl.innerHTML = `
         <div style="display:flex; flex-direction:column; gap:10px;">
-            ${remarks.map(r => `
+            ${pendingRemarks.map(r => `
                 <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px 16px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                        <span class="badge badge-purple" style="font-size:11px;">${r.category || 'General Observation'}</span>
+                        <div style="display:flex; align-items:center; gap:6px;">
+                            <span class="badge badge-purple" style="font-size:11px;">${r.category || 'General Observation'}</span>
+                            <span class="badge badge-warning" style="font-size:11px;">🟡 In Review</span>
+                        </div>
                         <span style="font-size:11.5px; color:var(--text-muted);">${r.created_at ? new Date(r.created_at).toLocaleDateString() : 'Recent'}</span>
                     </div>
                     <div style="font-size:13.5px; color:var(--text); line-height:1.5;">${r.remark}</div>
-                    <div style="font-size:11px; color:var(--text-muted); margin-top:6px; font-style:italic;">— Raised by ${r.staff_name || 'Faculty Member'}</div>
+                    <div style="font-size:11px; color:var(--text-muted); margin-top:6px; font-style:italic;">— Raised by ${r.staff_name || 'Faculty Member'} (Awaiting Admin Resolution)</div>
                 </div>
             `).join('')}
         </div>

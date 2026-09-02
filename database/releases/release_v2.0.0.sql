@@ -205,6 +205,9 @@ CREATE TABLE IF NOT EXISTS student_remarks (
     staff_name VARCHAR(255) NOT NULL,
     category VARCHAR(100) DEFAULT 'General Note',
     remark TEXT NOT NULL,
+    status VARCHAR(50) DEFAULT 'inReview',
+    resolved_at TIMESTAMPTZ,
+    resolution_notes TEXT,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
@@ -229,6 +232,9 @@ CREATE INDEX IF NOT EXISTS idx_exam_results_student ON exam_results(student_id);
 CREATE INDEX IF NOT EXISTS idx_courses_cls ON courses(cls);
 CREATE INDEX IF NOT EXISTS idx_test_series_cls ON test_series(cls);
 CREATE INDEX IF NOT EXISTS idx_student_stats_student ON student_stats(student_id);
+CREATE INDEX IF NOT EXISTS idx_student_remarks_student ON student_remarks(student_id);
+CREATE INDEX IF NOT EXISTS idx_student_remarks_staff ON student_remarks(staff_id);
+CREATE INDEX IF NOT EXISTS idx_student_remarks_status ON student_remarks(status);
 
 -- =========================================================
 -- ROW LEVEL SECURITY POLICIES

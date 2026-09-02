@@ -858,24 +858,31 @@ const DBService = {
     // ---------------------------------------------------------
     // 15. TEACHER REMARKS & OBSERVATIONS
     // ---------------------------------------------------------
-    async fetchStudentRemarks(studentId = null) {
+    async fetchStudentRemarks(studentId = null, status = null) {
         if (!isSupabaseConnected()) {
-            const allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
-            return studentId ? allRemarks.filter(r => r.student_id === studentId || r.studentId === studentId) : allRemarks;
+            let allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+            if (studentId) allRemarks = allRemarks.filter(r => r.student_id === studentId || r.studentId === studentId);
+            if (status) allRemarks = allRemarks.filter(r => (r.status || 'inReview') === status);
+            return allRemarks;
         }
         try {
             let query = supabaseClient.from('student_remarks').select('*').order('created_at', { ascending: false });
             if (studentId) query = query.eq('student_id', studentId);
+            if (status) query = query.eq('status', status);
             const { data, error } = await query;
             if (error || !data) {
-                const allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
-                return studentId ? allRemarks.filter(r => r.student_id === studentId || r.studentId === studentId) : allRemarks;
+                let allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+                if (studentId) allRemarks = allRemarks.filter(r => r.student_id === studentId || r.studentId === studentId);
+                if (status) allRemarks = allRemarks.filter(r => (r.status || 'inReview') === status);
+                return allRemarks;
             }
             return data;
         } catch (e) {
             console.error('[DBService] Fetch student remarks error:', e);
-            const allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
-            return studentId ? allRemarks.filter(r => r.student_id === studentId || r.studentId === studentId) : allRemarks;
+            let allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+            if (studentId) allRemarks = allRemarks.filter(r => r.student_id === studentId || r.studentId === studentId);
+            if (status) allRemarks = allRemarks.filter(r => (r.status || 'inReview') === status);
+            return allRemarks;
         }
     },
 
@@ -887,6 +894,9 @@ const DBService = {
             staff_name: remarkObj.staff_name || remarkObj.staffName || 'Faculty',
             category: remarkObj.category || 'General Note',
             remark: remarkObj.remark,
+            status: remarkObj.status || 'inReview',
+            resolved_at: remarkObj.resolved_at || null,
+            resolution_notes: remarkObj.resolution_notes || null,
             created_at: remarkObj.created_at || new Date().toISOString()
         };
 
@@ -907,6 +917,36 @@ const DBService = {
         } catch (e) {
             console.error('[DBService] Insert remark error:', e);
             return item;
+        }
+    },
+
+    async resolveStudentRemark(remarkId, resolutionNotes = '') {
+        const resolvedAt = new Date().toISOString();
+
+        // Update local cache
+        const allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+        const idx = allRemarks.findIndex(r => r.id === remarkId);
+        if (idx >= 0) {
+            allRemarks[idx].status = 'resolved';
+            allRemarks[idx].resolved_at = resolvedAt;
+            if (resolutionNotes) allRemarks[idx].resolution_notes = resolutionNotes;
+            localStorage.setItem('ec_student_remarks', JSON.stringify(allRemarks));
+        }
+
+        if (!isSupabaseConnected()) return true;
+
+        try {
+            const { error } = await supabaseClient
+                .from('student_remarks')
+                .update({ status: 'resolved', resolved_at: resolvedAt, resolution_notes: resolutionNotes })
+                .eq('id', remarkId);
+            if (error) {
+                console.warn('[DBService] Supabase resolve remark warning:', error);
+            }
+            return true;
+        } catch (e) {
+            console.error('[DBService] Resolve remark error:', e);
+            return true;
         }
     },
 

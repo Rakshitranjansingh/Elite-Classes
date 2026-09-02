@@ -316,19 +316,53 @@ async function loadStudentRemarksInAdminModal(studentId) {
     }
 
     container.innerHTML = `
-        <div style="display:flex; flex-direction:column; gap:8px;">
-            ${remarks.map(r => `
-                <div style="background:#f8fafc; border:1px solid var(--border); border-radius:8px; padding:10px 14px;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                        <span class="badge badge-purple" style="font-size:11px;">${r.category || 'General Observation'}</span>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+            ${remarks.map(r => {
+                const isPending = (r.status || 'inReview') === 'inReview';
+                return `
+                <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px 14px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-wrap:wrap; gap:6px;">
+                        <div style="display:flex; align-items:center; gap:6px;">
+                            <span class="badge badge-purple" style="font-size:11px;">${r.category || 'General Observation'}</span>
+                            ${isPending 
+                                ? `<span class="badge badge-warning" style="font-size:11px;">🟡 In Review</span>`
+                                : `<span class="badge badge-success" style="font-size:11px;">🟢 Resolved</span>`}
+                        </div>
                         <span style="font-size:11px; color:var(--text-muted);">${r.created_at ? new Date(r.created_at).toLocaleDateString() : 'Recent'}</span>
                     </div>
-                    <div style="font-size:13px; color:var(--text); line-height:1.4;">${r.remark}</div>
-                    <div style="font-size:11px; color:var(--text-muted); margin-top:4px; font-style:italic;">— Raised by ${r.staff_name || 'Faculty Member'}</div>
+                    <div style="font-size:13.5px; color:var(--text); line-height:1.45;">${r.remark}</div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; flex-wrap:wrap; gap:8px;">
+                        <div style="font-size:11px; color:var(--text-muted); font-style:italic;">
+                            — Raised by ${r.staff_name || 'Faculty Member'}
+                            ${r.resolved_at ? ` • <span style="color:var(--success); font-weight:600;">Resolved on ${new Date(r.resolved_at).toLocaleDateString()}</span>` : ''}
+                        </div>
+                        ${isPending ? `
+                            <button class="btn btn-sm btn-success" onclick="resolveStudentRemarkAction('${r.id}', '${studentId}')" style="font-size:11px; padding:3px 10px; display:inline-flex; align-items:center; gap:4px;">
+                                ✓ Mark Resolved
+                            </button>
+                        ` : ''}
+                    </div>
                 </div>
-            `).join('')}
+            `;}).join('')}
         </div>
     `;
+}
+
+async function resolveStudentRemarkAction(remarkId, studentId) {
+    if (typeof DBService !== 'undefined' && typeof DBService.resolveStudentRemark === 'function') {
+        await DBService.resolveStudentRemark(remarkId);
+    } else {
+        const allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+        const idx = allRemarks.findIndex(r => r.id === remarkId);
+        if (idx >= 0) {
+            allRemarks[idx].status = 'resolved';
+            allRemarks[idx].resolved_at = new Date().toISOString();
+            localStorage.setItem('ec_student_remarks', JSON.stringify(allRemarks));
+        }
+    }
+
+    showToast('Teacher remark marked as Resolved & cleared from Faculty Portal!', 'success');
+    loadStudentRemarksInAdminModal(studentId);
 }
 
 // Student Form Actions

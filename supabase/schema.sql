@@ -204,6 +204,9 @@ CREATE TABLE IF NOT EXISTS student_remarks (
     staff_name VARCHAR(255) NOT NULL,
     category VARCHAR(100) DEFAULT 'General Note',
     remark TEXT NOT NULL,
+    status VARCHAR(50) DEFAULT 'inReview',
+    resolved_at TIMESTAMPTZ,
+    resolution_notes TEXT,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
