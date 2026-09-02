@@ -10,6 +10,30 @@ function getDiscountedFee(student) {
     return Math.max(0, Math.round(student.fee * (1 - pct / 100)));
 }
 
+// Helper: Get comprehensive fee dues and status
+function getStudentFeeStatus(student) {
+    if (!student) return { status: 'pending', paidAmount: 0, pendingAmount: 0, effectiveFee: 0, badge: '<span class="badge badge-danger">Pending</span>' };
+    const effectiveFee = getDiscountedFee(student);
+    const curPayments = (payments || []).filter(p => p.studentId === student.id && isCurrentMonth(p.month));
+    const paidAmount = curPayments.reduce((a, p) => a + (p.amount || 0), 0);
+    const pendingAmount = Math.max(0, effectiveFee - paidAmount);
+
+    let status = 'pending';
+    let badge = '<span class="badge badge-danger">Pending Dues</span>';
+
+    if (paidAmount >= effectiveFee) {
+        status = 'paid';
+        badge = '<span class="badge badge-success">Paid</span>';
+    } else if (paidAmount > 0) {
+        status = 'partial';
+        badge = `<span class="badge badge-warning">Partial (₹${pendingAmount.toLocaleString()} Due)</span>`;
+    } else {
+        badge = `<span class="badge badge-danger">₹${effectiveFee.toLocaleString()} Due</span>`;
+    }
+
+    return { status, paidAmount, pendingAmount, effectiveFee, badge };
+}
+
 // Prompt / Set Scholarship for Student
 function setStudentScholarship(studentId) {
     const s = students.find(x => x.id === studentId);
@@ -74,11 +98,9 @@ function renderStudentsTable() {
 
     tbody.innerHTML = filtered.map(s => {
         const initials = getInitials(s.name);
-        const effectiveFee = getDiscountedFee(s);
-        const curPayments = payments.filter(p => p.studentId === s.id && isCurrentMonth(p.month));
-        const paidAmount = curPayments.reduce((a, p) => a + p.amount, 0);
-        const status = paidAmount >= effectiveFee ? 'paid' : paidAmount > 0 ? 'partial' : 'pending';
-        const statusBadge = status === 'paid' ? '<span class="badge badge-success">Paid</span>' : status === 'partial' ? '<span class="badge badge-warning">Partial</span>' : '<span class="badge badge-danger">Pending Dues</span>';
+        const feeInfo = getStudentFeeStatus(s);
+        const effectiveFee = feeInfo.effectiveFee;
+        const statusBadge = feeInfo.badge;
 
         return `<tr class="clickable-row" onclick="openStudentDetailModal('${s.id}')">
             <td>

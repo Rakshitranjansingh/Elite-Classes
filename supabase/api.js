@@ -111,8 +111,8 @@ const DBService = {
         });
 
         if (matchedAdmin) {
-            const validAdminPin = matchedAdmin.pin || globalAdminKey || '987654';
-            if (enteredPin === validAdminPin || enteredPin === globalAdminKey || enteredPin === '987654') {
+            const expectedAdminPin = String(matchedAdmin.pin || globalAdminKey || '987654').trim();
+            if (enteredPin === expectedAdminPin) {
                 return {
                     success: true,
                     role: 'admin',
@@ -173,8 +173,8 @@ const DBService = {
         });
 
         if (matchedStudent) {
-            const validStudentPin = matchedStudent.pin || globalStudentKey || '123456';
-            if (enteredPin === validStudentPin || enteredPin === globalStudentKey || enteredPin === '123456') {
+            const expectedStudentPin = String(matchedStudent.pin || globalStudentKey || '123456').trim();
+            if (enteredPin === expectedStudentPin) {
                 return {
                     success: true,
                     role: 'student',
@@ -216,8 +216,8 @@ const DBService = {
         });
 
         if (matchedStaff) {
-            const validPin = matchedStaff.pin || '123456';
-            if (enteredPin === validPin || enteredPin === '123456' || enteredPin === globalStudentKey) {
+            const expectedStaffPin = String(matchedStaff.pin || '123456').trim();
+            if (enteredPin === expectedStaffPin) {
                 const isTeacher = !!matchedStaff.is_teacher;
                 return {
                     success: true,

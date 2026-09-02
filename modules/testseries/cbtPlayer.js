@@ -464,6 +464,9 @@ const CBTPlayer = {
         let wrongCount = 0;
         let unattemptedCount = 0;
 
+        const marksPerCorrect = this.activeTest.marks_per_question || 4;
+        const negMarkPerWrong = (this.activeTest.negative_mark !== undefined) ? this.activeTest.negative_mark : 1;
+
         this.activeTest.questions.forEach((q, idx) => {
             const userChoice = this.userAnswers[idx];
             if (!userChoice) {
@@ -475,9 +478,10 @@ const CBTPlayer = {
             }
         });
 
-        const score = Math.max(0, (correctCount * 4) - (wrongCount * 1));
-        const totalMarks = this.activeTest.questions.length * 4;
-        const percentage = Math.round((score / totalMarks) * 100);
+        const rawScore = (correctCount * marksPerCorrect) - (wrongCount * negMarkPerWrong);
+        const score = rawScore;
+        const totalMarks = this.activeTest.total_marks || (this.activeTest.questions.length * marksPerCorrect);
+        const percentage = totalMarks > 0 ? Math.max(0, Math.round((score / totalMarks) * 100)) : 0;
         const accuracy = (correctCount + wrongCount) > 0 ? Math.round((correctCount / (correctCount + wrongCount)) * 100) : 0;
         const timeTakenSecs = this.totalSecondsAllocated - this.secondsLeft;
 

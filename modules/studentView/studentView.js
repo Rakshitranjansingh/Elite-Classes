@@ -343,29 +343,30 @@ function renderStudentAttendance() {
     let presentCount = 0;
     let absentCount = 0;
     let lateCount = 0;
-    let totalDays = 0;
+    let totalSessions = 0;
 
     Object.keys(attendanceRecords).forEach(dateStr => {
         const dayRecs = attendanceRecords[dateStr] || {};
         const status = dayRecs[currentStudent.id];
         if (status) {
-            totalDays++;
+            totalSessions++;
             if (status === 'present') presentCount++;
-            if (status === 'absent') absentCount++;
-            if (status === 'late') lateCount++;
+            else if (status === 'absent') absentCount++;
+            else if (status === 'late') lateCount++;
         }
     });
 
     // Defaults for demonstration if attendance sheet is fresh
-    if (totalDays === 0) {
+    if (totalSessions === 0) {
         container.innerHTML = `<div style="padding:24px; text-align:center; color:var(--text-muted);">No attendance records entered yet for ${currentStudent.name}.</div>`;
         return;
     }
 
-    const pct = Math.round((presentCount / totalDays) * 100);
+    const effectivePresent = presentCount + (lateCount * 0.5);
+    const pct = Math.round((effectivePresent / totalSessions) * 100);
 
     container.innerHTML = `
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:14px; margin-bottom:20px;">
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:14px; margin-bottom:20px;">
             <div class="stat-pallet green" style="padding:14px;">
                 <div class="stat-content">
                     <div class="stat-title">Attendance Rate</div>
@@ -374,14 +375,20 @@ function renderStudentAttendance() {
             </div>
             <div class="stat-pallet blue" style="padding:14px;">
                 <div class="stat-content">
-                    <div class="stat-title">Days Present</div>
-                    <div class="stat-value">${presentCount} Days</div>
+                    <div class="stat-title">Sessions Present</div>
+                    <div class="stat-value">${presentCount}</div>
+                </div>
+            </div>
+            <div class="stat-pallet purple" style="padding:14px;">
+                <div class="stat-content">
+                    <div class="stat-title">Late Sessions</div>
+                    <div class="stat-value">${lateCount}</div>
                 </div>
             </div>
             <div class="stat-pallet orange" style="padding:14px;">
                 <div class="stat-content">
-                    <div class="stat-title">Days Absent</div>
-                    <div class="stat-value">${absentCount} Days</div>
+                    <div class="stat-title">Sessions Absent</div>
+                    <div class="stat-value">${absentCount}</div>
                 </div>
             </div>
         </div>
@@ -392,7 +399,7 @@ function renderStudentAttendance() {
                 <div class="progress-bar-fill" style="width:${pct}%; background:linear-gradient(90deg, #10b981, #059669);"></div>
             </div>
             <div style="font-size:12px; color:var(--text-muted); margin-top:6px;">
-                Maintaining over 85% attendance is required for term exams.
+                Maintaining over 85% attendance across all subject sessions is required for examination clearance.
             </div>
         </div>
     `;

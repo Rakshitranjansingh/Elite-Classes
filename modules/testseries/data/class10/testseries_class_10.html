@@ -289,66 +289,88 @@
             const tbody = document.getElementById('class10-overall-leaderboard-tbody');
             if (!tbody) return;
 
-            // Overall Class 10 Toppers across All Subjects
-            const toppers = [
-                { rank: '🥇 1', name: 'Rohan Verma', score: '392 / 400 (98.0%)', accuracy: '98.9%', subjects: 'Science', testsCount: '2 Tests' },
-                { rank: '🥈 2', name: 'Ananya Sharma', score: '384 / 400 (96.0%)', accuracy: '97.4%', subjects: 'Science', testsCount: '2 Tests' },
-                { rank: '🥉 3', name: 'Priya Singh', score: '376 / 400 (94.0%)', accuracy: '95.8%', subjects: 'Science', testsCount: '2 Tests' }
+            // Overall Class 10 Peer Benchmarks across All Subjects
+            const peerStudents = [
+                { id: 'peer_1', name: 'Rohan Verma', totalScore: 392, maxPossible: 400, correct: 98, totalQ: 99, subjects: 'Science', testsCount: 1 },
+                { id: 'peer_2', name: 'Ananya Sharma', totalScore: 384, maxPossible: 400, correct: 96, totalQ: 98, subjects: 'Science', testsCount: 1 },
+                { id: 'peer_3', name: 'Priya Singh', totalScore: 376, maxPossible: 400, correct: 94, totalQ: 98, subjects: 'Science', testsCount: 1 },
+                { id: 'peer_4', name: 'Kavita Iyer', totalScore: 340, maxPossible: 400, correct: 86, totalQ: 94, subjects: 'Science', testsCount: 1 }
             ];
 
             // Calculate current student's overall scores
             const attemptsList = Object.values(studentCbtData.attempts || {});
-            let userRankText = 'Rank 4';
-            let userScoreText = '0 / 0 (0%)';
-            let userAccText = '--';
-            let userTestsText = '0 Tests';
+            let userTotalScore = 0;
+            let userMaxPossible = 0;
+            let userTotalCorrect = 0;
+            let userTotalAttemptedQ = 0;
 
-            if (attemptsList.length > 0) {
-                let totalScore = 0;
-                let maxPossible = 0;
-                let totalCorrect = 0;
-                let totalAttemptedQ = 0;
+            attemptsList.forEach(att => {
+                userTotalScore += (att.score || 0);
+                userMaxPossible += (att.total_marks || 0);
+                userTotalCorrect += (att.correct || 0);
+                userTotalAttemptedQ += ((att.correct || 0) + (att.wrong || 0));
+            });
 
-                attemptsList.forEach(att => {
-                    totalScore += (att.score || 0);
-                    maxPossible += (att.total_marks || 0);
-                    totalCorrect += (att.correct || 0);
-                    totalAttemptedQ += ((att.correct || 0) + (att.wrong || 0));
-                });
+            const userEntry = {
+                id: activeStudent.id,
+                name: activeStudent.name,
+                isCurrentUser: true,
+                totalScore: userTotalScore,
+                maxPossible: userMaxPossible > 0 ? userMaxPossible : 400,
+                correct: userTotalCorrect,
+                totalQ: userTotalAttemptedQ,
+                subjects: 'Science',
+                testsCount: attemptsList.length,
+                hasAttempts: attemptsList.length > 0
+            };
 
-                const pct = maxPossible > 0 ? Math.round((totalScore / maxPossible) * 100) : 0;
-                const acc = totalAttemptedQ > 0 ? Math.round((totalCorrect / totalAttemptedQ) * 100) : 0;
+            const combined = [...peerStudents, userEntry];
+            combined.forEach(item => {
+                item.pct = item.maxPossible > 0 ? (item.totalScore / item.maxPossible) * 100 : 0;
+                item.accuracy = item.totalQ > 0 ? Math.round((item.correct / item.totalQ) * 100) : 0;
+            });
 
-                userScoreText = `${totalScore} / ${maxPossible} (${pct}%)`;
-                userAccText = `${acc}%`;
-                userTestsText = `${attemptsList.length} ${attemptsList.length === 1 ? 'Test' : 'Tests'}`;
-            }
+            combined.sort((a, b) => b.totalScore - a.totalScore || b.accuracy - a.accuracy);
+
+            combined.forEach((item, idx) => {
+                item.rankNum = idx + 1;
+                if (item.rankNum === 1) item.rankBadge = '🥇 1';
+                else if (item.rankNum === 2) item.rankBadge = '🥈 2';
+                else if (item.rankNum === 3) item.rankBadge = '🥉 3';
+                else item.rankBadge = `Rank ${item.rankNum}`;
+            });
+
+            const top3 = combined.slice(0, 3);
+            const userRankObj = combined.find(c => c.isCurrentUser);
 
             let html = '';
-            toppers.forEach(t => {
+            top3.forEach(t => {
+                const isUser = t.isCurrentUser;
                 html += `
-                    <tr>
-                        <td style="text-align:center; font-weight:800;">${t.rank}</td>
+                    <tr class="${isUser ? 'current-user-row' : ''}">
+                        <td style="text-align:center; font-weight:800; ${isUser ? 'color:var(--primary);' : ''}">${t.rankBadge}${isUser ? ' (You)' : ''}</td>
                         <td><b>${t.name}</b></td>
-                        <td><span style="color:var(--primary); font-weight:700;">${t.score}</span></td>
-                        <td><span class="badge badge-success">${t.accuracy}</span></td>
+                        <td><span style="color:var(--primary); font-weight:700;">${t.totalScore} / ${t.maxPossible} (${t.pct.toFixed(1)}%)</span></td>
+                        <td><span class="badge ${t.testsCount > 0 ? 'badge-success' : 'badge-warning'}">${t.testsCount > 0 ? t.accuracy + '%' : '--'}</span></td>
                         <td><span class="meta-pill">${t.subjects}</span></td>
-                        <td><span class="meta-pill">${t.testsCount}</span></td>
+                        <td><span class="meta-pill">${t.testsCount} ${t.testsCount === 1 ? 'Test' : 'Tests'}</span></td>
                     </tr>
                 `;
             });
 
-            // Current Student Row
-            html += `
-                <tr class="current-user-row">
-                    <td style="text-align:center; font-weight:800; color:var(--primary);">${userRankText} (You)</td>
-                    <td><b>${activeStudent.name}</b></td>
-                    <td><span style="color:var(--primary); font-weight:700;">${userScoreText}</span></td>
-                    <td><span class="badge ${attemptsList.length > 0 ? 'badge-success' : 'badge-warning'}">${userAccText}</span></td>
-                    <td><span class="meta-pill">Science</span></td>
-                    <td><span class="meta-pill">${userTestsText}</span></td>
-                </tr>
-            `;
+            // If user is outside top 3, render their row
+            if (userRankObj && userRankObj.rankNum > 3) {
+                html += `
+                    <tr class="current-user-row">
+                        <td style="text-align:center; font-weight:800; color:var(--primary);">${userRankObj.rankBadge} (You)</td>
+                        <td><b>${userRankObj.name}</b></td>
+                        <td><span style="color:var(--primary); font-weight:700;">${userRankObj.totalScore} / ${userRankObj.maxPossible} (${userRankObj.pct.toFixed(1)}%)</span></td>
+                        <td><span class="badge ${userRankObj.hasAttempts ? 'badge-success' : 'badge-warning'}">${userRankObj.hasAttempts ? userRankObj.accuracy + '%' : '--'}</span></td>
+                        <td><span class="meta-pill">Science</span></td>
+                        <td><span class="meta-pill">${userRankObj.testsCount} ${userRankObj.testsCount === 1 ? 'Test' : 'Tests'}</span></td>
+                    </tr>
+                `;
+            }
 
             tbody.innerHTML = html;
         }

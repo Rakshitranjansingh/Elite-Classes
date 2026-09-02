@@ -83,19 +83,20 @@ async function renderAttendanceView() {
     let presentCount = 0;
     let absentCount = 0;
     let lateCount = 0;
+    let unmarkedCount = 0;
 
     filtered.forEach(s => {
-        const st = dayRecords[s.id] || 'present';
+        const st = dayRecords[s.id];
         if (st === 'present') presentCount++;
         else if (st === 'absent') absentCount++;
         else if (st === 'late') lateCount++;
-        else presentCount++;
+        else unmarkedCount++;
     });
 
     container.innerHTML = `
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
             <div style="font-size:14px; font-weight:700; color:var(--text);">
-                Roster: <span class="badge badge-primary">${activeAdminAttendanceClass}</span> <span class="badge badge-purple">${activeAdminAttendanceSubject}</span> • <b>${filtered.length} Students (${presentCount}P, ${absentCount}A, ${lateCount}L)</b>
+                Roster: <span class="badge badge-primary">${activeAdminAttendanceClass}</span> <span class="badge badge-purple">${activeAdminAttendanceSubject}</span> • <b>${filtered.length} Students (${presentCount}P, ${absentCount}A, ${lateCount}L${unmarkedCount > 0 ? `, ${unmarkedCount} Unmarked` : ''})</b>
             </div>
             <button class="btn btn-sm btn-success" onclick="markAllAdminStudentsPresent('${selectedDate}', '${activeAdminAttendanceClass}', '${activeAdminAttendanceSubject}')">
                 ✓ Mark All Present
@@ -113,8 +114,14 @@ async function renderAttendanceView() {
                 </thead>
                 <tbody>
                     ${filtered.map(s => {
-                        const status = dayRecords[s.id] || 'present';
-                        const badge = status === 'present' ? '<span class="badge badge-success">Present</span>' : status === 'absent' ? '<span class="badge badge-danger">Absent</span>' : '<span class="badge badge-warning">Late</span>';
+                        const status = dayRecords[s.id] || 'unmarked';
+                        const badge = status === 'present' 
+                            ? '<span class="badge badge-success">Present</span>' 
+                            : status === 'absent' 
+                            ? '<span class="badge badge-danger">Absent</span>' 
+                            : status === 'late' 
+                            ? '<span class="badge badge-warning">Late</span>' 
+                            : '<span class="badge badge-outline" style="color:var(--text-muted);">Unmarked</span>';
                         return `
                             <tr>
                                 <td>

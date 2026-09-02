@@ -129,11 +129,15 @@ function getAdminStudentExamMarks(student, examName, subject) {
         (r.exam_name === examName || r.exam === examName) &&
         (r.subject.toLowerCase() === subject.toLowerCase())
     );
-    if (found) return { marks: parseFloat(found.marks_obtained || found.marks || 0), max: parseFloat(found.max_marks || found.max || 100) };
+    if (found) {
+        return { 
+            marks: parseFloat(found.marks_obtained || found.marks || 0), 
+            max: parseFloat(found.max_marks || found.max || 100),
+            isUnmarked: false 
+        };
+    }
 
-    const seed = (student.id.split('').reduce((a, c) => a + c.charCodeAt(0), 0) * 17 + subject.length * 23) % 36;
-    const marks = Math.min(100, 64 + seed);
-    return { marks: marks, max: 100 };
+    return { marks: null, max: 100, isUnmarked: true };
 }
 
 async function renderAdminExamScoreboard() {
@@ -165,22 +169,42 @@ async function renderAdminExamScoreboard() {
     const studentScorecards = classStudents.map(s => {
         let totalObtained = 0;
         let totalMax = 0;
+        let evaluatedCount = 0;
         const subjectScores = {};
 
+        const enrolledSubs = (s.subjects || '').toLowerCase().split(',').map(x => x.trim()).filter(Boolean);
+
         examSubjects.forEach(sub => {
+            const isEnrolled = enrolledSubs.length === 0 || enrolledSubs.includes('all') || enrolledSubs.includes(sub.toLowerCase()) || enrolledSubs.some(es => sub.toLowerCase().includes(es) || es.includes(sub.toLowerCase()));
+            
+            if (!isEnrolled) {
+                subjectScores[sub] = '<span style="color:var(--text-light); font-size:11.5px;">N/A</span>';
+                return;
+            }
+
             const scoreObj = getAdminStudentExamMarks(s, selectedAdminExam, sub);
-            subjectScores[sub] = scoreObj.marks;
-            totalObtained += scoreObj.marks;
-            totalMax += scoreObj.max;
+            if (!scoreObj.isUnmarked && scoreObj.marks !== null) {
+                subjectScores[sub] = scoreObj.marks;
+                totalObtained += scoreObj.marks;
+                totalMax += scoreObj.max;
+                evaluatedCount++;
+            } else {
+                subjectScores[sub] = '<span style="color:var(--text-muted); font-size:11.5px; font-weight:600;">—</span>';
+                totalMax += scoreObj.max;
+            }
         });
 
-        const pct = totalMax > 0 ? Math.round((totalObtained / totalMax) * 1000) / 10 : 0;
+        const hasEvaluated = evaluatedCount > 0;
+        const pct = (hasEvaluated && totalMax > 0) ? Math.round((totalObtained / totalMax) * 1000) / 10 : null;
         
-        let gradeBadge = '<span class="badge badge-success">A+ Distinction</span>';
-        if (pct < 60) gradeBadge = '<span class="badge badge-danger">C Passing</span>';
-        else if (pct < 70) gradeBadge = '<span class="badge badge-warning">B Average</span>';
-        else if (pct < 80) gradeBadge = '<span class="badge badge-purple">B+ Good</span>';
-        else if (pct < 90) gradeBadge = '<span class="badge badge-primary">A First Class</span>';
+        let gradeBadge = '<span class="badge badge-outline" style="color:var(--text-muted);">Pending</span>';
+        if (pct !== null) {
+            if (pct < 60) gradeBadge = '<span class="badge badge-danger">C Passing</span>';
+            else if (pct < 70) gradeBadge = '<span class="badge badge-warning">B Average</span>';
+            else if (pct < 80) gradeBadge = '<span class="badge badge-purple">B+ Good</span>';
+            else if (pct < 90) gradeBadge = '<span class="badge badge-primary">A First Class</span>';
+            else gradeBadge = '<span class="badge badge-success">A+ Distinction</span>';
+        }
 
         return {
             student: s,
@@ -188,22 +212,35 @@ async function renderAdminExamScoreboard() {
             totalObtained,
             totalMax,
             pct,
+            hasEvaluated,
             gradeBadge
         };
     });
 
-    studentScorecards.sort((a, b) => b.pct - a.pct || b.totalObtained - a.totalObtained);
-
-    studentScorecards.forEach((sc, idx) => {
-        const rankNum = idx + 1;
-        if (rankNum === 1) sc.rankDisplay = '<span class="badge" style="background:#fef3c7; color:#b45309; border:1px solid #fde68a; font-weight:800;">🥇 Rank 1</span>';
-        else if (rankNum === 2) sc.rankDisplay = '<span class="badge" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1; font-weight:800;">🥈 Rank 2</span>';
-        else if (rankNum === 3) sc.rankDisplay = '<span class="badge" style="background:#ffedd5; color:#c2410c; border:1px solid #fed7aa; font-weight:800;">🥉 Rank 3</span>';
-        else sc.rankDisplay = `<span class="badge badge-outline" style="font-weight:700;">Rank ${rankNum}</span>`;
+    studentScorecards.sort((a, b) => {
+        if (a.hasEvaluated && !b.hasEvaluated) return -1;
+        if (!a.hasEvaluated && b.hasEvaluated) return 1;
+        return (b.pct || 0) - (a.pct || 0) || b.totalObtained - a.totalObtained;
     });
 
-    const classAvgPct = Math.round((studentScorecards.reduce((acc, c) => acc + c.pct, 0) / studentScorecards.length) * 10) / 10;
-    const topScorer = studentScorecards[0];
+    let activeRank = 0;
+    studentScorecards.forEach((sc, idx) => {
+        if (sc.hasEvaluated) {
+            activeRank++;
+            if (activeRank === 1) sc.rankDisplay = '<span class="badge" style="background:#fef3c7; color:#b45309; border:1px solid #fde68a; font-weight:800;">🥇 Rank 1</span>';
+            else if (activeRank === 2) sc.rankDisplay = '<span class="badge" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1; font-weight:800;">🥈 Rank 2</span>';
+            else if (activeRank === 3) sc.rankDisplay = '<span class="badge" style="background:#ffedd5; color:#c2410c; border:1px solid #fed7aa; font-weight:800;">🥉 Rank 3</span>';
+            else sc.rankDisplay = `<span class="badge badge-outline" style="font-weight:700;">Rank ${activeRank}</span>`;
+        } else {
+            sc.rankDisplay = '<span style="color:var(--text-muted); font-size:12px;">—</span>';
+        }
+    });
+
+    const evaluatedStudents = studentScorecards.filter(c => c.hasEvaluated && c.pct !== null);
+    const classAvgPct = evaluatedStudents.length > 0 
+        ? Math.round((evaluatedStudents.reduce((acc, c) => acc + c.pct, 0) / evaluatedStudents.length) * 10) / 10 
+        : 0;
+    const topScorer = evaluatedStudents[0];
 
     container.innerHTML = `
         <!-- SUMMARY KPI CARDS -->
