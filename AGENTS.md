@@ -99,6 +99,10 @@ The application follows a clean 4-tier client-serverless architecture:
 3. **Notification System**: Display feedback to users via `showToast('Message text', 'success'|'danger')`.
 4. **Session Security & Inactivity**: Preserve the 10-minute inactivity timer (`INACTIVITY_TIMEOUT_MS`) and authentication guards on protected portal pages (`checkAdminAuthGuard()`, `initStaffPortal()`, `initStudentHome()`).
 
+### D. Test Series & Assessment Content Standards
+1. **Scientific & Chemical Equations**: Always format chemical equations and formulas using proper Unicode subscripts (`₀₁₂₃₄₅₆₇₈₉`), superscripts (`⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻`), and reaction symbols (`→`, `⇌`, `↑` for gas, `↓` for precipitate). Never use raw plain numbers as chemical subscripts (e.g. use `H₂O`, `Fe₃O₄`, `Ca(OH)₂`, `Pb(NO₃)₂`, `SO₄²⁻`, not `H2O`, `Fe3O4`).
+2. **Mathematical Expressions**: Use standard typographic symbols (`×`, `÷`, `±`, `√`, `π`, `θ`, `x²`, `y³`, `≤`, `≥`, `≠`) to ensure crystal-clear student readability across all devices.
+
 ---
 
 ## 4. Agent Development Workflow & Quality Checklist
