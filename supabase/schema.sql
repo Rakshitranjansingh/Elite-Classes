@@ -195,6 +195,17 @@ CREATE TABLE IF NOT EXISTS student_stats (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- 16. TEACHER REMARKS & OBSERVATIONS TABLE
+CREATE TABLE IF NOT EXISTS student_remarks (
+    id VARCHAR(50) PRIMARY KEY,
+    student_id VARCHAR(50) REFERENCES students(id) ON DELETE CASCADE,
+    staff_id VARCHAR(50),
+    staff_name VARCHAR(255) NOT NULL,
+    category VARCHAR(100) DEFAULT 'General Note',
+    remark TEXT NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- =========================================================
 -- INDEXES FOR PERFORMANCE OPTIMIZATION & LOOKUP
 -- =========================================================
@@ -216,6 +227,8 @@ CREATE INDEX IF NOT EXISTS idx_exam_results_student ON exam_results(student_id);
 CREATE INDEX IF NOT EXISTS idx_courses_cls ON courses(cls);
 CREATE INDEX IF NOT EXISTS idx_test_series_cls ON test_series(cls);
 CREATE INDEX IF NOT EXISTS idx_student_stats_student ON student_stats(student_id);
+CREATE INDEX IF NOT EXISTS idx_student_remarks_student ON student_remarks(student_id);
+CREATE INDEX IF NOT EXISTS idx_student_remarks_staff ON student_remarks(staff_id);
 
 -- =========================================================
 -- ENABLE RLS & CREATE POLICIES (SAFE FOR MULTIPLE RE-RUNS)
@@ -235,6 +248,7 @@ ALTER TABLE notices ENABLE ROW LEVEL SECURITY;
 ALTER TABLE courses ENABLE ROW LEVEL SECURITY;
 ALTER TABLE test_series ENABLE ROW LEVEL SECURITY;
 ALTER TABLE student_stats ENABLE ROW LEVEL SECURITY;
+ALTER TABLE student_remarks ENABLE ROW LEVEL SECURITY;
 
 -- Drop existing policies if re-running script to avoid duplicate policy error
 DROP POLICY IF EXISTS "Public Read/Write coaching_settings" ON coaching_settings;
@@ -252,6 +266,7 @@ DROP POLICY IF EXISTS "Public Read/Write notices" ON notices;
 DROP POLICY IF EXISTS "Public Read/Write courses" ON courses;
 DROP POLICY IF EXISTS "Public Read/Write test_series" ON test_series;
 DROP POLICY IF EXISTS "Public Read/Write student_stats" ON student_stats;
+DROP POLICY IF EXISTS "Public Read/Write student_remarks" ON student_remarks;
 
 -- Create Permissive Policies for Web Application Access
 CREATE POLICY "Public Read/Write coaching_settings" ON coaching_settings FOR ALL USING (true) WITH CHECK (true);
@@ -269,6 +284,7 @@ CREATE POLICY "Public Read/Write notices" ON notices FOR ALL USING (true) WITH C
 CREATE POLICY "Public Read/Write courses" ON courses FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write test_series" ON test_series FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write student_stats" ON student_stats FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Public Read/Write student_remarks" ON student_remarks FOR ALL USING (true) WITH CHECK (true);
 
 -- =========================================================
 -- INITIAL SEED DATA (SAFE FOR MULTIPLE RE-RUNS)

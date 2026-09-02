@@ -56,7 +56,7 @@ The application follows a clean 4-tier client-serverless architecture:
 
 | Module / Feature | 👑 Admin (`admin_home.html`) | 👨‍🏫 Faculty/Staff (`staff_home.html`) | 🎓 Student (`student_home.html`) |
 | :--- | :--- | :--- | :--- |
-| **Student Profiles** | **Full CRUD** (All institute students) | **Read & Contact** (Assigned classes only) | **Read-Only** (Own profile card) |
+| **Student Profiles & Remarks** | **Full CRUD & Review Remarks** (All institute students) | **Read Roster & Raise Remarks** (Assigned classes only) | **Read-Only** (Own profile card) |
 | **Attendance** | **Full CRUD** (All classes & history) | **Create/Update** (Assigned classes only) | **Read-Only** (Own monthly attendance & %) |
 | **Courses & Materials** | **Full CRUD** (Publish, edit, delete all) | **Create & Read** (For assigned classes) | **Read-Only** (Enrolled class subjects) |
 | **Exam Marks & Results** | **Full CRUD** (Enter & adjust all marks) | **Enter & View** (For assigned classes) | **Read-Only** (Own marks & report card) |

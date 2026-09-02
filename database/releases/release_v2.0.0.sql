@@ -196,6 +196,17 @@ CREATE TABLE IF NOT EXISTS student_stats (
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- 16. TEACHER REMARKS & OBSERVATIONS TABLE
+CREATE TABLE IF NOT EXISTS student_remarks (
+    id VARCHAR(50) PRIMARY KEY,
+    student_id VARCHAR(50) REFERENCES students(id) ON DELETE CASCADE,
+    staff_id VARCHAR(50),
+    staff_name VARCHAR(255) NOT NULL,
+    category VARCHAR(100) DEFAULT 'General Note',
+    remark TEXT NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- =========================================================
 -- INDEXES FOR PERFORMANCE OPTIMIZATION
 -- =========================================================

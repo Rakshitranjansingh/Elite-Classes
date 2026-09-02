@@ -15,7 +15,7 @@ Use this skill whenever you are building features, modifying UI views, refactori
 
 | Module / Feature | 👑 Admin (`admin_home.html`) | 👨‍🏫 Faculty/Staff (`staff_home.html`) | 🎓 Student (`student_home.html`) |
 | :--- | :--- | :--- | :--- |
-| **Student Profiles** | **Full CRUD** (All students) | **Read & Contact** (Assigned classes) | **Read-Only** (Own profile card) |
+| **Student Profiles & Remarks** | **Full CRUD & Review Remarks** (All students) | **Read Roster & Raise Remarks** (Assigned classes) | **Read-Only** (Own profile card) |
 | **Attendance** | **Full CRUD** (All classes & history) | **Create/Update** (Assigned classes) | **Read-Only** (Own attendance & %) |
 | **Courses & Materials** | **Full CRUD** (Publish, edit, delete) | **Create & Read** (Assigned classes) | **Read-Only** (Enrolled class subjects) |
 | **Exam Marks & Results** | **Full CRUD** (Enter & adjust all marks) | **Enter & View** (Assigned classes) | **Read-Only** (Own marks & report cards) |

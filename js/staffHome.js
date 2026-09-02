@@ -105,22 +105,28 @@ function switchStaffTab(tab) {
     });
 
     if (tab === 'students') renderStaffStudentsList();
-    if (tab === 'attendance') renderStaffAttendanceSheet();
-    if (tab === 'salary') renderStaffSalaryHistory();
+    if (tab === 'attendance') {
+        setupStaffAttendanceControls();
+        renderStaffAttendanceSheet();
+    }
     if (tab === 'notices') renderStaffNotices();
 }
 
-// 1. Render Student Roster for Staff
-function renderStaffStudentsList() {
+// ---------------------------------------------------------
+// 1. STUDENTS TAB & TEACHER REMARKS
+// ---------------------------------------------------------
+let currentRemarkStudent = { id: '', name: '' };
+
+async function renderStaffStudentsList() {
     const container = document.getElementById('staff-students-tbody');
     if (!container) return;
 
-    const assignedClasses = currentStaffUser.classes ? currentStaffUser.classes.split(',').map(c => c.trim()) : [];
+    const assignedClasses = currentStaffUser && currentStaffUser.classes ? currentStaffUser.classes.split(',').map(c => c.trim()) : [];
     
     // Class filter chips
     const chipBox = document.getElementById('staff-class-filter-chips');
     if (chipBox) {
-        let classesToShow = assignedClasses.length > 0 ? assignedClasses : CLASS_OPTIONS;
+        let classesToShow = assignedClasses.length > 0 ? assignedClasses : (typeof CLASS_OPTIONS !== 'undefined' ? CLASS_OPTIONS : ['Class 8', 'Class 9', 'Class 10']);
         chipBox.innerHTML = `<button class="btn btn-sm ${activeStaffClassFilter === '' ? 'btn-primary' : 'btn-outline'}" onclick="filterStaffStudents('')">All Classes</button>` +
             classesToShow.map(c => `
                 <button class="btn btn-sm ${activeStaffClassFilter === c ? 'btn-primary' : 'btn-outline'}" onclick="filterStaffStudents('${c}')">${c}</button>
@@ -129,20 +135,33 @@ function renderStaffStudentsList() {
 
     const search = (document.getElementById('staff-student-search')?.value || '').toLowerCase();
 
-    const filtered = students.filter(s => {
+    const filtered = (students || []).filter(s => {
         const matchClass = !activeStaffClassFilter || s.cls === activeStaffClassFilter || s.cls === ('Class ' + activeStaffClassFilter);
         const matchAssigned = assignedClasses.length === 0 || assignedClasses.includes(s.cls) || assignedClasses.includes('All') || assignedClasses.includes('All Classes');
-        const matchSearch = !search || s.name.toLowerCase().includes(search) || s.parent.toLowerCase().includes(search) || (s.phone && s.phone.includes(search));
+        const matchSearch = !search || s.name.toLowerCase().includes(search) || (s.school && s.school.toLowerCase().includes(search)) || (s.cls && s.cls.toLowerCase().includes(search));
         return matchClass && matchAssigned && matchSearch;
     });
 
     if (filtered.length === 0) {
-        container.innerHTML = `<tr><td colspan="6"><div class="empty-state"><p>No students found for this selection</p></div></td></tr>`;
+        container.innerHTML = `<tr><td colspan="5"><div class="empty-state"><p>No students found for this selection</p></div></td></tr>`;
         return;
+    }
+
+    // Read cached student remarks
+    let allRemarks = [];
+    if (typeof DBService !== 'undefined' && typeof DBService.fetchStudentRemarks === 'function') {
+        allRemarks = await DBService.fetchStudentRemarks();
+    } else {
+        allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
     }
 
     container.innerHTML = filtered.map(s => {
         const initials = getInitials(s.name);
+        const studentRemarks = allRemarks.filter(r => r.student_id === s.id || r.studentId === s.id);
+        const remarkBadge = studentRemarks.length > 0
+            ? `<button class="badge badge-purple" style="border:none; cursor:pointer; font-size:11.5px; padding:4px 8px;" onclick="openViewRemarksModal('${s.id}', '${s.name.replace(/'/g, "\\'")}')" title="View ${studentRemarks.length} remark(s)">📋 ${studentRemarks.length} Note(s)</button>`
+            : '';
+
         return `
             <tr>
                 <td>
@@ -150,22 +169,20 @@ function renderStaffStudentsList() {
                         <div class="avatar" style="background:${s.color || '#2563eb'}">${initials}</div>
                         <div>
                             <div style="font-weight:700; color:var(--text);">${s.name}</div>
-                            <div style="font-size:11.5px; color:var(--text-muted);">Parent: ${s.parent}</div>
+                            <div style="font-size:11.5px; color:var(--text-muted);">${s.doa ? 'Joined: ' + s.doa : 'Enrolled Student'}</div>
                         </div>
                     </div>
                 </td>
                 <td><span class="badge badge-primary">${s.cls}</span></td>
+                <td><span style="font-size:12.5px; font-weight:600; color:var(--text);">${s.subjects || 'General Subjects'}</span></td>
+                <td style="color:var(--text-muted); font-size:13px;">${s.school || '—'}</td>
                 <td>
-                    <a href="https://wa.me/91${s.phone}" target="_blank" style="color:#25D366; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
-                        💬 +91 ${s.phone}
-                    </a>
-                </td>
-                <td><span style="font-size:12.5px;">${s.subjects || 'General Subjects'}</span></td>
-                <td>${s.school || '—'}</td>
-                <td>
-                    <a href="https://wa.me/91${s.phone}?text=Hello%20${encodeURIComponent(s.parent)},%20this%20is%20${encodeURIComponent(currentStaffUser.name)}%20from%20Elite%20Classes." target="_blank" class="btn btn-sm btn-outline" style="border-color:#25D366; color:#25D366; font-size:11.5px; padding:3px 8px;">
-                        Message Parent
-                    </a>
+                    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                        ${remarkBadge}
+                        <button class="btn btn-sm btn-outline" onclick="openAddRemarkModal('${s.id}', '${s.name.replace(/'/g, "\\'")}')" style="font-size:11.5px; padding:4px 10px; display:inline-flex; align-items:center; gap:4px;">
+                            💬 Add Remark
+                        </button>
+                    </div>
                 </td>
             </tr>
         `;
@@ -177,34 +194,192 @@ function filterStaffStudents(cls) {
     renderStaffStudentsList();
 }
 
-// 2. Render Staff Attendance Sheet
+// Open Add Remark Modal
+function openAddRemarkModal(studentId, studentName) {
+    currentRemarkStudent = { id: studentId, name: studentName };
+    const idEl = document.getElementById('f-remark-student-id');
+    const nameEl = document.getElementById('f-remark-student-name');
+    const textEl = document.getElementById('f-remark-text');
+    const titleEl = document.getElementById('staffRemarkModalTitle');
+
+    if (idEl) idEl.value = studentId;
+    if (nameEl) nameEl.value = studentName;
+    if (textEl) textEl.value = '';
+    if (titleEl) titleEl.textContent = `💬 Raise Remark for ${studentName}`;
+
+    openModal('staffAddRemarkModal');
+}
+
+function openAddRemarkModalFromHistory() {
+    if (currentRemarkStudent.id) {
+        openAddRemarkModal(currentRemarkStudent.id, currentRemarkStudent.name);
+    }
+}
+
+// Submit Teacher Remark
+async function submitTeacherRemark() {
+    const studentId = document.getElementById('f-remark-student-id')?.value;
+    const studentName = document.getElementById('f-remark-student-name')?.value;
+    const category = document.getElementById('f-remark-category')?.value || 'General Note';
+    const text = document.getElementById('f-remark-text')?.value.trim();
+
+    if (!studentId) {
+        showToast('Student reference missing', 'danger');
+        return;
+    }
+    if (!text) {
+        showToast('Please enter your observation or remark note', 'danger');
+        return;
+    }
+
+    const remarkObj = {
+        student_id: studentId,
+        staff_id: currentStaffUser ? currentStaffUser.id : null,
+        staff_name: currentStaffUser ? currentStaffUser.name : 'Faculty Member',
+        category: category,
+        remark: text,
+        created_at: new Date().toISOString()
+    };
+
+    if (typeof DBService !== 'undefined' && typeof DBService.insertStudentRemark === 'function') {
+        await DBService.insertStudentRemark(remarkObj);
+    } else {
+        const list = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+        list.unshift({ ...remarkObj, id: 'rem_' + Date.now() });
+        localStorage.setItem('ec_student_remarks', JSON.stringify(list));
+    }
+
+    closeModal('staffAddRemarkModal');
+    showToast(`Remark saved for ${studentName}! Admins can review it in Student Profile.`, 'success');
+    renderStaffStudentsList();
+}
+
+// View Remarks History Modal
+async function openViewRemarksModal(studentId, studentName) {
+    currentRemarkStudent = { id: studentId, name: studentName };
+    const titleEl = document.getElementById('staffViewRemarksTitle');
+    const bodyEl = document.getElementById('staffViewRemarksBody');
+    if (titleEl) titleEl.textContent = `📋 Remarks History for ${studentName}`;
+
+    if (bodyEl) {
+        bodyEl.innerHTML = `<div style="text-align:center; padding:20px; color:var(--text-muted);">Loading remarks...</div>`;
+    }
+
+    openModal('staffViewRemarksModal');
+
+    let remarks = [];
+    if (typeof DBService !== 'undefined' && typeof DBService.fetchStudentRemarks === 'function') {
+        remarks = await DBService.fetchStudentRemarks(studentId);
+    } else {
+        const allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+        remarks = allRemarks.filter(r => r.student_id === studentId || r.studentId === studentId);
+    }
+
+    if (!bodyEl) return;
+
+    if (!remarks || remarks.length === 0) {
+        bodyEl.innerHTML = `<div style="padding:24px; text-align:center; color:var(--text-muted); background:#f8fafc; border-radius:8px; border:1px dashed var(--border);">No teacher remarks recorded for ${studentName} yet.</div>`;
+        return;
+    }
+
+    bodyEl.innerHTML = `
+        <div style="display:flex; flex-direction:column; gap:10px;">
+            ${remarks.map(r => `
+                <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px 16px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                        <span class="badge badge-purple" style="font-size:11px;">${r.category || 'General Observation'}</span>
+                        <span style="font-size:11.5px; color:var(--text-muted);">${r.created_at ? new Date(r.created_at).toLocaleDateString() : 'Recent'}</span>
+                    </div>
+                    <div style="font-size:13.5px; color:var(--text); line-height:1.5;">${r.remark}</div>
+                    <div style="font-size:11px; color:var(--text-muted); margin-top:6px; font-style:italic;">— Raised by ${r.staff_name || 'Faculty Member'}</div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+// ---------------------------------------------------------
+// 2. MARK CLASS ATTENDANCE
+// ---------------------------------------------------------
+let staffAttInitialized = false;
+
+function setupStaffAttendanceControls() {
+    const dateInput = document.getElementById('staff-att-date');
+    if (dateInput && (!dateInput.value || dateInput.value === '')) {
+        // Today's date by default
+        dateInput.value = new Date().toISOString().split('T')[0];
+    }
+
+    const classSelect = document.getElementById('staff-att-class');
+    if (classSelect && (!staffAttInitialized || classSelect.options.length === 0)) {
+        const assignedClasses = currentStaffUser && currentStaffUser.classes
+            ? currentStaffUser.classes.split(',').map(c => c.trim()).filter(Boolean)
+            : [];
+
+        classSelect.innerHTML = `<option value="All">All My Classes</option>` +
+            assignedClasses.map(c => `<option value="${c}">${c}</option>`).join('');
+
+        onStaffAttendanceClassChange();
+        staffAttInitialized = true;
+    }
+}
+
+function onStaffAttendanceClassChange() {
+    const classSelect = document.getElementById('staff-att-class');
+    const subjectSelect = document.getElementById('staff-att-subject');
+    if (!subjectSelect) return;
+
+    const selectedClass = classSelect ? classSelect.value : 'All';
+    const teacherSubjects = currentStaffUser && currentStaffUser.subjects
+        ? currentStaffUser.subjects.split(',').map(s => s.trim()).filter(Boolean)
+        : [];
+
+    let subjectsToShow = teacherSubjects;
+    if (subjectsToShow.length === 0) {
+        subjectsToShow = ['Mathematics', 'Science', 'Physics', 'Chemistry', 'Biology', 'English'];
+    }
+
+    subjectSelect.innerHTML = `<option value="All">All Subjects (${selectedClass === 'All' ? 'My Classes' : selectedClass})</option>` +
+        subjectsToShow.map(s => `<option value="${s}">${s}</option>`).join('');
+
+    renderStaffAttendanceSheet();
+}
+
 function renderStaffAttendanceSheet() {
     const container = document.getElementById('staff-attendance-container');
     if (!container) return;
 
-    const assignedClasses = currentStaffUser.classes ? currentStaffUser.classes.split(',').map(c => c.trim()) : [];
+    setupStaffAttendanceControls();
+
+    const assignedClasses = currentStaffUser && currentStaffUser.classes ? currentStaffUser.classes.split(',').map(c => c.trim()) : [];
     const dateInput = document.getElementById('staff-att-date');
-    const selectedDate = dateInput ? dateInput.value : getTodayDateStr();
+    const selectedDate = (dateInput && dateInput.value) ? dateInput.value : new Date().toISOString().split('T')[0];
 
     const classSelect = document.getElementById('staff-att-class');
-    const selectedClass = classSelect ? classSelect.value : (assignedClasses[0] || 'All');
+    const selectedClass = classSelect ? classSelect.value : 'All';
 
-    const dayRecords = attendanceRecords[selectedDate] || {};
+    const subjectSelect = document.getElementById('staff-att-subject');
+    const selectedSubject = subjectSelect ? subjectSelect.value : 'All';
 
-    const filtered = students.filter(s => {
+    const dayRecords = (typeof attendanceRecords !== 'undefined' && attendanceRecords[selectedDate]) ? attendanceRecords[selectedDate] : {};
+
+    const filtered = (students || []).filter(s => {
         const matchClass = selectedClass === 'All' || s.cls === selectedClass;
         const matchAssigned = assignedClasses.length === 0 || assignedClasses.includes(s.cls) || assignedClasses.includes('All');
-        return matchClass && matchAssigned;
+        const matchSubject = selectedSubject === 'All' || !s.subjects || s.subjects.toLowerCase().includes(selectedSubject.toLowerCase());
+        return matchClass && matchAssigned && matchSubject;
     });
 
     if (filtered.length === 0) {
-        container.innerHTML = `<div style="padding:24px; text-align:center; color:var(--text-muted);">No students in this class roster.</div>`;
+        container.innerHTML = `<div style="padding:24px; text-align:center; color:var(--text-muted); background:#f8fafc; border-radius:8px;">No students found matching Class: <b>${selectedClass}</b> & Subject: <b>${selectedSubject}</b>.</div>`;
         return;
     }
 
     container.innerHTML = `
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
-            <div style="font-size:13px; font-weight:700;">Total Students: ${filtered.length}</div>
+            <div style="font-size:13px; font-weight:700; color:var(--text);">
+                Class Roster: <b>${selectedClass}</b> • Subject: <b>${selectedSubject}</b> (${filtered.length} Students)
+            </div>
             <button class="btn btn-sm btn-success" onclick="markAllStaffStudentsPresent('${selectedDate}', '${selectedClass}')">
                 ✓ Mark All Present
             </button>
@@ -215,8 +390,9 @@ function renderStaffAttendanceSheet() {
                     <tr>
                         <th>Student Name</th>
                         <th>Class</th>
+                        <th>Enrolled Subjects</th>
                         <th>Status</th>
-                        <th>Quick Toggle</th>
+                        <th>Attendance Toggle</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -227,6 +403,7 @@ function renderStaffAttendanceSheet() {
                             <tr>
                                 <td><b>${s.name}</b></td>
                                 <td><span class="badge badge-primary">${s.cls}</span></td>
+                                <td style="font-size:12px; color:var(--text-muted);">${s.subjects || 'General'}</td>
                                 <td>${badge}</td>
                                 <td>
                                     <div class="action-group">
@@ -245,162 +422,33 @@ function renderStaffAttendanceSheet() {
 }
 
 function setStaffStudentAttendance(date, studentId, status) {
+    if (typeof attendanceRecords === 'undefined') attendanceRecords = {};
     if (!attendanceRecords[date]) attendanceRecords[date] = {};
     attendanceRecords[date][studentId] = status;
-    saveState();
+    if (typeof saveState === 'function') saveState();
     renderStaffAttendanceSheet();
     showToast(`Attendance marked as ${status}`);
 }
 
 function markAllStaffStudentsPresent(date, cls) {
+    if (typeof attendanceRecords === 'undefined') attendanceRecords = {};
     if (!attendanceRecords[date]) attendanceRecords[date] = {};
-    const assignedClasses = currentStaffUser.classes ? currentStaffUser.classes.split(',').map(c => c.trim()) : [];
-    students.forEach(s => {
+    const assignedClasses = currentStaffUser && currentStaffUser.classes ? currentStaffUser.classes.split(',').map(c => c.trim()) : [];
+    (students || []).forEach(s => {
         const matchClass = cls === 'All' || s.cls === cls;
         const matchAssigned = assignedClasses.length === 0 || assignedClasses.includes(s.cls) || assignedClasses.includes('All');
         if (matchClass && matchAssigned) {
             attendanceRecords[date][s.id] = 'present';
         }
     });
-    saveState();
+    if (typeof saveState === 'function') saveState();
     renderStaffAttendanceSheet();
     showToast('All students marked Present for today');
 }
 
-// 3. Render Courses for Staff
-function renderStaffCoursesList() {
-    const container = document.getElementById('staff-courses-container');
-    if (!container) return;
-
-    const courses = JSON.parse(localStorage.getItem('ec_courses') || '[]');
-
-    if (courses.length === 0) {
-        container.innerHTML = `
-            <div style="grid-column:1/-1; padding:30px; text-align:center; color:var(--text-muted); background:#f8fafc; border-radius:12px; border:1px dashed var(--border);">
-                <div>No course materials published yet.</div>
-                <button class="btn btn-primary btn-sm" style="margin-top:12px;" onclick="openModal('addCourseModal')">+ Publish Study Material</button>
-            </div>
-        `;
-        return;
-    }
-
-    container.innerHTML = courses.map(c => `
-        <div class="content-card">
-            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
-                <span class="badge badge-primary">${c.cls}</span>
-                <span class="badge badge-purple">${c.subject}</span>
-            </div>
-            <div class="content-card-title">${c.title}</div>
-            <div class="content-card-sub" style="margin-bottom:12px;">Instructor: ${c.instructor || currentStaffUser.name} • ${c.lessons_count || 10} Lessons</div>
-            <div style="font-size:12.5px; color:var(--text-muted); line-height:1.5; margin-bottom:16px;">
-                ${c.description || 'Comprehensive syllabus modules, practice exercises, and study notes.'}
-            </div>
-            <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f1f5f9; padding-top:12px;">
-                <span style="font-size:11.5px; color:var(--text-muted);">Status: <b style="color:var(--success);">Active</b></span>
-                <button class="btn btn-sm btn-outline" onclick="showToast('Course notes & lesson plan opened!')">View Lessons</button>
-            </div>
-        </div>
-    `).join('');
-}
-
-// 4. Render Staff Salary & Payouts Ledger
-function renderStaffSalaryHistory() {
-    const container = document.getElementById('staff-salary-tbody');
-    const summaryCard = document.getElementById('staff-salary-summary-card');
-    if (!container || !currentStaffUser) return;
-
-    const baseSalary = currentStaffUser.salary || currentStaffUser.base_salary || 0;
-    const incentive = currentStaffUser.incentive || 0;
-    const totalExpected = baseSalary + incentive;
-
-    if (summaryCard) {
-        summaryCard.innerHTML = `
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:14px;">
-                <div class="stat-pallet blue" style="padding:14px;">
-                    <div class="stat-content">
-                        <div class="stat-title">Base Monthly Salary</div>
-                        <div class="stat-value">₹${baseSalary.toLocaleString()}</div>
-                    </div>
-                </div>
-                <div class="stat-pallet green" style="padding:14px;">
-                    <div class="stat-content">
-                        <div class="stat-title">Monthly Bonus / Incentive</div>
-                        <div class="stat-value">₹${incentive.toLocaleString()}</div>
-                    </div>
-                </div>
-                <div class="stat-pallet purple" style="padding:14px;">
-                    <div class="stat-content">
-                        <div class="stat-title">Total Monthly Compensation</div>
-                        <div class="stat-value">₹${totalExpected.toLocaleString()}</div>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
-
-    const myPayouts = salaryPayouts.filter(p => p.recipientId === currentStaffUser.id);
-
-    if (myPayouts.length === 0) {
-        container.innerHTML = `<tr><td colspan="5"><div class="empty-state"><p>No salary disbursement vouchers on record yet</p></div></td></tr>`;
-        return;
-    }
-
-    container.innerHTML = myPayouts.map(p => `
-        <tr>
-            <td><b>${p.month}</b></td>
-            <td style="font-weight:700; color:var(--success);">₹${(p.amount || 0).toLocaleString()}</td>
-            <td><span class="badge badge-purple">${p.mode || 'Bank Transfer'}</span></td>
-            <td>${p.date || '01/08/2025'}</td>
-            <td>
-                <button class="btn btn-sm btn-outline" onclick="openStaffSalaryVoucher('${p.id}')">📜 View Slip</button>
-            </td>
-        </tr>
-    `).join('');
-}
-
-// View Printable Salary Voucher
-function openStaffSalaryVoucher(payoutId) {
-    const payout = salaryPayouts.find(p => p.id === payoutId);
-    if (!payout || !currentStaffUser) return;
-
-    const modalBody = document.getElementById('salaryVoucherModalBody');
-    if (!modalBody) return;
-
-    modalBody.innerHTML = `
-        <div style="border:2px dashed var(--primary); padding:20px; border-radius:12px; background:#f8fafc;">
-            <div style="text-align:center; margin-bottom:14px;">
-                <h3 style="margin:0; font-size:20px; font-weight:800; color:var(--primary);">ELITE CLASSES</h3>
-                <div style="font-size:12px; color:var(--text-muted);">OFFICIAL SALARY DISBURSEMENT VOUCHER</div>
-            </div>
-
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:10px;">
-                <span>Voucher No: <b>#SAL-${payout.id.slice(-6)}</b></span>
-                <span>Date: <b>${payout.date}</b></span>
-            </div>
-
-            <hr style="border:none; border-top:1px solid #e2e8f0; margin:12px 0;">
-
-            <div style="font-size:13.5px; line-height:1.8;">
-                <div>Employee Name: <b>${currentStaffUser.name}</b></div>
-                <div>Designation: <b>${currentStaffUser.role || currentStaffUser.subjects + ' Faculty'}</b></div>
-                <div>WhatsApp Contact: <b>+91 ${currentStaffUser.phone}</b></div>
-                <div>Disbursement Month: <b>${payout.month}</b></div>
-                <div>Payment Method: <b>${payout.mode}</b></div>
-            </div>
-
-            <hr style="border:none; border-top:1px solid #e2e8f0; margin:12px 0;">
-
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-                <span style="font-size:14px; font-weight:700;">Disbursed Net Amount:</span>
-                <span style="font-size:18px; font-weight:800; color:var(--success);">₹${(payout.amount || 0).toLocaleString()}</span>
-            </div>
-        </div>
-    `;
-
-    openModal('salaryVoucherModal');
-}
-
-// 5. Render Notices for Staff
+// ---------------------------------------------------------
+// 3. NOTICES & BULLETINS
+// ---------------------------------------------------------
 async function renderStaffNotices() {
     const container = document.getElementById('staff-notices-container');
     if (!container) return;
@@ -425,7 +473,6 @@ async function renderStaffNotices() {
     `).join('');
 }
 
-// 6. Submit Notice / Announcement by Staff
 async function submitStaffNotice() {
     const contentInput = document.getElementById('f-staff-notice-content');
     const categoryInput = document.getElementById('f-staff-notice-category');

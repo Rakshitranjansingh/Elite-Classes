@@ -67,17 +67,16 @@
 
             <!-- STAFF NAVIGATION TABS -->
             <div class="profile-switcher" style="margin-bottom:20px;">
-                <div class="profile-tab active" data-stafftab="students" onclick="switchStaffTab('students')">📋 Class Students Roster</div>
+                <div class="profile-tab active" data-stafftab="students" onclick="switchStaffTab('students')">📋 Students</div>
                 <div class="profile-tab" data-stafftab="attendance" onclick="switchStaffTab('attendance')">📊 Mark Class Attendance</div>
-                <div class="profile-tab" data-stafftab="salary" onclick="switchStaffTab('salary')">💵 Salary & Compensation</div>
                 <div class="profile-tab" data-stafftab="notices" onclick="switchStaffTab('notices')">📢 Notices & Bulletins</div>
             </div>
 
-            <!-- TAB 1: STUDENT ROSTER -->
+            <!-- TAB 1: STUDENTS -->
             <div id="staff-section-students" class="staff-tab-section" style="display:block;">
                 <div class="filter-bar">
                     <div class="filter-group">
-                        <input type="text" id="staff-student-search" class="search-input" placeholder="Search student name, parent, phone..." oninput="renderStaffStudentsList()">
+                        <input type="text" id="staff-student-search" class="search-input" placeholder="Search student name, school, class..." oninput="renderStaffStudentsList()">
                     </div>
                 </div>
 
@@ -91,10 +90,9 @@
                             <tr>
                                 <th>Student Name</th>
                                 <th>Class</th>
-                                <th>WhatsApp Contact</th>
                                 <th>Enrolled Subjects</th>
                                 <th>School</th>
-                                <th>Action</th>
+                                <th>Teacher Remark</th>
                             </tr>
                         </thead>
                         <tbody id="staff-students-tbody"></tbody>
@@ -105,49 +103,19 @@
             <!-- TAB 2: MARK ATTENDANCE -->
             <div id="staff-section-attendance" class="staff-tab-section" style="display:none;">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
                         <span class="card-title">Daily Class Attendance</span>
-                        <div style="display:flex; gap:10px; align-items:center;">
+                        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
                             <input type="date" id="staff-att-date" class="select-input" onchange="renderStaffAttendanceSheet()">
-                            <select id="staff-att-class" class="select-input" onchange="renderStaffAttendanceSheet()">
-                                <option value="All">All My Classes</option>
-                                <option>Class 5</option><option>Class 6</option><option>Class 7</option>
-                                <option>Class 8</option><option>Class 9</option><option>Class 10</option>
-                                <option>LKG</option><option>UKG</option>
-                            </select>
+                            <select id="staff-att-class" class="select-input" onchange="onStaffAttendanceClassChange()"></select>
+                            <select id="staff-att-subject" class="select-input" onchange="renderStaffAttendanceSheet()"></select>
                         </div>
                     </div>
                     <div class="card-body" id="staff-attendance-container"></div>
                 </div>
             </div>
 
-            <!-- TAB 3: SALARY & COMPENSATION -->
-            <div id="staff-section-salary" class="staff-tab-section" style="display:none;">
-                <div id="staff-salary-summary-card" style="margin-bottom:20px;"></div>
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Disbursed Salary History & Official Vouchers</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Salary Month</th>
-                                        <th>Disbursed Amount</th>
-                                        <th>Payment Mode</th>
-                                        <th>Date</th>
-                                        <th>Salary Voucher</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="staff-salary-tbody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 5: NOTICES & BULLETINS -->
+            <!-- TAB 3: NOTICES & BULLETINS -->
             <div id="staff-section-notices" class="staff-tab-section" style="display:none;">
                 <div class="card">
                     <div class="card-header" style="display:flex; justify-content:space-between; align-items:center;">
@@ -186,6 +154,59 @@
         </div>
     </div>
 
+    <!-- ADD REMARK MODAL (STAFF) -->
+    <div class="modal-overlay" id="staffAddRemarkModal">
+        <div class="modal" style="max-width:520px;">
+            <div class="modal-header">
+                <span class="modal-title" id="staffRemarkModalTitle">💬 Raise Teacher Remark</span>
+                <button class="modal-close" onclick="closeModal('staffAddRemarkModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="f-remark-student-id">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Student Name</label>
+                        <input type="text" id="f-remark-student-name" readonly style="background:#f1f5f9; cursor:not-allowed;">
+                    </div>
+                    <div class="form-group full">
+                        <label>Remark Category *</label>
+                        <select id="f-remark-category">
+                            <option value="Academic Performance">📚 Academic Performance</option>
+                            <option value="Discipline & Behavior">⚖️ Discipline & Behavior</option>
+                            <option value="Homework / Assignment">📝 Homework / Assignment</option>
+                            <option value="Doubt & Guidance">💡 Doubt & Guidance</option>
+                            <option value="Attendance / Punctuality">⏰ Attendance / Punctuality</option>
+                            <option value="General Note">📌 General Observation</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label>Teacher Observation / Note *</label>
+                        <textarea id="f-remark-text" rows="4" placeholder="Enter specific observations, strengths, improvement areas, or behavioral remarks..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('staffAddRemarkModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitTeacherRemark()">Save Remark</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW STUDENT REMARKS MODAL (STAFF) -->
+    <div class="modal-overlay" id="staffViewRemarksModal">
+        <div class="modal" style="max-width:580px;">
+            <div class="modal-header">
+                <span class="modal-title" id="staffViewRemarksTitle">📋 Student Remarks History</span>
+                <button class="modal-close" onclick="closeModal('staffViewRemarksModal')">✕</button>
+            </div>
+            <div class="modal-body" id="staffViewRemarksBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('staffViewRemarksModal')">Close</button>
+                <button class="btn btn-primary" id="staffAddAnotherRemarkBtn" onclick="closeModal('staffViewRemarksModal'); openAddRemarkModalFromHistory();">+ Add Another Remark</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ADD NOTICE MODAL (STAFF) -->
     <div class="modal-overlay" id="staffAddNoticeModal">
         <div class="modal" style="max-width:520px;">
@@ -214,21 +235,6 @@
             <div class="modal-footer">
                 <button class="btn btn-outline" onclick="closeModal('staffAddNoticeModal')">Cancel</button>
                 <button class="btn btn-primary" onclick="submitStaffNotice()">Publish Notice</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- SALARY VOUCHER MODAL -->
-    <div class="modal-overlay" id="salaryVoucherModal">
-        <div class="modal" style="max-width:480px;">
-            <div class="modal-header">
-                <span class="modal-title">Official Salary Voucher</span>
-                <button class="modal-close" onclick="closeModal('salaryVoucherModal')">✕</button>
-            </div>
-            <div class="modal-body" id="salaryVoucherModalBody"></div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('salaryVoucherModal')">Close</button>
-                <button class="btn btn-primary" onclick="window.print()">Print Slip</button>
             </div>
         </div>
     </div>

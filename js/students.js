@@ -244,7 +244,7 @@ function openStudentDetailModal(studentId) {
             </div>
         </div>
 
-        <div>
+        <div style="margin-bottom:20px;">
             <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
                 <div style="font-size:14px; font-weight:800; color:var(--text);">Fee Payment History (Total Paid: ₹${totalPaidLifetime.toLocaleString()})</div>
                 <button class="btn btn-sm btn-primary" onclick="closeModal('studentDetailModal'); openCollectFeeModalForStudent('${s.id}')">
@@ -281,9 +281,54 @@ function openStudentDetailModal(studentId) {
             </div>
             `}
         </div>
+
+        <div>
+            <div style="font-size:14px; font-weight:800; color:var(--text); margin-bottom:10px;">
+                💬 Teacher Remarks & Faculty Observations
+            </div>
+            <div id="modal-student-remarks-list">
+                <div style="font-size:12.5px; color:var(--text-muted); background:#f8fafc; padding:12px; border-radius:8px; border:1px dashed var(--border);">Loading teacher remarks...</div>
+            </div>
+        </div>
     `;
 
     openModal('studentDetailModal');
+
+    // Load remarks asynchronously
+    loadStudentRemarksInAdminModal(s.id);
+}
+
+async function loadStudentRemarksInAdminModal(studentId) {
+    const container = document.getElementById('modal-student-remarks-list');
+    if (!container) return;
+
+    let remarks = [];
+    if (typeof DBService !== 'undefined' && typeof DBService.fetchStudentRemarks === 'function') {
+        remarks = await DBService.fetchStudentRemarks(studentId);
+    } else {
+        const allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+        remarks = allRemarks.filter(r => r.student_id === studentId || r.studentId === studentId);
+    }
+
+    if (!remarks || remarks.length === 0) {
+        container.innerHTML = `<div style="font-size:12.5px; color:var(--text-muted); background:#f8fafc; padding:12px; border-radius:8px; border:1px dashed var(--border);">No teacher remarks or behavioral notes recorded for this student yet.</div>`;
+        return;
+    }
+
+    container.innerHTML = `
+        <div style="display:flex; flex-direction:column; gap:8px;">
+            ${remarks.map(r => `
+                <div style="background:#f8fafc; border:1px solid var(--border); border-radius:8px; padding:10px 14px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                        <span class="badge badge-purple" style="font-size:11px;">${r.category || 'General Observation'}</span>
+                        <span style="font-size:11px; color:var(--text-muted);">${r.created_at ? new Date(r.created_at).toLocaleDateString() : 'Recent'}</span>
+                    </div>
+                    <div style="font-size:13px; color:var(--text); line-height:1.4;">${r.remark}</div>
+                    <div style="font-size:11px; color:var(--text-muted); margin-top:4px; font-style:italic;">— Raised by ${r.staff_name || 'Faculty Member'}</div>
+                </div>
+            `).join('')}
+        </div>
+    `;
 }
 
 // Student Form Actions

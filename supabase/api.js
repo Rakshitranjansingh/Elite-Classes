@@ -820,5 +820,60 @@ const DBService = {
         } catch (e) {
             console.error('[DBService] Delete subject error:', e);
         }
+    },
+
+    // ---------------------------------------------------------
+    // 15. TEACHER REMARKS & OBSERVATIONS
+    // ---------------------------------------------------------
+    async fetchStudentRemarks(studentId = null) {
+        if (!isSupabaseConnected()) {
+            const allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+            return studentId ? allRemarks.filter(r => r.student_id === studentId || r.studentId === studentId) : allRemarks;
+        }
+        try {
+            let query = supabaseClient.from('student_remarks').select('*').order('created_at', { ascending: false });
+            if (studentId) query = query.eq('student_id', studentId);
+            const { data, error } = await query;
+            if (error || !data) {
+                const allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+                return studentId ? allRemarks.filter(r => r.student_id === studentId || r.studentId === studentId) : allRemarks;
+            }
+            return data;
+        } catch (e) {
+            console.error('[DBService] Fetch student remarks error:', e);
+            const allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+            return studentId ? allRemarks.filter(r => r.student_id === studentId || r.studentId === studentId) : allRemarks;
+        }
+    },
+
+    async insertStudentRemark(remarkObj) {
+        const item = {
+            id: remarkObj.id || 'rem_' + Date.now(),
+            student_id: remarkObj.student_id || remarkObj.studentId,
+            staff_id: remarkObj.staff_id || remarkObj.staffId || null,
+            staff_name: remarkObj.staff_name || remarkObj.staffName || 'Faculty',
+            category: remarkObj.category || 'General Note',
+            remark: remarkObj.remark,
+            created_at: remarkObj.created_at || new Date().toISOString()
+        };
+
+        // Update local cache
+        const allRemarks = JSON.parse(localStorage.getItem('ec_student_remarks') || '[]');
+        allRemarks.unshift(item);
+        localStorage.setItem('ec_student_remarks', JSON.stringify(allRemarks));
+
+        if (!isSupabaseConnected()) return item;
+
+        try {
+            const { data, error } = await supabaseClient.from('student_remarks').insert([item]).select().single();
+            if (error) {
+                console.warn('[DBService] Supabase insert remark warning:', error);
+                return item;
+            }
+            return data;
+        } catch (e) {
+            console.error('[DBService] Insert remark error:', e);
+            return item;
+        }
     }
 };
