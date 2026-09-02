@@ -387,10 +387,22 @@ function renderStaffAttendanceSheet() {
         return;
     }
 
+    let presentCount = 0;
+    let absentCount = 0;
+    let lateCount = 0;
+
+    filtered.forEach(s => {
+        const st = dayRecords[s.id] || 'present';
+        if (st === 'present') presentCount++;
+        else if (st === 'absent') absentCount++;
+        else if (st === 'late') lateCount++;
+        else presentCount++;
+    });
+
     container.innerHTML = `
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
             <div style="font-size:13.5px; font-weight:700; color:var(--text);">
-                Roster: <span class="badge badge-primary">${selectedAttendanceClass}</span> <span class="badge badge-purple">${selectedAttendanceSubject}</span> • <b>${filtered.length}</b> Students
+                Roster: <span class="badge badge-primary">${selectedAttendanceClass}</span> <span class="badge badge-purple">${selectedAttendanceSubject}</span> • <b>${filtered.length} Students (${presentCount}P, ${absentCount}A, ${lateCount}L)</b>
             </div>
             <button class="btn btn-sm btn-success" onclick="markAllStaffStudentsPresent('${selectedDate}', '${selectedAttendanceClass}', '${selectedAttendanceSubject}')">
                 ✓ Mark All Present
