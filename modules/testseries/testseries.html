@@ -1,8 +1,300 @@
-<!-- Test Series & Mock Exams Tab Module Template -->
-<div id="st-tab-section-testseries" class="st-tab-section" style="display:none;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <h3 style="font-size:16px; font-weight:700; margin:0;" id="st-tests-heading">Available Test Series</h3>
-        <button class="btn btn-primary btn-sm" onclick="openModal('addTestSeriesModal')" id="st-admin-add-test-btn" style="display:none;">+ Create Test Series (Admin)</button>
+<!-- =========================================================================
+     ELITE CLASSES — TEST SERIES & CBT ASSESSMENTS MODULE
+     Enterprise-Grade CBT Player, Question Palette, Scorecard & Live Leaderboards
+     Theme: Executive Dark / Slate-Blue Theme with Plus Jakarta Sans & Outfit
+     ========================================================================= -->
+
+<div id="st-tab-section-testseries" class="st-tab-section" style="display:block;">
+    
+    <!-- 1. HEADER BANNER & STATS PALLET -->
+    <div class="card" style="margin-bottom:20px; border-left:4px solid var(--primary); background:linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);">
+        <div class="card-body" style="padding:22px 24px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+                <div>
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+                        <span class="badge badge-purple" style="font-size:11.5px; padding:4px 10px;">🧪 CBT Engine Active</span>
+                        <span class="badge badge-success" id="cbt-status-badge" style="font-size:11.5px; padding:4px 10px;">🟢 Live Assessments</span>
+                    </div>
+                    <h2 style="font-size:20px; font-weight:800; color:var(--text); margin:0 0 4px;" id="st-tests-heading">
+                        Online Test Series & Chapter-Wise CBT Mock Exams
+                    </h2>
+                    <p style="font-size:13px; color:var(--text-muted); margin:0;">
+                        Computer-based assessments with real-time timers, negative marking, instant scorecards, and live class rankings.
+                    </p>
+                </div>
+
+                <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                    <div style="text-align:right;" id="cbt-student-stats-pill">
+                        <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">My CBT Average</div>
+                        <div style="font-size:18px; font-weight:800; color:var(--primary);" id="cbt-student-avg-score">-- %</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FILTERS & SEARCH ROW -->
+            <div style="display:flex; gap:12px; margin-top:18px; align-items:center; flex-wrap:wrap; border-top:1px solid var(--border-light); padding-top:16px;">
+                <div class="search-input" style="max-width:320px; flex:1;">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg>
+                    <input type="text" id="cbt-search-filter" placeholder="Search tests, chapters or topics..." oninput="filterTestSeriesCards()">
+                </div>
+
+                <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;" id="cbt-subject-filter-chips">
+                    <button class="btn btn-sm btn-primary" onclick="selectCbtSubjectFilter('All', this)" style="border-radius:20px; padding:5px 14px; font-size:12px;">📚 All Subjects</button>
+                    <button class="btn btn-sm btn-outline" onclick="selectCbtSubjectFilter('Science', this)" style="border-radius:20px; padding:5px 14px; font-size:12px;">🧪 Science</button>
+                    <button class="btn btn-sm btn-outline" onclick="selectCbtSubjectFilter('Mathematics', this)" style="border-radius:20px; padding:5px 14px; font-size:12px;">📐 Mathematics</button>
+                    <button class="btn btn-sm btn-outline" onclick="selectCbtSubjectFilter('Social Studies', this)" style="border-radius:20px; padding:5px 14px; font-size:12px;">🌍 Social Studies</button>
+                    <button class="btn btn-sm btn-outline" onclick="selectCbtSubjectFilter('English', this)" style="border-radius:20px; padding:5px 14px; font-size:12px;">📖 English</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="content-cards-grid" id="st-testseries-container"></div>
+
+    <!-- 2. TEST SERIES CARDS CONTAINER -->
+    <div class="content-cards-grid" id="st-testseries-container" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:18px;">
+        <!-- Dynamically injected test cards -->
+    </div>
+</div>
+
+<!-- =========================================================================
+     3. INTERACTIVE CBT EXAM ENGINE MODAL (#cbtExamModal)
+     Full-Screen Simulation with Live Countdown Timer & Question Palette
+     ========================================================================= -->
+<div class="modal-overlay" id="cbtExamModal" style="display:none; align-items:stretch; padding:0; z-index:9999; background:rgba(11, 19, 41, 0.96);">
+    <div style="width:100vw; height:100vh; display:flex; flex-direction:column; background:var(--bg); overflow:hidden;">
+        
+        <!-- TOP STICKY CBT HEADER BAR -->
+        <header style="background:var(--topbar-bg); color:#ffffff; padding:12px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); flex-shrink:0;">
+            <div style="display:flex; align-items:center; gap:14px;">
+                <div class="brand-logo-icon" style="width:34px; height:34px; font-size:13px;">EC</div>
+                <div>
+                    <div style="font-size:14px; font-weight:800; color:#ffffff;" id="cbt-modal-test-title">Chemical Reactions & Equations</div>
+                    <div style="font-size:11.5px; color:#94a3b8;" id="cbt-modal-test-sub">Class 10 Science • Full 100 Questions Bank</div>
+                </div>
+            </div>
+
+            <!-- COUNTDOWN TIMER & CONTROLS -->
+            <div style="display:flex; align-items:center; gap:16px;">
+                <div style="background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.35); padding:6px 16px; border-radius:24px; display:flex; align-items:center; gap:8px;">
+                    <span style="font-size:12px; color:#fca5a5; font-weight:700;">⏱️ TIME LEFT:</span>
+                    <span id="cbt-timer-display" style="font-size:16px; font-weight:800; font-family:'Courier New', monospace; color:#fef2f2; letter-spacing:1px;">00:45:00</span>
+                </div>
+
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <div class="header-profile-pill" style="cursor:default; background:rgba(255,255,255,0.08);">
+                        <div class="header-profile-avatar-circle" id="cbt-student-avatar">ST</div>
+                        <span id="cbt-student-name">Student</span>
+                    </div>
+                    <button class="btn btn-danger btn-sm" onclick="confirmSubmitCbtTest()" style="font-weight:700; padding:6px 16px; border-radius:8px;">
+                        ✓ Finish & Submit
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CBT ASSESSMENT WORKSPACE (SPLIT LAYOUT) -->
+        <div style="flex:1; display:flex; overflow:hidden; position:relative;">
+            
+            <!-- LEFT / CENTER: QUESTION CONTAINER -->
+            <main style="flex:1; overflow-y:auto; padding:28px 36px; display:flex; flex-direction:column; justify-content:space-between; background:#ffffff;">
+                <div id="cbt-question-content-area">
+                    
+                    <!-- QUESTION META BAR -->
+                    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:14px; border-bottom:1px solid var(--border); margin-bottom:20px;">
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <span class="badge badge-primary" style="font-size:13px; font-weight:800; padding:5px 12px;" id="cbt-current-q-badge">Question 1 of 100</span>
+                            <span class="badge badge-purple" id="cbt-difficulty-badge">🟡 Medium</span>
+                            <span class="badge badge-success" style="font-size:11px;">+4.00 Marks</span>
+                            <span class="badge badge-danger" style="font-size:11px;">-1.00 Penalty</span>
+                        </div>
+                        <div id="cbt-flag-status" style="font-size:12.5px; font-weight:700; color:var(--text-muted); display:flex; align-items:center; gap:6px;">
+                            <span>⚪ Unattempted</span>
+                        </div>
+                    </div>
+
+                    <!-- QUESTION TEXT -->
+                    <div id="cbt-question-text" style="font-size:16px; font-weight:700; line-height:1.6; color:var(--text); margin-bottom:24px;">
+                        Which of the following is the balanced chemical equation for the reaction of iron with steam?
+                    </div>
+
+                    <!-- OPTIONS LIST -->
+                    <div id="cbt-options-container" style="display:flex; flex-direction:column; gap:12px; margin-bottom:30px;">
+                        <!-- Dynamically injected option cards -->
+                    </div>
+                </div>
+
+                <!-- BOTTOM ACTION BAR -->
+                <div style="display:flex; justify-content:space-between; align-items:center; padding-top:18px; border-top:1px solid var(--border); background:#ffffff; flex-wrap:wrap; gap:12px;">
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn btn-outline" id="cbt-prev-btn" onclick="navigateCbtQuestion(-1)" style="font-weight:700; padding:8px 18px;">
+                            ← Previous
+                        </button>
+                        <button class="btn btn-outline" onclick="clearCbtCurrentAnswer()" style="color:var(--text-muted); font-size:13px;">
+                            🧹 Clear Selection
+                        </button>
+                    </div>
+
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <button class="btn btn-outline" onclick="toggleCbtReviewFlag()" style="border-color:var(--purple); color:var(--purple); font-weight:700;">
+                            🔖 Mark for Review & Next
+                        </button>
+                        <button class="btn btn-primary" id="cbt-next-btn" onclick="navigateCbtQuestion(1)" style="font-weight:700; padding:8px 24px;">
+                            Save & Next →
+                        </button>
+                    </div>
+                </div>
+            </main>
+
+            <!-- RIGHT SIDEBAR: QUESTION PALETTE -->
+            <aside style="width:340px; background:#f8fafc; border-left:1px solid var(--border); display:flex; flex-direction:column; flex-shrink:0;">
+                
+                <!-- PALETTE LEGEND -->
+                <div style="padding:16px; border-bottom:1px solid var(--border); background:#ffffff;">
+                    <div style="font-size:13px; font-weight:800; color:var(--text); margin-bottom:10px;">Question Palette Legend</div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:11.5px; color:var(--text-muted); font-weight:600;">
+                        <div style="display:flex; align-items:center; gap:6px;">
+                            <span style="width:14px; height:14px; border-radius:4px; background:#10b981; display:inline-block;"></span>
+                            <span>Answered (<span id="cbt-count-answered">0</span>)</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:6px;">
+                            <span style="width:14px; height:14px; border-radius:4px; background:#8b5cf6; display:inline-block;"></span>
+                            <span>Review (<span id="cbt-count-review">0</span>)</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:6px;">
+                            <span style="width:14px; height:14px; border-radius:4px; background:#e2e8f0; border:1px solid #cbd5e1; display:inline-block;"></span>
+                            <span>Not Answered (<span id="cbt-count-unattempted">0</span>)</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:6px;">
+                            <span style="width:14px; height:14px; border-radius:4px; background:#f59e0b; display:inline-block;"></span>
+                            <span>Ans & Marked (<span id="cbt-count-ans-marked">0</span>)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUESTION BUTTONS GRID -->
+                <div style="flex:1; overflow-y:auto; padding:16px;">
+                    <div id="cbt-palette-grid" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px;">
+                        <!-- Buttons 1 to 100 generated dynamically -->
+                    </div>
+                </div>
+
+                <!-- PALETTE FOOTER -->
+                <div style="padding:14px 16px; border-top:1px solid var(--border); background:#ffffff;">
+                    <button class="btn btn-primary" onclick="confirmSubmitCbtTest()" style="width:100%; font-weight:800; padding:10px;">
+                        ✓ Submit Test Assessment
+                    </button>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<!-- =========================================================================
+     4. CBT SCORECARD & PEDAGOGICAL REVIEW MODAL (#cbtScorecardModal)
+     ========================================================================= -->
+<div class="modal-overlay" id="cbtScorecardModal" style="display:none; z-index:10000;">
+    <div class="modal modal-lg" style="max-width:850px; max-height:90vh; display:flex; flex-direction:column;">
+        <div class="modal-header" style="background:linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color:#ffffff;">
+            <div>
+                <div class="modal-title" style="color:#ffffff; font-size:18px;">🎯 CBT Assessment Scorecard & Solutions</div>
+                <div style="font-size:12px; color:#94a3b8;" id="scorecard-test-title">Chemical Reactions & Equations</div>
+            </div>
+            <button class="modal-close" onclick="closeModal('cbtScorecardModal')" style="color:#ffffff;">✕</button>
+        </div>
+
+        <div class="modal-body" style="flex:1; overflow-y:auto; padding:24px;">
+            
+            <!-- RESULT SUMMARY BANNER -->
+            <div style="background:linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border:1px solid #bfdbfe; border-radius:14px; padding:20px; text-align:center; margin-bottom:24px;">
+                <div style="font-size:13px; font-weight:700; color:var(--primary-dark); text-transform:uppercase; letter-spacing:0.8px;">Assessment Completed</div>
+                <div style="font-size:36px; font-weight:800; color:var(--primary); margin:6px 0;" id="scorecard-score-display">360 / 400</div>
+                <div style="font-size:14px; font-weight:700; color:var(--text);" id="scorecard-pct-badge">Percentage: 90.0% • Grade: A+</div>
+            </div>
+
+            <!-- KPI METRICS GRID -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:12px; margin-bottom:24px;">
+                <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:14px; text-align:center;">
+                    <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Accuracy</div>
+                    <div style="font-size:18px; font-weight:800; color:#10b981;" id="scorecard-accuracy">94.7%</div>
+                </div>
+                <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:14px; text-align:center;">
+                    <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Correct (✓)</div>
+                    <div style="font-size:18px; font-weight:800; color:#10b981;" id="scorecard-correct">90</div>
+                </div>
+                <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:14px; text-align:center;">
+                    <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Wrong (✕)</div>
+                    <div style="font-size:18px; font-weight:800; color:#ef4444;" id="scorecard-wrong">5</div>
+                </div>
+                <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:14px; text-align:center;">
+                    <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Skipped (⚪)</div>
+                    <div style="font-size:18px; font-weight:800; color:#64748b;" id="scorecard-skipped">5</div>
+                </div>
+                <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:14px; text-align:center;">
+                    <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Time Taken</div>
+                    <div style="font-size:18px; font-weight:800; color:var(--purple);" id="scorecard-time">42m 10s</div>
+                </div>
+            </div>
+
+            <!-- DETAILED QUESTION-BY-QUESTION SOLUTIONS ACCORDION -->
+            <div style="margin-top:16px;">
+                <h4 style="font-size:15px; font-weight:800; margin-bottom:12px; color:var(--text);">Question-by-Question Solution & Explanations</h4>
+                <div id="scorecard-solutions-container" style="display:flex; flex-direction:column; gap:12px;">
+                    <!-- Solutions injected dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center;">
+            <button class="btn btn-outline" onclick="openTestLeaderboardModal(currentCbtActiveTestId)">
+                🏆 View Class Leaderboard
+            </button>
+            <button class="btn btn-primary" onclick="closeModal('cbtScorecardModal')">
+                Close Scorecard
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- =========================================================================
+     5. LIVE ASSESSMENT LEADERBOARD MODAL (#cbtLeaderboardModal)
+     ========================================================================= -->
+<div class="modal-overlay" id="cbtLeaderboardModal" style="display:none; z-index:10001;">
+    <div class="modal modal-lg" style="max-width:780px;">
+        <div class="modal-header">
+            <div>
+                <span class="modal-title">🏆 Live Assessment Leaderboard</span>
+                <div style="font-size:12px; color:var(--text-muted);" id="leaderboard-modal-test-title">Chemical Reactions & Equations</div>
+            </div>
+            <button class="modal-close" onclick="closeModal('cbtLeaderboardModal')">✕</button>
+        </div>
+
+        <div class="modal-body" style="padding:20px;">
+            <!-- TOP 3 PODIUM SUMMARY -->
+            <div id="leaderboard-podium-container" style="display:flex; justify-content:center; gap:16px; margin-bottom:24px; flex-wrap:wrap;">
+                <!-- Podium injected dynamically -->
+            </div>
+
+            <!-- FULL RANKINGS TABLE -->
+            <div class="table-wrap" style="max-height:360px; overflow-y:auto; border:1px solid var(--border); border-radius:10px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:70px; text-align:center;">Rank</th>
+                            <th>Student Name</th>
+                            <th>Class</th>
+                            <th>Score</th>
+                            <th>Accuracy</th>
+                            <th>Time Taken</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-table-body">
+                        <!-- Table rows injected dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-primary" onclick="closeModal('cbtLeaderboardModal')">Close Leaderboard</button>
+        </div>
+    </div>
 </div>
