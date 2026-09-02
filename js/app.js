@@ -36,6 +36,10 @@ function navigateToView(viewName) {
         if (typeof setupAdminMarksControls === 'function') setupAdminMarksControls();
         if (typeof renderAdminExamScoreboard === 'function') renderAdminExamScoreboard();
     }
+    if (viewName === 'analytics') {
+        if (typeof setupStudentAnalyticsControls === 'function') setupStudentAnalyticsControls();
+        if (typeof renderStudentAnalyticsDashboard === 'function') renderStudentAnalyticsDashboard();
+    }
 }
 
 // Profile Type Switcher (Students / Teachers / Staff / Admins)
