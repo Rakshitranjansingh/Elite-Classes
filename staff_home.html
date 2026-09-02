@@ -136,7 +136,7 @@
                 <div class="card">
                     <div class="card-header" style="display:flex; justify-content:space-between; align-items:center;">
                         <span class="card-title">Coaching Announcements & Notice Board</span>
-                        <button class="btn btn-primary btn-sm" onclick="openModal('staffAddNoticeModal')">+ Add Notice</button>
+                        <button class="btn btn-primary btn-sm" onclick="openAddStaffNoticeModal()">+ Add Notice</button>
                     </div>
                     <div class="card-body" id="staff-notices-container"></div>
                 </div>
@@ -163,7 +163,7 @@
             <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
                 <button class="btn btn-outline danger btn-sm" onclick="closeModal('staffProfileModal'); logoutToGateway();" style="border-color:#ef4444; color:#ef4444;">🔒 Logout / Switch Account</button>
                 <div style="display:flex; gap:8px;">
-                    <button class="btn btn-primary btn-sm" onclick="closeModal('staffProfileModal'); openModal('staffAddNoticeModal');">📢 Add Notice</button>
+                    <button class="btn btn-primary btn-sm" onclick="closeModal('staffProfileModal'); openAddStaffNoticeModal();">📢 Add Notice</button>
                     <button class="btn btn-outline btn-sm" onclick="closeModal('staffProfileModal')">Close</button>
                 </div>
             </div>
@@ -223,14 +223,15 @@
         </div>
     </div>
 
-    <!-- ADD NOTICE MODAL (STAFF) -->
+    <!-- ADD / EDIT NOTICE MODAL (STAFF) -->
     <div class="modal-overlay" id="staffAddNoticeModal">
         <div class="modal" style="max-width:520px;">
             <div class="modal-header">
-                <span class="modal-title">📢 Post New Notice / Announcement</span>
+                <span class="modal-title" id="staffNoticeModalTitle">📢 Post New Notice / Announcement</span>
                 <button class="modal-close" onclick="closeModal('staffAddNoticeModal')">✕</button>
             </div>
             <div class="modal-body">
+                <input type="hidden" id="f-staff-notice-id">
                 <div class="form-grid">
                     <div class="form-group full">
                         <label>Category / Notice Badge *</label>
@@ -250,7 +251,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-outline" onclick="closeModal('staffAddNoticeModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="submitStaffNotice()">Publish Notice</button>
+                <button class="btn btn-primary" id="staffNoticeSubmitBtn" onclick="submitStaffNotice()">Publish Notice</button>
             </div>
         </div>
     </div>

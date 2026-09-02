@@ -594,17 +594,50 @@ const DBService = {
 
     async insertNotice(content) {
         const newNotice = { id: 'n_' + Date.now(), content: content, is_active: true, created_at: new Date().toISOString() };
-        if (!isSupabaseConnected()) {
-            const list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
-            list.unshift(newNotice);
-            localStorage.setItem('ec_notices', JSON.stringify(list));
-            return newNotice;
-        }
+        const list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+        list.unshift(newNotice);
+        localStorage.setItem('ec_notices', JSON.stringify(list));
+
+        if (!isSupabaseConnected()) return newNotice;
         try {
             await supabaseClient.from('notices').insert(newNotice);
             return newNotice;
         } catch (e) {
             console.error('[DBService] Insert notice error:', e);
+            return newNotice;
+        }
+    },
+
+    async updateNotice(id, content, isActive = true) {
+        const list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+        const idx = list.findIndex(n => n.id === id);
+        if (idx >= 0) {
+            list[idx] = { ...list[idx], content: content, is_active: isActive };
+            localStorage.setItem('ec_notices', JSON.stringify(list));
+        }
+
+        if (!isSupabaseConnected()) return true;
+        try {
+            await supabaseClient.from('notices').update({ content: content, is_active: isActive }).eq('id', id);
+            return true;
+        } catch (e) {
+            console.error('[DBService] Update notice error:', e);
+            return false;
+        }
+    },
+
+    async deleteNotice(id) {
+        let list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+        list = list.filter(n => n.id !== id);
+        localStorage.setItem('ec_notices', JSON.stringify(list));
+
+        if (!isSupabaseConnected()) return true;
+        try {
+            await supabaseClient.from('notices').delete().eq('id', id);
+            return true;
+        } catch (e) {
+            console.error('[DBService] Delete notice error:', e);
+            return false;
         }
     },
 

@@ -458,37 +458,127 @@ function markAllStaffStudentsPresent(date, cls) {
 }
 
 // ---------------------------------------------------------
-// 3. NOTICES & BULLETINS
+// 3. NOTICES & BULLETINS (CREATE, EDIT, DELETE)
 // ---------------------------------------------------------
+let cachedStaffNotices = [];
+
 async function renderStaffNotices() {
     const container = document.getElementById('staff-notices-container');
     if (!container) return;
 
-    let notices = [];
     if (typeof DBService !== 'undefined' && typeof DBService.fetchNoticeList === 'function') {
-        notices = await DBService.fetchNoticeList();
+        cachedStaffNotices = await DBService.fetchNoticeList();
     } else {
-        notices = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+        cachedStaffNotices = JSON.parse(localStorage.getItem('ec_notices') || '[]');
     }
 
-    if (!notices || notices.length === 0) {
-        container.innerHTML = `<div style="padding:30px; text-align:center; color:var(--text-muted);">No announcements published yet. Click "+ Add Notice" to post one.</div>`;
+    if (!cachedStaffNotices || cachedStaffNotices.length === 0) {
+        container.innerHTML = `<div style="padding:30px; text-align:center; color:var(--text-muted); background:#f8fafc; border-radius:12px; border:1px dashed var(--border);">No announcements published yet. Click "+ Add Notice" to post one.</div>`;
         return;
     }
 
-    container.innerHTML = notices.map(n => `
-        <div style="background:#ffffff; border:1px solid var(--border); padding:16px 20px; border-radius:12px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 1px 3px rgba(0,0,0,0.03);">
-            <div style="font-size:14px; font-weight:600; color:#0f172a; line-height:1.5;">${n.content}</div>
-            <span class="badge badge-success" style="flex-shrink:0; margin-left:12px;">Active</span>
-        </div>
-    `).join('');
+    container.innerHTML = cachedStaffNotices.map(n => {
+        let category = 'ANNOUNCEMENT';
+        let text = n.content;
+
+        const match = text.match(/^\[(.*?)\]\s*(.*)$/s);
+        if (match) {
+            category = match[1];
+            text = match[2];
+        }
+
+        const dateStr = n.created_at ? new Date(n.created_at).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Active';
+
+        return `
+            <div style="background:#ffffff; border:1px solid var(--border); padding:16px 20px; border-radius:12px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:flex-start; box-shadow:0 1px 3px rgba(0,0,0,0.03); gap:16px; flex-wrap:wrap;">
+                <div style="flex:1; min-width:260px;">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                        <span class="badge badge-purple" style="font-size:11px;">${category}</span>
+                        <span style="font-size:11.5px; color:var(--text-muted);">📅 ${dateStr}</span>
+                    </div>
+                    <div style="font-size:14px; font-weight:600; color:#0f172a; line-height:1.5;">${text}</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
+                    <span class="badge badge-success">Active</span>
+                    <button class="btn btn-sm btn-outline" onclick="openEditStaffNoticeModal('${n.id}')" style="font-size:11.5px; padding:4px 10px; display:inline-flex; align-items:center; gap:4px;" title="Edit announcement">
+                        ✏️ Edit
+                    </button>
+                    <button class="btn btn-sm btn-outline danger" onclick="deleteStaffNotice('${n.id}')" style="border-color:#ef4444; color:#ef4444; font-size:11.5px; padding:4px 8px;" title="Delete announcement">
+                        🗑️
+                    </button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function openAddStaffNoticeModal() {
+    const idInput = document.getElementById('f-staff-notice-id');
+    const contentInput = document.getElementById('f-staff-notice-content');
+    const categoryInput = document.getElementById('f-staff-notice-category');
+    const titleEl = document.getElementById('staffNoticeModalTitle');
+    const submitBtn = document.getElementById('staffNoticeSubmitBtn');
+
+    if (idInput) idInput.value = '';
+    if (contentInput) contentInput.value = '';
+    if (categoryInput) categoryInput.value = 'ANNOUNCEMENT';
+    if (titleEl) titleEl.textContent = '📢 Post New Notice / Announcement';
+    if (submitBtn) submitBtn.textContent = 'Publish Notice';
+
+    openModal('staffAddNoticeModal');
+}
+
+function openEditStaffNoticeModal(noticeId) {
+    const notice = cachedStaffNotices.find(n => n.id === noticeId);
+    if (!notice) return;
+
+    let category = 'ANNOUNCEMENT';
+    let text = notice.content;
+
+    const match = text.match(/^\[(.*?)\]\s*(.*)$/s);
+    if (match) {
+        category = match[1];
+        text = match[2];
+    }
+
+    const idInput = document.getElementById('f-staff-notice-id');
+    const contentInput = document.getElementById('f-staff-notice-content');
+    const categoryInput = document.getElementById('f-staff-notice-category');
+    const titleEl = document.getElementById('staffNoticeModalTitle');
+    const submitBtn = document.getElementById('staffNoticeSubmitBtn');
+
+    if (idInput) idInput.value = notice.id;
+    if (contentInput) contentInput.value = text;
+    if (categoryInput) categoryInput.value = category;
+    if (titleEl) titleEl.textContent = '✏️ Edit Notice / Announcement';
+    if (submitBtn) submitBtn.textContent = 'Save Changes';
+
+    openModal('staffAddNoticeModal');
+}
+
+async function deleteStaffNotice(noticeId) {
+    if (!confirm('Are you sure you want to remove this announcement from the notice board?')) return;
+
+    if (typeof DBService !== 'undefined' && typeof DBService.deleteNotice === 'function') {
+        await DBService.deleteNotice(noticeId);
+    } else {
+        let list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+        list = list.filter(n => n.id !== noticeId);
+        localStorage.setItem('ec_notices', JSON.stringify(list));
+    }
+
+    showToast('Notice removed successfully!', 'success');
+    await renderStaffNotices();
+    if (typeof renderStudentNoticeSlides === 'function') renderStudentNoticeSlides();
 }
 
 async function submitStaffNotice() {
+    const idInput = document.getElementById('f-staff-notice-id');
     const contentInput = document.getElementById('f-staff-notice-content');
     const categoryInput = document.getElementById('f-staff-notice-category');
     if (!contentInput) return;
 
+    const noticeId = idInput ? idInput.value : '';
     const content = contentInput.value.trim();
     const category = categoryInput ? categoryInput.value : '';
 
@@ -499,19 +589,35 @@ async function submitStaffNotice() {
 
     const formattedContent = category ? `[${category}] ${content}` : content;
 
-    if (typeof DBService !== 'undefined' && typeof DBService.insertNotice === 'function') {
-        await DBService.insertNotice(formattedContent);
+    if (noticeId) {
+        // Edit mode
+        if (typeof DBService !== 'undefined' && typeof DBService.updateNotice === 'function') {
+            await DBService.updateNotice(noticeId, formattedContent, true);
+        } else {
+            const list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+            const idx = list.findIndex(n => n.id === noticeId);
+            if (idx >= 0) list[idx].content = formattedContent;
+            localStorage.setItem('ec_notices', JSON.stringify(list));
+        }
+        showToast('Notice updated successfully!', 'success');
     } else {
-        const newNotice = { id: 'n_' + Date.now(), content: formattedContent, is_active: true, created_at: new Date().toISOString() };
-        const list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
-        list.unshift(newNotice);
-        localStorage.setItem('ec_notices', JSON.stringify(list));
+        // Create mode
+        if (typeof DBService !== 'undefined' && typeof DBService.insertNotice === 'function') {
+            await DBService.insertNotice(formattedContent);
+        } else {
+            const newNotice = { id: 'n_' + Date.now(), content: formattedContent, is_active: true, created_at: new Date().toISOString() };
+            const list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+            list.unshift(newNotice);
+            localStorage.setItem('ec_notices', JSON.stringify(list));
+        }
+        showToast('Notice published successfully!', 'success');
     }
 
     closeModal('staffAddNoticeModal');
     contentInput.value = '';
-    showToast('Notice published successfully!', 'success');
+    if (idInput) idInput.value = '';
     await renderStaffNotices();
+    if (typeof renderStudentNoticeSlides === 'function') renderStudentNoticeSlides();
 }
 
 // Render Profile Modal Info Cards
