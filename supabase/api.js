@@ -1061,5 +1061,63 @@ const DBService = {
             console.error('[DBService] Save attendance batch error:', e);
             return true;
         }
+    },
+
+    // ---------------------------------------------------------
+    // 18. EXAM RESULTS & MARKS HISTORY
+    // ---------------------------------------------------------
+    async fetchExamResults(examName = null, studentId = null) {
+        if (!isSupabaseConnected()) {
+            let list = JSON.parse(localStorage.getItem('ec_exam_results') || '[]');
+            if (examName) list = list.filter(r => r.exam_name === examName || r.exam === examName);
+            if (studentId) list = list.filter(r => r.student_id === studentId || r.studentId === studentId);
+            return list;
+        }
+        try {
+            let query = supabaseClient.from('exam_results').select('*').order('created_at', { ascending: false });
+            if (examName) query = query.eq('exam_name', examName);
+            if (studentId) query = query.eq('student_id', studentId);
+            const { data, error } = await query;
+            if (error || !data || data.length === 0) {
+                let list = JSON.parse(localStorage.getItem('ec_exam_results') || '[]');
+                if (examName) list = list.filter(r => r.exam_name === examName || r.exam === examName);
+                if (studentId) list = list.filter(r => r.student_id === studentId || r.studentId === studentId);
+                return list;
+            }
+            return data;
+        } catch (e) {
+            let list = JSON.parse(localStorage.getItem('ec_exam_results') || '[]');
+            if (examName) list = list.filter(r => r.exam_name === examName || r.exam === examName);
+            if (studentId) list = list.filter(r => r.student_id === studentId || r.studentId === studentId);
+            return list;
+        }
+    },
+
+    async upsertExamResult(result) {
+        const item = {
+            id: result.id || `er_${Date.now()}_${Math.floor(Math.random() * 1000)}`,
+            student_id: result.student_id || result.studentId,
+            exam_name: result.exam_name || result.exam,
+            subject: result.subject,
+            marks_obtained: parseFloat(result.marks_obtained || result.marks || 0),
+            max_marks: parseFloat(result.max_marks || result.max || 100),
+            grade: result.grade || 'A',
+            created_at: result.created_at || new Date().toISOString()
+        };
+
+        const list = JSON.parse(localStorage.getItem('ec_exam_results') || '[]');
+        const idx = list.findIndex(r => r.id === item.id || (r.student_id === item.student_id && r.exam_name === item.exam_name && r.subject === item.subject));
+        if (idx >= 0) list[idx] = { ...list[idx], ...item };
+        else list.unshift(item);
+        localStorage.setItem('ec_exam_results', JSON.stringify(list));
+
+        if (!isSupabaseConnected()) return item;
+        try {
+            await supabaseClient.from('exam_results').upsert(item);
+            return item;
+        } catch (e) {
+            console.error('[DBService] Upsert exam result error:', e);
+            return item;
+        }
     }
 };
