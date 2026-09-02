@@ -95,9 +95,37 @@ function isCurrentMonth(monthStr) {
 
 function getInitials(name) {
     if (!name) return 'EC';
-    const parts = name.trim().split(' ');
-    if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+    const parts = name.trim().split(/\s+/);
+    if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
     return name.slice(0, 2).toUpperCase();
+}
+
+// Abbreviate profile button name: e.g. Dr Ramesh Kumar -> Dr. R. Kumar, Aarav Sharma -> A. Sharma
+function formatProfileButtonName(name) {
+    if (!name) return 'Profile';
+    const words = name.trim().split(/\s+/);
+    if (words.length <= 1) return words[0];
+
+    const titles = ['dr', 'dr.', 'mr', 'mr.', 'mrs', 'mrs.', 'ms', 'ms.', 'prof', 'prof.', 'shri', 'er', 'er.'];
+    const firstLower = words[0].toLowerCase();
+
+    if (titles.includes(firstLower)) {
+        let titleFormatted = words[0];
+        if (!titleFormatted.endsWith('.')) titleFormatted += '.';
+        titleFormatted = titleFormatted.charAt(0).toUpperCase() + titleFormatted.slice(1);
+
+        if (words.length === 2) {
+            return `${titleFormatted} ${words[1]}`;
+        }
+
+        const initials = words.slice(1, -1).map(w => (w[0] ? w[0].toUpperCase() + '.' : '')).filter(Boolean).join(' ');
+        const lastName = words[words.length - 1];
+        return `${titleFormatted} ${initials} ${lastName}`;
+    }
+
+    const initials = words.slice(0, -1).map(w => (w[0] ? w[0].toUpperCase() + '.' : '')).filter(Boolean).join(' ');
+    const lastName = words[words.length - 1];
+    return `${initials} ${lastName}`;
 }
 
 // Render Dashboard Interactive Stat Pallets

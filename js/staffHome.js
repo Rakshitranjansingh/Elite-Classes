@@ -59,7 +59,7 @@ async function initStaffPortal() {
 
     const headerNameEl = document.getElementById('staff-header-username');
     if (headerNameEl) {
-        headerNameEl.textContent = currentStaffUser.name;
+        headerNameEl.textContent = typeof formatProfileButtonName === 'function' ? formatProfileButtonName(currentStaffUser.name) : currentStaffUser.name;
     }
 
     const headerAvatarEl = document.getElementById('staff-header-avatar');

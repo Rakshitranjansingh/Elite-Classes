@@ -112,7 +112,7 @@ async function loadStudentDashboard() {
 
     const headerUserEl = document.getElementById('st-header-username');
     if (headerUserEl) {
-        headerUserEl.textContent = currentStudent.name;
+        headerUserEl.textContent = typeof formatProfileButtonName === 'function' ? formatProfileButtonName(currentStudent.name) : currentStudent.name;
     }
 
     const headerAvatarEl = document.getElementById('st-header-avatar');
@@ -589,7 +589,7 @@ async function initStudentHome() {
     // Immediately update header profile name from session cache
     const headerUserEl = document.getElementById('st-header-username');
     if (headerUserEl && studentName) {
-        headerUserEl.textContent = studentName;
+        headerUserEl.textContent = typeof formatProfileButtonName === 'function' ? formatProfileButtonName(studentName) : studentName;
     }
 
     if (role !== 'student' || !studentId) {
