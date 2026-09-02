@@ -376,6 +376,32 @@
                 </div>
             </div>
 
+            <!-- CHAPTER 9 TEST -->
+            <div class="chapter-card" id="card-ts_c10_sci_ch9">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_sci_ch9" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 9: Light – Reflection and Refraction Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 120 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_sci_ch9">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_sci_ch9')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -395,6 +421,7 @@
     <script src="chapter6_control_coordination.js"></script>
     <script src="chapter7_reproduction.js"></script>
     <script src="chapter8_heredity.js"></script>
+    <script src="chapter9_light.js"></script>
 
     <script>
         // Get active logged-in student from unified session or localStorage
@@ -425,7 +452,8 @@
             'ts_c10_sci_ch5': Class10ScienceChapter5FullBank,
             'ts_c10_sci_ch6': Class10ScienceChapter6FullBank,
             'ts_c10_sci_ch7': Class10ScienceChapter7FullBank,
-            'ts_c10_sci_ch8': Class10ScienceChapter8FullBank
+            'ts_c10_sci_ch8': Class10ScienceChapter8FullBank,
+            'ts_c10_sci_ch9': Class10ScienceChapter9FullBank
         };
 
         // Initialize UI State
