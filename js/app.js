@@ -32,6 +32,10 @@ function navigateToView(viewName) {
     if (viewName === 'finances') renderFinancesView();
     if (viewName === 'classes') renderClassesView();
     if (viewName === 'attendance') renderAttendanceView();
+    if (viewName === 'marks') {
+        if (typeof setupAdminMarksControls === 'function') setupAdminMarksControls();
+        if (typeof renderAdminExamScoreboard === 'function') renderAdminExamScoreboard();
+    }
 }
 
 // Profile Type Switcher (Students / Teachers / Staff / Admins)

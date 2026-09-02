@@ -1159,5 +1159,105 @@ const DBService = {
             console.error('[DBService] Upsert exam result error:', e);
             return item;
         }
+    },
+
+    // ---------------------------------------------------------
+    // 19. NOTICES & ANNOUNCEMENTS (AUDIENCE FILTERED)
+    // ---------------------------------------------------------
+    async fetchNoticeList(audience = null) {
+        if (!isSupabaseConnected()) {
+            let list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+            if (audience === 'students') {
+                return list.filter(n => (n.target_audience || n.audience || 'all') === 'students' || (n.target_audience || n.audience || 'all') === 'all');
+            } else if (audience === 'staff') {
+                return list.filter(n => (n.target_audience || n.audience || 'all') === 'staff' || (n.target_audience || n.audience || 'all') === 'all');
+            }
+            return list;
+        }
+        try {
+            let query = supabaseClient.from('notices').select('*').eq('is_active', true).order('created_at', { ascending: false });
+            const { data, error } = await query;
+            if (error || !data || data.length === 0) {
+                let list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+                if (audience === 'students') {
+                    return list.filter(n => (n.target_audience || n.audience || 'all') === 'students' || (n.target_audience || n.audience || 'all') === 'all');
+                } else if (audience === 'staff') {
+                    return list.filter(n => (n.target_audience || n.audience || 'all') === 'staff' || (n.target_audience || n.audience || 'all') === 'all');
+                }
+                return list;
+            }
+
+            if (audience === 'students') {
+                return data.filter(n => (n.target_audience || 'all') === 'students' || (n.target_audience || 'all') === 'all');
+            } else if (audience === 'staff') {
+                return data.filter(n => (n.target_audience || 'all') === 'staff' || (n.target_audience || 'all') === 'all');
+            }
+            return data;
+        } catch (e) {
+            let list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+            if (audience === 'students') {
+                return list.filter(n => (n.target_audience || n.audience || 'all') === 'students' || (n.target_audience || n.audience || 'all') === 'all');
+            } else if (audience === 'staff') {
+                return list.filter(n => (n.target_audience || n.audience || 'all') === 'staff' || (n.target_audience || n.audience || 'all') === 'all');
+            }
+            return list;
+        }
+    },
+
+    async insertNotice(content, audience = 'all') {
+        const item = {
+            id: 'not_' + Date.now(),
+            content: content,
+            target_audience: audience,
+            is_active: true,
+            created_at: new Date().toISOString()
+        };
+
+        const list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+        list.unshift(item);
+        localStorage.setItem('ec_notices', JSON.stringify(list));
+
+        if (!isSupabaseConnected()) return item;
+        try {
+            await supabaseClient.from('notices').insert([item]);
+            return item;
+        } catch (e) {
+            console.error('[DBService] Insert notice error:', e);
+            return item;
+        }
+    },
+
+    async updateNotice(id, content, audience = 'all') {
+        const list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+        const idx = list.findIndex(n => n.id === id);
+        if (idx >= 0) {
+            list[idx].content = content;
+            list[idx].target_audience = audience;
+            localStorage.setItem('ec_notices', JSON.stringify(list));
+        }
+
+        if (!isSupabaseConnected()) return true;
+        try {
+            await supabaseClient.from('notices').update({ content: content, target_audience: audience }).eq('id', id);
+            return true;
+        } catch (e) {
+            console.error('[DBService] Update notice error:', e);
+            return true;
+        }
+    },
+
+    async deleteNotice(id) {
+        let list = JSON.parse(localStorage.getItem('ec_notices') || '[]');
+        list = list.filter(n => n.id !== id);
+        localStorage.setItem('ec_notices', JSON.stringify(list));
+
+        if (!isSupabaseConnected()) return true;
+        try {
+            await supabaseClient.from('notices').delete().eq('id', id);
+            return true;
+        } catch (e) {
+            console.error('[DBService] Delete notice error:', e);
+            return true;
+        }
     }
 };

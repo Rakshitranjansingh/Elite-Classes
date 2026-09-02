@@ -155,10 +155,11 @@ CREATE TABLE IF NOT EXISTS exam_results (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 12. NOTICES TICKER
+-- 12. NOTICES TICKER & ANNOUNCEMENTS TABLE
 CREATE TABLE IF NOT EXISTS notices (
     id VARCHAR(50) PRIMARY KEY,
     content TEXT NOT NULL,
+    target_audience VARCHAR(50) DEFAULT 'all',
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -235,6 +236,7 @@ CREATE INDEX IF NOT EXISTS idx_student_stats_student ON student_stats(student_id
 CREATE INDEX IF NOT EXISTS idx_student_remarks_student ON student_remarks(student_id);
 CREATE INDEX IF NOT EXISTS idx_student_remarks_staff ON student_remarks(staff_id);
 CREATE INDEX IF NOT EXISTS idx_student_remarks_status ON student_remarks(status);
+CREATE INDEX IF NOT EXISTS idx_notices_target_audience ON notices(target_audience);
 
 -- =========================================================
 -- ROW LEVEL SECURITY POLICIES
