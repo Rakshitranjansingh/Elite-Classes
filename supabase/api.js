@@ -688,41 +688,160 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
-    // 11. TEST SERIES CRUD
+    // 11. CBT TEST SERIES, QUESTIONS & LEADERBOARDS CRUD
     // ---------------------------------------------------------
-    async fetchTestSeries() {
-        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+    async fetchTestSeries(cls = null) {
+        if (!isSupabaseConnected()) {
+            let tests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+            if (cls && cls !== 'All') tests = tests.filter(t => t.cls === cls || t.class === cls);
+            return tests;
+        }
         try {
-            const { data, error } = await supabaseClient.from('test_series').select('*').order('created_at', { ascending: false });
-            if (error || !data) return [];
+            let query = supabaseClient.from('test_series').select('*').order('created_at', { ascending: false });
+            if (cls && cls !== 'All') query = query.eq('cls', cls);
+            const { data, error } = await query;
+            if (error || !data || data.length === 0) {
+                let tests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+                if (cls && cls !== 'All') tests = tests.filter(t => t.cls === cls || t.class === cls);
+                return tests;
+            }
             return data;
         } catch (e) {
-            return [];
+            let tests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+            if (cls && cls !== 'All') tests = tests.filter(t => t.cls === cls || t.class === cls);
+            return tests;
         }
     },
 
     async upsertTestSeries(test) {
-        if (!isSupabaseConnected()) {
-            let tests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
-            const idx = tests.findIndex(t => t.id === test.id);
-            if (idx >= 0) tests[idx] = test;
-            else tests.unshift(test);
-            localStorage.setItem('ec_test_series', JSON.stringify(tests));
-            return;
-        }
+        const item = {
+            id: test.id || 'ts_' + Date.now(),
+            title: test.title,
+            cls: test.cls || test.class,
+            subject: test.subject,
+            duration_mins: parseInt(test.duration_mins || test.duration || 45),
+            total_marks: parseFloat(test.total_marks || test.marks || 100),
+            passing_marks: parseFloat(test.passing_marks || 40),
+            negative_marking: parseFloat(test.negative_marking || 0.00),
+            questions_count: parseInt(test.questions_count || (test.questions ? test.questions.length : 0)),
+            status: test.status || 'published',
+            test_date: test.test_date || test.date || new Date().toISOString().split('T')[0],
+            instructions: test.instructions || '',
+            created_by: test.created_by || 'Admin',
+            created_at: test.created_at || new Date().toISOString()
+        };
+
+        let tests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+        const idx = tests.findIndex(t => t.id === item.id);
+        if (idx >= 0) tests[idx] = { ...tests[idx], ...item };
+        else tests.unshift(item);
+        localStorage.setItem('ec_test_series', JSON.stringify(tests));
+
+        if (!isSupabaseConnected()) return item;
         try {
-            await supabaseClient.from('test_series').upsert({
-                id: test.id,
-                title: test.title,
-                cls: test.cls,
-                subject: test.subject,
-                duration_mins: test.duration_mins,
-                total_marks: test.total_marks,
-                questions_count: test.questions_count,
-                test_date: test.test_date
-            });
+            await supabaseClient.from('test_series').upsert(item);
+            return item;
         } catch (e) {
             console.error('[DBService] Upsert test series failed:', e);
+            return item;
+        }
+    },
+
+    async deleteTestSeries(testId) {
+        let tests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+        tests = tests.filter(t => t.id !== testId);
+        localStorage.setItem('ec_test_series', JSON.stringify(tests));
+
+        if (!isSupabaseConnected()) return true;
+        try {
+            await supabaseClient.from('test_series').delete().eq('id', testId);
+            return true;
+        } catch (e) {
+            console.error('[DBService] Delete test series failed:', e);
+            return true;
+        }
+    },
+
+    async fetchTestQuestions(testId) {
+        const localKey = `ec_questions_${testId}`;
+        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem(localKey) || '[]');
+        try {
+            const { data, error } = await supabaseClient.from('test_questions').select('*').eq('test_id', testId).order('question_number', { ascending: true });
+            if (error || !data || data.length === 0) return JSON.parse(localStorage.getItem(localKey) || '[]');
+            return data;
+        } catch (e) {
+            return JSON.parse(localStorage.getItem(localKey) || '[]');
+        }
+    },
+
+    async upsertTestQuestions(testId, questionsList) {
+        const localKey = `ec_questions_${testId}`;
+        localStorage.setItem(localKey, JSON.stringify(questionsList));
+
+        if (!isSupabaseConnected()) return questionsList;
+        try {
+            await supabaseClient.from('test_questions').delete().eq('test_id', testId);
+            if (questionsList.length > 0) {
+                await supabaseClient.from('test_questions').insert(questionsList.map(q => ({
+                    id: q.id || `q_${testId}_${q.question_number}`,
+                    test_id: testId,
+                    question_number: q.question_number,
+                    question_text: q.question_text,
+                    question_type: q.question_type || 'mcq',
+                    option_a: q.option_a,
+                    option_b: q.option_b,
+                    option_c: q.option_c || null,
+                    option_d: q.option_d || null,
+                    correct_option: q.correct_option,
+                    marks: parseFloat(q.marks || 4.00),
+                    negative_marks: parseFloat(q.negative_marks || 1.00),
+                    explanation: q.explanation || ''
+                })));
+            }
+            return questionsList;
+        } catch (e) {
+            console.error('[DBService] Upsert test questions failed:', e);
+            return questionsList;
+        }
+    },
+
+    async fetchTestSubmissions(testId) {
+        const localKey = `ec_submissions_${testId}`;
+        if (!isSupabaseConnected()) {
+            const subs = JSON.parse(localStorage.getItem(localKey) || '[]');
+            subs.sort((a, b) => b.score - a.score || a.time_taken_seconds - b.time_taken_seconds);
+            return subs;
+        }
+        try {
+            const { data, error } = await supabaseClient.from('test_submissions').select('*').eq('test_id', testId).order('score', { ascending: false }).order('time_taken_seconds', { ascending: true });
+            if (error || !data || data.length === 0) {
+                const subs = JSON.parse(localStorage.getItem(localKey) || '[]');
+                subs.sort((a, b) => b.score - a.score || a.time_taken_seconds - b.time_taken_seconds);
+                return subs;
+            }
+            return data;
+        } catch (e) {
+            const subs = JSON.parse(localStorage.getItem(localKey) || '[]');
+            subs.sort((a, b) => b.score - a.score || a.time_taken_seconds - b.time_taken_seconds);
+            return subs;
+        }
+    },
+
+    async submitTestAttempt(submission) {
+        const localKey = `ec_submissions_${submission.test_id}`;
+        let subs = JSON.parse(localStorage.getItem(localKey) || '[]');
+        const idx = subs.findIndex(s => s.student_id === submission.student_id);
+        if (idx >= 0) subs[idx] = submission;
+        else subs.push(submission);
+        localStorage.setItem(localKey, JSON.stringify(subs));
+
+        if (!isSupabaseConnected()) return submission;
+        try {
+            await supabaseClient.from('test_submissions').upsert(submission);
+            return submission;
+        } catch (e) {
+            console.error('[DBService] Submit test attempt failed:', e);
+            return submission;
         }
     },
 

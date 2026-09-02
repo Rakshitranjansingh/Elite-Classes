@@ -176,7 +176,7 @@ CREATE TABLE IF NOT EXISTS courses (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 14. TEST SERIES & MOCK EXAMS TABLE
+-- 14. TEST SERIES & CBT EXAMS TABLE
 CREATE TABLE IF NOT EXISTS test_series (
     id VARCHAR(50) PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -184,9 +184,54 @@ CREATE TABLE IF NOT EXISTS test_series (
     subject VARCHAR(100) NOT NULL,
     duration_mins INT DEFAULT 45,
     total_marks NUMERIC(5, 2) DEFAULT 100,
-    questions_count INT DEFAULT 25,
+    passing_marks NUMERIC(5, 2) DEFAULT 40,
+    negative_marking NUMERIC(3, 2) DEFAULT 0.00,
+    questions_count INT DEFAULT 0,
+    status VARCHAR(50) DEFAULT 'published',
     test_date VARCHAR(50),
+    instructions TEXT,
+    created_by VARCHAR(50),
     created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 14B. TEST QUESTIONS TABLE
+CREATE TABLE IF NOT EXISTS test_questions (
+    id VARCHAR(50) PRIMARY KEY,
+    test_id VARCHAR(50) REFERENCES test_series(id) ON DELETE CASCADE,
+    question_number INT NOT NULL,
+    question_text TEXT NOT NULL,
+    question_type VARCHAR(50) DEFAULT 'mcq',
+    option_a TEXT NOT NULL,
+    option_b TEXT NOT NULL,
+    option_c TEXT,
+    option_d TEXT,
+    correct_option VARCHAR(10) NOT NULL,
+    marks NUMERIC(4, 2) DEFAULT 4.00,
+    negative_marks NUMERIC(4, 2) DEFAULT 1.00,
+    explanation TEXT,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 14C. TEST SUBMISSIONS & LEADERBOARD TABLE
+CREATE TABLE IF NOT EXISTS test_submissions (
+    id VARCHAR(50) PRIMARY KEY,
+    test_id VARCHAR(50) REFERENCES test_series(id) ON DELETE CASCADE,
+    student_id VARCHAR(50) REFERENCES students(id) ON DELETE CASCADE,
+    student_name VARCHAR(255),
+    cls VARCHAR(50),
+    score NUMERIC(5, 2) NOT NULL DEFAULT 0,
+    total_marks NUMERIC(5, 2) NOT NULL DEFAULT 100,
+    percentage NUMERIC(5, 2) NOT NULL DEFAULT 0,
+    accuracy_pct NUMERIC(5, 2) DEFAULT 0,
+    correct_count INT DEFAULT 0,
+    incorrect_count INT DEFAULT 0,
+    unattempted_count INT DEFAULT 0,
+    time_taken_seconds INT DEFAULT 0,
+    rank INT DEFAULT 1,
+    status VARCHAR(50) DEFAULT 'completed',
+    answers_json JSONB,
+    submitted_at TIMESTAMPTZ DEFAULT NOW(),
+    CONSTRAINT unique_student_test_submission UNIQUE (test_id, student_id)
 );
 
 -- 15. STUDENT STATS & ACTIVITY PERSISTENCE TABLE
@@ -229,8 +274,13 @@ CREATE INDEX IF NOT EXISTS idx_payments_month ON payments(month);
 CREATE INDEX IF NOT EXISTS idx_salary_payouts_recipient ON salary_payouts(recipient_id);
 CREATE INDEX IF NOT EXISTS idx_attendance_date ON attendance(date);
 CREATE INDEX IF NOT EXISTS idx_exam_results_student ON exam_results(student_id);
-CREATE INDEX IF NOT EXISTS idx_courses_cls ON courses(cls);
 CREATE INDEX IF NOT EXISTS idx_test_series_cls ON test_series(cls);
+CREATE INDEX IF NOT EXISTS idx_test_series_subject ON test_series(subject);
+CREATE INDEX IF NOT EXISTS idx_test_series_status ON test_series(status);
+CREATE INDEX IF NOT EXISTS idx_test_questions_test_id ON test_questions(test_id);
+CREATE INDEX IF NOT EXISTS idx_test_submissions_test_id ON test_submissions(test_id);
+CREATE INDEX IF NOT EXISTS idx_test_submissions_student_id ON test_submissions(student_id);
+CREATE INDEX IF NOT EXISTS idx_test_submissions_score ON test_submissions(test_id, score DESC);
 CREATE INDEX IF NOT EXISTS idx_student_stats_student ON student_stats(student_id);
 CREATE INDEX IF NOT EXISTS idx_student_remarks_student ON student_remarks(student_id);
 CREATE INDEX IF NOT EXISTS idx_student_remarks_staff ON student_remarks(staff_id);
@@ -253,6 +303,8 @@ ALTER TABLE exam_results ENABLE ROW LEVEL SECURITY;
 ALTER TABLE notices ENABLE ROW LEVEL SECURITY;
 ALTER TABLE courses ENABLE ROW LEVEL SECURITY;
 ALTER TABLE test_series ENABLE ROW LEVEL SECURITY;
+ALTER TABLE test_questions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE test_submissions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE student_stats ENABLE ROW LEVEL SECURITY;
 ALTER TABLE student_remarks ENABLE ROW LEVEL SECURITY;
 
@@ -271,6 +323,8 @@ DROP POLICY IF EXISTS "Public Read/Write exam_results" ON exam_results;
 DROP POLICY IF EXISTS "Public Read/Write notices" ON notices;
 DROP POLICY IF EXISTS "Public Read/Write courses" ON courses;
 DROP POLICY IF EXISTS "Public Read/Write test_series" ON test_series;
+DROP POLICY IF EXISTS "Public Read/Write test_questions" ON test_questions;
+DROP POLICY IF EXISTS "Public Read/Write test_submissions" ON test_submissions;
 DROP POLICY IF EXISTS "Public Read/Write student_stats" ON student_stats;
 DROP POLICY IF EXISTS "Public Read/Write student_remarks" ON student_remarks;
 
@@ -289,6 +343,8 @@ CREATE POLICY "Public Read/Write exam_results" ON exam_results FOR ALL USING (tr
 CREATE POLICY "Public Read/Write notices" ON notices FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write courses" ON courses FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write test_series" ON test_series FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Public Read/Write test_questions" ON test_questions FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Public Read/Write test_submissions" ON test_submissions FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write student_stats" ON student_stats FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write student_remarks" ON student_remarks FOR ALL USING (true) WITH CHECK (true);
 
