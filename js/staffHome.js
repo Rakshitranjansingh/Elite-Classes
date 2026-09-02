@@ -505,7 +505,7 @@ async function markAllStaffStudentsPresent(date, cls, subject = 'General') {
 // ---------------------------------------------------------
 // 3. MARKS & RESULTS (EXAMS, MULTI-SUBJECTS, TOTALS, %, RANKS)
 // ---------------------------------------------------------
-const RECENT_EXAMS_LIST = [
+const BASE_RECENT_EXAMS = [
     { 
         id: 'ex_midterm', 
         name: 'Mid-Term Examination 2025-26', 
@@ -523,41 +523,84 @@ const RECENT_EXAMS_LIST = [
     { 
         id: 'ex_preboard', 
         name: 'Pre-Board Diagnostic Exam', 
-        date: '2025-09-01', 
+        date: '2025-06-10', 
         classes: ['Class 10', 'Class 9'], 
         subjects: ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English'] 
     },
     { 
-        id: 'ex_monthly_aug', 
-        name: 'Monthly Test - August 2025', 
-        date: '2025-08-30', 
+        id: 'ex_monthly_may', 
+        name: 'Monthly Assessment - May 2025', 
+        date: '2025-05-28', 
         classes: ['Class 8', 'Class 9', 'Class 10'], 
         subjects: ['Mathematics', 'Science'] 
     }
 ];
 
-let selectedStaffExam = RECENT_EXAMS_LIST[0].name;
+function getAllStaffExams() {
+    const customExams = JSON.parse(localStorage.getItem('ec_custom_exams') || '[]');
+    const combined = [...customExams, ...BASE_RECENT_EXAMS];
+
+    // Remove duplicates by name
+    const unique = [];
+    const seen = new Set();
+    combined.forEach(e => {
+        if (!seen.has(e.name)) {
+            seen.add(e.name);
+            unique.push(e);
+        }
+    });
+
+    // Sort descending by date
+    unique.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+    return unique;
+}
+
+let selectedStaffExam = '';
 let selectedStaffExamClass = '';
 
 function setupStaffMarksControls() {
-    const examChipsEl = document.getElementById('staff-marks-exam-chips');
-    const classChipsEl = document.getElementById('staff-marks-class-chips');
+    const allExams = getAllStaffExams();
+    if (!selectedStaffExam || !allExams.some(e => e.name === selectedStaffExam)) {
+        selectedStaffExam = allExams[0]?.name || 'Mid-Term Examination 2025-26';
+    }
 
-    const currentExamObj = RECENT_EXAMS_LIST.find(e => e.name === selectedStaffExam) || RECENT_EXAMS_LIST[0];
+    const currentExamObj = allExams.find(e => e.name === selectedStaffExam) || allExams[0];
     selectedStaffExam = currentExamObj.name;
 
-    // 1. Render Exam Selector Chips
-    if (examChipsEl) {
-        examChipsEl.innerHTML = RECENT_EXAMS_LIST.map(e => `
-            <button class="btn btn-sm ${selectedStaffExam === e.name ? 'btn-primary' : 'btn-outline'}" onclick="selectStaffMarksExam('${e.name}')">
-                📝 ${e.name}
-            </button>
-        `).join('');
+    // Check if selected exam is within the latest 2 exams
+    const latest2Exams = allExams.slice(0, 2);
+    const isExamEditable = latest2Exams.some(e => e.name === selectedStaffExam);
+
+    // 1. Render Exam Selector Dropdown
+    const examSelect = document.getElementById('staff-marks-exam-select');
+    if (examSelect) {
+        examSelect.innerHTML = allExams.map((e, idx) => {
+            const isEditable = idx < 2;
+            const tag = isEditable ? '🟢 [Active for Edit]' : '🔒 [Historical/Locked]';
+            return `<option value="${e.name}" ${selectedStaffExam === e.name ? 'selected' : ''}>${e.name} ${tag}</option>`;
+        }).join('');
+    }
+
+    // Status indicator badge
+    const indicatorEl = document.getElementById('staff-exam-status-indicator');
+    if (indicatorEl) {
+        if (isExamEditable) {
+            indicatorEl.innerHTML = `<span class="badge badge-success" style="font-size:12px; padding:6px 12px; display:inline-flex; align-items:center; gap:4px;">🟢 Active (Editable — Latest 2 Exams)</span>`;
+        } else {
+            indicatorEl.innerHTML = `<span class="badge badge-warning" style="font-size:12px; padding:6px 12px; display:inline-flex; align-items:center; gap:4px;">🔒 Locked Record (Only Latest 2 Exams Editable)</span>`;
+        }
+    }
+
+    // Top action button toggle
+    const headerBtn = document.getElementById('staff-enter-marks-header-btn');
+    if (headerBtn) {
+        headerBtn.style.display = isExamEditable ? 'inline-flex' : 'none';
     }
 
     // 2. Render Classes Appeared Chips
+    const classChipsEl = document.getElementById('staff-marks-class-chips');
     const teacherClasses = currentStaffUser && currentStaffUser.classes ? currentStaffUser.classes.split(',').map(c => c.trim()).filter(Boolean) : [];
-    let appearedClasses = currentExamObj.classes;
+    let appearedClasses = currentExamObj.classes || ['Class 8', 'Class 9', 'Class 10'];
     if (teacherClasses.length > 0) {
         const intersected = appearedClasses.filter(c => teacherClasses.includes(c));
         if (intersected.length > 0) appearedClasses = intersected;
@@ -576,8 +619,10 @@ function setupStaffMarksControls() {
     }
 }
 
-function selectStaffMarksExam(examName) {
-    selectedStaffExam = examName;
+function onStaffMarksExamSelectChange() {
+    const examSelect = document.getElementById('staff-marks-exam-select');
+    if (!examSelect) return;
+    selectedStaffExam = examSelect.value;
     setupStaffMarksControls();
     renderStaffExamScoreboard();
 }
@@ -610,8 +655,12 @@ async function renderStaffExamScoreboard() {
 
     setupStaffMarksControls();
 
-    const examObj = RECENT_EXAMS_LIST.find(e => e.name === selectedStaffExam) || RECENT_EXAMS_LIST[0];
-    const examSubjects = examObj.subjects;
+    const allExams = getAllStaffExams();
+    const examObj = allExams.find(e => e.name === selectedStaffExam) || allExams[0];
+    const examSubjects = examObj.subjects || ['Mathematics', 'Science'];
+
+    const latest2Exams = allExams.slice(0, 2);
+    const isExamEditable = latest2Exams.some(e => e.name === selectedStaffExam);
 
     const classStudents = (students || []).filter(s => s.cls === selectedStaffExamClass);
 
@@ -724,9 +773,15 @@ async function renderStaffExamScoreboard() {
                             <td style="font-weight:800; color:${sc.pct >= 80 ? '#16a34a' : sc.pct >= 60 ? '#2563eb' : '#dc2626'};">${sc.pct}%</td>
                             <td>${sc.gradeBadge}</td>
                             <td>
-                                <button class="btn btn-sm btn-outline" onclick="openStaffEnterMarksModal('${sc.student.id}')" style="font-size:11px; padding:3px 8px;">
-                                    ✏️ Edit
-                                </button>
+                                ${isExamEditable ? `
+                                    <button class="btn btn-sm btn-outline" onclick="openStaffEnterMarksModal('${sc.student.id}')" style="font-size:11px; padding:3px 8px;">
+                                        ✏️ Edit
+                                    </button>
+                                ` : `
+                                    <span style="font-size:11px; color:var(--text-muted); font-weight:600; display:inline-flex; align-items:center; gap:3px;">
+                                        🔒 Locked
+                                    </span>
+                                `}
                             </td>
                         </tr>
                     `).join('')}
@@ -736,7 +791,85 @@ async function renderStaffExamScoreboard() {
     `;
 }
 
+// ---------------------------------------------------------
+// ADD NEW EXAM MODAL & CONTROLS
+// ---------------------------------------------------------
+function openStaffAddNewExamModal() {
+    const nameInput = document.getElementById('f-new-exam-name');
+    const dateInput = document.getElementById('f-new-exam-date');
+    const classesContainer = document.getElementById('f-new-exam-classes-container');
+    const subjectsContainer = document.getElementById('f-new-exam-subjects-container');
+
+    if (nameInput) nameInput.value = '';
+    if (dateInput) dateInput.value = new Date().toISOString().split('T')[0];
+
+    const availableClasses = (typeof CLASS_OPTIONS !== 'undefined') ? CLASS_OPTIONS : ['Class 8', 'Class 9', 'Class 10', 'Class 7', 'Class 6', 'Class 5'];
+    const availableSubjects = ['Mathematics', 'Science', 'Physics', 'Chemistry', 'Biology', 'English', 'Social Studies', 'Hindi'];
+
+    if (classesContainer) {
+        classesContainer.innerHTML = availableClasses.map(c => `
+            <label class="checkbox-item" style="font-size:12.5px; padding:4px 8px; background:#f8fafc; border:1px solid var(--border); border-radius:6px; cursor:pointer;">
+                <input type="checkbox" value="${c}" checked>
+                <span>${c}</span>
+            </label>
+        `).join('');
+    }
+
+    if (subjectsContainer) {
+        subjectsContainer.innerHTML = availableSubjects.map((s, i) => `
+            <label class="checkbox-item" style="font-size:12.5px; padding:4px 8px; background:#f8fafc; border:1px solid var(--border); border-radius:6px; cursor:pointer;">
+                <input type="checkbox" value="${s}" ${i < 3 ? 'checked' : ''}>
+                <span>${s}</span>
+            </label>
+        `).join('');
+    }
+
+    openModal('staffAddNewExamModal');
+}
+
+function submitStaffNewExam() {
+    const name = document.getElementById('f-new-exam-name')?.value.trim();
+    const date = document.getElementById('f-new-exam-date')?.value;
+
+    const checkedClasses = Array.from(document.querySelectorAll('#f-new-exam-classes-container input[type="checkbox"]:checked'))
+        .map(cb => cb.value);
+
+    const checkedSubjects = Array.from(document.querySelectorAll('#f-new-exam-subjects-container input[type="checkbox"]:checked'))
+        .map(cb => cb.value);
+
+    if (!name || !date || checkedClasses.length === 0 || checkedSubjects.length === 0) {
+        showToast('Please enter Exam Name, Date, and select at least one class and subject.', 'danger');
+        return;
+    }
+
+    const newExam = {
+        id: 'ex_' + Date.now(),
+        name: name,
+        date: date,
+        classes: checkedClasses,
+        subjects: checkedSubjects
+    };
+
+    const customExams = JSON.parse(localStorage.getItem('ec_custom_exams') || '[]');
+    customExams.unshift(newExam);
+    localStorage.setItem('ec_custom_exams', JSON.stringify(customExams));
+
+    selectedStaffExam = name;
+    selectedStaffExamClass = checkedClasses[0] || 'Class 8';
+
+    closeModal('staffAddNewExamModal');
+    showToast(`Exam "${name}" scheduled successfully! It is now active for marks evaluation.`, 'success');
+    setupStaffMarksControls();
+    renderStaffExamScoreboard();
+}
+
+// ---------------------------------------------------------
+// ENTER / UPDATE MARKS MODAL (RESTRICTED TO LATEST 2 EXAMS)
+// ---------------------------------------------------------
 function openStaffEnterMarksModal(preSelectedStudentId = '') {
+    const allExams = getAllStaffExams();
+    const latest2Exams = allExams.slice(0, 2);
+
     const examSelect = document.getElementById('f-staff-exam-name');
     const classSelect = document.getElementById('f-staff-exam-class');
     const subjectSelect = document.getElementById('f-staff-exam-subject');
@@ -744,13 +877,19 @@ function openStaffEnterMarksModal(preSelectedStudentId = '') {
 
     if (!examSelect || !classSelect || !subjectSelect || !studentSelect) return;
 
-    // 1. Populate Exams
-    examSelect.innerHTML = RECENT_EXAMS_LIST.map(e => `
-        <option value="${e.name}" ${e.name === selectedStaffExam ? 'selected' : ''}>${e.name}</option>
+    // 1. Populate ONLY the latest 2 editable exams
+    examSelect.innerHTML = latest2Exams.map(e => `
+        <option value="${e.name}" ${e.name === selectedStaffExam ? 'selected' : ''}>${e.name} 🟢 (Latest)</option>
     `).join('');
 
+    // If current selected exam was not in latest 2, switch to the first editable exam
+    if (!latest2Exams.some(e => e.name === selectedStaffExam)) {
+        selectedStaffExam = latest2Exams[0]?.name || allExams[0]?.name;
+        examSelect.value = selectedStaffExam;
+    }
+
     // 2. Populate Classes
-    const examObj = RECENT_EXAMS_LIST.find(e => e.name === (examSelect.value || selectedStaffExam)) || RECENT_EXAMS_LIST[0];
+    const examObj = latest2Exams.find(e => e.name === examSelect.value) || latest2Exams[0];
     classSelect.innerHTML = examObj.classes.map(c => `
         <option value="${c}" ${c === selectedStaffExamClass ? 'selected' : ''}>${c}</option>
     `).join('');
@@ -774,6 +913,9 @@ function openStaffEnterMarksModal(preSelectedStudentId = '') {
 }
 
 function onStaffExamModalChange() {
+    const allExams = getAllStaffExams();
+    const latest2Exams = allExams.slice(0, 2);
+
     const examSelect = document.getElementById('f-staff-exam-name');
     const classSelect = document.getElementById('f-staff-exam-class');
     const subjectSelect = document.getElementById('f-staff-exam-subject');
@@ -781,7 +923,7 @@ function onStaffExamModalChange() {
 
     if (!examSelect || !classSelect || !subjectSelect || !studentSelect) return;
 
-    const examObj = RECENT_EXAMS_LIST.find(e => e.name === examSelect.value) || RECENT_EXAMS_LIST[0];
+    const examObj = latest2Exams.find(e => e.name === examSelect.value) || latest2Exams[0];
 
     // Update subjects
     subjectSelect.innerHTML = examObj.subjects.map(s => `<option value="${s}">${s}</option>`).join('');
