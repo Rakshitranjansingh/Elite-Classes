@@ -164,10 +164,11 @@
         </div>
     </div>
 
-    <!-- 3. CHAPTER 1 TEST (SINGLE CONSOLIDATED ASSESSMENT) -->
+    <!-- 3. CHAPTER TESTS (SINGLE CONSOLIDATED ASSESSMENT PER CHAPTER) -->
     <div style="margin-bottom:14px;">
-        <div style="display:grid; grid-template-columns:1fr; gap:14px;" id="chapter-tests-grid">
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:14px;" id="chapter-tests-grid">
             
+            <!-- CHAPTER 1 TEST -->
             <div class="chapter-card" id="card-ts_c10_sci_ch1">
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
@@ -193,6 +194,32 @@
                 </div>
             </div>
 
+            <!-- CHAPTER 2 TEST -->
+            <div class="chapter-card" id="card-ts_c10_sci_ch2">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_sci_ch2" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 2: Acids, Bases & Salts Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 120 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_sci_ch2">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_sci_ch2')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -205,6 +232,7 @@
     <!-- SCRIPTS -->
     <script src="../../../cbtPlayer.js"></script>
     <script src="chapter1_chemical_reactions.js"></script>
+    <script src="chapter2_acids_bases_salts.js"></script>
 
     <script>
         // Get active logged-in student or default
@@ -217,7 +245,8 @@
 
         // Available Tests Map (Single Consolidated Test per Chapter)
         const testsMap = {
-            'ts_c10_sci_ch1': Class10ScienceChapter1FullBank
+            'ts_c10_sci_ch1': Class10ScienceChapter1FullBank,
+            'ts_c10_sci_ch2': Class10ScienceChapter2FullBank
         };
 
         // Initialize UI State
@@ -232,12 +261,14 @@
             const tbody = document.getElementById('science-leaderboard-tbody');
             if (!tbody) return;
 
-            // Class 10 Science Peer Benchmarks
+            const maxSubjectMarks = Object.values(testsMap).reduce((a, t) => a + (t.total_marks || 400), 0);
+
+            // Class 10 Science Peer Benchmarks (Cumulative across chapters)
             const peerStudents = [
-                { id: 'peer_1', name: 'Rohan Verma', totalScore: 392, maxPossible: 400, correct: 98, totalQ: 99, testsCount: 1 },
-                { id: 'peer_2', name: 'Ananya Sharma', totalScore: 384, maxPossible: 400, correct: 96, totalQ: 98, testsCount: 1 },
-                { id: 'peer_3', name: 'Priya Singh', totalScore: 376, maxPossible: 400, correct: 94, totalQ: 98, testsCount: 1 },
-                { id: 'peer_4', name: 'Kavita Iyer', totalScore: 340, maxPossible: 400, correct: 86, totalQ: 94, testsCount: 1 }
+                { id: 'peer_1', name: 'Rohan Verma', totalScore: Math.round(maxSubjectMarks * 0.975), maxPossible: maxSubjectMarks, correct: 196, totalQ: 198, testsCount: 2 },
+                { id: 'peer_2', name: 'Ananya Sharma', totalScore: Math.round(maxSubjectMarks * 0.955), maxPossible: maxSubjectMarks, correct: 192, totalQ: 196, testsCount: 2 },
+                { id: 'peer_3', name: 'Priya Singh', totalScore: Math.round(maxSubjectMarks * 0.935), maxPossible: maxSubjectMarks, correct: 188, totalQ: 196, testsCount: 2 },
+                { id: 'peer_4', name: 'Kavita Iyer', totalScore: Math.round(maxSubjectMarks * 0.85), maxPossible: maxSubjectMarks, correct: 172, totalQ: 188, testsCount: 2 }
             ];
 
             // Calculate current student's cumulative subject performance across all attempted tests
@@ -259,7 +290,7 @@
                 name: activeStudent.name,
                 isCurrentUser: true,
                 totalScore: userTotalScore,
-                maxPossible: userMaxPossible > 0 ? userMaxPossible : 400,
+                maxPossible: userMaxPossible > 0 ? userMaxPossible : maxSubjectMarks,
                 correct: userTotalCorrect,
                 totalQ: userTotalAttemptedQ,
                 testsCount: attemptsList.length,
