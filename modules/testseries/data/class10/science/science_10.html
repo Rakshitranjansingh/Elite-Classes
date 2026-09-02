@@ -164,61 +164,30 @@
         </div>
     </div>
 
-    <!-- 3. CHAPTER 1 TESTS -->
-    <div style="margin-bottom:10px;">
-        <div style="font-size:14px; font-weight:700; color:var(--text); margin-bottom:10px;">
-            Chapter 1: Chemical Reactions & Equations
-        </div>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:14px;" id="chapter-tests-grid">
+    <!-- 3. CHAPTER 1 TEST (SINGLE CONSOLIDATED ASSESSMENT) -->
+    <div style="margin-bottom:14px;">
+        <div style="display:grid; grid-template-columns:1fr; gap:14px;" id="chapter-tests-grid">
             
-            <!-- TEST 1: 100Q COMPLETE MASTERY BANK -->
-            <div class="chapter-card" id="card-ts_c10_sci_ch1_100q">
+            <div class="chapter-card" id="card-ts_c10_sci_ch1">
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                         <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
-                        <span id="badge-status-ts_c10_sci_ch1_100q" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                        <span id="badge-status-ts_c10_sci_ch1" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
                     </div>
 
-                    <div style="font-size:14.5px; font-weight:700; color:var(--text); margin-bottom:6px;">
-                        100Q NCERT Mastery Assessment
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 1: Chemical Reactions Assessment
                     </div>
 
-                    <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
                         <span class="meta-pill">⏱️ 120 Mins</span>
                         <span class="meta-pill">🎯 400 Marks</span>
                         <span class="meta-pill">⚠️ -1.0 Neg</span>
                     </div>
                 </div>
 
-                <div id="action-ts_c10_sci_ch1_100q">
-                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_sci_ch1_100q')" style="width:100%; font-weight:700; padding:7px;">
-                        📝 Enroll in Test
-                    </button>
-                </div>
-            </div>
-
-            <!-- TEST 2: 10Q DIAGNOSTIC TEST -->
-            <div class="chapter-card" id="card-ts_c10_sci_ch1">
-                <div>
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                        <span class="badge badge-purple" style="font-size:10.5px;">10 Questions</span>
-                        <span id="badge-status-ts_c10_sci_ch1" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
-                    </div>
-
-                    <div style="font-size:14.5px; font-weight:700; color:var(--text); margin-bottom:6px;">
-                        Quick Chapter Diagnostic (10Q)
-                    </div>
-
-                    <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                        <span class="meta-pill">⏱️ 45 Mins</span>
-                        <span class="meta-pill">🎯 40 Marks</span>
-                        <span class="meta-pill">⚠️ -1.0 Neg</span>
-                    </div>
-                </div>
-
                 <div id="action-ts_c10_sci_ch1">
-                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_sci_ch1')" style="width:100%; font-weight:700; padding:7px;">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_sci_ch1')" style="width:100%; font-weight:700; padding:8px;">
                         📝 Enroll in Test
                     </button>
                 </div>
@@ -273,7 +242,6 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script src="chapter1_chemical_reactions.js"></script>
     <script src="chapter1_chemical_reactions_100q.js"></script>
 
     <script>
@@ -285,10 +253,9 @@
         const STORAGE_KEY = `ec_cbt_enrollment_${activeStudent.id}`;
         let studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
 
-        // Available Tests Map
+        // Available Tests Map (Single Consolidated Test per Chapter)
         const testsMap = {
-            'ts_c10_sci_ch1_100q': Class10ScienceChapter1FullBank,
-            'ts_c10_sci_ch1': Class10ScienceChapter1
+            'ts_c10_sci_ch1': Class10ScienceChapter1FullBank
         };
 
         // Initialize UI State

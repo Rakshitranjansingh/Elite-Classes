@@ -8,8 +8,8 @@
 */
 
 const Class10ScienceChapter1FullBank = {
-    id: 'ts_c10_sci_ch1_100q',
-    title: 'Class 10 Science: Chemical Reactions & Equations (Complete 100-Question Mastery Bank)',
+    id: 'ts_c10_sci_ch1',
+    title: 'Chapter 1: Chemical Reactions Assessment',
     cls: 'Class 10',
     subject: 'Science',
     duration_mins: 120,
