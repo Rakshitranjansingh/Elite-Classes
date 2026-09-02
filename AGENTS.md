@@ -103,6 +103,15 @@ The application follows a clean 4-tier client-serverless architecture:
 1. **Scientific & Chemical Equations**: Always format chemical equations and formulas using proper Unicode subscripts (`₀₁₂₃₄₅₆₇₈₉`), superscripts (`⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻`), and reaction symbols (`→`, `⇌`, `↑` for gas, `↓` for precipitate). Never use raw plain numbers as chemical subscripts (e.g. use `H₂O`, `Fe₃O₄`, `Ca(OH)₂`, `Pb(NO₃)₂`, `SO₄²⁻`, not `H2O`, `Fe3O4`).
 2. **Mathematical Expressions**: Use standard typographic symbols (`×`, `÷`, `±`, `√`, `π`, `θ`, `x²`, `y³`, `≤`, `≥`, `≠`) to ensure crystal-clear student readability across all devices.
 
+### E. Unified Authentication & Single-Session Architecture
+1. **Single Point of Authentication**: All sub-modules, subject portals (e.g. `science_10.html`), class hubs (e.g. `testseries_class_10.html`), test series engines (`cbtPlayer.js`), and dashboard views MUST share one unified authentication session (`ec_user_role`, `ec_student_id`, `ec_active_student`).
+2. **Zero Fragmented Logins**: Never implement isolated login forms, separate PIN gates, or detached sessions inside test series, CBT modules, or subject pages.
+3. **Session Hierarchy & Navigation**:
+   - Level 4 (Subject Chapter Tests, e.g. `science_10.html`) $\rightarrow$ Back button returns to Class Hub (`testseries_class_10.html`).
+   - Level 3 (Class Test Series Hub, e.g. `testseries_class_10.html`) $\rightarrow$ Back button returns to Student Portal (`student_home.html`).
+   - Level 2 (Student Portal Dashboard, `student_home.html`) $\rightarrow$ Logout button securely clears session and routes to Gateway (`index.html`).
+4. **Global Inactivity & Auth Guards**: All portal views and sub-modules must inherit the central inactivity timer and auth guard checks.
+
 ---
 
 ## 4. Agent Development Workflow & Quality Checklist
