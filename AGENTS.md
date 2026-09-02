@@ -100,8 +100,19 @@ The application follows a clean 4-tier client-serverless architecture:
 4. **Session Security & Inactivity**: Preserve the 10-minute inactivity timer (`INACTIVITY_TIMEOUT_MS`) and authentication guards on protected portal pages (`checkAdminAuthGuard()`, `initStaffPortal()`, `initStudentHome()`).
 
 ### D. Test Series & Assessment Content Standards
-1. **Scientific & Chemical Equations**: Always format chemical equations and formulas using proper Unicode subscripts (`₀₁₂₃₄₅₆₇₈₉`), superscripts (`⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻`), and reaction symbols (`→`, `⇌`, `↑` for gas, `↓` for precipitate). Never use raw plain numbers as chemical subscripts (e.g. use `H₂O`, `Fe₃O₄`, `Ca(OH)₂`, `Pb(NO₃)₂`, `SO₄²⁻`, not `H2O`, `Fe3O4`).
-2. **Mathematical Expressions**: Use standard typographic symbols (`×`, `÷`, `±`, `√`, `π`, `θ`, `x²`, `y³`, `≤`, `≥`, `≠`) to ensure crystal-clear student readability across all devices.
+1. **Exhaustive NCERT Source Coverage**: When creating chapter-wise tests from NCERT chapter PDFs (`jesc101.pdf`, `jesc102.pdf`, ..., `jesc113.pdf` in `modules/testseries/data/class10/science/ncert/`), the agent MUST exhaustively cover every single paragraph, important definition, activity/experiment, "Do You Know?" callout box, summary point, in-text question, and end-of-chapter exercise.
+2. **Mandatory Difficulty Distribution (100 Questions per Chapter Assessment)**:
+   Every single chapter assessment file MUST contain exactly **100 questions** distributed strictly across the following 5 tiers:
+   - 🟢 **50 Easy Questions**: Direct NCERT concepts, definitions, physical states, straightforward chemical formulas.
+   - 🟡 **10 Medium Questions**: Single-step chemical equations, stoichiometric balancing, activity color changes.
+   - 🟠 **10 Hard Questions**: Multi-step reactions, condition-based reasoning, experimental apparatus deductions.
+   - 🟣 **20 Tricky Questions**: Subtle distractors, common student misconceptions, edge cases from tables/footnotes.
+   - 🔴 **10 Very Very Hard Questions**: Deep multi-concept synthesis, Olympiad/Exemplar-level deductions, numerical/redox/stoichiometric analysis.
+3. **Assessment Structure & Schema**:
+   - Single consolidated master assessment per chapter.
+   - Configuration parameters: `100 Questions`, `120 Mins`, `400 Marks` (`marks_per_question: 4`, `negative_mark: 1`).
+4. **Scientific & Chemical Equations**: Always format chemical equations and formulas using proper Unicode subscripts (`₀₁₂₃₄₅₆₇₈₉`), superscripts (`⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻`), and reaction symbols (`→`, `⇌`, `↑` for gas, `↓` for precipitate). Never use raw plain numbers as chemical subscripts (e.g. use `H₂O`, `Fe₃O₄`, `Ca(OH)₂`, `Pb(NO₃)₂`, `SO₄²⁻`, not `H2O`, `Fe3O4`).
+5. **Mathematical Expressions**: Use standard typographic symbols (`×`, `÷`, `±`, `√`, `π`, `θ`, `x²`, `y³`, `≤`, `≥`, `≠`) to ensure crystal-clear student readability across all devices.
 
 ### E. Unified Authentication & Single-Session Architecture
 1. **Single Point of Authentication**: All sub-modules, subject portals (e.g. `science_10.html`), class hubs (e.g. `testseries_class_10.html`), test series engines (`cbtPlayer.js`), and dashboard views MUST share one unified authentication session (`ec_user_role`, `ec_student_id`, `ec_active_student`).

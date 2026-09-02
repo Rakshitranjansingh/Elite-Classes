@@ -60,6 +60,17 @@ Use this skill whenever you are building features, modifying UI views, refactori
 ### Profile Tables
 - `students`, `staff`, and `admins` must maintain `phone`, `pin`, and `email` columns for multi-method authentication (WhatsApp PIN + future Google SSO).
 
+### Chapter-Wise Test Series Standards
+- **Source Material**: Read NCERT chapter PDFs in `modules/testseries/data/class10/science/ncert/` (`jesc101.pdf`, `jesc102.pdf`, ..., `jesc113.pdf`).
+- **Exhaustive Scope**: Cover every paragraph, table, activity/experiment, "Do You Know?" callout box, summary point, in-text question, and exercise.
+- **Mandatory 100Q Difficulty Distribution**:
+  - 🟢 **50 Easy**: Direct NCERT definitions, formulas, and physical states.
+  - 🟡 **10 Medium**: Single-step balanced equations and activity color changes.
+  - 🟠 **10 Hard**: Multi-step reactions and apparatus deductions.
+  - 🟣 **20 Tricky**: Subtle distractors and edge cases.
+  - 🔴 **10 Very Very Hard**: Multi-concept synthesis, Olympiad/Exemplar deductions, and redox analysis.
+- **Format**: Single consolidated assessment (100 Questions, 120 Mins, 400 Marks, -1.0 Neg Mark) with proper Unicode subscripts (`H₂SO₄`, `Ca(OH)₂`, etc.).
+
 ---
 
 ## 4. Development Workflow Checklist
