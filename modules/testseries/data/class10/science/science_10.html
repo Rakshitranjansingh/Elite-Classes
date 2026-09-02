@@ -696,6 +696,9 @@
                     badge.textContent = `Score: ${attempt.score}/${attempt.total_marks} (${attempt.pct}%)`;
                     actionWrap.innerHTML = `
                         <div style="display:flex; gap:8px;">
+                            <button class="btn btn-outline btn-sm" onclick="reviewTest('${testId}')" style="flex:1; font-weight:700; padding:8px; border-color:var(--primary); color:var(--primary); background:transparent;">
+                                🔍 Review Test
+                            </button>
                             <button class="btn btn-primary btn-sm" onclick="startTest('${testId}')" style="flex:1; font-weight:700; padding:8px;">
                                 🔄 Retake Test
                             </button>
@@ -721,7 +724,16 @@
             CBTPlayer.launch(test, activeStudent, (result) => {
                 studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
                 initPage();
+                showToast(`Test submitted! Score: ${result.score}/${result.total_marks} (${result.percentage}%). Click 'Review Test' to analyze answers.`, 'success');
             });
+        }
+
+        // Review Test Analysis & Solutions
+        function reviewTest(testId) {
+            const test = testsMap[testId];
+            if (!test) return;
+            const attempt = studentCbtData.attempts[testId];
+            CBTPlayer.openReview(test, activeStudent, attempt);
         }
 
         function showToast(msg, type = 'success') {

@@ -3,8 +3,9 @@
    Self-contained, reusable Computer-Based Testing engine with:
    - Full-Screen Modal Simulation & Live Countdown Timer
    - 100-Question Fast-Navigation Palette with Status Indicators
+   - Schema-Resilient Question Parser (supports question/question_text & options array/option_a..d)
    - Instant Automated Evaluation with Negative Marking (-1.0)
-   - Pedagogical Scorecard with Question-by-Question Explanations
+   - Dedicated Test Review & Solutions Modal with Interactive Filters (All, Correct, Wrong, Skipped)
    - Offline-First Storage + Cloud Supabase Persistence (DBService)
    ========================================================================= */
 
@@ -18,6 +19,29 @@ const CBTPlayer = {
     totalSecondsAllocated: 0,
     student: null,
     onCompleteCallback: null,
+
+    // Helper: Normalize Question Text across schemas
+    getQuestionText(q) {
+        if (!q) return '';
+        return q.question_text || q.question || '';
+    },
+
+    // Helper: Normalize Question Options across schemas
+    getQuestionOptions(q) {
+        if (!q) return [];
+        if (Array.isArray(q.options) && q.options.length > 0) {
+            return q.options.map(o => ({
+                key: (o.key || o.option || '').toUpperCase(),
+                text: o.text || o.option_text || ''
+            }));
+        }
+        return [
+            { key: 'A', text: q.option_a },
+            { key: 'B', text: q.option_b },
+            { key: 'C', text: q.option_c },
+            { key: 'D', text: q.option_d }
+        ].filter(o => o.text !== undefined && o.text !== null && o.text !== '');
+    },
 
     // Launch CBT Exam
     launch(testObj, customStudent = null, onComplete = null) {
@@ -43,7 +67,7 @@ const CBTPlayer = {
             cls: 'Class 10'
         };
 
-        this.totalSecondsAllocated = (testObj.duration_mins || 45) * 60;
+        this.totalSecondsAllocated = (testObj.duration_mins || 120) * 60;
         this.secondsLeft = this.totalSecondsAllocated;
 
         this.ensureModalElements();
@@ -239,8 +263,11 @@ const CBTPlayer = {
         const q = this.activeTest.questions[this.currentQIdx];
         if (!q) return;
 
+        const qText = this.getQuestionText(q);
+        const opts = this.getQuestionOptions(q);
+
         document.getElementById('cbt-q-number-badge').textContent = `Question ${this.currentQIdx + 1} of ${this.activeTest.questions.length}`;
-        document.getElementById('cbt-q-body-text').textContent = `Q${this.currentQIdx + 1}. ${q.question_text}`;
+        document.getElementById('cbt-q-body-text').textContent = `Q${this.currentQIdx + 1}. ${qText}`;
 
         const isAnswered = this.userAnswers[this.currentQIdx] !== undefined;
         const isFlagged = this.flaggedReview[this.currentQIdx] === true;
@@ -257,13 +284,6 @@ const CBTPlayer = {
         }
 
         const wrap = document.getElementById('cbt-q-options-wrap');
-        const opts = [
-            { key: 'A', text: q.option_a },
-            { key: 'B', text: q.option_b },
-            { key: 'C', text: q.option_c },
-            { key: 'D', text: q.option_d }
-        ].filter(o => o.text);
-
         let html = '';
         opts.forEach(opt => {
             const isSelected = this.userAnswers[this.currentQIdx] === opt.key;
@@ -509,11 +529,11 @@ const CBTPlayer = {
             incorrect_count: wrongCount,
             unattempted_count: unattemptedCount,
             time_taken_seconds: timeTakenSecs,
-            answers_json: this.userAnswers,
+            answers_json: { ...this.userAnswers },
             submitted_at: new Date().toISOString()
         };
 
-        // 1. Save Locally
+        // 1. Save Locally with exact userAnswers
         const storageKey = `ec_cbt_enrollment_${this.student.id}`;
         let localData = JSON.parse(localStorage.getItem(storageKey) || '{"enrolled":{}, "attempts":{}}');
         localData.enrolled[this.activeTest.id] = true;
@@ -525,6 +545,7 @@ const CBTPlayer = {
             correct: correctCount,
             wrong: wrongCount,
             unattempted: unattemptedCount,
+            userAnswers: { ...this.userAnswers },
             timeFormatted: `${Math.floor(timeTakenSecs / 60)}m ${timeTakenSecs % 60}s`,
             submitted_at: new Date().toISOString()
         };
@@ -539,106 +560,244 @@ const CBTPlayer = {
             }
         }
 
+        // 3. Close the Exam modal cleanly
         this.closeModal();
 
-        // 3. Render Pedagogical Scorecard Modal
-        this.renderScorecardModal(submissionObj);
-
-        // 4. Callback
+        // 4. Callback to update card score and show toast (no intrusive auto-popup)
         if (this.onCompleteCallback) {
             this.onCompleteCallback(submissionObj);
         }
     },
 
-    renderScorecardModal(result) {
-        let scOverlay = document.getElementById('cbt-scorecard-modal-overlay');
-        if (!scOverlay) {
-            scOverlay = document.createElement('div');
-            scOverlay.id = 'cbt-scorecard-modal-overlay';
-            scOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0;
-                width: 100vw; height: 100vh;
-                background: rgba(11, 19, 41, 0.85);
-                z-index: 100000;
-                display: flex; align-items: center; justify-content: center;
-                font-family: 'Plus Jakarta Sans', sans-serif;
-            `;
-            document.body.appendChild(scOverlay);
+    // =========================================================================
+    // DEDICATED REVIEW & SOLUTIONS MODAL
+    // Interactive Question-by-Question Analysis with Filter Tabs
+    // =========================================================================
+    openReview(testObj, customStudent = null, attemptData = null) {
+        if (!testObj || !testObj.questions) {
+            alert('Error: Question bank not found for this test.');
+            return;
         }
 
-        scOverlay.style.display = 'flex';
-        scOverlay.innerHTML = `
-            <div style="background:#ffffff; border-radius:14px; max-width:760px; width:94%; max-height:90vh; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 20px 40px rgba(0,0,0,0.3);">
+        let student = customStudent;
+        if (!student) {
+            try {
+                student = JSON.parse(localStorage.getItem('ec_active_student'));
+            } catch (e) {
+                student = null;
+            }
+        }
+        if (!student) {
+            student = {
+                id: localStorage.getItem('ec_student_id') || 'st_guest',
+                name: localStorage.getItem('ec_student_name') || 'Class 10 Student',
+                cls: 'Class 10'
+            };
+        }
+
+        const storageKey = `ec_cbt_enrollment_${student.id}`;
+        const localData = JSON.parse(localStorage.getItem(storageKey) || '{"enrolled":{}, "attempts":{}}');
+        const attempt = attemptData || localData.attempts[testObj.id] || {};
+        const userAnswers = attempt.userAnswers || attempt.answers_json || {};
+
+        let revOverlay = document.getElementById('cbt-review-modal-overlay');
+        if (!revOverlay) {
+            revOverlay = document.createElement('div');
+            revOverlay.id = 'cbt-review-modal-overlay';
+            revOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0;
+                width: 100vw; height: 100vh;
+                background: rgba(11, 19, 41, 0.9);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                z-index: 100000;
+                display: flex; align-items: center; justify-content: center;
+                font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            `;
+            document.body.appendChild(revOverlay);
+        }
+
+        const score = attempt.score !== undefined ? attempt.score : '--';
+        const totalMarks = attempt.total_marks || testObj.total_marks || 400;
+        const pct = attempt.pct !== undefined ? attempt.pct : (attempt.percentage || 0);
+        const correct = attempt.correct !== undefined ? attempt.correct : (attempt.correct_count || 0);
+        const wrong = attempt.wrong !== undefined ? attempt.wrong : (attempt.incorrect_count || 0);
+        const skipped = attempt.unattempted !== undefined ? attempt.unattempted : (testObj.questions.length - (correct + wrong));
+        const accuracy = attempt.accuracy !== undefined ? attempt.accuracy : (attempt.accuracy_pct || 0);
+        const timeFormatted = attempt.timeFormatted || (attempt.time_taken_seconds ? `${Math.floor(attempt.time_taken_seconds / 60)}m ${attempt.time_taken_seconds % 60}s` : '--');
+
+        revOverlay.style.display = 'flex';
+        revOverlay.innerHTML = `
+            <div style="background:#ffffff; border-radius:14px; max-width:900px; width:95%; max-height:92vh; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 24px 48px rgba(0,0,0,0.35);">
+                
                 <!-- HEADER -->
-                <div style="background:#0b1329; color:#ffffff; padding:16px 22px; display:flex; justify-content:space-between; align-items:center;">
-                    <div>
-                        <div style="font-size:16px; font-weight:800; color:#fff;">🎯 Assessment Scorecard</div>
-                        <div style="font-size:12px; color:#94a3b8;">${this.activeTest.title}</div>
+                <div style="background:#0b1329; color:#ffffff; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; flex-shrink:0; border-bottom:1px solid rgba(255,255,255,0.1);">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span style="font-size:20px;">🔍</span>
+                        <div>
+                            <div style="font-size:15px; font-weight:800; color:#fff;">Test Analysis & Detailed Solutions</div>
+                            <div style="font-size:11.5px; color:#94a3b8;">${testObj.title} • Candidate: <b>${student.name}</b></div>
+                        </div>
                     </div>
-                    <button onclick="document.getElementById('cbt-scorecard-modal-overlay').style.display='none';" style="background:none; border:none; color:#fff; font-size:18px; cursor:pointer;">✕</button>
+                    <button onclick="document.getElementById('cbt-review-modal-overlay').style.display='none';" style="background:#1e293b; color:#fff; border:1px solid #334155; width:32px; height:32px; border-radius:50%; font-size:15px; font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center;">✕</button>
                 </div>
 
-                <!-- BODY -->
-                <div style="padding:20px; overflow-y:auto; flex:1;">
-                    <div style="background:linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border:1px solid #bfdbfe; border-radius:12px; padding:18px; text-align:center; margin-bottom:18px;">
-                        <div style="font-size:12px; font-weight:700; color:#1e40af; text-transform:uppercase;">Test Result</div>
-                        <div style="font-size:34px; font-weight:800; color:#2563eb; margin:4px 0;">${result.score} / ${result.total_marks}</div>
-                        <div style="font-size:14px; font-weight:700; color:#0f172a;">Percentage: ${result.percentage}% • Accuracy: ${result.accuracy_pct}%</div>
-                    </div>
-
-                    <!-- METRICS -->
-                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(110px, 1fr)); gap:10px; margin-bottom:20px;">
-                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px; text-align:center;">
-                            <div style="font-size:10.5px; font-weight:700; color:#64748b; text-transform:uppercase;">Correct</div>
-                            <div style="font-size:16px; font-weight:800; color:#10b981;">✓ ${result.correct_count}</div>
+                <!-- PERFORMANCE SUMMARY BAR -->
+                <div style="background:#f8fafc; border-bottom:1px solid #e2e8f0; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; flex-shrink:0;">
+                    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; padding:6px 12px; text-align:center;">
+                            <span style="font-size:10px; color:#1e40af; font-weight:700; text-transform:uppercase;">Score</span>
+                            <div style="font-size:16px; font-weight:800; color:#2563eb;">${score} / ${totalMarks} <span style="font-size:12px; font-weight:600;">(${pct}%)</span></div>
                         </div>
-                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px; text-align:center;">
-                            <div style="font-size:10.5px; font-weight:700; color:#64748b; text-transform:uppercase;">Wrong</div>
-                            <div style="font-size:16px; font-weight:800; color:#ef4444;">✕ ${result.incorrect_count}</div>
-                        </div>
-                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px; text-align:center;">
-                            <div style="font-size:10.5px; font-weight:700; color:#64748b; text-transform:uppercase;">Skipped</div>
-                            <div style="font-size:16px; font-weight:800; color:#64748b;">⚪ ${result.unattempted_count}</div>
-                        </div>
-                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px; text-align:center;">
-                            <div style="font-size:10.5px; font-weight:700; color:#64748b; text-transform:uppercase;">Time Taken</div>
-                            <div style="font-size:16px; font-weight:800; color:#8b5cf6;">${Math.floor(result.time_taken_seconds / 60)}m ${result.time_taken_seconds % 60}s</div>
+                        <div style="display:flex; gap:6px;">
+                            <span style="background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; padding:4px 10px; border-radius:6px; font-size:11.5px; font-weight:700;">✓ Correct: ${correct}</span>
+                            <span style="background:#fef2f2; color:#991b1b; border:1px solid #fecaca; padding:4px 10px; border-radius:6px; font-size:11.5px; font-weight:700;">✕ Wrong: ${wrong}</span>
+                            <span style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1; padding:4px 10px; border-radius:6px; font-size:11.5px; font-weight:700;">⚪ Skipped: ${skipped}</span>
+                            <span style="background:#f5f3ff; color:#6d28d9; border:1px solid #ddd6fe; padding:4px 10px; border-radius:6px; font-size:11.5px; font-weight:700;">🎯 Accuracy: ${accuracy}%</span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- SOLUTIONS & EXPLANATIONS -->
-                    <div style="font-size:14px; font-weight:800; color:#0f172a; margin-bottom:10px;">Question-by-Question Solution & Explanations</div>
-                    <div style="display:flex; flex-direction:column; gap:12px;">
-                        ${this.activeTest.questions.map((q, idx) => {
-                            const userAns = this.userAnswers[idx];
-                            const isCorrect = userAns === q.correct_option;
-                            return `
-                                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px;">
-                                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
-                                        <b style="font-size:13px; color:#0f172a;">Q${idx + 1}. ${q.question_text}</b>
-                                        <span style="font-size:11px; font-weight:700; padding:2px 8px; border-radius:12px; background:${!userAns ? '#e2e8f0' : (isCorrect ? '#ecfdf5' : '#fef2f2')}; color:${!userAns ? '#475569' : (isCorrect ? '#10b981' : '#ef4444')};">
-                                            ${!userAns ? 'Skipped' : (isCorrect ? '✓ Correct (+4)' : '✕ Wrong (-1)')}
-                                        </span>
+                <!-- FILTER TABS -->
+                <div style="padding:10px 20px; background:#ffffff; border-bottom:1px solid #e2e8f0; display:flex; gap:8px; flex-shrink:0; overflow-x:auto;">
+                    <button id="rev-tab-all" onclick="CBTPlayer.filterReview('all')" style="background:#2563eb; color:#fff; border:none; padding:6px 14px; border-radius:6px; font-size:12px; font-weight:700; cursor:pointer;">
+                        All Questions (${testObj.questions.length})
+                    </button>
+                    <button id="rev-tab-correct" onclick="CBTPlayer.filterReview('correct')" style="background:#f1f5f9; color:#0f172a; border:1px solid #cbd5e1; padding:6px 14px; border-radius:6px; font-size:12px; font-weight:700; cursor:pointer;">
+                        ✓ Correct Only (${correct})
+                    </button>
+                    <button id="rev-tab-wrong" onclick="CBTPlayer.filterReview('wrong')" style="background:#f1f5f9; color:#0f172a; border:1px solid #cbd5e1; padding:6px 14px; border-radius:6px; font-size:12px; font-weight:700; cursor:pointer;">
+                        ✕ Incorrect Only (${wrong})
+                    </button>
+                    <button id="rev-tab-skipped" onclick="CBTPlayer.filterReview('skipped')" style="background:#f1f5f9; color:#0f172a; border:1px solid #cbd5e1; padding:6px 14px; border-radius:6px; font-size:12px; font-weight:700; cursor:pointer;">
+                        ⚪ Skipped Only (${skipped})
+                    </button>
+                </div>
+
+                <!-- QUESTIONS LIST CONTAINER -->
+                <div id="cbt-review-questions-list" style="padding:18px 20px; overflow-y:auto; flex:1; display:flex; flex-direction:column; gap:16px; background:#f8fafc;">
+                    ${testObj.questions.map((q, idx) => {
+                        const qText = this.getQuestionText(q);
+                        const opts = this.getQuestionOptions(q);
+                        const userAns = userAnswers[idx];
+                        const correctOpt = (q.correct_option || '').toUpperCase();
+                        const isAnswered = userAns !== undefined && userAns !== null && userAns !== '';
+                        const isCorrect = isAnswered && userAns === correctOpt;
+                        const statusType = !isAnswered ? 'skipped' : (isCorrect ? 'correct' : 'wrong');
+
+                        return `
+                            <div class="rev-q-card rev-status-${statusType}" style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                                <!-- Q HEADER -->
+                                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; gap:8px;">
+                                    <div style="display:flex; align-items:center; gap:8px;">
+                                        <span style="background:#0f172a; color:#fff; font-size:11px; font-weight:800; padding:3px 9px; border-radius:6px;">Q${idx + 1}</span>
+                                        ${q.difficulty ? `<span style="background:#f1f5f9; color:#475569; font-size:10.5px; font-weight:700; padding:2px 7px; border-radius:4px; text-transform:uppercase;">${q.difficulty}</span>` : ''}
                                     </div>
-                                    <div style="font-size:12px; margin-bottom:6px;">
-                                        <span>Your Answer: <b>${userAns ? `Option (${userAns})` : 'None'}</b></span> • 
-                                        <span style="color:#10b981;">Correct Answer: <b>Option (${q.correct_option})</b></span>
+                                    <div>
+                                        ${!isAnswered ? `
+                                            <span style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1; font-size:11px; font-weight:700; padding:3px 8px; border-radius:12px;">⚪ Skipped (0)</span>
+                                        ` : (isCorrect ? `
+                                            <span style="background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; font-size:11px; font-weight:700; padding:3px 8px; border-radius:12px;">✓ Correct (+4)</span>
+                                        ` : `
+                                            <span style="background:#fef2f2; color:#991b1b; border:1px solid #fecaca; font-size:11px; font-weight:700; padding:3px 8px; border-radius:12px;">✕ Incorrect (-1)</span>
+                                        `)}
                                     </div>
-                                    ${q.explanation ? `<div style="font-size:11.5px; color:#475569; background:#ffffff; border-left:3px solid #2563eb; padding:8px 10px; border-radius:4px;">💡 <b>Explanation:</b> ${q.explanation}</div>` : ''}
                                 </div>
-                            `;
-                        }).join('')}
-                    </div>
+
+                                <!-- Q TEXT -->
+                                <div style="font-size:14px; font-weight:700; color:#0f172a; line-height:1.55; margin-bottom:14px;">
+                                    ${qText}
+                                </div>
+
+                                <!-- OPTIONS -->
+                                <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:14px;">
+                                    ${opts.map(opt => {
+                                        const isThisCorrect = opt.key === correctOpt;
+                                        const isThisUserSelected = isAnswered && userAns === opt.key;
+
+                                        let optBorder = '#e2e8f0';
+                                        let optBg = '#ffffff';
+                                        let optColor = '#0f172a';
+                                        let badgeTag = '';
+
+                                        if (isThisCorrect && isThisUserSelected) {
+                                            optBorder = '#10b981';
+                                            optBg = '#ecfdf5';
+                                            optColor = '#065f46';
+                                            badgeTag = `<span style="background:#10b981; color:#fff; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px; margin-left:auto;">✓ Your Choice (Correct)</span>`;
+                                        } else if (isThisCorrect) {
+                                            optBorder = '#10b981';
+                                            optBg = '#f0fdf4';
+                                            optColor = '#065f46';
+                                            badgeTag = `<span style="background:#059669; color:#fff; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px; margin-left:auto;">✓ Correct Answer</span>`;
+                                        } else if (isThisUserSelected) {
+                                            optBorder = '#ef4444';
+                                            optBg = '#fef2f2';
+                                            optColor = '#991b1b';
+                                            badgeTag = `<span style="background:#ef4444; color:#fff; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px; margin-left:auto;">✕ Your Choice</span>`;
+                                        }
+
+                                        return `
+                                            <div style="display:flex; align-items:center; gap:8px; padding:10px 12px; border:1.5px solid ${optBorder}; background:${optBg}; color:${optColor}; border-radius:6px; font-size:13px; font-weight:${isThisCorrect || isThisUserSelected ? '700' : '500'};">
+                                                <b style="font-size:12.5px;">(${opt.key})</b>
+                                                <span style="flex:1;">${opt.text}</span>
+                                                ${badgeTag}
+                                            </div>
+                                        `;
+                                    }).join('')}
+                                </div>
+
+                                <!-- EXPLANATION CALLOUT -->
+                                ${q.explanation ? `
+                                    <div style="background:#f0f9ff; border-left:4px solid #0284c7; padding:10px 12px; border-radius:4px; font-size:12px; color:#0369a1; line-height:1.5;">
+                                        <b style="color:#0284c7;">💡 Detailed Explanation:</b> ${q.explanation}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `;
+                    }).join('')}
                 </div>
 
                 <!-- FOOTER -->
-                <div style="padding:12px 20px; border-top:1px solid #e2e8f0; display:flex; justify-content:flex-end;">
-                    <button onclick="document.getElementById('cbt-scorecard-modal-overlay').style.display='none';" style="background:#2563eb; color:#ffffff; border:none; padding:8px 18px; border-radius:8px; font-weight:700; font-size:13px; cursor:pointer;">
-                        Close Scorecard
+                <div style="padding:12px 20px; background:#ffffff; border-top:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; flex-shrink:0;">
+                    <div style="font-size:12px; color:#64748b;">Reviewing ${testObj.questions.length} Questions</div>
+                    <button onclick="document.getElementById('cbt-review-modal-overlay').style.display='none';" style="background:#2563eb; color:#ffffff; border:none; padding:8px 18px; border-radius:8px; font-weight:700; font-size:12.5px; cursor:pointer;">
+                        Close Review
                     </button>
                 </div>
             </div>
         `;
+    },
+
+    // Filter review questions
+    filterReview(type) {
+        const cards = document.querySelectorAll('.rev-q-card');
+        cards.forEach(card => {
+            if (type === 'all') {
+                card.style.display = 'block';
+            } else if (type === 'correct') {
+                card.style.display = card.classList.contains('rev-status-correct') ? 'block' : 'none';
+            } else if (type === 'wrong') {
+                card.style.display = card.classList.contains('rev-status-wrong') ? 'block' : 'none';
+            } else if (type === 'skipped') {
+                card.style.display = card.classList.contains('rev-status-skipped') ? 'block' : 'none';
+            }
+        });
+
+        // Update active tab buttons styling
+        ['all', 'correct', 'wrong', 'skipped'].forEach(t => {
+            const btn = document.getElementById(`rev-tab-${t}`);
+            if (!btn) return;
+            if (t === type) {
+                btn.style.background = '#2563eb';
+                btn.style.color = '#ffffff';
+                btn.style.border = 'none';
+            } else {
+                btn.style.background = '#f1f5f9';
+                btn.style.color = '#0f172a';
+                btn.style.border = '1px solid #cbd5e1';
+            }
+        });
     }
 };
 
