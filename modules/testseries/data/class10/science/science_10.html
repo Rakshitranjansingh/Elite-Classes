@@ -4,517 +4,540 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Elite Classes — Class 10 Science Chapter-Wise CBT & Leaderboard</title>
+    <title>Class 10: Chapterwise Test — Elite Classes</title>
     <link rel="stylesheet" href="../../../../../css/styles.css">
     <style>
+        /* Minimalist & Transparent Hero Banner */
         .science-hero {
-            background: linear-gradient(135deg, #0b1329 0%, #1e293b 60%, #1e1b4b 100%);
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             color: #ffffff;
-            border-radius: var(--radius);
-            padding: 30px;
-            margin-bottom: 24px;
-            position: relative;
-            overflow: hidden;
+            border-radius: var(--radius-sm);
+            padding: 14px 20px;
+            margin-bottom: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px -5px rgba(11, 19, 41, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .science-hero::after {
-            content: "🧪";
-            position: absolute;
-            right: 20px;
-            bottom: -10px;
-            font-size: 130px;
-            opacity: 0.12;
-            pointer-events: none;
+        .science-hero h1 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+            color: #f8fafc;
+            letter-spacing: -0.2px;
+        }
+
+        .compact-table th {
+            padding: 8px 12px;
+            font-size: 10.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: #f8fafc;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .compact-table td {
+            padding: 8px 12px;
+            font-size: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .current-user-row {
+            background: #eff6ff !important;
+            font-weight: 700;
+            border-left: 3px solid var(--primary);
         }
 
         .chapter-card {
             background: #ffffff;
             border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 22px;
+            border-radius: var(--radius-sm);
+            padding: 16px 18px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: var(--shadow-card);
-            position: relative;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
         }
 
         .chapter-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
             border-color: var(--primary);
-        }
-
-        .chapter-tag {
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .tag-chem { background: #eff6ff; color: #2563eb; }
-        .tag-bio { background: #ecfdf5; color: #10b981; }
-        .tag-phy { background: #f5f3ff; color: #8b5cf6; }
-        .tag-env { background: #fffbeb; color: #f59e0b; }
-
-        .podium-card {
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 18px 16px;
-            text-align: center;
-            flex: 1;
-            min-width: 170px;
             box-shadow: var(--shadow-card);
-            position: relative;
         }
 
-        .podium-card.rank-1 {
-            border-color: #f59e0b;
-            background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%);
-            transform: translateY(-6px);
-        }
-
-        .podium-crown {
-            font-size: 26px;
-            margin-bottom: 6px;
-        }
-
-        .filter-chip-btn {
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 6px 16px;
-            font-size: 12.5px;
-            font-weight: 700;
+        .meta-pill {
+            font-size: 11px;
             color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.2s;
+            background: #f1f5f9;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 600;
         }
 
-        .filter-chip-btn.active, .filter-chip-btn:hover {
-            background: var(--primary);
-            color: #ffffff;
+        /* Option Label in CBT Modal */
+        .cbt-option-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-size: 13.5px;
+            color: var(--text);
+            background: #ffffff;
+        }
+
+        .cbt-option-item:hover {
             border-color: var(--primary);
+            background: #f8fafc;
+        }
+
+        .cbt-option-item.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            color: var(--primary-dark);
+            font-weight: 600;
         }
     </style>
 </head>
 
-<body style="background:var(--bg); padding:20px; max-width:1400px; margin:0 auto;">
+<body style="background:var(--bg); padding:16px; max-width:1100px; margin:0 auto; font-family:'Plus Jakarta Sans', sans-serif;">
 
-    <!-- TOP BRAND NAVIGATION -->
-    <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--border);">
-        <div style="display:flex; align-items:center; gap:12px;">
-            <div class="brand-logo-icon" style="width:36px; height:36px;">EC</div>
+    <!-- TOP HEADER -->
+    <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div class="brand-logo-icon" style="width:30px; height:30px; font-size:11px;">EC</div>
             <div>
-                <div style="font-size:15px; font-weight:800; color:var(--text);">elite.classes</div>
-                <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Class 10 Science Hub</div>
+                <div style="font-size:13.5px; font-weight:800; color:var(--text);">elite.classes</div>
+                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Science Portal</div>
             </div>
         </div>
 
-        <div style="display:flex; align-items:center; gap:10px;">
-            <a href="../../../../../student_home.html" class="btn btn-outline btn-sm" style="text-decoration:none; font-weight:700;">
-                ← Back to Student Portal
-            </a>
-            <a href="../../../../../admin_home.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700;">
-                Admin Portal
+        <div style="display:flex; align-items:center; gap:8px;">
+            <a href="../../../../../student_home.html" class="btn btn-outline btn-sm" style="text-decoration:none; font-size:11.5px; padding:4px 10px;">
+                ← Student Portal
             </a>
         </div>
     </header>
 
-    <!-- 1. HERO BANNER -->
+    <!-- 1. MINIMAL TRANSPARENT HERO BANNER -->
     <div class="science-hero">
-        <div style="max-width:760px;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
-                <span class="chapter-tag tag-chem" style="background:rgba(37,99,235,0.3); color:#bfdbfe;">NCERT Syllabus 2026-27</span>
-                <span class="chapter-tag tag-bio" style="background:rgba(16,185,129,0.3); color:#a7f3d0;">13 Complete Chapters</span>
-            </div>
-            <h1 style="font-size:26px; font-weight:800; margin:0 0 8px; color:#ffffff;">
-                Class 10 Science: Chapter-Wise Test Series & Live Leadership Board
-            </h1>
-            <p style="font-size:14px; color:#cbd5e1; line-height:1.6; margin:0 0 18px;">
-                Master Class 10 Science with paragraph-by-paragraph NCERT questions, real-time Computer Based Tests (CBT), instant scorecards, and live class rankings.
-            </p>
-
-            <div style="display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px; color:#e2e8f0;">
-                <span>⏱️ Timed Mock Tests</span>
-                <span>•</span>
-                <span>🎯 Negative Marking (-1.0)</span>
-                <span>•</span>
-                <span>🏆 Live Class Ranks</span>
-                <span>•</span>
-                <span>📊 Scientific Subscripts & Explanations</span>
-            </div>
+        <h1>Class 10: Chapterwise Test</h1>
+        <div style="font-size:12px; color:#cbd5e1; display:flex; align-items:center; gap:10px;">
+            <span>NCERT Science</span>
+            <span>•</span>
+            <span id="active-student-pill" style="color:#ffffff; font-weight:600;">Student</span>
         </div>
     </div>
 
-    <!-- 2. LEADERSHIP BOARD SECTION (HALL OF FAME) -->
-    <div class="card" style="margin-bottom:28px;">
-        <div class="card-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-            <div>
-                <span class="card-title">🏆 Class 10 Science — Leadership Board & Hall of Fame</span>
-                <div style="font-size:12px; color:var(--text-muted);">Top academic performers across all Chapter-Wise Science Assessments</div>
-            </div>
-
-            <div style="display:flex; gap:8px;">
-                <button class="btn btn-sm btn-outline" onclick="renderClass10ScienceLeaderboard('All')" style="font-weight:700;">Overall Rank</button>
-                <button class="btn btn-sm btn-outline" onclick="renderClass10ScienceLeaderboard('ch1')" style="font-weight:700;">Chapter 1 Rank</button>
-            </div>
+    <!-- 2. COMPACT LEADERSHIP BOARD TABLE (Top 1, 2, 3 + Current Student Rank) -->
+    <div class="card" style="margin-bottom:18px;">
+        <div class="card-header" style="padding:10px 16px; background:#ffffff; border-bottom:1px solid var(--border);">
+            <span class="card-title" style="font-size:13px; font-weight:700; color:var(--text); display:flex; align-items:center; gap:6px;">
+                🏆 Leaderboard — Chapter 1: Chemical Reactions & Equations
+            </span>
         </div>
 
-        <div class="card-body">
-            <!-- TOP 3 PODIUM -->
-            <div style="display:flex; gap:16px; justify-content:center; margin-bottom:24px; flex-wrap:wrap;">
-                <!-- 2nd Rank -->
-                <div class="podium-card">
-                    <div class="podium-crown">🥈</div>
-                    <div class="avatar avatar-sm" style="background:#8b5cf6; margin:0 auto 8px;">AN</div>
-                    <div style="font-weight:800; font-size:14px; color:var(--text);">Ananya Sharma</div>
-                    <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:6px;">Class 10-A</div>
-                    <div style="font-size:15px; font-weight:800; color:#8b5cf6;">384 / 400 (96.0%)</div>
-                    <div style="font-size:11px; color:#10b981; font-weight:700; margin-top:4px;">Accuracy: 97.4%</div>
-                </div>
-
-                <!-- 1st Rank Topper -->
-                <div class="podium-card rank-1">
-                    <div class="podium-crown">👑 🥇</div>
-                    <div class="avatar avatar-sm" style="background:#f59e0b; margin:0 auto 8px;">RV</div>
-                    <div style="font-weight:800; font-size:15px; color:var(--text);">Rohan Verma</div>
-                    <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:6px;">Class 10-B</div>
-                    <div style="font-size:16px; font-weight:800; color:#d97706;">392 / 400 (98.0%)</div>
-                    <div style="font-size:11px; color:#10b981; font-weight:700; margin-top:4px;">Accuracy: 98.9% • Time: 34m</div>
-                </div>
-
-                <!-- 3rd Rank -->
-                <div class="podium-card">
-                    <div class="podium-crown">🥉</div>
-                    <div class="avatar avatar-sm" style="background:#10b981; margin:0 auto 8px;">PS</div>
-                    <div style="font-weight:800; font-size:14px; color:var(--text);">Priya Singh</div>
-                    <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:6px;">Class 10-A</div>
-                    <div style="font-size:15px; font-weight:800; color:#10b981;">376 / 400 (94.0%)</div>
-                    <div style="font-size:11px; color:#10b981; font-weight:700; margin-top:4px;">Accuracy: 95.8%</div>
-                </div>
-            </div>
-
-            <!-- LEADERBOARD TABLE -->
-            <div class="table-wrap" style="max-height:280px; overflow-y:auto;">
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width:70px; text-align:center;">Rank</th>
-                            <th>Student Name</th>
-                            <th>Class Section</th>
-                            <th>Latest Chapter Score</th>
-                            <th>Accuracy %</th>
-                            <th>Time Taken</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="science-10-leaderboard-tbody">
-                        <tr>
-                            <td style="text-align:center; font-weight:800; color:#d97706;">🥇 Rank 1</td>
-                            <td><b>Rohan Verma</b></td>
-                            <td><span class="badge badge-primary">Class 10-B</span></td>
-                            <td><b style="color:var(--primary);">392 / 400</b> (98.0%)</td>
-                            <td><span class="badge badge-success">98.9%</span></td>
-                            <td>34m 12s</td>
-                            <td><button class="btn btn-outline btn-sm" onclick="showToast('Viewing scorecard for Rohan', 'success')">View Card</button></td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:center; font-weight:800; color:#8b5cf6;">🥈 Rank 2</td>
-                            <td><b>Ananya Sharma</b></td>
-                            <td><span class="badge badge-primary">Class 10-A</span></td>
-                            <td><b style="color:var(--primary);">384 / 400</b> (96.0%)</td>
-                            <td><span class="badge badge-success">97.4%</span></td>
-                            <td>36m 40s</td>
-                            <td><button class="btn btn-outline btn-sm" onclick="showToast('Viewing scorecard for Ananya', 'success')">View Card</button></td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:center; font-weight:800; color:#10b981;">🥉 Rank 3</td>
-                            <td><b>Priya Singh</b></td>
-                            <td><span class="badge badge-primary">Class 10-A</span></td>
-                            <td><b style="color:var(--primary);">376 / 400</b> (94.0%)</td>
-                            <td><span class="badge badge-success">95.8%</span></td>
-                            <td>39m 15s</td>
-                            <td><button class="btn btn-outline btn-sm" onclick="showToast('Viewing scorecard for Priya', 'success')">View Card</button></td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:center; font-weight:700; color:var(--text-muted);">Rank 4</td>
-                            <td><b>Aarav Patel</b></td>
-                            <td><span class="badge badge-primary">Class 10-B</span></td>
-                            <td><b style="color:var(--primary);">368 / 400</b> (92.0%)</td>
-                            <td><span class="badge badge-success">93.2%</span></td>
-                            <td>41m 20s</td>
-                            <td><button class="btn btn-outline btn-sm" onclick="showToast('Viewing scorecard for Aarav', 'success')">View Card</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="table-wrap">
+            <table class="compact-table">
+                <thead>
+                    <tr>
+                        <th style="width:70px; text-align:center;">Rank</th>
+                        <th>Student Name</th>
+                        <th>Score</th>
+                        <th>Accuracy</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="science-leaderboard-tbody">
+                    <!-- Dynamic Top 1, 2, 3 + Current Student Row -->
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <!-- 3. CHAPTER-WISE TEST SERIES CATALOG -->
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
-        <div>
-            <h2 style="font-size:18px; font-weight:800; color:var(--text); margin:0;">
-                📚 All NCERT Science Chapters (Tests & Quizzes)
-            </h2>
-            <div style="font-size:12.5px; color:var(--text-muted);">Select any chapter to start your interactive CBT online test</div>
+    <!-- 3. CHAPTER 1 TESTS -->
+    <div style="margin-bottom:10px;">
+        <div style="font-size:14px; font-weight:700; color:var(--text); margin-bottom:10px;">
+            Chapter 1: Chemical Reactions & Equations
         </div>
 
-        <!-- SUBJECT DOMAIN FILTER CHIPS -->
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <button class="filter-chip-btn active" onclick="filterScienceChapters('all', this)">All (13)</button>
-            <button class="filter-chip-btn" onclick="filterScienceChapters('chem', this)">🧪 Chemistry (4)</button>
-            <button class="filter-chip-btn" onclick="filterScienceChapters('bio', this)">🌿 Biology (4)</button>
-            <button class="filter-chip-btn" onclick="filterScienceChapters('phy', this)">⚡ Physics (4)</button>
-            <button class="filter-chip-btn" onclick="filterScienceChapters('env', this)">🌍 Environment (1)</button>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:14px;" id="chapter-tests-grid">
+            
+            <!-- TEST 1: 100Q COMPLETE MASTERY BANK -->
+            <div class="chapter-card" id="card-ts_c10_sci_ch1_100q">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_sci_ch1_100q" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:14.5px; font-weight:700; color:var(--text); margin-bottom:6px;">
+                        100Q NCERT Mastery Assessment
+                    </div>
+
+                    <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 120 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_sci_ch1_100q">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_sci_ch1_100q')" style="width:100%; font-weight:700; padding:7px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- TEST 2: 10Q DIAGNOSTIC TEST -->
+            <div class="chapter-card" id="card-ts_c10_sci_ch1">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-purple" style="font-size:10.5px;">10 Questions</span>
+                        <span id="badge-status-ts_c10_sci_ch1" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:14.5px; font-weight:700; color:var(--text); margin-bottom:6px;">
+                        Quick Chapter Diagnostic (10Q)
+                    </div>
+
+                    <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 45 Mins</span>
+                        <span class="meta-pill">🎯 40 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_sci_ch1">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_sci_ch1')" style="width:100%; font-weight:700; padding:7px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- CHAPTER CARDS GRID -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:20px;" id="science-chapters-grid">
-        
-        <!-- CHAPTER 1: CHEMICAL REACTIONS & EQUATIONS (100Q COMPLETE BANK) -->
-        <div class="chapter-card" data-domain="chem">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <span class="chapter-tag tag-chem">Chemistry • Chapter 1</span>
-                    <span class="badge badge-success">🟢 Active & Live</span>
+    <!-- 4. INTERACTIVE CBT TEST PLAYER MODAL -->
+    <div class="modal-overlay" id="cbtTestPlayerModal" style="display:none; align-items:center; justify-content:center; z-index:9999;">
+        <div class="modal modal-lg" style="max-width:800px; width:95%; max-height:90vh; display:flex; flex-direction:column; padding:0; overflow:hidden;">
+            
+            <!-- MODAL HEADER -->
+            <div style="background:var(--topbar-bg); color:#ffffff; padding:12px 18px; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <div style="font-size:13.5px; font-weight:700;" id="cbt-active-title">Test Assessment</div>
+                    <div style="font-size:11px; color:#94a3b8;" id="cbt-active-meta">Question X of Y</div>
                 </div>
-                <h3 style="font-size:16px; font-weight:800; color:var(--text); margin:0 0 6px;">
-                    Chemical Reactions & Equations (100Q Mastery Bank)
-                </h3>
-                <p style="font-size:12.5px; color:var(--text-muted); line-height:1.5; margin-bottom:14px;">
-                    Exhaustive NCERT coverage: Activities 1.1 to 1.11, balancing, redox, corrosion, and rancidity.
-                </p>
-
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12px; color:var(--text-muted); margin-bottom:16px; background:#f8fafc; padding:10px; border-radius:8px;">
-                    <span>⏱️ Duration: <b>120 Mins</b></span>
-                    <span>❓ Questions: <b>100 Qs</b></span>
-                    <span>🎯 Total: <b>400 Marks</b></span>
-                    <span>⚠️ Neg. Mark: <b>-1.00</b></span>
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <div style="background:rgba(239, 68, 68, 0.2); border:1px solid rgba(239, 68, 68, 0.4); padding:4px 12px; border-radius:14px; font-size:13px; font-weight:800; color:#fca5a5; font-family:monospace;" id="cbt-timer">
+                        00:45:00
+                    </div>
+                    <button onclick="closeCbtPlayerModal()" style="background:none; border:none; color:#ffffff; font-size:16px; cursor:pointer;">✕</button>
                 </div>
             </div>
 
-            <div style="display:flex; gap:10px;">
-                <button class="btn btn-primary btn-sm" onclick="startCbtExamFromRegistry('ts_c10_sci_ch1_100q')" style="flex:1; font-weight:800;">
-                    ✏️ Start 100Q CBT Exam
-                </button>
-                <button class="btn btn-outline btn-sm" onclick="openChapter1Leaderboard()" title="View Leaderboard">
-                    🏆 Ranks
-                </button>
+            <!-- MODAL BODY: QUESTION & OPTIONS -->
+            <div style="padding:20px; overflow-y:auto; flex:1;" id="cbt-question-container">
+                <div style="font-size:14.5px; font-weight:700; color:var(--text); margin-bottom:16px; line-height:1.6;" id="cbt-q-text">
+                    Loading question...
+                </div>
+                <div style="display:flex; flex-direction:column; gap:10px;" id="cbt-options-wrap">
+                    <!-- Injected Options -->
+                </div>
+            </div>
+
+            <!-- MODAL FOOTER: NAVIGATION -->
+            <div style="padding:12px 18px; border-top:1px solid var(--border); background:#f8fafc; display:flex; justify-content:space-between; align-items:center;">
+                <button class="btn btn-outline btn-sm" id="cbt-btn-prev" onclick="navQ(-1)">← Previous</button>
+                <div style="display:flex; gap:8px;">
+                    <button class="btn btn-primary btn-sm" id="cbt-btn-next" onclick="navQ(1)">Next →</button>
+                    <button class="btn btn-danger btn-sm" onclick="finishAndSubmitTest()">✓ Submit</button>
+                </div>
             </div>
         </div>
-
-        <!-- CHAPTER 1: QUICK CHAPTER ASSESSMENT (10Q DIAGNOSTIC) -->
-        <div class="chapter-card" data-domain="chem">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <span class="chapter-tag tag-chem">Chemistry • Chapter 1</span>
-                    <span class="badge badge-purple">⚡ 45 Min Quick Test</span>
-                </div>
-                <h3 style="font-size:16px; font-weight:800; color:var(--text); margin:0 0 6px;">
-                    Chemical Reactions & Equations (Diagnostic 10Q)
-                </h3>
-                <p style="font-size:12.5px; color:var(--text-muted); line-height:1.5; margin-bottom:14px;">
-                    Focused chapter review: thermal decomposition, displacement reactions, and precipitation.
-                </p>
-
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12px; color:var(--text-muted); margin-bottom:16px; background:#f8fafc; padding:10px; border-radius:8px;">
-                    <span>⏱️ Duration: <b>45 Mins</b></span>
-                    <span>❓ Questions: <b>10 Qs</b></span>
-                    <span>🎯 Total: <b>40 Marks</b></span>
-                    <span>⚠️ Neg. Mark: <b>-1.00</b></span>
-                </div>
-            </div>
-
-            <div style="display:flex; gap:10px;">
-                <button class="btn btn-primary btn-sm" onclick="startCbtExamFromRegistry('ts_c10_sci_ch1')" style="flex:1; font-weight:800;">
-                    ✏️ Start 10Q Quick Test
-                </button>
-                <button class="btn btn-outline btn-sm" onclick="showToast('Leaderboard updating soon', 'info')">
-                    🏆 Ranks
-                </button>
-            </div>
-        </div>
-
-        <!-- CHAPTER 6: LIFE PROCESSES -->
-        <div class="chapter-card" data-domain="bio">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <span class="chapter-tag tag-bio">Biology • Chapter 6</span>
-                    <span class="badge badge-success">🟢 Active & Live</span>
-                </div>
-                <h3 style="font-size:16px; font-weight:800; color:var(--text); margin:0 0 6px;">
-                    Life Processes: Nutrition, Respiration & Transport
-                </h3>
-                <p style="font-size:12.5px; color:var(--text-muted); line-height:1.5; margin-bottom:14px;">
-                    Cellular respiration, human heart circulation, nephron kidney filtration, and xylem transport.
-                </p>
-
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12px; color:var(--text-muted); margin-bottom:16px; background:#f8fafc; padding:10px; border-radius:8px;">
-                    <span>⏱️ Duration: <b>45 Mins</b></span>
-                    <span>❓ Questions: <b>10 Qs</b></span>
-                    <span>🎯 Total: <b>40 Marks</b></span>
-                    <span>⚠️ Neg. Mark: <b>-1.00</b></span>
-                </div>
-            </div>
-
-            <div style="display:flex; gap:10px;">
-                <button class="btn btn-primary btn-sm" onclick="startCbtExamFromRegistry('ts_c10_sci_ch6')" style="flex:1; font-weight:800;">
-                    ✏️ Start Life Processes Test
-                </button>
-                <button class="btn btn-outline btn-sm" onclick="showToast('Leaderboard active for Chapter 6', 'info')">
-                    🏆 Ranks
-                </button>
-            </div>
-        </div>
-
-        <!-- CHAPTER 2: ACIDS, BASES AND SALTS -->
-        <div class="chapter-card" data-domain="chem">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <span class="chapter-tag tag-chem">Chemistry • Chapter 2</span>
-                    <span class="badge badge-warning">🟡 Scheduled Next</span>
-                </div>
-                <h3 style="font-size:16px; font-weight:800; color:var(--text); margin:0 0 6px;">
-                    Acids, Bases and Salts
-                </h3>
-                <p style="font-size:12.5px; color:var(--text-muted); line-height:1.5; margin-bottom:14px;">
-                    pH scale, indicators, chlor-alkali process, Plaster of Paris, Bleaching powder, and Baking soda.
-                </p>
-
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12px; color:var(--text-muted); margin-bottom:16px; background:#f8fafc; padding:10px; border-radius:8px;">
-                    <span>⏱️ Duration: <b>45 Mins</b></span>
-                    <span>❓ Questions: <b>25 Qs</b></span>
-                    <span>🎯 Total: <b>100 Marks</b></span>
-                    <span>⚠️ Neg. Mark: <b>-1.00</b></span>
-                </div>
-            </div>
-
-            <div style="display:flex; gap:10px;">
-                <button class="btn btn-outline btn-sm" style="flex:1; font-weight:700;" onclick="showToast('Chapter 2 scheduled for next session', 'info')">
-                    📅 Schedule Test
-                </button>
-            </div>
-        </div>
-
-        <!-- CHAPTER 10: LIGHT - REFLECTION & REFRACTION -->
-        <div class="chapter-card" data-domain="phy">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <span class="chapter-tag tag-phy">Physics • Chapter 10</span>
-                    <span class="badge badge-warning">🟡 Scheduled Next</span>
-                </div>
-                <h3 style="font-size:16px; font-weight:800; color:var(--text); margin:0 0 6px;">
-                    Light – Reflection and Refraction
-                </h3>
-                <p style="font-size:12.5px; color:var(--text-muted); line-height:1.5; margin-bottom:14px;">
-                    Spherical mirrors, mirror formula, refractive index, Snell's law, and lens power calculations.
-                </p>
-
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12px; color:var(--text-muted); margin-bottom:16px; background:#f8fafc; padding:10px; border-radius:8px;">
-                    <span>⏱️ Duration: <b>60 Mins</b></span>
-                    <span>❓ Questions: <b>30 Qs</b></span>
-                    <span>🎯 Total: <b>120 Marks</b></span>
-                    <span>⚠️ Neg. Mark: <b>-1.00</b></span>
-                </div>
-            </div>
-
-            <div style="display:flex; gap:10px;">
-                <button class="btn btn-outline btn-sm" style="flex:1; font-weight:700;" onclick="showToast('Physics Chapter 10 test coming soon', 'info')">
-                    📅 Schedule Test
-                </button>
-            </div>
-        </div>
-
-        <!-- CHAPTER 15: OUR ENVIRONMENT -->
-        <div class="chapter-card" data-domain="env">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <span class="chapter-tag tag-env">Environment • Chapter 15</span>
-                    <span class="badge badge-warning">🟡 Scheduled Next</span>
-                </div>
-                <h3 style="font-size:16px; font-weight:800; color:var(--text); margin:0 0 6px;">
-                    Our Environment & Ecosystem
-                </h3>
-                <p style="font-size:12.5px; color:var(--text-muted); line-height:1.5; margin-bottom:14px;">
-                    Food chains, 10% energy law, biological magnification, and ozone layer depletion.
-                </p>
-
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:12px; color:var(--text-muted); margin-bottom:16px; background:#f8fafc; padding:10px; border-radius:8px;">
-                    <span>⏱️ Duration: <b>30 Mins</b></span>
-                    <span>❓ Questions: <b>20 Qs</b></span>
-                    <span>🎯 Total: <b>80 Marks</b></span>
-                    <span>⚠️ Neg. Mark: <b>-1.00</b></span>
-                </div>
-            </div>
-
-            <div style="display:flex; gap:10px;">
-                <button class="btn btn-outline btn-sm" style="flex:1; font-weight:700;" onclick="showToast('Environment test scheduled', 'info')">
-                    📅 Schedule Test
-                </button>
-            </div>
-        </div>
-
     </div>
 
     <!-- APP TOAST -->
     <div class="toast" id="app-toast">
-        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-width="2.5"/></svg>
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-width="2.5"/></svg>
         <span id="toast-msg"></span>
     </div>
 
-    <!-- LOAD MODULAR TEST FILES -->
+    <!-- SCRIPTS -->
     <script src="chapter1_chemical_reactions.js"></script>
     <script src="chapter1_chemical_reactions_100q.js"></script>
-    <script src="chapter6_life_processes.js"></script>
 
     <script>
+        // Get active logged-in student or default
+        const activeStudent = JSON.parse(localStorage.getItem('ec_active_student') || '{"id":"st_101", "name":"Rakshit Singh", "cls":"Class 10"}');
+        document.getElementById('active-student-pill').textContent = activeStudent.name;
+
+        // Enrollment & Test Attempt Storage Key
+        const STORAGE_KEY = `ec_cbt_enrollment_${activeStudent.id}`;
+        let studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
+
+        // Available Tests Map
+        const testsMap = {
+            'ts_c10_sci_ch1_100q': Class10ScienceChapter1FullBank,
+            'ts_c10_sci_ch1': Class10ScienceChapter1
+        };
+
+        // Initialize UI State
+        function initPage() {
+            renderLeaderboard();
+            renderTestCards();
+        }
+
+        // Render Compact Leaderboard (Top 1, 2, 3 + Current Student)
+        function renderLeaderboard() {
+            const tbody = document.getElementById('science-leaderboard-tbody');
+            if (!tbody) return;
+
+            // Default Top 3 Toppers
+            const toppers = [
+                { rank: '🥇 1', name: 'Rohan Verma', score: '392 / 400 (98%)', accuracy: '98.9%', time: '34m 10s', isUser: false },
+                { rank: '🥈 2', name: 'Ananya Sharma', score: '384 / 400 (96%)', accuracy: '97.4%', time: '36m 45s', isUser: false },
+                { rank: '🥉 3', name: 'Priya Singh', score: '376 / 400 (94%)', accuracy: '95.8%', time: '39m 12s', isUser: false }
+            ];
+
+            const userAttempt = studentCbtData.attempts['ts_c10_sci_ch1_100q'] || studentCbtData.attempts['ts_c10_sci_ch1'];
+            
+            let userRankText = 'Rank 4';
+            let userScoreText = 'Not Attempted';
+            let userAccText = '--';
+            let userTimeText = '--';
+
+            if (userAttempt) {
+                userScoreText = `${userAttempt.score} / ${userAttempt.total_marks} (${userAttempt.pct}%)`;
+                userAccText = `${userAttempt.accuracy}%`;
+                userTimeText = userAttempt.timeFormatted || '41m 20s';
+            }
+
+            let html = '';
+            toppers.forEach(t => {
+                html += `
+                    <tr>
+                        <td style="text-align:center; font-weight:800;">${t.rank}</td>
+                        <td><b>${t.name}</b></td>
+                        <td><span style="color:var(--primary); font-weight:700;">${t.score}</span></td>
+                        <td><span class="badge badge-success">${t.accuracy}</span></td>
+                        <td>${t.time}</td>
+                    </tr>
+                `;
+            });
+
+            // Current Student Row
+            html += `
+                <tr class="current-user-row">
+                    <td style="text-align:center; font-weight:800; color:var(--primary);">${userRankText} (You)</td>
+                    <td><b>${activeStudent.name}</b></td>
+                    <td><span style="color:var(--primary); font-weight:700;">${userScoreText}</span></td>
+                    <td><span class="badge ${userAttempt ? 'badge-success' : 'badge-warning'}">${userAccText}</span></td>
+                    <td>${userTimeText}</td>
+                </tr>
+            `;
+
+            tbody.innerHTML = html;
+        }
+
+        // Render Test Cards (Enrollment / Start / Retake + Latest Score)
+        function renderTestCards() {
+            Object.keys(testsMap).forEach(testId => {
+                const isEnrolled = !!studentCbtData.enrolled[testId];
+                const attempt = studentCbtData.attempts[testId];
+                const badge = document.getElementById(`badge-status-${testId}`);
+                const actionWrap = document.getElementById(`action-${testId}`);
+
+                if (!badge || !actionWrap) return;
+
+                if (!isEnrolled) {
+                    badge.className = 'badge badge-warning';
+                    badge.textContent = 'Not Enrolled';
+                    actionWrap.innerHTML = `
+                        <button class="btn btn-outline btn-sm" onclick="enrollInTest('${testId}')" style="width:100%; font-weight:700; padding:7px;">
+                            📝 Enroll in Test
+                        </button>
+                    `;
+                } else if (!attempt) {
+                    badge.className = 'badge badge-success';
+                    badge.textContent = 'Enrolled • Ready';
+                    actionWrap.innerHTML = `
+                        <button class="btn btn-primary btn-sm" onclick="startTest('${testId}')" style="width:100%; font-weight:700; padding:7px;">
+                            ✏️ Start Test
+                        </button>
+                    `;
+                } else {
+                    badge.className = 'badge badge-success';
+                    badge.textContent = `Score: ${attempt.score}/${attempt.total_marks} (${attempt.pct}%)`;
+                    actionWrap.innerHTML = `
+                        <div style="display:flex; gap:8px;">
+                            <button class="btn btn-primary btn-sm" onclick="startTest('${testId}')" style="flex:1; font-weight:700; padding:7px;">
+                                🔄 Retake Test
+                            </button>
+                        </div>
+                    `;
+                }
+            });
+        }
+
+        // Enroll Function
+        function enrollInTest(testId) {
+            studentCbtData.enrolled[testId] = true;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
+            showToast('Enrolled successfully! You can now start the test.', 'success');
+            renderTestCards();
+        }
+
+        // CBT Player Engine State
+        let currentTest = null;
+        let currentQIdx = 0;
+        let userAnswers = {};
+        let timerInterval = null;
+        let secondsLeft = 0;
+
+        function startTest(testId) {
+            currentTest = testsMap[testId];
+            if (!currentTest) return;
+
+            currentQIdx = 0;
+            userAnswers = {};
+            secondsLeft = currentTest.duration_mins * 60;
+
+            document.getElementById('cbt-active-title').textContent = currentTest.title;
+            document.getElementById('cbtTestPlayerModal').style.display = 'flex';
+
+            renderQuestion();
+            startTimer();
+        }
+
+        function renderQuestion() {
+            if (!currentTest) return;
+            const q = currentTest.questions[currentQIdx];
+            document.getElementById('cbt-active-meta').textContent = `Question ${currentQIdx + 1} of ${currentTest.questions.length} • +4.00 Marks • -1.00 Penalty`;
+            document.getElementById('cbt-q-text').textContent = `Q${currentQIdx + 1}. ${q.question_text}`;
+
+            const wrap = document.getElementById('cbt-options-wrap');
+            const opts = [
+                { key: 'A', text: q.option_a },
+                { key: 'B', text: q.option_b },
+                { key: 'C', text: q.option_c },
+                { key: 'D', text: q.option_d }
+            ].filter(o => o.text);
+
+            let html = '';
+            opts.forEach(opt => {
+                const isSelected = userAnswers[currentQIdx] === opt.key;
+                html += `
+                    <div class="cbt-option-item ${isSelected ? 'selected' : ''}" onclick="selectOption('${opt.key}')">
+                        <b>(${opt.key})</b>
+                        <span>${opt.text}</span>
+                    </div>
+                `;
+            });
+            wrap.innerHTML = html;
+
+            document.getElementById('cbt-btn-prev').disabled = currentQIdx === 0;
+            document.getElementById('cbt-btn-next').style.display = currentQIdx === currentTest.questions.length - 1 ? 'none' : 'inline-block';
+        }
+
+        function selectOption(key) {
+            userAnswers[currentQIdx] = key;
+            renderQuestion();
+        }
+
+        function navQ(delta) {
+            const nextIdx = currentQIdx + delta;
+            if (nextIdx >= 0 && nextIdx < currentTest.questions.length) {
+                currentQIdx = nextIdx;
+                renderQuestion();
+            }
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            const timerEl = document.getElementById('cbt-timer');
+
+            timerInterval = setInterval(() => {
+                if (secondsLeft <= 0) {
+                    clearInterval(timerInterval);
+                    finishAndSubmitTest();
+                    return;
+                }
+                secondsLeft--;
+                const mins = Math.floor(secondsLeft / 60);
+                const secs = secondsLeft % 60;
+                timerEl.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function finishAndSubmitTest() {
+            if (timerInterval) clearInterval(timerInterval);
+
+            // Calculate Score
+            let correct = 0;
+            let wrong = 0;
+            let unattempted = 0;
+
+            currentTest.questions.forEach((q, idx) => {
+                const ans = userAnswers[idx];
+                if (!ans) {
+                    unattempted++;
+                } else if (ans === q.correct_option) {
+                    correct++;
+                } else {
+                    wrong++;
+                }
+            });
+
+            const score = Math.max(0, (correct * 4) - (wrong * 1));
+            const total = currentTest.questions.length * 4;
+            const pct = Math.round((score / total) * 100);
+            const accuracy = (correct + wrong) > 0 ? Math.round((correct / (correct + wrong)) * 100) : 0;
+
+            // Save Attempt
+            studentCbtData.attempts[currentTest.id] = {
+                score: score,
+                total_marks: total,
+                pct: pct,
+                accuracy: accuracy,
+                correct: correct,
+                wrong: wrong,
+                unattempted: unattempted,
+                submitted_at: new Date().toISOString()
+            };
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
+            closeCbtPlayerModal();
+
+            showToast(`Test Submitted! Score: ${score}/${total} (${pct}%) • Accuracy: ${accuracy}%`, 'success');
+            initPage();
+        }
+
+        function closeCbtPlayerModal() {
+            if (timerInterval) clearInterval(timerInterval);
+            document.getElementById('cbtTestPlayerModal').style.display = 'none';
+        }
+
         function showToast(msg, type = 'success') {
             const t = document.getElementById('app-toast');
             const tm = document.getElementById('toast-msg');
             if (!t || !tm) return;
             tm.textContent = msg;
             t.className = `toast show ${type}`;
-            setTimeout(() => { t.className = 'toast'; }, 3000);
+            setTimeout(() => { t.className = 'toast'; }, 3500);
         }
 
-        function filterScienceChapters(domain, btn) {
-            document.querySelectorAll('.filter-chip-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const cards = document.querySelectorAll('.chapter-card');
-            cards.forEach(card => {
-                if (domain === 'all' || card.dataset.domain === domain) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        function startCbtExamFromRegistry(testId) {
-            const foundTest = window.EliteTestRegistry?.find(t => t.id === testId);
-            if (!foundTest) {
-                showToast(`Test ${testId} ready to launch. Loading question engine...`, 'success');
-                return;
-            }
-            showToast(`Launching ${foundTest.title} (${foundTest.questions_count} Questions)...`, 'success');
-        }
-
-        function openChapter1Leaderboard() {
-            showToast('Loading Live Chapter 1 Leaderboard Rankings...', 'success');
-        }
+        // Run on load
+        initPage();
     </script>
 </body>
 
