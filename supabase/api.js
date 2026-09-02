@@ -1,4 +1,21 @@
-/* Elite Classes — Unified Database Service Layer (DBService) */
+// Default Seed Profiles for Reliable Demo & Fallback Authentication
+const SEED_STAFF_PROFILES = [
+    { id: 't1', name: 'Dr. Ramesh Kumar', is_teacher: true, role: 'Mathematics Faculty', subjects: 'Mathematics, Physics', assigned_classes: 'Class 8, Class 9, Class 10', phone: '9811223344', pin: '123456', base_salary: 35000, incentive: 2500, avatar_color: '#2563eb' },
+    { id: 't2', name: 'Sunita Rao', is_teacher: true, role: 'Science Faculty', subjects: 'Science, Biology', assigned_classes: 'Class 5, Class 6, Class 7', phone: '9822334455', pin: '123456', base_salary: 28000, incentive: 1500, avatar_color: '#8b5cf6' },
+    { id: 't3', name: 'Vikram Das', is_teacher: true, role: 'Humanities Faculty', subjects: 'English, Social Studies', assigned_classes: 'Class 6, Class 7, Class 8', phone: '9833445566', pin: '123456', base_salary: 25000, incentive: 1000, avatar_color: '#10b981' },
+    { id: 'st1', name: 'Rajesh Sharma', is_teacher: false, role: 'Office Accountant', phone: '9911223344', pin: '123456', base_salary: 20000, incentive: 1000, avatar_color: '#06b6d4' },
+    { id: 'st2', name: 'Sunil Verma', is_teacher: false, role: 'Lab Assistant & Maintenance', phone: '9922334455', pin: '123456', base_salary: 15000, incentive: 500, avatar_color: '#f59e0b' }
+];
+
+const SEED_STUDENT_PROFILES = [
+    { id: 's1', name: 'Aarav Sharma', parent: 'Rajesh Sharma', cls: 'Class 5', phone: '9876543210', pin: '123456', fee: 1500, due: 10, scholarshipPct: 10, subjects: 'Mathematics, Science, English', doa: '2025-04-01', school: 'St. Xavier High School', color: '#2563eb' },
+    { id: 's2', name: 'Priya Verma', parent: 'Anil Verma', cls: 'Class 6', phone: '9876543211', pin: '123456', fee: 1800, due: 15, scholarshipPct: 0, subjects: 'Mathematics, Science, Hindi', doa: '2025-04-01', school: 'Delhi Public School', color: '#8b5cf6' },
+    { id: 's3', name: 'Rohan Gupta', parent: 'Suresh Gupta', cls: 'Class 8', phone: '9876543212', pin: '123456', fee: 2000, due: 5, scholarshipPct: 0, subjects: 'Mathematics, Science', doa: '2025-04-05', school: 'Kendriya Vidyalaya', color: '#10b981' }
+];
+
+const SEED_ADMIN_PROFILES = [
+    { id: 'a1', name: 'Elite Admin Main', email: 'admin@eliteclasses.com', role: 'Super Admin', phone: '9800000000', pin: '987654', color: '#2563eb' }
+];
 
 const DBService = {
     // ---------------------------------------------------------
@@ -81,8 +98,14 @@ const DBService = {
         if (adminList.length === 0) {
             adminList = JSON.parse(localStorage.getItem('ec_admins') || '[]');
         }
+        const allAdminSources = [...adminList];
+        SEED_ADMIN_PROFILES.forEach(sa => {
+            if (!allAdminSources.some(a => a.id === sa.id || (a.phone && a.phone.replace(/\D/g, '') === sa.phone))) {
+                allAdminSources.push(sa);
+            }
+        });
 
-        const matchedAdmin = adminList.find(a => {
+        const matchedAdmin = allAdminSources.find(a => {
             const pClean = (a.phone || '').replace(/\D/g, '');
             return pClean && (pClean === cleanPhone || pClean.endsWith(cleanPhone) || cleanPhone.endsWith(pClean));
         });
@@ -137,8 +160,14 @@ const DBService = {
         if (studentList.length === 0) {
             studentList = JSON.parse(localStorage.getItem('ec_students') || '[]');
         }
+        const allStudentSources = [...studentList];
+        SEED_STUDENT_PROFILES.forEach(ss => {
+            if (!allStudentSources.some(s => s.id === ss.id || (s.phone && s.phone.replace(/\D/g, '') === ss.phone))) {
+                allStudentSources.push(ss);
+            }
+        });
 
-        const matchedStudent = studentList.find(s => {
+        const matchedStudent = allStudentSources.find(s => {
             const pClean = (s.phone || '').replace(/\D/g, '');
             return pClean && (pClean === cleanPhone || pClean.endsWith(cleanPhone) || cleanPhone.endsWith(pClean));
         });
@@ -173,7 +202,15 @@ const DBService = {
             staffMembers = [...localTeachers, ...localStaff];
         }
 
-        const matchedStaff = staffMembers.find(st => {
+        // Always include SEED_STAFF_PROFILES so demo numbers (e.g. 9811223344) always authenticate smoothly
+        const allStaffSources = [...staffMembers];
+        SEED_STAFF_PROFILES.forEach(stSeed => {
+            if (!allStaffSources.some(st => st.id === stSeed.id || (st.phone && st.phone.replace(/\D/g, '') === stSeed.phone))) {
+                allStaffSources.push(stSeed);
+            }
+        });
+
+        const matchedStaff = allStaffSources.find(st => {
             const pClean = (st.phone || '').replace(/\D/g, '');
             return pClean && (pClean === cleanPhone || pClean.endsWith(cleanPhone) || cleanPhone.endsWith(pClean));
         });
@@ -188,7 +225,7 @@ const DBService = {
                     user: {
                         id: matchedStaff.id,
                         name: matchedStaff.name,
-                        role: isTeacher ? (matchedStaff.role || matchedStaff.subjects + ' Faculty') : (matchedStaff.role || 'Support Staff'),
+                        role: isTeacher ? (matchedStaff.role || (matchedStaff.subjects ? matchedStaff.subjects + ' Faculty' : 'Faculty Member')) : (matchedStaff.role || 'Support Staff'),
                         subjects: matchedStaff.subjects || '',
                         classes: matchedStaff.assigned_classes || matchedStaff.classes || '',
                         phone: matchedStaff.phone,

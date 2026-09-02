@@ -32,17 +32,22 @@ async function initStaffPortal() {
     }
 
     // Identify user
-    currentStaffUser = teachers.find(t => t.id === staffId);
-    if (currentStaffUser) {
-        currentStaffUser.type = 'teacher';
+    const storedStaffUser = JSON.parse(localStorage.getItem('ec_staff_user') || 'null');
+    if (storedStaffUser && storedStaffUser.id === staffId) {
+        currentStaffUser = storedStaffUser;
     } else {
-        currentStaffUser = staff.find(s => s.id === staffId);
-        if (currentStaffUser) currentStaffUser.type = 'staff';
+        currentStaffUser = (teachers || []).find(t => t.id === staffId);
+        if (currentStaffUser) {
+            currentStaffUser.type = 'teacher';
+        } else {
+            currentStaffUser = (staff || []).find(s => s.id === staffId);
+            if (currentStaffUser) currentStaffUser.type = 'staff';
+        }
     }
 
     if (!currentStaffUser) {
         // Fallback demo user
-        currentStaffUser = (teachers && teachers.length > 0) ? { ...teachers[0], type: 'teacher' } : { id: staffId, name: 'Staff Member', role: 'Faculty', phone: '9811223344', salary: 30000, type: 'teacher' };
+        currentStaffUser = storedStaffUser || ((teachers && teachers.length > 0) ? { ...teachers[0], type: 'teacher' } : { id: staffId, name: 'Dr. Ramesh Kumar', role: 'Mathematics Faculty', phone: '9811223344', salary: 35000, type: 'teacher' });
     }
 
     // Set UI Header Info
