@@ -120,10 +120,7 @@ async function renderAttendanceView() {
                                 <td>
                                     <div style="display:flex; align-items:center; gap:10px;">
                                         <div class="avatar avatar-sm" style="background:${s.color || '#2563eb'}; width:32px; height:32px; font-size:12px;">${getInitials(s.name)}</div>
-                                        <div>
-                                            <b>${s.name}</b>
-                                            <div style="font-size:11px; color:var(--text-muted);">ID: #${s.id}</div>
-                                        </div>
+                                        <span style="font-weight:700; color:var(--text);">${s.name}</span>
                                     </div>
                                 </td>
                                 ${activeAdminAttendanceClass === 'All' ? `<td><span class="badge badge-primary">${s.cls}</span></td>` : ''}

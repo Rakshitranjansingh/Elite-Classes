@@ -243,10 +243,7 @@ async function renderAdminExamScoreboard() {
                             <td>
                                 <div style="display:flex; align-items:center; gap:10px;">
                                     <div class="avatar avatar-sm" style="background:${sc.student.color || '#2563eb'}; width:30px; height:30px; font-size:11.5px;">${getInitials(sc.student.name)}</div>
-                                    <div>
-                                        <b>${sc.student.name}</b>
-                                        <div style="font-size:10.5px; color:var(--text-muted);">ID: #${sc.student.id}</div>
-                                    </div>
+                                    <span style="font-weight:700; color:var(--text);">${sc.student.name}</span>
                                 </div>
                             </td>
                             ${examSubjects.map(sub => `

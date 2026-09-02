@@ -47,7 +47,7 @@ function setupStudentAnalyticsControls() {
     if (studentSelect) {
         studentSelect.innerHTML = filteredStudents.map(s => `
             <option value="${s.id}" ${s.id === selectedAnalyticsStudentId ? 'selected' : ''}>
-                ${s.name} (${s.cls} • ID #${s.id})
+                ${s.name} (${s.cls})
             </option>
         `).join('');
     }
@@ -322,7 +322,6 @@ function renderStudentAnalyticsDashboard() {
                     <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
                         <h2 style="margin:0; font-size:22px; font-weight:800; letter-spacing:-0.5px; color:#ffffff;">${student.name}</h2>
                         <span class="badge" style="background:rgba(59, 130, 246, 0.25); color:#93c5fd; border:1px solid rgba(59, 130, 246, 0.4); font-weight:700;">${student.cls}</span>
-                        <span class="badge" style="background:rgba(16, 185, 129, 0.25); color:#6ee7b7; border:1px solid rgba(16, 185, 129, 0.4); font-weight:700;">ID: #${student.id}</span>
                     </div>
                     <div style="font-size:13px; color:#94a3b8; margin-top:6px; display:flex; gap:16px; flex-wrap:wrap;">
                         <span>👨‍👩‍👦 Parent: <b style="color:#e2e8f0;">${student.parent || 'Guardian'}</b></span>
