@@ -196,50 +196,14 @@
         </div>
     </div>
 
-    <!-- 4. INTERACTIVE CBT TEST PLAYER MODAL -->
-    <div class="modal-overlay" id="cbtTestPlayerModal" style="display:none; align-items:center; justify-content:center; z-index:9999;">
-        <div class="modal modal-lg" style="max-width:800px; width:95%; max-height:90vh; display:flex; flex-direction:column; padding:0; overflow:hidden;">
-            
-            <!-- MODAL HEADER -->
-            <div style="background:var(--topbar-bg); color:#ffffff; padding:12px 18px; display:flex; justify-content:space-between; align-items:center;">
-                <div>
-                    <div style="font-size:13.5px; font-weight:700;" id="cbt-active-title">Test Assessment</div>
-                    <div style="font-size:11px; color:#94a3b8;" id="cbt-active-meta">Question X of Y</div>
-                </div>
-                <div style="display:flex; align-items:center; gap:12px;">
-                    <div style="background:rgba(239, 68, 68, 0.2); border:1px solid rgba(239, 68, 68, 0.4); padding:4px 12px; border-radius:14px; font-size:13px; font-weight:800; color:#fca5a5; font-family:monospace;" id="cbt-timer">
-                        00:45:00
-                    </div>
-                    <button onclick="closeCbtPlayerModal()" style="background:none; border:none; color:#ffffff; font-size:16px; cursor:pointer;">✕</button>
-                </div>
-            </div>
-
-            <!-- MODAL BODY: QUESTION & OPTIONS -->
-            <div style="padding:20px; overflow-y:auto; flex:1;" id="cbt-question-container">
-                <div style="font-size:14.5px; font-weight:700; color:var(--text); margin-bottom:16px; line-height:1.6;" id="cbt-q-text">
-                    Loading question...
-                </div>
-                <div style="display:flex; flex-direction:column; gap:10px;" id="cbt-options-wrap">
-                    <!-- Injected Options -->
-                </div>
-            </div>
-
-            <!-- MODAL FOOTER: NAVIGATION -->
-            <div style="padding:12px 18px; border-top:1px solid var(--border); background:#f8fafc; display:flex; justify-content:space-between; align-items:center;">
-                <button class="btn btn-outline btn-sm" id="cbt-btn-prev" onclick="navQ(-1)">← Previous</button>
-                <div style="display:flex; gap:8px;">
-                    <button class="btn btn-primary btn-sm" id="cbt-btn-next" onclick="navQ(1)">Next →</button>
-                    <button class="btn btn-danger btn-sm" onclick="finishAndSubmitTest()">✓ Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- APP TOAST -->
     <div class="toast" id="app-toast">
         <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-width="2.5"/></svg>
-        <span id    <!-- SCRIPTS -->
-    <script src="../../cbtPlayer.js"></script>
+        <span id="toast-msg"></span>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="../../../cbtPlayer.js"></script>
     <script src="chapter1_chemical_reactions.js"></script>
 
     <script>
