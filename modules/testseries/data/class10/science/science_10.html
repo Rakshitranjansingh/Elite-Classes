@@ -272,6 +272,32 @@
                 </div>
             </div>
 
+            <!-- CHAPTER 5 TEST -->
+            <div class="chapter-card" id="card-ts_c10_sci_ch5">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_sci_ch5" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 5: Life Processes Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 120 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_sci_ch5">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_sci_ch5')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -287,6 +313,7 @@
     <script src="chapter2_acids_bases_salts.js"></script>
     <script src="chapter3_metals_non_metals.js"></script>
     <script src="chapter4_carbon_compounds.js"></script>
+    <script src="chapter5_life_processes.js"></script>
 
     <script>
         // Get active logged-in student or default
@@ -302,7 +329,8 @@
             'ts_c10_sci_ch1': Class10ScienceChapter1FullBank,
             'ts_c10_sci_ch2': Class10ScienceChapter2FullBank,
             'ts_c10_sci_ch3': Class10ScienceChapter3FullBank,
-            'ts_c10_sci_ch4': Class10ScienceChapter4FullBank
+            'ts_c10_sci_ch4': Class10ScienceChapter4FullBank,
+            'ts_c10_sci_ch5': Class10ScienceChapter5FullBank
         };
 
         // Initialize UI State
