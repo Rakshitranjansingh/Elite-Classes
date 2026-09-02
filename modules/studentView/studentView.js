@@ -322,13 +322,18 @@ function renderStudentTests() {
     const container = document.getElementById('st-tests-container');
     if (!container || !currentStudent) return;
 
-    if (currentStudent.cls === 'Class 10') {
-        container.innerHTML = `
-            <div style="width:100%; border-radius:12px; overflow:hidden; border:1px solid var(--border);">
-                <iframe src="modules/testseries/data/class10/testseries_class_10.html" style="width:100%; height:820px; border:none; display:block;"></iframe>
-            </div>
-        `;
-    }
+    container.innerHTML = `
+        <div class="card" style="padding:40px; text-align:center;">
+            <div style="font-size:36px; margin-bottom:12px;">📚</div>
+            <h3 style="font-size:16px; font-weight:700; color:var(--text); margin-bottom:6px;">Class 10 Assessment Hub</h3>
+            <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
+                Access all chapterwise test series and mock exams.
+            </p>
+            <a href="modules/testseries/data/class10/testseries_class_10.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700;">
+                Open Class 10 Test Hub →
+            </a>
+        </div>
+    `;
 }
 function renderStudentAttendance() {
     const container = document.getElementById('st-attendance-summary-container');
