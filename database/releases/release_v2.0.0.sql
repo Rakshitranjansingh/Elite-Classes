@@ -1,9 +1,14 @@
 -- =========================================================
--- ELITE CLASSES — SUPABASE RELATIONAL DATABASE SCHEMA & MIGRATION
--- 100% Idempotent Script: Safe to click Run multiple times!
+-- ELITE CLASSES ERP — RELEASE v2.0.0 (CONSOLIDATED PRODUCTION BUNDLE)
+-- Features Included:
+--  1. Unified Authentication Gateway (WhatsApp Number + PIN)
+--  2. Dynamic Classes & Subjects Relational Tables
+--  3. Merged Staff & Teaching Faculty with is_teacher Flag
+--  4. Email Address Support across Profiles for Google SSO Readiness
+--  5. Full Row Level Security (RLS) & Performance Indexes
 -- =========================================================
 
--- 1. COACHING SETTINGS & SECURITY TABLE
+-- 1. COACHING SETTINGS & SECURITY
 CREATE TABLE IF NOT EXISTS coaching_settings (
     id VARCHAR(50) PRIMARY KEY DEFAULT 'coaching_main',
     coaching_name VARCHAR(255) NOT NULL DEFAULT 'Elite Classes',
@@ -43,7 +48,7 @@ CREATE TABLE IF NOT EXISTS class_subjects (
     CONSTRAINT unique_class_subject UNIQUE (class_id, subject_id)
 );
 
--- 5. STUDENTS TABLE (WITH EMAIL, WHATSAPP PHONE & PIN)
+-- 5. STUDENTS TABLE
 CREATE TABLE IF NOT EXISTS students (
     id VARCHAR(50) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -65,7 +70,7 @@ CREATE TABLE IF NOT EXISTS students (
 ALTER TABLE students ADD COLUMN IF NOT EXISTS email VARCHAR(255);
 ALTER TABLE students ADD COLUMN IF NOT EXISTS pin VARCHAR(50) DEFAULT '123456';
 
--- 6. UNIFIED STAFF & FACULTY TABLE (WITH EMAIL, MERGED WITH is_teacher FLAG)
+-- 6. UNIFIED STAFF & FACULTY TABLE
 CREATE TABLE IF NOT EXISTS staff (
     id VARCHAR(50) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -88,7 +93,7 @@ ALTER TABLE staff ADD COLUMN IF NOT EXISTS subjects TEXT;
 ALTER TABLE staff ADD COLUMN IF NOT EXISTS assigned_classes TEXT;
 ALTER TABLE staff ADD COLUMN IF NOT EXISTS pin VARCHAR(50) DEFAULT '123456';
 
--- 7. ADMIN ACCOUNTS TABLE (WITH EMAIL, WHATSAPP PHONE & PIN)
+-- 7. ADMIN ACCOUNTS TABLE
 CREATE TABLE IF NOT EXISTS admins (
     id VARCHAR(50) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -103,7 +108,7 @@ CREATE TABLE IF NOT EXISTS admins (
 ALTER TABLE admins ADD COLUMN IF NOT EXISTS email VARCHAR(255);
 ALTER TABLE admins ADD COLUMN IF NOT EXISTS pin VARCHAR(50) DEFAULT '987654';
 
--- 8. FEE PAYMENTS LEDGER TABLE
+-- 8. FEE PAYMENTS LEDGER
 CREATE TABLE IF NOT EXISTS payments (
     id VARCHAR(50) PRIMARY KEY,
     student_id VARCHAR(50) REFERENCES students(id) ON DELETE CASCADE,
@@ -115,7 +120,7 @@ CREATE TABLE IF NOT EXISTS payments (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 9. SALARY PAYOUTS LEDGER TABLE
+-- 9. SALARY PAYOUTS LEDGER
 CREATE TABLE IF NOT EXISTS salary_payouts (
     id VARCHAR(50) PRIMARY KEY,
     recipient_id VARCHAR(50) NOT NULL,
@@ -127,7 +132,7 @@ CREATE TABLE IF NOT EXISTS salary_payouts (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 10. DAILY ATTENDANCE TABLE
+-- 10. DAILY ATTENDANCE
 CREATE TABLE IF NOT EXISTS attendance (
     id VARCHAR(50) PRIMARY KEY,
     date DATE NOT NULL,
@@ -137,7 +142,7 @@ CREATE TABLE IF NOT EXISTS attendance (
     CONSTRAINT unique_student_daily_att UNIQUE (date, student_id)
 );
 
--- 11. EXAM RESULTS & MARKS HISTORY TABLE
+-- 11. EXAM RESULTS & MARKS
 CREATE TABLE IF NOT EXISTS exam_results (
     id VARCHAR(50) PRIMARY KEY,
     student_id VARCHAR(50) REFERENCES students(id) ON DELETE CASCADE,
@@ -149,7 +154,7 @@ CREATE TABLE IF NOT EXISTS exam_results (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 12. NOTICES TICKER & ANNOUNCEMENTS TABLE
+-- 12. NOTICES TICKER
 CREATE TABLE IF NOT EXISTS notices (
     id VARCHAR(50) PRIMARY KEY,
     content TEXT NOT NULL,
@@ -157,7 +162,7 @@ CREATE TABLE IF NOT EXISTS notices (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 13. COURSES & STUDY MATERIAL TABLE
+-- 13. COURSES & STUDY MATERIAL
 CREATE TABLE IF NOT EXISTS courses (
     id VARCHAR(50) PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -170,7 +175,7 @@ CREATE TABLE IF NOT EXISTS courses (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 14. TEST SERIES & MOCK EXAMS TABLE
+-- 14. TEST SERIES & CBT EXAMS
 CREATE TABLE IF NOT EXISTS test_series (
     id VARCHAR(50) PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -183,7 +188,7 @@ CREATE TABLE IF NOT EXISTS test_series (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 15. STUDENT STATS & ACTIVITY PERSISTENCE TABLE
+-- 15. STUDENT STATS & PERSISTENCE
 CREATE TABLE IF NOT EXISTS student_stats (
     id VARCHAR(50) PRIMARY KEY,
     student_id VARCHAR(50) REFERENCES students(id) ON DELETE CASCADE,
@@ -192,7 +197,7 @@ CREATE TABLE IF NOT EXISTS student_stats (
 );
 
 -- =========================================================
--- INDEXES FOR PERFORMANCE OPTIMIZATION & LOOKUP
+-- INDEXES FOR PERFORMANCE OPTIMIZATION
 -- =========================================================
 CREATE INDEX IF NOT EXISTS idx_classes_name ON classes(name);
 CREATE INDEX IF NOT EXISTS idx_subjects_name ON subjects(name);
@@ -214,7 +219,7 @@ CREATE INDEX IF NOT EXISTS idx_test_series_cls ON test_series(cls);
 CREATE INDEX IF NOT EXISTS idx_student_stats_student ON student_stats(student_id);
 
 -- =========================================================
--- ENABLE RLS & CREATE POLICIES (SAFE FOR MULTIPLE RE-RUNS)
+-- ROW LEVEL SECURITY POLICIES
 -- =========================================================
 ALTER TABLE coaching_settings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE classes ENABLE ROW LEVEL SECURITY;
@@ -232,7 +237,6 @@ ALTER TABLE courses ENABLE ROW LEVEL SECURITY;
 ALTER TABLE test_series ENABLE ROW LEVEL SECURITY;
 ALTER TABLE student_stats ENABLE ROW LEVEL SECURITY;
 
--- Drop existing policies if re-running script to avoid duplicate policy error
 DROP POLICY IF EXISTS "Public Read/Write coaching_settings" ON coaching_settings;
 DROP POLICY IF EXISTS "Public Read/Write classes" ON classes;
 DROP POLICY IF EXISTS "Public Read/Write subjects" ON subjects;
@@ -249,7 +253,6 @@ DROP POLICY IF EXISTS "Public Read/Write courses" ON courses;
 DROP POLICY IF EXISTS "Public Read/Write test_series" ON test_series;
 DROP POLICY IF EXISTS "Public Read/Write student_stats" ON student_stats;
 
--- Create Permissive Policies for Web Application Access
 CREATE POLICY "Public Read/Write coaching_settings" ON coaching_settings FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write classes" ON classes FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write subjects" ON subjects FOR ALL USING (true) WITH CHECK (true);
@@ -267,13 +270,12 @@ CREATE POLICY "Public Read/Write test_series" ON test_series FOR ALL USING (true
 CREATE POLICY "Public Read/Write student_stats" ON student_stats FOR ALL USING (true) WITH CHECK (true);
 
 -- =========================================================
--- INITIAL SEED DATA (SAFE FOR MULTIPLE RE-RUNS)
+-- SEED DATA
 -- =========================================================
 INSERT INTO coaching_settings (id, coaching_name, access_key, student_access_key)
 VALUES ('coaching_main', 'Elite Classes', '987654', '123456')
 ON CONFLICT (id) DO UPDATE SET access_key = EXCLUDED.access_key, student_access_key = EXCLUDED.student_access_key;
 
--- SEED CLASSES
 INSERT INTO classes (id, name, display_order, is_active)
 VALUES
 ('c_lkg', 'LKG', 1, true),
@@ -290,7 +292,6 @@ VALUES
 ('c_10', 'Class 10', 12, true)
 ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, display_order = EXCLUDED.display_order;
 
--- SEED SUBJECTS
 INSERT INTO subjects (id, name, code, description, is_active)
 VALUES
 ('sub_math', 'Mathematics', 'MATH', 'Core Mathematics & Quantitative Aptitude', true),
@@ -305,7 +306,6 @@ VALUES
 ('sub_gk', 'General Knowledge', 'GK', 'Current Affairs & Logical Reasoning', true)
 ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, code = EXCLUDED.code;
 
--- SEED NOTICES
 INSERT INTO notices (id, content, is_active)
 VALUES 
 ('n1', '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations begin next week!', true),
@@ -313,7 +313,6 @@ VALUES
 ('n3', '⏰ Special doubt clearing sessions scheduled every Saturday for Class 8 to 10.', true)
 ON CONFLICT (id) DO NOTHING;
 
--- SEED STUDENTS (WITH EMAIL)
 INSERT INTO students (id, name, email, cls, parent_name, phone, pin, monthly_fee, fee_due_day, scholarship_pct, subjects, date_of_admission, school_name, avatar_color)
 VALUES
 ('s1', 'Aarav Sharma', 'aarav.sharma@gmail.com', 'Class 5', 'Rajesh Sharma', '9876543210', '123456', 1500, 10, 0, 'Mathematics, Science, English', '2025-04-01', 'St. Xavier School', '#2563eb'),
@@ -323,7 +322,6 @@ VALUES
 ('s5', 'Karan Mehta', 'karan.mehta@gmail.com', 'Class 10', 'Pankaj Mehta', '9876543214', '123456', 3000, 10, 25, 'Mathematics, Physics, Chemistry', '2025-03-15', 'Modern High School', '#f59e0b')
 ON CONFLICT (id) DO UPDATE SET email = EXCLUDED.email, pin = EXCLUDED.pin, phone = EXCLUDED.phone;
 
--- SEED UNIFIED STAFF (WITH EMAIL)
 INSERT INTO staff (id, name, email, is_teacher, role, subjects, assigned_classes, phone, pin, base_salary, incentive, avatar_color)
 VALUES
 ('t1', 'Dr. Ramesh Kumar', 'ramesh.kumar@eliteclasses.com', true, 'Mathematics Faculty', 'Mathematics, Physics', 'Class 8, Class 9, Class 10', '9811223344', '123456', 35000, 2500, '#2563eb'),
@@ -340,7 +338,6 @@ ON CONFLICT (id) DO UPDATE SET
     pin = EXCLUDED.pin, 
     phone = EXCLUDED.phone;
 
--- SEED ADMINS (WITH EMAIL)
 INSERT INTO admins (id, name, email, role, phone, pin, avatar_color)
 VALUES
 ('a1', 'Elite Admin Main', 'admin@eliteclasses.com', 'Super Admin', '9800000000', '987654', '#2563eb')

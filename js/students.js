@@ -290,9 +290,9 @@ function openStudentDetailModal(studentId) {
 function openAddStudentModal() {
     editingStudentId = null;
     document.getElementById('studentModalTitle').textContent = 'Add New Student';
-    ['f-sname', 'f-sclass', 'f-sparent', 'f-sphone', 'f-sfee', 'f-sscholarship', 'f-sdoa', 'f-sschool'].forEach(id => {
+    ['f-sname', 'f-semail', 'f-sclass', 'f-sparent', 'f-sphone', 'f-spin', 'f-sfee', 'f-sscholarship', 'f-sdoa', 'f-sschool'].forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.value = '';
+        if (el) el.value = id === 'f-spin' ? '123456' : '';
     });
     
     renderSubjectChecklistContainer('f-ssubjects-container', '');
@@ -310,9 +310,11 @@ function editStudent(studentId) {
     editingStudentId = studentId;
     document.getElementById('studentModalTitle').textContent = 'Edit Student Details';
     document.getElementById('f-sname').value = s.name;
+    if (document.getElementById('f-semail')) document.getElementById('f-semail').value = s.email || '';
     document.getElementById('f-sclass').value = s.cls;
     document.getElementById('f-sparent').value = s.parent;
     document.getElementById('f-sphone').value = s.phone;
+    if (document.getElementById('f-spin')) document.getElementById('f-spin').value = s.pin || '123456';
     document.getElementById('f-sfee').value = s.fee;
     document.getElementById('f-sdue').value = s.due || '10';
     document.getElementById('f-sscholarship').value = s.scholarshipPct || 0;
@@ -327,9 +329,11 @@ function editStudent(studentId) {
 
 function saveStudentForm() {
     const name = document.getElementById('f-sname').value.trim();
+    const email = (document.getElementById('f-semail')?.value || '').trim();
     const cls = document.getElementById('f-sclass').value;
     const parent = document.getElementById('f-sparent').value.trim();
     const phone = document.getElementById('f-sphone').value.trim();
+    const pin = (document.getElementById('f-spin')?.value || '123456').trim();
     const fee = parseFloat(document.getElementById('f-sfee').value);
     const scholarshipPct = parseFloat(document.getElementById('f-sscholarship')?.value) || 0;
 
@@ -347,7 +351,7 @@ function saveStudentForm() {
         const idx = students.findIndex(s => s.id === editingStudentId);
         students[idx] = {
             ...students[idx],
-            name, cls, parent, phone, fee,
+            name, email, cls, parent, phone, pin, fee,
             scholarshipPct,
             due: document.getElementById('f-sdue').value,
             subjects,
@@ -359,7 +363,7 @@ function saveStudentForm() {
     } else {
         const newStudent = {
             id: 's_' + Date.now(),
-            name, cls, parent, phone, fee,
+            name, email, cls, parent, phone, pin, fee,
             due: document.getElementById('f-sdue').value,
             subjects,
             scholarshipPct,

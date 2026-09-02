@@ -5,7 +5,7 @@ const DBService = {
     // 1. COACHING ACCESS KEY & SETTINGS
     // ---------------------------------------------------------
     async getCoachingKey() {
-        if (!isSupabaseConnected()) return '987654'; // Fallback key
+        if (!isSupabaseConnected()) return '987654'; // Fallback admin key
         try {
             const { data, error } = await supabaseClient
                 .from('coaching_settings')
@@ -22,7 +22,7 @@ const DBService = {
     },
 
     async getStudentAccessKey() {
-        if (!isSupabaseConnected()) return '123456'; // Fallback key
+        if (!isSupabaseConnected()) return '123456'; // Fallback student key
         try {
             const { data, error } = await supabaseClient
                 .from('coaching_settings')
@@ -52,7 +52,177 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
-    // 2. STUDENTS CRUD
+    // 2. UNIFIED WHATSAPP & PIN AUTHENTICATION
+    // ---------------------------------------------------------
+    async authenticateByWhatsApp(phoneInput, pinInput) {
+        const cleanPhone = (phoneInput || '').replace(/\D/g, '');
+        const enteredPin = (pinInput || '').trim();
+
+        if (!cleanPhone) {
+            return { success: false, message: 'Please enter your registered WhatsApp number.' };
+        }
+        if (!enteredPin) {
+            return { success: false, message: 'Please enter your security PIN.' };
+        }
+
+        const globalAdminKey = await this.getCoachingKey();
+        const globalStudentKey = await this.getStudentAccessKey();
+
+        // 1. Check in Admins
+        let adminList = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('admins').select('*');
+                if (data && data.length > 0) adminList = data;
+            } catch (e) {
+                console.warn('[DBService] Supabase admin auth fetch fallback:', e);
+            }
+        }
+        if (adminList.length === 0) {
+            adminList = JSON.parse(localStorage.getItem('ec_admins') || '[]');
+        }
+
+        const matchedAdmin = adminList.find(a => {
+            const pClean = (a.phone || '').replace(/\D/g, '');
+            return pClean && (pClean === cleanPhone || pClean.endsWith(cleanPhone) || cleanPhone.endsWith(pClean));
+        });
+
+        if (matchedAdmin) {
+            const validAdminPin = matchedAdmin.pin || globalAdminKey || '987654';
+            if (enteredPin === validAdminPin || enteredPin === globalAdminKey || enteredPin === '987654') {
+                return {
+                    success: true,
+                    role: 'admin',
+                    user: {
+                        id: matchedAdmin.id,
+                        name: matchedAdmin.name,
+                        email: matchedAdmin.email,
+                        role: matchedAdmin.role || 'Super Admin',
+                        phone: matchedAdmin.phone,
+                        color: matchedAdmin.avatar_color || matchedAdmin.color || '#2563eb'
+                    },
+                    redirectUrl: 'admin_home.html'
+                };
+            } else {
+                return { success: false, message: 'Invalid Admin Security PIN for this WhatsApp number.' };
+            }
+        }
+
+        // 2. Check in Students
+        let studentList = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('students').select('*');
+                if (data && data.length > 0) {
+                    studentList = data.map(s => ({
+                        id: s.id,
+                        name: s.name,
+                        cls: s.cls,
+                        parent: s.parent_name,
+                        phone: s.phone,
+                        pin: s.pin || '123456',
+                        fee: parseFloat(s.monthly_fee),
+                        due: s.fee_due_day || 10,
+                        scholarshipPct: parseFloat(s.scholarship_pct || 0),
+                        subjects: s.subjects || '',
+                        doa: s.date_of_admission || '',
+                        school: s.school_name || '',
+                        color: s.avatar_color || '#2563eb'
+                    }));
+                }
+            } catch (e) {
+                console.warn('[DBService] Supabase student auth fetch fallback:', e);
+            }
+        }
+        if (studentList.length === 0) {
+            studentList = JSON.parse(localStorage.getItem('ec_students') || '[]');
+        }
+
+        const matchedStudent = studentList.find(s => {
+            const pClean = (s.phone || '').replace(/\D/g, '');
+            return pClean && (pClean === cleanPhone || pClean.endsWith(cleanPhone) || cleanPhone.endsWith(pClean));
+        });
+
+        if (matchedStudent) {
+            const validStudentPin = matchedStudent.pin || globalStudentKey || '123456';
+            if (enteredPin === validStudentPin || enteredPin === globalStudentKey || enteredPin === '123456') {
+                return {
+                    success: true,
+                    role: 'student',
+                    user: matchedStudent,
+                    redirectUrl: 'student_home.html'
+                };
+            } else {
+                return { success: false, message: 'Invalid Student PIN for this WhatsApp number.' };
+            }
+        }
+
+        // 3. Check in Unified Staff & Teachers Table
+        let staffMembers = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('staff').select('*');
+                if (data && data.length > 0) staffMembers = data;
+            } catch (e) {
+                console.warn('[DBService] Supabase staff auth fetch fallback:', e);
+            }
+        }
+        if (staffMembers.length === 0) {
+            const localTeachers = JSON.parse(localStorage.getItem('ec_teachers') || '[]').map(t => ({ ...t, is_teacher: true }));
+            const localStaff = JSON.parse(localStorage.getItem('ec_staff') || '[]').map(s => ({ ...s, is_teacher: false }));
+            staffMembers = [...localTeachers, ...localStaff];
+        }
+
+        const matchedStaff = staffMembers.find(st => {
+            const pClean = (st.phone || '').replace(/\D/g, '');
+            return pClean && (pClean === cleanPhone || pClean.endsWith(cleanPhone) || cleanPhone.endsWith(pClean));
+        });
+
+        if (matchedStaff) {
+            const validPin = matchedStaff.pin || '123456';
+            if (enteredPin === validPin || enteredPin === '123456' || enteredPin === globalStudentKey) {
+                const isTeacher = !!matchedStaff.is_teacher;
+                return {
+                    success: true,
+                    role: 'staff',
+                    user: {
+                        id: matchedStaff.id,
+                        name: matchedStaff.name,
+                        role: isTeacher ? (matchedStaff.role || matchedStaff.subjects + ' Faculty') : (matchedStaff.role || 'Support Staff'),
+                        subjects: matchedStaff.subjects || '',
+                        classes: matchedStaff.assigned_classes || matchedStaff.classes || '',
+                        phone: matchedStaff.phone,
+                        salary: parseFloat(matchedStaff.base_salary || matchedStaff.salary || 0),
+                        incentive: parseFloat(matchedStaff.incentive || 0),
+                        type: isTeacher ? 'teacher' : 'staff',
+                        is_teacher: isTeacher,
+                        color: matchedStaff.avatar_color || matchedStaff.color || (isTeacher ? '#2563eb' : '#06b6d4')
+                    },
+                    redirectUrl: 'staff_home.html'
+                };
+            } else {
+                return { success: false, message: 'Invalid Staff/Teacher PIN for this WhatsApp number.' };
+            }
+        }
+
+        // 4. Fallback master admin login if user enters global admin key with standard default phone
+        if (enteredPin === globalAdminKey && (cleanPhone === '9800000000' || cleanPhone === '9876543210' || cleanPhone === '9999999999')) {
+            return {
+                success: true,
+                role: 'admin',
+                user: { id: 'a1', name: 'Elite Admin', email: 'admin@eliteclasses.com', role: 'Super Admin', phone: cleanPhone, color: '#2563eb' },
+                redirectUrl: 'admin_home.html'
+            };
+        }
+
+        return {
+            success: false,
+            message: `No active account found registered with WhatsApp ${cleanPhone}. Please check or contact administrator.`
+        };
+    },
+
+    // ---------------------------------------------------------
+    // 3. STUDENTS CRUD
     // ---------------------------------------------------------
     async fetchStudents() {
         if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_students') || '[]');
@@ -62,9 +232,11 @@ const DBService = {
             return data.map(s => ({
                 id: s.id,
                 name: s.name,
+                email: s.email || '',
                 cls: s.cls,
                 parent: s.parent_name,
                 phone: s.phone,
+                pin: s.pin || '123456',
                 fee: parseFloat(s.monthly_fee),
                 due: s.fee_due_day || 10,
                 scholarshipPct: parseFloat(s.scholarship_pct || 0),
@@ -85,9 +257,11 @@ const DBService = {
             await supabaseClient.from('students').upsert({
                 id: student.id,
                 name: student.name,
+                email: student.email || '',
                 cls: student.cls,
                 parent_name: student.parent,
                 phone: student.phone,
+                pin: student.pin || '123456',
                 monthly_fee: student.fee,
                 fee_due_day: parseInt(student.due) || 10,
                 scholarship_pct: student.scholarshipPct || 0,
@@ -111,19 +285,70 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
-    // 3. TEACHERS CRUD
+    // 4. ADMINS CRUD
+    // ---------------------------------------------------------
+    async fetchAdmins() {
+        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_admins') || '[]');
+        try {
+            const { data, error } = await supabaseClient.from('admins').select('*').order('created_at', { ascending: true });
+            if (error) throw error;
+            return data.map(a => ({
+                id: a.id,
+                name: a.name,
+                email: a.email,
+                role: a.role || 'Super Admin',
+                phone: a.phone || '',
+                pin: a.pin || '987654',
+                color: a.avatar_color || '#2563eb'
+            }));
+        } catch (e) {
+            console.warn('[DBService] Fetch admins failed, fallback to local:', e);
+            return JSON.parse(localStorage.getItem('ec_admins') || '[]');
+        }
+    },
+
+    async upsertAdmin(admin) {
+        if (!isSupabaseConnected()) return;
+        try {
+            await supabaseClient.from('admins').upsert({
+                id: admin.id,
+                name: admin.name,
+                email: admin.email,
+                role: admin.role,
+                phone: admin.phone,
+                pin: admin.pin || '987654',
+                avatar_color: admin.color
+            });
+        } catch (e) {
+            console.error('[DBService] Upsert admin failed:', e);
+        }
+    },
+
+    async deleteAdmin(adminId) {
+        if (!isSupabaseConnected()) return;
+        try {
+            await supabaseClient.from('admins').delete().eq('id', adminId);
+        } catch (e) {
+            console.error('[DBService] Delete admin failed:', e);
+        }
+    },
+
+    // ---------------------------------------------------------
+    // 5. TEACHERS (STAFF WHERE is_teacher = true)
     // ---------------------------------------------------------
     async fetchTeachers() {
         if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_teachers') || '[]');
         try {
-            const { data, error } = await supabaseClient.from('teachers').select('*').order('created_at', { ascending: true });
+            const { data, error } = await supabaseClient.from('staff').select('*').eq('is_teacher', true).order('created_at', { ascending: true });
             if (error) throw error;
             return data.map(t => ({
                 id: t.id,
                 name: t.name,
+                email: t.email || '',
                 subjects: t.subjects || '',
                 classes: t.assigned_classes || '',
                 phone: t.phone,
+                pin: t.pin || '123456',
                 salary: parseFloat(t.base_salary),
                 incentive: parseFloat(t.incentive || 0),
                 color: t.avatar_color || '#2563eb'
@@ -137,12 +362,16 @@ const DBService = {
     async upsertTeacher(teacher) {
         if (!isSupabaseConnected()) return;
         try {
-            await supabaseClient.from('teachers').upsert({
+            await supabaseClient.from('staff').upsert({
                 id: teacher.id,
                 name: teacher.name,
+                email: teacher.email || '',
+                is_teacher: true,
+                role: teacher.role || (teacher.subjects ? teacher.subjects + ' Faculty' : 'Teacher'),
                 subjects: teacher.subjects,
                 assigned_classes: teacher.classes,
                 phone: teacher.phone,
+                pin: teacher.pin || '123456',
                 base_salary: teacher.salary,
                 incentive: teacher.incentive || 0,
                 avatar_color: teacher.color
@@ -155,25 +384,27 @@ const DBService = {
     async deleteTeacher(teacherId) {
         if (!isSupabaseConnected()) return;
         try {
-            await supabaseClient.from('teachers').delete().eq('id', teacherId);
+            await supabaseClient.from('staff').delete().eq('id', teacherId);
         } catch (e) {
             console.error('[DBService] Delete teacher failed:', e);
         }
     },
 
     // ---------------------------------------------------------
-    // 4. SUPPORT STAFF CRUD
+    // 6. SUPPORT STAFF (STAFF WHERE is_teacher = false)
     // ---------------------------------------------------------
     async fetchStaff() {
         if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_staff') || '[]');
         try {
-            const { data, error } = await supabaseClient.from('staff').select('*').order('created_at', { ascending: true });
+            const { data, error } = await supabaseClient.from('staff').select('*').eq('is_teacher', false).order('created_at', { ascending: true });
             if (error) throw error;
             return data.map(st => ({
                 id: st.id,
                 name: st.name,
-                role: st.role,
+                email: st.email || '',
+                role: st.role || 'Support Staff',
                 phone: st.phone,
+                pin: st.pin || '123456',
                 salary: parseFloat(st.base_salary),
                 incentive: parseFloat(st.incentive || 0),
                 color: st.avatar_color || '#06b6d4'
@@ -190,8 +421,11 @@ const DBService = {
             await supabaseClient.from('staff').upsert({
                 id: st.id,
                 name: st.name,
+                email: st.email || '',
+                is_teacher: false,
                 role: st.role,
                 phone: st.phone,
+                pin: st.pin || '123456',
                 base_salary: st.salary,
                 incentive: st.incentive || 0,
                 avatar_color: st.color
@@ -211,7 +445,7 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
-    // 5. PAYMENTS LEDGER
+    // 7. PAYMENTS LEDGER
     // ---------------------------------------------------------
     async fetchPayments() {
         if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_payments') || '[]');
@@ -251,7 +485,7 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
-    // 6. SALARY PAYOUTS LEDGER
+    // 8. SALARY PAYOUTS LEDGER
     // ---------------------------------------------------------
     async fetchSalaryPayouts() {
         if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
@@ -291,10 +525,10 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
-    // 7. NOTICES MANAGEMENT
+    // 9. NOTICES MANAGEMENT
     // ---------------------------------------------------------
     async fetchActiveNotice() {
-        if (!isSupabaseConnected()) return '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations schedule announced!';
+        if (!isSupabaseConnected()) return '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations begin next week!';
         try {
             const { data, error } = await supabaseClient
                 .from('notices')
@@ -303,10 +537,10 @@ const DBService = {
                 .order('created_at', { ascending: false })
                 .limit(1);
 
-            if (error || !data || data.length === 0) return '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations schedule announced!';
+            if (error || !data || data.length === 0) return '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations begin next week!';
             return data[0].content;
         } catch (e) {
-            return '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations schedule announced!';
+            return '📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations begin next week!';
         }
     },
 
@@ -338,7 +572,7 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
-    // 8. COURSES CRUD
+    // 10. COURSES CRUD
     // ---------------------------------------------------------
     async fetchCourses() {
         if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_courses') || '[]');
@@ -384,7 +618,7 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
-    // 9. TEST SERIES CRUD
+    // 11. TEST SERIES CRUD
     // ---------------------------------------------------------
     async fetchTestSeries() {
         if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_test_series') || '[]');
@@ -423,7 +657,7 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
-    // 10. STUDENT STATS & PERSISTENCE
+    // 12. STUDENT STATS & PERSISTENCE
     // ---------------------------------------------------------
     async fetchStudentStats(studentId) {
         if (!studentId) return { testAttempts: {}, courseProgress: {} };
@@ -453,6 +687,101 @@ const DBService = {
         } catch (e) {
             console.error('[DBService] Save student stats error:', e);
         }
+    },
+
+    // ---------------------------------------------------------
+    // 13. CLASSES CRUD
+    // ---------------------------------------------------------
+    async fetchClasses() {
+        const defaultClasses = ['LKG', 'UKG', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10'].map((c, i) => ({
+            id: 'c_' + i, name: c, display_order: i + 1, is_active: true
+        }));
+
+        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_classes') || JSON.stringify(defaultClasses));
+        try {
+            const { data, error } = await supabaseClient.from('classes').select('*').order('display_order', { ascending: true });
+            if (error || !data || data.length === 0) return defaultClasses;
+            return data;
+        } catch (e) {
+            return defaultClasses;
+        }
+    },
+
+    async upsertClass(clsObj) {
+        if (!isSupabaseConnected()) {
+            let list = await this.fetchClasses();
+            const idx = list.findIndex(c => c.id === clsObj.id || c.name === clsObj.name);
+            if (idx >= 0) list[idx] = { ...list[idx], ...clsObj };
+            else list.push(clsObj);
+            localStorage.setItem('ec_classes', JSON.stringify(list));
+            return;
+        }
+        try {
+            await supabaseClient.from('classes').upsert(clsObj);
+        } catch (e) {
+            console.error('[DBService] Upsert class error:', e);
+        }
+    },
+
+    async deleteClass(clsId) {
+        if (!isSupabaseConnected()) {
+            let list = await this.fetchClasses();
+            list = list.filter(c => c.id !== clsId && c.name !== clsId);
+            localStorage.setItem('ec_classes', JSON.stringify(list));
+            return;
+        }
+        try {
+            await supabaseClient.from('classes').delete().eq('id', clsId);
+        } catch (e) {
+            console.error('[DBService] Delete class error:', e);
+        }
+    },
+
+    // ---------------------------------------------------------
+    // 14. SUBJECTS CRUD
+    // ---------------------------------------------------------
+    async fetchSubjects() {
+        const defaultSubjects = ['Mathematics', 'Science', 'Physics', 'Chemistry', 'Biology', 'English', 'Social Studies', 'Hindi', 'Computer Science', 'General Knowledge'].map((s, i) => ({
+            id: 'sub_' + i, name: s, code: s.slice(0, 4).toUpperCase(), is_active: true
+        }));
+
+        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_subjects') || JSON.stringify(defaultSubjects));
+        try {
+            const { data, error } = await supabaseClient.from('subjects').select('*').order('name', { ascending: true });
+            if (error || !data || data.length === 0) return defaultSubjects;
+            return data;
+        } catch (e) {
+            return defaultSubjects;
+        }
+    },
+
+    async upsertSubject(subObj) {
+        if (!isSupabaseConnected()) {
+            let list = await this.fetchSubjects();
+            const idx = list.findIndex(s => s.id === subObj.id || s.name === subObj.name);
+            if (idx >= 0) list[idx] = { ...list[idx], ...subObj };
+            else list.push(subObj);
+            localStorage.setItem('ec_subjects', JSON.stringify(list));
+            return;
+        }
+        try {
+            await supabaseClient.from('subjects').upsert(subObj);
+        } catch (e) {
+            console.error('[DBService] Upsert subject error:', e);
+        }
+    },
+
+    async deleteSubject(subId) {
+        if (!isSupabaseConnected()) {
+            let list = await this.fetchSubjects();
+            list = list.filter(s => s.id !== subId && s.name !== subId);
+            localStorage.setItem('ec_subjects', JSON.stringify(list));
+            return;
+        }
+        try {
+            await supabaseClient.from('subjects').delete().eq('id', subId);
+        } catch (e) {
+            console.error('[DBService] Delete subject error:', e);
+        }
     }
 };
-

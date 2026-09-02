@@ -126,12 +126,6 @@ function renderDashboard() {
     if (financesEl) financesEl.textContent = '₹' + feeCollected.toLocaleString() + ' Collected';
 
     // 5. Attendance Stat
-    const todayDate = getTodayDateStr();
-    const attRecs = attendanceRecords[todayDate] || {};
-    const markedCount = Object.keys(attRecs).length;
-    const presentCount = Object.values(attRecs).filter(v => v === 'present').length;
-    const attRate = markedCount > 0 ? Math.round((presentCount / markedCount) * 100) : 95;
-    // Set formatted sub-header date (e.g., 25 Aug 26 TUE)
     updateSubHeaderDate();
 }
 
@@ -155,26 +149,26 @@ function updateSubHeaderDate() {
 function initSeedData() {
     if (students.length === 0 && teachers.length === 0) {
         students = [
-            { id: 's1', name: 'Aarav Sharma', cls: 'Class 5', parent: 'Ravi Sharma', phone: '9876543210', fee: 1500, due: '10', subjects: 'Maths, Science', doa: '2024-06-01', school: 'Delhi Public School', color: '#2563eb' },
-            { id: 's2', name: 'Priya Patel', cls: 'Class 8', parent: 'Suresh Patel', phone: '9876543211', fee: 2000, due: '10', subjects: 'Maths, Science, English', doa: '2024-06-15', school: 'St. Mary\'s School', color: '#10b981' },
-            { id: 's3', name: 'Rohan Gupta', cls: 'Class 3', parent: 'Anil Gupta', phone: '9876543212', fee: 1200, due: '5', subjects: 'All Subjects', doa: '2024-07-01', school: 'KV School', color: '#f59e0b' },
-            { id: 's4', name: 'Ananya Singh', cls: 'LKG', parent: 'Mohit Singh', phone: '9876543213', fee: 800, due: '10', subjects: 'All Subjects', doa: '2025-04-01', school: 'Little Flower', color: '#8b5cf6' },
-            { id: 's5', name: 'Karan Mehta', cls: 'Class 10', parent: 'Vijay Mehta', phone: '9876543214', fee: 3000, due: '1', subjects: 'Maths, Science, SST', doa: '2024-04-01', school: 'DPS Vasant Kunj', color: '#ef4444' }
+            { id: 's1', name: 'Aarav Sharma', email: 'aarav.sharma@gmail.com', cls: 'Class 5', parent: 'Rajesh Sharma', phone: '9876543210', pin: '123456', fee: 1500, due: '10', subjects: 'Mathematics, Science, English', doa: '2025-04-01', school: 'St. Xavier School', color: '#2563eb' },
+            { id: 's2', name: 'Ananya Singh', email: 'ananya.singh@gmail.com', cls: 'Class 5', parent: 'Vikram Singh', phone: '9876543211', pin: '123456', fee: 1500, due: '10', subjects: 'Mathematics, Science, English', doa: '2025-04-02', school: 'Delhi Public School', color: '#8b5cf6' },
+            { id: 's3', name: 'Rohan Gupta', email: 'rohan.gupta@gmail.com', cls: 'Class 8', parent: 'Suresh Gupta', phone: '9876543212', pin: '123456', fee: 2000, due: '5', subjects: 'Mathematics, Science', doa: '2025-04-05', school: 'Kendriya Vidyalaya', color: '#10b981' },
+            { id: 's4', name: 'Ishita Patel', email: 'ishita.patel@gmail.com', cls: 'LKG', parent: 'Amit Patel', phone: '9876543213', pin: '123456', fee: 1200, due: '1', subjects: 'Rhymes, Drawing, English', doa: '2025-04-10', school: 'Little Tots Play School', color: '#ec4899' },
+            { id: 's5', name: 'Karan Mehta', email: 'karan.mehta@gmail.com', cls: 'Class 10', parent: 'Pankaj Mehta', phone: '9876543214', pin: '123456', fee: 3000, due: '10', subjects: 'Mathematics, Physics, Chemistry', doa: '2025-03-15', school: 'Modern High School', color: '#f59e0b' }
         ];
 
         teachers = [
-            { id: 't1', name: 'Dr. Ramesh Kumar', subjects: 'Maths, Physics', classes: 'Class 8, Class 9, Class 10', phone: '9812345678', salary: 35000, color: '#2563eb' },
-            { id: 't2', name: 'Sunita Verma', subjects: 'English, Social Studies', classes: 'Class 5, Class 6, Class 7', phone: '9823456789', salary: 28000, color: '#8b5cf6' },
-            { id: 't3', name: 'Amit Sharma', subjects: 'Chemistry, Biology', classes: 'Class 9, Class 10', phone: '9834567890', salary: 32000, color: '#10b981' }
+            { id: 't1', name: 'Dr. Ramesh Kumar', email: 'ramesh.kumar@eliteclasses.com', subjects: 'Mathematics, Physics', classes: 'Class 8, Class 9, Class 10', phone: '9811223344', pin: '123456', salary: 35000, incentive: 2500, color: '#2563eb' },
+            { id: 't2', name: 'Sunita Rao', email: 'sunita.rao@eliteclasses.com', subjects: 'Science, Biology', classes: 'Class 5, Class 6, Class 7', phone: '9822334455', pin: '123456', salary: 28000, incentive: 1500, color: '#8b5cf6' },
+            { id: 't3', name: 'Vikram Das', email: 'vikram.das@eliteclasses.com', subjects: 'English, Social Studies', classes: 'Class 6, Class 7, Class 8', phone: '9833445566', pin: '123456', salary: 25000, incentive: 1000, color: '#10b981' }
         ];
 
         staff = [
-            { id: 'st1', name: 'Rajesh Sharma', role: 'Office Accountant', phone: '9911223344', salary: 20000, color: '#06b6d4' },
-            { id: 'st2', name: 'Sunil Verma', role: 'Lab Assistant & Maintenance', phone: '9922334455', salary: 15000, color: '#f59e0b' }
+            { id: 'st1', name: 'Rajesh Sharma', email: 'rajesh.accountant@eliteclasses.com', role: 'Office Accountant', phone: '9911223344', pin: '123456', salary: 20000, incentive: 1000, color: '#06b6d4' },
+            { id: 'st2', name: 'Sunil Verma', email: 'sunil.maintenance@eliteclasses.com', role: 'Lab Assistant & Maintenance', phone: '9922334455', pin: '123456', salary: 15000, incentive: 500, color: '#f59e0b' }
         ];
 
         admins = [
-            { id: 'a1', name: 'Elite Admin Main', email: 'admin@eliteclasses.com', role: 'Super Admin', phone: '9800000000', color: '#2563eb' }
+            { id: 'a1', name: 'Elite Admin Main', email: 'admin@eliteclasses.com', role: 'Super Admin', phone: '9800000000', pin: '987654', color: '#2563eb' }
         ];
 
         payments = [
@@ -192,56 +186,8 @@ function initSeedData() {
     }
 }
 
-// Coaching Key Authentication System
-let VALID_COACHING_KEY = '987654';
-
-async function verifyCoachingKey() {
-    const inputEl = document.getElementById('coaching-key-input');
-    const errEl = document.getElementById('auth-error-msg');
-    const authScreen = document.getElementById('auth-screen');
-
-    if (!inputEl) return;
-    const enteredKey = inputEl.value.trim();
-
-    // If student code 123456 is typed in Admin box, switch tab automatically
-    if (enteredKey === '123456') {
-        switchAuthTab('student');
-        showToast('Switched to Student Portal Login', 'info');
-        return;
-    }
-
-    // Fetch live coaching key from DB if connected
-    if (typeof DBService !== 'undefined' && isSupabaseConnected()) {
-        const dbKey = await DBService.getCoachingKey();
-        if (dbKey) VALID_COACHING_KEY = dbKey;
-    }
-
-    if (enteredKey === VALID_COACHING_KEY) {
-        if (errEl) errEl.style.display = 'none';
-        localStorage.setItem('ec_user_role', 'admin');
-        localStorage.setItem('ec_authenticated_key', enteredKey);
-        if (authScreen) authScreen.style.display = 'none';
-
-        // Reveal Admin management buttons in Student View if Admin logs in
-        const noticeBtn = document.getElementById('st-admin-notice-btn');
-        const courseBtn = document.getElementById('st-admin-add-course-btn');
-        const testBtn = document.getElementById('st-admin-add-test-btn');
-        if (noticeBtn) noticeBtn.style.display = 'inline-block';
-        if (courseBtn) courseBtn.style.display = 'inline-block';
-        if (testBtn) testBtn.style.display = 'inline-block';
-
-        showToast('Admin Portal Unlocked Successfully!');
-    } else {
-        if (errEl) {
-            errEl.textContent = 'Invalid Admin Coaching Key. Try Student Login with Code 123456.';
-            errEl.style.display = 'block';
-        }
-        inputEl.style.borderColor = '#ef4444';
-    }
-}
-
 // 10-Minute Inactivity Auto-Logout System
-const INACTIVITY_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes in milliseconds
+const INACTIVITY_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
 let inactivityTimer = null;
 
 function resetInactivityTimer() {
@@ -253,20 +199,8 @@ function resetInactivityTimer() {
     if (inactivityTimer) clearTimeout(inactivityTimer);
 
     inactivityTimer = setTimeout(() => {
-        handleInactivityAutoLogout();
+        logoutToGateway('Logged out due to 10 minutes of inactivity for security.');
     }, INACTIVITY_TIMEOUT_MS);
-}
-
-function handleInactivityAutoLogout() {
-    const role = localStorage.getItem('ec_user_role');
-    if (!role) return;
-
-    if (role === 'student' && typeof logoutStudent === 'function') {
-        logoutStudent();
-    } else {
-        lockCoachingPortal();
-    }
-    showToast('Logged out due to 10 minutes of inactivity for security.', 'warning');
 }
 
 function initInactivityListeners() {
@@ -276,74 +210,32 @@ function initInactivityListeners() {
     });
 }
 
-async function checkCoachingAuthOnLoad() {
-    const authScreen = document.getElementById('auth-screen');
-    const role = localStorage.getItem('ec_user_role');
-
-    // Check if session has expired after 10 minutes of inactivity
-    const lastActivity = parseInt(localStorage.getItem('ec_last_activity') || '0');
-    if (role && lastActivity && (Date.now() - lastActivity > INACTIVITY_TIMEOUT_MS)) {
-        localStorage.removeItem('ec_user_role');
-        localStorage.removeItem('ec_authenticated_key');
-        localStorage.removeItem('ec_student_id');
-        localStorage.removeItem('ec_last_activity');
-        showToast('Session expired after 10 minutes of inactivity.', 'info');
-        if (authScreen) authScreen.style.display = 'flex';
-        return;
-    }
-
-    if (role === 'admin') {
-        const savedKey = localStorage.getItem('ec_authenticated_key');
-        if (savedKey) {
-            if (authScreen) authScreen.style.display = 'none';
-            const noticeBtn = document.getElementById('st-admin-notice-btn');
-            const courseBtn = document.getElementById('st-admin-add-course-btn');
-            const testBtn = document.getElementById('st-admin-add-test-btn');
-            if (noticeBtn) noticeBtn.style.display = 'inline-block';
-            if (courseBtn) courseBtn.style.display = 'inline-block';
-            if (testBtn) testBtn.style.display = 'inline-block';
-            
-            initInactivityListeners();
-            resetInactivityTimer();
-            return;
-        }
-    } else if (role === 'student') {
-        const studentId = localStorage.getItem('ec_student_id');
-        if (studentId) {
-            if (typeof DBService !== 'undefined') {
-                if (!students || students.length === 0) {
-                    students = await DBService.fetchStudents();
-                }
-                const found = students.find(s => s.id === studentId);
-                if (found) {
-                    currentStudent = found;
-                    if (authScreen) authScreen.style.display = 'none';
-                    if (typeof loadStudentDashboard === 'function') {
-                        await loadStudentDashboard();
-                    }
-                    initInactivityListeners();
-                    resetInactivityTimer();
-                    return;
-                }
-            }
-        }
-    }
-
-    if (authScreen) authScreen.style.display = 'flex';
-}
-
-function lockCoachingPortal() {
+// Unified Gateway Logout Action
+function logoutToGateway(toastMsg = 'Logged out successfully') {
     localStorage.removeItem('ec_user_role');
     localStorage.removeItem('ec_authenticated_key');
     localStorage.removeItem('ec_student_id');
+    localStorage.removeItem('ec_admin_id');
+    localStorage.removeItem('ec_admin_name');
     localStorage.removeItem('ec_last_activity');
     if (inactivityTimer) clearTimeout(inactivityTimer);
 
-    const authScreen = document.getElementById('auth-screen');
-    const inputEl = document.getElementById('coaching-key-input');
-    if (inputEl) inputEl.value = '';
-    if (authScreen) authScreen.style.display = 'flex';
-    showToast('Coaching Portal Locked', 'warning');
+    window.location.href = 'index.html';
+}
+
+// Auth Guard for Admin Home Page (admin_home.html)
+async function checkAdminAuthGuard() {
+    const role = localStorage.getItem('ec_user_role');
+    const lastActivity = parseInt(localStorage.getItem('ec_last_activity') || '0');
+
+    if (role !== 'admin' || !lastActivity || (Date.now() - lastActivity > INACTIVITY_TIMEOUT_MS)) {
+        logoutToGateway('Please login with your WhatsApp and Admin PIN to access Admin Portal.');
+        return false;
+    }
+
+    initInactivityListeners();
+    resetInactivityTimer();
+    return true;
 }
 
 // Supabase Settings Modal Helpers
@@ -381,6 +273,7 @@ async function syncDataFromSupabase() {
         students = await DBService.fetchStudents();
         teachers = await DBService.fetchTeachers();
         staff = await DBService.fetchStaff();
+        admins = await DBService.fetchAdmins();
         payments = await DBService.fetchPayments();
         salaryPayouts = await DBService.fetchSalaryPayouts();
 
@@ -399,13 +292,19 @@ async function syncDataFromSupabase() {
     }
 }
 
-// Initial App Boot
-document.addEventListener('DOMContentLoaded', () => {
+// Initial App Boot (runs on all portal pages)
+document.addEventListener('DOMContentLoaded', async () => {
     initSeedData();
     if (typeof initSupabaseClient === 'function') initSupabaseClient();
-    checkCoachingAuthOnLoad();
-    renderDashboard();
-    if (typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
-        syncDataFromSupabase();
+    updateSubHeaderDate();
+    
+    // Check if we are on admin_home.html
+    if (window.location.pathname.includes('admin_home.html') || document.getElementById('view-dashboard')) {
+        const authed = await checkAdminAuthGuard();
+        if (!authed) return;
+        renderDashboard();
+        if (typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
+            syncDataFromSupabase();
+        }
     }
 });

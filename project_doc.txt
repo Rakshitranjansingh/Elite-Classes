@@ -1,0 +1,226 @@
+================================================================================
+                    ELITE CLASSES ERP — PROJECT SPECIFICATION & AGENT GUIDE
+================================================================================
+Version: 2.0.0
+Author: Google Deepmind Antigravity Agentic Team
+Target Platform: Web (HTML5, Vanilla CSS, Modern JavaScript ES6+, Supabase PostgreSQL)
+Repository: Rakshitranjansingh/Elite-Classes
+Last Updated: September 2026
+
+--------------------------------------------------------------------------------
+1. PROJECT OVERVIEW & ARCHITECTURAL VISION
+--------------------------------------------------------------------------------
+Elite Classes is a next-generation Coaching Institute Management and Learning
+Experience Platform (ERP + LMS). It provides a unified gateway login that
+intelligently routes three distinct user personas based on their WhatsApp number & PIN:
+
+  1. Admin / Management Portal   --> admin_home.html
+  2. Student Learning Portal      --> student_home.html
+  3. Faculty & Staff Portal       --> staff_home.html
+  4. Unified Authentication Entry --> index.html
+
+All data is designed to work seamlessly offline (via localStorage cache) and
+online (via Supabase Relational PostgreSQL cloud database).
+
+
+--------------------------------------------------------------------------------
+2. PROJECT DIRECTORY STRUCTURE
+--------------------------------------------------------------------------------
+EliteClasses/
+├── index.html                   # Unified Gateway (WhatsApp + PIN login, role routing)
+├── admin_home.html              # Admin portal (students, staff, finances, attendance, classes)
+├── student_home.html            # Student portal (courses, CBT tests, attendance, fee receipts)
+├── staff_home.html              # Faculty portal (class roster, attendance marking, salary slips)
+├── project_doc.txt              # Primary project documentation and agent instructions (this file)
+│
+├── css/
+│   └── styles.css               # Global theme tokens, typography, cards, tables, modals, badges
+│
+├── enums/
+│   ├── classes.js               # Academic classes list with dynamic DB sync
+│   └── subjects.js              # Academic subjects list with dynamic DB sync
+│
+├── js/
+│   ├── app.js                   # Core state manager, auth guard, inactivity timer, seed data
+│   ├── admins.js                # Admin CRUD operations and permission handling
+│   ├── students.js              # Student roster CRUD, fee discount calculation, profile view
+│   ├── teachers.js              # Teacher profiles, class/subject assignments, salary controls
+│   ├── staff.js                 # Support staff CRUD and compensation ledger
+│   ├── staffHome.js             # Staff portal controller (class roster, daily attendance, vouchers)
+│   ├── classes.js               # Classes directory, subject averages, student leaderboards
+│   ├── finances.js              # Fee payments ledger & salary disbursements
+│   └── attendance.js            # Daily batch attendance marking system
+│
+├── modules/
+│   ├── studentView/             # Student dashboard controller & CBT exam engine
+│   ├── courses/                 # Course & study material catalog manager
+│   └── notices/                 # Notice board and bulletin slider
+│
+├── supabase/
+│   ├── config.js                # Supabase client initializer and credentials manager
+│   ├── api.js                   # Unified DBService API layer (Supabase + localStorage fallback)
+│   └── schema.sql               # Base idempotent PostgreSQL database schema
+│
+└── database/                    # Incremental database migrations & releases folder
+    ├── README.md                # Migration guide & release execution steps
+    ├── migrations/              # Sequential incremental migration SQL files
+    │   ├── 001_base_schema.sql
+    │   ├── 002_whatsapp_pin_auth.sql
+    │   ├── 003_merge_teachers_staff.sql
+    │   ├── 004_classes_and_subjects.sql
+    │   └── 005_profile_emails.sql
+    └── releases/                # Consolidated production SQL release bundles
+        └── release_v2.0.0.sql
+
+
+--------------------------------------------------------------------------------
+3. DATABASE SCHEMA & RULES (FOR AGENTS & DEVELOPERS)
+--------------------------------------------------------------------------------
+Database Engine: PostgreSQL (hosted on Supabase)
+
+Core Relational Tables:
+  1. coaching_settings  : Global institute name, admin key, student access key
+  2. classes            : (id, name, display_order, is_active, created_at)
+  3. subjects           : (id, name, code, description, is_active, created_at)
+  4. class_subjects     : (id, class_id, subject_id, created_at)
+  5. students           : (id, name, email, cls, parent_name, phone, pin, monthly_fee,
+                           fee_due_day, scholarship_pct, subjects, date_of_admission,
+                           school_name, avatar_color, created_at)
+  6. staff              : (id, name, email, is_teacher, role, subjects, assigned_classes,
+                           phone, pin, base_salary, incentive, avatar_color, created_at)
+                           * NOTE: Teachers and support staff are unified in `staff`
+                           * `is_teacher = TRUE`  --> Teaching Faculty
+                           * `is_teacher = FALSE` --> Administrative / Support Staff
+  7. admins             : (id, name, email, role, phone, pin, avatar_color, created_at)
+  8. payments           : (id, student_id, month, amount, mode, remarks, payment_date)
+  9. salary_payouts     : (id, recipient_id, recipient_type, month, amount, mode, payout_date)
+ 10. attendance         : (id, date, student_id, status: present|absent|late|excused)
+ 11. exam_results       : (id, student_id, exam_name, subject, marks_obtained, max_marks, grade)
+ 12. notices            : (id, content, is_active, created_at)
+ 13. courses            : (id, title, cls, subject, instructor, description, lessons_count)
+ 14. test_series        : (id, title, cls, subject, duration_mins, total_marks, questions_count)
+ 15. student_stats      : (id, student_id, stats_json, updated_at)
+
+MIGRATION INTEGRITY RULES:
+  - ALWAYS write idempotent SQL: use `IF NOT EXISTS`, `ALTER TABLE ... ADD COLUMN IF NOT EXISTS`,
+    and `DROP POLICY IF EXISTS`.
+  - When creating a new schema change in development, create a new numbered file inside
+    `database/migrations/` (e.g. `006_feature_name.sql`).
+  - Update `supabase/schema.sql` and `database/releases/` to include the new changes.
+  - Profile tables (`students`, `staff`, `admins`) MUST maintain `email`, `phone`, and `pin`
+    to ensure compatibility with WhatsApp login and future Google SSO.
+
+
+--------------------------------------------------------------------------------
+4. AUTHENTICATION & SESSION MANAGEMENT
+--------------------------------------------------------------------------------
+Gateway Login Flow:
+  - User opens `index.html` and enters WhatsApp phone number & secret PIN.
+  - `DBService.authenticateByWhatsApp(phone, pin)` checks:
+      1. `admins` table   --> role = 'admin'   --> opens `admin_home.html`
+      2. `students` table --> role = 'student' --> opens `student_home.html`
+      3. `staff` table    --> role = 'staff'   --> opens `staff_home.html`
+
+Session Storage Keys:
+  - `ec_user_role`          : 'admin' | 'student' | 'staff'
+  - `ec_student_id`         : Active student ID
+  - `ec_staff_id`           : Active staff/teacher ID
+  - `ec_admin_id`           : Active admin ID
+  - `ec_last_activity`      : Timestamp (epoch ms) for inactivity detection
+  - `ec_supabase_url`       : Connected Supabase project URL
+  - `ec_supabase_key`       : Connected Supabase anon API key
+
+Security Inactivity Policy:
+  - 10-minute inactivity auto-logout (`checkAdminAuthGuard()` and `resetInactivityTimer()`).
+  - Unauthenticated access attempts are immediately redirected to `index.html`.
+
+
+--------------------------------------------------------------------------------
+5. ROLE-BASED ACCESS CONTROL (RBAC) & PROFILE ACCESS SPECIFICATION
+--------------------------------------------------------------------------------
+Every feature or module in Elite Classes MUST adhere to the following access rules:
+
+  Profile 1: 👑 Admin (admin_home.html)
+    - Full institute-wide CRUD permissions across all students, staff, finances, and settings.
+
+  Profile 2: 👨‍🏫 Faculty / Staff (staff_home.html)
+    - Class-Scoped: Can only view & message students in assigned classes.
+    - Attendance & Marks: Can only mark attendance & enter scores for assigned classes.
+    - Compensation: Can only view their own salary history & vouchers.
+
+  Profile 3: 🎓 Student (student_home.html)
+    - Self-Scoped: Can only view their enrolled class study materials, CBT tests,
+      own fee receipts, personal attendance percentage, and own exam marks.
+
+MODULE PERMISSION MATRIX:
+┌─────────────────────────┬──────────────────┬─────────────────────┬──────────────────┐
+│ Module / Feature        │ 👑 Admin Scope   │ 👨‍🏫 Faculty Scope    │ 🎓 Student Scope │
+├─────────────────────────┼──────────────────┼─────────────────────┼──────────────────┤
+│ Student Profiles        │ Full CRUD        │ Read & Contact Only │ Read-Only (Self) │
+│ Attendance Marking      │ Full CRUD        │ Create / Update     │ Read-Only (Self) │
+│ Course Study Material   │ Full CRUD        │ Create & Read       │ Read-Only (Class)│
+│ Exam Marks & Scores     │ Full CRUD        │ Enter / Edit Marks  │ Read-Only (Self) │
+│ Test Series & CBT Mock  │ Full CRUD        │ Create & View Tests │ Take CBT Exam    │
+│ Fee Payments & Receipts │ Full CRUD        │ No Access           │ Read-Only (Self) │
+│ Salary & Disbursements  │ Full CRUD        │ Read-Only (Self)    │ No Access        │
+│ Notices & Bulletins     │ Full CRUD        │ Create & Read       │ Read-Only (All)  │
+│ Staff & Admin Mgmt      │ Full CRUD        │ No Access           │ No Access        │
+│ Database / API Settings │ Full CRUD        │ No Access           │ No Access        │
+└─────────────────────────┴──────────────────┴─────────────────────┴──────────────────┘
+
+
+--------------------------------------------------------------------------------
+6. FRONTEND & DESIGN SYSTEM CONVENTIONS
+--------------------------------------------------------------------------------
+Technology Stack:
+  - HTML5 (Semantic, responsive, accessible tags)
+  - Vanilla CSS3 (Custom design system in `css/styles.css`, glassmorphism, flexbox, CSS grid)
+  - ES6+ JavaScript (Modular scripts, strict syntax, async/await, no external UI frameworks)
+
+Design Guidelines:
+  - Primary Theme: Deep Indigo/Navy `#0f172a` with vibrant primary blue `#2563eb`.
+  - Secondary Accents: Emerald `#10b981`, Purple `#8b5cf6`, Amber `#f59e0b`, Crimson `#ef4444`.
+  - Card & Modal Styles: Rounded corners (12px - 16px), subtle shadows, border `var(--border)`.
+  - Modal Controls: Open via `openModal(modalId)` and close via `closeModal(modalId)`.
+  - Toast Notifications: Triggered via `showToast('Message text', 'success'|'danger')`.
+
+
+--------------------------------------------------------------------------------
+7. API LAYER & DATA SERVICE CONVENTIONS (DBService)
+--------------------------------------------------------------------------------
+Location: `supabase/api.js`
+
+Architecture:
+  - Every data fetch and mutation MUST pass through `DBService`.
+  - `DBService` first checks if Supabase is connected (`isSupabaseConnected()`).
+  - If connected: executes async query on Supabase cloud.
+  - If offline / not connected: gracefully reads/writes to `localStorage` caches.
+
+Key DBService Methods:
+  - Authentication: `authenticateByWhatsApp(phone, pin)`
+  - Students      : `fetchStudents()`, `upsertStudent(student)`, `deleteStudent(id)`
+  - Staff/Teachers: `fetchTeachers()`, `upsertTeacher(t)`, `fetchStaff()`, `upsertStaff(s)`
+  - Admins        : `fetchAdmins()`, `upsertAdmin(a)`, `deleteAdmin(id)`
+  - Classes       : `fetchClasses()`, `upsertClass(c)`, `deleteClass(id)`
+  - Subjects      : `fetchSubjects()`, `upsertSubject(s)`, `deleteSubject(id)`
+  - Ledger        : `fetchPayments()`, `addPayment(p)`, `fetchSalaryPayouts()`, `addSalaryPayout(s)`
+  - LMS & Stats   : `fetchCourses()`, `fetchTestSeries()`, `fetchStudentStats()`, `saveStudentStats()`
+
+
+--------------------------------------------------------------------------------
+8. AGENT DEVELOPMENT WORKFLOW & QUALITY CHECKLIST
+--------------------------------------------------------------------------------
+When an AI agent or developer is instructed to build a feature or fix a bug:
+
+  [Step 1] Clarify RBAC Matrix: Define permissions for Admin, Staff, and Student.
+  [Step 2] Read `project_doc.txt` and relevant modules before modifying code.
+  [Step 3] Keep UI consistent with existing design patterns in `css/styles.css`.
+  [Step 4] Ensure database changes are reflected in:
+           - `supabase/schema.sql` (main base file)
+           - `database/migrations/` (new incremental migration script)
+           - `supabase/api.js` (DBService integration)
+  [Step 5] Validate JavaScript syntax before concluding:
+           `node --check <modified_file>.js`
+  [Step 6] Verify role routing across `index.html`, `admin_home.html`,
+           `student_home.html`, and `staff_home.html`.
+================================================================================

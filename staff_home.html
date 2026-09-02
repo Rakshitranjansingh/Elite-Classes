@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Elite Classes — Faculty & Staff Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- STICKY FIXED HEADER CONTAINER -->
+    <header class="app-header-sticky">
+        <!-- TOP BRAND & STAFF BANNER -->
+        <div class="top-banner">
+            <div class="brand-wrapper">
+                <div class="brand-logo-icon">EC</div>
+                <div>
+                    <div class="brand-text">elite<span>.</span>classes</div>
+                    <div class="brand-sub">a light for hope</div>
+                </div>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:12px;">
+                <button class="header-profile-pill" onclick="openModal('staffProfileModal')" title="View My Profile">
+                    <span class="header-profile-avatar-circle" id="staff-header-avatar">ST</span>
+                    <span id="staff-header-username">Staff Member</span>
+                </button>
+                <button class="header-logout-btn" onclick="logoutToGateway('Logged out of Staff Portal')" title="Logout to Gateway">
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- SUB-HEADER BAR WITH NOTICE TICKER -->
+        <div class="sub-header-bar">
+            <div class="notice-ticker-wrap">
+                <span class="notice-badge">STAFF BULLETIN</span>
+                <div class="marquee-track">
+                    <span id="active-db-notice" class="marquee-content">📢 Academic session 2025-26 schedules updated • Monthly reviews scheduled for weekend.</span>
+                </div>
+            </div>
+            <div id="sub-header-date" class="sub-header-date">Today</div>
+        </div>
+    </header>
+
+    <!-- MAIN STAFF DASHBOARD -->
+    <main class="main-content">
+
+        <!-- STAFF PORTAL VIEW -->
+        <section class="page-view active" id="view-staff-portal">
+            <div class="page-header" style="background:#ffffff; padding:20px; border-radius:16px; border:1px solid var(--border); box-shadow:0 4px 12px rgba(0,0,0,0.03); margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; width:100%;">
+                    <div style="display:flex; align-items:center; gap:14px;">
+                        <div id="staff-portal-avatar" class="avatar" style="width:52px; height:52px; font-size:20px; border-radius:14px; background:#2563eb;">ST</div>
+                        <div>
+                            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                                <h1 style="font-size:22px; font-weight:800; margin:0;" id="staff-portal-name">Staff Dashboard</h1>
+                                <span id="staff-portal-role-badge" class="badge badge-primary">Teacher / Staff</span>
+                            </div>
+                            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;" id="staff-portal-sub">Access your student rosters, mark daily attendance, and view salary compensation slips.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STAFF NAVIGATION TABS -->
+            <div class="profile-switcher" style="margin-bottom:20px;">
+                <div class="profile-tab active" data-stafftab="students" onclick="switchStaffTab('students')">📋 Class Students Roster</div>
+                <div class="profile-tab" data-stafftab="attendance" onclick="switchStaffTab('attendance')">📊 Mark Class Attendance</div>
+                <div class="profile-tab" data-stafftab="salary" onclick="switchStaffTab('salary')">💵 Salary & Compensation</div>
+                <div class="profile-tab" data-stafftab="notices" onclick="switchStaffTab('notices')">📢 Notices & Bulletins</div>
+            </div>
+
+            <!-- TAB 1: STUDENT ROSTER -->
+            <div id="staff-section-students" class="staff-tab-section" style="display:block;">
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <input type="text" id="staff-student-search" class="search-input" placeholder="Search student name, parent, phone..." oninput="renderStaffStudentsList()">
+                    </div>
+                </div>
+
+                <div class="filter-bar" style="margin-top:-10px; margin-bottom:16px;">
+                    <div id="staff-class-filter-chips" style="display:flex; gap:6px; flex-wrap:wrap;"></div>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Class</th>
+                                <th>WhatsApp Contact</th>
+                                <th>Enrolled Subjects</th>
+                                <th>School</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="staff-students-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TAB 2: MARK ATTENDANCE -->
+            <div id="staff-section-attendance" class="staff-tab-section" style="display:none;">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Daily Class Attendance</span>
+                        <div style="display:flex; gap:10px; align-items:center;">
+                            <input type="date" id="staff-att-date" class="select-input" onchange="renderStaffAttendanceSheet()">
+                            <select id="staff-att-class" class="select-input" onchange="renderStaffAttendanceSheet()">
+                                <option value="All">All My Classes</option>
+                                <option>Class 5</option><option>Class 6</option><option>Class 7</option>
+                                <option>Class 8</option><option>Class 9</option><option>Class 10</option>
+                                <option>LKG</option><option>UKG</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body" id="staff-attendance-container"></div>
+                </div>
+            </div>
+
+            <!-- TAB 3: SALARY & COMPENSATION -->
+            <div id="staff-section-salary" class="staff-tab-section" style="display:none;">
+                <div id="staff-salary-summary-card" style="margin-bottom:20px;"></div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Disbursed Salary History & Official Vouchers</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Salary Month</th>
+                                        <th>Disbursed Amount</th>
+                                        <th>Payment Mode</th>
+                                        <th>Date</th>
+                                        <th>Salary Voucher</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="staff-salary-tbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: NOTICES & BULLETINS -->
+            <div id="staff-section-notices" class="staff-tab-section" style="display:none;">
+                <div class="card">
+                    <div class="card-header" style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="card-title">Coaching Announcements & Notice Board</span>
+                        <button class="btn btn-primary btn-sm" onclick="openModal('staffAddNoticeModal')">+ Add Notice</button>
+                    </div>
+                    <div class="card-body" id="staff-notices-container"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODALS -->
+
+    <!-- STAFF PROFILE MODAL -->
+    <div class="modal-overlay" id="staffProfileModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <span class="modal-title">👤 Faculty Profile Details</span>
+                <button class="modal-close" onclick="closeModal('staffProfileModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">
+                    Your official employment and assignment details on record:
+                </div>
+                <div class="student-info-grid" id="staff-profile-info-grid"></div>
+            </div>
+            <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <button class="btn btn-outline danger btn-sm" onclick="closeModal('staffProfileModal'); logoutToGateway();" style="border-color:#ef4444; color:#ef4444;">🔒 Logout / Switch Account</button>
+                <div style="display:flex; gap:8px;">
+                    <button class="btn btn-primary btn-sm" onclick="closeModal('staffProfileModal'); openModal('staffAddNoticeModal');">📢 Add Notice</button>
+                    <button class="btn btn-outline btn-sm" onclick="closeModal('staffProfileModal')">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD NOTICE MODAL (STAFF) -->
+    <div class="modal-overlay" id="staffAddNoticeModal">
+        <div class="modal" style="max-width:520px;">
+            <div class="modal-header">
+                <span class="modal-title">📢 Post New Notice / Announcement</span>
+                <button class="modal-close" onclick="closeModal('staffAddNoticeModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Category / Notice Badge *</label>
+                        <select id="f-staff-notice-category">
+                            <option value="ANNOUNCEMENT">📢 General Announcement</option>
+                            <option value="EXAM SCHEDULE">📝 Exam / Test Schedule</option>
+                            <option value="DOUBT SESSION">⏰ Special Doubt Session</option>
+                            <option value="OLYMPIAD">🏆 Olympiad / Competition</option>
+                            <option value="HOLIDAY NOTICE">🏖️ Holiday / Class Notice</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label>Notice Content *</label>
+                        <textarea id="f-staff-notice-content" rows="4" placeholder="Write the announcement message for students and faculty..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('staffAddNoticeModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitStaffNotice()">Publish Notice</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SALARY VOUCHER MODAL -->
+    <div class="modal-overlay" id="salaryVoucherModal">
+        <div class="modal" style="max-width:480px;">
+            <div class="modal-header">
+                <span class="modal-title">Official Salary Voucher</span>
+                <button class="modal-close" onclick="closeModal('salaryVoucherModal')">✕</button>
+            </div>
+            <div class="modal-body" id="salaryVoucherModalBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('salaryVoucherModal')">Close</button>
+                <button class="btn btn-primary" onclick="window.print()">Print Slip</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- APP TOAST -->
+    <div class="toast" id="app-toast">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-width="2.5"/></svg>
+        <span id="toast-msg"></span>
+    </div>
+
+    <!-- SUPABASE SDK & DATABASE SERVICES -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase/config.js"></script>
+    <script src="supabase/api.js"></script>
+
+    <!-- ENUM & CORE SCRIPTS -->
+    <script src="enums/subjects.js"></script>
+    <script src="enums/classes.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/attendance.js"></script>
+    <script src="js/staffHome.js"></script>
+</body>
+
+</html>

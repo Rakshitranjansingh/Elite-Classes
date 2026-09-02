@@ -1,7 +1,7 @@
 /* Elite Classes — Student Portal & Dashboard Core Module */
 
 let currentStudent = null;
-let activeStudentTab = 'courses';
+let activeStudentTab = 'today';
 let studentStats = { testAttempts: {}, courseProgress: {} };
 
 // Gateway Tab Switcher (Student vs Admin)
@@ -80,18 +80,14 @@ async function verifyStudentLogin() {
 // Logout & Return to Gateway Screen
 function logoutStudent() {
     currentStudent = null;
-    localStorage.removeItem('ec_user_role');
-    localStorage.removeItem('ec_student_id');
-    localStorage.removeItem('ec_last_activity');
-    if (typeof inactivityTimer !== 'undefined' && inactivityTimer) clearTimeout(inactivityTimer);
-
-    const adminChip = document.getElementById('app-header-admin-chip');
-    if (adminChip) adminChip.style.display = 'flex';
-
-    document.getElementById('auth-screen').style.display = 'flex';
-    document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
-    document.getElementById('view-dashboard').classList.add('active');
-    showToast('Logged out of Student Portal', 'info');
+    if (typeof logoutToGateway === 'function') {
+        logoutToGateway('Logged out of Student Portal');
+    } else {
+        localStorage.removeItem('ec_user_role');
+        localStorage.removeItem('ec_student_id');
+        localStorage.removeItem('ec_last_activity');
+        window.location.href = 'index.html';
+    }
 }
 
 // Load Student Dashboard View & Data
@@ -114,9 +110,23 @@ async function loadStudentDashboard() {
         avatarEl.style.background = currentStudent.color || '#2563eb';
     }
 
-    document.getElementById('st-portal-name').textContent = `Hello, ${currentStudent.name}`;
-    document.getElementById('st-portal-class-badge').textContent = currentStudent.cls || 'Student';
-    document.getElementById('st-portal-sub').textContent = `Access your class courses, test series, attendance, and fee receipts.`;
+    const headerUserEl = document.getElementById('st-header-username');
+    if (headerUserEl) {
+        headerUserEl.textContent = currentStudent.name;
+    }
+
+    const headerAvatarEl = document.getElementById('st-header-avatar');
+    if (headerAvatarEl) {
+        headerAvatarEl.textContent = getInitials(currentStudent.name);
+        if (currentStudent.color) headerAvatarEl.style.background = currentStudent.color;
+    }
+
+    const nameEl = document.getElementById('st-portal-name');
+    if (nameEl) nameEl.textContent = `Hello, ${currentStudent.name}`;
+    const badgeEl = document.getElementById('st-portal-class-badge');
+    if (badgeEl) badgeEl.textContent = currentStudent.cls || 'Student';
+    const subEl = document.getElementById('st-portal-sub');
+    if (subEl) subEl.textContent = `Access your class courses, test series, attendance, and fee receipts.`;
 
     // Load persistent stats
     studentStats = await DBService.fetchStudentStats(currentStudent.id);
@@ -172,6 +182,14 @@ function renderStudentProfileCards() {
         </div>
 
         <div class="student-info-card">
+            <div class="student-info-icon">📧</div>
+            <div>
+                <div class="student-info-label">Email Address</div>
+                <div class="student-info-value">${currentStudent.email || 'N/A'}</div>
+            </div>
+        </div>
+
+        <div class="student-info-card">
             <div class="student-info-icon">🏫</div>
             <div>
                 <div class="student-info-label">School Name</div>
@@ -222,12 +240,133 @@ function switchStudentTab(tab) {
     });
 
     // Render corresponding section
+    if (tab === 'today') renderStudentToday();
     if (tab === 'courses') renderStudentCourses();
-    if (tab === 'testseries') renderStudentTestSeries();
+    if (tab === 'tests') renderStudentTests();
     if (tab === 'attendance') renderStudentAttendance();
     if (tab === 'fees') renderStudentFees();
-    if (tab === 'exams') renderStudentExamResults();
+    if (tab === 'marks') renderStudentExamResults();
 }
+
+// 1. Render Today Tab
+function renderStudentToday() {
+    const container = document.getElementById('st-today-container');
+    if (!container || !currentStudent) return;
+
+    container.innerHTML = `
+        <div class="card" style="padding:40px 24px; text-align:center; background:#ffffff; border:1px dashed var(--border); border-radius:16px;">
+            <div style="font-size:36px; margin-bottom:12px;">📅</div>
+            <h3 style="font-size:16px; font-weight:700; color:#0f172a; margin:0 0 6px 0;">Today's Daily Feed & Activity</h3>
+            <p style="font-size:13px; color:var(--text-muted); margin:0 auto; max-width:420px;">
+                Daily updates, active classroom feeds, and today's coaching agenda will appear here.
+            </p>
+        </div>
+    `;
+}
+
+// 2. Render Courses Tab (Enrolled Academic Subjects)
+function renderStudentCourses() {
+    const container = document.getElementById('st-courses-container');
+    if (!container || !currentStudent) return;
+
+    const enrolledSubs = currentStudent.subjects ? currentStudent.subjects.split(',').map(s => s.trim()) : ['Mathematics', 'Science', 'English'];
+
+    let cardsHtml = '';
+    const colors = ['#2563eb', '#8b5cf6', '#10b981', '#f59e0b', '#06b6d4', '#ec4899'];
+    const icons = ['📐', '🔬', '📖', '🧪', '🧬', '🌍'];
+
+    enrolledSubs.forEach((sub, idx) => {
+        const color = colors[idx % colors.length];
+        const icon = icons[idx % icons.length];
+
+        cardsHtml += `
+            <div class="card" style="border-radius:14px; border:1px solid var(--border); box-shadow:0 4px 12px rgba(0,0,0,0.03); overflow:hidden;">
+                <div style="background:${color}; padding:18px 20px; color:#ffffff; display:flex; justify-content:space-between; align-items:center;">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span style="font-size:24px;">${icon}</span>
+                        <div>
+                            <h3 style="font-size:16px; font-weight:800; margin:0; color:#ffffff;">${sub}</h3>
+                            <div style="font-size:11.5px; opacity:0.9; margin-top:2px;">${currentStudent.cls} Academic Curriculum</div>
+                        </div>
+                    </div>
+                    <span style="background:rgba(255,255,255,0.25); color:#ffffff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px;">Enrolled</span>
+                </div>
+                <div class="card-body" style="padding:16px 20px;">
+                    <div style="font-size:13px; color:#0f172a; line-height:1.7;">
+                        <div>🏫 Institute Program: <b>Elite Classes Coaching Curriculum</b></div>
+                        <div>🎯 Course Scope: <b>Comprehensive Concept Building & Board Preparation</b></div>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+            <h3 style="font-size:16px; font-weight:700; margin:0;">Enrolled Academic Courses & Subjects (${currentStudent.cls})</h3>
+            <span class="badge badge-primary">${enrolledSubs.length} Subjects</span>
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:18px;">
+            ${cardsHtml}
+        </div>
+    `;
+}
+
+// 3. Render Tests Tab (Scheduled Coaching Tests & Assessments)
+function renderStudentTests() {
+    const container = document.getElementById('st-tests-container');
+    if (!container || !currentStudent) return;
+
+    const enrolledSubs = currentStudent.subjects ? currentStudent.subjects.split(',').map(s => s.trim()) : ['Mathematics', 'Science'];
+
+    const mockTests = [
+        { title: `${currentStudent.cls} Mathematics Weekly Assessment`, subject: 'Mathematics', date: '2026-09-06', maxMarks: 50, status: 'Upcoming' },
+        { title: `${currentStudent.cls} Science Chapter-Wise Evaluation`, subject: 'Science', date: '2026-09-08', maxMarks: 50, status: 'Upcoming' },
+        { title: `Monthly Talent Hunt Olympiad Test`, subject: enrolledSubs[0] || 'General Aptitude', date: '2026-09-15', maxMarks: 100, status: 'Upcoming' }
+    ];
+
+    let rowsHtml = '';
+    mockTests.forEach(t => {
+        rowsHtml += `
+            <tr>
+                <td><b>${t.title}</b></td>
+                <td><span class="badge badge-primary">${t.subject}</span></td>
+                <td>${t.date}</td>
+                <td><b>${t.maxMarks} Marks</b></td>
+                <td><span class="badge badge-success">${t.status}</span></td>
+            </tr>
+        `;
+    });
+
+    container.innerHTML = `
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">📝 Scheduled Tests & Assessments (${currentStudent.cls})</span>
+                <span class="badge badge-info">${mockTests.length} Tests Scheduled</span>
+            </div>
+            <div class="card-body">
+                <div style="overflow-x:auto;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Test Title</th>
+                                <th>Subject</th>
+                                <th>Test Date</th>
+                                <th>Total Marks</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rowsHtml}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+
 
 // Render Student Personal Attendance Record
 function renderStudentAttendance() {
@@ -440,3 +579,69 @@ function renderStudentExamResults() {
         </div>
     `;
 }
+
+// Auto-boot for standalone student_home.html
+async function initStudentHome() {
+    const role = localStorage.getItem('ec_user_role');
+    const studentId = localStorage.getItem('ec_student_id');
+    const studentName = localStorage.getItem('ec_student_name');
+
+    // Immediately update header profile name from session cache
+    const headerUserEl = document.getElementById('st-header-username');
+    if (headerUserEl && studentName) {
+        headerUserEl.textContent = studentName;
+    }
+
+    if (role !== 'student' || !studentId) {
+        if (typeof logoutToGateway === 'function') {
+            logoutToGateway('Please login with your registered WhatsApp and PIN to enter Student Portal.');
+        } else {
+            window.location.href = 'index.html';
+        }
+        return;
+    }
+
+    if (typeof initSeedData === 'function') initSeedData();
+    if (typeof initSupabaseClient === 'function') initSupabaseClient();
+
+    // Fetch students list if needed
+    if (typeof DBService !== 'undefined') {
+        if (!students || students.length === 0) {
+            students = await DBService.fetchStudents();
+        }
+        const found = students.find(s => s.id === studentId);
+        if (found) {
+            currentStudent = found;
+        } else {
+            // Check Supabase directly
+            const liveList = await DBService.fetchStudents();
+            const liveFound = liveList.find(s => s.id === studentId);
+            if (liveFound) {
+                currentStudent = liveFound;
+                students = liveList;
+            }
+        }
+    }
+
+    if (!currentStudent) {
+        // Fallback to first student if demo
+        currentStudent = (students && students.length > 0) ? students[0] : { id: studentId, name: studentName || 'Student', cls: 'Class 5', phone: '9876543210', fee: 1500, due: 10 };
+    }
+
+    if (headerUserEl && currentStudent) {
+        headerUserEl.textContent = currentStudent.name;
+    }
+
+    if (typeof initInactivityListeners === 'function') initInactivityListeners();
+    if (typeof resetInactivityTimer === 'function') resetInactivityTimer();
+    if (typeof updateSubHeaderDate === 'function') updateSubHeaderDate();
+
+    await loadStudentDashboard();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.pathname.includes('student_home.html') || document.getElementById('view-student-portal')) {
+        initStudentHome();
+    }
+});
+

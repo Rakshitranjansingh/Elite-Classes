@@ -214,6 +214,67 @@ h1, h2, h3, h4, .brand-title {
     color: #f8fafc;
 }
 
+/* TOP BANNER USER PILL & BUTTONS */
+.header-profile-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    padding: 4px 14px 4px 5px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+}
+
+.header-profile-pill:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.45);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header-profile-avatar-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 10.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.header-logout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(239, 68, 68, 0.18);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 5px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.header-logout-btn:hover {
+    background: rgba(239, 68, 68, 0.3);
+    color: #ffffff;
+    border-color: rgba(239, 68, 68, 0.6);
+}
+
 /* MAIN CONTAINER */
 .main-content {
     max-width: 1360px;
@@ -1045,7 +1106,8 @@ tbody tr:hover {
 .notice-slider-track {
     display: flex;
     gap: 16px;
-    animation: slideRightToLeft 20s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    width: max-content;
+    animation: slideRightToLeft 25s linear infinite;
 }
 
 .notice-slider-track:hover {
@@ -1054,8 +1116,7 @@ tbody tr:hover {
 
 @keyframes slideRightToLeft {
     0% { transform: translateX(0); }
-    50% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .notice-card-slide {

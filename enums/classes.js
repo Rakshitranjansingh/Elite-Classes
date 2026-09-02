@@ -1,4 +1,4 @@
-/* Elite Classes — Enum Definitions: Academic Classes */
+/* Elite Classes — Enum & Dynamic Academic Classes Definition */
 
 const CLASS_ENUM = Object.freeze({
     LKG: 'LKG',
@@ -15,4 +15,13 @@ const CLASS_ENUM = Object.freeze({
     CLASS_10: 'Class 10'
 });
 
-const CLASS_OPTIONS = Object.values(CLASS_ENUM);
+let CLASS_OPTIONS = Object.values(CLASS_ENUM);
+
+async function syncClassesFromDB() {
+    if (typeof DBService !== 'undefined' && typeof DBService.fetchClasses === 'function') {
+        const classes = await DBService.fetchClasses();
+        if (classes && classes.length > 0) {
+            CLASS_OPTIONS = classes.map(c => c.name);
+        }
+    }
+}

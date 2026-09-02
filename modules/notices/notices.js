@@ -26,11 +26,19 @@ async function renderStudentNoticeSlides() {
     const displayNotices = [...cachedNoticesList, ...cachedNoticesList];
 
     displayNotices.forEach((n, idx) => {
-        const badge = badges[idx % badges.length];
+        let badge = badges[idx % badges.length];
+        let text = n.content;
+
+        const match = text.match(/^\[(.*?)\]\s*(.*)$/);
+        if (match) {
+            badge = match[1];
+            text = match[2];
+        }
+
         slidesHtml += `
             <div class="notice-card-slide">
                 <span class="notice-card-slide-badge">${badge}</span>
-                <div>${n.content}</div>
+                <div>${text}</div>
             </div>
         `;
     });

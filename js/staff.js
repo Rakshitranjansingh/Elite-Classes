@@ -63,7 +63,7 @@ function renderStaffTable() {
 function openAddStaffModal() {
     editingStaffId = null;
     document.getElementById('staffModalTitle').textContent = 'Add New Staff Member';
-    ['f-stname', 'f-strole', 'f-stphone', 'f-stsalary', 'f-stincentive'].forEach(id => {
+    ['f-stname', 'f-strole', 'f-stemail', 'f-stphone', 'f-stsalary', 'f-stincentive'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = '';
     });
@@ -77,6 +77,7 @@ function editStaff(id) {
     document.getElementById('staffModalTitle').textContent = 'Edit Staff Member';
     document.getElementById('f-stname').value = s.name;
     document.getElementById('f-strole').value = s.role;
+    if (document.getElementById('f-stemail')) document.getElementById('f-stemail').value = s.email || '';
     document.getElementById('f-stphone').value = s.phone;
     document.getElementById('f-stsalary').value = s.salary;
     document.getElementById('f-stincentive').value = s.incentive || 0;
@@ -86,6 +87,7 @@ function editStaff(id) {
 function saveStaffForm() {
     const name = document.getElementById('f-stname').value.trim();
     const role = document.getElementById('f-strole').value.trim();
+    const email = (document.getElementById('f-stemail')?.value || '').trim();
     const phone = document.getElementById('f-stphone').value.trim();
     const salary = parseFloat(document.getElementById('f-stsalary').value);
     const incentive = parseFloat(document.getElementById('f-stincentive')?.value) || 0;
@@ -97,13 +99,13 @@ function saveStaffForm() {
 
     if (editingStaffId) {
         const idx = staff.findIndex(s => s.id === editingStaffId);
-        staff[idx] = { ...staff[idx], name, role, phone, salary, incentive };
+        staff[idx] = { ...staff[idx], name, role, email, phone, salary, incentive };
         if (typeof DBService !== 'undefined') DBService.upsertStaff(staff[idx]);
         showToast('Staff member updated');
     } else {
         const newStaff = {
             id: 'st_' + Date.now(),
-            name, role, phone, salary, incentive,
+            name, role, email, phone, salary, incentive,
             color: AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)]
         };
         staff.push(newStaff);

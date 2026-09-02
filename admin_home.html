@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Elite Classes — Admin Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- STICKY FIXED HEADER CONTAINER -->
+    <header class="app-header-sticky">
+        <!-- 1. TOP DARK BRAND BANNER -->
+        <div class="top-banner">
+            <div class="brand-wrapper" onclick="navigateToView('dashboard')">
+                <div class="brand-logo-icon">EC</div>
+                <div>
+                    <div class="brand-text">elite<span>.</span>classes</div>
+                    <div class="brand-sub">a light for hope</div>
+                </div>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:12px;">
+                <button class="btn btn-outline btn-sm" onclick="openSupabaseModal()" style="color:#ffffff; border-color:rgba(255,255,255,0.25); font-size:12px; padding:4px 10px; display:inline-flex; align-items:center; gap:4px;">
+                    ⚡ Supabase DB
+                </button>
+                <div class="admin-chip" id="app-header-admin-chip">
+                    <div class="admin-avatar">AD</div>
+                    <div class="admin-name">Admin</div>
+                </div>
+                <button class="btn btn-sm" onclick="logoutToGateway('Logged out of Admin Portal')" style="background:rgba(239, 68, 68, 0.15); color:#fca5a5; border:1px solid rgba(239, 68, 68, 0.3); font-size:12px; padding:5px 14px; border-radius:8px; font-weight:600; cursor:pointer;" title="Logout to Gateway">
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- 2. OFF-WHITE TRANSPARENT SUB-HEADER BAR -->
+        <div class="sub-header-bar">
+            <!-- Scrolling Notice Ticker (Right-to-Left Scroll) -->
+            <div class="notice-ticker-wrap">
+                <span class="notice-badge">NOTICE</span>
+                <div class="marquee-track">
+                    <span id="active-db-notice" class="marquee-content">📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations begin next week!</span>
+                </div>
+            </div>
+
+            <!-- Formatted Date (e.g. 25 Aug 26 TUE) -->
+            <div id="sub-header-date" class="sub-header-date">25 Aug 26 TUE</div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT VIEWS -->
+    <main class="main-content">
+
+        <!-- 1. DASHBOARD VIEW -->
+        <section class="page-view active" id="view-dashboard">
+            <div class="page-header">
+                <div class="page-title-group">
+                    <h1>Hello Admin,</h1>
+                </div>
+            </div>
+
+            <!-- STATS PALLET GRID (STUDENTS, STAFFS, CLASSES, FINANCES, ATTENDANCE) -->
+            <div class="stats-grid">
+                <!-- PALLET 1: STUDENTS -->
+                <div class="stat-pallet blue" onclick="navigateToView('profiles'); switchProfileTab('students');">
+                    <div class="stat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2" />
+                            <circle cx="9" cy="7" r="4" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-title">Students</div>
+                        <div class="stat-value" id="dash-stat-students">0</div>
+                    </div>
+                </div>
+
+                <!-- PALLET 2: STAFFS -->
+                <div class="stat-pallet purple" onclick="navigateToView('profiles'); switchProfileTab('teachers');">
+                    <div class="stat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke-width="2" />
+                            <circle cx="9" cy="7" r="4" stroke-width="2" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-title">Staffs</div>
+                        <div class="stat-value" id="dash-stat-staffs">0</div>
+                    </div>
+                </div>
+
+                <!-- PALLET 3: CLASSES -->
+                <div class="stat-pallet info" onclick="navigateToView('classes');">
+                    <div class="stat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke-width="2" />
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-title">Classes</div>
+                        <div class="stat-value" id="dash-stat-classes">0</div>
+                    </div>
+                </div>
+
+                <!-- PALLET 4: FINANCES -->
+                <div class="stat-pallet green" onclick="navigateToView('finances'); switchFinanceTab('fee-collections');">
+                    <div class="stat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-title">Finances</div>
+                        <div class="stat-value" id="dash-stat-finances">₹0</div>
+                    </div>
+                </div>
+
+                <!-- PALLET 5: ATTENDANCE -->
+                <div class="stat-pallet orange" onclick="navigateToView('attendance');">
+                    <div class="stat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-width="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" stroke-width="2" />
+                            <line x1="8" y1="2" x2="8" y2="6" stroke-width="2" />
+                            <line x1="3" y1="10" x2="21" y2="10" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-title">Attendance</div>
+                        <div class="stat-value">Manage & Mark</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUICK ACTIONS BAR -->
+            <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;">
+                <button class="btn btn-primary" onclick="openAddStudentModal()">+ Add New Student</button>
+                <button class="btn btn-outline" onclick="openCollectFeeModal()">+ Record Fee Payment</button>
+                <button class="btn btn-outline" onclick="openModal('postNoticeModal')">📢 Post Announcement</button>
+                <button class="btn btn-outline" onclick="openModal('addCourseModal')">📚 Add Study Material</button>
+                <button class="btn btn-outline" onclick="openModal('addTestSeriesModal')">📝 Create Test Series</button>
+            </div>
+        </section>
+
+
+        <!-- 2. PROFILES VIEW (STUDENTS / TEACHERS / STAFF / ADMINS) -->
+        <section class="page-view" id="view-profiles">
+            <div class="page-header">
+                <div class="page-title-group">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <button class="btn btn-sm btn-outline" onclick="navigateToView('dashboard')">← Dashboard</button>
+                        <h1 style="margin:0;">Profile Management</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROFILE TYPE SWITCHER -->
+            <div class="profile-switcher">
+                <div class="profile-tab active" data-tab="students" onclick="switchProfileTab('students')">Students</div>
+                <div class="profile-tab" data-tab="teachers" onclick="switchProfileTab('teachers')">Teachers</div>
+                <div class="profile-tab" data-tab="staff" onclick="switchProfileTab('staff')">Support Staff</div>
+                <div class="profile-tab" data-tab="admins" onclick="switchProfileTab('admins')">Admins</div>
+            </div>
+
+            <!-- STUDENTS SECTION -->
+            <div class="profile-section" id="profile-section-students">
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <input type="text" id="student-search" class="search-input" placeholder="Search student name, parent, phone..." oninput="renderStudentsTable()">
+                    </div>
+                    <button class="btn btn-primary" onclick="openAddStudentModal()">+ Add Student</button>
+                </div>
+
+                <div class="filter-bar" style="margin-top:-10px; margin-bottom:16px;">
+                    <div id="student-class-chips" style="display:flex; gap:6px; flex-wrap:wrap;"></div>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Details</th>
+                                <th>Class</th>
+                                <th>Parent & WhatsApp</th>
+                                <th>Monthly Fee</th>
+                                <th>Fee Status</th>
+                                <th>Enrolled Subjects</th>
+                                <th>Admission Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="students-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TEACHERS SECTION -->
+            <div class="profile-section" id="profile-section-teachers" style="display:none;">
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <input type="text" id="teacher-search" class="search-input" placeholder="Search teacher name, subjects..." oninput="renderTeachersTable()">
+                    </div>
+                    <button class="btn btn-primary" onclick="openAddTeacherModal()">+ Add Teacher</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Teacher Name</th>
+                                <th>Subjects Taught</th>
+                                <th>Assigned Classes</th>
+                                <th>Phone Contact</th>
+                                <th>Base Salary</th>
+                                <th>Incentive</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teachers-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- STAFF SECTION -->
+            <div class="profile-section" id="profile-section-staff" style="display:none;">
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <input type="text" id="staff-search" class="search-input" placeholder="Search staff name, role..." oninput="renderStaffTable()">
+                    </div>
+                    <button class="btn btn-primary" onclick="openAddStaffModal()">+ Add Staff</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Staff Member</th>
+                                <th>Role / Designation</th>
+                                <th>Phone Contact</th>
+                                <th>Monthly Salary</th>
+                                <th>Incentive</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="staff-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ADMINS SECTION -->
+            <div class="profile-section" id="profile-section-admins" style="display:none;">
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <input type="text" id="admin-search" class="search-input" placeholder="Search admin name, email, phone..." oninput="renderAdminsTable()">
+                    </div>
+                    <button class="btn btn-primary" onclick="openAddAdminModal()">+ Add Admin Account</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Admin Profile</th>
+                                <th>Access Role</th>
+                                <th>WhatsApp Phone</th>
+                                <th>Status / PIN</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admins-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3. FINANCES VIEW -->
+        <section class="page-view" id="view-finances">
+            <div class="page-header">
+                <div class="page-title-group">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <button class="btn btn-sm btn-outline" onclick="navigateToView('dashboard')">← Dashboard</button>
+                        <h1 style="margin:0;">Finances & Accounting</h1>
+                    </div>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <button class="btn btn-primary" onclick="openCollectFeeModal()">+ Collect Student Fee</button>
+                </div>
+            </div>
+
+            <div class="profile-switcher">
+                <div class="profile-tab active" data-fintab="fee-collections" onclick="switchFinanceTab('fee-collections')">Fee Collections</div>
+                <div class="profile-tab" data-fintab="salary-payouts" onclick="switchFinanceTab('salary-payouts')">Salary Disbursements</div>
+            </div>
+
+            <!-- FEE COLLECTIONS TAB -->
+            <div id="fintab-fee-collections" class="fin-subtab">
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <input type="text" id="finance-payment-search" class="search-input" placeholder="Search by student name, month..." oninput="renderFinancesView()">
+                    </div>
+                    <div id="total-fees-collected-badge" class="badge badge-success" style="font-size:14px; padding:6px 12px;">₹0 Collected</div>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Fee Month</th>
+                                <th>Amount Paid</th>
+                                <th>Payment Mode</th>
+                                <th>Date</th>
+                                <th>Remarks</th>
+                                <th>Receipt</th>
+                            </tr>
+                        </thead>
+                        <tbody id="payments-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SALARY PAYOUTS TAB -->
+            <div id="fintab-salary-payouts" class="fin-subtab" style="display:none;">
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <input type="text" id="finance-salary-search" class="search-input" placeholder="Search by staff/teacher name, month..." oninput="renderFinancesView()">
+                    </div>
+                    <div id="total-salary-paid-badge" class="badge badge-danger" style="font-size:14px; padding:6px 12px;">₹0 Paid</div>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Recipient Staff</th>
+                                <th>Type</th>
+                                <th>Salary Month</th>
+                                <th>Disbursed Amount</th>
+                                <th>Payout Mode</th>
+                                <th>Payout Date</th>
+                                <th>Voucher</th>
+                            </tr>
+                        </thead>
+                        <tbody id="salaries-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 4. CLASSES VIEW -->
+        <section class="page-view" id="view-classes">
+            <div class="page-header">
+                <div class="page-title-group">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <button class="btn btn-sm btn-outline" onclick="navigateToView('dashboard')">← Dashboard</button>
+                        <h1 style="margin:0;">Classes Directory</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-bar" style="margin-bottom:20px;">
+                <div class="desktop-class-filter-row" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                    <span style="font-size:12.5px; font-weight:700; color:var(--text-muted);">Class:</span>
+                    <div id="classes-filter-chips" style="display:inline-flex; gap:6px; flex-wrap:wrap;"></div>
+                </div>
+            </div>
+
+            <div class="stats-grid" id="classes-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));"></div>
+        </section>
+
+
+        <!-- 5. ATTENDANCE VIEW -->
+        <section class="page-view" id="view-attendance">
+            <div class="page-header">
+                <div class="page-title-group">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <button class="btn btn-sm btn-outline" onclick="navigateToView('dashboard')">← Dashboard</button>
+                        <h1 style="margin:0;">Attendance Management</h1>
+                    </div>
+                </div>
+                <div id="att-rate-badge" class="badge badge-success" style="font-size:14px; padding:6px 14px;"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Daily Attendance Sheet</span>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <input type="date" id="attendance-date-input" class="select-input" onchange="renderAttendanceView()">
+                        <select id="attendance-class-select" class="select-input" onchange="renderAttendanceView()">
+                            <option value="All">All Classes</option>
+                            <option>LKG</option><option>UKG</option>
+                            <option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option>
+                            <option>Class 5</option><option>Class 6</option><option>Class 7</option><option>Class 8</option>
+                            <option>Class 9</option><option>Class 10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body" id="attendance-container"></div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- MODALS -->
+
+    <!-- ADD/EDIT STUDENT MODAL -->
+    <div class="modal-overlay" id="addStudentModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title" id="studentModalTitle">Add New Student</span>
+                <button class="modal-close" onclick="closeModal('addStudentModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Student Name *</label>
+                        <input type="text" id="f-sname" placeholder="Full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Class *</label>
+                        <select id="f-sclass">
+                            <option value="">Select class</option>
+                            <option>LKG</option><option>UKG</option>
+                            <option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option>
+                            <option>Class 5</option><option>Class 6</option><option>Class 7</option><option>Class 8</option>
+                            <option>Class 9</option><option>Class 10</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Parent / Guardian Name *</label>
+                        <input type="text" id="f-sparent" placeholder="Parent name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address (Optional / Google Login)</label>
+                        <input type="email" id="f-semail" placeholder="student@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp Number *</label>
+                        <input type="tel" id="f-sphone" placeholder="10-digit phone" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label>Student Login PIN (Default: 123456) *</label>
+                        <input type="text" id="f-spin" placeholder="123456" value="123456" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Fee (₹) *</label>
+                        <input type="number" id="f-sfee" placeholder="e.g. 1500">
+                    </div>
+                    <div class="form-group">
+                        <label>Fee Due Day</label>
+                        <select id="f-sdue">
+                            <option value="1">1st of month</option>
+                            <option value="5">5th of month</option>
+                            <option value="10" selected>10th of month</option>
+                            <option value="15">15th of month</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Scholarship (%)</label>
+                        <input type="number" id="f-sscholarship" placeholder="e.g. 10 or 25" min="0" max="100">
+                    </div>
+                    <div class="form-group full">
+                        <label>Enrolled Subjects (Multi-Select Checklist) *</label>
+                        <div id="f-ssubjects-container" class="checkbox-grid"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Admission</label>
+                        <input type="date" id="f-sdoa">
+                    </div>
+                    <div class="form-group">
+                        <label>School Name</label>
+                        <input type="text" id="f-sschool" placeholder="School name">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('addStudentModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveStudentForm()">Save Student Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- STUDENT DETAIL VIEW MODAL -->
+    <div class="modal-overlay" id="studentDetailModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <span class="modal-title" style="font-size:15px; font-weight:700;">Student profile</span>
+                <button class="modal-close" onclick="closeModal('studentDetailModal')">✕</button>
+            </div>
+            <div class="modal-body" id="studentDetailModalBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('studentDetailModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD/EDIT TEACHER MODAL -->
+    <div class="modal-overlay" id="addTeacherModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title" id="teacherModalTitle">Add New Teacher</span>
+                <button class="modal-close" onclick="closeModal('addTeacherModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Teacher Name *</label>
+                        <input type="text" id="f-tname" placeholder="Full name with title">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address (Optional / Google Login)</label>
+                        <input type="email" id="f-temail" placeholder="teacher@eliteclasses.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Contact *</label>
+                        <input type="tel" id="f-tphone" placeholder="10-digit phone">
+                    </div>
+                    <div class="form-group full">
+                        <label>Subjects Taught (Multi-Select Checklist) *</label>
+                        <div id="f-tsubjects-container" class="checkbox-grid"></div>
+                    </div>
+                    <div class="form-group full">
+                        <label>Assigned Classes (Multi-Select Checklist) *</label>
+                        <div id="f-tclasses-container" class="checkbox-grid"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Base Salary (₹) *</label>
+                        <input type="number" id="f-tsalary" placeholder="e.g. 30000">
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Incentive / Bonus (₹)</label>
+                        <input type="number" id="f-tincentive" placeholder="e.g. 2500">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('addTeacherModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveTeacherForm()">Save Teacher Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD/EDIT STAFF MODAL -->
+    <div class="modal-overlay" id="addStaffModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title" id="staffModalTitle">Add Support Staff</span>
+                <button class="modal-close" onclick="closeModal('addStaffModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Staff Name *</label>
+                        <input type="text" id="f-stname" placeholder="Full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Role / Designation *</label>
+                        <input type="text" id="f-strole" placeholder="e.g. Office Accountant, Lab Assistant">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address (Optional / Google Login)</label>
+                        <input type="email" id="f-stemail" placeholder="staff@eliteclasses.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Contact *</label>
+                        <input type="tel" id="f-stphone" placeholder="10-digit phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Base Salary (₹) *</label>
+                        <input type="number" id="f-stsalary" placeholder="e.g. 18000">
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Incentive / Bonus (₹)</label>
+                        <input type="number" id="f-stincentive" placeholder="e.g. 1500">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('addStaffModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveStaffForm()">Save Staff Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD/EDIT ADMIN MODAL -->
+    <div class="modal-overlay" id="addAdminModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title" id="adminModalTitle">Add Admin Account</span>
+                <button class="modal-close" onclick="closeModal('addAdminModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Admin Name *</label>
+                        <input type="text" id="f-aname" placeholder="Full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" id="f-aemail" placeholder="admin@eliteclasses.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Access Role</label>
+                        <select id="f-arole">
+                            <option value="Super Admin">Super Admin</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Finance Admin">Finance Admin</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp Phone</label>
+                        <input type="tel" id="f-aphone" placeholder="e.g. 9800000000">
+                    </div>
+                    <div class="form-group full">
+                        <label>Admin PIN (Default: 987654)</label>
+                        <input type="text" id="f-apin" placeholder="987654" value="987654">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('addAdminModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveAdminForm()">Save Admin Account</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- COLLECT FEE MODAL -->
+    <div class="modal-overlay" id="collectFeeModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">Record Student Fee Payment</span>
+                <button class="modal-close" onclick="closeModal('collectFeeModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Select Student *</label>
+                        <select id="collect-student-select" onchange="onCollectStudentSelectChange()">
+                            <option value="">— Choose Student —</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Fee Month *</label>
+                        <input type="text" id="collect-month-input" placeholder="e.g. Aug 2025">
+                    </div>
+                    <div class="form-group">
+                        <label>Amount Paid (₹) *</label>
+                        <input type="number" id="collect-amount-input" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Mode *</label>
+                        <select id="collect-mode-input">
+                            <option value="UPI">UPI / Online</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Bank Transfer">Bank Transfer</option>
+                            <option value="Cheque">Cheque</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label>Remarks (Optional)</label>
+                        <input type="text" id="collect-remarks-input" placeholder="e.g. Paid via PhonePe">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('collectFeeModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveFeePayment()">Record Payment & Print Receipt</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SALARY PAYOUT MODAL -->
+    <div class="modal-overlay" id="salaryPayoutModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">Record Salary Disbursement</span>
+                <button class="modal-close" onclick="closeModal('salaryPayoutModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div style="font-size:14px; font-weight:700; color:var(--primary); margin-bottom:16px;" id="salaryRecipientName"></div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Salary Month *</label>
+                        <input type="text" id="salary-month-input" placeholder="e.g. Aug 2025">
+                    </div>
+                    <div class="form-group">
+                        <label>Amount Paid (₹) *</label>
+                        <input type="number" id="salary-amount-input" placeholder="0">
+                    </div>
+                    <div class="form-group full">
+                        <label>Payment Mode</label>
+                        <select id="salary-mode-input">
+                            <option value="Bank Transfer">Bank Transfer (NEFT/IMPS)</option>
+                            <option value="UPI">UPI</option>
+                            <option value="Cheque">Cheque</option>
+                            <option value="Cash">Cash</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('salaryPayoutModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveSalaryPayout()">Confirm Salary Payout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RECEIPT MODAL -->
+    <div class="modal-overlay" id="receiptModal">
+        <div class="modal" style="max-width:480px;">
+            <div class="modal-header">
+                <span class="modal-title">Official Receipt / Voucher</span>
+                <button class="modal-close" onclick="closeModal('receiptModal')">✕</button>
+            </div>
+            <div class="modal-body" id="receiptModalBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('receiptModal')">Close</button>
+                <button class="btn btn-primary" onclick="window.print()">Print Document</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBJECT RANKINGS MODAL -->
+    <div class="modal-overlay" id="subjectRankingsModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <span class="modal-title" id="subjectRankingsModalTitle" style="font-size:15px; font-weight:700;">Subject Student Leaderboard</span>
+                <button class="modal-close" onclick="closeModal('subjectRankingsModal')">✕</button>
+            </div>
+            <div class="modal-body" id="subjectRankingsModalBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('subjectRankingsModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUPABASE DB CONFIG MODAL -->
+    <div class="modal-overlay" id="supabaseModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">Supabase Cloud Database Settings</span>
+                <button class="modal-close" onclick="closeModal('supabaseModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
+                    Enter your Supabase Project URL and Anon API key to sync your PostgreSQL database.
+                </div>
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Supabase Project URL *</label>
+                        <input type="text" id="cfg-supa-url" placeholder="https://xyzcompany.supabase.co">
+                    </div>
+                    <div class="form-group full">
+                        <label>Supabase Anon / Public API Key *</label>
+                        <input type="password" id="cfg-supa-key" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('supabaseModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveSupabaseSettingsFromModal()">Save & Connect Database</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POST NOTICE MODAL (ADMIN) -->
+    <div class="modal-overlay" id="postNoticeModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">Post New Notice / Announcement</span>
+                <button class="modal-close" onclick="closeModal('postNoticeModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group full">
+                    <label>Announcement Content *</label>
+                    <textarea id="f-notice-content" rows="3" placeholder="e.g. 📢 Mid-Term Exam schedule has been published for Class 5 to 10..." style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border); outline:none;"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('postNoticeModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitNewNotice()">Publish Announcement</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD COURSE MODAL (ADMIN) -->
+    <div class="modal-overlay" id="addCourseModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">Publish Course / Study Material</span>
+                <button class="modal-close" onclick="closeModal('addCourseModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Course Title *</label>
+                        <input type="text" id="f-course-title" placeholder="e.g. Class 5 Mathematics Masterclass">
+                    </div>
+                    <div class="form-group">
+                        <label>Class Standard *</label>
+                        <select id="f-course-class">
+                            <option>Class 5</option>
+                            <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+                            <option>Class 9</option><option>Class 10</option>
+                            <option>LKG</option><option>UKG</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" id="f-course-subject" placeholder="e.g. Mathematics">
+                    </div>
+                    <div class="form-group">
+                        <label>Instructor Name</label>
+                        <input type="text" id="f-course-instructor" placeholder="e.g. Dr. Ramesh Kumar">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Lessons / Modules</label>
+                        <input type="number" id="f-course-lessons" value="10">
+                    </div>
+                    <div class="form-group full">
+                        <label>Course Summary / Description</label>
+                        <textarea id="f-course-desc" rows="2" placeholder="Course syllabus overview..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('addCourseModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitNewCourse()">Save & Publish Course</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CREATE TEST SERIES MODAL (ADMIN) -->
+    <div class="modal-overlay" id="addTestSeriesModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">Create Test Series & Mock Exam</span>
+                <button class="modal-close" onclick="closeModal('addTestSeriesModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Test Title *</label>
+                        <input type="text" id="f-test-title" placeholder="e.g. Class 5 Science Chapter-wise Test">
+                    </div>
+                    <div class="form-group">
+                        <label>Class Standard *</label>
+                        <select id="f-test-class">
+                            <option>Class 5</option>
+                            <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+                            <option>Class 9</option><option>Class 10</option>
+                            <option>LKG</option><option>UKG</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" id="f-test-subject" placeholder="e.g. Science">
+                    </div>
+                    <div class="form-group">
+                        <label>Duration (Minutes)</label>
+                        <input type="number" id="f-test-duration" value="45">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Marks</label>
+                        <input type="number" id="f-test-marks" value="50">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Questions</label>
+                        <input type="number" id="f-test-questions" value="25">
+                    </div>
+                    <div class="form-group">
+                        <label>Scheduled Test Date</label>
+                        <input type="date" id="f-test-date">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('addTestSeriesModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitNewTestSeries()">Create Test Series</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- APP TOAST -->
+    <div class="toast" id="app-toast">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-width="2.5"/></svg>
+        <span id="toast-msg"></span>
+    </div>
+
+    <!-- SUPABASE SDK & DATABASE SERVICES -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase/config.js"></script>
+    <script src="supabase/api.js"></script>
+
+    <!-- ENUM & CORE APP SCRIPTS -->
+    <script src="enums/subjects.js"></script>
+    <script src="enums/classes.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/students.js"></script>
+    <script src="js/teachers.js"></script>
+    <script src="js/staff.js"></script>
+    <script src="js/admins.js"></script>
+    <script src="js/finances.js"></script>
+    <script src="js/classes.js"></script>
+    <script src="js/attendance.js"></script>
+
+    <!-- MODULE SCRIPTS -->
+    <script src="modules/courses/courses.js"></script>
+    <script src="modules/testseries/testseries.js"></script>
+    <script src="modules/notices/notices.js"></script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-/* Elite Classes — Enum Definitions: Subjects */
+/* Elite Classes — Enum & Dynamic Academic Subjects Definition */
 
 const SUBJECT_ENUM = Object.freeze({
     MATHEMATICS: 'Mathematics',
@@ -14,4 +14,13 @@ const SUBJECT_ENUM = Object.freeze({
     ALL_SUBJECTS: 'All Subjects'
 });
 
-const SUBJECT_OPTIONS = Object.values(SUBJECT_ENUM);
+let SUBJECT_OPTIONS = Object.values(SUBJECT_ENUM);
+
+async function syncSubjectsFromDB() {
+    if (typeof DBService !== 'undefined' && typeof DBService.fetchSubjects === 'function') {
+        const subs = await DBService.fetchSubjects();
+        if (subs && subs.length > 0) {
+            SUBJECT_OPTIONS = [...subs.map(s => s.name), 'All Subjects'];
+        }
+    }
+}

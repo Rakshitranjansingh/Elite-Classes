@@ -1,4 +1,4 @@
-/* Elit Classes — Admin Profiles Module */
+/* Elite Classes — Admin Profiles Module */
 
 let editingAdminId = null;
 
@@ -7,7 +7,7 @@ function renderAdminsTable() {
     const tbody = document.getElementById('admins-tbody');
     if (!tbody) return;
 
-    const filtered = admins.filter(a => !search || a.name.toLowerCase().includes(search) || a.email.toLowerCase().includes(search));
+    const filtered = admins.filter(a => !search || a.name.toLowerCase().includes(search) || a.email.toLowerCase().includes(search) || (a.phone && a.phone.includes(search)));
 
     const countEl = document.getElementById('admin-count-badge');
     if (countEl) countEl.textContent = `(${filtered.length})`;
@@ -30,8 +30,12 @@ function renderAdminsTable() {
                 </div>
             </td>
             <td><span class="badge badge-primary">${a.role || 'Admin'}</span></td>
-            <td>${a.phone || 'N/A'}</td>
-            <td><span class="badge badge-success">Active</span></td>
+            <td>
+                <a href="https://wa.me/91${(a.phone||'').replace(/\D/g,'')}" target="_blank" style="color:var(--text); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:4px;">
+                    📱 ${a.phone || 'N/A'}
+                </a>
+            </td>
+            <td><span class="badge badge-success">Active (PIN: ••••)</span></td>
             <td>
                 <div class="action-group">
                     <button class="icon-btn" onclick="editAdmin('${a.id}')" title="Edit Admin">
@@ -47,9 +51,9 @@ function renderAdminsTable() {
 function openAddAdminModal() {
     editingAdminId = null;
     document.getElementById('adminModalTitle').textContent = 'Add Admin Account';
-    ['f-aname', 'f-aemail', 'f-arole', 'f-aphone'].forEach(id => {
+    ['f-aname', 'f-aemail', 'f-arole', 'f-aphone', 'f-apin'].forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.value = '';
+        if (el) el.value = id === 'f-apin' ? '987654' : '';
     });
     openModal('addAdminModal');
 }
@@ -61,41 +65,50 @@ function editAdmin(id) {
     document.getElementById('adminModalTitle').textContent = 'Edit Admin Account';
     document.getElementById('f-aname').value = a.name;
     document.getElementById('f-aemail').value = a.email;
-    document.getElementById('f-arole').value = a.role;
+    document.getElementById('f-arole').value = a.role || 'Super Admin';
     document.getElementById('f-aphone').value = a.phone || '';
+    if (document.getElementById('f-apin')) document.getElementById('f-apin').value = a.pin || '987654';
     openModal('addAdminModal');
 }
 
-function saveAdminForm() {
+async function saveAdminForm() {
     const name = document.getElementById('f-aname').value.trim();
     const email = document.getElementById('f-aemail').value.trim();
     const role = document.getElementById('f-arole').value;
     const phone = document.getElementById('f-aphone').value.trim();
+    const pin = (document.getElementById('f-apin')?.value || '987654').trim();
 
     if (!name || !email) {
         showToast('Fill all required fields (*)', 'danger');
         return;
     }
 
+    let updatedAdmin = null;
     if (editingAdminId) {
         const idx = admins.findIndex(a => a.id === editingAdminId);
-        admins[idx] = { ...admins[idx], name, email, role, phone };
+        admins[idx] = { ...admins[idx], name, email, role, phone, pin };
+        updatedAdmin = admins[idx];
         showToast('Admin account updated');
     } else {
-        admins.push({
+        updatedAdmin = {
             id: 'a_' + Date.now(),
-            name, email, role, phone,
+            name, email, role, phone, pin,
             color: AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)]
-        });
+        };
+        admins.push(updatedAdmin);
         showToast('New Admin added');
     }
 
     saveState();
+    if (typeof DBService !== 'undefined' && isSupabaseConnected()) {
+        await DBService.upsertAdmin(updatedAdmin);
+    }
+
     closeModal('addAdminModal');
     renderAdminsTable();
 }
 
-function deleteAdmin(id) {
+async function deleteAdmin(id) {
     if (admins.length <= 1) {
         showToast('Cannot delete the primary admin', 'danger');
         return;
@@ -103,6 +116,9 @@ function deleteAdmin(id) {
     if (!confirm('Delete this admin account?')) return;
     admins = admins.filter(a => a.id !== id);
     saveState();
+    if (typeof DBService !== 'undefined' && isSupabaseConnected()) {
+        await DBService.deleteAdmin(id);
+    }
     renderAdminsTable();
     showToast('Admin removed', 'danger');
 }

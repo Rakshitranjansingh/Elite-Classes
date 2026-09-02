@@ -4,945 +4,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Elite Classes — Admin Portal</title>
+    <title>Elite Classes — Unified Coaching Gateway</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top right, #1e293b 0%, #0b1329 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .gateway-container {
+            width: 100%;
+            max-width: 440px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .gateway-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 24px;
+            padding: 36px 30px;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            color: #0f172a;
+            position: relative;
+            backdrop-filter: blur(16px);
+            animation: fadeInCard 0.4s ease-out;
+        }
+
+        @keyframes fadeInCard {
+            from {
+                opacity: 0;
+                transform: translateY(16px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .gateway-brand {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .brand-icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+        }
+
+        .gateway-title {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #0f172a;
+            margin: 0;
+        }
+
+        .gateway-title span {
+            color: #f59e0b;
+        }
+
+        .gateway-sub {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .form-group-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #475569;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .input-box-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-box-icon {
+            position: absolute;
+            left: 14px;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .gateway-input {
+            width: 100%;
+            padding: 13px 14px 13px 44px;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            background: #f8fafc;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #0f172a;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .gateway-input:focus {
+            background: #ffffff;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+        }
+
+        .pin-toggle-btn {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .gateway-submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.45);
+            transition: all 0.2s ease;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .gateway-submit-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 24px -5px rgba(37, 99, 235, 0.55);
+        }
+
+        .gateway-submit-btn:active {
+            transform: translateY(1px);
+        }
+
+        .error-alert {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #ef4444;
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            animation: shake 0.3s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-4px); }
+            75% { transform: translateX(4px); }
+        }
+
+        .demo-chips-wrap {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .demo-chips-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .chips-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .demo-chip {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+
+        .demo-chip:hover {
+            background: #e2e8f0;
+            border-color: #cbd5e1;
+            transform: translateX(2px);
+        }
+
+        .demo-chip-badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 6px;
+        }
+
+        .badge-admin { background: #dbeafe; color: #1e40af; }
+        .badge-student { background: #dcfce7; color: #166534; }
+
+        .footer-tools {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 18px;
+            font-size: 11.5px;
+            color: #64748b;
+        }
+
+        .footer-link {
+            color: #94a3b8;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.15s;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- COACHING KEY & STUDENT AUTHENTICATION GATEWAY -->
-    <div id="auth-screen" style="position:fixed; top:0; left:0; right:0; bottom:0; background:#0b1329; z-index:999; display:flex; align-items:center; justify-content:center; padding:20px;">
-        <div style="background:#ffffff; border-radius:18px; max-width:420px; width:100%; padding:32px 28px; text-align:center; box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);">
-            <div style="width:54px; height:54px; border-radius:14px; background:linear-gradient(135deg, #3b82f6, #1d4ed8); color:#fff; font-size:22px; font-weight:800; display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">EC</div>
-            <h2 style="font-size:22px; font-weight:800; color:#0f172a; margin-bottom:4px;">elite<span style="color:#f59e0b;">.</span>classes</h2>
-            <div style="font-size:12.5px; color:#64748b; font-weight:500; margin-bottom:18px;">Select your access portal to enter</div>
-
-            <!-- Mode Switcher (Admin vs Student) -->
-            <div class="auth-mode-switcher">
-                <button type="button" class="auth-tab-btn active" id="auth-tab-student" onclick="switchAuthTab('student')">👨‍🎓 Student Login</button>
-                <button type="button" class="auth-tab-btn" id="auth-tab-admin" onclick="switchAuthTab('admin')">🔑 Admin Access</button>
+    <div class="gateway-container">
+        <div class="gateway-card">
+            <!-- BRAND HEADER -->
+            <div class="gateway-brand">
+                <div class="brand-icon-box">EC</div>
+                <h1 class="gateway-title">elite<span>.</span>classes</h1>
+                <div class="gateway-sub">Enter your WhatsApp number & PIN to open your profile</div>
             </div>
 
-            <!-- Student Login Form -->
-            <div id="auth-form-student" style="display:flex; flex-direction:column; gap:12px;">
+            <!-- ERROR MESSAGE BOX -->
+            <div id="gateway-error" class="error-alert"></div>
+
+            <!-- UNIFIED LOGIN FORM -->
+            <form id="gateway-form" onsubmit="event.preventDefault(); handleGatewayLogin();" class="form-group-wrap">
+                <!-- WHATSAPP NUMBER INPUT -->
                 <div>
-                    <label style="display:block; font-size:11px; font-weight:700; color:#64748b; text-align:left; margin-bottom:4px;">Coaching Student Code *</label>
-                    <input type="password" id="student-code-input" placeholder="Enter Code (e.g. 123456)" value="123456" style="width:100%; padding:10px 14px; border-radius:8px; border:2px solid #e2e8f0; font-size:14px; text-align:center; font-weight:700; letter-spacing:1px; outline:none;">
+                    <label class="input-label" for="gateway-phone">Registered WhatsApp Number</label>
+                    <div class="input-box-wrap">
+                        <div class="input-box-icon">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 5a2 2 0 0 1 2-2h3.28a1 1 0 0 1 .948.684l1.498 4.493a1 1 0 0 1-.502 1.21l-2.257 1.13a11.042 11.042 0 0 0 5.516 5.516l1.13-2.257a1 1 0 0 1 1.21-.502l4.493 1.498a1 1 0 0 1 .684.949V19a2 2 0 0 1-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <input type="tel" id="gateway-phone" class="gateway-input" placeholder="e.g. 9876543210" maxlength="15" autocomplete="tel" required>
+                    </div>
                 </div>
+
+                <!-- SECURITY PIN INPUT -->
                 <div>
-                    <label style="display:block; font-size:11px; font-weight:700; color:#64748b; text-align:left; margin-bottom:4px;">Registered WhatsApp Number *</label>
-                    <input type="tel" id="student-phone-input" placeholder="e.g. 9876543210" style="width:100%; padding:10px 14px; border-radius:8px; border:2px solid #e2e8f0; font-size:14px; text-align:center; font-weight:600; outline:none;" onkeyup="if(event.key==='Enter') verifyStudentLogin()">
-                </div>
-                <div id="student-auth-error" style="display:none; font-size:12px; color:#ef4444; font-weight:600; text-align:center;"></div>
-                <button class="btn btn-primary" style="width:100%; padding:11px; font-size:14px; border-radius:8px; margin-top:4px;" onclick="verifyStudentLogin()">Enter Student Portal →</button>
-                
-                <div style="font-size:11.5px; color:#94a3b8; margin-top:6px;">
-                    Demo WhatsApp Numbers: <br>
-                    <span style="color:#2563eb; font-weight:600; cursor:pointer;" onclick="document.getElementById('student-phone-input').value='9876543210'">9876543210 (Class 5)</span> • 
-                    <span style="color:#2563eb; font-weight:600; cursor:pointer;" onclick="document.getElementById('student-phone-input').value='9876543214'">9876543214 (Class 10)</span>
-                </div>
-            </div>
-
-            <!-- Admin Login Form -->
-            <div id="auth-form-admin" style="display:none; flex-direction:column; gap:12px;">
-                <div>
-                    <label style="display:block; font-size:11px; font-weight:700; color:#64748b; text-align:left; margin-bottom:4px;">Admin Access Key *</label>
-                    <input type="password" id="coaching-key-input" placeholder="Enter Coaching Key" style="width:100%; padding:10px 14px; border-radius:8px; border:2px solid #e2e8f0; font-size:14px; text-align:center; font-weight:700; letter-spacing:2px; outline:none;" onkeyup="if(event.key==='Enter') verifyCoachingKey()">
-                </div>
-                <div id="auth-error-msg" style="display:none; font-size:12px; color:#ef4444; font-weight:600;">Invalid Admin Coaching Key.</div>
-                <button class="btn btn-primary" style="width:100%; padding:11px; font-size:14px; border-radius:8px; margin-top:4px;" onclick="verifyCoachingKey()">Unlock Admin Portal →</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- STICKY FIXED HEADER CONTAINER -->
-    <header class="app-header-sticky">
-        <!-- 1. TOP DARK BRAND BANNER -->
-        <div class="top-banner">
-            <div class="brand-wrapper" onclick="navigateToView('dashboard')">
-                <div class="brand-logo-icon">EC</div>
-                <div>
-                    <div class="brand-text">elite<span>.</span>classes</div>
-                    <div class="brand-sub">Admin Dashboard</div>
-                </div>
-            </div>
-
-            <div style="display:flex; align-items:center; gap:14px;">
-                <div class="admin-chip" id="app-header-admin-chip">
-                    <div class="admin-avatar">EC</div>
-                    <div class="admin-name">Admin</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2. OFF-WHITE TRANSPARENT SUB-HEADER BAR -->
-        <div class="sub-header-bar">
-            <!-- Scrolling Notice Ticker (Right-to-Left Scroll) -->
-            <div class="notice-ticker-wrap">
-                <span class="notice-badge">NOTICE</span>
-                <div class="marquee-track">
-                    <span id="active-db-notice" class="marquee-content">📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations begin next week!</span>
-                </div>
-            </div>
-
-            <!-- Formatted Date (e.g. 25 Aug 26 TUE) -->
-            <div id="sub-header-date" class="sub-header-date">25 Aug 26 TUE</div>
-        </div>
-    </header>
-
-    <!-- MAIN CONTENT VIEWS -->
-    <main class="main-content">
-
-        <!-- 1. DASHBOARD VIEW -->
-        <section class="page-view active" id="view-dashboard">
-            <div class="page-header">
-                <div class="page-title-group">
-                    <h1>Hello Admin,</h1>
-                </div>
-            </div>
-
-            <!-- STATS PALLET GRID (STUDENTS, STAFFS, CLASSES, FINANCES, ATTENDANCE) -->
-            <div class="stats-grid">
-                <!-- PALLET 1: STUDENTS -->
-                <div class="stat-pallet blue" onclick="navigateToView('profiles'); switchProfileTab('students');">
-                    <div class="stat-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2" />
-                            <circle cx="9" cy="7" r="4" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-title">Students</div>
-                        <div class="stat-value" id="dash-stat-students">0</div>
-                    </div>
-                </div>
-
-                <!-- PALLET 2: STAFFS -->
-                <div class="stat-pallet purple" onclick="navigateToView('profiles'); switchProfileTab('teachers');">
-                    <div class="stat-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke-width="2" />
-                            <circle cx="9" cy="7" r="4" stroke-width="2" />
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-title">Staffs</div>
-                        <div class="stat-value" id="dash-stat-staffs">0</div>
-                    </div>
-                </div>
-
-                <!-- PALLET 3: CLASSES -->
-                <div class="stat-pallet info" onclick="navigateToView('classes');">
-                    <div class="stat-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke-width="2" />
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-title">Classes</div>
-                        <div class="stat-value" id="dash-stat-classes">0</div>
-                    </div>
-                </div>
-
-                <!-- PALLET 4: FINANCES -->
-                <div class="stat-pallet green" onclick="navigateToView('finances'); switchFinanceTab('fee-collections');">
-                    <div class="stat-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <rect x="1" y="4" width="22" height="16" rx="2" stroke-width="2" />
-                            <path d="M1 10h22" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-title">Finances</div>
-                        <div class="stat-value" id="dash-stat-finances">₹0</div>
-                    </div>
-                </div>
-
-                <!-- PALLET 5: ATTENDANCE -->
-                <div class="stat-pallet orange" onclick="navigateToView('attendance');">
-                    <div class="stat-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2" />
-                            <line x1="16" y1="2" x2="16" y2="6" stroke-width="2" />
-                            <line x1="8" y1="2" x2="8" y2="6" stroke-width="2" />
-                            <line x1="3" y1="10" x2="21" y2="10" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-title">Attendance</div>
-                        <div class="stat-value" id="dash-stat-attendance">0%</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- 2. PROFILES VIEW -->
-        <section class="page-view" id="view-profiles">
-            <div class="page-header">
-                <div class="page-title-group">
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <button class="btn btn-sm btn-outline" onclick="navigateToView('dashboard')">← Dashboard</button>
-                        <h1 style="margin:0;">Directory</h1>
-                    </div>
-                </div>
-                
-                <div class="profile-switcher">
-                    <button class="profile-tab active" data-tab="students" onclick="switchProfileTab('students')">Students</button>
-                    <button class="profile-tab" data-tab="teachers" onclick="switchProfileTab('teachers')">Teachers</button>
-                    <button class="profile-tab" data-tab="staff" onclick="switchProfileTab('staff')">Support Staff</button>
-                    <button class="profile-tab" data-tab="admins" onclick="switchProfileTab('admins')">Admins</button>
-                </div>
-            </div>
-
-            <!-- SECTION: STUDENTS -->
-            <div class="profile-section" id="profile-section-students">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Students List <span id="student-count-badge" style="color:var(--text-muted); font-size:13px; font-weight:400;"></span></span>
-                        <button class="btn btn-primary btn-sm" onclick="openAddStudentModal()">+ Add Student</button>
-                    </div>
-                    <div class="card-body">
-                        <div class="filter-bar" style="flex-direction:column; align-items:stretch; gap:12px;">
-                            <div class="search-input" style="width:100%;">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke-width="2"/></svg>
-                                <input type="text" id="student-search" placeholder="Search by student name or parent…" oninput="renderStudentsTable()">
-                            </div>
-                            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                                <span style="font-size:12.5px; font-weight:700; color:var(--text-muted);">Class:</span>
-                                <div id="student-class-chips" style="display:inline-flex; gap:6px; flex-wrap:wrap;"></div>
-                            </div>
+                    <label class="input-label" for="gateway-pin">Security PIN</label>
+                    <div class="input-box-wrap">
+                        <div class="input-box-icon">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-width="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-width="2"/>
+                            </svg>
                         </div>
-
-                        <div class="table-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Student</th>
-                                        <th>Class</th>
-                                        <th>Parent & WhatsApp</th>
-                                        <th>Subjects</th>
-                                        <th>Monthly Fee</th>
-                                        <th>Fee Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="students-tbody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION: TEACHERS -->
-            <div class="profile-section" id="profile-section-teachers" style="display:none;">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Teachers Directory <span id="teacher-count-badge" style="color:var(--text-muted); font-size:13px; font-weight:400;"></span></span>
-                        <button class="btn btn-primary btn-sm" onclick="openAddTeacherModal()">+ Add Teacher</button>
-                    </div>
-                    <div class="card-body">
-                        <div class="filter-bar">
-                            <div class="search-input">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke-width="2"/></svg>
-                                <input type="text" id="teacher-search" placeholder="Search teacher or subject…" oninput="renderTeachersTable()">
-                            </div>
-                        </div>
-
-                        <div class="table-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Teacher Name</th>
-                                        <th>Subjects</th>
-                                        <th>Assigned Classes</th>
-                                        <th>Base Salary</th>
-                                        <th>Salary Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="teachers-tbody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION: SUPPORT STAFF -->
-            <div class="profile-section" id="profile-section-staff" style="display:none;">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Support Staff Directory <span id="staff-count-badge" style="color:var(--text-muted); font-size:13px; font-weight:400;"></span></span>
-                        <button class="btn btn-primary btn-sm" onclick="openAddStaffModal()">+ Add Staff Member</button>
-                    </div>
-                    <div class="card-body">
-                        <div class="filter-bar">
-                            <div class="search-input">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke-width="2"/></svg>
-                                <input type="text" id="staff-search" placeholder="Search staff by name or role…" oninput="renderStaffTable()">
-                            </div>
-                        </div>
-
-                        <div class="table-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Staff Name</th>
-                                        <th>Role / Designation</th>
-                                        <th>Monthly Salary</th>
-                                        <th>Salary Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="staff-tbody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION: ADMINS -->
-            <div class="profile-section" id="profile-section-admins" style="display:none;">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Admin Accounts <span id="admin-count-badge" style="color:var(--text-muted); font-size:13px; font-weight:400;"></span></span>
-                        <button class="btn btn-primary btn-sm" onclick="openAddAdminModal()">+ Add Admin</button>
-                    </div>
-                    <div class="card-body">
-                        <div class="filter-bar">
-                            <div class="search-input">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke-width="2"/></svg>
-                                <input type="text" id="admin-search" placeholder="Search admin by name or email…" oninput="renderAdminsTable()">
-                            </div>
-                        </div>
-
-                        <div class="table-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Admin Name & Email</th>
-                                        <th>Role</th>
-                                        <th>Phone</th>
-                                        <th>Account Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="admins-tbody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- 3. FINANCES VIEW -->
-        <section class="page-view" id="view-finances">
-            <div class="page-header">
-                <div class="page-title-group">
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <button class="btn btn-sm btn-outline" onclick="navigateToView('dashboard')">← Dashboard</button>
-                        <h1 style="margin:0;">Finances</h1>
+                        <input type="password" id="gateway-pin" class="gateway-input" placeholder="Enter PIN (e.g. 123456)" maxlength="20" autocomplete="current-password" required>
+                        <button type="button" class="pin-toggle-btn" onclick="togglePinVisibility()">👁️ Show</button>
                     </div>
                 </div>
 
-                <div style="display:flex; align-items:center; gap:12px;">
-                    <!-- COLLECT FEE BUTTON INSIDE FINANCES -->
-                    <button class="btn btn-primary" onclick="openCollectFeeModal()">
-                        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-width="2.5"/></svg>
-                        Collect Fee
-                    </button>
-                    <div class="profile-switcher">
-                        <button class="profile-tab finance-sub-tab active" data-tab="fee-collections" onclick="switchFinanceTab('fee-collections')">Student Fees</button>
-                        <button class="profile-tab finance-sub-tab" data-tab="salary-payouts" onclick="switchFinanceTab('salary-payouts')">Salary Disbursements</button>
-                    </div>
-                </div>
-            </div>
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" id="gateway-submit-btn" class="gateway-submit-btn">
+                    <span>Enter Coaching Portal →</span>
+                </button>
+            </form>
 
-            <!-- FINANCIAL SUMMARY CARDS -->
-            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-                <div class="stat-pallet green" style="cursor:default;">
-                    <div class="stat-title">Total Fees Collected (This Month)</div>
-                    <div class="stat-value" id="fin-total-fees">₹0</div>
-                </div>
-                <div class="stat-pallet orange" style="cursor:default;">
-                    <div class="stat-title">Total Salaries Disbursed (This Month)</div>
-                    <div class="stat-value" id="fin-total-salaries">₹0</div>
-                </div>
-                <div class="stat-pallet blue" style="cursor:default;">
-                    <div class="stat-title">Net Operating Revenue</div>
-                    <div class="stat-value" id="fin-net-profit">₹0</div>
-                </div>
-            </div>
-
-            <!-- SUB SECTION: FEE COLLECTIONS -->
-            <div id="finance-fee-sec">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Fee Collection History</span>
-                        <button class="btn btn-primary btn-sm" onclick="openCollectFeeModal()">
-                            + Collect Fee
-                        </button>
-                    </div>
-                    <div class="card-body">
-                        <div class="filter-bar">
-                            <div class="search-input">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke-width="2"/></svg>
-                                <input type="text" id="fee-search-input" placeholder="Search fee record by student or class…" oninput="renderFeePaymentsTable()">
-                            </div>
-                        </div>
-
-                        <div class="table-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Month</th>
-                                        <th>Date</th>
-                                        <th>Student</th>
-                                        <th>Amount Paid</th>
-                                        <th>Mode</th>
-                                        <th>Remarks</th>
-                                        <th>Receipt</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="fee-payments-tbody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SUB SECTION: SALARY PAYOUTS -->
-            <div id="finance-salary-sec" style="display:none;">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Salary Payouts Ledger</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Month</th>
-                                        <th>Date</th>
-                                        <th>Employee Name</th>
-                                        <th>Amount Paid</th>
-                                        <th>Payment Mode</th>
-                                        <th>Voucher</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="salary-payouts-tbody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- 4. CLASSES VIEW -->
-        <section class="page-view" id="view-classes">
-            <div class="page-header">
-                <div class="page-title-group">
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <button class="btn btn-sm btn-outline" onclick="navigateToView('dashboard')">← Dashboard</button>
-                        <h1 style="margin:0;">Classes Directory</h1>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CLASS FILTER BAR (DESKTOP CHIPS & MOBILE DROPDOWN) -->
-            <div class="filter-bar" style="margin-bottom:20px;">
-                <div class="desktop-class-filter-row" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                    <span style="font-size:12.5px; font-weight:700; color:var(--text-muted);">Class:</span>
-                    <div id="classes-filter-chips" style="display:inline-flex; gap:6px; flex-wrap:wrap;"></div>
-                </div>
-                <div class="mobile-class-filter-select" style="display:none; width:100%;">
-                    <select id="classes-mobile-select" class="select-input" style="width:100%; font-size:13px;" onchange="setClassesFilter(this.value)">
-                        <option value="">All Classes</option>
-                        <option value="LKG">LKG</option>
-                        <option value="UKG">UKG</option>
-                        <option value="Class 1">1</option>
-                        <option value="Class 2">2</option>
-                        <option value="Class 3">3</option>
-                        <option value="Class 4">4</option>
-                        <option value="Class 5">5</option>
-                        <option value="Class 6">6</option>
-                        <option value="Class 7">7</option>
-                        <option value="Class 8">8</option>
-                        <option value="Class 9">9</option>
-                        <option value="Class 10">10</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="stats-grid" id="classes-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));"></div>
-        </section>
-
-
-        <!-- 5. ATTENDANCE VIEW -->
-        <section class="page-view" id="view-attendance">
-            <div class="page-header">
-                <div class="page-title-group">
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <button class="btn btn-sm btn-outline" onclick="navigateToView('dashboard')">← Dashboard</button>
-                        <h1 style="margin:0;">Attendance Management</h1>
-                    </div>
-                </div>
-                <div id="att-rate-badge" class="badge badge-success" style="font-size:14px; padding:6px 14px;"></div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-title">Daily Attendance Sheet</span>
-                    <div style="display:flex; gap:10px; align-items:center;">
-                        <input type="date" id="attendance-date-input" class="select-input" onchange="renderAttendanceView()">
-                        <select id="attendance-class-select" class="select-input" onchange="renderAttendanceView()">
-                            <option value="All">All Classes</option>
-                            <option>LKG</option><option>UKG</option>
-                            <option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option>
-                            <option>Class 5</option><option>Class 6</option><option>Class 7</option><option>Class 8</option>
-                            <option>Class 9</option><option>Class 10</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="card-body" id="attendance-container"></div>
-            </div>
-        </section>
-
-        <!-- 6. STUDENT PORTAL DASHBOARD VIEW -->
-        <section class="page-view" id="view-student-portal">
-            <div class="page-header" style="background:#ffffff; padding:20px; border-radius:16px; border:1px solid var(--border); box-shadow:0 4px 12px rgba(0,0,0,0.03); margin-bottom:20px;">
-                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; width:100%;">
-                    <div style="display:flex; align-items:center; gap:14px;">
-                        <div id="st-portal-avatar" class="avatar" style="width:50px; height:50px; font-size:20px; border-radius:14px; background:#2563eb;">ST</div>
+            <!-- DEMO ONE-CLICK QUICK LOGIN CHIPS -->
+            <div class="demo-chips-wrap">
+                <div class="demo-chips-title">⚡ Instant Demo One-Click Access:</div>
+                <div class="chips-container">
+                    <div class="demo-chip" onclick="quickFillCredentials('9800000000', '987654')">
                         <div>
-                            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                                <h1 style="font-size:22px; font-weight:800; margin:0;" id="st-portal-name">Student Dashboard</h1>
-                                <span id="st-portal-class-badge" class="badge badge-primary">Class Standard</span>
-                                <button class="btn btn-outline btn-sm" onclick="openModal('studentSettingsModal')" style="display:inline-flex; align-items:center; gap:4px; font-weight:600; padding:3px 10px; font-size:12px;">👤 Profile</button>
-                            </div>
-                            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;" id="st-portal-sub">Access your course materials, test series, attendance, and fee receipts.</div>
+                            <div style="font-weight:700;">Admin Profile</div>
+                            <div style="font-size:11px; color:#64748b;">WhatsApp: 9800000000 • PIN: 987654</div>
                         </div>
+                        <span class="demo-chip-badge badge-admin">ADMIN</span>
                     </div>
-                    <div style="display:flex; gap:10px;">
-                        <button class="btn btn-outline btn-sm" onclick="openModal('postNoticeModal')" id="st-admin-notice-btn" style="display:none;">+ Post Notice</button>
-                    </div>
-                </div>
-            </div>
 
-            <!-- RIGHT-TO-LEFT SCROLLING SLIDES NOTICE BOARD -->
-            <div class="card" style="margin-bottom:24px; border:none; background:transparent; box-shadow:none;">
-                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-                    <div style="font-weight:800; font-size:15px; color:#0f172a; display:flex; align-items:center; gap:6px;">
-                        📢 Notice Board & Announcements 
-                        <span style="font-size:11px; font-weight:600; color:#64748b; background:#e2e8f0; padding:2px 8px; border-radius:12px;">Right-to-Left Slides</span>
-                    </div>
-                </div>
-                <div class="notice-slider-container">
-                    <div class="notice-slider-track" id="student-notice-slides-track">
-                        <div class="notice-card-slide">
-                            <span class="notice-card-slide-badge">ANNOUNCEMENT</span>
-                            <div>📢 Admissions open for Academic Session 2025-26 • Mid-Term Examinations schedule announced!</div>
+                    <div class="demo-chip" onclick="quickFillCredentials('9876543210', '123456')">
+                        <div>
+                            <div style="font-weight:700;">Aarav Sharma (Student)</div>
+                            <div style="font-size:11px; color:#64748b;">WhatsApp: 9876543210 • PIN: 123456</div>
                         </div>
-                        <div class="notice-card-slide">
-                            <span class="notice-card-slide-badge">OLYMPIAD</span>
-                            <div>🏆 Monthly Science & Mathematics Talent Hunt Olympiad results published on student portal.</div>
+                        <span class="demo-chip-badge badge-student">STUDENT</span>
+                    </div>
+
+                    <div class="demo-chip" onclick="quickFillCredentials('9811223344', '123456')">
+                        <div>
+                            <div style="font-weight:700;">Dr. Ramesh Kumar (Faculty)</div>
+                            <div style="font-size:11px; color:#64748b;">WhatsApp: 9811223344 • PIN: 123456</div>
                         </div>
-                        <div class="notice-card-slide">
-                            <span class="notice-card-slide-badge">SCHEDULE</span>
-                            <div>⏰ Special doubt clearing sessions scheduled every Saturday for Class 8 to 10.</div>
-                        </div>
+                        <span class="demo-chip-badge" style="background:#f3e8ff; color:#6b21a8;">STAFF</span>
                     </div>
                 </div>
-            </div>
-
-            <!-- STUDENT PORTAL TAB NAVIGATION -->
-            <div class="profile-switcher" style="margin-bottom:20px;">
-                <div class="profile-tab active" data-sttab="courses" onclick="switchStudentTab('courses')">📚 My Courses & Materials</div>
-                <div class="profile-tab" data-sttab="testseries" onclick="switchStudentTab('testseries')">📝 Test Series & Exams</div>
-                <div class="profile-tab" data-sttab="attendance" onclick="switchStudentTab('attendance')">📊 My Attendance</div>
-                <div class="profile-tab" data-sttab="fees" onclick="switchStudentTab('fees')">📜 Fee Receipts & Ledger</div>
-                <div class="profile-tab" data-sttab="exams" onclick="switchStudentTab('exams')">🎓 Exam Results & Marks</div>
-            </div>
-
-            <!-- TAB 1: COURSES & STUDY MATERIAL -->
-            <div id="st-tab-section-courses" class="st-tab-section" style="display:block;">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                    <h3 style="font-size:16px; font-weight:700; margin:0;" id="st-courses-heading">Courses & Study Materials</h3>
-                    <button class="btn btn-primary btn-sm" onclick="openModal('addCourseModal')" id="st-admin-add-course-btn" style="display:none;">+ Add Course (Admin)</button>
-                </div>
-                <div class="content-cards-grid" id="st-courses-container"></div>
-            </div>
-
-            <!-- TAB 2: TEST SERIES & MOCK EXAMS -->
-            <div id="st-tab-section-testseries" class="st-tab-section" style="display:none;">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                    <h3 style="font-size:16px; font-weight:700; margin:0;" id="st-tests-heading">Available Test Series</h3>
-                    <button class="btn btn-primary btn-sm" onclick="openModal('addTestSeriesModal')" id="st-admin-add-test-btn" style="display:none;">+ Create Test Series (Admin)</button>
-                </div>
-                <div class="content-cards-grid" id="st-testseries-container"></div>
-            </div>
-
-            <!-- TAB 3: ATTENDANCE SUMMARY -->
-            <div id="st-tab-section-attendance" class="st-tab-section" style="display:none;">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">My Attendance Record</span>
-                    </div>
-                    <div class="card-body" id="st-attendance-summary-container"></div>
-                </div>
-            </div>
-
-            <!-- TAB 4: FEE PAYMENTS & RECEIPTS -->
-            <div id="st-tab-section-fees" class="st-tab-section" style="display:none;">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Fee Payment History & Official Receipts</span>
-                    </div>
-                    <div class="card-body" id="st-fee-ledger-container"></div>
-                </div>
-            </div>
-
-            <!-- TAB 5: EXAM RESULTS & REPORT CARD -->
-            <div id="st-tab-section-exams" class="st-tab-section" style="display:none;">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Exam Marks & Academic Report Cards</span>
-                    </div>
-                    <div class="card-body" id="st-exam-results-container"></div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-
-    <!-- MODALS -->
-
-    <!-- ADD/EDIT STUDENT MODAL -->
-    <div class="modal-overlay" id="addStudentModal">
-        <div class="modal">
-            <div class="modal-header">
-                <span class="modal-title" id="studentModalTitle">Add New Student</span>
-                <button class="modal-close" onclick="closeModal('addStudentModal')">✕</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Student Name *</label>
-                        <input type="text" id="f-sname" placeholder="Full name">
-                    </div>
-                    <div class="form-group">
-                        <label>Class *</label>
-                        <select id="f-sclass">
-                            <option value="">Select class</option>
-                            <option>LKG</option><option>UKG</option>
-                            <option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option>
-                            <option>Class 5</option><option>Class 6</option><option>Class 7</option><option>Class 8</option>
-                            <option>Class 9</option><option>Class 10</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Parent / Guardian Name *</label>
-                        <input type="text" id="f-sparent" placeholder="Parent name">
-                    </div>
-                    <div class="form-group">
-                        <label>WhatsApp Number *</label>
-                        <input type="tel" id="f-sphone" placeholder="10-digit phone" maxlength="10">
-                    </div>
-                    <div class="form-group">
-                        <label>Monthly Fee (₹) *</label>
-                        <input type="number" id="f-sfee" placeholder="e.g. 1500">
-                    </div>
-                    <div class="form-group">
-                        <label>Fee Due Day</label>
-                        <select id="f-sdue">
-                            <option value="1">1st of month</option>
-                            <option value="5">5th of month</option>
-                            <option value="10" selected>10th of month</option>
-                            <option value="15">15th of month</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Scholarship (%)</label>
-                        <input type="number" id="f-sscholarship" placeholder="e.g. 10 or 25" min="0" max="100">
-                    </div>
-                    <div class="form-group full">
-                        <label>Enrolled Subjects (Multi-Select Checklist) *</label>
-                        <div id="f-ssubjects-container" class="checkbox-grid"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>Date of Admission</label>
-                        <input type="date" id="f-sdoa">
-                    </div>
-                    <div class="form-group">
-                        <label>School Name</label>
-                        <input type="text" id="f-sschool" placeholder="School name">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('addStudentModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="saveStudentForm()">Save Student Profile</button>
             </div>
         </div>
-    </div>
 
-    <!-- STUDENT DETAIL VIEW MODAL -->
-    <div class="modal-overlay" id="studentDetailModal">
-        <div class="modal modal-lg">
-            <div class="modal-header">
-                <span class="modal-title" style="font-size:15px; font-weight:700;">Student profile</span>
-                <button class="modal-close" onclick="closeModal('studentDetailModal')">✕</button>
-            </div>
-            <div class="modal-body" id="studentDetailModalBody"></div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('studentDetailModal')">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ADD/EDIT TEACHER MODAL -->
-    <div class="modal-overlay" id="addTeacherModal">
-        <div class="modal">
-            <div class="modal-header">
-                <span class="modal-title" id="teacherModalTitle">Add New Teacher</span>
-                <button class="modal-close" onclick="closeModal('addTeacherModal')">✕</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-grid">
-                    <div class="form-group full">
-                        <label>Teacher Name *</label>
-                        <input type="text" id="f-tname" placeholder="Full name with title">
-                    </div>
-                    <div class="form-group full">
-                        <label>Subjects Taught (Multi-Select Checklist) *</label>
-                        <div id="f-tsubjects-container" class="checkbox-grid"></div>
-                    </div>
-                    <div class="form-group full">
-                        <label>Assigned Classes (Multi-Select Checklist) *</label>
-                        <div id="f-tclasses-container" class="checkbox-grid"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone Contact *</label>
-                        <input type="tel" id="f-tphone" placeholder="10-digit phone">
-                    </div>
-                    <div class="form-group">
-                        <label>Monthly Base Salary (₹) *</label>
-                        <input type="number" id="f-tsalary" placeholder="e.g. 30000">
-                    </div>
-                    <div class="form-group">
-                        <label>Monthly Incentive / Bonus (₹)</label>
-                        <input type="number" id="f-tincentive" placeholder="e.g. 2500">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('addTeacherModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="saveTeacherForm()">Save Teacher Profile</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ADD/EDIT STAFF MODAL -->
-    <div class="modal-overlay" id="addStaffModal">
-        <div class="modal">
-            <div class="modal-header">
-                <span class="modal-title" id="staffModalTitle">Add Support Staff</span>
-                <button class="modal-close" onclick="closeModal('addStaffModal')">✕</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-grid">
-                    <div class="form-group full">
-                        <label>Staff Name *</label>
-                        <input type="text" id="f-stname" placeholder="Full name">
-                    </div>
-                    <div class="form-group">
-                        <label>Role / Designation *</label>
-                        <input type="text" id="f-strole" placeholder="e.g. Office Accountant, Lab Assistant">
-                    </div>
-                    <div class="form-group">
-                        <label>Phone Contact *</label>
-                        <input type="tel" id="f-stphone" placeholder="10-digit phone">
-                    </div>
-                    <div class="form-group">
-                        <label>Monthly Base Salary (₹) *</label>
-                        <input type="number" id="f-stsalary" placeholder="e.g. 18000">
-                    </div>
-                    <div class="form-group">
-                        <label>Monthly Incentive / Bonus (₹)</label>
-                        <input type="number" id="f-stincentive" placeholder="e.g. 1500">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('addStaffModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="saveStaffForm()">Save Staff Profile</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ADD/EDIT ADMIN MODAL -->
-    <div class="modal-overlay" id="addAdminModal">
-        <div class="modal">
-            <div class="modal-header">
-                <span class="modal-title" id="adminModalTitle">Add Admin Account</span>
-                <button class="modal-close" onclick="closeModal('addAdminModal')">✕</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Admin Name *</label>
-                        <input type="text" id="f-aname" placeholder="Full name">
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address *</label>
-                        <input type="email" id="f-aemail" placeholder="admin@eliteclasses.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Access Role</label>
-                        <select id="f-arole">
-                            <option value="Super Admin">Super Admin</option>
-                            <option value="Manager">Manager</option>
-                            <option value="Finance Admin">Finance Admin</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone Contact</label>
-                        <input type="tel" id="f-aphone" placeholder="10-digit phone">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('addAdminModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="saveAdminForm()">Save Admin Account</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- COLLECT FEE MODAL -->
-    <div class="modal-overlay" id="collectFeeModal">
-        <div class="modal">
-            <div class="modal-header">
-                <span class="modal-title">Record Student Fee Payment</span>
-                <button class="modal-close" onclick="closeModal('collectFeeModal')">✕</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-grid">
-                    <div class="form-group full">
-                        <label>Select Student *</label>
-                        <select id="collect-student-select" onchange="onCollectStudentSelectChange()">
-                            <option value="">— Choose Student —</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Fee Month *</label>
-                        <input type="text" id="collect-month-input" placeholder="e.g. Aug 2025">
-                    </div>
-                    <div class="form-group">
-                        <label>Amount Paid (₹) *</label>
-                        <input type="number" id="collect-amount-input" placeholder="0">
-                    </div>
-                    <div class="form-group">
-                        <label>Payment Mode *</label>
-                        <select id="collect-mode-input">
-                            <option value="UPI">UPI / Online</option>
-                            <option value="Cash">Cash</option>
-                            <option value="Bank Transfer">Bank Transfer</option>
-                            <option value="Cheque">Cheque</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label>Remarks (Optional)</label>
-                        <input type="text" id="collect-remarks-input" placeholder="e.g. Paid via PhonePe">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('collectFeeModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="saveFeePayment()">Record Payment & Print Receipt</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- SALARY PAYOUT MODAL -->
-    <div class="modal-overlay" id="salaryPayoutModal">
-        <div class="modal">
-            <div class="modal-header">
-                <span class="modal-title">Record Salary Disbursement</span>
-                <button class="modal-close" onclick="closeModal('salaryPayoutModal')">✕</button>
-            </div>
-            <div class="modal-body">
-                <div style="font-size:14px; font-weight:700; color:var(--primary); margin-bottom:16px;" id="salaryRecipientName"></div>
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Salary Month *</label>
-                        <input type="text" id="salary-month-input" placeholder="e.g. Aug 2025">
-                    </div>
-                    <div class="form-group">
-                        <label>Amount Paid (₹) *</label>
-                        <input type="number" id="salary-amount-input" placeholder="0">
-                    </div>
-                    <div class="form-group full">
-                        <label>Payment Mode</label>
-                        <select id="salary-mode-input">
-                            <option value="Bank Transfer">Bank Transfer (NEFT/IMPS)</option>
-                            <option value="UPI">UPI</option>
-                            <option value="Cheque">Cheque</option>
-                            <option value="Cash">Cash</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('salaryPayoutModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="saveSalaryPayout()">Confirm Salary Payout</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- RECEIPT MODAL -->
-    <div class="modal-overlay" id="receiptModal">
-        <div class="modal" style="max-width:480px;">
-            <div class="modal-header">
-                <span class="modal-title">Official Receipt / Voucher</span>
-                <button class="modal-close" onclick="closeModal('receiptModal')">✕</button>
-            </div>
-            <div class="modal-body" id="receiptModalBody"></div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('receiptModal')">Close</button>
-                <button class="btn btn-primary" onclick="window.print()">Print Document</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- SUBJECT RANKINGS MODAL -->
-    <div class="modal-overlay" id="subjectRankingsModal">
-        <div class="modal modal-lg">
-            <div class="modal-header">
-                <span class="modal-title" id="subjectRankingsModalTitle" style="font-size:15px; font-weight:700;">Subject Student Leaderboard</span>
-                <button class="modal-close" onclick="closeModal('subjectRankingsModal')">✕</button>
-            </div>
-            <div class="modal-body" id="subjectRankingsModalBody"></div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('subjectRankingsModal')">Close</button>
-            </div>
+        <div class="footer-tools">
+            <span class="footer-link" onclick="openSupabaseModal()">⚡ Database Settings</span>
+            <span>•</span>
+            <span class="footer-link">Elite Classes ERP v2.0</span>
         </div>
     </div>
 
     <!-- SUPABASE DB CONFIG MODAL -->
     <div class="modal-overlay" id="supabaseModal">
-        <div class="modal">
+        <div class="modal" style="background:#ffffff; color:#0f172a; max-width:440px;">
             <div class="modal-header">
-                <span class="modal-title">Supabase Cloud Database Settings</span>
+                <span class="modal-title">Supabase Database Settings</span>
                 <button class="modal-close" onclick="closeModal('supabaseModal')">✕</button>
             </div>
             <div class="modal-body">
-                <div style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
-                    Enter your Supabase Project URL and Anon API key to sync your PostgreSQL database.
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px;">
+                    Enter your Supabase Project URL and Anon API key to connect live cloud database:
                 </div>
                 <div class="form-grid">
                     <div class="form-group full">
@@ -950,162 +378,15 @@
                         <input type="text" id="cfg-supa-url" placeholder="https://xyzcompany.supabase.co">
                     </div>
                     <div class="form-group full">
-                        <label>Supabase Anon / Public API Key *</label>
+                        <label>Supabase Anon Key *</label>
                         <input type="password" id="cfg-supa-key" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-outline" onclick="closeModal('supabaseModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="saveSupabaseSettingsFromModal()">Save & Connect Database</button>
+                <button class="btn btn-primary" onclick="saveSupabaseSettingsFromModal()">Save & Connect</button>
             </div>
-        </div>
-    <!-- POST NOTICE MODAL (ADMIN) -->
-    <div class="modal-overlay" id="postNoticeModal">
-        <div class="modal">
-            <div class="modal-header">
-                <span class="modal-title">Post New Notice (Right-to-Left Slide)</span>
-                <button class="modal-close" onclick="closeModal('postNoticeModal')">✕</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group full">
-                    <label>Announcement Content *</label>
-                    <textarea id="f-notice-content" rows="3" placeholder="e.g. 📢 Mid-Term Exam schedule has been published for Class 5 to 10..." style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border); outline:none;"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('postNoticeModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="submitNewNotice()">Publish Announcement</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ADD COURSE MODAL (ADMIN) -->
-    <div class="modal-overlay" id="addCourseModal">
-        <div class="modal">
-            <div class="modal-header">
-                <span class="modal-title">Publish Course / Study Material</span>
-                <button class="modal-close" onclick="closeModal('addCourseModal')">✕</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-grid">
-                    <div class="form-group full">
-                        <label>Course Title *</label>
-                        <input type="text" id="f-course-title" placeholder="e.g. Class 5 Mathematics Masterclass">
-                    </div>
-                    <div class="form-group">
-                        <label>Class Standard *</label>
-                        <select id="f-course-class">
-                            <option>Class 5</option>
-                            <option>Class 6</option><option>Class 7</option><option>Class 8</option>
-                            <option>Class 9</option><option>Class 10</option>
-                            <option>LKG</option><option>UKG</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Subject *</label>
-                        <input type="text" id="f-course-subject" placeholder="e.g. Mathematics">
-                    </div>
-                    <div class="form-group">
-                        <label>Instructor Name</label>
-                        <input type="text" id="f-course-instructor" placeholder="e.g. Dr. Ramesh Kumar">
-                    </div>
-                    <div class="form-group">
-                        <label>Total Lessons / Modules</label>
-                        <input type="number" id="f-course-lessons" value="10">
-                    </div>
-                    <div class="form-group full">
-                        <label>Course Summary / Description</label>
-                        <textarea id="f-course-desc" rows="2" placeholder="Course syllabus overview..."></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('addCourseModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="submitNewCourse()">Save & Publish Course</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- CREATE TEST SERIES MODAL (ADMIN) -->
-    <div class="modal-overlay" id="addTestSeriesModal">
-        <div class="modal">
-            <div class="modal-header">
-                <span class="modal-title">Create Test Series & Mock Exam</span>
-                <button class="modal-close" onclick="closeModal('addTestSeriesModal')">✕</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-grid">
-                    <div class="form-group full">
-                        <label>Test Title *</label>
-                        <input type="text" id="f-test-title" placeholder="e.g. Class 5 Science Chapter-wise Test">
-                    </div>
-                    <div class="form-group">
-                        <label>Class Standard *</label>
-                        <select id="f-test-class">
-                            <option>Class 5</option>
-                            <option>Class 6</option><option>Class 7</option><option>Class 8</option>
-                            <option>Class 9</option><option>Class 10</option>
-                            <option>LKG</option><option>UKG</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Subject *</label>
-                        <input type="text" id="f-test-subject" placeholder="e.g. Science">
-                    </div>
-                    <div class="form-group">
-                        <label>Duration (Minutes)</label>
-                        <input type="number" id="f-test-duration" value="45">
-                    </div>
-                    <div class="form-group">
-                        <label>Total Marks</label>
-                        <input type="number" id="f-test-marks" value="50">
-                    </div>
-                    <div class="form-group">
-                        <label>Total Questions</label>
-                        <input type="number" id="f-test-questions" value="25">
-                    </div>
-                    <div class="form-group">
-                        <label>Scheduled Test Date</label>
-                        <input type="date" id="f-test-date">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('addTestSeriesModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="submitNewTestSeries()">Create Test Series</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- STUDENT PROFILE MODAL -->
-    <div class="modal-overlay" id="studentSettingsModal">
-        <div class="modal modal-lg">
-            <div class="modal-header">
-                <span class="modal-title">👤 My Profile</span>
-                <button class="modal-close" onclick="closeModal('studentSettingsModal')">✕</button>
-            </div>
-            <div class="modal-body">
-                <div style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">
-                    Personal registration details on record with Elite Classes:
-                </div>
-                <div class="student-info-grid" id="st-settings-info-grid"></div>
-            </div>
-            <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-                <button class="btn btn-outline danger btn-sm" onclick="closeModal('studentSettingsModal'); logoutStudent();" style="border-color:#ef4444; color:#ef4444;">🔒 Logout / Switch Account</button>
-                <button class="btn btn-primary btn-sm" onclick="closeModal('studentSettingsModal')">Close Profile</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- TAKE TEST INTERACTIVE MODAL (STUDENT) -->
-    <div class="modal-overlay" id="takeTestModal">
-        <div class="modal modal-lg">
-            <div class="modal-header">
-                <span class="modal-title" id="testModalTitle">Online Test Assessment</span>
-                <button class="modal-close" onclick="closeModal('takeTestModal')">✕</button>
-            </div>
-            <div class="modal-body" id="takeTestModalBody"></div>
         </div>
     </div>
 
@@ -1115,29 +396,111 @@
         <span id="toast-msg"></span>
     </div>
 
-    <!-- SUPABASE SDK & DATABASE SERVICES -->
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase/config.js"></script>
     <script src="supabase/api.js"></script>
-
-    <!-- ENUM & CORE APP SCRIPTS -->
-    <script src="enums/subjects.js"></script>
-    <script src="enums/classes.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/students.js"></script>
-    <script src="js/teachers.js"></script>
-    <script src="js/staff.js"></script>
-    <script src="js/admins.js"></script>
-    <script src="js/finances.js"></script>
-    <script src="js/classes.js"></script>
-    <script src="js/attendance.js"></script>
 
-    <!-- MODULE FOLDER SCRIPTS & HTML INJECTOR -->
-    <script src="js/moduleLoader.js"></script>
-    <script src="modules/courses/courses.js"></script>
-    <script src="modules/testseries/testseries.js"></script>
-    <script src="modules/notices/notices.js"></script>
-    <script src="modules/studentView/studentView.js"></script>
+    <script>
+        function togglePinVisibility() {
+            const pinInput = document.getElementById('gateway-pin');
+            const toggleBtn = document.querySelector('.pin-toggle-btn');
+            if (pinInput.type === 'password') {
+                pinInput.type = 'text';
+                toggleBtn.textContent = '🔒 Hide';
+            } else {
+                pinInput.type = 'password';
+                toggleBtn.textContent = '👁️ Show';
+            }
+        }
+
+        function quickFillCredentials(phone, pin) {
+            document.getElementById('gateway-phone').value = phone;
+            document.getElementById('gateway-pin').value = pin;
+            const errEl = document.getElementById('gateway-error');
+            if (errEl) errEl.style.display = 'none';
+            handleGatewayLogin();
+        }
+
+        async function handleGatewayLogin() {
+            const phone = document.getElementById('gateway-phone').value.trim();
+            const pin = document.getElementById('gateway-pin').value.trim();
+            const errEl = document.getElementById('gateway-error');
+            const submitBtn = document.getElementById('gateway-submit-btn');
+
+            errEl.style.display = 'none';
+
+            if (!phone) {
+                errEl.textContent = 'Please enter your registered WhatsApp number.';
+                errEl.style.display = 'block';
+                return;
+            }
+
+            if (!pin) {
+                errEl.textContent = 'Please enter your secret PIN.';
+                errEl.style.display = 'block';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Verifying credentials...</span>';
+
+            try {
+                // Check authentication via DBService
+                const authResult = await DBService.authenticateByWhatsApp(phone, pin);
+
+                if (!authResult.success) {
+                    errEl.textContent = authResult.message || 'Authentication failed. Please check WhatsApp & PIN.';
+                    errEl.style.display = 'block';
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<span>Enter Coaching Portal →</span>';
+                    return;
+                }
+
+                // Authentication successful!
+                showToast(`Welcome back, ${authResult.user.name || 'User'}!`, 'success');
+
+                if (authResult.role === 'admin') {
+                    localStorage.setItem('ec_user_role', 'admin');
+                    localStorage.setItem('ec_authenticated_key', pin);
+                    localStorage.setItem('ec_admin_id', authResult.user.id);
+                    localStorage.setItem('ec_admin_name', authResult.user.name);
+                    localStorage.setItem('ec_last_activity', Date.now().toString());
+
+                    setTimeout(() => {
+                        window.location.href = 'admin_home.html';
+                    }, 500);
+                } else if (authResult.role === 'student') {
+                    localStorage.setItem('ec_user_role', 'student');
+                    localStorage.setItem('ec_student_id', authResult.user.id);
+                    localStorage.setItem('ec_student_name', authResult.user.name || 'Student');
+                    localStorage.setItem('ec_last_activity', Date.now().toString());
+
+                    setTimeout(() => {
+                        window.location.href = 'student_home.html';
+                    }, 500);
+                } else if (authResult.role === 'staff') {
+                    localStorage.setItem('ec_user_role', 'staff');
+                    localStorage.setItem('ec_staff_id', authResult.user.id);
+                    localStorage.setItem('ec_staff_name', authResult.user.name);
+                    localStorage.setItem('ec_last_activity', Date.now().toString());
+
+                    setTimeout(() => {
+                        window.location.href = 'staff_home.html';
+                    }, 500);
+                } else {
+                    window.location.href = authResult.redirectUrl || 'index.html';
+                }
+            } catch (err) {
+                console.error('Gateway login error:', err);
+                errEl.textContent = 'Connection error. Please try again.';
+                errEl.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Enter Coaching Portal →</span>';
+            }
+        }
+    </script>
 </body>
 
 </html>
