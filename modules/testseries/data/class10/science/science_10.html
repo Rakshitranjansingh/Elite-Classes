@@ -138,11 +138,11 @@
         </div>
     </div>
 
-    <!-- 2. COMPACT LEADERSHIP BOARD TABLE (Top 1, 2, 3 + Current Student Rank) -->
+    <!-- 2. COMPACT WHOLE SUBJECT LEADERSHIP BOARD TABLE (Top 1, 2, 3 + Current Student Rank) -->
     <div class="card" style="margin-bottom:18px;">
         <div class="card-header" style="padding:10px 16px; background:#ffffff; border-bottom:1px solid var(--border);">
             <span class="card-title" style="font-size:13px; font-weight:700; color:var(--text); display:flex; align-items:center; gap:6px;">
-                🏆 Leaderboard — Chapter 1: Chemical Reactions & Equations
+                🏆 Class 10 Science — Subject Leadership Board
             </span>
         </div>
 
@@ -152,9 +152,9 @@
                     <tr>
                         <th style="width:70px; text-align:center;">Rank</th>
                         <th>Student Name</th>
-                        <th>Score</th>
-                        <th>Accuracy</th>
-                        <th>Time</th>
+                        <th>Cumulative Score</th>
+                        <th>Accuracy %</th>
+                        <th>Tests Taken</th>
                     </tr>
                 </thead>
                 <tbody id="science-leaderboard-tbody">
@@ -297,29 +297,44 @@
             renderTestCards();
         }
 
-        // Render Compact Leaderboard (Top 1, 2, 3 + Current Student)
+        // Render Compact Subject Leaderboard (Top 1, 2, 3 + Current Student)
         function renderLeaderboard() {
             const tbody = document.getElementById('science-leaderboard-tbody');
             if (!tbody) return;
 
-            // Default Top 3 Toppers
+            // Class 10 Science Subject Toppers
             const toppers = [
-                { rank: '🥇 1', name: 'Rohan Verma', score: '392 / 400 (98%)', accuracy: '98.9%', time: '34m 10s', isUser: false },
-                { rank: '🥈 2', name: 'Ananya Sharma', score: '384 / 400 (96%)', accuracy: '97.4%', time: '36m 45s', isUser: false },
-                { rank: '🥉 3', name: 'Priya Singh', score: '376 / 400 (94%)', accuracy: '95.8%', time: '39m 12s', isUser: false }
+                { rank: '🥇 1', name: 'Rohan Verma', score: '392 / 400 (98.0%)', accuracy: '98.9%', testsCount: '2 Tests' },
+                { rank: '🥈 2', name: 'Ananya Sharma', score: '384 / 400 (96.0%)', accuracy: '97.4%', testsCount: '2 Tests' },
+                { rank: '🥉 3', name: 'Priya Singh', score: '376 / 400 (94.0%)', accuracy: '95.8%', testsCount: '2 Tests' }
             ];
 
-            const userAttempt = studentCbtData.attempts['ts_c10_sci_ch1_100q'] || studentCbtData.attempts['ts_c10_sci_ch1'];
-            
+            // Calculate current student's cumulative subject performance across all attempted tests
+            const attemptsList = Object.values(studentCbtData.attempts || {});
             let userRankText = 'Rank 4';
-            let userScoreText = 'Not Attempted';
+            let userScoreText = '0 / 0 (0%)';
             let userAccText = '--';
-            let userTimeText = '--';
+            let userTestsText = '0 Tests';
 
-            if (userAttempt) {
-                userScoreText = `${userAttempt.score} / ${userAttempt.total_marks} (${userAttempt.pct}%)`;
-                userAccText = `${userAttempt.accuracy}%`;
-                userTimeText = userAttempt.timeFormatted || '41m 20s';
+            if (attemptsList.length > 0) {
+                let totalScore = 0;
+                let maxPossible = 0;
+                let totalCorrect = 0;
+                let totalAttemptedQ = 0;
+
+                attemptsList.forEach(att => {
+                    totalScore += (att.score || 0);
+                    maxPossible += (att.total_marks || 0);
+                    totalCorrect += (att.correct || 0);
+                    totalAttemptedQ += ((att.correct || 0) + (att.wrong || 0));
+                });
+
+                const pct = maxPossible > 0 ? Math.round((totalScore / maxPossible) * 100) : 0;
+                const acc = totalAttemptedQ > 0 ? Math.round((totalCorrect / totalAttemptedQ) * 100) : 0;
+
+                userScoreText = `${totalScore} / ${maxPossible} (${pct}%)`;
+                userAccText = `${acc}%`;
+                userTestsText = `${attemptsList.length} ${attemptsList.length === 1 ? 'Test' : 'Tests'}`;
             }
 
             let html = '';
@@ -330,7 +345,7 @@
                         <td><b>${t.name}</b></td>
                         <td><span style="color:var(--primary); font-weight:700;">${t.score}</span></td>
                         <td><span class="badge badge-success">${t.accuracy}</span></td>
-                        <td>${t.time}</td>
+                        <td><span class="meta-pill">${t.testsCount}</span></td>
                     </tr>
                 `;
             });
@@ -341,8 +356,8 @@
                     <td style="text-align:center; font-weight:800; color:var(--primary);">${userRankText} (You)</td>
                     <td><b>${activeStudent.name}</b></td>
                     <td><span style="color:var(--primary); font-weight:700;">${userScoreText}</span></td>
-                    <td><span class="badge ${userAttempt ? 'badge-success' : 'badge-warning'}">${userAccText}</span></td>
-                    <td>${userTimeText}</td>
+                    <td><span class="badge ${attemptsList.length > 0 ? 'badge-success' : 'badge-warning'}">${userAccText}</span></td>
+                    <td><span class="meta-pill">${userTestsText}</span></td>
                 </tr>
             `;
 
