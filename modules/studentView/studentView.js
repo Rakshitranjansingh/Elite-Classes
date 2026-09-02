@@ -66,6 +66,13 @@ async function verifyStudentLogin() {
     currentStudent = matched;
     localStorage.setItem('ec_user_role', 'student');
     localStorage.setItem('ec_student_id', matched.id);
+    localStorage.setItem('ec_student_name', matched.name);
+    localStorage.setItem('ec_active_student', JSON.stringify({
+        id: matched.id,
+        name: matched.name,
+        cls: matched.cls || matched.class || 'Class 10',
+        phone: matched.phone
+    }));
 
     if (typeof initInactivityListeners === 'function') initInactivityListeners();
     if (typeof resetInactivityTimer === 'function') resetInactivityTimer();
@@ -80,12 +87,14 @@ async function verifyStudentLogin() {
 // Logout & Return to Gateway Screen
 function logoutStudent() {
     currentStudent = null;
+    localStorage.removeItem('ec_user_role');
+    localStorage.removeItem('ec_student_id');
+    localStorage.removeItem('ec_student_name');
+    localStorage.removeItem('ec_active_student');
+    localStorage.removeItem('ec_last_activity');
     if (typeof logoutToGateway === 'function') {
         logoutToGateway('Logged out of Student Portal');
     } else {
-        localStorage.removeItem('ec_user_role');
-        localStorage.removeItem('ec_student_id');
-        localStorage.removeItem('ec_last_activity');
         window.location.href = 'index.html';
     }
 }
@@ -600,6 +609,14 @@ async function initStudentHome() {
         // Fallback to first student if demo
         currentStudent = (students && students.length > 0) ? students[0] : { id: studentId, name: studentName || 'Student', cls: 'Class 5', phone: '9876543210', fee: 1500, due: 10 };
     }
+
+    // Always keep unified session cache fresh with the logged-in student's real profile
+    localStorage.setItem('ec_active_student', JSON.stringify({
+        id: currentStudent.id,
+        name: currentStudent.name,
+        cls: currentStudent.cls || currentStudent.class || 'Class 10',
+        phone: currentStudent.phone
+    }));
 
     if (headerUserEl && currentStudent) {
         headerUserEl.textContent = currentStudent.name;

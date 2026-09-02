@@ -31,7 +31,17 @@ const CBTPlayer = {
         this.userAnswers = {};
         this.flaggedReview = {};
         this.onCompleteCallback = onComplete;
-        this.student = customStudent || JSON.parse(localStorage.getItem('ec_active_student') || '{"id":"st_101", "name":"Rakshit Singh", "cls":"Class 10"}');
+        let storedActiveStudent = null;
+        try {
+            storedActiveStudent = JSON.parse(localStorage.getItem('ec_active_student'));
+        } catch (e) {
+            storedActiveStudent = null;
+        }
+        this.student = customStudent || storedActiveStudent || {
+            id: localStorage.getItem('ec_student_id') || 'st_guest',
+            name: localStorage.getItem('ec_student_name') || 'Class 10 Student',
+            cls: 'Class 10'
+        };
 
         this.totalSecondsAllocated = (testObj.duration_mins || 45) * 60;
         this.secondsLeft = this.totalSecondsAllocated;

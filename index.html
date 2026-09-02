@@ -475,6 +475,12 @@
                     localStorage.setItem('ec_user_role', 'student');
                     localStorage.setItem('ec_student_id', authResult.user.id);
                     localStorage.setItem('ec_student_name', authResult.user.name || 'Student');
+                    localStorage.setItem('ec_active_student', JSON.stringify({
+                        id: authResult.user.id,
+                        name: authResult.user.name || 'Student',
+                        cls: authResult.user.class || authResult.user.cls || 'Class 10',
+                        phone: authResult.user.phone
+                    }));
                     localStorage.setItem('ec_last_activity', Date.now().toString());
 
                     setTimeout(() => {
