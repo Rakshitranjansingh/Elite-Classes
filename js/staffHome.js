@@ -299,49 +299,66 @@ async function openViewRemarksModal(studentId, studentName) {
 }
 
 // ---------------------------------------------------------
-// 2. MARK CLASS ATTENDANCE
+// 2. DAILY ATTENDANCE (CHIP-BASED CLASS & SUBJECT CONTROLS)
 // ---------------------------------------------------------
-let staffAttInitialized = false;
+let selectedAttendanceClass = '';
+let selectedAttendanceSubject = '';
 
 function setupStaffAttendanceControls() {
     const dateInput = document.getElementById('staff-att-date');
     if (dateInput && (!dateInput.value || dateInput.value === '')) {
-        // Today's date by default
         dateInput.value = new Date().toISOString().split('T')[0];
     }
 
-    const classSelect = document.getElementById('staff-att-class');
-    if (classSelect && (!staffAttInitialized || classSelect.options.length === 0)) {
-        const assignedClasses = currentStaffUser && currentStaffUser.classes
-            ? currentStaffUser.classes.split(',').map(c => c.trim()).filter(Boolean)
-            : [];
+    const assignedClasses = currentStaffUser && currentStaffUser.classes
+        ? currentStaffUser.classes.split(',').map(c => c.trim()).filter(Boolean)
+        : (typeof CLASS_OPTIONS !== 'undefined' ? CLASS_OPTIONS : ['Class 8', 'Class 9', 'Class 10']);
 
-        classSelect.innerHTML = `<option value="All">All My Classes</option>` +
-            assignedClasses.map(c => `<option value="${c}">${c}</option>`).join('');
+    if (!selectedAttendanceClass || (selectedAttendanceClass !== 'All' && !assignedClasses.includes(selectedAttendanceClass))) {
+        selectedAttendanceClass = assignedClasses[0] || 'All';
+    }
 
-        onStaffAttendanceClassChange();
-        staffAttInitialized = true;
+    // Render Class Chips
+    const classChipsEl = document.getElementById('staff-att-class-chips');
+    if (classChipsEl) {
+        classChipsEl.innerHTML = `<button class="btn btn-sm ${selectedAttendanceClass === 'All' ? 'btn-primary' : 'btn-outline'}" onclick="selectStaffAttendanceClass('All')">All My Classes</button>` +
+            assignedClasses.map(c => `
+                <button class="btn btn-sm ${selectedAttendanceClass === c ? 'btn-primary' : 'btn-outline'}" onclick="selectStaffAttendanceClass('${c}')">
+                    ${c}
+                </button>
+            `).join('');
+    }
+
+    // Determine subjects taught by teacher
+    const teacherSubjects = currentStaffUser && currentStaffUser.subjects
+        ? currentStaffUser.subjects.split(',').map(s => s.trim()).filter(Boolean)
+        : ['Mathematics', 'Science'];
+
+    if (!selectedAttendanceSubject || (selectedAttendanceSubject !== 'All' && !teacherSubjects.includes(selectedAttendanceSubject))) {
+        selectedAttendanceSubject = teacherSubjects[0] || 'All';
+    }
+
+    // Render Subject Chips
+    const subjectChipsEl = document.getElementById('staff-att-subject-chips');
+    if (subjectChipsEl) {
+        subjectChipsEl.innerHTML = `<button class="btn btn-sm ${selectedAttendanceSubject === 'All' ? 'btn-primary' : 'btn-outline'}" onclick="selectStaffAttendanceSubject('All')">All Subjects</button>` +
+            teacherSubjects.map(s => `
+                <button class="btn btn-sm ${selectedAttendanceSubject === s ? 'btn-primary' : 'btn-outline'}" onclick="selectStaffAttendanceSubject('${s}')">
+                    📖 ${s}
+                </button>
+            `).join('');
     }
 }
 
-function onStaffAttendanceClassChange() {
-    const classSelect = document.getElementById('staff-att-class');
-    const subjectSelect = document.getElementById('staff-att-subject');
-    if (!subjectSelect) return;
+function selectStaffAttendanceClass(cls) {
+    selectedAttendanceClass = cls;
+    setupStaffAttendanceControls();
+    renderStaffAttendanceSheet();
+}
 
-    const selectedClass = classSelect ? classSelect.value : 'All';
-    const teacherSubjects = currentStaffUser && currentStaffUser.subjects
-        ? currentStaffUser.subjects.split(',').map(s => s.trim()).filter(Boolean)
-        : [];
-
-    let subjectsToShow = teacherSubjects;
-    if (subjectsToShow.length === 0) {
-        subjectsToShow = ['Mathematics', 'Science', 'Physics', 'Chemistry', 'Biology', 'English'];
-    }
-
-    subjectSelect.innerHTML = `<option value="All">All Subjects (${selectedClass === 'All' ? 'My Classes' : selectedClass})</option>` +
-        subjectsToShow.map(s => `<option value="${s}">${s}</option>`).join('');
-
+function selectStaffAttendanceSubject(sub) {
+    selectedAttendanceSubject = sub;
+    setupStaffAttendanceControls();
     renderStaffAttendanceSheet();
 }
 
@@ -355,32 +372,26 @@ function renderStaffAttendanceSheet() {
     const dateInput = document.getElementById('staff-att-date');
     const selectedDate = (dateInput && dateInput.value) ? dateInput.value : new Date().toISOString().split('T')[0];
 
-    const classSelect = document.getElementById('staff-att-class');
-    const selectedClass = classSelect ? classSelect.value : 'All';
-
-    const subjectSelect = document.getElementById('staff-att-subject');
-    const selectedSubject = subjectSelect ? subjectSelect.value : 'All';
-
     const dayRecords = (typeof attendanceRecords !== 'undefined' && attendanceRecords[selectedDate]) ? attendanceRecords[selectedDate] : {};
 
     const filtered = (students || []).filter(s => {
-        const matchClass = selectedClass === 'All' || s.cls === selectedClass;
+        const matchClass = selectedAttendanceClass === 'All' || s.cls === selectedAttendanceClass;
         const matchAssigned = assignedClasses.length === 0 || assignedClasses.includes(s.cls) || assignedClasses.includes('All');
-        const matchSubject = selectedSubject === 'All' || !s.subjects || s.subjects.toLowerCase().includes(selectedSubject.toLowerCase());
+        const matchSubject = selectedAttendanceSubject === 'All' || !s.subjects || s.subjects.toLowerCase().includes(selectedAttendanceSubject.toLowerCase());
         return matchClass && matchAssigned && matchSubject;
     });
 
     if (filtered.length === 0) {
-        container.innerHTML = `<div style="padding:24px; text-align:center; color:var(--text-muted); background:#f8fafc; border-radius:8px;">No students found matching Class: <b>${selectedClass}</b> & Subject: <b>${selectedSubject}</b>.</div>`;
+        container.innerHTML = `<div style="padding:24px; text-align:center; color:var(--text-muted); background:#f8fafc; border-radius:8px;">No students found matching Class: <b>${selectedAttendanceClass}</b> & Subject: <b>${selectedAttendanceSubject}</b>.</div>`;
         return;
     }
 
     container.innerHTML = `
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
-            <div style="font-size:13px; font-weight:700; color:var(--text);">
-                Class Roster: <b>${selectedClass}</b> • Subject: <b>${selectedSubject}</b> (${filtered.length} Students)
+            <div style="font-size:13.5px; font-weight:700; color:var(--text);">
+                Roster: <span class="badge badge-primary">${selectedAttendanceClass}</span> <span class="badge badge-purple">${selectedAttendanceSubject}</span> • <b>${filtered.length}</b> Students
             </div>
-            <button class="btn btn-sm btn-success" onclick="markAllStaffStudentsPresent('${selectedDate}', '${selectedClass}')">
+            <button class="btn btn-sm btn-success" onclick="markAllStaffStudentsPresent('${selectedDate}', '${selectedAttendanceClass}')">
                 ✓ Mark All Present
             </button>
         </div>
