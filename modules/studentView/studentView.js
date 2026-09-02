@@ -312,63 +312,24 @@ function renderStudentCourses() {
     `;
 }
 
-// 3. Render Tests Tab (Scheduled Coaching Tests & Assessments)
+// 3. Render Tests Tab (Scheduled Coaching Tests & CBT Assessments)
 function renderStudentTests() {
+    if (typeof renderStudentTestSeries === 'function') {
+        renderStudentTestSeries();
+        return;
+    }
+
     const container = document.getElementById('st-tests-container');
     if (!container || !currentStudent) return;
 
-    const enrolledSubs = currentStudent.subjects ? currentStudent.subjects.split(',').map(s => s.trim()) : ['Mathematics', 'Science'];
-
-    const mockTests = [
-        { title: `${currentStudent.cls} Mathematics Weekly Assessment`, subject: 'Mathematics', date: '2026-09-06', maxMarks: 50, status: 'Upcoming' },
-        { title: `${currentStudent.cls} Science Chapter-Wise Evaluation`, subject: 'Science', date: '2026-09-08', maxMarks: 50, status: 'Upcoming' },
-        { title: `Monthly Talent Hunt Olympiad Test`, subject: enrolledSubs[0] || 'General Aptitude', date: '2026-09-15', maxMarks: 100, status: 'Upcoming' }
-    ];
-
-    let rowsHtml = '';
-    mockTests.forEach(t => {
-        rowsHtml += `
-            <tr>
-                <td><b>${t.title}</b></td>
-                <td><span class="badge badge-primary">${t.subject}</span></td>
-                <td>${t.date}</td>
-                <td><b>${t.maxMarks} Marks</b></td>
-                <td><span class="badge badge-success">${t.status}</span></td>
-            </tr>
+    if (currentStudent.cls === 'Class 10') {
+        container.innerHTML = `
+            <div style="width:100%; border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+                <iframe src="modules/testseries/data/class10/testseries_class_10.html" style="width:100%; height:820px; border:none; display:block;"></iframe>
+            </div>
         `;
-    });
-
-    container.innerHTML = `
-        <div class="card">
-            <div class="card-header">
-                <span class="card-title">📝 Scheduled Tests & Assessments (${currentStudent.cls})</span>
-                <span class="badge badge-info">${mockTests.length} Tests Scheduled</span>
-            </div>
-            <div class="card-body">
-                <div style="overflow-x:auto;">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Test Title</th>
-                                <th>Subject</th>
-                                <th>Test Date</th>
-                                <th>Total Marks</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${rowsHtml}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    `;
+    }
 }
-
-
-
-// Render Student Personal Attendance Record
 function renderStudentAttendance() {
     const container = document.getElementById('st-attendance-summary-container');
     if (!container || !currentStudent) return;

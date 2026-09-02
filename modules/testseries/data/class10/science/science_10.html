@@ -238,10 +238,8 @@
     <!-- APP TOAST -->
     <div class="toast" id="app-toast">
         <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-width="2.5"/></svg>
-        <span id="toast-msg"></span>
-    </div>
-
-    <!-- SCRIPTS -->
+        <span id    <!-- SCRIPTS -->
+    <script src="../../cbtPlayer.js"></script>
     <script src="chapter1_chemical_reactions.js"></script>
 
     <script>
@@ -345,7 +343,7 @@
                     badge.className = 'badge badge-warning';
                     badge.textContent = 'Not Enrolled';
                     actionWrap.innerHTML = `
-                        <button class="btn btn-outline btn-sm" onclick="enrollInTest('${testId}')" style="width:100%; font-weight:700; padding:7px;">
+                        <button class="btn btn-outline btn-sm" onclick="enrollInTest('${testId}')" style="width:100%; font-weight:700; padding:8px;">
                             📝 Enroll in Test
                         </button>
                     `;
@@ -353,7 +351,7 @@
                     badge.className = 'badge badge-success';
                     badge.textContent = 'Enrolled • Ready';
                     actionWrap.innerHTML = `
-                        <button class="btn btn-primary btn-sm" onclick="startTest('${testId}')" style="width:100%; font-weight:700; padding:7px;">
+                        <button class="btn btn-primary btn-sm" onclick="startTest('${testId}')" style="width:100%; font-weight:700; padding:8px;">
                             ✏️ Start Test
                         </button>
                     `;
@@ -362,7 +360,7 @@
                     badge.textContent = `Score: ${attempt.score}/${attempt.total_marks} (${attempt.pct}%)`;
                     actionWrap.innerHTML = `
                         <div style="display:flex; gap:8px;">
-                            <button class="btn btn-primary btn-sm" onclick="startTest('${testId}')" style="flex:1; font-weight:700; padding:7px;">
+                            <button class="btn btn-primary btn-sm" onclick="startTest('${testId}')" style="flex:1; font-weight:700; padding:8px;">
                                 🔄 Retake Test
                             </button>
                         </div>
@@ -379,134 +377,15 @@
             renderTestCards();
         }
 
-        // CBT Player Engine State
-        let currentTest = null;
-        let currentQIdx = 0;
-        let userAnswers = {};
-        let timerInterval = null;
-        let secondsLeft = 0;
-
+        // Launch CBT Player
         function startTest(testId) {
-            currentTest = testsMap[testId];
-            if (!currentTest) return;
+            const test = testsMap[testId];
+            if (!test) return;
 
-            currentQIdx = 0;
-            userAnswers = {};
-            secondsLeft = currentTest.duration_mins * 60;
-
-            document.getElementById('cbt-active-title').textContent = currentTest.title;
-            document.getElementById('cbtTestPlayerModal').style.display = 'flex';
-
-            renderQuestion();
-            startTimer();
-        }
-
-        function renderQuestion() {
-            if (!currentTest) return;
-            const q = currentTest.questions[currentQIdx];
-            document.getElementById('cbt-active-meta').textContent = `Question ${currentQIdx + 1} of ${currentTest.questions.length} • +4.00 Marks • -1.00 Penalty`;
-            document.getElementById('cbt-q-text').textContent = `Q${currentQIdx + 1}. ${q.question_text}`;
-
-            const wrap = document.getElementById('cbt-options-wrap');
-            const opts = [
-                { key: 'A', text: q.option_a },
-                { key: 'B', text: q.option_b },
-                { key: 'C', text: q.option_c },
-                { key: 'D', text: q.option_d }
-            ].filter(o => o.text);
-
-            let html = '';
-            opts.forEach(opt => {
-                const isSelected = userAnswers[currentQIdx] === opt.key;
-                html += `
-                    <div class="cbt-option-item ${isSelected ? 'selected' : ''}" onclick="selectOption('${opt.key}')">
-                        <b>(${opt.key})</b>
-                        <span>${opt.text}</span>
-                    </div>
-                `;
+            CBTPlayer.launch(test, activeStudent, (result) => {
+                studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
+                initPage();
             });
-            wrap.innerHTML = html;
-
-            document.getElementById('cbt-btn-prev').disabled = currentQIdx === 0;
-            document.getElementById('cbt-btn-next').style.display = currentQIdx === currentTest.questions.length - 1 ? 'none' : 'inline-block';
-        }
-
-        function selectOption(key) {
-            userAnswers[currentQIdx] = key;
-            renderQuestion();
-        }
-
-        function navQ(delta) {
-            const nextIdx = currentQIdx + delta;
-            if (nextIdx >= 0 && nextIdx < currentTest.questions.length) {
-                currentQIdx = nextIdx;
-                renderQuestion();
-            }
-        }
-
-        function startTimer() {
-            if (timerInterval) clearInterval(timerInterval);
-            const timerEl = document.getElementById('cbt-timer');
-
-            timerInterval = setInterval(() => {
-                if (secondsLeft <= 0) {
-                    clearInterval(timerInterval);
-                    finishAndSubmitTest();
-                    return;
-                }
-                secondsLeft--;
-                const mins = Math.floor(secondsLeft / 60);
-                const secs = secondsLeft % 60;
-                timerEl.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-            }, 1000);
-        }
-
-        function finishAndSubmitTest() {
-            if (timerInterval) clearInterval(timerInterval);
-
-            // Calculate Score
-            let correct = 0;
-            let wrong = 0;
-            let unattempted = 0;
-
-            currentTest.questions.forEach((q, idx) => {
-                const ans = userAnswers[idx];
-                if (!ans) {
-                    unattempted++;
-                } else if (ans === q.correct_option) {
-                    correct++;
-                } else {
-                    wrong++;
-                }
-            });
-
-            const score = Math.max(0, (correct * 4) - (wrong * 1));
-            const total = currentTest.questions.length * 4;
-            const pct = Math.round((score / total) * 100);
-            const accuracy = (correct + wrong) > 0 ? Math.round((correct / (correct + wrong)) * 100) : 0;
-
-            // Save Attempt
-            studentCbtData.attempts[currentTest.id] = {
-                score: score,
-                total_marks: total,
-                pct: pct,
-                accuracy: accuracy,
-                correct: correct,
-                wrong: wrong,
-                unattempted: unattempted,
-                submitted_at: new Date().toISOString()
-            };
-
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
-            closeCbtPlayerModal();
-
-            showToast(`Test Submitted! Score: ${score}/${total} (${pct}%) • Accuracy: ${accuracy}%`, 'success');
-            initPage();
-        }
-
-        function closeCbtPlayerModal() {
-            if (timerInterval) clearInterval(timerInterval);
-            document.getElementById('cbtTestPlayerModal').style.display = 'none';
         }
 
         function showToast(msg, type = 'success') {
