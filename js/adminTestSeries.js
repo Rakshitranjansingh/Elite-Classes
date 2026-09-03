@@ -50,7 +50,7 @@ async function renderAdminTestSeriesView() {
             title: meta.title,
             cls: 'Class 10',
             subject: 'Science',
-            duration_mins: 120,
+            duration_mins: 90,
             total_marks: 400,
             questions_count: 100,
             status: 'published'
@@ -74,7 +74,7 @@ async function renderAdminTestSeriesView() {
                     <span class="meta-pill" style="font-size:11px;">Science</span>
                 </td>
                 <td>
-                    <div style="font-size:12px; font-weight:600; color:var(--text);">100 Qs • 120 Mins</div>
+                    <div style="font-size:12px; font-weight:600; color:var(--text);">100 Qs • 90 Mins</div>
                     <div style="font-size:11px; color:var(--text-muted);">400 Marks (+4 / -1)</div>
                 </td>
                 <td style="text-align:center;">
@@ -133,7 +133,7 @@ async function adminToggleTestStatus(testId, targetStatus) {
             title: meta ? meta.title : testId,
             cls: 'Class 10',
             subject: 'Science',
-            duration_mins: 120,
+            duration_mins: 90,
             total_marks: 400,
             passing_marks: 160,
             negative_marking: 1.00,
@@ -177,7 +177,7 @@ async function adminBulkToggleTests(targetStatus) {
                 title: meta.title,
                 cls: 'Class 10',
                 subject: 'Science',
-                duration_mins: 120,
+                duration_mins: 90,
                 total_marks: 400,
                 passing_marks: 160,
                 negative_marking: 1.00,

@@ -12,7 +12,7 @@ const Class10ScienceChapter1FullBank = {
     title: 'Chapter 1: Chemical Reactions Assessment',
     cls: 'Class 10',
     subject: 'Science',
-    duration_mins: 120,
+    duration_mins: 90,
     total_marks: 400,
     passing_marks: 160,
     negative_marking: 1.00,

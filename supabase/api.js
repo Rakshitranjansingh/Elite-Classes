@@ -843,7 +843,7 @@ const DBService = {
                 title: submission.test_title || submission.title || (submission.test_id.replace('ts_c10_sci_ch', 'Chapter ') + ' Assessment'),
                 cls: submission.cls || 'Class 10',
                 subject: submission.subject || 'Science',
-                duration_mins: Math.round((submission.time_taken_seconds || 7200) / 60) || 120,
+                duration_mins: Math.round((submission.time_taken_seconds || 5400) / 60) || 90,
                 total_marks: submission.total_marks || 400,
                 passing_marks: 160,
                 negative_marking: 1.00,

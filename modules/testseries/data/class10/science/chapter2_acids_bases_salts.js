@@ -9,7 +9,7 @@ const Class10ScienceChapter2FullBank = {
     title: 'Chapter 2: Acids, Bases & Salts Assessment',
     subject: 'Science',
     cls: 'Class 10',
-    duration_mins: 120,
+    duration_mins: 90,
     total_marks: 400,
     marks_per_question: 4,
     negative_mark: 1,

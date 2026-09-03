@@ -67,7 +67,7 @@ const CBTPlayer = {
             cls: 'Class 10'
         };
 
-        this.totalSecondsAllocated = (testObj.duration_mins || 120) * 60;
+        this.totalSecondsAllocated = (testObj.duration_mins || 90) * 60;
         this.secondsLeft = this.totalSecondsAllocated;
 
         this.ensureModalElements();

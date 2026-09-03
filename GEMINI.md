@@ -110,7 +110,7 @@ The application follows a clean 4-tier client-serverless architecture:
    - 🔴 **10 Very Very Hard Questions**: Deep multi-concept synthesis, Olympiad/Exemplar-level deductions, numerical/redox/stoichiometric analysis.
 3. **Assessment Structure & Schema**:
    - Single consolidated master assessment per chapter.
-   - Configuration parameters: `100 Questions`, `120 Mins`, `400 Marks` (`marks_per_question: 4`, `negative_mark: 1`).
+   - Configuration parameters: `100 Questions`, `90 Mins`, `400 Marks` (`marks_per_question: 4`, `negative_mark: 1`).
 4. **Scientific & Chemical Equations**: Always format chemical equations and formulas using proper Unicode subscripts (`₀₁₂₃₄₅₆₇₈₉`), superscripts (`⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻`), and reaction symbols (`→`, `⇌`, `↑` for gas, `↓` for precipitate). Never use raw plain numbers as chemical subscripts (e.g. use `H₂O`, `Fe₃O₄`, `Ca(OH)₂`, `Pb(NO₃)₂`, `SO₄²⁻`, not `H2O`, `Fe3O4`).
 5. **Mathematical Expressions**: Use standard typographic symbols (`×`, `÷`, `±`, `√`, `π`, `θ`, `x²`, `y³`, `≤`, `≥`, `≠`) to ensure crystal-clear student readability across all devices.
 

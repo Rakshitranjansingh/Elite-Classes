@@ -10,7 +10,7 @@ const Class10ScienceChapter9FullBank = {
     title: 'Chapter 9: Light – Reflection and Refraction Assessment',
     subject: 'Science',
     cls: 'Class 10',
-    duration_mins: 120,
+    duration_mins: 90,
     total_marks: 400,
     marks_per_question: 4,
     negative_mark: 1,
