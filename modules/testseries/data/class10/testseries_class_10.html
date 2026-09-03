@@ -276,6 +276,11 @@
         <span id="toast-msg"></span>
     </div>
 
+    <!-- SUPABASE SDK & UNIFIED DB SERVICE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../supabase/config.js"></script>
+    <script src="../../../../supabase/api.js"></script>
+
     <script>
         // Active student identity from unified session
         let storedActiveStudent = null;
@@ -295,6 +300,40 @@
         // Load CBT attempts across all subjects for active student
         const STORAGE_KEY = `ec_cbt_enrollment_${activeStudent.id}`;
         let studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
+
+        async function syncCloudData() {
+            if (typeof supabaseClient === 'undefined' || !supabaseClient || typeof isSupabaseConnected !== 'function' || !isSupabaseConnected()) return;
+            try {
+                const { data, error } = await supabaseClient.from('test_submissions').select('*').eq('student_id', activeStudent.id);
+                if (!error && data && data.length > 0) {
+                    let updated = false;
+                    data.forEach(sub => {
+                        studentCbtData.enrolled[sub.test_id] = true;
+                        if (!studentCbtData.attempts[sub.test_id] || (sub.score > (studentCbtData.attempts[sub.test_id].score || 0))) {
+                            studentCbtData.attempts[sub.test_id] = {
+                                score: parseFloat(sub.score || 0),
+                                total_marks: parseFloat(sub.total_marks || 400),
+                                pct: parseFloat(sub.percentage || 0),
+                                accuracy: parseFloat(sub.accuracy_pct || 0),
+                                correct: parseInt(sub.correct_count || 0),
+                                wrong: parseInt(sub.incorrect_count || 0),
+                                unattempted: parseInt(sub.unattempted_count || 0),
+                                userAnswers: sub.answers_json || {},
+                                timeFormatted: `${Math.floor((sub.time_taken_seconds || 0) / 60)}m ${(sub.time_taken_seconds || 0) % 60}s`,
+                                submitted_at: sub.submitted_at
+                            };
+                            updated = true;
+                        }
+                    });
+                    if (updated) {
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
+                        initOverallLeaderboard();
+                    }
+                }
+            } catch (err) {
+                console.warn('[Class10Hub] Cloud sync error:', err);
+            }
+        }
 
         function initOverallLeaderboard() {
             const tbody = document.getElementById('class10-overall-leaderboard-tbody');
@@ -396,6 +435,7 @@
         }
 
         initOverallLeaderboard();
+        syncCloudData();
     </script>
 </body>
 

@@ -837,6 +837,20 @@ const DBService = {
 
         if (!isSupabaseConnected()) return submission;
         try {
+            // Ensure parent test series record exists in Supabase to satisfy foreign key constraint
+            await supabaseClient.from('test_series').upsert({
+                id: submission.test_id,
+                title: submission.test_title || submission.title || (submission.test_id.replace('ts_c10_sci_ch', 'Chapter ') + ' Assessment'),
+                cls: submission.cls || 'Class 10',
+                subject: submission.subject || 'Science',
+                duration_mins: Math.round((submission.time_taken_seconds || 7200) / 60) || 120,
+                total_marks: submission.total_marks || 400,
+                passing_marks: 160,
+                negative_marking: 1.00,
+                questions_count: 100,
+                status: 'published'
+            }, { onConflict: 'id', ignoreDuplicates: true });
+
             await supabaseClient.from('test_submissions').upsert(submission);
             return submission;
         } catch (e) {

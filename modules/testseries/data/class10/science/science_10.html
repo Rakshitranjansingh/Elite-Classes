@@ -515,6 +515,11 @@
         <span id="toast-msg"></span>
     </div>
 
+    <!-- SUPABASE SDK & UNIFIED DB SERVICE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../../supabase/config.js"></script>
+    <script src="../../../../../supabase/api.js"></script>
+
     <!-- SCRIPTS -->
     <script src="../../../cbtPlayer.js"></script>
     <script src="chapter1_chemical_reactions.js"></script>
@@ -568,10 +573,86 @@
             'ts_c10_sci_ch13': Class10ScienceChapter13FullBank
         };
 
-        // Initialize UI State
-        function initPage() {
+        // Initialize UI State & Sync with Cloud
+        async function initPage() {
             renderLeaderboard();
             renderTestCards();
+            await syncTestSeriesCatalog();
+            await syncCloudSubmissions();
+        }
+
+        // Sync local 13 tests to database test_series table & localStorage ec_test_series
+        async function syncTestSeriesCatalog() {
+            try {
+                let localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+                const localMap = {};
+                localTests.forEach(t => { localMap[t.id] = true; });
+
+                const toSync = [];
+                Object.keys(testsMap).forEach(id => {
+                    const t = testsMap[id];
+                    const item = {
+                        id: t.id,
+                        title: t.title,
+                        cls: t.cls || 'Class 10',
+                        subject: t.subject || 'Science',
+                        duration_mins: t.duration_mins || 120,
+                        total_marks: t.total_marks || 400,
+                        passing_marks: 160,
+                        negative_marking: 1.00,
+                        questions_count: (t.questions || []).length || 100,
+                        status: 'published'
+                    };
+                    if (!localMap[id]) {
+                        localTests.push(item);
+                    }
+                    toSync.push(item);
+                });
+
+                localStorage.setItem('ec_test_series', JSON.stringify(localTests));
+
+                if (typeof supabaseClient !== 'undefined' && supabaseClient && typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
+                    await supabaseClient.from('test_series').upsert(toSync, { onConflict: 'id', ignoreDuplicates: true });
+                }
+            } catch (err) {
+                console.warn('[Science10] Test catalog sync warning:', err);
+            }
+        }
+
+        // Sync test submissions from Supabase if connected
+        async function syncCloudSubmissions() {
+            if (typeof supabaseClient === 'undefined' || !supabaseClient || typeof isSupabaseConnected !== 'function' || !isSupabaseConnected()) return;
+            try {
+                const { data, error } = await supabaseClient.from('test_submissions').select('*').eq('student_id', activeStudent.id);
+                if (!error && data && data.length > 0) {
+                    let updated = false;
+                    data.forEach(sub => {
+                        studentCbtData.enrolled[sub.test_id] = true;
+                        if (!studentCbtData.attempts[sub.test_id] || (sub.score > (studentCbtData.attempts[sub.test_id].score || 0))) {
+                            studentCbtData.attempts[sub.test_id] = {
+                                score: parseFloat(sub.score || 0),
+                                total_marks: parseFloat(sub.total_marks || 400),
+                                pct: parseFloat(sub.percentage || 0),
+                                accuracy: parseFloat(sub.accuracy_pct || 0),
+                                correct: parseInt(sub.correct_count || 0),
+                                wrong: parseInt(sub.incorrect_count || 0),
+                                unattempted: parseInt(sub.unattempted_count || 0),
+                                userAnswers: sub.answers_json || {},
+                                timeFormatted: `${Math.floor((sub.time_taken_seconds || 0) / 60)}m ${(sub.time_taken_seconds || 0) % 60}s`,
+                                submitted_at: sub.submitted_at
+                            };
+                            updated = true;
+                        }
+                    });
+                    if (updated) {
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
+                        renderLeaderboard();
+                        renderTestCards();
+                    }
+                }
+            } catch (err) {
+                console.warn('[Science10] Cloud submissions sync warning:', err);
+            }
         }
 
         // Render Compact Subject Leaderboard (Top 1, 2, 3 + Current Student)
