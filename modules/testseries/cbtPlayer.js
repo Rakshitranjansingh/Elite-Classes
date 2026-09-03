@@ -200,25 +200,27 @@ const CBTPlayer = {
                         </div>
                     </div>
 
-                    <!-- BOTTOM CONTROLS -->
-                    <div style="padding-top:16px; border-top:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-top:20px;">
-                        <div style="display:flex; gap:8px;">
-                            <button id="cbt-btn-prev" onclick="CBTPlayer.navigate(-1)" style="background:#ffffff; border:1px solid #cbd5e1; padding:7px 16px; border-radius:8px; font-size:12.5px; font-weight:700; cursor:pointer;">
-                                ← Previous
-                            </button>
-                            <button onclick="CBTPlayer.clearSelection()" style="background:#ffffff; border:1px solid #cbd5e1; color:#64748b; padding:7px 14px; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer;">
-                                🧹 Clear Response
-                            </button>
-                        </div>
+                    <!-- BOTTOM CONTROLS (SINGLE RESPONSIVE LINE) -->
+                    <div style="padding-top:14px; border-top:1px solid #e2e8f0; display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:16px; flex-wrap:nowrap; width:100%;">
+                        <!-- PREVIOUS BUTTON -->
+                        <button id="cbt-btn-prev" onclick="CBTPlayer.navigate(-1)" title="Previous Question" style="min-width:44px; height:38px; padding:0 12px; border-radius:8px; background:#ffffff; border:1.5px solid #cbd5e1; color:#0f172a; font-size:16px; font-weight:800; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;">
+                            ←
+                        </button>
 
-                        <div style="display:flex; gap:8px;">
-                            <button onclick="CBTPlayer.toggleReviewFlag()" style="background:#f5f3ff; border:1px solid #8b5cf6; color:#8b5cf6; padding:7px 14px; border-radius:8px; font-size:12.5px; font-weight:700; cursor:pointer;">
-                                🔖 Mark for Review & Next
-                            </button>
-                            <button id="cbt-btn-next" onclick="CBTPlayer.navigate(1)" style="background:#2563eb; color:#ffffff; border:none; padding:7px 20px; border-radius:8px; font-size:12.5px; font-weight:700; cursor:pointer;">
-                                Save & Next →
-                            </button>
-                        </div>
+                        <!-- CLEAR RESPONSE BUTTON -->
+                        <button onclick="CBTPlayer.clearSelection()" title="Clear Response" style="flex:1; height:38px; padding:0 8px; border-radius:8px; background:#ffffff; border:1px solid #cbd5e1; color:#64748b; font-size:12px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:4px; white-space:nowrap;">
+                            <span>🧹</span><span>Clear</span>
+                        </button>
+
+                        <!-- MARK FOR REVIEW BUTTON -->
+                        <button id="cbt-btn-review" onclick="CBTPlayer.toggleReviewFlag()" title="Mark for Review & Next" style="flex:1.2; height:38px; padding:0 8px; border-radius:8px; background:#f5f3ff; border:1.5px solid #8b5cf6; color:#7c3aed; font-size:12px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:4px; white-space:nowrap;">
+                            <span>🔖</span><span>Review</span>
+                        </button>
+
+                        <!-- SAVE & NEXT BUTTON -->
+                        <button id="cbt-btn-next" onclick="CBTPlayer.navigate(1)" title="Save & Next" style="min-width:48px; height:38px; padding:0 14px; border-radius:8px; background:#2563eb; color:#ffffff; border:none; font-size:16px; font-weight:800; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 2px 6px rgba(37,99,235,0.35);">
+                            →
+                        </button>
                     </div>
                 </main>
 
@@ -314,8 +316,26 @@ const CBTPlayer = {
         });
         wrap.innerHTML = html;
 
-        document.getElementById('cbt-btn-prev').disabled = this.currentQIdx === 0;
-        document.getElementById('cbt-btn-next').textContent = (this.currentQIdx === this.activeTest.questions.length - 1) ? 'Save & Review Palette' : 'Save & Next →';
+        const prevBtn = document.getElementById('cbt-btn-prev');
+        if (prevBtn) {
+            prevBtn.disabled = this.currentQIdx === 0;
+            prevBtn.style.opacity = this.currentQIdx === 0 ? '0.35' : '1';
+            prevBtn.style.cursor = this.currentQIdx === 0 ? 'not-allowed' : 'pointer';
+        }
+
+        const isLastQ = this.currentQIdx === this.activeTest.questions.length - 1;
+        const nextBtn = document.getElementById('cbt-btn-next');
+        if (nextBtn) {
+            nextBtn.textContent = isLastQ ? '✓' : '→';
+            nextBtn.title = isLastQ ? 'Last Question (Review Palette)' : 'Save & Next Question';
+        }
+
+        const revBtn = document.getElementById('cbt-btn-review');
+        if (revBtn) {
+            revBtn.style.background = isFlagged ? '#ede9fe' : '#f5f3ff';
+            revBtn.style.borderColor = isFlagged ? '#6d28d9' : '#8b5cf6';
+            revBtn.style.color = isFlagged ? '#5b21b6' : '#7c3aed';
+        }
 
         this.renderPalette();
     },
