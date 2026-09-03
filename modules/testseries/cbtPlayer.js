@@ -122,29 +122,36 @@ const CBTPlayer = {
                 }
             </style>
 
-            <!-- TOP STICKY CBT HEADER -->
-            <header style="background:#0b1329; color:#ffffff; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); flex-shrink:0;">
-                <div style="display:flex; align-items:center; gap:12px;">
-                    <div style="width:32px; height:32px; border-radius:50%; background:#2563eb; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:12px; color:#fff;">EC</div>
-                    <div>
-                        <div style="font-size:13.5px; font-weight:800; color:#ffffff;" id="cbt-header-title">Assessment</div>
-                        <div style="font-size:11px; color:#94a3b8;" id="cbt-header-subtitle">Class 10 Science</div>
+            <!-- DUAL-LAYER RESPONSIVE CBT HEADER -->
+            <header style="flex-shrink:0; width:100%; box-shadow:0 2px 8px rgba(0,0,0,0.18);">
+                <!-- LAYER 1: TEST NAME (LEFT) & CANDIDATE NAME (RIGHT) -->
+                <div style="background:#070d1e; color:#ffffff; padding:8px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.08); gap:10px;">
+                    <div style="display:flex; align-items:center; gap:10px; min-width:0; flex:1;">
+                        <div style="width:28px; height:28px; border-radius:50%; background:#2563eb; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:11px; color:#fff; flex-shrink:0;">EC</div>
+                        <div style="min-width:0; overflow:hidden;">
+                            <div style="font-size:13px; font-weight:800; color:#ffffff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" id="cbt-header-title">Assessment</div>
+                            <div style="font-size:10.5px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" id="cbt-header-subtitle">Class 10 Science</div>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; align-items:center; gap:6px; flex-shrink:0; background:rgba(255,255,255,0.08); padding:4px 10px; border-radius:20px; border:1px solid rgba(255,255,255,0.12);">
+                        <span style="font-size:12px;">👤</span>
+                        <span style="font-size:11.5px; color:#f1f5f9; font-weight:700; max-width:140px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" id="cbt-header-student-name">Student</span>
                     </div>
                 </div>
 
-                <div style="display:flex; align-items:center; gap:14px;">
+                <!-- LAYER 2: TIMER (LEFT) & FINISH & SUBMIT (RIGHT) -->
+                <div style="background:#0b1329; color:#ffffff; padding:6px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.12); gap:10px;">
                     <!-- TIMER -->
-                    <div style="background:rgba(239, 68, 68, 0.18); border:1px solid rgba(239, 68, 68, 0.4); padding:4px 14px; border-radius:20px; display:flex; align-items:center; gap:6px;">
-                        <span style="font-size:11.5px; color:#fca5a5; font-weight:700;">⏱️ TIME LEFT:</span>
-                        <span id="cbt-header-timer" style="font-size:15px; font-weight:800; font-family:'Courier New', monospace; color:#fef2f2; letter-spacing:1px;">00:00:00</span>
+                    <div style="background:rgba(239, 68, 68, 0.18); border:1px solid rgba(239, 68, 68, 0.4); padding:4px 12px; border-radius:16px; display:flex; align-items:center; gap:6px; flex-shrink:0;">
+                        <span style="font-size:11px; color:#fca5a5; font-weight:800; letter-spacing:0.5px;">⏱️ TIME LEFT:</span>
+                        <span id="cbt-header-timer" style="font-size:14px; font-weight:800; font-family:'Courier New', monospace; color:#fef2f2; letter-spacing:1px;">00:00:00</span>
                     </div>
 
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <span style="font-size:12px; color:#e2e8f0; font-weight:600;" id="cbt-header-student-name">Student</span>
-                        <button onclick="CBTPlayer.confirmSubmit()" style="background:#ef4444; color:#ffffff; border:none; padding:6px 14px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer;">
-                            ✓ Finish & Submit
-                        </button>
-                    </div>
+                    <!-- FINISH & SUBMIT -->
+                    <button onclick="CBTPlayer.confirmSubmit()" style="background:#ef4444; color:#ffffff; border:none; padding:6px 14px; border-radius:8px; font-weight:800; font-size:12px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; box-shadow:0 2px 4px rgba(239,68,68,0.3); flex-shrink:0;">
+                        <span>✓ Finish & Submit</span>
+                    </button>
                 </div>
             </header>
 
