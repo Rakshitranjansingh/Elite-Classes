@@ -160,12 +160,26 @@
                         <div class="stat-value">Analytics</div>
                     </div>
                 </div>
+
+                <!-- PALLET 8: TEST SERIES & CBT SWITCHBOARD -->
+                <div class="stat-pallet info" onclick="navigateToView('testseries');" style="cursor:pointer;">
+                    <div class="stat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-title">Test Series & CBT</div>
+                        <div class="stat-value" id="dash-stat-testseries">13 Active</div>
+                    </div>
+                </div>
             </div>
 
             <!-- QUICK ACTIONS BAR -->
             <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;">
                 <button class="btn btn-primary" onclick="openAddStudentModal()">+ Add New Student</button>
                 <button class="btn btn-outline" onclick="openCollectFeeModal()">+ Record Fee Payment</button>
+                <button class="btn btn-outline" onclick="navigateToView('testseries')">⚡ Test Series Control</button>
                 <button class="btn btn-outline" onclick="navigateToView('marks')">📝 Exam Marks & Results</button>
                 <button class="btn btn-outline" onclick="navigateToView('analytics')">📊 Student 360° Analytics</button>
                 <button class="btn btn-outline" onclick="openModal('postNoticeModal')">📢 Post Announcement</button>
@@ -525,6 +539,63 @@
 
             <!-- 360° ANALYTICS CONTENT CONTAINER -->
             <div id="student-analytics-container"></div>
+        </section>
+
+
+        <!-- 8. TEST SERIES & CBT SWITCHBOARD VIEW -->
+        <section class="page-view" id="view-testseries">
+            <div class="page-header">
+                <div class="page-title-group">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <button class="btn btn-sm btn-outline" onclick="navigateToView('dashboard')">← Dashboard</button>
+                        <h1 style="margin:0;">⚡ Test Series Control & CBT Switchboard</h1>
+                    </div>
+                </div>
+                <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                    <button class="btn btn-outline btn-sm" onclick="adminBulkToggleTests('published')" style="border-color:#10b981; color:#059669; font-weight:700;">
+                        🟢 Activate All (13)
+                    </button>
+                    <button class="btn btn-outline btn-sm" onclick="adminBulkToggleTests('inactive')" style="border-color:#ef4444; color:#dc2626; font-weight:700;">
+                        🔴 Deactivate All (13)
+                    </button>
+                </div>
+            </div>
+
+            <!-- SUB-HEADER SUMMARY CARD -->
+            <div class="card" style="margin-bottom:16px;">
+                <div style="padding:14px 20px; background:#f8fafc; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <span class="badge badge-primary" style="font-size:12px;">Class 10 Science</span>
+                        <span style="font-size:13px; color:var(--text-muted); font-weight:600;">
+                            13 Chapters • 1,300 NCERT Questions • Master Assessment Bank
+                        </span>
+                    </div>
+                    <div id="admin-testseries-summary-pill" style="display:flex; gap:8px;">
+                        <!-- Dynamic status pills -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TESTS TABLE / SWITCHBOARD -->
+            <div class="card">
+                <div class="table-wrap">
+                    <table class="compact-table">
+                        <thead>
+                            <tr>
+                                <th style="width:70px; text-align:center;">Ch #</th>
+                                <th>Assessment Title</th>
+                                <th>Class & Subject</th>
+                                <th>Questions & Duration</th>
+                                <th style="text-align:center;">Current Status</th>
+                                <th style="text-align:center; width:160px;">One-Click Toggle</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-testseries-tbody">
+                            <!-- Injected dynamically by adminTestSeries.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </section>
 
     </main>
@@ -1020,6 +1091,7 @@
     <script src="js/attendance.js"></script>
     <script src="js/adminMarks.js"></script>
     <script src="js/studentAnalytics.js"></script>
+    <script src="js/adminTestSeries.js"></script>
 
     <!-- MODULE SCRIPTS -->
     <script src="modules/notices/notices.js"></script>

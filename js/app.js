@@ -40,6 +40,9 @@ function navigateToView(viewName) {
         if (typeof setupStudentAnalyticsControls === 'function') setupStudentAnalyticsControls();
         if (typeof renderStudentAnalyticsDashboard === 'function') renderStudentAnalyticsDashboard();
     }
+    if (viewName === 'testseries') {
+        if (typeof renderAdminTestSeriesView === 'function') renderAdminTestSeriesView();
+    }
 }
 
 // Profile Type Switcher (Students / Teachers / Staff / Admins)
@@ -158,10 +161,15 @@ function renderDashboard() {
     const curSalaries = salaryPayouts.filter(s => isCurrentMonth(s.month));
     const salaryPaid = curSalaries.reduce((a, s) => a + s.amount, 0);
     const netRevenue = feeCollected - salaryPaid;
-    const financesEl = document.getElementById('dash-stat-finances');
-    if (financesEl) financesEl.textContent = '₹' + feeCollected.toLocaleString() + ' Collected';
+    // 5. Test Series Stat
+    const testseriesEl = document.getElementById('dash-stat-testseries');
+    if (testseriesEl) {
+        const localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+        const activeCount = localTests.filter(t => t.status === 'published' || t.status === 'active').length || 13;
+        testseriesEl.textContent = `${activeCount} Active`;
+    }
 
-    // 5. Attendance Stat
+    // 6. Attendance Stat
     updateSubHeaderDate();
 }
 

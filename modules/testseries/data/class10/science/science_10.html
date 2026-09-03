@@ -748,6 +748,10 @@
 
         // Render Test Cards (Enrollment / Start / Retake + Latest Score)
         function renderTestCards() {
+            const localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+            const testStatusMap = {};
+            localTests.forEach(t => { testStatusMap[t.id] = t.status; });
+
             Object.keys(testsMap).forEach(testId => {
                 const isEnrolled = !!studentCbtData.enrolled[testId];
                 const attempt = studentCbtData.attempts[testId];
@@ -756,7 +760,31 @@
 
                 if (!badge || !actionWrap) return;
 
-                if (!isEnrolled) {
+                const status = testStatusMap[testId] || 'published';
+                const isInactive = status === 'inactive' || status === 'disabled' || status === 'draft';
+
+                if (isInactive) {
+                    badge.className = 'badge badge-danger';
+                    badge.textContent = '🔒 Inactive / Closed';
+                    if (attempt) {
+                        actionWrap.innerHTML = `
+                            <div style="display:flex; gap:8px;">
+                                <button class="btn btn-outline btn-sm" onclick="reviewTest('${testId}')" style="flex:1; font-weight:700; padding:8px; border-color:var(--primary); color:var(--primary); background:transparent;">
+                                    🔍 Review Test
+                                </button>
+                                <button class="btn btn-outline btn-sm" disabled style="flex:1; font-weight:700; padding:8px; opacity:0.6; cursor:not-allowed; background:#f1f5f9; color:#94a3b8;">
+                                    🔒 Retake Locked
+                                </button>
+                            </div>
+                        `;
+                    } else {
+                        actionWrap.innerHTML = `
+                            <button class="btn btn-outline btn-sm" disabled style="width:100%; font-weight:700; padding:8px; opacity:0.6; cursor:not-allowed; background:#f1f5f9; color:#94a3b8;">
+                                🔒 Assessment Temporarily Closed
+                            </button>
+                        `;
+                    }
+                } else if (!isEnrolled) {
                     badge.className = 'badge badge-warning';
                     badge.textContent = 'Not Enrolled';
                     actionWrap.innerHTML = `
@@ -791,6 +819,12 @@
 
         // Enroll Function
         function enrollInTest(testId) {
+            const localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+            const tMeta = localTests.find(t => t.id === testId);
+            if (tMeta && (tMeta.status === 'inactive' || tMeta.status === 'disabled')) {
+                showToast('This assessment is currently deactivated by the faculty.', 'danger');
+                return;
+            }
             studentCbtData.enrolled[testId] = true;
             localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
             showToast('Enrolled successfully! You can now start the test.', 'success');
@@ -799,6 +833,13 @@
 
         // Launch CBT Player
         function startTest(testId) {
+            const localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+            const tMeta = localTests.find(t => t.id === testId);
+            if (tMeta && (tMeta.status === 'inactive' || tMeta.status === 'disabled')) {
+                showToast('This assessment is currently deactivated by the faculty.', 'danger');
+                return;
+            }
+
             const test = testsMap[testId];
             if (!test) return;
 
