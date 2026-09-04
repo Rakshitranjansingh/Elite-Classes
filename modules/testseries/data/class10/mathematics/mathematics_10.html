@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Mathematics Test Series — Elite Classes</title>
+    <link rel="icon" type="image/png" href="../../../../../eliteLogo_crest.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../../css/styles.css">
+    <style>
+        .chapter-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 20px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .chapter-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+            border-color: var(--primary);
+        }
+        .meta-pill {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: #f1f5f9;
+            color: #475569;
+        }
+    </style>
+</head>
+
+<body style="background:var(--bg); padding:16px; max-width:1100px; margin:0 auto; font-family:'Plus Jakarta Sans', sans-serif;">
+
+    <!-- TOP HEADER -->
+    <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div class="brand-logo-icon" style="width:30px; height:30px; font-size:11px;">EC</div>
+            <div>
+                <div style="font-size:13.5px; font-weight:800; color:var(--text);">Elite Classes</div>
+                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Committed to success</div>
+            </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px;">
+            <a href="../testseries_class_10.html" class="btn btn-outline btn-sm" style="text-decoration:none; font-size:11.5px; padding:4px 10px;">
+                ← Class 10 Hub
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <div style="background:linear-gradient(135deg, #1e3a8a, #0b1329); color:#ffffff; border-radius:20px; padding:24px 28px; margin-bottom:18px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div>
+                <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#93c5fd; margin-bottom:4px;">
+                    Class 10 • Comprehensive Test Series
+                </div>
+                <h1 style="font-size:24px; font-weight:800; margin:0 0 6px; color:#ffffff;">
+                    Mathematics Chapter-Wise CBT Assessments
+                </h1>
+                <p style="font-size:13px; color:#cbd5e1; margin:0; max-width:650px;">
+                    100 Questions per Chapter • 90 Minutes • 400 Marks • Instant Scorecards & Solutions
+                </p>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:14px; padding:12px 18px; text-align:right;">
+                <div style="font-size:10.5px; color:#94a3b8; font-weight:600;">ACTIVE CANDIDATE</div>
+                <div style="font-size:14px; font-weight:800; color:#38bdf8;" id="active-student-pill">Student</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHAPTER TESTS GRID -->
+    <div style="margin-bottom:14px;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:14px;" id="chapter-tests-grid">
+            <!-- CHAPTER 1 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch1">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch1" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 1: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch1">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch1')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 2 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch2">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch2" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 2: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch2">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch2')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 3 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch3">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch3" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 3: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch3">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch3')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 4 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch4">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch4" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 4: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch4">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch4')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 5 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch5">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch5" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 5: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch5">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch5')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 6 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch6">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch6" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 6: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch6">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch6')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 7 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch7">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch7" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 7: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch7">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch7')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 8 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch8">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch8" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 8: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch8">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch8')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 9 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch9">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch9" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 9: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch9">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch9')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 10 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch10">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch10" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 10: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch10">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch10')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 11 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch11">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch11" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 11: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch11">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch11')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 12 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch12">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch12" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 12: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch12">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch12')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 13 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch13">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch13" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 13: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch13">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch13')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+
+            <!-- CHAPTER 14 TEST -->
+            <div class="chapter-card" id="card-ts_c10_math_ch14">
+                <div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span class="badge badge-primary" style="font-size:10.5px;">100 Questions</span>
+                        <span id="badge-status-ts_c10_math_ch14" class="badge badge-warning" style="font-size:10.5px;">Not Enrolled</span>
+                    </div>
+
+                    <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px;">
+                        Chapter 14: Mathematics Assessment
+                    </div>
+
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+                        <span class="meta-pill">⏱️ 90 Mins</span>
+                        <span class="meta-pill">🎯 400 Marks</span>
+                        <span class="meta-pill">⚠️ -1.0 Neg</span>
+                    </div>
+                </div>
+
+                <div id="action-ts_c10_math_ch14">
+                    <button class="btn btn-outline btn-sm" onclick="enrollInTest('ts_c10_math_ch14')" style="width:100%; font-weight:700; padding:8px;">
+                        📝 Enroll in Test
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="app-toast">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-width="2.5"/></svg>
+        <span id="toast-msg"></span>
+    </div>
+
+    <!-- SUPABASE SDK & API -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../../supabase/config.js"></script>
+    <script src="../../../../../supabase/api.js"></script>
+
+    <!-- UNIVERSAL CBT ENGINE -->
+    <script src="../../../cbtPlayer.js"></script>
+
+    <!-- CHAPTER ASSESSMENT DATA SCRIPTS -->
+    <script src="chapter1_mathematics.js"></script>
+    <script src="chapter2_mathematics.js"></script>
+    <script src="chapter3_mathematics.js"></script>
+    <script src="chapter4_mathematics.js"></script>
+    <script src="chapter5_mathematics.js"></script>
+    <script src="chapter6_mathematics.js"></script>
+    <script src="chapter7_mathematics.js"></script>
+    <script src="chapter8_mathematics.js"></script>
+    <script src="chapter9_mathematics.js"></script>
+    <script src="chapter10_mathematics.js"></script>
+    <script src="chapter11_mathematics.js"></script>
+    <script src="chapter12_mathematics.js"></script>
+    <script src="chapter13_mathematics.js"></script>
+    <script src="chapter14_mathematics.js"></script>
+
+    <script>
+        let storedActiveStudent = null;
+        try {
+            storedActiveStudent = JSON.parse(localStorage.getItem('ec_active_student'));
+        } catch (e) {
+            storedActiveStudent = null;
+        }
+
+        const activeStudent = storedActiveStudent || {
+            id: localStorage.getItem('ec_student_id') || 'st_guest',
+            name: localStorage.getItem('ec_student_name') || 'Class 10 Student',
+            cls: 'Class 10'
+        };
+        document.getElementById('active-student-pill').textContent = activeStudent.name;
+
+        const STORAGE_KEY = `ec_cbt_enrollment_${activeStudent.id}`;
+        let studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
+
+        const testsMap = {
+            'ts_c10_math_ch1': (typeof Class10MathematicsChapter1FullBank !== 'undefined' ? Class10MathematicsChapter1FullBank : null),
+            'ts_c10_math_ch2': (typeof Class10MathematicsChapter2FullBank !== 'undefined' ? Class10MathematicsChapter2FullBank : null),
+            'ts_c10_math_ch3': (typeof Class10MathematicsChapter3FullBank !== 'undefined' ? Class10MathematicsChapter3FullBank : null),
+            'ts_c10_math_ch4': (typeof Class10MathematicsChapter4FullBank !== 'undefined' ? Class10MathematicsChapter4FullBank : null),
+            'ts_c10_math_ch5': (typeof Class10MathematicsChapter5FullBank !== 'undefined' ? Class10MathematicsChapter5FullBank : null),
+            'ts_c10_math_ch6': (typeof Class10MathematicsChapter6FullBank !== 'undefined' ? Class10MathematicsChapter6FullBank : null),
+            'ts_c10_math_ch7': (typeof Class10MathematicsChapter7FullBank !== 'undefined' ? Class10MathematicsChapter7FullBank : null),
+            'ts_c10_math_ch8': (typeof Class10MathematicsChapter8FullBank !== 'undefined' ? Class10MathematicsChapter8FullBank : null),
+            'ts_c10_math_ch9': (typeof Class10MathematicsChapter9FullBank !== 'undefined' ? Class10MathematicsChapter9FullBank : null),
+            'ts_c10_math_ch10': (typeof Class10MathematicsChapter10FullBank !== 'undefined' ? Class10MathematicsChapter10FullBank : null),
+            'ts_c10_math_ch11': (typeof Class10MathematicsChapter11FullBank !== 'undefined' ? Class10MathematicsChapter11FullBank : null),
+            'ts_c10_math_ch12': (typeof Class10MathematicsChapter12FullBank !== 'undefined' ? Class10MathematicsChapter12FullBank : null),
+            'ts_c10_math_ch13': (typeof Class10MathematicsChapter13FullBank !== 'undefined' ? Class10MathematicsChapter13FullBank : null),
+            'ts_c10_math_ch14': (typeof Class10MathematicsChapter14FullBank !== 'undefined' ? Class10MathematicsChapter14FullBank : null)
+        };
+
+        function showToast(msg, type = 'success') {
+            const t = document.getElementById('app-toast');
+            const m = document.getElementById('toast-msg');
+            if (!t || !m) return;
+            m.textContent = msg;
+            t.className = 'toast show ' + type;
+            setTimeout(() => { t.className = 'toast'; }, 3000);
+        }
+
+        function enrollInTest(testId) {
+            if (!studentCbtData.enrolled) studentCbtData.enrolled = {};
+            studentCbtData.enrolled[testId] = true;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
+            showToast('Enrolled successfully! Launching CBT Exam...');
+            renderTestCards();
+            setTimeout(() => { launchTest(testId); }, 600);
+        }
+
+        function launchTest(testId) {
+            const testObj = testsMap[testId];
+            if (!testObj || !testObj.questions || testObj.questions.length === 0) {
+                showToast('Assessment questions are currently being loaded.', 'danger');
+                return;
+            }
+            if (typeof CBTPlayer !== 'undefined' && CBTPlayer.launch) {
+                CBTPlayer.launch(testObj, activeStudent, (res) => {
+                    renderTestCards();
+                });
+            } else {
+                alert('CBT Engine could not be loaded.');
+            }
+        }
+
+        function renderTestCards() {
+            Object.keys(testsMap).forEach(id => {
+                const b = document.getElementById('badge-status-' + id);
+                const a = document.getElementById('action-' + id);
+                if (!b || !a) return;
+
+                const isEnrolled = studentCbtData.enrolled && studentCbtData.enrolled[id];
+                const attempt = studentCbtData.attempts && studentCbtData.attempts[id];
+
+                if (attempt) {
+                    b.className = 'badge badge-success';
+                    b.textContent = `Completed: ${attempt.score} / ${attempt.total_marks}`;
+                    a.innerHTML = `<button class="btn btn-outline btn-sm" onclick="launchTest('${id}')" style="width:100%; font-weight:700; padding:8px;">🔄 Retake Assessment</button>`;
+                } else if (isEnrolled) {
+                    b.className = 'badge badge-primary';
+                    b.textContent = 'Enrolled & Ready';
+                    a.innerHTML = `<button class="btn btn-primary btn-sm" onclick="launchTest('${id}')" style="width:100%; font-weight:700; padding:8px;">🚀 Start CBT Exam</button>`;
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTestCards();
+        });
+    </script>
+</body>
+</html>

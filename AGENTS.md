@@ -123,6 +123,12 @@ The application follows a clean 4-tier client-serverless architecture:
    - Level 2 (Student Portal Dashboard, `student_home.html`) $\rightarrow$ Logout button securely clears session and routes to Gateway (`index.html`).
 4. **Global Inactivity & Auth Guards**: All portal views and sub-modules must inherit the central inactivity timer and auth guard checks.
 
+### F. Dedicated Test Builder Agent & Automated Tooling
+1. **Operational Runbook**: The workspace maintains a specialized agent skill at `.agents/skills/test-builder/SKILL.md` and rules at `.agents/rules/test_builder.md`.
+2. **Subject Scaffolding**: Use `node .agents/skills/test-builder/scripts/scaffold_subject.js --class <X> --subject <name> --chapters <N>` to scaffold folder structure (`modules/testseries/data/class<X>/<subject>/ncert/`) and pre-wired portal HTML.
+3. **Automated Assessment Validation**: Run `node .agents/skills/test-builder/scripts/validate_test.js <path-to-test.js>` to verify exact 100Q count, 50E/10M/10H/20T/10VH tier distribution, option completeness, and Unicode typography.
+4. **Global CBT Engine**: All subject portals must load and utilize the shared `modules/testseries/cbtPlayer.js` without duplicating player logic.
+
 ---
 
 ## 4. Agent Development Workflow & Quality Checklist
