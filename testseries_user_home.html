@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Elite Classes — Test Series Candidate Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .subscriber-hero {
+            background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
+            color: #ffffff;
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 25px -5px rgba(6, 78, 59, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .profile-readonly-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .readonly-field-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 10px 14px;
+        }
+
+        .readonly-field-lbl {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #64748b;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .readonly-field-val {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .chapter-test-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chapter-test-card:hover {
+            border-color: #10b981;
+            box-shadow: 0 12px 24px -6px rgba(16, 185, 129, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .meta-pill {
+            font-size: 11.5px;
+            color: #334155;
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- STICKY FIXED HEADER -->
+    <header class="app-header-sticky">
+        <div class="top-banner">
+            <div class="brand-wrapper">
+                <img src="eliteLogo_crest.png" alt="Elite Classes" style="width:34px; height:34px; object-fit:contain;">
+                <div>
+                    <div class="brand-text">Elite Classes</div>
+                    <div class="brand-sub">Committed to success</div>
+                </div>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:12px;">
+                <div class="header-profile-pill" style="cursor:default;" title="Active Subscriber Pass">
+                    <span class="header-profile-avatar-circle" id="sub-header-avatar" style="background:#10b981;">TS</span>
+                    <span id="sub-header-username">Candidate</span>
+                    <span class="badge" style="background:#dcfce7; color:#15803d; font-size:10px; font-weight:800; padding:2px 6px;">PASS ACTIVE</span>
+                </div>
+                <button class="header-logout-btn" onclick="logoutSubscriber()" title="Logout of Portal">
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <div class="sub-header-bar">
+            <div class="notice-ticker-wrap">
+                <span class="notice-badge" style="background:#10b981;">CBT PORTAL</span>
+                <div class="marquee-track">
+                    <span id="active-db-notice" class="marquee-content">🎯 Annual CBT Test Series Pass Active • Class 10 Science Chapter Mock Tests Live • Instant Scoring & Negative Marking</span>
+                </div>
+            </div>
+            <div id="sub-header-date" class="sub-header-date">Today</div>
+        </div>
+    </header>
+
+    <!-- MAIN CANDIDATE WORKSPACE -->
+    <main class="main-content" style="max-width:1200px; margin:0 auto; padding:24px 20px;">
+
+        <!-- 1. HERO BANNER -->
+        <div class="subscriber-hero">
+            <div>
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                    <span style="background:rgba(16, 185, 129, 0.25); color:#6ee7b7; padding:3px 10px; border-radius:14px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;">
+                        ⭐ Self-Paced Test Series Subscriber
+                    </span>
+                    <span style="font-size:12px; color:#cbd5e1;" id="hero-candidate-class">Class 10</span>
+                </div>
+                <h1 style="font-size:22px; font-weight:800; margin:0 0 6px; color:#ffffff;" id="hero-candidate-name">
+                    Welcome to Your CBT Test Series Portal
+                </h1>
+                <p style="font-size:13px; color:#cbd5e1; margin:0; max-width:650px;">
+                    Practice with authentic chapter-wise test banks, real-time countdown timers, instant automated scoring, and detailed solutions.
+                </p>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:16px;">
+                <div style="text-align:right;">
+                    <div style="font-size:11px; color:#94a3b8; font-weight:700; text-transform:uppercase;">Subscription Validity</div>
+                    <div style="font-size:16px; font-weight:800; color:#34d399;" id="hero-validity-date">Valid for 365 Days</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. NON-EDITABLE CANDIDATE REGISTRATION CARD -->
+        <div class="profile-readonly-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e2e8f0; padding-bottom:14px; margin-bottom:16px;">
+                <div>
+                    <h3 style="font-size:15px; font-weight:800; color:#0f172a; margin:0 0 2px; display:flex; align-items:center; gap:8px;">
+                        <span>🔒 Candidate Profile Details</span>
+                        <span class="badge" style="background:#f1f5f9; color:#475569; font-size:10.5px; font-weight:700;">READ-ONLY</span>
+                    </h3>
+                    <div style="font-size:12px; color:#64748b;">
+                        Official registration record on file with Elite Classes administration.
+                    </div>
+                </div>
+                <div>
+                    <span class="badge" style="background:#dcfce7; color:#15803d; font-weight:700; padding:6px 12px; font-size:12px;" id="profile-pass-badge">
+                        🟢 Annual Pass Verified
+                    </span>
+                </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px;">
+                <div class="readonly-field-box">
+                    <div class="readonly-field-lbl">Candidate Name</div>
+                    <div class="readonly-field-val" id="prof-name">—</div>
+                </div>
+
+                <div class="readonly-field-box">
+                    <div class="readonly-field-lbl">Registered WhatsApp</div>
+                    <div class="readonly-field-val" id="prof-phone">—</div>
+                </div>
+
+                <div class="readonly-field-box">
+                    <div class="readonly-field-lbl">Enrolled Class</div>
+                    <div class="readonly-field-val" id="prof-class">Class 10</div>
+                </div>
+
+                <div class="readonly-field-box">
+                    <div class="readonly-field-lbl">Pass Type</div>
+                    <div class="readonly-field-val" style="color:#059669;">Annual CBT Pass (₹499/Year)</div>
+                </div>
+
+                <div class="readonly-field-box">
+                    <div class="readonly-field-lbl">Tracking Remark Code</div>
+                    <div class="readonly-field-val" style="font-family:monospace; color:#2563eb;" id="prof-code">—</div>
+                </div>
+
+                <div class="readonly-field-box">
+                    <div class="readonly-field-lbl">Payment Ref (UTR)</div>
+                    <div class="readonly-field-val" style="font-family:monospace;" id="prof-utr">—</div>
+                </div>
+            </div>
+
+            <div style="margin-top:14px; background:#f8fafc; border-radius:8px; padding:10px 14px; font-size:12px; color:#64748b; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+                <div>
+                    ℹ️ <strong>Candidate Note:</strong> To update your WhatsApp number or inquire about regular classroom coaching batches, contact administration at <strong>9911519237</strong>.
+                </div>
+                <a href="https://wa.me/919911519237?text=Hello%20Elite%20Classes,%20I%20am%20a%20test%20series%20subscriber%20inquiring%20about%20classroom%20admissions." target="_blank" style="color:#059669; font-weight:700; text-decoration:none; font-size:12px;">
+                    💬 WhatsApp Admin →
+                </a>
+            </div>
+        </div>
+
+        <!-- 3. PERFORMANCE SUMMARY TILES -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:14px; margin-bottom:24px;">
+            <div class="card" style="padding:16px; border-left:4px solid #10b981;">
+                <div style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase;">Tests Attempted</div>
+                <div style="font-size:24px; font-weight:800; color:#0f172a; margin-top:4px;" id="stat-tests-attempted">0</div>
+            </div>
+
+            <div class="card" style="padding:16px; border-left:4px solid #2563eb;">
+                <div style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase;">Highest Score</div>
+                <div style="font-size:24px; font-weight:800; color:#2563eb; margin-top:4px;" id="stat-highest-score">-- / 400</div>
+            </div>
+
+            <div class="card" style="padding:16px; border-left:4px solid #8b5cf6;">
+                <div style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase;">Average Accuracy</div>
+                <div style="font-size:24px; font-weight:800; color:#8b5cf6; margin-top:4px;" id="stat-avg-accuracy">-- %</div>
+            </div>
+
+            <div class="card" style="padding:16px; border-left:4px solid #f59e0b;">
+                <div style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase;">Chapters Available</div>
+                <div style="font-size:24px; font-weight:800; color:#f59e0b; margin-top:4px;">13 Tests</div>
+            </div>
+        </div>
+
+        <!-- 4. CHAPTER ASSESSMENTS SECTION -->
+        <div style="margin-bottom:28px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+                <div>
+                    <h2 style="font-size:18px; font-weight:800; color:#0f172a; margin:0 0 4px;">
+                        📚 Chapter-Wise CBT Mock Assessments
+                    </h2>
+                    <p style="font-size:13px; color:#64748b; margin:0;">
+                        100 Questions per test • 90 Mins • Negative Marking (-1.0) • In-depth Solutions
+                    </p>
+                </div>
+
+                <!-- SUBJECT FILTER CHIPS -->
+                <div style="display:flex; gap:8px; align-items:center;">
+                    <button class="btn btn-sm btn-primary" style="border-radius:20px; padding:6px 16px; font-size:12px; background:#10b981; border-color:#10b981;">
+                        🧪 Science (13 Chapters Active)
+                    </button>
+                    <button class="btn btn-sm btn-outline" style="border-radius:20px; padding:6px 14px; font-size:12px; opacity:0.6; cursor:not-allowed;" title="Upcoming Module">
+                        📐 Mathematics (Upcoming)
+                    </button>
+                </div>
+            </div>
+
+            <!-- SEARCH BAR -->
+            <div class="search-input" style="max-width:360px; margin-bottom:18px;">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg>
+                <input type="text" id="chapter-search-box" placeholder="Search chapters by title or topic..." oninput="filterChapterCards()">
+            </div>
+
+            <!-- CHAPTER TESTS GRID -->
+            <div id="subscriber-tests-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:18px;">
+                <!-- Injected dynamically by renderSubscriberChapters() -->
+            </div>
+        </div>
+
+        <!-- 5. MY RECENT TEST ATTEMPTS TABLE -->
+        <div class="card" style="margin-bottom:30px;">
+            <div class="card-header" style="padding:16px 20px; background:#ffffff; border-bottom:1px solid #e2e8f0;">
+                <span class="card-title" style="font-size:15px; font-weight:800; color:#0f172a; display:flex; align-items:center; gap:8px;">
+                    🎯 My Assessment History & Submissions
+                </span>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Assessment Name</th>
+                            <th>Score</th>
+                            <th>Accuracy</th>
+                            <th>Correct / Wrong</th>
+                            <th>Time Taken</th>
+                            <th>Date & Time</th>
+                            <th style="text-align:right;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sub-history-tbody">
+                        <tr>
+                            <td colspan="7" style="text-align:center; padding:28px; color:#94a3b8;">
+                                No test attempts recorded yet. Select any chapter above to take your first test!
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- APP TOAST -->
+    <div class="toast" id="app-toast">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-width="2.5"/></svg>
+        <span id="toast-msg"></span>
+    </div>
+
+    <!-- SUPABASE & CORE SCRIPT LIBRARIES -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase/config.js"></script>
+    <script src="supabase/api.js"></script>
+
+    <!-- GLOBAL CBT PLAYER ENGINE -->
+    <script src="modules/testseries/cbtPlayer.js"></script>
+
+    <!-- ALL 13 CLASS 10 SCIENCE CHAPTER TEST DATA BANKS -->
+    <script src="modules/testseries/data/class10/science/chapter1_chemical_reactions.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter2_acids_bases_salts.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter3_metals_non_metals.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter4_carbon_compounds.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter5_life_processes.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter6_control_coordination.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter7_reproduction.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter8_heredity.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter9_light.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter10_human_eye.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter11_electricity.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter12_magnetic_effects.js"></script>
+    <script src="modules/testseries/data/class10/science/chapter13_our_environment.js"></script>
+
+    <!-- SUBSCRIBER PORTAL SCRIPT -->
+    <script>
+        const INACTIVITY_TIMEOUT_MS = 10 * 60 * 1000;
+        let currentSubscriber = null;
+        let subscriberStorageKey = '';
+        let localAttemptsData = {};
+
+        // Available Tests Map (Class 10 Science Chapters 1 to 13)
+        const chapterTestsMap = {
+            'ts_c10_sci_ch1': typeof Class10ScienceChapter1FullBank !== 'undefined' ? Class10ScienceChapter1FullBank : null,
+            'ts_c10_sci_ch2': typeof Class10ScienceChapter2FullBank !== 'undefined' ? Class10ScienceChapter2FullBank : null,
+            'ts_c10_sci_ch3': typeof Class10ScienceChapter3FullBank !== 'undefined' ? Class10ScienceChapter3FullBank : null,
+            'ts_c10_sci_ch4': typeof Class10ScienceChapter4FullBank !== 'undefined' ? Class10ScienceChapter4FullBank : null,
+            'ts_c10_sci_ch5': typeof Class10ScienceChapter5FullBank !== 'undefined' ? Class10ScienceChapter5FullBank : null,
+            'ts_c10_sci_ch6': typeof Class10ScienceChapter6FullBank !== 'undefined' ? Class10ScienceChapter6FullBank : null,
+            'ts_c10_sci_ch7': typeof Class10ScienceChapter7FullBank !== 'undefined' ? Class10ScienceChapter7FullBank : null,
+            'ts_c10_sci_ch8': typeof Class10ScienceChapter8FullBank !== 'undefined' ? Class10ScienceChapter8FullBank : null,
+            'ts_c10_sci_ch9': typeof Class10ScienceChapter9FullBank !== 'undefined' ? Class10ScienceChapter9FullBank : null,
+            'ts_c10_sci_ch10': typeof Class10ScienceChapter10FullBank !== 'undefined' ? Class10ScienceChapter10FullBank : null,
+            'ts_c10_sci_ch11': typeof Class10ScienceChapter11FullBank !== 'undefined' ? Class10ScienceChapter11FullBank : null,
+            'ts_c10_sci_ch12': typeof Class10ScienceChapter12FullBank !== 'undefined' ? Class10ScienceChapter12FullBank : null,
+            'ts_c10_sci_ch13': typeof Class10ScienceChapter13FullBank !== 'undefined' ? Class10ScienceChapter13FullBank : null
+        };
+
+        // Fallback discovery through window.EliteTestRegistry
+        if (window.EliteTestRegistry && Array.isArray(window.EliteTestRegistry)) {
+            window.EliteTestRegistry.forEach(t => {
+                if (t && t.id && !chapterTestsMap[t.id]) {
+                    chapterTestsMap[t.id] = t;
+                }
+            });
+        }
+
+        // Auth Guard & Inactivity Timer
+        function checkSubscriberAuth() {
+            const role = localStorage.getItem('ec_user_role');
+            const subRaw = localStorage.getItem('ec_active_subscriber');
+            const lastActivity = parseInt(localStorage.getItem('ec_last_activity') || '0', 10);
+            const now = Date.now();
+
+            if (!role || (role !== 'testseries_subscriber' && role !== 'admin')) {
+                window.location.href = 'index.html';
+                return false;
+            }
+
+            if (role !== 'admin' && lastActivity && (now - lastActivity > INACTIVITY_TIMEOUT_MS)) {
+                alert('Session expired due to 10 minutes of inactivity. Please sign in again.');
+                logoutSubscriber();
+                return false;
+            }
+
+            localStorage.setItem('ec_last_activity', now.toString());
+
+            try {
+                currentSubscriber = subRaw ? JSON.parse(subRaw) : null;
+            } catch (e) {
+                currentSubscriber = null;
+            }
+
+            if (!currentSubscriber) {
+                currentSubscriber = {
+                    id: localStorage.getItem('ec_subscriber_id') || ('sub_' + Date.now()),
+                    name: localStorage.getItem('ec_subscriber_name') || 'Candidate',
+                    phone: '9911519237',
+                    cls: 'Class 10',
+                    tracking_code: 'EC-TS10-LIVE',
+                    status: 'active'
+                };
+            }
+
+            subscriberStorageKey = `ec_cbt_enrollment_${currentSubscriber.id}`;
+            return true;
+        }
+
+        function updateActivity() {
+            localStorage.setItem('ec_last_activity', Date.now().toString());
+        }
+        ['click', 'keydown', 'scroll'].forEach(evt => window.addEventListener(evt, updateActivity));
+
+        function logoutSubscriber() {
+            localStorage.removeItem('ec_user_role');
+            localStorage.removeItem('ec_subscriber_id');
+            localStorage.removeItem('ec_subscriber_name');
+            localStorage.removeItem('ec_active_subscriber');
+            localStorage.removeItem('ec_active_student');
+            localStorage.removeItem('ec_last_activity');
+            window.location.href = 'index.html';
+        }
+
+        function showToast(msg, type = 'success') {
+            const t = document.getElementById('app-toast');
+            const tm = document.getElementById('toast-msg');
+            if (!t || !tm) return;
+            tm.textContent = msg;
+            t.className = `toast show ${type}`;
+            setTimeout(() => { t.className = 'toast'; }, 3500);
+        }
+
+        // Initialize Candidate Portal Page
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (!checkSubscriberAuth()) return;
+
+            document.getElementById('sub-header-date').textContent = new Date().toLocaleDateString('en-US', {
+                weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'
+            });
+
+            // Populate Readonly Profile Card
+            renderProfileCard();
+
+            // Load Test Attempts
+            await loadSubscriberAttempts();
+
+            // Render Chapter Cards
+            renderChapterCards();
+
+            // Render History Table & Stats
+            renderHistoryTableAndStats();
+        });
+
+        function renderProfileCard() {
+            const sub = currentSubscriber;
+            const nameEl = document.getElementById('prof-name');
+            const phoneEl = document.getElementById('prof-phone');
+            const classEl = document.getElementById('prof-class');
+            const codeEl = document.getElementById('prof-code');
+            const utrEl = document.getElementById('prof-utr');
+
+            if (nameEl) nameEl.textContent = sub.name || 'Candidate';
+            if (phoneEl) phoneEl.textContent = sub.phone || '—';
+            if (classEl) classEl.textContent = sub.cls || 'Class 10';
+            if (codeEl) codeEl.textContent = sub.tracking_code || 'EC-TS10-LIVE';
+            if (utrEl) utrEl.textContent = sub.payment_ref || sub.utr || 'DIRECT-VERIFIED';
+
+            document.getElementById('sub-header-username').textContent = sub.name || 'Candidate';
+            document.getElementById('hero-candidate-name').textContent = `Welcome back, ${sub.name || 'Candidate'}!`;
+            document.getElementById('hero-candidate-class').textContent = sub.cls || 'Class 10';
+
+            const initials = (sub.name || 'TS').split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+            document.getElementById('sub-header-avatar').textContent = initials;
+
+            if (sub.valid_until) {
+                document.getElementById('hero-validity-date').textContent = `Valid Until: ${sub.valid_until}`;
+            }
+        }
+
+        async function loadSubscriberAttempts() {
+            // 1. Read from local storage
+            try {
+                const stored = localStorage.getItem(subscriberStorageKey);
+                if (stored) {
+                    localAttemptsData = JSON.parse(stored);
+                } else {
+                    localAttemptsData = { enrolled: {}, attempts: {} };
+                }
+            } catch (e) {
+                localAttemptsData = { enrolled: {}, attempts: {} };
+            }
+
+            // 2. Sync from database testseries_subscriber_results if available
+            try {
+                if (typeof DBService !== 'undefined' && DBService.fetchSubscriberTestHistory) {
+                    const cloudResults = await DBService.fetchSubscriberTestHistory(currentSubscriber.id);
+                    if (cloudResults && cloudResults.length > 0) {
+                        cloudResults.forEach(r => {
+                            if (!localAttemptsData.attempts[r.test_id] || (r.score > (localAttemptsData.attempts[r.test_id].score || 0))) {
+                                localAttemptsData.enrolled[r.test_id] = true;
+                                localAttemptsData.attempts[r.test_id] = {
+                                    score: parseFloat(r.score || 0),
+                                    total_marks: parseFloat(r.total_marks || 400),
+                                    pct: Math.round((parseFloat(r.score || 0) / parseFloat(r.total_marks || 400)) * 100),
+                                    accuracy: Math.round((parseInt(r.correct_count || 0) / (parseInt(r.correct_count || 0) + parseInt(r.wrong_count || 0) || 1)) * 100),
+                                    correct: parseInt(r.correct_count || 0),
+                                    wrong: parseInt(r.wrong_count || 0),
+                                    unattempted: parseInt(r.unattempted_count || 0),
+                                    userAnswers: r.answers_payload || {},
+                                    timeFormatted: `${Math.floor((r.time_taken_seconds || 0) / 60)}m ${(r.time_taken_seconds || 0) % 60}s`,
+                                    submitted_at: r.submitted_at
+                                };
+                            }
+                        });
+                        localStorage.setItem(subscriberStorageKey, JSON.stringify(localAttemptsData));
+                    }
+                }
+            } catch (e) {
+                console.warn('[SubscriberPortal] Cloud history sync note:', e);
+            }
+        }
+
+        function renderChapterCards() {
+            const grid = document.getElementById('subscriber-tests-grid');
+            if (!grid) return;
+
+            const testIds = Object.keys(chapterTestsMap);
+            if (testIds.length === 0) {
+                grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:30px; color:#94a3b8;">No tests loaded.</div>`;
+                return;
+            }
+
+            grid.innerHTML = testIds.map((testId, idx) => {
+                const test = chapterTestsMap[testId];
+                if (!test) return '';
+
+                const attempt = localAttemptsData.attempts ? localAttemptsData.attempts[testId] : null;
+                const isAttempted = !!attempt;
+
+                let actionHtml = '';
+                if (isAttempted) {
+                    actionHtml = `
+                        <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:8px 12px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+                            <span style="font-size:12px; color:#15803d; font-weight:700;">Score: ${attempt.score}/${attempt.total_marks} (${attempt.pct}%)</span>
+                            <span style="font-size:11px; color:#64748b;">Acc: ${attempt.accuracy}%</span>
+                        </div>
+                        <div style="display:flex; gap:8px;">
+                            <button class="btn btn-outline btn-sm" onclick="reviewSubscriberTest('${testId}')" style="flex:1; font-weight:700; font-size:12px; padding:8px;">
+                                📖 Solutions
+                            </button>
+                            <button class="btn btn-primary btn-sm" onclick="launchSubscriberTest('${testId}')" style="flex:1; font-weight:700; font-size:12px; padding:8px; background:linear-gradient(135deg, #10b981, #059669); border:none;">
+                                🔄 Retake
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    actionHtml = `
+                        <button class="btn btn-primary btn-sm" onclick="launchSubscriberTest('${testId}')" style="width:100%; font-weight:700; padding:10px; background:linear-gradient(135deg, #10b981, #059669); border:none; font-size:13px; box-shadow:0 6px 14px -3px rgba(16,185,129,0.35);">
+                            Start CBT Exam →
+                        </button>
+                    `;
+                }
+
+                return `
+                    <div class="chapter-test-card" data-title="${(test.title || '').toLowerCase()}">
+                        <div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                                <span class="badge badge-primary" style="font-size:11px; font-weight:800; background:#047857;">
+                                    ${test.questions_count || (test.questions ? test.questions.length : 100)} Questions
+                                </span>
+                                ${isAttempted ? 
+                                    '<span class="badge" style="background:#dcfce7; color:#15803d; font-size:11px; font-weight:700;">✓ Completed</span>' : 
+                                    '<span class="badge" style="background:#fef3c7; color:#92400e; font-size:11px; font-weight:700;">Ready</span>'
+                                }
+                            </div>
+
+                            <h3 style="font-size:15px; font-weight:800; color:#0f172a; margin:0 0 10px; line-height:1.4;">
+                                ${test.title}
+                            </h3>
+
+                            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px;">
+                                <span class="meta-pill">⏱️ ${test.duration_mins || 90} Mins</span>
+                                <span class="meta-pill">🎯 ${test.total_marks || 400} Marks</span>
+                                <span class="meta-pill">⚠️ -1.0 Neg</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            ${actionHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterChapterCards() {
+            const q = (document.getElementById('chapter-search-box').value || '').toLowerCase().trim();
+            document.querySelectorAll('.chapter-test-card').forEach(card => {
+                const title = card.getAttribute('data-title') || '';
+                card.style.display = title.includes(q) ? 'flex' : 'none';
+            });
+        }
+
+        // Launch CBT Exam
+        function launchSubscriberTest(testId) {
+            const test = chapterTestsMap[testId];
+            if (!test) {
+                alert('Test bank is loading or not available.');
+                return;
+            }
+
+            const candidateStudent = {
+                id: currentSubscriber.id,
+                name: currentSubscriber.name || 'Candidate',
+                cls: currentSubscriber.cls || 'Class 10',
+                phone: currentSubscriber.phone
+            };
+
+            CBTPlayer.launch(test, candidateStudent, async (result) => {
+                // Record in dedicated testseries_subscriber_results
+                try {
+                    if (typeof DBService !== 'undefined' && DBService.recordSubscriberTestResult) {
+                        await DBService.recordSubscriberTestResult({
+                            subscriber_id: currentSubscriber.id,
+                            test_id: test.id,
+                            test_title: test.title,
+                            subject: test.subject || 'Science',
+                            cls: test.cls || 'Class 10',
+                            score: result.score,
+                            total_marks: result.total_marks,
+                            correct_count: result.correct_count,
+                            wrong_count: result.incorrect_count,
+                            unattempted_count: result.unattempted_count,
+                            time_taken_seconds: result.time_taken_seconds,
+                            answers_payload: result.answers_json || {}
+                        });
+                    }
+                } catch (e) {
+                    console.warn('[SubscriberPortal] Record result warning:', e);
+                }
+
+                // Refresh UI
+                await loadSubscriberAttempts();
+                renderChapterCards();
+                renderHistoryTableAndStats();
+                showToast(`Test Submitted! Score: ${result.score}/${result.total_marks} (${result.percentage}%).`, 'success');
+            });
+        }
+
+        // Review Solutions & Explanations
+        function reviewSubscriberTest(testId) {
+            const test = chapterTestsMap[testId];
+            if (!test) return;
+
+            const attempt = localAttemptsData.attempts ? localAttemptsData.attempts[testId] : null;
+            const candidateStudent = {
+                id: currentSubscriber.id,
+                name: currentSubscriber.name || 'Candidate',
+                cls: currentSubscriber.cls || 'Class 10'
+            };
+
+            CBTPlayer.openReview(test, candidateStudent, attempt);
+        }
+
+        function renderHistoryTableAndStats() {
+            const tbody = document.getElementById('sub-history-tbody');
+            if (!tbody) return;
+
+            const attempts = localAttemptsData.attempts || {};
+            const keys = Object.keys(attempts);
+
+            // Compute KPIs
+            const totalAttempted = keys.length;
+            let highestScore = 0;
+            let sumAccuracy = 0;
+
+            keys.forEach(k => {
+                const att = attempts[k];
+                if (att.score > highestScore) highestScore = att.score;
+                sumAccuracy += (att.accuracy || 0);
+            });
+
+            const avgAccuracy = totalAttempted > 0 ? Math.round(sumAccuracy / totalAttempted) : 0;
+
+            document.getElementById('stat-tests-attempted').textContent = totalAttempted;
+            document.getElementById('stat-highest-score').textContent = totalAttempted > 0 ? `${highestScore} / 400` : '-- / 400';
+            document.getElementById('stat-avg-accuracy').textContent = totalAttempted > 0 ? `${avgAccuracy}%` : '-- %';
+
+            if (keys.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align:center; padding:30px; color:#94a3b8;">
+                            No test attempts recorded yet. Select any chapter above to start!
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = keys.map(testId => {
+                const att = attempts[testId];
+                const test = chapterTestsMap[testId];
+                const title = test ? test.title : testId;
+                const dt = att.submitted_at ? new Date(att.submitted_at).toLocaleString('en-US', {
+                    month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                }) : 'Recently';
+
+                return `
+                    <tr>
+                        <td style="font-weight:700; color:#0f172a;">${title}</td>
+                        <td style="font-weight:800; color:#10b981;">${att.score} / ${att.total_marks} (${att.pct}%)</td>
+                        <td style="font-weight:700; color:#6366f1;">${att.accuracy}%</td>
+                        <td>
+                            <span style="color:#16a34a; font-weight:700;">✓ ${att.correct}</span> / 
+                            <span style="color:#dc2626; font-weight:700;">✕ ${att.wrong}</span>
+                        </td>
+                        <td style="color:#64748b; font-size:12px;">${att.timeFormatted || '—'}</td>
+                        <td style="color:#64748b; font-size:12px;">${dt}</td>
+                        <td style="text-align:right;">
+                            <button class="btn btn-outline btn-sm" onclick="reviewSubscriberTest('${testId}')" style="font-size:11.5px; padding:4px 10px; font-weight:700;">
+                                📖 Review Solutions
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+    </script>
+</body>
+
+</html>

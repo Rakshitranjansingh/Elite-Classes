@@ -43,6 +43,9 @@ function navigateToView(viewName) {
     if (viewName === 'testseries') {
         if (typeof renderAdminTestSeriesView === 'function') renderAdminTestSeriesView();
     }
+    if (viewName === 'subscribers') {
+        if (typeof renderSubscribersAdminView === 'function') renderSubscribersAdminView();
+    }
 }
 
 // Profile Type Switcher (Students / Teachers / Staff / Admins)
@@ -175,7 +178,15 @@ function renderDashboard() {
         updatePendingAdmissionsBadge();
     }
 
-    // 7. Attendance Stat
+    // 7. Subscribers Stat
+    const subsEl = document.getElementById('dash-stat-subscribers');
+    if (subsEl) {
+        const localSubs = JSON.parse(localStorage.getItem('ec_testseries_subscribers') || '[]');
+        const activeSubs = localSubs.filter(s => s.status === 'active').length;
+        subsEl.textContent = `${activeSubs} Active`;
+    }
+
+    // 8. Attendance Stat
     updateSubHeaderDate();
 }
 

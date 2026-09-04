@@ -995,8 +995,8 @@
             <p class="section-sub">Carefully engineered curriculum designed to build bulletproof academic fundamentals and top exam ranks.</p>
         </div>
 
-        <div class="courses-grid single-batch">
-            <!-- MASTER BATCH CARD -->
+        <div class="courses-grid">
+            <!-- CARD 1: MASTER BATCH -->
             <div class="course-card highlight">
                 <span class="card-ribbon">🔥 Flagship Program</span>
                 <div>
@@ -1030,6 +1030,44 @@
                     </div>
                     <button type="button" class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 10', 'CBSE Class 10 Board Excellence')">
                         Apply for Class 10 Batch →
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARD 2: ANNUAL CBT TEST SERIES PASS -->
+            <div class="course-card highlight" style="border-color:#10b981; background:linear-gradient(to bottom, #ffffff, #f0fdf4);">
+                <span class="card-ribbon" style="background:linear-gradient(135deg, #10b981, #059669);">⚡ Self-Paced CBT Pass</span>
+                <div>
+                    <div class="course-target" style="color:#059669;">CBSE & Foundation (Class 6–10)</div>
+                    <h3 class="course-name">Annual CBT Test Series Pass</h3>
+                    <p class="course-desc">Full 365-day access to chapter-wise CBT assessments, authentic exam hall countdown timers, instant automated evaluations, and solutions review.</p>
+                    <ul class="course-perks">
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
+                            Exhaustive 100-Question Chapter Test Banks
+                        </li>
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
+                            Authentic CBT Interface with Live Countdown Timer
+                        </li>
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
+                            Automated Scoring & Negative Marking (-1.0)
+                        </li>
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
+                            Detailed Question Solutions & Topic Analytics
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="course-pricing">
+                        <span class="course-price-val" style="color:#059669;">₹499</span>
+                        <span class="course-price-period">/ year</span>
+                        <span class="course-discount-tag" style="background:#dcfce7; color:#15803d;">Instant UPI Pass</span>
+                    </div>
+                    <button type="button" class="btn-course-enroll" style="background:linear-gradient(135deg, #10b981, #059669); box-shadow:0 10px 20px -5px rgba(16,185,129,0.4);" onclick="openTestSeriesSubscribeModal()">
+                        Get Annual Pass (₹499) →
                     </button>
                 </div>
             </div>
@@ -1248,6 +1286,187 @@
                 </p>
                 <button type="button" class="btn btn-primary" style="width:100%;" onclick="closeModal('studentRegistrationModal')">
                     Got it, Thanks!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL: TEST SERIES SUBSCRIBER SELF-REGISTRATION & UPI PAYMENT (₹499) -->
+    <!-- ===================================================================== -->
+    <div class="modal-overlay" id="testSeriesSubscribeModal">
+        <div class="custom-modal" style="max-width:500px;">
+            <div class="custom-modal-header" style="background:linear-gradient(135deg, #065f46, #047857); color:#ffffff;">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="background:rgba(255,255,255,0.2); padding:2px 8px; border-radius:6px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">⚡ Annual CBT Pass</span>
+                        <span style="font-size:12px; font-weight:700; background:#fef08a; color:#854d0e; padding:2px 8px; border-radius:6px;">₹499 / Year</span>
+                    </div>
+                    <h3 class="custom-modal-title" style="color:#ffffff; margin-top:6px; font-size:18px;">Test Series Pass Registration</h3>
+                </div>
+                <button type="button" class="custom-modal-close" style="color:#ffffff; background:rgba(255,255,255,0.15);" onclick="closeModal('testSeriesSubscribeModal')">✕</button>
+            </div>
+
+            <!-- STEP 1: CANDIDATE INFO -->
+            <div class="custom-modal-body" id="ts-step-info">
+                <p style="font-size:13px; color:#475569; margin:0 0 16px; line-height:1.5;">
+                    Gain full 365-day access to chapter-wise CBT assessments, instant scorecards, and negative marking analysis.
+                </p>
+
+                <div id="ts-alert-box" style="display:none; padding:10px 14px; border-radius:10px; font-size:12.5px; font-weight:600; margin-bottom:16px;"></div>
+
+                <form id="ts-reg-form" onsubmit="event.preventDefault(); handleSubscriberRegSubmit();">
+                    <div class="form-grid">
+                        <div class="form-group full">
+                            <label>Candidate Full Name *</label>
+                            <input type="text" id="ts-name" placeholder="e.g. Priyanshu Kumar" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>WhatsApp Number (Your Login ID) *</label>
+                            <input type="tel" id="ts-phone" placeholder="e.g. 9876543210" maxlength="15" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Target Class *</label>
+                            <select id="ts-class" required>
+                                <option value="Class 10" selected>Class 10</option>
+                                <option value="Class 9">Class 9</option>
+                                <option value="Class 8">Class 8</option>
+                                <option value="Class 7">Class 7</option>
+                                <option value="Class 6">Class 6</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full">
+                            <label>Create Secret Security PIN (4 Digits) *</label>
+                            <div style="position:relative;">
+                                <input type="password" id="ts-pin" placeholder="Enter 4-digit PIN (e.g. 1234)" maxlength="10" required>
+                                <button type="button" class="pin-toggle-btn" onclick="toggleTsPinVisibility()" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; font-size:12px; color:#64748b; font-weight:600;">👁️ Show</button>
+                            </div>
+                            <div style="font-size:11px; color:#64748b; margin-top:4px;">
+                                You will use this PIN and your WhatsApp number to sign in anytime.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:12px 14px; margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <div style="font-size:11.5px; font-weight:700; color:#15803d; text-transform:uppercase;">Subscription Fee</div>
+                            <div style="font-size:12px; color:#334155;">1-Year Unlimited CBT Chapter Tests</div>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="font-size:18px; font-weight:800; color:#15803d;">₹499</div>
+                            <div style="font-size:11px; color:#64748b;">All-inclusive</div>
+                        </div>
+                    </div>
+
+                    <div class="custom-modal-footer" style="padding:16px 0 0; background:transparent; border-top:none; margin-top:16px;">
+                        <button type="button" class="btn btn-outline" onclick="closeModal('testSeriesSubscribeModal')">Cancel</button>
+                        <button type="submit" id="ts-step1-btn" class="btn btn-primary" style="background:linear-gradient(135deg, #10b981, #059669); border:none;">
+                            Proceed to UPI Payment (₹499) →
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- STEP 2: SMART UPI PAYMENT & UTR SUBMISSION -->
+            <div class="custom-modal-body" id="ts-step-payment" style="display:none;">
+                <div style="text-align:center; margin-bottom:16px;">
+                    <span style="font-size:11.5px; font-weight:700; color:#059669; text-transform:uppercase; letter-spacing:0.5px;">Step 2 of 2: Scan & Pay</span>
+                    <h4 style="font-size:16px; font-weight:800; color:#0f172a; margin:4px 0 6px;">Pay ₹499 via Any UPI App</h4>
+                    <p style="font-size:12px; color:#64748b; margin:0;">GPay, PhonePe, Paytm, BHIM, or any UPI bank app</p>
+                </div>
+
+                <!-- DYNAMIC TRACKING CODE CALLOUT -->
+                <div style="background:#eff6ff; border:1.5px dashed #3b82f6; border-radius:12px; padding:12px 14px; margin-bottom:16px; text-align:center;">
+                    <div style="font-size:11px; font-weight:700; color:#1d4ed8; text-transform:uppercase; letter-spacing:0.5px;">
+                        ⚠️ Mandatory UPI Payment Remark / Note
+                    </div>
+                    <div id="ts-pay-code-display" style="font-size:18px; font-weight:800; color:#1e40af; font-family:monospace; margin:6px 0; letter-spacing:1px;">
+                        EC-TS10-XXXX
+                    </div>
+                    <div style="font-size:11.5px; color:#475569; line-height:1.4;">
+                        Keep this pre-filled remark code in your UPI payment note so our admin can match and activate your pass instantly!
+                    </div>
+                </div>
+
+                <!-- QR CODE + PAY INTENT LINK -->
+                <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; margin-bottom:18px;">
+                    <div style="padding:10px; background:#ffffff; border:2px solid #e2e8f0; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,0.06); display:inline-block;">
+                        <img id="ts-upi-qr-img" src="" alt="Scan UPI QR" style="width:180px; height:180px; display:block; border-radius:8px;">
+                    </div>
+                    <div style="margin-top:12px; font-size:11.5px; color:#64748b;">
+                        UPI ID: <strong style="color:#0f172a;">9911519237@upi</strong> (Elite Classes)
+                    </div>
+                    <a id="ts-upi-intent-link" href="#" class="btn btn-sm" style="margin-top:10px; display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg, #10b981, #059669); color:#ffffff; font-weight:700; padding:10px 20px; border-radius:10px; text-decoration:none; font-size:13px; box-shadow:0 6px 14px -3px rgba(16,185,129,0.4);">
+                        📱 Open UPI App to Pay ₹499
+                    </a>
+                </div>
+
+                <!-- UTR INPUT FORM -->
+                <form id="ts-utr-form" onsubmit="event.preventDefault(); handleSubscriberPaymentSubmit();" style="border-top:1px solid #e2e8f0; padding-top:16px;">
+                    <div id="ts-utr-alert" style="display:none; padding:8px 12px; border-radius:8px; font-size:12px; font-weight:600; margin-bottom:12px;"></div>
+
+                    <div class="form-group" style="margin-bottom:12px;">
+                        <label style="font-size:12px; font-weight:700; color:#334155; display:block; margin-bottom:4px;">
+                            Enter 12-Digit UPI Reference / UTR Number *
+                        </label>
+                        <input type="text" id="ts-utr-input" placeholder="e.g. 423589123456" maxlength="20" required style="width:100%; padding:10px 12px; border:2px solid #cbd5e1; border-radius:10px; font-size:14px; font-family:monospace; font-weight:700; box-sizing:border-box;">
+                        <div style="font-size:11px; color:#64748b; margin-top:4px;">
+                            Find this in your GPay / PhonePe / Paytm transaction receipt under "UPI Transaction ID" or "UTR".
+                        </div>
+                    </div>
+
+                    <div style="display:flex; gap:10px; justify-content:flex-end;">
+                        <button type="button" class="btn btn-outline" onclick="backToSubscriberInfo()">← Back</button>
+                        <button type="submit" id="ts-submit-utr-btn" class="btn btn-primary" style="background:linear-gradient(135deg, #2563eb, #1d4ed8);">
+                            Submit UTR & Connect WhatsApp →
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- STEP 3: SUBMITTED CONFIRMATION & DIRECT WHATSAPP CONNECT -->
+            <div class="custom-modal-body" id="ts-step-success" style="display:none; text-align:center; padding:32px 20px;">
+                <div style="width:60px; height:60px; border-radius:50%; background:#dcfce7; color:#166534; font-size:26px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">
+                    ✓
+                </div>
+                <h3 style="font-size:19px; font-weight:800; color:#0f172a; margin:0 0 6px;">Payment Reference Received!</h3>
+                <p style="font-size:13px; color:#64748b; line-height:1.5; margin:0 0 16px;">
+                    Thank you, <strong id="ts-succ-name" style="color:#0f172a;">Candidate</strong>! We have logged your ₹499 CBT pass request.
+                </p>
+
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:14px; text-align:left; font-size:12px; margin-bottom:18px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                        <span style="color:#64748b;">Tracking Code:</span>
+                        <strong id="ts-succ-code" style="color:#1d4ed8; font-family:monospace;">EC-TS10-XXXX</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                        <span style="color:#64748b;">Submitted UTR:</span>
+                        <strong id="ts-succ-utr" style="color:#0f172a; font-family:monospace;">—</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between;">
+                        <span style="color:#64748b;">Status:</span>
+                        <span class="badge badge-warning" style="background:#fef3c7; color:#92400e; font-weight:700; padding:2px 8px; border-radius:6px;">🟡 Pending Admin Verification</span>
+                    </div>
+                </div>
+
+                <!-- 1-CLICK WHATSAPP DISPATCH -->
+                <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:12px; padding:16px; margin-bottom:20px; text-align:center;">
+                    <div style="font-size:12px; font-weight:700; color:#065f46; margin-bottom:6px;">
+                        ⚡ Get Activated Quickly:
+                    </div>
+                    <p style="font-size:12px; color:#047857; margin:0 0 12px; line-height:1.4;">
+                        Send your pre-filled verification message to Elite Classes Admin on WhatsApp now for fast pass activation!
+                    </p>
+                    <a id="ts-succ-wa-btn" href="#" target="_blank" class="btn" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; background:#10b981; color:#ffffff; font-weight:700; font-size:14px; padding:12px; border-radius:10px; text-decoration:none; box-shadow:0 8px 16px -4px rgba(16,185,129,0.4);">
+                        💬 Send WhatsApp Verification to Admin →
+                    </a>
+                </div>
+
+                <button type="button" class="btn btn-outline" style="width:100%; font-size:13px;" onclick="closeModal('testSeriesSubscribeModal')">
+                    Done (I will log in once activated)
                 </button>
             </div>
         </div>
@@ -1549,6 +1768,191 @@
             }
         }
 
+        // =====================================================================
+        // TEST SERIES SUBSCRIBER SELF-REGISTRATION & UPI PAYMENT (€499)
+        // =====================================================================
+        let currentSubscriberRegData = null;
+
+        function openTestSeriesSubscribeModal(presetClass = 'Class 10') {
+            currentSubscriberRegData = null;
+            document.getElementById('ts-step-info').style.display = 'block';
+            document.getElementById('ts-step-payment').style.display = 'none';
+            document.getElementById('ts-step-success').style.display = 'none';
+            document.getElementById('ts-reg-form').reset();
+            const alertBox = document.getElementById('ts-alert-box');
+            if (alertBox) alertBox.style.display = 'none';
+
+            const clsSelect = document.getElementById('ts-class');
+            if (clsSelect && presetClass) clsSelect.value = presetClass;
+
+            openModal('testSeriesSubscribeModal');
+        }
+
+        function backToSubscriberInfo() {
+            document.getElementById('ts-step-info').style.display = 'block';
+            document.getElementById('ts-step-payment').style.display = 'none';
+        }
+
+        function toggleTsPinVisibility() {
+            const input = document.getElementById('ts-pin');
+            if (input) input.type = input.type === 'password' ? 'text' : 'password';
+        }
+
+        async function handleSubscriberRegSubmit() {
+            const name = document.getElementById('ts-name').value.trim();
+            const phone = document.getElementById('ts-phone').value.trim();
+            const cls = document.getElementById('ts-class').value;
+            const pin = document.getElementById('ts-pin').value.trim();
+            const alertBox = document.getElementById('ts-alert-box');
+            const submitBtn = document.getElementById('ts-step1-btn');
+
+            alertBox.style.display = 'none';
+
+            if (!name || !phone || !cls || !pin) {
+                alertBox.textContent = 'Please fill out all required fields (*).';
+                alertBox.style.background = '#fef2f2';
+                alertBox.style.color = '#ef4444';
+                alertBox.style.border = '1px solid #fecaca';
+                alertBox.style.display = 'block';
+                return;
+            }
+
+            const cleanPhone = phone.replace(/\D/g, '');
+            if (cleanPhone.length < 10) {
+                alertBox.textContent = 'Please enter a valid 10-digit WhatsApp number.';
+                alertBox.style.background = '#fef2f2';
+                alertBox.style.color = '#ef4444';
+                alertBox.style.border = '1px solid #fecaca';
+                alertBox.style.display = 'block';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+
+            try {
+                // Generate tracking code: EC-TS<ClassNum>-<PhoneLast4>
+                const classNum = cls.replace(/\D/g, '') || '10';
+                const last4 = cleanPhone.slice(-4);
+                const trackingCode = `EC-TS${classNum}-${last4}`;
+
+                const regPayload = {
+                    name,
+                    phone: cleanPhone,
+                    cls,
+                    pin,
+                    tracking_code: trackingCode,
+                    plan_name: 'Annual CBT Test Series Pass',
+                    plan_amount: 499.00,
+                    status: 'pending_verification'
+                };
+
+                const res = await DBService.createSubscriberRegistration(regPayload);
+
+                if (res && res.success) {
+                    currentSubscriberRegData = res.subscriber || { ...regPayload, id: res.id || 'ts_sub_' + Date.now() };
+
+                    // Setup Step 2 Payment Screen
+                    document.getElementById('ts-pay-code-display').textContent = trackingCode;
+                    
+                    const upiUri = `upi://pay?pa=9911519237@upi&pn=Elite%20Classes&am=499&cu=INR&tn=${encodeURIComponent(trackingCode)}`;
+                    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiUri)}`;
+
+                    document.getElementById('ts-upi-qr-img').src = qrUrl;
+                    document.getElementById('ts-upi-intent-link').href = upiUri;
+                    document.getElementById('ts-utr-input').value = '';
+
+                    document.getElementById('ts-step-info').style.display = 'none';
+                    document.getElementById('ts-step-payment').style.display = 'block';
+                } else {
+                    if (res && res.alreadyExists) {
+                        alertBox.style.background = '#fffbeb';
+                        alertBox.style.color = '#92400e';
+                        alertBox.style.border = '1px solid #fde68a';
+                        alertBox.innerHTML = `⚠️ <strong>Account Already Registered:</strong> ${res.message}<br><button type="button" class="btn btn-sm btn-primary" style="margin-top:10px; font-size:12px; padding:6px 14px;" onclick="closeModal('testSeriesSubscribeModal'); openPortalLoginModal();">🔐 Sign in to Portal →</button>`;
+                    } else {
+                        alertBox.textContent = (res && res.message) || 'Could not initiate registration. Please try again.';
+                        alertBox.style.background = '#fef2f2';
+                        alertBox.style.color = '#ef4444';
+                        alertBox.style.border = '1px solid #fecaca';
+                    }
+                    alertBox.style.display = 'block';
+                }
+            } catch (err) {
+                console.error('Subscriber registration error:', err);
+                alertBox.textContent = 'Connection error. Please try again.';
+                alertBox.style.background = '#fef2f2';
+                alertBox.style.color = '#ef4444';
+                alertBox.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Proceed to UPI Payment (₹499) →';
+            }
+        }
+
+        async function handleSubscriberPaymentSubmit() {
+            const utr = document.getElementById('ts-utr-input').value.trim();
+            const utrAlert = document.getElementById('ts-utr-alert');
+            const submitBtn = document.getElementById('ts-submit-utr-btn');
+
+            utrAlert.style.display = 'none';
+
+            if (!utr || utr.length < 6) {
+                utrAlert.textContent = 'Please enter a valid UPI Transaction / UTR Number (at least 6 digits).';
+                utrAlert.style.background = '#fef2f2';
+                utrAlert.style.color = '#ef4444';
+                utrAlert.style.border = '1px solid #fecaca';
+                utrAlert.style.display = 'block';
+                return;
+            }
+
+            if (!currentSubscriberRegData) {
+                utrAlert.textContent = 'Session expired. Please restart registration.';
+                utrAlert.style.display = 'block';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Logging Payment...';
+
+            try {
+                const subId = currentSubscriberRegData.id;
+                const trackingCode = currentSubscriberRegData.tracking_code || 'EC-TS-REG';
+
+                const res = await DBService.submitSubscriberPayment(subId, utr, trackingCode);
+
+                if (res && res.success) {
+                    // Update Step 3 View
+                    document.getElementById('ts-succ-name').textContent = currentSubscriberRegData.name;
+                    document.getElementById('ts-succ-code').textContent = trackingCode;
+                    document.getElementById('ts-succ-utr').textContent = utr;
+
+                    // Build Pre-filled WhatsApp message URL
+                    const waText = `Hello Elite Classes, I have requested for ${currentSubscriberRegData.cls} test series enrollment. Candidate Name: ${currentSubscriberRegData.name}, WhatsApp: ${currentSubscriberRegData.phone}, Payment UTR: ${utr}, Ref Code: ${trackingCode}. Please check and approve my test series.`;
+                    const waUrl = `https://wa.me/919911519237?text=${encodeURIComponent(waText)}`;
+                    document.getElementById('ts-succ-wa-btn').href = waUrl;
+
+                    document.getElementById('ts-step-payment').style.display = 'none';
+                    document.getElementById('ts-step-success').style.display = 'block';
+                    showToast('Payment reference submitted successfully!', 'success');
+                } else {
+                    utrAlert.textContent = (res && res.message) || 'Failed to submit payment details. Please try again.';
+                    utrAlert.style.background = '#fef2f2';
+                    utrAlert.style.color = '#ef4444';
+                    utrAlert.style.display = 'block';
+                }
+            } catch (err) {
+                console.error('Submit subscriber payment error:', err);
+                utrAlert.textContent = 'Connection error. Please try again.';
+                utrAlert.style.background = '#fef2f2';
+                utrAlert.style.color = '#ef4444';
+                utrAlert.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit UTR & Connect WhatsApp →';
+            }
+        }
+
         // Handle Portal Login
         async function handlePortalLogin() {
             const phone = document.getElementById('portal-phone').value.trim();
@@ -1577,12 +1981,22 @@
                 const authResult = await DBService.authenticateByWhatsApp(phone, pin);
 
                 if (!authResult.success) {
-                    errEl.textContent = authResult.message || 'Authentication failed. Please check WhatsApp & PIN.';
-                    if (authResult.isPending) {
+                    if (authResult.isSubscriberPending) {
+                        const waMsg = encodeURIComponent(`Hello Elite Classes, I have registered for Test Series Pass. WhatsApp: ${phone}, Ref Code: ${authResult.trackingCode || 'N/A'}. Please check and approve my test series pass.`);
+                        errEl.style.background = '#fffbeb';
+                        errEl.style.color = '#92400e';
+                        errEl.style.border = '1px solid #fde68a';
+                        errEl.innerHTML = `⏳ <strong>Pass Pending Admin Verification:</strong><br>${authResult.message}<br>
+                        <a href="https://wa.me/919911519237?text=${waMsg}" target="_blank" style="display:inline-flex; align-items:center; gap:6px; margin-top:10px; background:#10b981; color:#ffffff; text-decoration:none; padding:8px 14px; border-radius:8px; font-weight:700; font-size:12px;">
+                            💬 Send WhatsApp to Admin (9911519237) →
+                        </a>`;
+                    } else if (authResult.isPending) {
+                        errEl.textContent = authResult.message;
                         errEl.style.background = '#fffbeb';
                         errEl.style.color = '#b45309';
                         errEl.style.border = '1px solid #fde68a';
                     } else {
+                        errEl.textContent = authResult.message || 'Authentication failed. Please check WhatsApp & PIN.';
                         errEl.style.background = '#fef2f2';
                         errEl.style.color = '#ef4444';
                         errEl.style.border = '1px solid #fecaca';
@@ -1628,6 +2042,23 @@
 
                     setTimeout(() => {
                         window.location.href = 'staff_home.html';
+                    }, 400);
+                } else if (authResult.role === 'testseries_subscriber') {
+                    localStorage.setItem('ec_user_role', 'testseries_subscriber');
+                    localStorage.setItem('ec_subscriber_id', authResult.user.id);
+                    localStorage.setItem('ec_subscriber_name', authResult.user.name);
+                    localStorage.setItem('ec_active_subscriber', JSON.stringify(authResult.user));
+                    localStorage.setItem('ec_active_student', JSON.stringify({
+                        id: authResult.user.id,
+                        name: authResult.user.name || 'Subscriber',
+                        cls: authResult.user.cls || 'Class 10',
+                        phone: authResult.user.phone,
+                        is_subscriber: true
+                    }));
+                    localStorage.setItem('ec_last_activity', Date.now().toString());
+
+                    setTimeout(() => {
+                        window.location.href = 'testseries_user_home.html';
                     }, 400);
                 } else {
                     window.location.href = authResult.redirectUrl || 'index.html';

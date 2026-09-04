@@ -274,7 +274,75 @@ const DBService = {
             }
         }
 
-        // 5. Fallback master admin login if user enters global admin key with standard default phone
+        // 5. Check in Dedicated Test Series Subscribers Module
+        let subscriberList = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('testseries_subscribers').select('*').eq('phone', cleanPhone);
+                if (data && data.length > 0) subscriberList = data;
+            } catch (e) {
+                console.warn('[DBService] Check subscribers fallback:', e);
+            }
+        }
+        if (subscriberList.length === 0) {
+            const localSubs = JSON.parse(localStorage.getItem('ec_testseries_subscribers') || '[]');
+            subscriberList = localSubs.filter(s => (s.phone || '').replace(/\D/g, '') === cleanPhone);
+        }
+
+        if (subscriberList.length > 0) {
+            const sub = subscriberList[0];
+            const expectedPin = String(sub.pin || '1234').trim();
+
+            if (enteredPin !== expectedPin) {
+                return { success: false, message: 'Invalid Security PIN for your Test Series account.' };
+            }
+
+            if (sub.status === 'active') {
+                // Check if expired
+                if (sub.valid_until && new Date(sub.valid_until) < new Date(new Date().toDateString())) {
+                    return {
+                        success: false,
+                        isExpired: true,
+                        message: `Your Annual Test Series Pass expired on ${sub.valid_until}. Please renew your pass to continue taking assessments.`
+                    };
+                }
+                return {
+                    success: true,
+                    role: 'testseries_subscriber',
+                    user: {
+                        id: sub.id,
+                        name: sub.name,
+                        phone: sub.phone,
+                        cls: sub.cls,
+                        email: sub.email || '',
+                        status: sub.status,
+                        plan_name: sub.plan_name || 'Annual CBT Test Series Pass',
+                        plan_amount: sub.plan_amount || 499.00,
+                        tracking_code: sub.tracking_code || '',
+                        valid_until: sub.valid_until || ''
+                    },
+                    redirectUrl: 'testseries_user_home.html'
+                };
+            } else if (sub.status === 'pending_verification') {
+                return {
+                    success: false,
+                    isSubscriberPending: true,
+                    trackingCode: sub.tracking_code,
+                    candidateName: sub.name,
+                    cls: sub.cls,
+                    phone: sub.phone,
+                    utr: sub.payment_ref,
+                    message: `Your Test Series subscription (₹499 Pass) is currently pending Admin payment verification. Tracking Code: ${sub.tracking_code || 'N/A'}.`
+                };
+            } else if (sub.status === 'suspended') {
+                return {
+                    success: false,
+                    message: 'Your Test Series account has been suspended. Please contact Elite Classes administration at 9911519237.'
+                };
+            }
+        }
+
+        // 6. Fallback master admin login if user enters global admin key with standard default phone
         if (enteredPin === globalAdminKey && (cleanPhone === '9800000000' || cleanPhone === '9876543210' || cleanPhone === '9999999999')) {
             return {
                 success: true,
@@ -1705,5 +1773,358 @@ const DBService = {
             }
         }
         return { success: true };
+    },
+
+    // =========================================================================
+    // 14. DEDICATED TEST SERIES SUBSCRIBERS MODULE API
+    // =========================================================================
+
+    async createSubscriberRegistration(regData) {
+        const cleanPhone = (regData.phone || '').replace(/\D/g, '');
+        if (cleanPhone.length < 10) {
+            return { success: false, message: 'Please provide a valid 10-digit WhatsApp phone number.' };
+        }
+
+        // Check if subscriber already exists
+        let existingSub = null;
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('testseries_subscribers').select('*').eq('phone', cleanPhone).maybeSingle();
+                if (data) existingSub = data;
+            } catch (e) {
+                console.warn('[DBService] Check existing subscriber fallback:', e);
+            }
+        }
+
+        if (!existingSub) {
+            const localSubs = JSON.parse(localStorage.getItem('ec_testseries_subscribers') || '[]');
+            existingSub = localSubs.find(s => (s.phone || '').replace(/\D/g, '') === cleanPhone);
+        }
+
+        if (existingSub) {
+            if (existingSub.status === 'active') {
+                return {
+                    success: false,
+                    alreadyActive: true,
+                    subscriber: existingSub,
+                    message: `An active Test Series Pass already exists for WhatsApp ${cleanPhone}. Please Sign In using your PIN.`
+                };
+            } else if (existingSub.status === 'pending_verification') {
+                return {
+                    success: true,
+                    isPending: true,
+                    subscriber: existingSub,
+                    message: `Your Test Series enrollment is currently awaiting Admin payment verification.`
+                };
+            }
+        }
+
+        // Generate clean tracking code: e.g. EC-TS10-9237
+        const clsDigits = (regData.cls || '10').replace(/\D/g, '') || '10';
+        const phoneLast4 = cleanPhone.slice(-4);
+        const trackingCode = `EC-TS${clsDigits}-${phoneLast4}`;
+
+        const newSubscriber = {
+            id: existingSub ? existingSub.id : ('ts_sub_' + Date.now()),
+            name: (regData.name || '').trim(),
+            phone: cleanPhone,
+            pin: (regData.pin || '1234').trim(),
+            cls: regData.cls || 'Class 10',
+            email: (regData.email || '').trim(),
+            tracking_code: trackingCode,
+            plan_name: 'Annual CBT Test Series Pass',
+            plan_amount: 499.00,
+            payment_method: 'UPI',
+            payment_ref: (regData.payment_ref || '').trim(),
+            status: 'pending_verification',
+            valid_until: null,
+            activated_at: null,
+            activated_by: null,
+            converted_at: null,
+            created_at: new Date().toISOString()
+        };
+
+        // Save locally
+        const list = JSON.parse(localStorage.getItem('ec_testseries_subscribers') || '[]');
+        const existingIdx = list.findIndex(s => s.phone === newSubscriber.phone);
+        if (existingIdx >= 0) {
+            list[existingIdx] = { ...list[existingIdx], ...newSubscriber };
+        } else {
+            list.unshift(newSubscriber);
+        }
+        localStorage.setItem('ec_testseries_subscribers', JSON.stringify(list));
+
+        // Sync to cloud
+        if (isSupabaseConnected()) {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('testseries_subscribers')
+                    .upsert([newSubscriber], { onConflict: 'phone' })
+                    .select();
+                if (error) throw error;
+                if (data && data[0]) return { success: true, subscriber: data[0] };
+            } catch (e) {
+                console.error('[DBService] Supabase subscriber upsert error:', e);
+            }
+        }
+
+        return { success: true, subscriber: newSubscriber };
+    },
+
+    async submitSubscriberPayment(subId, paymentRef, trackingCode = '') {
+        let updatedSub = null;
+        const list = JSON.parse(localStorage.getItem('ec_testseries_subscribers') || '[]');
+        const idx = list.findIndex(s => s.id === subId);
+        if (idx >= 0) {
+            list[idx].payment_ref = (paymentRef || '').trim();
+            if (trackingCode) list[idx].tracking_code = trackingCode;
+            list[idx].status = 'pending_verification';
+            updatedSub = list[idx];
+            localStorage.setItem('ec_testseries_subscribers', JSON.stringify(list));
+        }
+
+        if (isSupabaseConnected()) {
+            try {
+                const updatePayload = {
+                    payment_ref: (paymentRef || '').trim(),
+                    status: 'pending_verification'
+                };
+                if (trackingCode) updatePayload.tracking_code = trackingCode;
+                const { data } = await supabaseClient
+                    .from('testseries_subscribers')
+                    .update(updatePayload)
+                    .eq('id', subId)
+                    .select();
+                if (data && data[0]) updatedSub = data[0];
+            } catch (e) {
+                console.error('[DBService] submitSubscriberPayment error:', e);
+            }
+        }
+        return { success: true, subscriber: updatedSub };
+    },
+
+    async fetchSubscribersList(statusFilter = 'all') {
+        let subs = [];
+        if (isSupabaseConnected()) {
+            try {
+                let query = supabaseClient.from('testseries_subscribers').select('*').order('created_at', { ascending: false });
+                if (statusFilter && statusFilter !== 'all') {
+                    query = query.eq('status', statusFilter);
+                }
+                const { data, error } = await query;
+                if (error) throw error;
+                if (data) subs = data;
+            } catch (e) {
+                console.warn('[DBService] fetchSubscribersList fallback:', e);
+            }
+        }
+
+        if (subs.length === 0) {
+            subs = JSON.parse(localStorage.getItem('ec_testseries_subscribers') || '[]');
+            if (statusFilter && statusFilter !== 'all') {
+                subs = subs.filter(s => s.status === statusFilter);
+            }
+        }
+        return subs;
+    },
+
+    async activateSubscriberPass(subId, adminName = 'Admin') {
+        const today = new Date();
+        const validUntil = new Date(today);
+        validUntil.setDate(validUntil.getDate() + 365); // 1 Year Pass
+        const validDateStr = validUntil.toISOString().split('T')[0];
+        const activatedAtStr = today.toISOString();
+
+        let updatedSub = null;
+        const list = JSON.parse(localStorage.getItem('ec_testseries_subscribers') || '[]');
+        const idx = list.findIndex(s => s.id === subId);
+        if (idx >= 0) {
+            list[idx].status = 'active';
+            list[idx].activated_at = activatedAtStr;
+            list[idx].activated_by = adminName;
+            list[idx].valid_until = validDateStr;
+            updatedSub = list[idx];
+            localStorage.setItem('ec_testseries_subscribers', JSON.stringify(list));
+        }
+
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient
+                    .from('testseries_subscribers')
+                    .update({
+                        status: 'active',
+                        activated_at: activatedAtStr,
+                        activated_by: adminName,
+                        valid_until: validDateStr
+                    })
+                    .eq('id', subId)
+                    .select();
+                if (data && data[0]) updatedSub = data[0];
+            } catch (e) {
+                console.error('[DBService] activateSubscriberPass error:', e);
+            }
+        }
+        return { success: true, subscriber: updatedSub };
+    },
+
+    async deactivateSubscriberPass(subId, reason = 'Suspended by admin') {
+        const list = JSON.parse(localStorage.getItem('ec_testseries_subscribers') || '[]');
+        const idx = list.findIndex(s => s.id === subId);
+        if (idx >= 0) {
+            list[idx].status = 'suspended';
+            localStorage.setItem('ec_testseries_subscribers', JSON.stringify(list));
+        }
+
+        if (isSupabaseConnected()) {
+            try {
+                await supabaseClient.from('testseries_subscribers').update({ status: 'suspended' }).eq('id', subId);
+            } catch (e) {
+                console.error('[DBService] deactivateSubscriberPass error:', e);
+            }
+        }
+        return { success: true };
+    },
+
+    async renewSubscriberPass(subId, daysToAdd = 365) {
+        const list = JSON.parse(localStorage.getItem('ec_testseries_subscribers') || '[]');
+        const idx = list.findIndex(s => s.id === subId);
+        let updatedSub = null;
+
+        if (idx >= 0) {
+            let baseDate = new Date();
+            if (list[idx].valid_until && new Date(list[idx].valid_until) > baseDate) {
+                baseDate = new Date(list[idx].valid_until);
+            }
+            baseDate.setDate(baseDate.getDate() + daysToAdd);
+            const newDateStr = baseDate.toISOString().split('T')[0];
+
+            list[idx].status = 'active';
+            list[idx].valid_until = newDateStr;
+            updatedSub = list[idx];
+            localStorage.setItem('ec_testseries_subscribers', JSON.stringify(list));
+        }
+
+        if (isSupabaseConnected() && updatedSub) {
+            try {
+                await supabaseClient.from('testseries_subscribers').update({
+                    status: 'active',
+                    valid_until: updatedSub.valid_until
+                }).eq('id', subId);
+            } catch (e) {
+                console.error('[DBService] renewSubscriberPass error:', e);
+            }
+        }
+        return { success: true, subscriber: updatedSub };
+    },
+
+    // Convert Subscriber to Official Coaching Student
+    async convertSubscriberToStudent(subId, studentPayload = {}, adminName = 'Admin') {
+        // 1. Fetch subscriber details
+        let sub = null;
+        const list = JSON.parse(localStorage.getItem('ec_testseries_subscribers') || '[]');
+        const idx = list.findIndex(s => s.id === subId);
+        if (idx >= 0) {
+            sub = list[idx];
+            list[idx].status = 'converted_to_student';
+            list[idx].converted_at = new Date().toISOString();
+            localStorage.setItem('ec_testseries_subscribers', JSON.stringify(list));
+        }
+
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('testseries_subscribers').select('*').eq('id', subId).maybeSingle();
+                if (data) sub = { ...sub, ...data };
+                await supabaseClient.from('testseries_subscribers').update({
+                    status: 'converted_to_student',
+                    converted_at: new Date().toISOString()
+                }).eq('id', subId);
+            } catch (e) {
+                console.error('[DBService] convertSubscriber status error:', e);
+            }
+        }
+
+        if (!sub) return { success: false, message: 'Subscriber record not found.' };
+
+        // 2. Build official student profile
+        const cleanPhone = (sub.phone || '').replace(/\D/g, '');
+        const existingStudents = await this.fetchStudents();
+        const existingStudent = existingStudents.find(s => (s.phone || '').replace(/\D/g, '') === cleanPhone);
+
+        const newStudent = {
+            id: existingStudent ? existingStudent.id : ('st_' + Date.now()),
+            name: studentPayload.name || sub.name,
+            email: studentPayload.email || sub.email || '',
+            cls: studentPayload.cls || sub.cls,
+            parent: studentPayload.parent || 'Guardian',
+            phone: cleanPhone,
+            pin: sub.pin || '1234',
+            fee: parseFloat(studentPayload.fee || 2500),
+            due: parseInt(studentPayload.due || 10, 10),
+            scholarshipPct: parseFloat(studentPayload.scholarshipPct || 0),
+            subjects: studentPayload.subjects || 'All Subjects',
+            doa: studentPayload.doa || new Date().toISOString().split('T')[0],
+            school: studentPayload.school || '',
+            color: existingStudent?.color || '#2563eb'
+        };
+
+        await this.upsertStudent(newStudent);
+        return { success: true, student: newStudent, subscriber: sub };
+    },
+
+    // Record Subscriber Test Attempt
+    async recordSubscriberTestResult(resultPayload) {
+        const attemptRecord = {
+            id: 'ts_sub_res_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+            subscriber_id: resultPayload.subscriber_id,
+            test_id: resultPayload.test_id,
+            test_title: resultPayload.test_title,
+            subject: resultPayload.subject,
+            cls: resultPayload.cls,
+            score: parseFloat(resultPayload.score || 0),
+            total_marks: parseFloat(resultPayload.total_marks || 400),
+            correct_count: parseInt(resultPayload.correct_count || 0, 10),
+            wrong_count: parseInt(resultPayload.wrong_count || 0, 10),
+            unattempted_count: parseInt(resultPayload.unattempted_count || 0, 10),
+            time_taken_seconds: parseInt(resultPayload.time_taken_seconds || 0, 10),
+            answers_payload: resultPayload.answers_payload || {},
+            submitted_at: new Date().toISOString()
+        };
+
+        // Local storage fallback
+        const localResults = JSON.parse(localStorage.getItem('ec_testseries_subscriber_results') || '[]');
+        localResults.unshift(attemptRecord);
+        localStorage.setItem('ec_testseries_subscriber_results', JSON.stringify(localResults));
+
+        if (isSupabaseConnected()) {
+            try {
+                await supabaseClient.from('testseries_subscriber_results').insert([attemptRecord]);
+            } catch (e) {
+                console.error('[DBService] recordSubscriberTestResult error:', e);
+            }
+        }
+        return { success: true, result: attemptRecord };
+    },
+
+    async fetchSubscriberTestHistory(subscriberId) {
+        let results = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('testseries_subscriber_results')
+                    .select('*')
+                    .eq('subscriber_id', subscriberId)
+                    .order('submitted_at', { ascending: false });
+                if (error) throw error;
+                if (data) results = data;
+            } catch (e) {
+                console.warn('[DBService] fetchSubscriberTestHistory fallback:', e);
+            }
+        }
+
+        if (results.length === 0) {
+            const localResults = JSON.parse(localStorage.getItem('ec_testseries_subscriber_results') || '[]');
+            results = localResults.filter(r => r.subscriber_id === subscriberId);
+        }
+        return results;
     }
 };
