@@ -493,3 +493,249 @@ function deleteStudent(studentId) {
     renderDashboard();
     showToast('Student profile deleted', 'danger');
 }
+
+// =====================================================================
+// ADMISSION APPROVAL WORKFLOW (STUDENTS ONLY)
+// =====================================================================
+let cachedPendingRegistrations = [];
+
+async function updatePendingAdmissionsBadge() {
+    const badgeEl = document.getElementById('pending-admissions-badge');
+    if (!badgeEl) return;
+
+    try {
+        let pending = [];
+        if (typeof DBService !== 'undefined') {
+            pending = await DBService.fetchPendingRegistrations();
+        } else {
+            const list = JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+            pending = list.filter(r => r.status === 'pending_approval');
+        }
+
+        const count = pending.length;
+        if (count > 0) {
+            badgeEl.textContent = count;
+            badgeEl.style.display = 'inline-block';
+        } else {
+            badgeEl.style.display = 'none';
+        }
+
+        const countText = document.getElementById('admissions-count-text');
+        if (countText) {
+            countText.textContent = `${count} Pending Application${count === 1 ? '' : 's'}`;
+        }
+    } catch (e) {
+        console.warn('Error updating pending admissions badge:', e);
+    }
+}
+
+async function renderPendingRegistrations() {
+    const tbody = document.getElementById('admissions-tbody');
+    if (!tbody) return;
+
+    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:24px; color:var(--text-muted);">Loading admission applications...</td></tr>`;
+
+    try {
+        if (typeof DBService !== 'undefined') {
+            cachedPendingRegistrations = await DBService.fetchPendingRegistrations();
+        } else {
+            const list = JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+            cachedPendingRegistrations = list.filter(r => r.status === 'pending_approval');
+        }
+    } catch (e) {
+        console.error('Error fetching registrations:', e);
+        cachedPendingRegistrations = [];
+    }
+
+    const search = (document.getElementById('admission-search')?.value || '').toLowerCase();
+    const filtered = cachedPendingRegistrations.filter(r => {
+        if (!search) return true;
+        const name = (r.name || '').toLowerCase();
+        const phone = (r.phone || '').toLowerCase();
+        const cls = (r.cls || '').toLowerCase();
+        const parent = (r.parent_name || '').toLowerCase();
+        const school = (r.school_name || '').toLowerCase();
+        return name.includes(search) || phone.includes(search) || cls.includes(search) || parent.includes(search) || school.includes(search);
+    });
+
+    await updatePendingAdmissionsBadge();
+
+    if (filtered.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="8">
+                    <div class="empty-state" style="padding:32px;">
+                        <svg width="40" height="40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="1.5"/>
+                        </svg>
+                        <p style="margin-top:8px; font-weight:700; color:var(--text);">No Pending Student Applications</p>
+                        <span style="font-size:12px; color:var(--text-muted);">Prospective students who apply on the public homepage will appear here for verification.</span>
+                    </div>
+                </td>
+            </tr>`;
+        return;
+    }
+
+    tbody.innerHTML = filtered.map(r => {
+        const initials = getInitials(r.name);
+        const dateStr = r.created_at ? new Date(r.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : 'Recent';
+
+        return `
+            <tr>
+                <td>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <div class="avatar" style="background:#2563eb;">${initials}</div>
+                        <div>
+                            <div style="font-weight:700; color:var(--text);">${r.name}</div>
+                            <div style="font-size:11.5px; color:var(--text-muted);">PIN: ${r.pin || '123456'}</div>
+                        </div>
+                    </div>
+                </td>
+                <td><span class="badge badge-primary">${r.cls}</span></td>
+                <td>
+                    <div>${r.parent_name || '—'}</div>
+                    <a href="https://wa.me/91${r.phone}" target="_blank" style="font-size:11.5px; color:#25D366; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:3px;">
+                        <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+                        ${r.phone}
+                    </a>
+                </td>
+                <td style="font-size:12.5px; color:var(--text);">${r.course_interest || 'General Admission'}</td>
+                <td style="font-size:12px; color:var(--text-muted);">${r.school_name || '—'}</td>
+                <td style="font-size:12px; color:var(--text-muted);">${dateStr}</td>
+                <td><span class="badge badge-warning">🟡 Pending Approval</span></td>
+                <td>
+                    <div class="action-group">
+                        <button class="btn btn-sm btn-success" onclick="openApproveAdmissionModal('${r.id}')" title="Approve Student Admission" style="padding:4px 10px; font-size:11.5px; display:inline-flex; align-items:center; gap:4px;">
+                            ✓ Approve
+                        </button>
+                        <button class="icon-btn danger" onclick="rejectAdmissionAction('${r.id}')" title="Reject Application">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="2"/></svg>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `;
+    }).join('');
+}
+
+function openApproveAdmissionModal(regId) {
+    const reg = cachedPendingRegistrations.find(r => r.id === regId);
+    if (!reg) return;
+
+    document.getElementById('appr-reg-id').value = reg.id;
+    document.getElementById('appr-student-name').textContent = reg.name;
+    document.getElementById('appr-student-phone').textContent = reg.phone;
+    document.getElementById('appr-student-class').textContent = reg.cls;
+    document.getElementById('appr-student-meta').textContent = `Parent: ${reg.parent_name || 'Guardian'} ${reg.parent_phone ? '(' + reg.parent_phone + ')' : ''} • School: ${reg.school_name || 'Not Provided'}`;
+
+    // Populate class options
+    const classSelect = document.getElementById('appr-f-class');
+    if (classSelect) {
+        classSelect.innerHTML = CLASS_OPTIONS.map(c => 
+            `<option value="${c}" ${c === reg.cls ? 'selected' : ''}>${c}</option>`
+        ).join('');
+    }
+
+    // Smart default fee based on class
+    let defaultFee = 2500;
+    if (reg.cls === 'Class 10') defaultFee = 2500;
+    else if (reg.cls === 'Class 9') defaultFee = 2200;
+    else if (['Class 6', 'Class 7', 'Class 8'].includes(reg.cls)) defaultFee = 1800;
+    else defaultFee = 1500;
+
+    document.getElementById('appr-f-fee').value = defaultFee;
+    document.getElementById('appr-f-due').value = '10';
+    document.getElementById('appr-f-scholarship').value = '0';
+    document.getElementById('appr-f-subjects').value = reg.course_interest || 'Mathematics, Science, English';
+
+    openModal('approveAdmissionModal');
+}
+
+async function confirmApproveAdmission() {
+    const regId = document.getElementById('appr-reg-id').value;
+    const reg = cachedPendingRegistrations.find(r => r.id === regId);
+    if (!reg) return;
+
+    const assignedCls = document.getElementById('appr-f-class').value;
+    const fee = parseFloat(document.getElementById('appr-f-fee').value);
+    const due = parseInt(document.getElementById('appr-f-due').value, 10);
+    const scholarshipPct = parseFloat(document.getElementById('appr-f-scholarship').value) || 0;
+    const subjects = document.getElementById('appr-f-subjects').value.trim();
+
+    if (isNaN(fee)) {
+        showToast('Please enter a valid monthly fee.', 'danger');
+        return;
+    }
+
+    const payload = {
+        name: reg.name,
+        email: reg.email,
+        cls: assignedCls,
+        parent: reg.parent_name,
+        phone: reg.phone,
+        pin: reg.pin,
+        fee: fee,
+        due: due,
+        scholarshipPct: scholarshipPct,
+        subjects: subjects || 'General Academics',
+        school: reg.school_name,
+        approved_by: localStorage.getItem('ec_admin_name') || 'Admin'
+    };
+
+    try {
+        let res;
+        if (typeof DBService !== 'undefined') {
+            res = await DBService.approveStudentRegistration(regId, payload);
+        } else {
+            res = { success: true, student: payload };
+        }
+
+        if (res && res.success) {
+            // Also push to local students state if not present
+            if (!students.some(s => s.phone === reg.phone)) {
+                students.push(res.student || payload);
+                saveState();
+            }
+
+            closeModal('approveAdmissionModal');
+            showToast(`Admission Approved! ${reg.name} is now an active student.`, 'success');
+            await renderPendingRegistrations();
+            renderStudentsTable();
+            renderDashboard();
+        } else {
+            showToast('Failed to approve registration.', 'danger');
+        }
+    } catch (e) {
+        console.error('Approve admission error:', e);
+        showToast('Error approving student admission.', 'danger');
+    }
+}
+
+async function rejectAdmissionAction(regId) {
+    const reg = cachedPendingRegistrations.find(r => r.id === regId);
+    if (!reg) return;
+
+    const reason = prompt(`Enter rejection reason for ${reg.name}'s application:`, 'Batch capacity full for current session');
+    if (reason === null) return;
+
+    try {
+        if (typeof DBService !== 'undefined') {
+            await DBService.rejectStudentRegistration(regId, reason);
+        } else {
+            const list = JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+            const idx = list.findIndex(r => r.id === regId);
+            if (idx >= 0) {
+                list[idx].status = 'rejected';
+                list[idx].rejection_reason = reason;
+                localStorage.setItem('ec_student_registrations', JSON.stringify(list));
+            }
+        }
+
+        showToast(`Application for ${reg.name} marked as rejected.`, 'info');
+        await renderPendingRegistrations();
+        renderDashboard();
+    } catch (e) {
+        console.error('Reject admission error:', e);
+        showToast('Error rejecting admission application.', 'danger');
+    }
+}

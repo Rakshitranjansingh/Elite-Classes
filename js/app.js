@@ -66,6 +66,7 @@ function renderActiveProfileView() {
     if (activeProfileTab === 'teachers') renderTeachersTable();
     if (activeProfileTab === 'staff') renderStaffTable();
     if (activeProfileTab === 'admins') renderAdminsTable();
+    if (activeProfileTab === 'admissions' && typeof renderPendingRegistrations === 'function') renderPendingRegistrations();
 }
 
 // Modal Helpers
@@ -169,7 +170,12 @@ function renderDashboard() {
         testseriesEl.textContent = `${activeCount} Active`;
     }
 
-    // 6. Attendance Stat
+    // 6. Check Pending Admissions
+    if (typeof updatePendingAdmissionsBadge === 'function') {
+        updatePendingAdmissionsBadge();
+    }
+
+    // 7. Attendance Stat
     updateSubHeaderDate();
 }
 

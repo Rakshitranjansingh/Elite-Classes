@@ -242,7 +242,39 @@ const DBService = {
             }
         }
 
-        // 4. Fallback master admin login if user enters global admin key with standard default phone
+        // 4. Check in Pending Student Registrations
+        let pendingRegistrations = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('student_registrations').select('*').eq('phone', cleanPhone);
+                if (data && data.length > 0) pendingRegistrations = data;
+            } catch (e) {
+                console.warn('[DBService] Check pending registration fallback:', e);
+            }
+        }
+        if (pendingRegistrations.length === 0) {
+            const localRegs = JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+            pendingRegistrations = localRegs.filter(r => (r.phone || '').replace(/\D/g, '') === cleanPhone);
+        }
+
+        if (pendingRegistrations.length > 0) {
+            const reg = pendingRegistrations[0];
+            if (reg.status === 'pending_approval') {
+                return {
+                    success: false,
+                    isPending: true,
+                    message: `Admission request for ${reg.name} (${reg.cls}) is currently under review by Elite Classes administration. You can log in once approved.`
+                };
+            } else if (reg.status === 'rejected') {
+                return {
+                    success: false,
+                    isRejected: true,
+                    message: `Admission application was not approved. Reason: ${reg.rejection_reason || 'Please contact institute administration.'}`
+                };
+            }
+        }
+
+        // 5. Fallback master admin login if user enters global admin key with standard default phone
         if (enteredPin === globalAdminKey && (cleanPhone === '9800000000' || cleanPhone === '9876543210' || cleanPhone === '9999999999')) {
             return {
                 success: true,
@@ -254,7 +286,7 @@ const DBService = {
 
         return {
             success: false,
-            message: `No active account found registered with WhatsApp ${cleanPhone}. Please check or contact administrator.`
+            message: `No active account found registered with WhatsApp ${cleanPhone}. Please check or apply for admission.`
         };
     },
 
@@ -1392,5 +1424,162 @@ const DBService = {
             console.error('[DBService] Delete notice error:', e);
             return true;
         }
+    },
+
+    // ---------------------------------------------------------
+    // 20. STUDENT REGISTRATION & ADMISSION APPROVAL
+    // ---------------------------------------------------------
+    async createStudentRegistration(regData) {
+        const newReg = {
+            id: 'reg_' + Date.now(),
+            name: (regData.name || '').trim(),
+            phone: (regData.phone || '').replace(/\D/g, ''),
+            email: (regData.email || '').trim(),
+            pin: (regData.pin || '123456').trim(),
+            cls: regData.cls || 'Class 10',
+            parent_name: (regData.parent_name || '').trim(),
+            parent_phone: (regData.parent_phone || '').replace(/\D/g, ''),
+            school_name: (regData.school_name || '').trim(),
+            course_interest: (regData.course_interest || '').trim(),
+            status: 'pending_approval',
+            rejection_reason: null,
+            created_at: new Date().toISOString(),
+            approved_at: null,
+            approved_by: null
+        };
+
+        const list = JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+        const existingIdx = list.findIndex(r => r.phone === newReg.phone);
+        if (existingIdx >= 0) {
+            list[existingIdx] = { ...list[existingIdx], ...newReg };
+        } else {
+            list.unshift(newReg);
+        }
+        localStorage.setItem('ec_student_registrations', JSON.stringify(list));
+
+        if (!isSupabaseConnected()) return { success: true, registration: newReg };
+
+        try {
+            const { data, error } = await supabaseClient
+                .from('student_registrations')
+                .upsert([newReg], { onConflict: 'phone' })
+                .select();
+            if (error) {
+                console.error('[DBService] Supabase createStudentRegistration error:', error);
+                return { success: true, registration: newReg };
+            }
+            return { success: true, registration: (data && data[0]) || newReg };
+        } catch (e) {
+            console.error('[DBService] createStudentRegistration exception:', e);
+            return { success: true, registration: newReg };
+        }
+    },
+
+    async fetchPendingRegistrations() {
+        if (!isSupabaseConnected()) {
+            const list = JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+            return list.filter(r => r.status === 'pending_approval');
+        }
+        try {
+            const { data, error } = await supabaseClient
+                .from('student_registrations')
+                .select('*')
+                .eq('status', 'pending_approval')
+                .order('created_at', { ascending: false });
+            if (error) throw error;
+            return data || [];
+        } catch (e) {
+            console.warn('[DBService] fetchPendingRegistrations fallback to local:', e);
+            const list = JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+            return list.filter(r => r.status === 'pending_approval');
+        }
+    },
+
+    async fetchAllRegistrations() {
+        if (!isSupabaseConnected()) {
+            return JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+        }
+        try {
+            const { data, error } = await supabaseClient
+                .from('student_registrations')
+                .select('*')
+                .order('created_at', { ascending: false });
+            if (error) throw error;
+            return data || [];
+        } catch (e) {
+            console.warn('[DBService] fetchAllRegistrations fallback to local:', e);
+            return JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+        }
+    },
+
+    async approveStudentRegistration(regId, studentPayload = {}) {
+        let reg = null;
+        let list = JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+        const idx = list.findIndex(r => r.id === regId);
+        if (idx >= 0) {
+            list[idx].status = 'approved';
+            list[idx].approved_at = new Date().toISOString();
+            list[idx].approved_by = studentPayload.approved_by || 'Admin';
+            reg = list[idx];
+            localStorage.setItem('ec_student_registrations', JSON.stringify(list));
+        }
+
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('student_registrations').select('*').eq('id', regId).maybeSingle();
+                if (data) reg = { ...reg, ...data };
+                await supabaseClient.from('student_registrations').update({
+                    status: 'approved',
+                    approved_at: new Date().toISOString(),
+                    approved_by: studentPayload.approved_by || 'Admin'
+                }).eq('id', regId);
+            } catch (e) {
+                console.error('[DBService] approveStudentRegistration update error:', e);
+            }
+        }
+
+        if (!reg) return { success: false, message: 'Registration application not found.' };
+
+        const newStudent = {
+            id: 's_' + Date.now(),
+            name: studentPayload.name || reg.name,
+            email: studentPayload.email || reg.email || '',
+            cls: studentPayload.cls || reg.cls,
+            parent: studentPayload.parent || reg.parent_name || 'Guardian',
+            phone: reg.phone,
+            pin: reg.pin || '123456',
+            fee: parseFloat(studentPayload.fee || 2500),
+            due: parseInt(studentPayload.due || 10, 10),
+            scholarshipPct: parseFloat(studentPayload.scholarshipPct || 0),
+            subjects: studentPayload.subjects || reg.course_interest || 'All Subjects',
+            doa: new Date().toISOString().split('T')[0],
+            school: studentPayload.school || reg.school_name || '',
+            color: '#2563eb'
+        };
+
+        await this.upsertStudent(newStudent);
+        return { success: true, student: newStudent };
+    },
+
+    async rejectStudentRegistration(regId, reason = 'Application criteria not met.') {
+        let list = JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+        const idx = list.findIndex(r => r.id === regId);
+        if (idx >= 0) {
+            list[idx].status = 'rejected';
+            list[idx].rejection_reason = reason;
+            localStorage.setItem('ec_student_registrations', JSON.stringify(list));
+        }
+
+        if (isSupabaseConnected()) {
+            try {
+                await supabaseClient.from('student_registrations').update({
+                    status: 'rejected',
+                    rejection_reason: reason
+                }).eq('id', regId);
+            } catch (e) {
+                console.error('[DBService] rejectStudentRegistration error:', e);
+            }
+        }
+        return { success: true };
     }
 };

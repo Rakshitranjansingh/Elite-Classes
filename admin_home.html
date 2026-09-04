@@ -204,6 +204,9 @@
                 <div class="profile-tab" data-tab="teachers" onclick="switchProfileTab('teachers')">Teachers</div>
                 <div class="profile-tab" data-tab="staff" onclick="switchProfileTab('staff')">Support Staff</div>
                 <div class="profile-tab" data-tab="admins" onclick="switchProfileTab('admins')">Admins</div>
+                <div class="profile-tab" data-tab="admissions" onclick="switchProfileTab('admissions')">
+                    Admissions <span class="badge badge-warning" id="pending-admissions-badge" style="display:none; font-size:10px; padding:2px 6px; margin-left:4px;">0</span>
+                </div>
             </div>
 
             <!-- STUDENTS SECTION -->
@@ -312,6 +315,37 @@
                             </tr>
                         </thead>
                         <tbody id="admins-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ADMISSIONS & STUDENT REGISTRATION REQUESTS SECTION -->
+            <div class="profile-section" id="profile-section-admissions" style="display:none;">
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <input type="text" id="admission-search" class="search-input" placeholder="Search applicant name, phone, class, parent..." oninput="renderPendingRegistrations()">
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <span style="font-size:12px; color:var(--text-muted);" id="admissions-count-text">0 Pending Applications</span>
+                        <button class="btn btn-outline" onclick="renderPendingRegistrations()">🔄 Refresh</button>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Applicant</th>
+                                <th>Target Class</th>
+                                <th>WhatsApp & Parent</th>
+                                <th>Course / Interest</th>
+                                <th>School</th>
+                                <th>Applied Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admissions-tbody"></tbody>
                     </table>
                 </div>
             </div>
@@ -1063,6 +1097,55 @@
             <div class="modal-footer">
                 <button class="btn btn-outline" onclick="closeModal('adminEnterMarksModal')">Cancel</button>
                 <button class="btn btn-primary" onclick="submitAdminExamMarks()">Save Marks</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPROVE STUDENT ADMISSION MODAL -->
+    <div class="modal-overlay" id="approveAdmissionModal">
+        <div class="modal" style="max-width:520px;">
+            <div class="modal-header">
+                <span class="modal-title">✓ Approve Student Admission</span>
+                <button class="modal-close" onclick="closeModal('approveAdmissionModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="appr-reg-id">
+                <div style="background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:16px;">
+                    <div style="font-size:16px; font-weight:800; color:var(--text);" id="appr-student-name">Student Name</div>
+                    <div style="font-size:12.5px; color:var(--text-muted); margin-top:2px;">
+                        WhatsApp: <strong id="appr-student-phone" style="color:var(--text);">—</strong> • Applied Class: <span class="badge badge-primary" id="appr-student-class">Class 10</span>
+                    </div>
+                    <div style="font-size:12px; color:var(--text-muted); margin-top:4px;" id="appr-student-meta">
+                        Parent: Rajesh Sharma • School: St. Xavier's
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Assigned Class *</label>
+                        <select id="appr-f-class"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Fee (₹) *</label>
+                        <input type="number" id="appr-f-fee" min="0" value="2500" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Fee Due Day of Month (1–31) *</label>
+                        <input type="number" id="appr-f-due" min="1" max="31" value="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Scholarship % (0–100)</label>
+                        <input type="number" id="appr-f-scholarship" min="0" max="100" value="0">
+                    </div>
+                    <div class="form-group full">
+                        <label>Enrolled Subjects *</label>
+                        <input type="text" id="appr-f-subjects" value="Mathematics, Science, English">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('approveAdmissionModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="confirmApproveAdmission()">Confirm & Activate Student Profile →</button>
             </div>
         </div>
     </div>
