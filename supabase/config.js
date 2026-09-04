@@ -32,3 +32,14 @@ function saveSupabaseCredentials(url, key) {
 function isSupabaseConnected() {
     return !!supabaseClient;
 }
+
+// Auto-initialize if Supabase is already loaded on the page
+if (typeof window !== 'undefined') {
+    if (window.supabase) {
+        initSupabaseClient();
+    } else {
+        window.addEventListener('DOMContentLoaded', () => {
+            initSupabaseClient();
+        });
+    }
+}

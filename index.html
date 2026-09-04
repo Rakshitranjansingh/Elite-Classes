@@ -113,7 +113,7 @@
             color: #ffffff;
             font-weight: 700;
             font-size: 13.5px;
-            padding: 9px 18px;
+            padding: 10px 20px;
             border-radius: 10px;
             border: none;
             cursor: pointer;
@@ -134,9 +134,9 @@
             color: #ffffff;
             font-weight: 700;
             font-size: 13.5px;
-            padding: 9px 18px;
+            padding: 10px 20px;
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             cursor: pointer;
             transition: all 0.2s ease;
             display: inline-flex;
@@ -155,7 +155,7 @@
             background: #1e293b;
             color: #e2e8f0;
             border-bottom: 1px solid #334155;
-            padding: 8px 24px;
+            padding: 9px 24px;
             display: flex;
             align-items: center;
             gap: 14px;
@@ -699,24 +699,33 @@
             gap: 12px;
         }
 
-        /* MODALS */
+        /* MODALS - ALWAYS ON TOP & GUARANTEED DISPLAY */
         .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            background: rgba(15, 23, 42, 0.8) !important;
+            backdrop-filter: blur(8px) !important;
+            z-index: 99999 !important;
+            display: none !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 20px !important;
+            box-sizing: border-box !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
 
+        .modal-overlay.open,
         .modal-overlay.active {
-            display: flex;
+            display: flex !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
+            visibility: visible !important;
         }
 
         .custom-modal {
@@ -724,16 +733,19 @@
             border-radius: 20px;
             width: 100%;
             max-width: 520px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
             overflow: hidden;
-            animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: modalPop 0.22s cubic-bezier(0.16, 1, 0.3, 1);
             max-height: 90vh;
             display: flex;
             flex-direction: column;
+            color: #0f172a;
+            position: relative;
+            z-index: 100000;
         }
 
         @keyframes modalPop {
-            from { opacity: 0; transform: scale(0.96) translateY(10px); }
+            from { opacity: 0; transform: scale(0.95) translateY(12px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
@@ -756,14 +768,15 @@
         .custom-modal-close {
             background: none;
             border: none;
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
             color: #64748b;
-            padding: 4px;
+            padding: 4px 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 6px;
+            border-radius: 8px;
+            transition: all 0.15s;
         }
 
         .custom-modal-close:hover {
@@ -823,10 +836,10 @@
         </nav>
 
         <div class="pub-nav-actions">
-            <button class="btn-apply-admission" onclick="openStudentRegistrationModal()">
+            <button type="button" class="btn-apply-admission" id="nav-btn-apply" onclick="openStudentRegistrationModal()">
                 <span>📝 Apply for Admission</span>
             </button>
-            <button class="btn-portal-signin" onclick="openPortalLoginModal()">
+            <button type="button" class="btn-portal-signin" id="nav-btn-signin" onclick="openPortalLoginModal()">
                 <span>🔐 Portal Sign In</span>
             </button>
         </div>
@@ -855,10 +868,10 @@
                 </p>
 
                 <div class="hero-buttons">
-                    <button class="hero-btn-primary" onclick="openStudentRegistrationModal()">
+                    <button type="button" class="hero-btn-primary" id="hero-btn-apply" onclick="openStudentRegistrationModal()">
                         <span>Apply for Student Admission →</span>
                     </button>
-                    <button class="hero-btn-secondary" onclick="openPortalLoginModal()">
+                    <button type="button" class="hero-btn-secondary" id="hero-btn-signin" onclick="openPortalLoginModal()">
                         <span>🔐 Portal Sign In</span>
                     </button>
                 </div>
@@ -911,7 +924,7 @@
                     </div>
 
                     <div style="margin-top:20px; text-align:center;">
-                        <button class="btn btn-outline" style="width:100%; border-color:rgba(255,255,255,0.3); color:#ffffff;" onclick="openStudentRegistrationModal()">
+                        <button type="button" class="btn btn-outline" style="width:100%; border-color:rgba(255,255,255,0.3); color:#ffffff; cursor:pointer;" onclick="openStudentRegistrationModal()">
                             ✨ Request Student Account Today
                         </button>
                     </div>
@@ -957,7 +970,7 @@
                         <span class="course-price-period">/ month</span>
                         <span class="course-discount-tag">Early Bird: 20% Off</span>
                     </div>
-                    <button class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 10', 'CBSE Class 10 Board Excellence')">
+                    <button type="button" class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 10', 'CBSE Class 10 Board Excellence')">
                         Apply for Class 10 Batch →
                     </button>
                 </div>
@@ -990,7 +1003,7 @@
                         <span class="course-price-period">/ month</span>
                         <span class="course-discount-tag">Limited Seats</span>
                     </div>
-                    <button class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 10', 'Foundation JEE/NEET Booster')">
+                    <button type="button" class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 10', 'Foundation JEE/NEET Booster')">
                         Apply for Foundation Batch →
                     </button>
                 </div>
@@ -1023,7 +1036,7 @@
                         <span class="course-price-period">/ month</span>
                         <span class="course-discount-tag">Sibling Discount 10%</span>
                     </div>
-                    <button class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 8', 'Middle School Concept Builder')">
+                    <button type="button" class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 8', 'Middle School Concept Builder')">
                         Apply for Middle School →
                     </button>
                 </div>
@@ -1056,7 +1069,7 @@
                         <span class="course-price-val" style="color:#8b5cf6;">Free</span>
                         <span class="course-price-period">With Enrolled Admission</span>
                     </div>
-                    <button class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 10', 'CBT Test Series Access')">
+                    <button type="button" class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 10', 'CBT Test Series Access')">
                         Join to Unlock CBT Engine →
                     </button>
                 </div>
@@ -1106,7 +1119,7 @@
             <p style="font-size:15.5px; color:#cbd5e1; max-width:600px; margin:0 auto 28px;">
                 Submit your admission application today. Our institute administration will review your request and activate your portal credentials.
             </p>
-            <button class="btn-apply-admission" style="font-size:15px; padding:14px 32px;" onclick="openStudentRegistrationModal()">
+            <button type="button" class="btn-apply-admission" style="font-size:15px; padding:14px 32px;" onclick="openStudentRegistrationModal()">
                 <span>📝 Apply for Student Admission Now</span>
             </button>
         </div>
@@ -1166,7 +1179,7 @@
                         Exclusively for Students • Admin Approval Required
                     </div>
                 </div>
-                <button class="custom-modal-close" onclick="closeModal('studentRegistrationModal')">✕</button>
+                <button type="button" class="custom-modal-close" onclick="closeModal('studentRegistrationModal')">✕</button>
             </div>
 
             <div class="custom-modal-body" id="reg-form-container">
@@ -1269,7 +1282,7 @@
                 <p style="font-size:12px; color:#64748b; margin-bottom:20px;">
                     Once our administration reviews and confirms your admission, you can log in directly using your registered WhatsApp number and PIN.
                 </p>
-                <button class="btn btn-primary" style="width:100%;" onclick="closeModal('studentRegistrationModal')">
+                <button type="button" class="btn btn-primary" style="width:100%;" onclick="closeModal('studentRegistrationModal')">
                     Got it, Thanks!
                 </button>
             </div>
@@ -1288,12 +1301,12 @@
                         Sign in to Student, Faculty or Admin Dashboard
                     </div>
                 </div>
-                <button class="custom-modal-close" onclick="closeModal('portalLoginModal')">✕</button>
+                <button type="button" class="custom-modal-close" onclick="closeModal('portalLoginModal')">✕</button>
             </div>
 
             <div class="custom-modal-body">
                 <!-- ERROR / PENDING MESSAGE ALERT -->
-                <div id="portal-error" class="error-alert" style="display:none; margin-bottom:16px;"></div>
+                <div id="portal-error" class="error-alert" style="display:none; margin-bottom:16px; padding:10px 14px; border-radius:10px; font-size:12.5px; font-weight:600;"></div>
 
                 <form id="portal-login-form" onsubmit="event.preventDefault(); handlePortalLogin();">
                     <div style="margin-bottom:16px;">
@@ -1301,7 +1314,7 @@
                             Registered WhatsApp Number
                         </label>
                         <div style="position:relative;">
-                            <input type="tel" id="portal-phone" class="gateway-input" style="width:100%; padding:12px 14px 12px 42px; border:2px solid #e2e8f0; border-radius:12px; font-size:14.5px; font-weight:600; outline:none;" placeholder="e.g. 9876543210" maxlength="15" autocomplete="tel" required>
+                            <input type="tel" id="portal-phone" class="gateway-input" style="width:100%; padding:12px 14px 12px 42px; border:2px solid #e2e8f0; border-radius:12px; font-size:14.5px; font-weight:600; outline:none; box-sizing:border-box;" placeholder="e.g. 9876543210" maxlength="15" autocomplete="tel" required>
                             <svg width="18" height="18" fill="none" stroke="#64748b" viewBox="0 0 24 24" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); pointer-events:none;">
                                 <path d="M3 5a2 2 0 0 1 2-2h3.28a1 1 0 0 1 .948.684l1.498 4.493a1 1 0 0 1-.502 1.21l-2.257 1.13a11.042 11.042 0 0 0 5.516 5.516l1.13-2.257a1 1 0 0 1 1.21-.502l4.493 1.498a1 1 0 0 1 .684.949V19a2 2 0 0 1-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-width="2"/>
                             </svg>
@@ -1313,7 +1326,7 @@
                             Security PIN
                         </label>
                         <div style="position:relative;">
-                            <input type="password" id="portal-pin" class="gateway-input" style="width:100%; padding:12px 70px 12px 42px; border:2px solid #e2e8f0; border-radius:12px; font-size:14.5px; font-weight:600; outline:none;" placeholder="Enter PIN" maxlength="20" autocomplete="current-password" required>
+                            <input type="password" id="portal-pin" class="gateway-input" style="width:100%; padding:12px 70px 12px 42px; border:2px solid #e2e8f0; border-radius:12px; font-size:14.5px; font-weight:600; outline:none; box-sizing:border-box;" placeholder="Enter PIN" maxlength="20" autocomplete="current-password" required>
                             <svg width="18" height="18" fill="none" stroke="#64748b" viewBox="0 0 24 24" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); pointer-events:none;">
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-width="2"/>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-width="2"/>
@@ -1346,7 +1359,7 @@
         <div class="custom-modal" style="max-width:440px;">
             <div class="custom-modal-header">
                 <span class="custom-modal-title">Supabase Database Settings</span>
-                <button class="custom-modal-close" onclick="closeModal('supabaseModal')">✕</button>
+                <button type="button" class="custom-modal-close" onclick="closeModal('supabaseModal')">✕</button>
             </div>
             <div class="custom-modal-body">
                 <div style="font-size:12.5px; color:#64748b; margin-bottom:14px;">
@@ -1364,8 +1377,8 @@
                 </div>
             </div>
             <div class="custom-modal-footer">
-                <button class="btn btn-outline" onclick="closeModal('supabaseModal')">Cancel</button>
-                <button class="btn btn-primary" onclick="saveSupabaseSettingsFromModal()">Save & Connect</button>
+                <button type="button" class="btn btn-outline" onclick="closeModal('supabaseModal')">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="saveSupabaseSettingsFromModal()">Save & Connect</button>
             </div>
         </div>
     </div>
@@ -1381,68 +1394,65 @@
     <script src="enums/classes.js"></script>
     <script src="supabase/config.js"></script>
     <script src="supabase/api.js"></script>
-    <script src="js/app.js"></script>
 
     <script>
-        // Initialize page, populate classes & load notices
-        document.addEventListener('DOMContentLoaded', async () => {
-            await initPublicPage();
-        });
-
-        async function initPublicPage() {
-            // Populate classes dropdown if dynamic
-            if (typeof syncClassesFromDB === 'function') {
-                await syncClassesFromDB();
-                const classSelect = document.getElementById('reg-class');
-                if (classSelect && CLASS_OPTIONS && CLASS_OPTIONS.length > 0) {
-                    classSelect.innerHTML = CLASS_OPTIONS.map(c => 
-                        `<option value="${c}" ${c === 'Class 10' ? 'selected' : ''}>${c}</option>`
-                    ).join('');
-                }
-            }
-
-            // Load live notice ticker
-            await loadNoticeTicker();
-        }
-
-        async function loadNoticeTicker() {
-            const tickerEl = document.getElementById('pub-ticker-text');
-            if (!tickerEl) return;
-
-            try {
-                if (typeof DBService !== 'undefined') {
-                    const notices = await DBService.fetchNoticeList('all');
-                    if (notices && notices.length > 0) {
-                        const activeList = notices.filter(n => n.is_active !== false);
-                        if (activeList.length > 0) {
-                            tickerEl.textContent = activeList.map(n => n.content).join('  •  ');
-                            return;
-                        }
-                    }
-                }
-            } catch (e) {
-                console.warn('Ticker load error:', e);
-            }
-            tickerEl.textContent = '📢 Academic Admissions open for 2026-27 Session • Class 10 Science 100-Q CBT Test Series Live!';
-        }
-
-        // Modal Open/Close helpers
+        // Modal Open/Close helpers - guaranteed direct DOM display
         function openModal(modalId) {
-            const el = document.getElementById(modalId);
-            if (el) el.classList.add('active');
+            const el = typeof modalId === 'string' ? document.getElementById(modalId) : modalId;
+            if (el) {
+                el.classList.add('open', 'active');
+                el.style.setProperty('display', 'flex', 'important');
+                el.style.setProperty('opacity', '1', 'important');
+                el.style.setProperty('pointer-events', 'auto', 'important');
+                el.style.setProperty('visibility', 'visible', 'important');
+            }
         }
 
         function closeModal(modalId) {
-            const el = document.getElementById(modalId);
-            if (el) el.classList.remove('active');
+            const el = typeof modalId === 'string' ? document.getElementById(modalId) : modalId;
+            if (el) {
+                el.classList.remove('open', 'active');
+                el.style.setProperty('display', 'none', 'important');
+                el.style.setProperty('opacity', '0', 'important');
+                el.style.setProperty('pointer-events', 'none', 'important');
+                el.style.setProperty('visibility', 'hidden', 'important');
+            }
+        }
+
+        // Close when clicking outside modal card or pressing Escape
+        window.addEventListener('click', (e) => {
+            if (e.target && e.target.classList.contains('modal-overlay')) {
+                closeModal(e.target);
+            }
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.open, .modal-overlay.active').forEach(closeModal);
+            }
+        });
+
+        // Toast feedback
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('app-toast');
+            const msgEl = document.getElementById('toast-msg');
+            if (!toast || !msgEl) return;
+            msgEl.textContent = message;
+            toast.className = 'toast show ' + type;
+            setTimeout(() => {
+                toast.className = 'toast';
+            }, 3500);
         }
 
         function openStudentRegistrationModal(presetClass = '', presetCourse = '') {
-            document.getElementById('reg-form-container').style.display = 'block';
-            document.getElementById('reg-success-container').style.display = 'none';
-            document.getElementById('student-reg-form').reset();
-            
+            const formContainer = document.getElementById('reg-form-container');
+            const successContainer = document.getElementById('reg-success-container');
+            const regForm = document.getElementById('student-reg-form');
             const alertBox = document.getElementById('reg-alert-box');
+
+            if (formContainer) formContainer.style.display = 'block';
+            if (successContainer) successContainer.style.display = 'none';
+            if (regForm) regForm.reset();
             if (alertBox) alertBox.style.display = 'none';
 
             if (presetClass) {
@@ -1465,12 +1475,85 @@
 
         function toggleRegPinVisibility() {
             const input = document.getElementById('reg-pin');
-            input.type = input.type === 'password' ? 'text' : 'password';
+            if (input) input.type = input.type === 'password' ? 'text' : 'password';
         }
 
         function togglePortalPinVisibility() {
             const input = document.getElementById('portal-pin');
-            input.type = input.type === 'password' ? 'text' : 'password';
+            if (input) input.type = input.type === 'password' ? 'text' : 'password';
+        }
+
+        function openSupabaseModal() {
+            if (typeof getSupabaseConfig === 'function') {
+                const cfg = getSupabaseConfig();
+                if (cfg) {
+                    const u = document.getElementById('cfg-supa-url');
+                    const k = document.getElementById('cfg-supa-key');
+                    if (u) u.value = cfg.url || '';
+                    if (k) k.value = cfg.key || '';
+                }
+            }
+            openModal('supabaseModal');
+        }
+
+        function saveSupabaseSettingsFromModal() {
+            const url = document.getElementById('cfg-supa-url').value.trim();
+            const key = document.getElementById('cfg-supa-key').value.trim();
+            if (!url || !key) {
+                showToast('Please enter both Supabase URL and Anon Key', 'danger');
+                return;
+            }
+            if (typeof saveSupabaseCredentials === 'function') {
+                saveSupabaseCredentials(url, key);
+                showToast('Saved Supabase configuration!', 'success');
+                closeModal('supabaseModal');
+                loadNoticeTicker();
+            }
+        }
+
+        // Initialize page, populate classes & load notices
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (typeof initSupabaseClient === 'function') {
+                initSupabaseClient();
+            }
+            await initPublicPage();
+        });
+
+        async function initPublicPage() {
+            if (typeof syncClassesFromDB === 'function') {
+                try {
+                    await syncClassesFromDB();
+                    const classSelect = document.getElementById('reg-class');
+                    if (classSelect && typeof CLASS_OPTIONS !== 'undefined' && CLASS_OPTIONS.length > 0) {
+                        classSelect.innerHTML = CLASS_OPTIONS.map(c => 
+                            `<option value="${c}" ${c === 'Class 10' ? 'selected' : ''}>${c}</option>`
+                        ).join('');
+                    }
+                } catch (e) {
+                    console.warn('Class sync error:', e);
+                }
+            }
+            await loadNoticeTicker();
+        }
+
+        async function loadNoticeTicker() {
+            const tickerEl = document.getElementById('pub-ticker-text');
+            if (!tickerEl) return;
+            try {
+                if (typeof DBService !== 'undefined') {
+                    const notices = await DBService.fetchNoticeList('all');
+                    if (notices && notices.length > 0) {
+                        const activeList = notices.filter(n => n.is_active !== false);
+                        if (activeList.length > 0) {
+                            tickerEl.textContent = activeList.map(n => n.content).join('  •  ');
+                            return;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.warn('Ticker load error:', e);
+            }
+            tickerEl.textContent = '📢 Academic Admissions open for 2026-27 Session • Class 10 Science 100-Q CBT Test Series Live!';
         }
 
         // Handle Student Registration Application Submit
