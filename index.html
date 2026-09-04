@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Elite Classes — Premier Coaching Institute & CBT Learning Portal</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="eliteLogo_crest.png">
     <!-- Resource Preconnects for High-Performance Asset Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,20 +50,32 @@
             gap: 12px;
             text-decoration: none;
             color: #ffffff;
+            transition: opacity 0.2s ease;
+        }
+
+        .pub-brand:hover {
+            opacity: 0.9;
         }
 
         .pub-brand-icon {
             width: 44px;
             height: 44px;
             border-radius: 12px;
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: #ffffff;
-            font-size: 20px;
-            font-weight: 800;
+            background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 2px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .pub-brand-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .pub-brand-text h1 {
@@ -474,6 +488,17 @@
             gap: 24px;
         }
 
+        .courses-grid.single-batch {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .courses-grid.single-batch .course-card {
+            max-width: 620px;
+            width: 100%;
+        }
+
         .course-card {
             background: #ffffff;
             border-radius: 20px;
@@ -855,25 +880,24 @@
 
     <!-- 1. PUBLIC TOP NAVIGATION -->
     <header class="pub-navbar">
-        <a href="index.html" class="pub-brand">
-            <div class="pub-brand-icon">EC</div>
+        <a href="index.html" class="pub-brand" title="Elite Classes - Home">
+            <div class="pub-brand-icon">
+                <img src="eliteLogo_crest.png" alt="Elite Classes">
+            </div>
             <div class="pub-brand-text">
-                <h1>elite<span>.</span>classes</h1>
-                <p>Coaching ERP & CBT Engine</p>
+                <h1>Elite Classes</h1>
+                <p>Committed to success</p>
             </div>
         </a>
 
         <nav class="pub-nav-links">
             <a href="#courses" class="pub-nav-link">Courses & Batches</a>
-            <a href="#cbt-test-series" class="pub-nav-link">CBT Test Series</a>
             <a href="#why-us" class="pub-nav-link">Why Elite Classes</a>
             <a href="#admissions" class="pub-nav-link">Admissions</a>
+            <a href="#contact" class="pub-nav-link">Contact</a>
         </nav>
 
         <div class="pub-nav-actions">
-            <button type="button" class="btn-apply-admission" id="nav-btn-apply" onclick="openStudentRegistrationModal()">
-                <span>📝 Apply for Admission</span>
-            </button>
             <button type="button" class="btn-portal-signin" id="nav-btn-signin" onclick="openPortalLoginModal()">
                 <span>🔐 Portal Sign In</span>
             </button>
@@ -885,7 +909,7 @@
         <span class="pub-ticker-tag">📢 Live Notice</span>
         <div class="pub-ticker-track">
             <div class="pub-ticker-content" id="pub-ticker-text">
-                📢 Academic Admissions Open for 2026-27 Session &bull; Class 10 Science 100-Question CBT Assessments Live &bull; Early Bird 20% Scholarship for Board Excellence Master Batch &bull; Direct Parent WhatsApp Academic Updates & Fee Receipts
+                📢 Academic Admissions Open for 2026-27 Session &bull; Class 10 Science CBT Test Series Assessments Live &bull; Early Bird 20% Scholarship for Board Excellence Master Batch &bull; Direct Parent WhatsApp Academic Updates & Fee Receipts
             </div>
         </div>
     </div>
@@ -898,10 +922,10 @@
                     <span>⚡ Academic Admissions Open 2026-27</span>
                 </div>
                 <h1 class="hero-title">
-                    Empowering Minds. <span>Engineering Ranks.</span>
+                    Empowering Minds, <span>Inspiring an elites</span>
                 </h1>
                 <p class="hero-desc">
-                    Premier coaching for CBSE Class 6–10 and Foundation JEE/NEET. Experience comprehensive NCERT mastery, timed 100-Question CBT mock assessments, dedicated teacher observations, and instant WhatsApp parent updates.
+                    Premier coaching for CBSE Class 6–10 and Foundation JEE/NEET.
                 </p>
 
                 <div class="hero-buttons">
@@ -919,8 +943,8 @@
                         <div class="stat-box-lbl">CBSE Board Pass Rate</div>
                     </div>
                     <div>
-                        <div class="stat-box-num">100-Q</div>
-                        <div class="stat-box-lbl">NCERT Chapter CBTs</div>
+                        <div class="stat-box-num">CBT</div>
+                        <div class="stat-box-lbl">Test Series Engine</div>
                     </div>
                     <div>
                         <div class="stat-box-num">15 : 1</div>
@@ -933,14 +957,13 @@
                 <div class="hero-showcase-card">
                     <div class="showcase-header">
                         <div style="font-weight:800; font-size:15px; color:#ffffff;">Elite Coaching Edge</div>
-                        <div class="showcase-pill">● System Active</div>
                     </div>
 
                     <div class="showcase-feature-item">
                         <div class="showcase-icon">💻</div>
                         <div class="showcase-text">
                             <h4>Chapter-wise CBT Assessments</h4>
-                            <p>100 questions per chapter with 5 tiered difficulties, timer & instant answer review.</p>
+                            <p>Tiered difficulty mock tests, real-time timer & instant answer review.</p>
                         </div>
                     </div>
 
@@ -959,12 +982,6 @@
                             <p>Mentors track strengths, behavioral feedback, and exam progress individually.</p>
                         </div>
                     </div>
-
-                    <div style="margin-top:20px; text-align:center;">
-                        <button type="button" class="btn btn-outline" style="width:100%; border-color:rgba(255,255,255,0.3); color:#ffffff; cursor:pointer;" onclick="openStudentRegistrationModal()">
-                            ✨ Request Student Account Today
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -978,26 +995,30 @@
             <p class="section-sub">Carefully engineered curriculum designed to build bulletproof academic fundamentals and top exam ranks.</p>
         </div>
 
-        <div class="courses-grid">
-            <!-- COURSE 1 -->
+        <div class="courses-grid single-batch">
+            <!-- MASTER BATCH CARD -->
             <div class="course-card highlight">
-                <span class="card-ribbon">🔥 Most Popular</span>
+                <span class="card-ribbon">🔥 Flagship Program</span>
                 <div>
                     <div class="course-target">Class 10 CBSE Board</div>
                     <h3 class="course-name">Board Excellence Master Batch</h3>
-                    <p class="course-desc">Comprehensive program covering Class 10 Science, Mathematics, and English with rigorous board exam drilling.</p>
+                    <p class="course-desc">Comprehensive academic program covering Class 10 Science, Mathematics, and English with rigorous board exam drilling and interactive mentor tracking.</p>
                     <ul class="course-perks">
                         <li>
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            All 13 Science Chapter 100-Q CBT Tests
+                            Complete Science & Maths CBT Chapter Assessments
                         </li>
                         <li>
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            Complete NCERT Exhaustive Coverage
+                            Comprehensive 100% Syllabus Mastery
                         </li>
                         <li>
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
                             Weekly Doubt Clearing & Mentor Tracking
+                        </li>
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
+                            Personalized Performance & Exam Readiness Review
                         </li>
                     </ul>
                 </div>
@@ -1009,105 +1030,6 @@
                     </div>
                     <button type="button" class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 10', 'CBSE Class 10 Board Excellence')">
                         Apply for Class 10 Batch →
-                    </button>
-                </div>
-            </div>
-
-            <!-- COURSE 2 -->
-            <div class="course-card">
-                <div>
-                    <div class="course-target">Class 9 & 10 Aspirants</div>
-                    <h3 class="course-name">Foundation JEE & NEET Booster</h3>
-                    <p class="course-desc">Early preparation focusing on analytical reasoning, deep physical science, and Olympiad-level problem solving.</p>
-                    <ul class="course-perks">
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            Higher-order Problem Solving in Physics & Chem
-                        </li>
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            NTSE & Olympiad Mock Test Series
-                        </li>
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            Small Batch Size (Max 20 Students)
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="course-pricing">
-                        <span class="course-price-val">₹3,000</span>
-                        <span class="course-price-period">/ month</span>
-                        <span class="course-discount-tag">Limited Seats</span>
-                    </div>
-                    <button type="button" class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 10', 'Foundation JEE/NEET Booster')">
-                        Apply for Foundation Batch →
-                    </button>
-                </div>
-            </div>
-
-            <!-- COURSE 3 -->
-            <div class="course-card">
-                <div>
-                    <div class="course-target">Class 6 to Class 8</div>
-                    <h3 class="course-name">Middle School Concept Builder</h3>
-                    <p class="course-desc">Fostering scientific curiosity, mathematical clarity, and English language communication skills.</p>
-                    <ul class="course-perks">
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            Mental Math & Speed Calculation Techniques
-                        </li>
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            Interactive Science Experiments & Activities
-                        </li>
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            Regular Homework & Classroom Remarks
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="course-pricing">
-                        <span class="course-price-val">₹1,800</span>
-                        <span class="course-price-period">/ month</span>
-                        <span class="course-discount-tag">Sibling Discount 10%</span>
-                    </div>
-                    <button type="button" class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 8', 'Middle School Concept Builder')">
-                        Apply for Middle School →
-                    </button>
-                </div>
-            </div>
-
-            <!-- COURSE 4 -->
-            <div class="course-card" id="cbt-test-series">
-                <span class="card-ribbon" style="background:#8b5cf6;">⚡ CBT ENGINE</span>
-                <div>
-                    <div class="course-target">Class 10 Science</div>
-                    <h3 class="course-name">100-Q CBT Mock Test Series</h3>
-                    <p class="course-desc">13 Consolidated Chapter Master Tests covering every NCERT definition, activity, equation, and exemplar deduction.</p>
-                    <ul class="course-perks">
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            100 Questions per Chapter (90 Mins, 400 Marks)
-                        </li>
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            Post-Exam Detailed Question Review & Solutions
-                        </li>
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            Real-time Negative Marking & Speed Analytics
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="course-pricing">
-                        <span class="course-price-val" style="color:#8b5cf6;">Free</span>
-                        <span class="course-price-period">With Enrolled Admission</span>
-                    </div>
-                    <button type="button" class="btn-course-enroll" onclick="openStudentRegistrationModal('Class 10', 'CBT Test Series Access')">
-                        Join to Unlock CBT Engine →
                     </button>
                 </div>
             </div>
@@ -1125,8 +1047,8 @@
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon-box">🎯</div>
-                <h3>100% NCERT Exhaustive Scope</h3>
-                <p>We do not leave a single paragraph, experiment, table, or callout box unexamined. Our students achieve thorough conceptual clarity.</p>
+                <h3>100% Syllabus Coverage</h3>
+                <p>We do not leave a single topic, formula, practical experiment, or core concept unexamined. Our students achieve thorough conceptual clarity.</p>
             </div>
 
             <div class="feature-card">
@@ -1166,11 +1088,19 @@
     <footer class="pub-footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <h2>elite<span>.</span>classes</h2>
+                <a href="index.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; margin-bottom:8px;">
+                    <img src="eliteLogo_crest.png" alt="Elite Classes" style="width:36px; height:36px; object-fit:contain;">
+                    <h2 style="margin:0; font-size:22px; font-weight:800; color:#0f172a;">Elite Classes</h2>
+                </a>
+                <div style="font-size:12px; font-weight:700; color:#2563eb; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:10px;">Committed to success</div>
                 <p>Empowering students across School Boards and Foundation Competitive Exams with disciplined learning and intelligent CBT assessments.</p>
-                <div style="margin-top:12px; font-size:12px; color:#64748b;">
-                    📍 Main Coaching Campus, Academic Enclave, City Center<br>
-                    📞 WhatsApp Inquiries: +91 98000 00000
+                <div style="margin-top:14px; font-size:13px; color:#475569; line-height:1.7;">
+                    <div>📍 Dak Banglow Road, Harnaut</div>
+                    <div style="margin-top:4px;">
+                        📞 Contact: <a href="tel:9911519237" style="color:#0f172a; font-weight:700; text-decoration:none;">9911519237</a>
+                        <span style="color:#cbd5e1; margin:0 6px;">|</span>
+                        <a href="https://wa.me/919911519237" target="_blank" style="color:#16a34a; font-weight:600; text-decoration:none;">WhatsApp Us</a>
+                    </div>
                 </div>
             </div>
 
@@ -1189,16 +1119,13 @@
                 <ul>
                     <li><a href="javascript:void(0)" onclick="openPortalLoginModal()">🔐 Portal Sign In</a></li>
                     <li><a href="javascript:void(0)" onclick="openStudentRegistrationModal()">📝 New Student Request</a></li>
-                    <li><a href="javascript:void(0)" onclick="openSupabaseModal()">⚡ Database Settings</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <div>© 2026 Elite Classes ERP & LMS. All rights reserved.</div>
+            <div>© 2026 Elite Classes. Committed to success. All rights reserved.</div>
             <div style="display:flex; gap:16px;">
-                <span style="color:#64748b; cursor:pointer;" onclick="openSupabaseModal()">Cloud Config</span>
-                <span>•</span>
                 <span>Single-Session Secure Gateway</span>
             </div>
         </div>
@@ -1389,36 +1316,6 @@
         </div>
     </div>
 
-    <!-- ===================================================================== -->
-    <!-- MODAL 3: SUPABASE DB CONFIG MODAL                                      -->
-    <!-- ===================================================================== -->
-    <div class="modal-overlay" id="supabaseModal">
-        <div class="custom-modal" style="max-width:440px;">
-            <div class="custom-modal-header">
-                <span class="custom-modal-title">Supabase Database Settings</span>
-                <button type="button" class="custom-modal-close" onclick="closeModal('supabaseModal')">✕</button>
-            </div>
-            <div class="custom-modal-body">
-                <div style="font-size:12.5px; color:#64748b; margin-bottom:14px;">
-                    Enter your Supabase Project URL and Anon API key to connect live cloud database:
-                </div>
-                <div class="form-grid">
-                    <div class="form-group full">
-                        <label>Supabase Project URL *</label>
-                        <input type="text" id="cfg-supa-url" placeholder="https://xyzcompany.supabase.co">
-                    </div>
-                    <div class="form-group full">
-                        <label>Supabase Anon Key *</label>
-                        <input type="password" id="cfg-supa-key" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...">
-                    </div>
-                </div>
-            </div>
-            <div class="custom-modal-footer">
-                <button type="button" class="btn btn-outline" onclick="closeModal('supabaseModal')">Cancel</button>
-                <button type="button" class="btn btn-primary" onclick="saveSupabaseSettingsFromModal()">Save & Connect</button>
-            </div>
-        </div>
-    </div>
 
     <!-- APP TOAST -->
     <div class="toast" id="app-toast">
@@ -1520,33 +1417,6 @@
             if (input) input.type = input.type === 'password' ? 'text' : 'password';
         }
 
-        function openSupabaseModal() {
-            if (typeof getSupabaseConfig === 'function') {
-                const cfg = getSupabaseConfig();
-                if (cfg) {
-                    const u = document.getElementById('cfg-supa-url');
-                    const k = document.getElementById('cfg-supa-key');
-                    if (u) u.value = cfg.url || '';
-                    if (k) k.value = cfg.key || '';
-                }
-            }
-            openModal('supabaseModal');
-        }
-
-        function saveSupabaseSettingsFromModal() {
-            const url = document.getElementById('cfg-supa-url').value.trim();
-            const key = document.getElementById('cfg-supa-key').value.trim();
-            if (!url || !key) {
-                showToast('Please enter both Supabase URL and Anon Key', 'danger');
-                return;
-            }
-            if (typeof saveSupabaseCredentials === 'function') {
-                saveSupabaseCredentials(url, key);
-                showToast('Saved Supabase configuration!', 'success');
-                closeModal('supabaseModal');
-                loadNoticeTicker();
-            }
-        }
 
         // Initialize page, populate classes & load notices
         document.addEventListener('DOMContentLoaded', async () => {
