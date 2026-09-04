@@ -142,6 +142,8 @@ CREATE TABLE IF NOT EXISTS attendance (
     CONSTRAINT unique_student_subject_daily_att UNIQUE (date, student_id, subject)
 );
 
+ALTER TABLE attendance ADD COLUMN IF NOT EXISTS subject VARCHAR(100) DEFAULT 'General';
+
 -- 11. EXAM RESULTS & MARKS HISTORY TABLE
 CREATE TABLE IF NOT EXISTS exam_results (
     id VARCHAR(50) PRIMARY KEY,
@@ -162,6 +164,9 @@ CREATE TABLE IF NOT EXISTS notices (
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+ALTER TABLE notices ADD COLUMN IF NOT EXISTS target_audience VARCHAR(50) DEFAULT 'all';
+ALTER TABLE notices ADD COLUMN IF NOT EXISTS is_active BOOLEAN DEFAULT TRUE;
 
 -- 13. COURSES & STUDY MATERIAL TABLE
 CREATE TABLE IF NOT EXISTS courses (
@@ -241,6 +246,15 @@ CREATE TABLE IF NOT EXISTS test_submissions (
     CONSTRAINT unique_student_test_submission UNIQUE (test_id, student_id)
 );
 
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS accuracy_pct NUMERIC(5, 2) DEFAULT 0;
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS correct_count INT DEFAULT 0;
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS incorrect_count INT DEFAULT 0;
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS unattempted_count INT DEFAULT 0;
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS time_taken_seconds INT DEFAULT 0;
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS rank INT DEFAULT 1;
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS status VARCHAR(50) DEFAULT 'completed';
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS answers_json JSONB;
+
 -- 15. STUDENT STATS & ACTIVITY PERSISTENCE TABLE
 CREATE TABLE IF NOT EXISTS student_stats (
     id VARCHAR(50) PRIMARY KEY,
@@ -262,6 +276,11 @@ CREATE TABLE IF NOT EXISTS student_remarks (
     resolution_notes TEXT,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+ALTER TABLE student_remarks ADD COLUMN IF NOT EXISTS category VARCHAR(100) DEFAULT 'General Note';
+ALTER TABLE student_remarks ADD COLUMN IF NOT EXISTS status VARCHAR(50) DEFAULT 'inReview';
+ALTER TABLE student_remarks ADD COLUMN IF NOT EXISTS resolved_at TIMESTAMPTZ;
+ALTER TABLE student_remarks ADD COLUMN IF NOT EXISTS resolution_notes TEXT;
 
 -- =========================================================
 -- INDEXES FOR PERFORMANCE OPTIMIZATION & LOOKUP
