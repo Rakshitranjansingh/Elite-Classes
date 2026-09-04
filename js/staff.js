@@ -97,6 +97,26 @@ function saveStaffForm() {
         return;
     }
 
+    const cleanPhone = phone.replace(/\D/g, '');
+    if (cleanPhone.length < 10) {
+        showToast('Please enter a valid 10-digit phone number', 'danger');
+        return;
+    }
+
+    if (!editingStaffId) {
+        const existing = staff.find(s => (s.phone || '').replace(/\D/g, '') === cleanPhone);
+        if (existing) {
+            showToast(`A staff member with WhatsApp ${cleanPhone} already exists (${existing.name})!`, 'danger');
+            return;
+        }
+    } else {
+        const duplicate = staff.find(s => s.id !== editingStaffId && (s.phone || '').replace(/\D/g, '') === cleanPhone);
+        if (duplicate) {
+            showToast(`Another staff member (${duplicate.name}) is already using WhatsApp ${cleanPhone}!`, 'danger');
+            return;
+        }
+    }
+
     if (editingStaffId) {
         const idx = staff.findIndex(s => s.id === editingStaffId);
         staff[idx] = { ...staff[idx], name, role, email, phone, salary, incentive };

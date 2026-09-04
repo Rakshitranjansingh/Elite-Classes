@@ -448,6 +448,27 @@ function saveStudentForm() {
         return;
     }
 
+    const cleanPhone = phone.replace(/\D/g, '');
+    if (cleanPhone.length < 10) {
+        showToast('Please enter a valid 10-digit WhatsApp number', 'danger');
+        return;
+    }
+
+    // Check duplicate phone across students
+    if (!editingStudentId) {
+        const existing = students.find(s => (s.phone || '').replace(/\D/g, '') === cleanPhone);
+        if (existing) {
+            showToast(`A student with WhatsApp ${cleanPhone} already exists (${existing.name})!`, 'danger');
+            return;
+        }
+    } else {
+        const duplicate = students.find(s => s.id !== editingStudentId && (s.phone || '').replace(/\D/g, '') === cleanPhone);
+        if (duplicate) {
+            showToast(`Another student (${duplicate.name}) is already using WhatsApp ${cleanPhone}!`, 'danger');
+            return;
+        }
+    }
+
     if (editingStudentId) {
         const idx = students.findIndex(s => s.id === editingStudentId);
         students[idx] = {
@@ -691,11 +712,15 @@ async function confirmApproveAdmission() {
         }
 
         if (res && res.success) {
-            // Also push to local students state if not present
-            if (!students.some(s => s.phone === reg.phone)) {
+            // Prevent duplicate entries in local array
+            const cleanRegPhone = (reg.phone || '').replace(/\D/g, '');
+            const existingIdx = students.findIndex(s => (s.phone || '').replace(/\D/g, '') === cleanRegPhone);
+            if (existingIdx >= 0) {
+                students[existingIdx] = { ...students[existingIdx], ...(res.student || payload) };
+            } else {
                 students.push(res.student || payload);
-                saveState();
             }
+            saveState();
 
             closeModal('approveAdmissionModal');
             showToast(`Admission Approved! ${reg.name} is now an active student.`, 'success');

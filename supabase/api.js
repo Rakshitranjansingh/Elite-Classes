@@ -1430,10 +1430,122 @@ const DBService = {
     // 20. STUDENT REGISTRATION & ADMISSION APPROVAL
     // ---------------------------------------------------------
     async createStudentRegistration(regData) {
+        const cleanPhone = (regData.phone || '').replace(/\D/g, '');
+        if (!cleanPhone || cleanPhone.length < 10) {
+            return { success: false, message: 'Please provide a valid 10-digit WhatsApp number.' };
+        }
+
+        // 1. Check if WhatsApp phone is already registered to an active student
+        if (isSupabaseConnected()) {
+            try {
+                const { data: existingStudent } = await supabaseClient
+                    .from('students')
+                    .select('id, name, cls, phone')
+                    .eq('phone', cleanPhone)
+                    .maybeSingle();
+
+                if (existingStudent) {
+                    return {
+                        success: false,
+                        alreadyExists: true,
+                        existingRole: 'student',
+                        message: `An active student account for "${existingStudent.name}" (${existingStudent.cls}) with WhatsApp number ${cleanPhone} already exists!`
+                    };
+                }
+            } catch (e) {
+                console.warn('[DBService] Check existing student error:', e);
+            }
+        }
+
+        const localStudents = JSON.parse(localStorage.getItem('ec_students') || '[]');
+        const matchedLocalStudent = localStudents.find(s => (s.phone || '').replace(/\D/g, '') === cleanPhone);
+        if (matchedLocalStudent) {
+            return {
+                success: false,
+                alreadyExists: true,
+                existingRole: 'student',
+                message: `An active student account for "${matchedLocalStudent.name}" (${matchedLocalStudent.cls}) with WhatsApp number ${cleanPhone} already exists!`
+            };
+        }
+
+        // 2. Check if phone is already registered as staff or admin
+        if (isSupabaseConnected()) {
+            try {
+                const { data: staffMatch } = await supabaseClient
+                    .from('staff')
+                    .select('id, name')
+                    .eq('phone', cleanPhone)
+                    .maybeSingle();
+                if (staffMatch) {
+                    return {
+                        success: false,
+                        alreadyExists: true,
+                        existingRole: 'staff',
+                        message: `WhatsApp number ${cleanPhone} is already registered to staff member "${staffMatch.name}". Please use Portal Sign In.`
+                    };
+                }
+
+                const { data: adminMatch } = await supabaseClient
+                    .from('admins')
+                    .select('id, name')
+                    .eq('phone', cleanPhone)
+                    .maybeSingle();
+                if (adminMatch) {
+                    return {
+                        success: false,
+                        alreadyExists: true,
+                        existingRole: 'admin',
+                        message: `WhatsApp number ${cleanPhone} is already registered as an Admin account. Please use Portal Sign In.`
+                    };
+                }
+            } catch (e) {
+                console.warn('[DBService] Check staff/admin duplicate error:', e);
+            }
+        }
+
+        // 3. Check if phone already has an admission application
+        let existingReg = null;
+        if (isSupabaseConnected()) {
+            try {
+                const { data: regMatch } = await supabaseClient
+                    .from('student_registrations')
+                    .select('*')
+                    .eq('phone', cleanPhone)
+                    .maybeSingle();
+                if (regMatch) existingReg = regMatch;
+            } catch (e) {
+                console.warn('[DBService] Check existing registration error:', e);
+            }
+        }
+
+        if (!existingReg) {
+            const localRegs = JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+            existingReg = localRegs.find(r => (r.phone || '').replace(/\D/g, '') === cleanPhone);
+        }
+
+        if (existingReg) {
+            if (existingReg.status === 'pending_approval') {
+                return {
+                    success: false,
+                    alreadyExists: true,
+                    status: 'pending_approval',
+                    message: `An admission application for "${existingReg.name}" (${cleanPhone}) has already been submitted and is currently pending Admin approval.`
+                };
+            } else if (existingReg.status === 'approved') {
+                return {
+                    success: false,
+                    alreadyExists: true,
+                    status: 'approved',
+                    message: `The admission application for WhatsApp number ${cleanPhone} has already been approved! Please sign in using your WhatsApp and PIN.`
+                };
+            }
+            // If rejected, allow resubmission by updating the rejected record
+        }
+
         const newReg = {
-            id: 'reg_' + Date.now(),
+            id: existingReg ? existingReg.id : ('reg_' + Date.now()),
             name: (regData.name || '').trim(),
-            phone: (regData.phone || '').replace(/\D/g, ''),
+            phone: cleanPhone,
             email: (regData.email || '').trim(),
             pin: (regData.pin || '123456').trim(),
             cls: regData.cls || 'Class 10',
@@ -1466,6 +1578,13 @@ const DBService = {
                 .select();
             if (error) {
                 console.error('[DBService] Supabase createStudentRegistration error:', error);
+                if (error.code === '23505') {
+                    return {
+                        success: false,
+                        alreadyExists: true,
+                        message: `An admission request with WhatsApp number ${cleanPhone} is already registered!`
+                    };
+                }
                 return { success: true, registration: newReg };
             }
             return { success: true, registration: (data && data[0]) || newReg };
@@ -1540,13 +1659,18 @@ const DBService = {
 
         if (!reg) return { success: false, message: 'Registration application not found.' };
 
+        // Prevent duplicate student creation if student already exists in students table
+        const cleanRegPhone = (reg.phone || '').replace(/\D/g, '');
+        const localStudents = JSON.parse(localStorage.getItem('ec_students') || '[]');
+        const existingStudent = localStudents.find(s => (s.phone || '').replace(/\D/g, '') === cleanRegPhone);
+
         const newStudent = {
-            id: 's_' + Date.now(),
+            id: existingStudent ? existingStudent.id : ('s_' + Date.now()),
             name: studentPayload.name || reg.name,
             email: studentPayload.email || reg.email || '',
             cls: studentPayload.cls || reg.cls,
             parent: studentPayload.parent || reg.parent_name || 'Guardian',
-            phone: reg.phone,
+            phone: cleanRegPhone,
             pin: reg.pin || '123456',
             fee: parseFloat(studentPayload.fee || 2500),
             due: parseInt(studentPayload.due || 10, 10),
@@ -1554,11 +1678,11 @@ const DBService = {
             subjects: studentPayload.subjects || reg.course_interest || 'All Subjects',
             doa: new Date().toISOString().split('T')[0],
             school: studentPayload.school || reg.school_name || '',
-            color: '#2563eb'
+            color: existingStudent?.color || '#2563eb'
         };
 
         await this.upsertStudent(newStudent);
-        return { success: true, student: newStudent };
+        return { success: true, student: newStudent, isUpdated: !!existingStudent };
     },
 
     async rejectStudentRegistration(regId, reason = 'Application criteria not met.') {

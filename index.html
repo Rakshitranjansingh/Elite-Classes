@@ -1650,9 +1650,21 @@
                     document.getElementById('succ-student-phone').textContent = phone;
                     showToast('Admission application submitted successfully!', 'success');
                 } else {
-                    alertBox.textContent = res.message || 'Failed to submit application. Please try again.';
-                    alertBox.style.background = '#fef2f2';
-                    alertBox.style.color = '#ef4444';
+                    if (res && res.alreadyExists) {
+                        alertBox.style.background = '#fffbeb';
+                        alertBox.style.color = '#92400e';
+                        alertBox.style.border = '1px solid #fde68a';
+                        if (res.status === 'approved' || res.existingRole === 'student') {
+                            alertBox.innerHTML = `⚠️ <strong>Account Already Exists:</strong> ${res.message}<br><button type="button" class="btn btn-sm btn-primary" style="margin-top:10px; font-size:12px; padding:6px 14px;" onclick="closeModal('studentRegistrationModal'); openPortalLoginModal();">🔐 Sign in to Portal now →</button>`;
+                        } else {
+                            alertBox.innerHTML = `⚠️ <strong>Duplicate Registration:</strong> ${res.message}`;
+                        }
+                    } else {
+                        alertBox.textContent = (res && res.message) || 'Failed to submit application. Please try again.';
+                        alertBox.style.background = '#fef2f2';
+                        alertBox.style.color = '#ef4444';
+                        alertBox.style.border = '1px solid #fecaca';
+                    }
                     alertBox.style.display = 'block';
                 }
             } catch (err) {

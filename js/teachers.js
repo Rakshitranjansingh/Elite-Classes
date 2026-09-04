@@ -131,6 +131,26 @@ function saveTeacherForm() {
         return;
     }
 
+    const cleanPhone = phone.replace(/\D/g, '');
+    if (cleanPhone.length < 10) {
+        showToast('Please enter a valid 10-digit phone number', 'danger');
+        return;
+    }
+
+    if (!editingTeacherId) {
+        const existing = teachers.find(t => (t.phone || '').replace(/\D/g, '') === cleanPhone);
+        if (existing) {
+            showToast(`A teacher with WhatsApp ${cleanPhone} already exists (${existing.name})!`, 'danger');
+            return;
+        }
+    } else {
+        const duplicate = teachers.find(t => t.id !== editingTeacherId && (t.phone || '').replace(/\D/g, '') === cleanPhone);
+        if (duplicate) {
+            showToast(`Another teacher (${duplicate.name}) is already using WhatsApp ${cleanPhone}!`, 'danger');
+            return;
+        }
+    }
+
     if (editingTeacherId) {
         const idx = teachers.findIndex(t => t.id === editingTeacherId);
         teachers[idx] = { ...teachers[idx], name, email, subjects, classes, phone, salary, incentive };
