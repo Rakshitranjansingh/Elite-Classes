@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Elite Classes — Premier Coaching Institute & CBT Learning Portal</title>
+    <!-- Resource Preconnects for High-Performance Asset Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="css/styles.css">
     <style>
         :root {
@@ -150,39 +154,70 @@
             transform: translateY(-1px);
         }
 
-        /* NOTICE TICKER BAR */
+        /* NOTICE TICKER BAR (HARDWARE-ACCELERATED SMOOTH SCROLL) */
         .pub-ticker-bar {
-            background: #1e293b;
+            background: #0b1329;
             color: #e2e8f0;
-            border-bottom: 1px solid #334155;
-            padding: 9px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 24px;
             display: flex;
             align-items: center;
-            gap: 14px;
-            font-size: 12.5px;
+            gap: 16px;
+            font-size: 13px;
+            overflow: hidden;
+            position: relative;
+            z-index: 100;
         }
 
         .pub-ticker-tag {
-            background: #ef4444;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
             color: #ffffff;
-            font-size: 10.5px;
+            font-size: 11px;
             font-weight: 800;
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             flex-shrink: 0;
+            box-shadow: 0 2px 10px rgba(239, 68, 68, 0.35);
+            z-index: 2;
+        }
+
+        .pub-ticker-track {
+            flex: 1;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            display: flex;
+            mask-image: linear-gradient(to right, transparent 0%, black 24px, black calc(100% - 24px), transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 24px, black calc(100% - 24px), transparent 100%);
         }
 
         .pub-ticker-content {
-            flex: 1;
+            display: inline-block;
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            padding-left: 100%;
+            animation: pubTickerScroll 35s linear infinite;
+            will-change: transform;
             font-weight: 500;
+            color: #cbd5e1;
+        }
+
+        .pub-ticker-track:hover .pub-ticker-content {
+            animation-play-state: paused;
+            cursor: pointer;
+        }
+
+        @keyframes pubTickerScroll {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
         }
 
         /* HERO SECTION */
@@ -848,8 +883,10 @@
     <!-- 2. DYNAMIC LIVE NOTICE TICKER BAR -->
     <div class="pub-ticker-bar" id="pub-ticker-container">
         <span class="pub-ticker-tag">📢 Live Notice</span>
-        <div class="pub-ticker-content" id="pub-ticker-text">
-            Loading latest coaching announcements & academic schedules...
+        <div class="pub-ticker-track">
+            <div class="pub-ticker-content" id="pub-ticker-text">
+                📢 Academic Admissions Open for 2026-27 Session &bull; Class 10 Science 100-Question CBT Assessments Live &bull; Early Bird 20% Scholarship for Board Excellence Master Batch &bull; Direct Parent WhatsApp Academic Updates & Fee Receipts
+            </div>
         </div>
     </div>
 
@@ -1520,20 +1557,21 @@
         });
 
         async function initPublicPage() {
-            if (typeof syncClassesFromDB === 'function') {
-                try {
-                    await syncClassesFromDB();
-                    const classSelect = document.getElementById('reg-class');
-                    if (classSelect && typeof CLASS_OPTIONS !== 'undefined' && CLASS_OPTIONS.length > 0) {
-                        classSelect.innerHTML = CLASS_OPTIONS.map(c => 
-                            `<option value="${c}" ${c === 'Class 10' ? 'selected' : ''}>${c}</option>`
-                        ).join('');
+            // Run class sync and live notices concurrently without blocking UI interactivity
+            Promise.allSettled([
+                (async () => {
+                    if (typeof syncClassesFromDB === 'function') {
+                        await syncClassesFromDB();
+                        const classSelect = document.getElementById('reg-class');
+                        if (classSelect && typeof CLASS_OPTIONS !== 'undefined' && CLASS_OPTIONS.length > 0) {
+                            classSelect.innerHTML = CLASS_OPTIONS.map(c => 
+                                `<option value="${c}" ${c === 'Class 10' ? 'selected' : ''}>${c}</option>`
+                            ).join('');
+                        }
                     }
-                } catch (e) {
-                    console.warn('Class sync error:', e);
-                }
-            }
-            await loadNoticeTicker();
+                })(),
+                loadNoticeTicker()
+            ]).catch(e => console.warn('Background sync note:', e));
         }
 
         async function loadNoticeTicker() {
@@ -1545,15 +1583,14 @@
                     if (notices && notices.length > 0) {
                         const activeList = notices.filter(n => n.is_active !== false);
                         if (activeList.length > 0) {
-                            tickerEl.textContent = activeList.map(n => n.content).join('  •  ');
-                            return;
+                            const formatted = activeList.map(n => n.content).join('   ✦   ');
+                            tickerEl.textContent = '📢 ' + formatted;
                         }
                     }
                 }
             } catch (e) {
                 console.warn('Ticker load error:', e);
             }
-            tickerEl.textContent = '📢 Academic Admissions open for 2026-27 Session • Class 10 Science 100-Q CBT Test Series Live!';
         }
 
         // Handle Student Registration Application Submit
