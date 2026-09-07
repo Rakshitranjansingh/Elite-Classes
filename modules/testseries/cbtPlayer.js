@@ -43,6 +43,73 @@ const CBTPlayer = {
         ].filter(o => o.text !== undefined && o.text !== null && o.text !== '');
     },
 
+    // Helper: Fisher-Yates array shuffle
+    shuffleArray(array) {
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    },
+
+    // Dynamic Anti-Cheating Randomizer:
+    // 1. Shuffles options (A, B, C, D) for every question & tracks correct answer
+    // 2. Shuffles questions preserving easy/hard pedagogical tiers
+    randomizeTest(testObj) {
+        if (!testObj || !Array.isArray(testObj.questions) || testObj.questions.length === 0) return testObj;
+
+        // 1. Randomize options for each question
+        const randomizedQuestions = testObj.questions.map((rawQ) => {
+            const q = { ...rawQ };
+            const opts = this.getQuestionOptions(q);
+            if (!opts || opts.length < 2) return q;
+
+            // Target correct text
+            const targetCorrectText = (opts.find(o => o.key === (q.correct_option || '').toUpperCase()) || {}).text;
+
+            // Shuffle the options
+            const shuffledOpts = this.shuffleArray(opts);
+            const keys = ['A', 'B', 'C', 'D'];
+            let newCorrectKey = q.correct_option;
+
+            const finalOptions = shuffledOpts.map((opt, idx) => {
+                const newKey = keys[idx] || opt.key;
+                if (opt.text === targetCorrectText) {
+                    newCorrectKey = newKey;
+                }
+                return { key: newKey, text: opt.text };
+            });
+
+            q.options = finalOptions;
+            finalOptions.forEach(opt => {
+                if (opt.key === 'A') q.option_a = opt.text;
+                if (opt.key === 'B') q.option_b = opt.text;
+                if (opt.key === 'C') q.option_c = opt.text;
+                if (opt.key === 'D') q.option_d = opt.text;
+            });
+            q.correct_option = newCorrectKey;
+            return q;
+        });
+
+        // 2. Randomize question order
+        // For standard 100Q tests: Tier 1 (Easy Q1-Q50) shuffled among themselves;
+        // Tier 2 (Harder Q51-Q100) shuffled among themselves.
+        let finalQuestions = [];
+        if (randomizedQuestions.length === 100) {
+            const tier1 = this.shuffleArray(randomizedQuestions.slice(0, 50));
+            const tier2 = this.shuffleArray(randomizedQuestions.slice(50));
+            finalQuestions = [...tier1, ...tier2];
+        } else {
+            finalQuestions = this.shuffleArray(randomizedQuestions);
+        }
+
+        return {
+            ...testObj,
+            questions: finalQuestions
+        };
+    },
+
     // Launch CBT Exam
     launch(testObj, customStudent = null, onComplete = null) {
         if (!testObj || !testObj.questions || testObj.questions.length === 0) {
@@ -50,7 +117,8 @@ const CBTPlayer = {
             return;
         }
 
-        this.activeTest = testObj;
+        // Apply dynamic runtime randomization for this test attempt
+        this.activeTest = this.randomizeTest(testObj);
         this.currentQIdx = 0;
         this.userAnswers = {};
         this.flaggedReview = {};
@@ -577,7 +645,7 @@ const CBTPlayer = {
             submitted_at: new Date().toISOString()
         };
 
-        // 1. Save Locally with exact userAnswers
+        // 1. Save Locally with exact userAnswers and shuffled questions snapshot
         const storageKey = `ec_cbt_enrollment_${this.student.id}`;
         let localData = JSON.parse(localStorage.getItem(storageKey) || '{"enrolled":{}, "attempts":{}}');
         localData.enrolled[this.activeTest.id] = true;
@@ -590,6 +658,7 @@ const CBTPlayer = {
             wrong: wrongCount,
             unattempted: unattemptedCount,
             userAnswers: { ...this.userAnswers },
+            shuffledQuestions: this.activeTest.questions,
             timeFormatted: `${Math.floor(timeTakenSecs / 60)}m ${timeTakenSecs % 60}s`,
             submitted_at: new Date().toISOString()
         };
@@ -661,12 +730,13 @@ const CBTPlayer = {
             document.body.appendChild(revOverlay);
         }
 
+        const reviewQuestions = attempt.shuffledQuestions || testObj.questions;
         const score = attempt.score !== undefined ? attempt.score : '--';
         const totalMarks = attempt.total_marks || testObj.total_marks || 400;
         const pct = attempt.pct !== undefined ? attempt.pct : (attempt.percentage || 0);
         const correct = attempt.correct !== undefined ? attempt.correct : (attempt.correct_count || 0);
         const wrong = attempt.wrong !== undefined ? attempt.wrong : (attempt.incorrect_count || 0);
-        const skipped = attempt.unattempted !== undefined ? attempt.unattempted : (testObj.questions.length - (correct + wrong));
+        const skipped = attempt.unattempted !== undefined ? attempt.unattempted : (reviewQuestions.length - (correct + wrong));
         const accuracy = attempt.accuracy !== undefined ? attempt.accuracy : (attempt.accuracy_pct || 0);
         const timeFormatted = attempt.timeFormatted || (attempt.time_taken_seconds ? `${Math.floor(attempt.time_taken_seconds / 60)}m ${attempt.time_taken_seconds % 60}s` : '--');
 
@@ -705,7 +775,7 @@ const CBTPlayer = {
                 <!-- FILTER TABS -->
                 <div style="padding:10px 20px; background:#ffffff; border-bottom:1px solid #e2e8f0; display:flex; gap:8px; flex-shrink:0; overflow-x:auto;">
                     <button id="rev-tab-all" onclick="CBTPlayer.filterReview('all')" style="background:#2563eb; color:#fff; border:none; padding:6px 14px; border-radius:6px; font-size:12px; font-weight:700; cursor:pointer;">
-                        All Questions (${testObj.questions.length})
+                        All Questions (${reviewQuestions.length})
                     </button>
                     <button id="rev-tab-correct" onclick="CBTPlayer.filterReview('correct')" style="background:#f1f5f9; color:#0f172a; border:1px solid #cbd5e1; padding:6px 14px; border-radius:6px; font-size:12px; font-weight:700; cursor:pointer;">
                         ✓ Correct Only (${correct})
@@ -720,7 +790,7 @@ const CBTPlayer = {
 
                 <!-- QUESTIONS LIST CONTAINER -->
                 <div id="cbt-review-questions-list" style="padding:18px 20px; overflow-y:auto; flex:1; display:flex; flex-direction:column; gap:16px; background:#f8fafc;">
-                    ${testObj.questions.map((q, idx) => {
+                    ${reviewQuestions.map((q, idx) => {
                         const qText = this.getQuestionText(q);
                         const opts = this.getQuestionOptions(q);
                         const userAns = userAnswers[idx];

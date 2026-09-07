@@ -667,12 +667,12 @@
 
             const maxSubjectMarks = Object.values(testsMap).reduce((a, t) => a + (t.total_marks || 400), 0);
 
-            // Class 10 Science Peer Benchmarks (Cumulative across chapters)
+            // Class 10 Science Peer Benchmarks (Scores around and below 176)
             const peerStudents = [
-                { id: 'peer_1', name: 'Rohan Verma', totalScore: Math.round(maxSubjectMarks * 0.975), maxPossible: maxSubjectMarks, correct: 196, totalQ: 198, testsCount: 2 },
-                { id: 'peer_2', name: 'Ananya Sharma', totalScore: Math.round(maxSubjectMarks * 0.955), maxPossible: maxSubjectMarks, correct: 192, totalQ: 196, testsCount: 2 },
-                { id: 'peer_3', name: 'Priya Singh', totalScore: Math.round(maxSubjectMarks * 0.935), maxPossible: maxSubjectMarks, correct: 188, totalQ: 196, testsCount: 2 },
-                { id: 'peer_4', name: 'Kavita Iyer', totalScore: Math.round(maxSubjectMarks * 0.85), maxPossible: maxSubjectMarks, correct: 172, totalQ: 188, testsCount: 2 }
+                { id: 'peer_1', name: 'Rohan Verma', totalScore: 172, maxPossible: 400, correct: 48, totalQ: 68, testsCount: 1 },
+                { id: 'peer_2', name: 'Ananya Sharma', totalScore: 165, maxPossible: 400, correct: 46, totalQ: 65, testsCount: 1 },
+                { id: 'peer_3', name: 'Priya Singh', totalScore: 158, maxPossible: 400, correct: 44, totalQ: 62, testsCount: 1 },
+                { id: 'peer_4', name: 'Kavita Iyer', totalScore: 146, maxPossible: 400, correct: 42, totalQ: 64, testsCount: 1 }
             ];
 
             // Calculate current student's cumulative subject performance across all attempted tests
@@ -694,7 +694,7 @@
                 name: activeStudent.name,
                 isCurrentUser: true,
                 totalScore: userTotalScore,
-                maxPossible: userMaxPossible > 0 ? userMaxPossible : maxSubjectMarks,
+                maxPossible: userMaxPossible > 0 ? userMaxPossible : 400,
                 correct: userTotalCorrect,
                 totalQ: userTotalAttemptedQ,
                 testsCount: attemptsList.length,
