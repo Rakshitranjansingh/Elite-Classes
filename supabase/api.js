@@ -951,7 +951,7 @@ const DBService = {
                 status: 'published'
             }, { onConflict: 'id', ignoreDuplicates: true });
 
-            await supabaseClient.from('test_submissions').upsert(submission);
+            await supabaseClient.from('test_submissions').upsert(submission, { onConflict: 'test_id,student_id' });
             return submission;
         } catch (e) {
             console.error('[DBService] Submit test attempt failed:', e);
