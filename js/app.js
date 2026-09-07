@@ -273,12 +273,26 @@ function initInactivityListeners() {
 
 // Unified Gateway Logout Action
 function logoutToGateway(toastMsg = 'Logged out successfully') {
-    localStorage.removeItem('ec_user_role');
-    localStorage.removeItem('ec_authenticated_key');
-    localStorage.removeItem('ec_student_id');
-    localStorage.removeItem('ec_admin_id');
-    localStorage.removeItem('ec_admin_name');
-    localStorage.removeItem('ec_last_activity');
+    const sessionKeys = [
+        'ec_user_role',
+        'ec_authenticated_key',
+        'ec_student_id',
+        'ec_student_name',
+        'ec_student_class',
+        'ec_active_student',
+        'ec_admin_id',
+        'ec_admin_name',
+        'ec_active_admin',
+        'ec_staff_id',
+        'ec_staff_name',
+        'ec_active_staff',
+        'ec_subscriber_id',
+        'ec_subscriber_name',
+        'ec_active_subscriber',
+        'ec_last_activity'
+    ];
+    sessionKeys.forEach(k => localStorage.removeItem(k));
+
     if (inactivityTimer) clearTimeout(inactivityTimer);
 
     window.location.href = 'index.html';

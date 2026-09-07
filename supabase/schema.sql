@@ -295,9 +295,73 @@ ALTER TABLE student_remarks ADD COLUMN IF NOT EXISTS status VARCHAR(50) DEFAULT 
 ALTER TABLE student_remarks ADD COLUMN IF NOT EXISTS resolved_at TIMESTAMPTZ;
 ALTER TABLE student_remarks ADD COLUMN IF NOT EXISTS resolution_notes TEXT;
 
+-- 17. STUDENT SELF-REGISTRATION & ADMISSION APPROVAL WORKFLOW
+CREATE TABLE IF NOT EXISTS student_registrations (
+    id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    email VARCHAR(100),
+    pin VARCHAR(20) NOT NULL,
+    cls VARCHAR(50) NOT NULL,
+    parent_name VARCHAR(100),
+    parent_phone VARCHAR(20),
+    school_name VARCHAR(150),
+    course_interest VARCHAR(150),
+    status VARCHAR(30) DEFAULT 'pending_approval', -- 'pending_approval', 'approved', 'rejected'
+    rejection_reason TEXT,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    approved_at TIMESTAMPTZ,
+    approved_by VARCHAR(50)
+);
+
+-- 18. TEST SERIES SUBSCRIBERS MODULE (ONLINE ₹499/YR PASS)
+CREATE TABLE IF NOT EXISTS testseries_subscribers (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    phone TEXT UNIQUE NOT NULL,
+    pin TEXT NOT NULL DEFAULT '1234',
+    cls TEXT NOT NULL,
+    email TEXT,
+    tracking_code TEXT,
+    plan_name TEXT DEFAULT 'Annual CBT Test Series Pass',
+    plan_amount NUMERIC(10,2) DEFAULT 499.00,
+    payment_method TEXT DEFAULT 'UPI',
+    payment_ref TEXT,
+    status TEXT DEFAULT 'pending_verification', -- 'pending_verification', 'active', 'suspended', 'expired'
+    valid_until DATE,
+    activated_at TIMESTAMPTZ,
+    activated_by TEXT,
+    converted_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS testseries_subscriber_results (
+    id TEXT PRIMARY KEY,
+    subscriber_id TEXT NOT NULL REFERENCES testseries_subscribers(id) ON DELETE CASCADE,
+    test_id TEXT NOT NULL,
+    test_title TEXT NOT NULL,
+    subject TEXT NOT NULL,
+    cls TEXT NOT NULL,
+    score NUMERIC(6,2) NOT NULL,
+    total_marks NUMERIC(6,2) NOT NULL,
+    correct_count INT NOT NULL DEFAULT 0,
+    wrong_count INT NOT NULL DEFAULT 0,
+    unattempted_count INT NOT NULL DEFAULT 0,
+    time_taken_seconds INT DEFAULT 0,
+    answers_payload JSONB,
+    submitted_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- =========================================================
 -- INDEXES FOR PERFORMANCE OPTIMIZATION & LOOKUP
 -- =========================================================
+CREATE INDEX IF NOT EXISTS idx_student_registrations_phone ON student_registrations(phone);
+CREATE INDEX IF NOT EXISTS idx_student_registrations_status ON student_registrations(status);
+CREATE INDEX IF NOT EXISTS idx_ts_subscribers_phone ON testseries_subscribers(phone);
+CREATE INDEX IF NOT EXISTS idx_ts_subscribers_status ON testseries_subscribers(status);
+CREATE INDEX IF NOT EXISTS idx_ts_subscribers_cls ON testseries_subscribers(cls);
+CREATE INDEX IF NOT EXISTS idx_ts_sub_results_sub_id ON testseries_subscriber_results(subscriber_id);
+CREATE INDEX IF NOT EXISTS idx_ts_sub_results_test_id ON testseries_subscriber_results(test_id);
 CREATE INDEX IF NOT EXISTS idx_classes_name ON classes(name);
 CREATE INDEX IF NOT EXISTS idx_subjects_name ON subjects(name);
 CREATE INDEX IF NOT EXISTS idx_students_phone ON students(phone);
@@ -349,6 +413,9 @@ ALTER TABLE test_questions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE test_submissions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE student_stats ENABLE ROW LEVEL SECURITY;
 ALTER TABLE student_remarks ENABLE ROW LEVEL SECURITY;
+ALTER TABLE student_registrations ENABLE ROW LEVEL SECURITY;
+ALTER TABLE testseries_subscribers ENABLE ROW LEVEL SECURITY;
+ALTER TABLE testseries_subscriber_results ENABLE ROW LEVEL SECURITY;
 
 -- Drop existing policies if re-running script to avoid duplicate policy error
 DROP POLICY IF EXISTS "Public Read/Write coaching_settings" ON coaching_settings;
@@ -369,6 +436,9 @@ DROP POLICY IF EXISTS "Public Read/Write test_questions" ON test_questions;
 DROP POLICY IF EXISTS "Public Read/Write test_submissions" ON test_submissions;
 DROP POLICY IF EXISTS "Public Read/Write student_stats" ON student_stats;
 DROP POLICY IF EXISTS "Public Read/Write student_remarks" ON student_remarks;
+DROP POLICY IF EXISTS "Public Read/Write student_registrations" ON student_registrations;
+DROP POLICY IF EXISTS "Public Read/Write testseries_subscribers" ON testseries_subscribers;
+DROP POLICY IF EXISTS "Public Read/Write testseries_subscriber_results" ON testseries_subscriber_results;
 
 -- Create Permissive Policies for Web Application Access
 CREATE POLICY "Public Read/Write coaching_settings" ON coaching_settings FOR ALL USING (true) WITH CHECK (true);
@@ -389,6 +459,9 @@ CREATE POLICY "Public Read/Write test_questions" ON test_questions FOR ALL USING
 CREATE POLICY "Public Read/Write test_submissions" ON test_submissions FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write student_stats" ON student_stats FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Public Read/Write student_remarks" ON student_remarks FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Public Read/Write student_registrations" ON student_registrations FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Public Read/Write testseries_subscribers" ON testseries_subscribers FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Public Read/Write testseries_subscriber_results" ON testseries_subscriber_results FOR ALL USING (true) WITH CHECK (true);
 
 -- =========================================================
 -- INITIAL SEED DATA (SAFE FOR MULTIPLE RE-RUNS)

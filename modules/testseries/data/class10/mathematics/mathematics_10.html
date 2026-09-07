@@ -786,9 +786,9 @@
 
         async function syncCloudTestStatuses() {
             try {
-                if (typeof supabaseClient !== 'undefined' && supabaseClient && typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
-                    const { data, error } = await supabaseClient.from('test_series').select('id, status');
-                    if (!error && data && data.length > 0) {
+                if (typeof DBService !== 'undefined' && DBService.fetchTestSeriesStatuses) {
+                    const data = await DBService.fetchTestSeriesStatuses();
+                    if (data && data.length > 0) {
                         let localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
                         const map = {};
                         localTests.forEach(t => { map[t.id] = t; });

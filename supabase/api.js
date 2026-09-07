@@ -846,6 +846,39 @@ const DBService = {
         }
     },
 
+    async bulkUpsertTestSeries(testsArray) {
+        if (!testsArray || !Array.isArray(testsArray) || testsArray.length === 0) return [];
+        let localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+        testsArray.forEach(item => {
+            const idx = localTests.findIndex(t => t.id === item.id);
+            if (idx >= 0) localTests[idx] = { ...localTests[idx], ...item };
+            else localTests.push(item);
+        });
+        localStorage.setItem('ec_test_series', JSON.stringify(localTests));
+
+        if (!isSupabaseConnected()) return testsArray;
+        try {
+            await supabaseClient.from('test_series').upsert(testsArray, { onConflict: 'id' });
+            return testsArray;
+        } catch (e) {
+            console.warn('[DBService] Bulk upsert test series failed:', e);
+            return testsArray;
+        }
+    },
+
+    async fetchTestSeriesStatuses() {
+        if (isSupabaseConnected()) {
+            try {
+                const { data, error } = await supabaseClient.from('test_series').select('id, status');
+                if (!error && data && data.length > 0) return data;
+            } catch (e) {
+                console.warn('[DBService] Fetch test series statuses note:', e);
+            }
+        }
+        const localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+        return localTests.map(t => ({ id: t.id, status: t.status || 'published' }));
+    },
+
     async deleteTestSeries(testId) {
         let tests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
         tests = tests.filter(t => t.id !== testId);
@@ -1011,6 +1044,40 @@ const DBService = {
             console.error('[DBService] Submit test attempt failed:', e);
             return submission;
         }
+    },
+
+    async fetchStudentSubmissions(studentId) {
+        if (!studentId) return [];
+
+        if (isSupabaseConnected()) {
+            try {
+                const { data, error } = await supabaseClient.from('test_submissions').select('*').eq('student_id', studentId);
+                if (!error && data && data.length > 0) return data;
+            } catch (e) {
+                console.warn('[DBService] Cloud student submissions fetch warning:', e);
+            }
+        }
+
+        // Offline / localStorage fallback
+        const localEnrollment = JSON.parse(localStorage.getItem(`ec_cbt_enrollment_${studentId}`) || '{"attempts":{}}');
+        const attempts = localEnrollment.attempts || {};
+        return Object.keys(attempts).map(testId => {
+            const att = attempts[testId];
+            return {
+                test_id: testId,
+                student_id: studentId,
+                score: att.score || 0,
+                total_marks: att.total_marks || 400,
+                percentage: att.pct || 0,
+                accuracy_pct: att.accuracy || 0,
+                correct_count: att.correct || 0,
+                incorrect_count: att.wrong || 0,
+                unattempted_count: att.unattempted || 0,
+                time_taken_seconds: att.time_taken_seconds || 0,
+                answers_json: att.userAnswers || {},
+                submitted_at: att.submitted_at || new Date().toISOString()
+            };
+        });
     },
 
     // ---------------------------------------------------------

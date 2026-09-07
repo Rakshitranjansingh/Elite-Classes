@@ -186,9 +186,18 @@ const CBTPlayer = {
 
         this.ensureModalElements();
         this.openModal();
+        this.touchActivity();
         this.renderQuestion();
         this.renderPalette();
         this.startTimer();
+    },
+
+    touchActivity() {
+        try {
+            if (typeof localStorage !== 'undefined') {
+                localStorage.setItem('ec_last_activity', Date.now().toString());
+            }
+        } catch (e) {}
     },
 
     ensureModalElements() {
@@ -815,21 +824,25 @@ const CBTPlayer = {
     },
 
     selectOption(key) {
+        this.touchActivity();
         this.userAnswers[this.currentQIdx] = key;
         this.renderQuestion();
     },
 
     clearSelection() {
+        this.touchActivity();
         delete this.userAnswers[this.currentQIdx];
         this.renderQuestion();
     },
 
     toggleReviewFlag() {
+        this.touchActivity();
         this.flaggedReview[this.currentQIdx] = !this.flaggedReview[this.currentQIdx];
         this.navigate(1);
     },
 
     navigate(delta) {
+        this.touchActivity();
         const nextIdx = this.currentQIdx + delta;
         if (nextIdx >= 0 && nextIdx < this.activeTest.questions.length) {
             this.currentQIdx = nextIdx;
@@ -838,6 +851,7 @@ const CBTPlayer = {
     },
 
     jumpTo(idx) {
+        this.touchActivity();
         if (idx >= 0 && idx < this.activeTest.questions.length) {
             this.currentQIdx = idx;
             this.renderQuestion();
@@ -970,6 +984,9 @@ const CBTPlayer = {
                 return;
             }
             this.secondsLeft--;
+            if (this.secondsLeft % 30 === 0) {
+                this.touchActivity();
+            }
             const hrs = Math.floor(this.secondsLeft / 3600);
             const mins = Math.floor((this.secondsLeft % 3600) / 60);
             const secs = this.secondsLeft % 60;

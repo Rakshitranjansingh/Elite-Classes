@@ -32,7 +32,7 @@ The application follows a clean 4-tier client-serverless architecture:
 ┌───────────────────────────▼────────────────────────────┐
 │                    DATABASE TIER                       │
 │   supabase/schema.sql   │  database/migrations/        │
-│   database/releases/    │  PostgreSQL + Row-Level Sec  │
+│   Single Base Schema    │  PostgreSQL + Row-Level Sec  │
 └────────────────────────────────────────────────────────┘
 ```
 
@@ -85,7 +85,7 @@ The application follows a clean 4-tier client-serverless architecture:
    - Use `ON CONFLICT (id) DO UPDATE ...` or `DO NOTHING`
 2. **Migration Workflow**:
    - For every new feature requiring schema modifications, create a sequentially numbered migration script in [`database/migrations/`](database/migrations/) (e.g., `006_feature_name.sql`).
-   - Reflect changes in the base schema [`supabase/schema.sql`](supabase/schema.sql) and the consolidated release script in [`database/releases/`](database/releases/).
+   - Reflect changes in the single consolidated base schema [`supabase/schema.sql`](supabase/schema.sql).
 3. **Unified Staff Model**:
    - Teaching faculty and support staff are unified in the `staff` table.
    - Teachers are marked with `is_teacher = TRUE` and contain `subjects` and `assigned_classes`.

@@ -485,10 +485,8 @@
                     toSync.push(item);
                 });
 
-                localStorage.setItem('ec_test_series', JSON.stringify(localTests));
-
-                if (typeof supabaseClient !== 'undefined' && supabaseClient && typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
-                    await supabaseClient.from('test_series').upsert(toSync, { onConflict: 'id', ignoreDuplicates: true });
+                if (typeof DBService !== 'undefined' && DBService.bulkUpsertTestSeries) {
+                    await DBService.bulkUpsertTestSeries(toSync);
                 }
             } catch (e) {
                 console.warn('[SubjectPortal] Catalog sync note:', e);
@@ -497,10 +495,13 @@
 
         // Sync Submissions from Cloud
         async function syncCloudSubmissions() {
-            if (typeof supabaseClient === 'undefined' || !supabaseClient || typeof isSupabaseConnected !== 'function' || !isSupabaseConnected()) return;
+            if (!activeStudent || !activeStudent.id) return;
             try {
-                const { data, error } = await supabaseClient.from('test_submissions').select('*').eq('student_id', activeStudent.id);
-                if (!error && data && data.length > 0) {
+                let data = [];
+                if (typeof DBService !== 'undefined' && DBService.fetchStudentSubmissions) {
+                    data = await DBService.fetchStudentSubmissions(activeStudent.id);
+                }
+                if (data && data.length > 0) {
                     let updated = false;
                     data.forEach(sub => {
                         studentCbtData.enrolled[sub.test_id] = true;

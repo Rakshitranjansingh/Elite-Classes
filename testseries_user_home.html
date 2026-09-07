@@ -881,6 +881,20 @@
 
             tbody.innerHTML = html;
         }
+
+        // Logout Subscriber & Return to Gateway
+        function logoutSubscriber() {
+            const sessionKeys = [
+                'ec_user_role',
+                'ec_subscriber_id',
+                'ec_subscriber_name',
+                'ec_active_subscriber',
+                'ec_active_student',
+                'ec_last_activity'
+            ];
+            sessionKeys.forEach(k => localStorage.removeItem(k));
+            window.location.href = 'index.html';
+        }
     </script>
 </body>
 

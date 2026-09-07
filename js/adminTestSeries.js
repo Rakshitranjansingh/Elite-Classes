@@ -265,12 +265,12 @@ async function adminToggleTestStatus(testId, targetStatus) {
 
     localStorage.setItem('ec_test_series', JSON.stringify(localTests));
 
-    // Cloud Database Persistence
-    if (typeof supabaseClient !== 'undefined' && supabaseClient && typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
+    // Cloud Database Persistence via Unified DBService
+    if (typeof DBService !== 'undefined' && DBService.upsertTestSeries) {
         try {
-            await supabaseClient.from('test_series').upsert(testObj, { onConflict: 'id' });
+            await DBService.upsertTestSeries(testObj);
         } catch (e) {
-            console.warn('[AdminTestSeries] Supabase update warning:', e);
+            console.warn('[AdminTestSeries] DBService update warning:', e);
         }
     }
 
@@ -315,12 +315,12 @@ async function adminBulkToggleTests(targetStatus) {
 
     localStorage.setItem('ec_test_series', JSON.stringify(localTests));
 
-    // Cloud Database Persistence
-    if (typeof supabaseClient !== 'undefined' && supabaseClient && typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
+    // Cloud Database Persistence via Unified DBService
+    if (typeof DBService !== 'undefined' && DBService.bulkUpsertTestSeries) {
         try {
-            await supabaseClient.from('test_series').upsert(batch, { onConflict: 'id' });
+            await DBService.bulkUpsertTestSeries(batch);
         } catch (e) {
-            console.warn('[AdminTestSeries] Supabase batch warning:', e);
+            console.warn('[AdminTestSeries] DBService batch warning:', e);
         }
     }
 
