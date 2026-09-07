@@ -1106,11 +1106,6 @@ const CBTPlayer = {
     // Interactive Question-by-Question Analysis with Filter Tabs
     // =========================================================================
     openReview(testObj, customStudent = null, attemptData = null) {
-        if (!testObj || !testObj.questions) {
-            alert('Error: Question bank not found for this test.');
-            return;
-        }
-
         let student = customStudent;
         if (!student) {
             try {
@@ -1127,10 +1122,20 @@ const CBTPlayer = {
             };
         }
 
+        const testId = (testObj && typeof testObj === 'object') ? testObj.id : (typeof testObj === 'string' ? testObj : null);
         const storageKey = `ec_cbt_enrollment_${student.id}`;
         const localData = JSON.parse(localStorage.getItem(storageKey) || '{"enrolled":{}, "attempts":{}}');
-        const attempt = attemptData || localData.attempts[testObj.id] || {};
+        const attempt = attemptData || (testId && localData.attempts ? localData.attempts[testId] : null) || {};
         const userAnswers = attempt.userAnswers || attempt.answers_json || {};
+
+        const reviewQuestions = (attempt && attempt.shuffledQuestions && attempt.shuffledQuestions.length > 0)
+            ? attempt.shuffledQuestions
+            : (testObj && Array.isArray(testObj.questions) && testObj.questions.length > 0 ? testObj.questions : null);
+
+        if (!reviewQuestions || reviewQuestions.length === 0) {
+            alert('Error: Question bank or review snapshot not found for this test.');
+            return;
+        }
 
         let revOverlay = document.getElementById('cbt-review-modal-overlay');
         if (!revOverlay) {
@@ -1149,7 +1154,6 @@ const CBTPlayer = {
             document.body.appendChild(revOverlay);
         }
 
-        const reviewQuestions = attempt.shuffledQuestions || testObj.questions;
         const score = attempt.score !== undefined ? attempt.score : '--';
         const totalMarks = attempt.total_marks || testObj.total_marks || 400;
         const pct = attempt.pct !== undefined ? attempt.pct : (attempt.percentage || 0);

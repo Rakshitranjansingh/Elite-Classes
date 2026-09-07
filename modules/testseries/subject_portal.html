@@ -299,9 +299,55 @@
                     'data/class10/mathematics/chapter12_mathematics.js',
                     'data/class10/mathematics/chapter13_mathematics.js',
                     'data/class10/mathematics/chapter14_mathematics.js'
+                ],
+                'History': [
+                    'data/class10/history/chapter1_history.js',
+                    'data/class10/history/chapter2_history.js',
+                    'data/class10/history/chapter3_history.js',
+                    'data/class10/history/chapter4_history.js',
+                    'data/class10/history/chapter5_history.js'
+                ],
+                'Politics': [
+                    'data/class10/politics/chapter1_politics.js',
+                    'data/class10/politics/chapter2_politics.js',
+                    'data/class10/politics/chapter3_politics.js',
+                    'data/class10/politics/chapter4_politics.js',
+                    'data/class10/politics/chapter5_politics.js'
+                ],
+                'Democratic Politics': [
+                    'data/class10/politics/chapter1_politics.js',
+                    'data/class10/politics/chapter2_politics.js',
+                    'data/class10/politics/chapter3_politics.js',
+                    'data/class10/politics/chapter4_politics.js',
+                    'data/class10/politics/chapter5_politics.js'
+                ],
+                'Geography': [
+                    'data/class10/geography/chapter1_geography.js',
+                    'data/class10/geography/chapter2_geography.js',
+                    'data/class10/geography/chapter3_geography.js',
+                    'data/class10/geography/chapter4_geography.js',
+                    'data/class10/geography/chapter5_geography.js',
+                    'data/class10/geography/chapter6_geography.js',
+                    'data/class10/geography/chapter7_geography.js'
+                ],
+                'Economics': [
+                    'data/class10/economics/chapter1_economics.js',
+                    'data/class10/economics/chapter2_economics.js',
+                    'data/class10/economics/chapter3_economics.js',
+                    'data/class10/economics/chapter4_economics.js',
+                    'data/class10/economics/chapter5_economics.js'
                 ]
             }
         };
+
+        // Combine all 4 Social Science disciplines into Social Science manifest
+        scriptManifest['Class 10']['Social Science'] = [
+            ...scriptManifest['Class 10']['History'],
+            ...scriptManifest['Class 10']['Politics'],
+            ...scriptManifest['Class 10']['Geography'],
+            ...scriptManifest['Class 10']['Economics']
+        ];
+        scriptManifest['Class 10']['Social Studies'] = scriptManifest['Class 10']['Social Science'];
 
         // Load Script dynamically via Promise
         function loadScript(src) {
@@ -319,18 +365,45 @@
 
         // Initialize Page
         async function initPortal() {
+            // Normalize active subject key
+            let subjectKey = activeSubject;
+            const normSubj = (activeSubject || '').toLowerCase();
+            if (normSubj === 'civics' || normSubj === 'democratic politics' || normSubj === 'politics') {
+                subjectKey = 'Politics';
+            } else if (normSubj === 'social science' || normSubj === 'social studies') {
+                subjectKey = 'Social Science';
+            } else if (normSubj === 'history') {
+                subjectKey = 'History';
+            } else if (normSubj === 'geography') {
+                subjectKey = 'Geography';
+            } else if (normSubj === 'economics') {
+                subjectKey = 'Economics';
+            } else if (normSubj === 'science') {
+                subjectKey = 'Science';
+            } else if (normSubj === 'mathematics' || normSubj === 'maths' || normSubj === 'math') {
+                subjectKey = 'Mathematics';
+            }
+
             // 1. Load relevant question banks for class & subject
-            const scriptsToLoad = (scriptManifest[activeClass] && scriptManifest[activeClass][activeSubject]) || [];
+            const classManifest = scriptManifest[activeClass] || {};
+            const scriptsToLoad = classManifest[subjectKey] || classManifest[activeSubject] || [];
             if (scriptsToLoad.length > 0) {
                 await Promise.all(scriptsToLoad.map(src => loadScript(src)));
             }
+
+            const isSocialGroup = (normSubj === 'social science' || normSubj === 'social studies');
+            const socialSubjects = ['history', 'politics', 'democratic politics', 'geography', 'economics', 'social science'];
 
             // 2. Scan window for registered FullBank objects matching class & subject
             for (let k in window) {
                 if (k.endsWith('FullBank') && window[k] && window[k].questions && Array.isArray(window[k].questions)) {
                     const testObj = window[k];
-                    if ((!testObj.subject || testObj.subject.toLowerCase() === activeSubject.toLowerCase()) &&
-                        (!testObj.cls || testObj.cls.toLowerCase() === activeClass.toLowerCase())) {
+                    const testSubj = (testObj.subject || '').toLowerCase();
+                    const matchSubject = isSocialGroup
+                        ? socialSubjects.includes(testSubj)
+                        : (!testObj.subject || testSubj === normSubj || testSubj === subjectKey.toLowerCase());
+
+                    if (matchSubject && (!testObj.cls || testObj.cls.toLowerCase() === activeClass.toLowerCase())) {
                         window.dynamicTestsRegistry[testObj.id] = testObj;
                     }
                 }
@@ -351,11 +424,18 @@
         async function syncAndPopulateCatalog() {
             try {
                 let localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+                const normSubj = (activeSubject || '').toLowerCase();
+                const isSocialGroup = (normSubj === 'social science' || normSubj === 'social studies');
+                const socialSubjects = ['history', 'politics', 'democratic politics', 'geography', 'economics', 'social science'];
                 
                 // If local ec_test_series has tests for this class & subject, register them
                 localTests.forEach(t => {
-                    if ((!t.cls || t.cls.toLowerCase() === activeClass.toLowerCase()) &&
-                        (!t.subject || t.subject.toLowerCase() === activeSubject.toLowerCase())) {
+                    const testSubj = (t.subject || '').toLowerCase();
+                    const matchSubject = isSocialGroup
+                        ? socialSubjects.includes(testSubj)
+                        : (!t.subject || testSubj === normSubj);
+
+                    if ((!t.cls || t.cls.toLowerCase() === activeClass.toLowerCase()) && matchSubject) {
                         if (!window.dynamicTestsRegistry[t.id]) {
                             window.dynamicTestsRegistry[t.id] = {
                                 id: t.id,
@@ -471,6 +551,7 @@
             const grid = document.getElementById('tests-grid');
             if (!grid) return;
 
+            studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
             const localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
             const testIds = Object.keys(window.dynamicTestsRegistry);
 
@@ -644,9 +725,9 @@
 
         // Review Test Analysis & Solutions
         function reviewTest(testId) {
-            const test = window.dynamicTestsRegistry[testId];
-            if (!test) return;
-            const attempt = studentCbtData.attempts[testId];
+            studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
+            const test = window.dynamicTestsRegistry[testId] || { id: testId };
+            const attempt = studentCbtData.attempts ? studentCbtData.attempts[testId] : null;
             CBTPlayer.openReview(test, activeStudent, attempt);
         }
 

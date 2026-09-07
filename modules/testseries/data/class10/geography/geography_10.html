@@ -383,11 +383,33 @@
                 if (isInactive) {
                     b.className = 'badge badge-danger';
                     b.textContent = '🔒 Inactive / Locked';
-                    a.innerHTML = `<button class="btn btn-outline btn-sm" disabled style="width:100%; font-weight:700; padding:8px; opacity:0.6; cursor:not-allowed; background:#f1f5f9; color:#94a3b8;">🔒 Locked by Admin</button>`;
+                    if (attempt) {
+                        a.innerHTML = `
+                            <div style="display:flex; gap:8px;">
+                                <button class="btn btn-outline btn-sm" onclick="reviewTest('${id}')" style="flex:1; font-weight:700; padding:8px; border-color:var(--primary); color:var(--primary); background:transparent;">
+                                    🔍 Review Test
+                                </button>
+                                <button class="btn btn-outline btn-sm" disabled style="flex:1; font-weight:700; padding:8px; opacity:0.6; cursor:not-allowed; background:#f1f5f9; color:#94a3b8;">
+                                    🔒 Retake Locked
+                                </button>
+                            </div>
+                        `;
+                    } else {
+                        a.innerHTML = `<button class="btn btn-outline btn-sm" disabled style="width:100%; font-weight:700; padding:8px; opacity:0.6; cursor:not-allowed; background:#f1f5f9; color:#94a3b8;">🔒 Locked by Admin</button>`;
+                    }
                 } else if (attempt) {
                     b.className = 'badge badge-success';
-                    b.textContent = `Completed: ${attempt.score} / ${attempt.total_marks}`;
-                    a.innerHTML = `<button class="btn btn-outline btn-sm" onclick="launchTest('${id}')" style="width:100%; font-weight:700; padding:8px;">🔄 Retake Assessment</button>`;
+                    b.textContent = `Score: ${attempt.score} / ${attempt.total_marks || 400} (${attempt.pct || Math.round((attempt.score / (attempt.total_marks || 400)) * 100)}%)`;
+                    a.innerHTML = `
+                        <div style="display:flex; gap:8px;">
+                            <button class="btn btn-outline btn-sm" onclick="reviewTest('${id}')" style="flex:1; font-weight:700; padding:8px; border-color:var(--primary); color:var(--primary); background:transparent;">
+                                🔍 Review Test
+                            </button>
+                            <button class="btn btn-primary btn-sm" onclick="launchTest('${id}')" style="flex:1; font-weight:700; padding:8px;">
+                                🔄 Retake Test
+                            </button>
+                        </div>
+                    `;
                 } else if (isEnrolled) {
                     b.className = 'badge badge-primary';
                     b.textContent = 'Enrolled & Ready';
@@ -398,6 +420,14 @@
                     a.innerHTML = `<button class="btn btn-outline btn-sm" onclick="enrollInTest('${id}')" style="width:100%; font-weight:700; padding:8px;">📝 Enroll in Test</button>`;
                 }
             });
+        }
+
+        function reviewTest(testId) {
+            const test = testsMap[testId] || { id: testId };
+            const attempt = studentCbtData.attempts && studentCbtData.attempts[testId];
+            if (typeof CBTPlayer !== 'undefined' && CBTPlayer.openReview) {
+                CBTPlayer.openReview(test, activeStudent, attempt);
+            }
         }
 
         async function syncCloudTestStatuses() {
