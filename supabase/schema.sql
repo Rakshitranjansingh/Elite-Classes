@@ -262,6 +262,11 @@ ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS time_taken_seconds INT DEF
 ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS rank INT DEFAULT 1;
 ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS status VARCHAR(50) DEFAULT 'completed';
 ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS answers_json JSONB;
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS user_type VARCHAR(20) DEFAULT 'student';
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS avg_score NUMERIC(5, 2) DEFAULT 0;
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS total_attempts INT DEFAULT 1;
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS avg_accuracy_pct NUMERIC(5, 2) DEFAULT 0;
+ALTER TABLE test_submissions ADD COLUMN IF NOT EXISTS subject VARCHAR(100);
 
 -- 15. STUDENT STATS & ACTIVITY PERSISTENCE TABLE
 CREATE TABLE IF NOT EXISTS student_stats (
@@ -315,6 +320,9 @@ CREATE INDEX IF NOT EXISTS idx_test_questions_test_id ON test_questions(test_id)
 CREATE INDEX IF NOT EXISTS idx_test_submissions_test_id ON test_submissions(test_id);
 CREATE INDEX IF NOT EXISTS idx_test_submissions_student_id ON test_submissions(student_id);
 CREATE INDEX IF NOT EXISTS idx_test_submissions_score ON test_submissions(test_id, score DESC);
+CREATE INDEX IF NOT EXISTS idx_test_submissions_avg_score ON test_submissions(test_id, avg_score DESC, score DESC, time_taken_seconds ASC);
+CREATE INDEX IF NOT EXISTS idx_test_submissions_user_type ON test_submissions(user_type);
+CREATE INDEX IF NOT EXISTS idx_test_submissions_subject ON test_submissions(subject);
 CREATE INDEX IF NOT EXISTS idx_student_stats_student ON student_stats(student_id);
 CREATE INDEX IF NOT EXISTS idx_student_remarks_student ON student_remarks(student_id);
 CREATE INDEX IF NOT EXISTS idx_student_remarks_staff ON student_remarks(staff_id);
@@ -664,4 +672,36 @@ ON CONFLICT (id) DO UPDATE SET
     status = EXCLUDED.status,
     instructions = EXCLUDED.instructions,
     created_by = EXCLUDED.created_by;
+
+-- =========================================================================
+-- 19. SECURITY LEAK INCIDENTS & PROCTORING AUDIT LOGS
+-- =========================================================================
+CREATE TABLE IF NOT EXISTS security_leak_incidents (
+    id TEXT PRIMARY KEY,
+    test_id TEXT NOT NULL,
+    student_id TEXT NOT NULL,
+    student_name TEXT,
+    incident_type TEXT NOT NULL, -- 'tab_switch', 'devtools_open', 'watermark_tamper', 'canary_qr_scan'
+    strike_count INT DEFAULT 1,
+    incident_details JSONB,
+    ip_address TEXT,
+    user_agent TEXT,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_sec_incidents_test ON security_leak_incidents(test_id);
+CREATE INDEX IF NOT EXISTS idx_sec_incidents_student ON security_leak_incidents(student_id);
+CREATE INDEX IF NOT EXISTS idx_sec_incidents_type ON security_leak_incidents(incident_type);
+CREATE INDEX IF NOT EXISTS idx_sec_incidents_created ON security_leak_incidents(created_at DESC);
+
+ALTER TABLE security_leak_incidents ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Allow incident report insertion" ON security_leak_incidents;
+CREATE POLICY "Allow incident report insertion" ON security_leak_incidents
+    FOR INSERT WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow admin to view incident reports" ON security_leak_incidents;
+CREATE POLICY "Allow admin to view incident reports" ON security_leak_incidents
+    FOR SELECT USING (true);
+
 

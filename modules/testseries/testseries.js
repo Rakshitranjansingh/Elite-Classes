@@ -437,10 +437,99 @@ async function renderGenericClassTestSeries(container, cls) {
     container.innerHTML = html;
 }
 
+// Open Live Assessment Leaderboard Modal
+let currentCbtActiveTestId = null;
+
+async function openTestLeaderboardModal(testId) {
+    if (!testId && window.CBTPlayer && window.CBTPlayer.activeTest) {
+        testId = window.CBTPlayer.activeTest.id;
+    }
+    currentCbtActiveTestId = testId;
+
+    if (typeof openModal === 'function') {
+        openModal('cbtLeaderboardModal');
+    } else {
+        const modal = document.getElementById('cbtLeaderboardModal');
+        if (modal) modal.style.display = 'flex';
+    }
+
+    const podiumContainer = document.getElementById('leaderboard-podium-container');
+    const tableBody = document.getElementById('leaderboard-table-body');
+    const titleEl = document.getElementById('leaderboard-modal-test-title');
+
+    if (titleEl && testId) {
+        titleEl.textContent = `Live Rankings for Assessment: ${testId.toUpperCase().replace(/_/g, ' ')}`;
+    }
+    if (tableBody) {
+        tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:24px; color:var(--text-muted);">Loading live combined rankings...</td></tr>';
+    }
+
+    try {
+        let currentUserId = localStorage.getItem('ec_student_id') || localStorage.getItem('ec_subscriber_id');
+        const rows = (typeof DBService !== 'undefined' && DBService.fetchCombinedLeaderboard)
+            ? await DBService.fetchCombinedLeaderboard({ testId: testId || undefined, limit: 50, currentUserId })
+            : [];
+
+        if (!rows || rows.length === 0) {
+            if (tableBody) {
+                tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:24px; color:var(--text-muted);">No attempts recorded for this assessment yet. Be the first to take it!</td></tr>';
+            }
+            if (podiumContainer) podiumContainer.innerHTML = '';
+            return;
+        }
+
+        // Podium top 3
+        if (podiumContainer) {
+            const top3 = rows.slice(0, 3);
+            podiumContainer.innerHTML = top3.map((entry, idx) => {
+                const colors = ['#f59e0b', '#64748b', '#b45309'];
+                const badges = ['🥇 1st', '🥈 2nd', '🥉 3rd'];
+                return `
+                    <div style="background:#ffffff; border:1px solid var(--border); border-radius:12px; padding:14px; text-align:center; min-width:140px; box-shadow:0 2px 4px rgba(0,0,0,0.04);">
+                        <div style="font-size:20px;">${badges[idx]}</div>
+                        <div style="font-weight:800; font-size:13px; color:var(--text); margin:4px 0 2px;">${entry.name}</div>
+                        <div style="font-size:11px; color:${colors[idx]}; font-weight:700;">Avg: ${entry.avgScore} pts</div>
+                        <div style="font-size:10px; color:var(--text-muted);">Latest: ${entry.score} pts</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        if (tableBody) {
+            tableBody.innerHTML = rows.map(r => `
+                <tr style="${r.isCurrentUser ? 'background:rgba(37,99,235,0.06); font-weight:700;' : ''}">
+                    <td style="text-align:center; font-weight:800;">${r.medal || `#${r.rank}`}</td>
+                    <td>
+                        <div style="font-weight:700;">${r.name}</div>
+                        <span class="badge ${r.userType === 'subscriber' ? 'badge-purple' : 'badge-primary'}" style="font-size:10px; padding:1px 6px;">
+                            ${r.badgeLabel}
+                        </span>
+                    </td>
+                    <td>${r.cls}</td>
+                    <td>
+                        <span style="font-weight:800; color:var(--primary); font-size:13px;">${r.avgScore}</span>
+                        <div style="font-size:10px; color:var(--text-muted);">Latest: ${r.score}</div>
+                    </td>
+                    <td>${r.accuracyPct}%</td>
+                    <td>${r.timeFormatted}</td>
+                </tr>
+            `).join('');
+        }
+    } catch (err) {
+        console.warn('[testseries] Error loading test leaderboard:', err);
+        if (tableBody) {
+            tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:24px; color:var(--text-muted);">Unable to load rankings. Please try again.</td></tr>';
+        }
+    }
+}
+
 // Global exports for window access
 if (typeof window !== 'undefined') {
     window.renderStudentTestSeries = renderStudentTestSeries;
     window.selectCbtSubjectFilter = selectCbtSubjectFilter;
     window.filterTestSeriesCards = filterTestSeriesCards;
+    window.openTestLeaderboardModal = openTestLeaderboardModal;
+    window.currentCbtActiveTestId = currentCbtActiveTestId;
 }
+
 

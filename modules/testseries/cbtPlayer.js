@@ -20,6 +20,20 @@ const CBTPlayer = {
     student: null,
     onCompleteCallback: null,
 
+    // Security & Proctoring State
+    _hiddenAnswerKey: {},
+    _hiddenExplanations: {},
+    proctorStrikes: 0,
+    maxProctorStrikes: 3,
+    isProctorWarningOpen: false,
+    watermarkObserver: null,
+    isSubmitted: false,
+    _onVisibilityChange: null,
+    _onWindowBlur: null,
+    _onKeyDown: null,
+    _onContextMenu: null,
+    _noticeTimer: null,
+
     // Helper: Normalize Question Text across schemas
     getQuestionText(q) {
         if (!q) return '';
@@ -53,11 +67,15 @@ const CBTPlayer = {
         return arr;
     },
 
-    // Dynamic Anti-Cheating Randomizer:
+    // Dynamic Anti-Cheating Randomizer & Memory Answer Stripping:
     // 1. Shuffles options (A, B, C, D) for every question & tracks correct answer
     // 2. Shuffles questions preserving easy/hard pedagogical tiers
+    // 3. Strips correct_option & explanation from client view to prevent memory-dump cheats
     randomizeTest(testObj) {
         if (!testObj || !Array.isArray(testObj.questions) || testObj.questions.length === 0) return testObj;
+
+        this._hiddenAnswerKey = {};
+        this._hiddenExplanations = {};
 
         // 1. Randomize options for each question
         const randomizedQuestions = testObj.questions.map((rawQ) => {
@@ -104,9 +122,19 @@ const CBTPlayer = {
             finalQuestions = this.shuffleArray(randomizedQuestions);
         }
 
+        // 3. Strip answers from active client memory (stored securely in private CBTPlayer state)
+        const sanitizedQuestions = finalQuestions.map((q, idx) => {
+            this._hiddenAnswerKey[idx] = q.correct_option;
+            this._hiddenExplanations[idx] = q.explanation || '';
+            const safeQ = { ...q };
+            delete safeQ.correct_option;
+            delete safeQ.explanation;
+            return safeQ;
+        });
+
         return {
             ...testObj,
-            questions: finalQuestions
+            questions: sanitizedQuestions
         };
     },
 
@@ -117,23 +145,41 @@ const CBTPlayer = {
             return;
         }
 
+        // Security Gate: Launch-time DevTools detection
+        const devDiffX = window.outerWidth - window.innerWidth;
+        const devDiffY = window.outerHeight - window.innerHeight;
+        if (devDiffX > 160 || devDiffY > 160) {
+            alert('🛑 Security Alert: Developer Tools / Inspect Element is currently open.\n\nPlease close Developer Tools and refresh to proceed to the examination.');
+            return;
+        }
+
         // Apply dynamic runtime randomization for this test attempt
         this.activeTest = this.randomizeTest(testObj);
         this.currentQIdx = 0;
         this.userAnswers = {};
         this.flaggedReview = {};
         this.onCompleteCallback = onComplete;
+        this.isSubmitted = false;
         let storedActiveStudent = null;
+        let storedActiveSub = null;
         try {
             storedActiveStudent = JSON.parse(localStorage.getItem('ec_active_student'));
+            storedActiveSub = JSON.parse(localStorage.getItem('ec_active_subscriber'));
         } catch (e) {
             storedActiveStudent = null;
+            storedActiveSub = null;
         }
-        this.student = customStudent || storedActiveStudent || {
-            id: localStorage.getItem('ec_student_id') || 'st_guest',
-            name: localStorage.getItem('ec_student_name') || 'Class 10 Student',
+
+        const role = localStorage.getItem('ec_user_role') || '';
+        const defaultStudent = {
+            id: localStorage.getItem('ec_student_id') || localStorage.getItem('ec_subscriber_id') || 'st_guest',
+            name: localStorage.getItem('ec_student_name') || localStorage.getItem('ec_subscriber_name') || 'Class 10 Student',
             cls: 'Class 10'
         };
+
+        this.student = customStudent || storedActiveStudent || storedActiveSub || defaultStudent;
+        const isSubscriber = role === 'testseries_subscriber' || (this.student.id && (this.student.id.startsWith('ts_sub_') || this.student.id.startsWith('sub_')));
+        this.student.user_type = isSubscriber ? 'subscriber' : 'student';
 
         this.totalSecondsAllocated = (testObj.duration_mins || 90) * 60;
         this.secondsLeft = this.totalSecondsAllocated;
@@ -161,6 +207,8 @@ const CBTPlayer = {
             overflow: hidden;
             font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
             color: #0f172a;
+            user-select: none;
+            -webkit-user-select: none;
         `;
 
         overlay.innerHTML = `
@@ -208,12 +256,20 @@ const CBTPlayer = {
                     </div>
                 </div>
 
-                <!-- LAYER 2: TIMER (LEFT) & FINISH & SUBMIT (RIGHT) -->
+                <!-- LAYER 2: TIMER & PROCTOR (LEFT) & FINISH & SUBMIT (RIGHT) -->
                 <div style="background:#0b1329; color:#ffffff; padding:6px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.12); gap:10px;">
-                    <!-- TIMER -->
-                    <div style="background:rgba(239, 68, 68, 0.18); border:1px solid rgba(239, 68, 68, 0.4); padding:4px 12px; border-radius:16px; display:flex; align-items:center; gap:6px; flex-shrink:0;">
-                        <span style="font-size:11px; color:#fca5a5; font-weight:800; letter-spacing:0.5px;">⏱️ TIME LEFT:</span>
-                        <span id="cbt-header-timer" style="font-size:14px; font-weight:800; font-family:'Courier New', monospace; color:#fef2f2; letter-spacing:1px;">00:00:00</span>
+                    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                        <!-- TIMER -->
+                        <div style="background:rgba(239, 68, 68, 0.18); border:1px solid rgba(239, 68, 68, 0.4); padding:4px 12px; border-radius:16px; display:flex; align-items:center; gap:6px; flex-shrink:0;">
+                            <span style="font-size:11px; color:#fca5a5; font-weight:800; letter-spacing:0.5px;">⏱️ TIME LEFT:</span>
+                            <span id="cbt-header-timer" style="font-size:14px; font-weight:800; font-family:'Courier New', monospace; color:#fef2f2; letter-spacing:1px;">00:00:00</span>
+                        </div>
+
+                        <!-- PROCTOR STATUS BADGE -->
+                        <div id="cbt-proctor-pill" style="background:rgba(16, 185, 129, 0.15); border:1px solid rgba(16, 185, 129, 0.4); padding:4px 10px; border-radius:16px; display:flex; align-items:center; gap:6px; font-size:11px; font-weight:700; color:#6ee7b7;">
+                            <span>🛡️ PROCTOR:</span>
+                            <span id="cbt-proctor-strikes" style="color:#ffffff;">0/3 Strikes</span>
+                        </div>
                     </div>
 
                     <!-- FINISH & SUBMIT -->
@@ -240,20 +296,35 @@ const CBTPlayer = {
             </div>
 
             <!-- 2. MAIN WORKSPACE -->
-            <div class="cbt-workspace-split" style="flex:1; display:flex; overflow:hidden; background:#f8fafc;">
+            <div class="cbt-workspace-split" style="flex:1; display:flex; overflow:hidden; background:#f8fafc; position:relative;">
                 
                 <!-- QUESTION VIEWPORT -->
-                <main style="flex:1; display:flex; flex-direction:column; justify-content:space-between; padding:22px 28px; background:#ffffff; overflow-y:auto;">
-                    <div>
+                <main id="cbt-question-viewport" style="flex:1; display:flex; flex-direction:column; justify-content:space-between; padding:22px 28px; background:#ffffff; overflow-y:auto; position:relative;">
+                    
+                    <!-- FORENSIC WATERMARK CONTAINER (POINTER-EVENTS NONE) -->
+                    <div id="cbt-forensic-watermark" style="position:absolute; top:0; left:0; right:0; bottom:0; pointer-events:none; user-select:none; z-index:5; opacity:0.065; overflow:hidden;"></div>
+
+                    <div style="position:relative; z-index:6;">
                         <!-- META BAR -->
-                        <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:1px solid #e2e8f0; margin-bottom:18px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:1px solid #e2e8f0; margin-bottom:18px; flex-wrap:wrap; gap:10px;">
                             <div style="display:flex; align-items:center; gap:8px;">
                                 <span style="background:#eff6ff; color:#2563eb; font-weight:800; font-size:12px; padding:3px 10px; border-radius:14px;" id="cbt-q-number-badge">Question 1</span>
                                 <span style="background:#ecfdf5; color:#10b981; font-weight:700; font-size:11px; padding:3px 8px; border-radius:14px;">+4.00 Marks</span>
                                 <span style="background:#fef2f2; color:#ef4444; font-weight:700; font-size:11px; padding:3px 8px; border-radius:14px;">-1.00 Penalty</span>
                             </div>
-                            <div id="cbt-q-status-badge" style="font-size:12px; font-weight:700; color:#64748b;">
-                                ⚪ Unattempted
+
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <!-- CANARY QR DIGITAL SEAL -->
+                                <div id="cbt-canary-seal" style="display:flex; align-items:center; gap:6px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:6px; padding:3px 8px; cursor:default;" title="Official Elite Digital Verification Seal">
+                                    <div id="cbt-canary-qr-wrap" style="display:flex; align-items:center;"></div>
+                                    <div style="font-size:9.5px; font-weight:700; color:#475569; line-height:1.2; text-align:left;">
+                                        <span style="color:#2563eb;">🔒 VERIFIED SEAL</span><br>
+                                        <span id="cbt-canary-seal-id" style="font-family:monospace; font-size:8.5px; color:#64748b;">EC-SEC-VERIFIED</span>
+                                    </div>
+                                </div>
+                                <div id="cbt-q-status-badge" style="font-size:12px; font-weight:700; color:#64748b;">
+                                    ⚪ Unattempted
+                                </div>
                             </div>
                         </div>
 
@@ -272,7 +343,7 @@ const CBTPlayer = {
                     </div>
 
                     <!-- BOTTOM CONTROLS (SINGLE RESPONSIVE LINE) -->
-                    <div style="padding-top:14px; border-top:1px solid #e2e8f0; display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:16px; flex-wrap:nowrap; width:100%;">
+                    <div style="padding-top:14px; border-top:1px solid #e2e8f0; display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:16px; flex-wrap:nowrap; width:100%; position:relative; z-index:6;">
                         <!-- PREVIOUS BUTTON -->
                         <button id="cbt-btn-prev" onclick="CBTPlayer.navigate(-1)" title="Previous Question" style="min-width:44px; height:38px; padding:0 12px; border-radius:8px; background:#ffffff; border:1.5px solid #cbd5e1; color:#0f172a; font-size:16px; font-weight:800; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;">
                             ←
@@ -319,9 +390,309 @@ const CBTPlayer = {
                     </div>
                 </aside>
             </div>
+
+            <!-- PROCTOR 3-STRIKE WARNING MODAL -->
+            <div id="cbt-proctor-warning-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:100005; align-items:center; justify-content:center; padding:16px;">
+                <div style="background:#ffffff; border-radius:16px; max-width:440px; width:100%; padding:28px; text-align:center; box-shadow:0 20px 40px rgba(0,0,0,0.3); border:2px solid #ef4444;">
+                    <div style="font-size:44px; margin-bottom:12px;" id="cbt-proctor-modal-icon">⚠️</div>
+                    <h3 style="font-size:18px; font-weight:800; color:#0f172a; margin:0 0 8px;" id="cbt-proctor-modal-title">Warning: Tab Switching Detected!</h3>
+                    <p style="font-size:13px; color:#64748b; line-height:1.5; margin:0 0 20px;" id="cbt-proctor-modal-body">
+                        Navigating away from the test window or switching background applications is strictly monitored.
+                    </p>
+                    <button id="cbt-proctor-modal-btn" onclick="CBTPlayer.resumeFromProctorWarning()" style="background:#2563eb; color:#ffffff; font-weight:800; padding:10px 24px; border:none; border-radius:8px; cursor:pointer; font-size:13.5px; width:100%;">
+                        Return to Exam
+                    </button>
+                </div>
+            </div>
         `;
 
         document.body.appendChild(overlay);
+    },
+
+    // Inject Dynamic Repeating Forensic Watermark
+    injectWatermark() {
+        const wm = document.getElementById('cbt-forensic-watermark');
+        if (!wm) return;
+
+        const studentName = (this.student?.name || 'STUDENT').toUpperCase();
+        const studentId = (this.student?.id || 'EC-CANDIDATE').toUpperCase();
+        const testTitle = (this.activeTest?.title || 'TEST').toUpperCase();
+        const nowStr = new Date().toLocaleString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+        wm.innerHTML = `
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="cbt-wm-pattern" width="460" height="260" patternUnits="userSpaceOnUse" patternTransform="rotate(-26)">
+                        <text x="20" y="45" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="900" fill="#0f172a" letter-spacing="1">ELITE CLASSES • SECURE CBT ASSESSMENT</text>
+                        <text x="50" y="110" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#2563eb">${studentName} • ${studentId}</text>
+                        <text x="30" y="175" font-family="'Courier New', monospace" font-size="11.5" font-weight="700" fill="#475569">${testTitle} • ${nowStr}</text>
+                        <text x="60" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#94a3b8">AUTHENTIC DIGITAL COPY • LEAKS TRACEABLE</text>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#cbt-wm-pattern)" />
+            </svg>
+        `;
+    },
+
+    // DOM MutationObserver to guard watermark against tampering / CSS hiding
+    setupWatermarkProtection() {
+        if (this.watermarkObserver) this.watermarkObserver.disconnect();
+        const target = document.getElementById('cbt-engine-overlay');
+        if (!target) return;
+
+        this.watermarkObserver = new MutationObserver(() => {
+            const wm = document.getElementById('cbt-forensic-watermark');
+            if (!wm || wm.style.display === 'none' || wm.style.visibility === 'hidden' || parseFloat(wm.style.opacity || '1') < 0.03) {
+                this.injectWatermark();
+            }
+        });
+
+        this.watermarkObserver.observe(target, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+    },
+
+    // Lightweight Pure Vector SVG QR Generator for Canary Seal
+    generateCanaryQRSvg(seedStr) {
+        const size = 25;
+        let hash = 0;
+        for (let i = 0; i < seedStr.length; i++) {
+            hash = ((hash << 5) - hash) + seedStr.charCodeAt(i);
+            hash |= 0;
+        }
+
+        const grid = Array(size).fill(0).map(() => Array(size).fill(false));
+
+        const drawFinder = (r, c) => {
+            for (let i = 0; i < 7; i++) {
+                for (let j = 0; j < 7; j++) {
+                    const isBorder = (i === 0 || i === 6 || j === 0 || j === 6);
+                    const isCenter = (i >= 2 && i <= 4 && j >= 2 && j <= 4);
+                    grid[r + i][c + j] = isBorder || isCenter;
+                }
+            }
+        };
+
+        drawFinder(0, 0);          // Top-Left
+        drawFinder(0, size - 7);   // Top-Right
+        drawFinder(size - 7, 0);   // Bottom-Left
+
+        for (let i = 8; i < size - 8; i++) {
+            grid[6][i] = (i % 2 === 0);
+            grid[i][6] = (i % 2 === 0);
+        }
+
+        let h = Math.abs(hash);
+        for (let r = 0; r < size; r++) {
+            for (let c = 0; c < size; c++) {
+                const inFinder1 = (r < 8 && c < 8);
+                const inFinder2 = (r < 8 && c >= size - 8);
+                const inFinder3 = (r >= size - 8 && c < 8);
+                if (!inFinder1 && !inFinder2 && !inFinder3 && r !== 6 && c !== 6) {
+                    h = (h * 1103515245 + 12345) & 0x7fffffff;
+                    grid[r][c] = (h % 2 === 0);
+                }
+            }
+        }
+
+        let rects = '';
+        for (let r = 0; r < size; r++) {
+            for (let c = 0; c < size; c++) {
+                if (grid[r][c]) {
+                    rects += `<rect x="${c}" y="${r}" width="1" height="1" fill="#0f172a"/>`;
+                }
+            }
+        }
+
+        return `<svg viewBox="0 0 ${size} ${size}" width="24" height="24" style="background:#ffffff; border-radius:2px;">${rects}</svg>`;
+    },
+
+    // Initialize 3-Strike Tab Proctor & Anti-Inspection Hotkey Lockouts
+    initProctoringAndSecurity() {
+        this.proctorStrikes = 0;
+        this.isProctorWarningOpen = false;
+        this.isSubmitted = false;
+        this.updateProctorBadge();
+
+        this._onVisibilityChange = () => {
+            if (!this.activeTest || this.isSubmitted || this.isProctorWarningOpen) return;
+            if (document.hidden) {
+                this.triggerProctorStrike('Tab switching or navigating away from the test window is prohibited.');
+            }
+        };
+
+        this._onWindowBlur = () => {
+            if (!this.activeTest || this.isSubmitted || this.isProctorWarningOpen) return;
+            setTimeout(() => {
+                if (!document.hasFocus() && !this.isSubmitted && !this.isProctorWarningOpen) {
+                    this.triggerProctorStrike('Application focus lost. Navigating to other windows is strictly monitored.');
+                }
+            }, 400);
+        };
+
+        this._onKeyDown = (e) => {
+            if (!this.activeTest || this.isSubmitted) return;
+
+            // F12
+            if (e.key === 'F12' || e.keyCode === 123) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.showProctorNotice('Developer Tools (F12) is disabled during the assessment.');
+                return false;
+            }
+
+            // Ctrl+Shift+I / J / C (DevTools)
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key)) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.showProctorNotice('Inspect shortcuts are disabled.');
+                return false;
+            }
+
+            // Ctrl+U (View Source)
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.showProctorNotice('View source is disabled.');
+                return false;
+            }
+
+            // Ctrl+S / Ctrl+P (Save / Print)
+            if ((e.ctrlKey || e.metaKey) && ['s', 'S', 'p', 'P'].includes(e.key)) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        };
+
+        this._onContextMenu = (e) => {
+            if (!this.activeTest || this.isSubmitted) return;
+            e.preventDefault();
+            this.showProctorNotice('Right-click context menu is disabled.');
+            return false;
+        };
+
+        window.addEventListener('visibilitychange', this._onVisibilityChange);
+        window.addEventListener('blur', this._onWindowBlur);
+        window.addEventListener('keydown', this._onKeyDown, true);
+        window.addEventListener('contextmenu', this._onContextMenu, true);
+    },
+
+    cleanupProctoringAndSecurity() {
+        if (this._onVisibilityChange) window.removeEventListener('visibilitychange', this._onVisibilityChange);
+        if (this._onWindowBlur) window.removeEventListener('blur', this._onWindowBlur);
+        if (this._onKeyDown) window.removeEventListener('keydown', this._onKeyDown, true);
+        if (this._onContextMenu) window.removeEventListener('contextmenu', this._onContextMenu, true);
+        if (this.watermarkObserver) {
+            this.watermarkObserver.disconnect();
+            this.watermarkObserver = null;
+        }
+    },
+
+    triggerProctorStrike(reason) {
+        if (this.isSubmitted || this.isProctorWarningOpen) return;
+        this.proctorStrikes++;
+        this.updateProctorBadge();
+
+        // Audit log to backend security audit table
+        if (typeof DBService !== 'undefined' && DBService.logSecurityIncident) {
+            DBService.logSecurityIncident({
+                test_id: this.activeTest ? this.activeTest.id : 'unknown_test',
+                student_id: this.student ? this.student.id : 'anonymous_student',
+                student_name: this.student ? this.student.name : 'Unknown',
+                incident_type: 'proctor_strike',
+                strike_count: this.proctorStrikes,
+                incident_details: { reason: reason, question_number: this.currentQIdx + 1 }
+            }).catch(() => {});
+        }
+
+        if (this.proctorStrikes >= this.maxProctorStrikes) {
+            alert(`🛑 Assessment Terminated & Auto-Submitted!\n\nViolation Limit Exceeded (3/3 Strikes).\nReason: ${reason}\n\nYour attempt has been finalized and recorded.`);
+            this.finishAndSubmit();
+        } else {
+            this.showProctorWarningModal(reason);
+        }
+    },
+
+    updateProctorBadge() {
+        const badge = document.getElementById('cbt-proctor-strikes');
+        const pill = document.getElementById('cbt-proctor-pill');
+        if (!badge) return;
+        badge.textContent = `${this.proctorStrikes}/${this.maxProctorStrikes} Strikes`;
+        if (pill) {
+            if (this.proctorStrikes === 0) {
+                pill.style.background = 'rgba(16, 185, 129, 0.15)';
+                pill.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+                badge.style.color = '#6ee7b7';
+            } else if (this.proctorStrikes === 1) {
+                pill.style.background = 'rgba(245, 158, 11, 0.2)';
+                pill.style.borderColor = 'rgba(245, 158, 11, 0.6)';
+                badge.style.color = '#fde047';
+            } else {
+                pill.style.background = 'rgba(239, 68, 68, 0.25)';
+                pill.style.borderColor = 'rgba(239, 68, 68, 0.7)';
+                badge.style.color = '#fca5a5';
+            }
+        }
+    },
+
+    showProctorWarningModal(reason) {
+        this.isProctorWarningOpen = true;
+        const modal = document.getElementById('cbt-proctor-warning-modal');
+        const titleEl = document.getElementById('cbt-proctor-modal-title');
+        const bodyEl = document.getElementById('cbt-proctor-modal-body');
+        const iconEl = document.getElementById('cbt-proctor-modal-icon');
+
+        if (titleEl) {
+            titleEl.textContent = this.proctorStrikes === 1 ? '⚠️ Warning (1/3): Tab Switching Detected!' : '🚨 Final Warning (2/3): Violation Recorded!';
+        }
+        if (bodyEl) {
+            bodyEl.innerHTML = `
+                <b>${reason}</b><br><br>
+                Tab switching, minimizing, or interacting with other applications is strictly monitored.<br><br>
+                <span style="color:#ef4444; font-weight:700;">${this.maxProctorStrikes - this.proctorStrikes} more violation will permanently terminate and auto-submit your exam.</span>
+            `;
+        }
+        if (iconEl) {
+            iconEl.textContent = this.proctorStrikes === 1 ? '⚠️' : '🚨';
+        }
+        if (modal) modal.style.display = 'flex';
+    },
+
+    resumeFromProctorWarning() {
+        this.isProctorWarningOpen = false;
+        const modal = document.getElementById('cbt-proctor-warning-modal');
+        if (modal) modal.style.display = 'none';
+    },
+
+    showProctorNotice(msg) {
+        let toast = document.getElementById('cbt-proctor-notice-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'cbt-proctor-notice-toast';
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #0f172a;
+                color: #ffffff;
+                padding: 10px 20px;
+                border-radius: 8px;
+                font-size: 12.5px;
+                font-weight: 700;
+                z-index: 100010;
+                box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+                border: 1px solid #334155;
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+            `;
+            document.body.appendChild(toast);
+        }
+        toast.textContent = `🛡️ Security Notice: ${msg}`;
+        toast.style.opacity = '1';
+        clearTimeout(this._noticeTimer);
+        this._noticeTimer = setTimeout(() => {
+            if (toast) toast.style.opacity = '0';
+        }, 2200);
     },
 
     openModal() {
@@ -331,10 +702,16 @@ const CBTPlayer = {
         document.getElementById('cbt-header-title').textContent = this.activeTest.title;
         document.getElementById('cbt-header-subtitle').textContent = `${this.activeTest.cls} ${this.activeTest.subject} • ${this.activeTest.questions.length} Questions`;
         document.getElementById('cbt-header-student-name').textContent = this.student.name;
+
+        // Initialize forensic watermark, DOM observer, and proctoring
+        this.injectWatermark();
+        this.setupWatermarkProtection();
+        this.initProctoringAndSecurity();
     },
 
     closeModal() {
         if (this.timerInterval) clearInterval(this.timerInterval);
+        this.cleanupProctoringAndSecurity();
         const modal = document.getElementById('cbt-engine-overlay');
         if (modal) modal.style.display = 'none';
     },
@@ -348,6 +725,18 @@ const CBTPlayer = {
 
         document.getElementById('cbt-q-number-badge').textContent = `Question ${this.currentQIdx + 1} of ${this.activeTest.questions.length}`;
         document.getElementById('cbt-q-body-text').innerHTML = `Q${this.currentQIdx + 1}. ${qText}`;
+
+        // Update Canary Forensic Seal with candidate & question-specific hash
+        const canaryWrap = document.getElementById('cbt-canary-qr-wrap');
+        const canarySealId = document.getElementById('cbt-canary-seal-id');
+        if (canaryWrap && this.student) {
+            const seed = `${this.student.id || 'std'}_${this.activeTest.id || 'test'}_q${this.currentQIdx + 1}_${this.student.phone || '0000'}`;
+            canaryWrap.innerHTML = this.generateCanaryQRSvg(seed);
+            if (canarySealId) {
+                const shortHash = Math.abs(seed.split('').reduce((a, b) => { a = ((a << 5) - a) + b.charCodeAt(0); return a & a; }, 0)).toString(16).toUpperCase().padStart(6, '0').slice(-6);
+                canarySealId.textContent = `EC-${shortHash}-Q${this.currentQIdx + 1}`;
+            }
+        }
 
         const diagWrap = document.getElementById('cbt-q-diagram-wrap');
         if (diagWrap) {
@@ -611,14 +1000,23 @@ const CBTPlayer = {
 
         this.activeTest.questions.forEach((q, idx) => {
             const userChoice = this.userAnswers[idx];
+            const correctOpt = (this._hiddenAnswerKey && this._hiddenAnswerKey[idx] !== undefined) ? this._hiddenAnswerKey[idx] : q.correct_option;
             if (!userChoice) {
                 unattemptedCount++;
-            } else if (userChoice === q.correct_option) {
+            } else if (userChoice === correctOpt) {
                 correctCount++;
             } else {
                 wrongCount++;
             }
         });
+
+        // Restore hidden answers and explanations for solutions review
+        const reviewQuestions = this.activeTest.questions.map((q, idx) => ({
+            ...q,
+            correct_option: (this._hiddenAnswerKey && this._hiddenAnswerKey[idx] !== undefined) ? this._hiddenAnswerKey[idx] : q.correct_option,
+            explanation: (this._hiddenExplanations && this._hiddenExplanations[idx] !== undefined) ? this._hiddenExplanations[idx] : q.explanation
+        }));
+        this.activeTest.questions = reviewQuestions;
 
         const rawScore = (correctCount * marksPerCorrect) - (wrongCount * negMarkPerWrong);
         const score = rawScore;
@@ -627,13 +1025,25 @@ const CBTPlayer = {
         const accuracy = (correctCount + wrongCount) > 0 ? Math.round((correctCount / (correctCount + wrongCount)) * 100) : 0;
         const timeTakenSecs = this.totalSecondsAllocated - this.secondsLeft;
 
+        const storageKey = `ec_cbt_enrollment_${this.student.id}`;
+        let localData = JSON.parse(localStorage.getItem(storageKey) || '{"enrolled":{}, "attempts":{}}');
+        const prevAttempt = localData.attempts ? localData.attempts[this.activeTest.id] : null;
+        const prevAttempts = prevAttempt ? parseInt(prevAttempt.total_attempts || 1, 10) : 0;
+        const prevAvg = prevAttempt ? parseFloat(prevAttempt.avg_score !== undefined ? prevAttempt.avg_score : (prevAttempt.score || 0)) : 0;
+        const newAttempts = prevAttempts + 1;
+        const newAvg = Math.round(((prevAvg * prevAttempts) + score) / newAttempts * 100) / 100;
+
         const submissionObj = {
             id: `sub_${this.activeTest.id}_${this.student.id}_${Date.now()}`,
             test_id: this.activeTest.id,
             student_id: this.student.id,
             student_name: this.student.name,
-            cls: this.activeTest.cls,
+            cls: this.activeTest.cls || this.student.cls || 'Class 10',
+            subject: this.activeTest.subject || 'Science',
+            user_type: this.student.user_type || 'student',
             score: score,
+            avg_score: newAvg,
+            total_attempts: newAttempts,
             total_marks: totalMarks,
             percentage: percentage,
             accuracy_pct: accuracy,
@@ -645,12 +1055,14 @@ const CBTPlayer = {
             submitted_at: new Date().toISOString()
         };
 
-        // 1. Save Locally with exact userAnswers and shuffled questions snapshot
-        const storageKey = `ec_cbt_enrollment_${this.student.id}`;
-        let localData = JSON.parse(localStorage.getItem(storageKey) || '{"enrolled":{}, "attempts":{}}');
+        // 1. Save Locally with exact userAnswers and reconstructed solutions snapshot
+        localData.enrolled = localData.enrolled || {};
+        localData.attempts = localData.attempts || {};
         localData.enrolled[this.activeTest.id] = true;
         localData.attempts[this.activeTest.id] = {
             score: score,
+            avg_score: newAvg,
+            total_attempts: newAttempts,
             total_marks: totalMarks,
             pct: percentage,
             accuracy: accuracy,
@@ -658,7 +1070,7 @@ const CBTPlayer = {
             wrong: wrongCount,
             unattempted: unattemptedCount,
             userAnswers: { ...this.userAnswers },
-            shuffledQuestions: this.activeTest.questions,
+            shuffledQuestions: reviewQuestions,
             timeFormatted: `${Math.floor(timeTakenSecs / 60)}m ${timeTakenSecs % 60}s`,
             submitted_at: new Date().toISOString()
         };
@@ -667,7 +1079,14 @@ const CBTPlayer = {
         // 2. Persist to Supabase if DBService is available
         if (typeof DBService !== 'undefined' && DBService.submitTestAttempt) {
             try {
-                await DBService.submitTestAttempt(submissionObj);
+                const res = await DBService.submitTestAttempt(submissionObj);
+                if (res && res.avg_score !== undefined) {
+                    submissionObj.avg_score = res.avg_score;
+                    submissionObj.total_attempts = res.total_attempts;
+                    localData.attempts[this.activeTest.id].avg_score = res.avg_score;
+                    localData.attempts[this.activeTest.id].total_attempts = res.total_attempts;
+                    localStorage.setItem(storageKey, JSON.stringify(localData));
+                }
             } catch (e) {
                 console.warn('[CBTPlayer] Supabase cloud sync warning:', e);
             }

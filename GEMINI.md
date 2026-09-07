@@ -123,12 +123,20 @@ The application follows a clean 4-tier client-serverless architecture:
    - Level 2 (Student Portal Dashboard, `student_home.html`) $\rightarrow$ Logout button securely clears session and routes to Gateway (`index.html`).
 4. **Global Inactivity & Auth Guards**: All portal views and sub-modules must inherit the central inactivity timer and auth guard checks.
 
-### F. Dedicated Test Builder Agent & Automated Tooling
-1. **Operational Runbook**: The workspace maintains a specialized agent skill at `.agents/skills/test-builder/SKILL.md` and rules at `.agents/rules/test_builder.md`.
-2. **Subject Scaffolding**: Use `node .agents/skills/test-builder/scripts/scaffold_subject.js --class <X> --subject <name> --chapters <N>` to scaffold folder structure (`modules/testseries/data/class<X>/<subject>/ncert/`) and pre-wired portal HTML.
-3. **Automated Assessment Validation**: Run `node .agents/skills/test-builder/scripts/validate_test.js <path-to-test.js>` to verify exact 100Q count, 50E/10M/10H/20T/10VH tier distribution, option completeness, and Unicode typography.
-4. **Global CBT Engine**: All subject portals must load and utilize the shared `modules/testseries/cbtPlayer.js` without duplicating player logic.
-5. **Progressive Test Activation & Admin Control**: All newly deployed subject assessments must default to Chapter 1 Active (`published`) and Chapters 2+ Inactive (`inactive`), with portal UI locking (`🔒 Inactive / Locked` badges, disabled action buttons, guarded test start) and admin switchboard integration in `js/adminTestSeries.js`.
+### F. Zero-Human-Error Agent Skills Ecosystem
+The repository enforces autonomous, deterministic agent tooling across 5 core operational domains located in `.agents/skills/`:
+1. **`test-builder`** (`.agents/skills/test-builder/SKILL.md`):
+   - Automated scaffolding (`scaffold_subject.js`) and 100Q 5-tier validation (`validate_test.js`) for NCERT chapter assessments.
+   - Enforces progressive activation (Ch 1 live, Ch 2+ inactive) and Unicode chemical/math formatting.
+2. **`course-manager`** (`.agents/skills/course-manager/SKILL.md`):
+   - Automated course creation, tuition fee updates, and subject mapping via `manage_course.js`.
+3. **`student-onboarding`** (`.agents/skills/student-onboarding/SKILL.md`):
+   - Admission approvals, roll number sequencing, fee ledger provisioning, and WhatsApp onboarding dispatch via `onboard_student.js`.
+4. **`faculty-manager`** (`.agents/skills/faculty-manager/SKILL.md`):
+   - Teacher provisioning, class/subject assignments, and confidential salary payouts with RBAC scoping via `manage_faculty.js`.
+5. **`security-auditor`** (`.agents/skills/security-auditor/SKILL.md`):
+   - Automated verification tool (`audit_security.js`) checking anti-leak watermarks, proctor strikes, memory answer key stripping, and API privacy boundaries.
+
 
 ---
 

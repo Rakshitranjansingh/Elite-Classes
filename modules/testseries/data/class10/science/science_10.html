@@ -142,12 +142,27 @@
         </div>
     </div>
 
-    <!-- 2. COMPACT WHOLE SUBJECT LEADERSHIP BOARD TABLE (Top 1, 2, 3 + Current Student Rank) -->
+    <!-- 2. COMPACT WHOLE SUBJECT COMBINED LEADERSHIP BOARD TABLE -->
     <div class="card" style="margin-bottom:18px;">
-        <div class="card-header" style="padding:10px 16px; background:#ffffff; border-bottom:1px solid var(--border);">
-            <span class="card-title" style="font-size:13px; font-weight:700; color:var(--text); display:flex; align-items:center; gap:6px;">
-                🏆 Class 10 Science — Subject Leadership Board
-            </span>
+        <div class="card-header" style="padding:12px 16px; background:#ffffff; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:17px;">🏆</span>
+                <div>
+                    <span class="card-title" style="font-size:13.5px; font-weight:800; color:var(--text);">
+                        Class 10 Science — Combined Assessment Leaderboard
+                    </span>
+                    <div style="font-size:11px; color:var(--text-muted);">
+                        Ranked by Average Score across attempts • Live Students & Online Subscribers
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div style="display:flex; gap:6px; align-items:center;" id="leaderboard-filter-btns">
+                <button class="btn btn-sm btn-primary lb-filter-btn" data-filter="all" onclick="setLeaderboardFilter('all')" style="font-size:11px; padding:4px 10px; border-radius:14px;">👥 All</button>
+                <button class="btn btn-sm btn-outline lb-filter-btn" data-filter="student" onclick="setLeaderboardFilter('student')" style="font-size:11px; padding:4px 10px; border-radius:14px;">🎓 Students</button>
+                <button class="btn btn-sm btn-outline lb-filter-btn" data-filter="subscriber" onclick="setLeaderboardFilter('subscriber')" style="font-size:11px; padding:4px 10px; border-radius:14px;">⭐ Subscribers</button>
+            </div>
         </div>
 
         <div class="table-wrap">
@@ -155,14 +170,16 @@
                 <thead>
                     <tr>
                         <th style="width:70px; text-align:center;">Rank</th>
-                        <th>Student Name</th>
-                        <th>Cumulative Score</th>
-                        <th>Accuracy %</th>
-                        <th>Tests Taken</th>
+                        <th>Candidate Name</th>
+                        <th>Cohort</th>
+                        <th>Average Score</th>
+                        <th>Latest Score</th>
+                        <th>Accuracy</th>
+                        <th>Attempts</th>
                     </tr>
                 </thead>
                 <tbody id="science-leaderboard-tbody">
-                    <!-- Dynamic Top 1, 2, 3 + Current Student Row -->
+                    <!-- Dynamic Combined Top 5 + Current Student Row -->
                 </tbody>
             </table>
         </div>
@@ -659,90 +676,96 @@
             }
         }
 
-        // Render Compact Subject Leaderboard (Top 1, 2, 3 + Current Student)
-        // Render Dynamic Subject Leaderboard with Real-Time Ranking
-        function renderLeaderboard() {
+        // Combined Subject Leaderboard Filter State ('all', 'student', 'subscriber')
+        let activeLbFilter = 'all';
+
+        function setLeaderboardFilter(filter) {
+            activeLbFilter = filter;
+            document.querySelectorAll('.lb-filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-filter') === filter) {
+                    btn.className = 'btn btn-sm btn-primary lb-filter-btn';
+                } else {
+                    btn.className = 'btn btn-sm btn-outline lb-filter-btn';
+                }
+            });
+            renderLeaderboard();
+        }
+
+        // Render Dynamic Combined Subject Leaderboard with Real-Time Ranking
+        async function renderLeaderboard() {
             const tbody = document.getElementById('science-leaderboard-tbody');
             if (!tbody) return;
 
-            const maxSubjectMarks = Object.values(testsMap).reduce((a, t) => a + (t.total_marks || 400), 0);
+            let result = null;
+            if (typeof DBService !== 'undefined' && DBService.fetchCombinedLeaderboard) {
+                try {
+                    result = await DBService.fetchCombinedLeaderboard({
+                        subject: 'Science',
+                        cls: 'Class 10',
+                        currentUserId: activeStudent ? activeStudent.id : null
+                    });
+                } catch (e) {
+                    console.warn('[Science10] Leaderboard fetch note:', e);
+                }
+            }
 
-            // Class 10 Science Peer Benchmarks (Scores around and below 176)
-            const peerStudents = [
-                { id: 'peer_1', name: 'Rohan Verma', totalScore: 172, maxPossible: 400, correct: 48, totalQ: 68, testsCount: 1 },
-                { id: 'peer_2', name: 'Ananya Sharma', totalScore: 165, maxPossible: 400, correct: 46, totalQ: 65, testsCount: 1 },
-                { id: 'peer_3', name: 'Priya Singh', totalScore: 158, maxPossible: 400, correct: 44, totalQ: 62, testsCount: 1 },
-                { id: 'peer_4', name: 'Kavita Iyer', totalScore: 146, maxPossible: 400, correct: 42, totalQ: 64, testsCount: 1 }
-            ];
+            if (!result || !result.leaderboard || result.leaderboard.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:18px; color:var(--text-muted);">No assessments recorded yet. Enroll in Chapter 1 to lead the board!</td></tr>';
+                return;
+            }
 
-            // Calculate current student's cumulative subject performance across all attempted tests
-            const attemptsList = Object.values(studentCbtData.attempts || {});
-            let userTotalScore = 0;
-            let userMaxPossible = 0;
-            let userTotalCorrect = 0;
-            let userTotalAttemptedQ = 0;
+            let list = [...result.leaderboard];
+            if (activeLbFilter === 'student') {
+                list = list.filter(c => c.userType !== 'subscriber');
+            } else if (activeLbFilter === 'subscriber') {
+                list = list.filter(c => c.userType === 'subscriber');
+            }
 
-            attemptsList.forEach(att => {
-                userTotalScore += (att.score || 0);
-                userMaxPossible += (att.total_marks || 0);
-                userTotalCorrect += (att.correct || 0);
-                userTotalAttemptedQ += ((att.correct || 0) + (att.wrong || 0));
+            if (list.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:18px; color:var(--text-muted);">No participants found in the "${activeLbFilter}" category yet.</td></tr>`;
+                return;
+            }
+
+            // Re-index displayed ranks for filtered view
+            list.forEach((item, idx) => {
+                item.displayRank = idx + 1;
+                if (item.displayRank === 1) item.displayBadge = '🥇 1';
+                else if (item.displayRank === 2) item.displayBadge = '🥈 2';
+                else if (item.displayRank === 3) item.displayBadge = '🥉 3';
+                else item.displayBadge = `Rank ${item.displayRank}`;
             });
 
-            const userEntry = {
-                id: activeStudent.id,
-                name: activeStudent.name,
-                isCurrentUser: true,
-                totalScore: userTotalScore,
-                maxPossible: userMaxPossible > 0 ? userMaxPossible : 400,
-                correct: userTotalCorrect,
-                totalQ: userTotalAttemptedQ,
-                testsCount: attemptsList.length,
-                hasAttempts: attemptsList.length > 0
-            };
-
-            const combined = [...peerStudents, userEntry];
-            combined.forEach(item => {
-                item.pct = item.maxPossible > 0 ? (item.totalScore / item.maxPossible) * 100 : 0;
-                item.accuracy = item.totalQ > 0 ? Math.round((item.correct / item.totalQ) * 100) : 0;
-            });
-
-            combined.sort((a, b) => b.totalScore - a.totalScore || b.accuracy - a.accuracy);
-
-            combined.forEach((item, idx) => {
-                item.rankNum = idx + 1;
-                if (item.rankNum === 1) item.rankBadge = '🥇 1';
-                else if (item.rankNum === 2) item.rankBadge = '🥈 2';
-                else if (item.rankNum === 3) item.rankBadge = '🥉 3';
-                else item.rankBadge = `Rank ${item.rankNum}`;
-            });
-
-            const top3 = combined.slice(0, 3);
-            const userRankObj = combined.find(c => c.isCurrentUser);
+            const top5 = list.slice(0, 5);
+            const userInTop5 = top5.some(c => c.isCurrentUser);
+            const userItem = list.find(c => c.isCurrentUser);
 
             let html = '';
-            top3.forEach(t => {
+            top5.forEach(t => {
                 const isUser = t.isCurrentUser;
                 html += `
-                    <tr class="${isUser ? 'current-user-row' : ''}">
-                        <td style="text-align:center; font-weight:800; ${isUser ? 'color:var(--primary);' : ''}">${t.rankBadge}${isUser ? ' (You)' : ''}</td>
+                    <tr class="${isUser ? 'current-user-row' : ''}" style="${isUser ? 'background:#eff6ff;' : ''}">
+                        <td style="text-align:center; font-weight:800; ${isUser ? 'color:var(--primary);' : ''}">${t.displayBadge}${isUser ? ' (You)' : ''}</td>
                         <td><b>${t.name}</b></td>
-                        <td><span style="color:var(--primary); font-weight:700;">${t.totalScore}</span></td>
-                        <td><span class="badge ${t.testsCount > 0 ? 'badge-success' : 'badge-warning'}">${t.testsCount > 0 ? t.accuracy + '%' : '--'}</span></td>
-                        <td><span class="meta-pill">${t.testsCount} ${t.testsCount === 1 ? 'Test' : 'Tests'}</span></td>
+                        <td>${t.cohortBadge}</td>
+                        <td><span style="color:var(--primary); font-weight:800; font-size:13.5px;">${t.avgScore}</span></td>
+                        <td><span style="font-weight:700; color:#475569;">${t.score}</span></td>
+                        <td><span class="badge badge-success" style="font-size:11px;">${t.accuracyPct}%</span></td>
+                        <td><span class="meta-pill">${t.totalAttempts} ${t.totalAttempts === 1 ? 'Attempt' : 'Attempts'}</span></td>
                     </tr>
                 `;
             });
 
-            // If user is outside top 3, render their dedicated row below
-            if (userRankObj && userRankObj.rankNum > 3) {
+            // If user is outside top 5, render their dedicated row pinned below
+            if (!userInTop5 && userItem) {
                 html += `
-                    <tr class="current-user-row">
-                        <td style="text-align:center; font-weight:800; color:var(--primary);">${userRankObj.rankBadge} (You)</td>
-                        <td><b>${userRankObj.name}</b></td>
-                        <td><span style="color:var(--primary); font-weight:700;">${userRankObj.totalScore}</span></td>
-                        <td><span class="badge ${userRankObj.hasAttempts ? 'badge-success' : 'badge-warning'}">${userRankObj.hasAttempts ? userRankObj.accuracy + '%' : '--'}</span></td>
-                        <td><span class="meta-pill">${userRankObj.testsCount} ${userRankObj.testsCount === 1 ? 'Test' : 'Tests'}</span></td>
+                    <tr class="current-user-row" style="background:#eff6ff; border-top:2px dashed #93c5fd;">
+                        <td style="text-align:center; font-weight:800; color:var(--primary);">${userItem.displayBadge} (You)</td>
+                        <td><b>${userItem.name}</b></td>
+                        <td>${userItem.cohortBadge}</td>
+                        <td><span style="color:var(--primary); font-weight:800; font-size:13.5px;">${userItem.avgScore}</span></td>
+                        <td><span style="font-weight:700; color:#475569;">${userItem.score}</span></td>
+                        <td><span class="badge badge-success" style="font-size:11px;">${userItem.accuracyPct}%</span></td>
+                        <td><span class="meta-pill">${userItem.totalAttempts} ${userItem.totalAttempts === 1 ? 'Attempt' : 'Attempts'}</span></td>
                     </tr>
                 `;
             }

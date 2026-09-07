@@ -78,6 +78,49 @@
         </div>
     </div>
 
+    <!-- 2. COMPACT WHOLE SUBJECT COMBINED LEADERSHIP BOARD TABLE -->
+    <div class="card" style="margin-bottom:18px;">
+        <div class="card-header" style="padding:12px 16px; background:#ffffff; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:17px;">🏆</span>
+                <div>
+                    <span class="card-title" style="font-size:13.5px; font-weight:800; color:var(--text);">
+                        Class 10 Mathematics — Combined Assessment Leaderboard
+                    </span>
+                    <div style="font-size:11px; color:var(--text-muted);">
+                        Ranked by Average Score across attempts • Live Students & Online Subscribers
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div style="display:flex; gap:6px; align-items:center;" id="leaderboard-filter-btns">
+                <button class="btn btn-sm btn-primary lb-filter-btn" data-filter="all" onclick="setLeaderboardFilter('all')" style="font-size:11px; padding:4px 10px; border-radius:14px;">👥 All</button>
+                <button class="btn btn-sm btn-outline lb-filter-btn" data-filter="student" onclick="setLeaderboardFilter('student')" style="font-size:11px; padding:4px 10px; border-radius:14px;">🎓 Students</button>
+                <button class="btn btn-sm btn-outline lb-filter-btn" data-filter="subscriber" onclick="setLeaderboardFilter('subscriber')" style="font-size:11px; padding:4px 10px; border-radius:14px;">⭐ Subscribers</button>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table class="compact-table">
+                <thead>
+                    <tr>
+                        <th style="width:70px; text-align:center;">Rank</th>
+                        <th>Candidate Name</th>
+                        <th>Cohort</th>
+                        <th>Average Score</th>
+                        <th>Latest Score</th>
+                        <th>Accuracy</th>
+                        <th>Attempts</th>
+                    </tr>
+                </thead>
+                <tbody id="math-leaderboard-tbody">
+                    <!-- Dynamic Combined Top 5 + Current Student Row -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <!-- CHAPTER TESTS GRID -->
     <div style="margin-bottom:14px;">
         <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:14px;" id="chapter-tests-grid">
@@ -566,10 +609,108 @@
             if (typeof CBTPlayer !== 'undefined' && CBTPlayer.launch) {
                 CBTPlayer.launch(testObj, activeStudent, (res) => {
                     renderTestCards();
+                    renderLeaderboard();
                 });
             } else {
                 alert('CBT Engine could not be loaded.');
             }
+        }
+
+        // Combined Subject Leaderboard Filter State ('all', 'student', 'subscriber')
+        let activeLbFilter = 'all';
+
+        function setLeaderboardFilter(filter) {
+            activeLbFilter = filter;
+            document.querySelectorAll('.lb-filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-filter') === filter) {
+                    btn.className = 'btn btn-sm btn-primary lb-filter-btn';
+                } else {
+                    btn.className = 'btn btn-sm btn-outline lb-filter-btn';
+                }
+            });
+            renderLeaderboard();
+        }
+
+        // Render Dynamic Combined Subject Leaderboard with Real-Time Ranking
+        async function renderLeaderboard() {
+            const tbody = document.getElementById('math-leaderboard-tbody');
+            if (!tbody) return;
+
+            let result = null;
+            if (typeof DBService !== 'undefined' && DBService.fetchCombinedLeaderboard) {
+                try {
+                    result = await DBService.fetchCombinedLeaderboard({
+                        subject: 'Mathematics',
+                        cls: 'Class 10',
+                        currentUserId: activeStudent ? activeStudent.id : null
+                    });
+                } catch (e) {
+                    console.warn('[Math10] Leaderboard fetch note:', e);
+                }
+            }
+
+            if (!result || !result.leaderboard || result.leaderboard.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:18px; color:var(--text-muted);">No assessments recorded yet. Enroll in Chapter 1 to lead the board!</td></tr>';
+                return;
+            }
+
+            let list = [...result.leaderboard];
+            if (activeLbFilter === 'student') {
+                list = list.filter(c => c.userType !== 'subscriber');
+            } else if (activeLbFilter === 'subscriber') {
+                list = list.filter(c => c.userType === 'subscriber');
+            }
+
+            if (list.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:18px; color:var(--text-muted);">No participants found in the "${activeLbFilter}" category yet.</td></tr>`;
+                return;
+            }
+
+            // Re-index displayed ranks for filtered view
+            list.forEach((item, idx) => {
+                item.displayRank = idx + 1;
+                if (item.displayRank === 1) item.displayBadge = '🥇 1';
+                else if (item.displayRank === 2) item.displayBadge = '🥈 2';
+                else if (item.displayRank === 3) item.displayBadge = '🥉 3';
+                else item.displayBadge = `Rank ${item.displayRank}`;
+            });
+
+            const top5 = list.slice(0, 5);
+            const userInTop5 = top5.some(c => c.isCurrentUser);
+            const userItem = list.find(c => c.isCurrentUser);
+
+            let html = '';
+            top5.forEach(t => {
+                const isUser = t.isCurrentUser;
+                html += `
+                    <tr class="${isUser ? 'current-user-row' : ''}" style="${isUser ? 'background:#eff6ff;' : ''}">
+                        <td style="text-align:center; font-weight:800; ${isUser ? 'color:var(--primary);' : ''}">${t.displayBadge}${isUser ? ' (You)' : ''}</td>
+                        <td><b>${t.name}</b></td>
+                        <td>${t.cohortBadge}</td>
+                        <td><span style="color:var(--primary); font-weight:800; font-size:13.5px;">${t.avgScore}</span></td>
+                        <td><span style="font-weight:700; color:#475569;">${t.score}</span></td>
+                        <td><span class="badge badge-success" style="font-size:11px;">${t.accuracyPct}%</span></td>
+                        <td><span class="meta-pill">${t.totalAttempts} ${t.totalAttempts === 1 ? 'Attempt' : 'Attempts'}</span></td>
+                    </tr>
+                `;
+            });
+
+            // If user is outside top 5, render their dedicated row pinned below
+            if (!userInTop5 && userItem) {
+                html += `
+                    <tr class="current-user-row" style="background:#eff6ff; border-top:2px dashed #93c5fd;">
+                        <td style="text-align:center; font-weight:800; color:var(--primary);">${userItem.displayBadge} (You)</td>
+                        <td><b>${userItem.name}</b></td>
+                        <td>${userItem.cohortBadge}</td>
+                        <td><span style="color:var(--primary); font-weight:800; font-size:13.5px;">${userItem.avgScore}</span></td>
+                        <td><span style="font-weight:700; color:#475569;">${userItem.score}</span></td>
+                        <td><span class="badge badge-success" style="font-size:11px;">${userItem.accuracyPct}%</span></td>
+                        <td><span class="meta-pill">${userItem.totalAttempts} ${userItem.totalAttempts === 1 ? 'Attempt' : 'Attempts'}</span></td>
+                    </tr>
+                `;
+            }
+
+            tbody.innerHTML = html;
         }
 
         function renderTestCards() {
@@ -640,6 +781,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             renderTestCards();
+            renderLeaderboard();
             syncCloudTestStatuses();
         });
     </script>

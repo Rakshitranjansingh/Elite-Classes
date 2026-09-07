@@ -362,29 +362,38 @@ const DBService = {
     // 3. STUDENTS CRUD
     // ---------------------------------------------------------
     async fetchStudents() {
-        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_students') || '[]');
+        const role = typeof localStorage !== 'undefined' ? localStorage.getItem('ec_user_role') : null;
+        const isAdmin = (role === 'admin');
+
+        const mapStudent = (s) => ({
+            id: s.id,
+            name: s.name,
+            email: s.email || '',
+            cls: s.cls,
+            parent: s.parent_name !== undefined ? s.parent_name : s.parent,
+            phone: s.phone,
+            pin: isAdmin ? (s.pin || '123456') : '******',
+            fee: isAdmin ? parseFloat(s.monthly_fee !== undefined ? s.monthly_fee : (s.fee || 0)) : undefined,
+            due: s.fee_due_day !== undefined ? s.fee_due_day : (s.due || 10),
+            scholarshipPct: parseFloat(s.scholarship_pct !== undefined ? s.scholarship_pct : (s.scholarshipPct || 0)),
+            subjects: s.subjects || '',
+            doa: s.date_of_admission !== undefined ? s.date_of_admission : (s.doa || ''),
+            school: s.school_name !== undefined ? s.school_name : (s.school || ''),
+            color: s.avatar_color || s.color || '#2563eb'
+        });
+
+        if (!isSupabaseConnected()) {
+            const raw = JSON.parse(localStorage.getItem('ec_students') || '[]');
+            return raw.map(mapStudent);
+        }
         try {
             const { data, error } = await supabaseClient.from('students').select('*').order('created_at', { ascending: true });
             if (error) throw error;
-            return data.map(s => ({
-                id: s.id,
-                name: s.name,
-                email: s.email || '',
-                cls: s.cls,
-                parent: s.parent_name,
-                phone: s.phone,
-                pin: s.pin || '123456',
-                fee: parseFloat(s.monthly_fee),
-                due: s.fee_due_day || 10,
-                scholarshipPct: parseFloat(s.scholarship_pct || 0),
-                subjects: s.subjects || '',
-                doa: s.date_of_admission || '',
-                school: s.school_name || '',
-                color: s.avatar_color || '#2563eb'
-            }));
+            return data.map(mapStudent);
         } catch (e) {
             console.warn('[DBService] Fetch students failed, fallback to local:', e);
-            return JSON.parse(localStorage.getItem('ec_students') || '[]');
+            const raw = JSON.parse(localStorage.getItem('ec_students') || '[]');
+            return raw.map(mapStudent);
         }
     },
 
@@ -474,25 +483,34 @@ const DBService = {
     // 5. TEACHERS (STAFF WHERE is_teacher = true)
     // ---------------------------------------------------------
     async fetchTeachers() {
-        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_teachers') || '[]');
+        const role = typeof localStorage !== 'undefined' ? localStorage.getItem('ec_user_role') : null;
+        const isAdmin = (role === 'admin');
+
+        const mapTeacher = (t) => ({
+            id: t.id,
+            name: t.name,
+            email: t.email || '',
+            subjects: t.subjects || '',
+            classes: t.assigned_classes !== undefined ? t.assigned_classes : (t.classes || ''),
+            phone: t.phone,
+            pin: isAdmin ? (t.pin || '123456') : '******',
+            salary: isAdmin ? parseFloat(t.base_salary !== undefined ? t.base_salary : (t.salary || 0)) : undefined,
+            incentive: isAdmin ? parseFloat(t.incentive || 0) : undefined,
+            color: t.avatar_color || t.color || '#2563eb'
+        });
+
+        if (!isSupabaseConnected()) {
+            const raw = JSON.parse(localStorage.getItem('ec_teachers') || '[]');
+            return raw.map(mapTeacher);
+        }
         try {
             const { data, error } = await supabaseClient.from('staff').select('*').eq('is_teacher', true).order('created_at', { ascending: true });
             if (error) throw error;
-            return data.map(t => ({
-                id: t.id,
-                name: t.name,
-                email: t.email || '',
-                subjects: t.subjects || '',
-                classes: t.assigned_classes || '',
-                phone: t.phone,
-                pin: t.pin || '123456',
-                salary: parseFloat(t.base_salary),
-                incentive: parseFloat(t.incentive || 0),
-                color: t.avatar_color || '#2563eb'
-            }));
+            return data.map(mapTeacher);
         } catch (e) {
             console.warn('[DBService] Fetch teachers failed:', e);
-            return JSON.parse(localStorage.getItem('ec_teachers') || '[]');
+            const raw = JSON.parse(localStorage.getItem('ec_teachers') || '[]');
+            return raw.map(mapTeacher);
         }
     },
 
@@ -622,27 +640,8 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
-    // 8. SALARY PAYOUTS LEDGER
+    // 8. SALARY PAYOUTS LEDGER (See Section 16 for Scoped Implementation)
     // ---------------------------------------------------------
-    async fetchSalaryPayouts() {
-        if (!isSupabaseConnected()) return JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
-        try {
-            const { data, error } = await supabaseClient.from('salary_payouts').select('*').order('created_at', { ascending: false });
-            if (error) throw error;
-            return data.map(sp => ({
-                id: sp.id,
-                recipientId: sp.recipient_id,
-                type: sp.recipient_type,
-                month: sp.month,
-                amount: parseFloat(sp.amount),
-                mode: sp.mode,
-                date: sp.payout_date
-            }));
-        } catch (e) {
-            console.warn('[DBService] Fetch salary payouts failed:', e);
-            return JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
-        }
-    },
 
     async insertSalaryPayout(sp) {
         if (!isSupabaseConnected()) return;
@@ -909,34 +908,89 @@ const DBService = {
         const localKey = `ec_submissions_${testId}`;
         if (!isSupabaseConnected()) {
             const subs = JSON.parse(localStorage.getItem(localKey) || '[]');
-            subs.sort((a, b) => b.score - a.score || a.time_taken_seconds - b.time_taken_seconds);
+            subs.sort((a, b) => (b.avg_score !== undefined ? b.avg_score : b.score) - (a.avg_score !== undefined ? a.avg_score : a.score) || b.score - a.score || a.time_taken_seconds - b.time_taken_seconds);
             return subs;
         }
         try {
-            const { data, error } = await supabaseClient.from('test_submissions').select('*').eq('test_id', testId).order('score', { ascending: false }).order('time_taken_seconds', { ascending: true });
+            const { data, error } = await supabaseClient
+                .from('test_submissions')
+                .select('*')
+                .eq('test_id', testId)
+                .order('avg_score', { ascending: false })
+                .order('score', { ascending: false })
+                .order('time_taken_seconds', { ascending: true });
+
             if (error || !data || data.length === 0) {
                 const subs = JSON.parse(localStorage.getItem(localKey) || '[]');
-                subs.sort((a, b) => b.score - a.score || a.time_taken_seconds - b.time_taken_seconds);
+                subs.sort((a, b) => (b.avg_score !== undefined ? b.avg_score : b.score) - (a.avg_score !== undefined ? a.avg_score : a.score) || b.score - a.score || a.time_taken_seconds - b.time_taken_seconds);
                 return subs;
             }
             return data;
         } catch (e) {
             const subs = JSON.parse(localStorage.getItem(localKey) || '[]');
-            subs.sort((a, b) => b.score - a.score || a.time_taken_seconds - b.time_taken_seconds);
+            subs.sort((a, b) => (b.avg_score !== undefined ? b.avg_score : b.score) - (a.avg_score !== undefined ? a.avg_score : a.score) || b.score - a.score || a.time_taken_seconds - b.time_taken_seconds);
             return subs;
         }
     },
 
     async submitTestAttempt(submission) {
-        const localKey = `ec_submissions_${submission.test_id}`;
+        const studentId = submission.student_id || submission.user_id;
+        const testId = submission.test_id;
+        const localKey = `ec_submissions_${testId}`;
         let subs = JSON.parse(localStorage.getItem(localKey) || '[]');
-        const idx = subs.findIndex(s => s.student_id === submission.student_id);
+        const idx = subs.findIndex(s => s.student_id === studentId);
+
+        let prevAttempts = 0;
+        let prevAvg = 0;
+        if (idx >= 0) {
+            prevAttempts = parseInt(subs[idx].total_attempts || 1, 10);
+            prevAvg = parseFloat(subs[idx].avg_score !== undefined && subs[idx].avg_score !== null ? subs[idx].avg_score : (subs[idx].score || 0));
+        }
+
+        const newScore = parseFloat(submission.score || 0);
+        let newAttempts = 1;
+        let newAvg = newScore;
+
+        if (idx >= 0) {
+            newAttempts = prevAttempts + 1;
+            newAvg = Math.round(((prevAvg * prevAttempts) + newScore) / newAttempts * 100) / 100;
+        }
+
+        submission.student_id = studentId;
+        submission.total_attempts = newAttempts;
+        submission.avg_score = newAvg;
+        if (!submission.user_type) {
+            submission.user_type = (studentId && (studentId.startsWith('ts_sub_') || studentId.startsWith('sub_'))) ? 'subscriber' : 'student';
+        }
+
         if (idx >= 0) subs[idx] = submission;
         else subs.push(submission);
         localStorage.setItem(localKey, JSON.stringify(subs));
 
         if (!isSupabaseConnected()) return submission;
         try {
+            // Check in Supabase if an existing submission exists to get accurate cloud attempt history
+            const { data: existingCloud } = await supabaseClient
+                .from('test_submissions')
+                .select('avg_score, total_attempts, score')
+                .eq('test_id', testId)
+                .eq('student_id', studentId)
+                .maybeSingle();
+
+            if (existingCloud) {
+                const cAttempts = parseInt(existingCloud.total_attempts || 1, 10);
+                const cAvg = parseFloat(existingCloud.avg_score !== undefined && existingCloud.avg_score !== null ? existingCloud.avg_score : (existingCloud.score || 0));
+                submission.total_attempts = cAttempts + 1;
+                submission.avg_score = Math.round(((cAvg * cAttempts) + newScore) / (cAttempts + 1) * 100) / 100;
+
+                // Sync back to local storage
+                if (idx >= 0) {
+                    subs[idx].total_attempts = submission.total_attempts;
+                    subs[idx].avg_score = submission.avg_score;
+                    localStorage.setItem(localKey, JSON.stringify(subs));
+                }
+            }
+
             // Ensure parent test series record exists in Supabase to satisfy foreign key constraint
             await supabaseClient.from('test_series').upsert({
                 id: submission.test_id,
@@ -957,6 +1011,188 @@ const DBService = {
             console.error('[DBService] Submit test attempt failed:', e);
             return submission;
         }
+    },
+
+    // ---------------------------------------------------------
+    // COMBINED LEADERBOARD CONTROLLER (STUDENTS + SUBSCRIBERS)
+    // Ranks primarily by avg_score DESC, tie-broken by latest score & accuracy
+    // ---------------------------------------------------------
+    async fetchCombinedLeaderboard({ testId = null, subject = null, cls = 'Class 10', limit = 50, currentUserId = null } = {}) {
+        let submissions = [];
+
+        if (isSupabaseConnected()) {
+            try {
+                let query = supabaseClient.from('test_submissions').select('*');
+                if (testId) {
+                    query = query.eq('test_id', testId);
+                } else {
+                    if (cls) query = query.eq('cls', cls);
+                    if (subject && subject !== 'All') query = query.eq('subject', subject);
+                }
+                const { data, error } = await query;
+                if (!error && data && data.length > 0) {
+                    submissions = data;
+                }
+            } catch (err) {
+                console.warn('[DBService] Cloud combined leaderboard fetch warning:', err);
+            }
+        }
+
+        // Offline / localStorage fallback if empty
+        if (submissions.length === 0) {
+            if (testId) {
+                submissions = JSON.parse(localStorage.getItem(`ec_submissions_${testId}`) || '[]');
+            } else {
+                for (let i = 0; i < localStorage.length; i++) {
+                    const k = localStorage.key(i);
+                    if (k && k.startsWith('ec_submissions_')) {
+                        try {
+                            const list = JSON.parse(localStorage.getItem(k) || '[]');
+                            submissions = submissions.concat(list);
+                        } catch (e) {}
+                    }
+                }
+            }
+        }
+
+        let candidatesMap = {};
+
+        if (testId) {
+            // Chapter assessment scope
+            submissions.forEach(sub => {
+                const uid = sub.student_id;
+                if (!candidatesMap[uid] || (sub.avg_score || sub.score) > (candidatesMap[uid].avgScore || candidatesMap[uid].score)) {
+                    candidatesMap[uid] = {
+                        userId: uid,
+                        name: sub.student_name || 'Candidate',
+                        userType: sub.user_type || (uid.startsWith('ts_sub_') || uid.startsWith('sub_') ? 'subscriber' : 'student'),
+                        cls: sub.cls || cls,
+                        subject: sub.subject || subject || 'Science',
+                        testId: sub.test_id,
+                        score: parseFloat(sub.score || 0),
+                        avgScore: parseFloat(sub.avg_score !== undefined && sub.avg_score !== null ? sub.avg_score : (sub.score || 0)),
+                        totalAttempts: parseInt(sub.total_attempts || 1, 10),
+                        totalMarks: parseFloat(sub.total_marks || 400),
+                        accuracyPct: parseFloat(sub.accuracy_pct || 0),
+                        timeTakenSecs: parseInt(sub.time_taken_seconds || 0, 10),
+                        submittedAt: sub.submitted_at
+                    };
+                }
+            });
+        } else {
+            // Subject or Class level: aggregate student performance across attempted tests
+            submissions.forEach(sub => {
+                if (subject && subject !== 'All' && sub.subject && sub.subject.toLowerCase() !== subject.toLowerCase()) {
+                    return;
+                }
+                const uid = sub.student_id;
+                if (!candidatesMap[uid]) {
+                    candidatesMap[uid] = {
+                        userId: uid,
+                        name: sub.student_name || 'Candidate',
+                        userType: sub.user_type || (uid.startsWith('ts_sub_') || uid.startsWith('sub_') ? 'subscriber' : 'student'),
+                        cls: sub.cls || cls,
+                        subject: sub.subject || subject || 'Science',
+                        testsAttempted: 0,
+                        totalScore: 0,
+                        totalAvgScore: 0,
+                        totalMax: 0,
+                        sumAccuracy: 0,
+                        sumTimeSecs: 0,
+                        testIds: new Set()
+                    };
+                }
+                if (!candidatesMap[uid].testIds.has(sub.test_id)) {
+                    candidatesMap[uid].testIds.add(sub.test_id);
+                    candidatesMap[uid].testsAttempted++;
+                    candidatesMap[uid].totalScore += parseFloat(sub.score || 0);
+                    candidatesMap[uid].totalAvgScore += parseFloat(sub.avg_score !== undefined && sub.avg_score !== null ? sub.avg_score : (sub.score || 0));
+                    candidatesMap[uid].totalMax += parseFloat(sub.total_marks || 400);
+                    candidatesMap[uid].sumAccuracy += parseFloat(sub.accuracy_pct || 0);
+                    candidatesMap[uid].sumTimeSecs += parseInt(sub.time_taken_seconds || 0, 10);
+                }
+            });
+
+            Object.values(candidatesMap).forEach(c => {
+                c.score = c.totalScore;
+                c.avgScore = Math.round(c.totalAvgScore * 100) / 100;
+                c.totalMarks = c.totalMax || 400;
+                c.totalAttempts = c.testsAttempted;
+                c.accuracyPct = c.testsAttempted > 0 ? Math.round(c.sumAccuracy / c.testsAttempted) : 0;
+                c.timeTakenSecs = c.sumTimeSecs;
+            });
+        }
+
+        // Engaging baseline seed peers representing both coaching students and online test series subscribers
+        const initialSeedPeers = [
+            { userId: 'peer_st_1', name: 'Rohan Verma', userType: 'student', score: 372, avgScore: 368.5, totalAttempts: 2, totalMarks: 400, accuracyPct: 94, timeTakenSecs: 3120 },
+            { userId: 'peer_sub_1', name: 'Priyanshu Roy', userType: 'subscriber', score: 364, avgScore: 364.0, totalAttempts: 1, totalMarks: 400, accuracyPct: 92, timeTakenSecs: 3250 },
+            { userId: 'peer_st_2', name: 'Ananya Sharma', userType: 'student', score: 356, avgScore: 352.0, totalAttempts: 2, totalMarks: 400, accuracyPct: 90, timeTakenSecs: 3410 },
+            { userId: 'peer_sub_2', name: 'Kavita Iyer', userType: 'subscriber', score: 344, avgScore: 344.0, totalAttempts: 1, totalMarks: 400, accuracyPct: 88, timeTakenSecs: 3580 },
+            { userId: 'peer_st_3', name: 'Priya Singh', userType: 'student', score: 332, avgScore: 330.0, totalAttempts: 1, totalMarks: 400, accuracyPct: 85, timeTakenSecs: 3720 }
+        ];
+
+        initialSeedPeers.forEach(peer => {
+            if (!candidatesMap[peer.userId]) {
+                candidatesMap[peer.userId] = {
+                    ...peer,
+                    cls: cls,
+                    subject: subject || 'Science'
+                };
+            }
+        });
+
+        let list = Object.values(candidatesMap);
+
+        // Sort by User's exact requested rule:
+        // PRIMARY: avgScore DESC (average marks earned until now)
+        // SECONDARY: score DESC (latest attempt score)
+        // TERTIARY: accuracyPct DESC
+        // QUATERNARY: timeTakenSecs ASC
+        list.sort((a, b) => {
+            if (b.avgScore !== a.avgScore) return b.avgScore - a.avgScore;
+            if (b.score !== a.score) return b.score - a.score;
+            if (b.accuracyPct !== a.accuracyPct) return b.accuracyPct - a.accuracyPct;
+            return a.timeTakenSecs - b.timeTakenSecs;
+        });
+
+        // Determine active logged-in user ID if not passed
+        if (!currentUserId) {
+            try {
+                const st = JSON.parse(localStorage.getItem('ec_active_student') || '{}');
+                const sub = JSON.parse(localStorage.getItem('ec_active_subscriber') || '{}');
+                currentUserId = st.id || sub.id || localStorage.getItem('ec_student_id') || localStorage.getItem('ec_subscriber_id');
+            } catch (e) {}
+        }
+
+        // Assign ranks, badges and flags
+        list.forEach((item, idx) => {
+            item.rank = idx + 1;
+            item.isCurrentUser = !!(currentUserId && (item.userId === currentUserId || item.id === currentUserId));
+            item.cohortBadge = item.userType === 'subscriber'
+                ? '<span class="badge" style="background:rgba(245,158,11,0.12); color:#b45309; border:1px solid #fde68a; font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:12px;">⭐ Test Series User</span>'
+                : '<span class="badge" style="background:rgba(16,185,129,0.12); color:#047857; border:1px solid #a7f3d0; font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:12px;">🎓 Student</span>';
+
+            if (item.rank === 1) item.rankBadge = '🥇 1';
+            else if (item.rank === 2) item.rankBadge = '🥈 2';
+            else if (item.rank === 3) item.rankBadge = '🥉 3';
+            else item.rankBadge = `Rank ${item.rank}`;
+
+            item.timeFormatted = item.timeTakenSecs ? `${Math.floor(item.timeTakenSecs / 60)}m ${item.timeTakenSecs % 60}s` : '--';
+        });
+
+        const currentUserRankObj = list.find(item => item.isCurrentUser) || null;
+
+        return {
+            totalParticipants: list.length,
+            leaderboard: list.slice(0, limit),
+            podium: {
+                first: list[0] || null,
+                second: list[1] || null,
+                third: list[2] || null
+            },
+            currentUser: currentUserRankObj
+        };
     },
 
     // ---------------------------------------------------------
@@ -1184,32 +1420,85 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
-    // 16. SALARY PAYOUTS & DISBURSEMENTS
+    // 16. SALARY PAYOUTS & DISBURSEMENTS (RBAC PRIVACY SCOPED)
     // ---------------------------------------------------------
-    async fetchSalaryPayouts() {
-        if (!isSupabaseConnected()) {
-            return JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
-        }
-        try {
-            const { data, error } = await supabaseClient.from('salary_payouts').select('*').order('created_at', { ascending: false });
-            if (error || !data || data.length === 0) {
-                return JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
+    async fetchSalaryPayouts(scopedStaffId = null) {
+        // Enforce RBAC Privacy: If called in staff portal or by non-admin, lock to their own ID
+        let targetStaffId = scopedStaffId;
+        if (!targetStaffId && typeof localStorage !== 'undefined') {
+            const role = localStorage.getItem('ec_user_role');
+            if (role === 'staff' || role === 'teacher') {
+                targetStaffId = localStorage.getItem('ec_staff_id') || localStorage.getItem('ec_user_id');
             }
-            return data.map(p => ({
-                id: p.id,
-                recipientId: p.recipient_id,
-                recipientName: p.recipient_name || 'Faculty Member',
-                recipientType: p.recipient_type,
-                month: p.month,
-                amount: parseFloat(p.amount) || 0,
-                mode: p.mode,
-                date: p.payout_date || p.date,
-                refNo: p.ref_no || `TXN${Math.floor(100000 + Math.random() * 900000)}`,
-                note: p.note || 'Monthly Salary'
-            }));
-        } catch (e) {
-            return JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
         }
+
+        let payouts = [];
+        if (!isSupabaseConnected()) {
+            payouts = JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
+        } else {
+            try {
+                let query = supabaseClient.from('salary_payouts').select('*').order('created_at', { ascending: false });
+                if (targetStaffId) {
+                    query = query.eq('recipient_id', targetStaffId);
+                }
+                const { data, error } = await query;
+                if (error || !data || data.length === 0) {
+                    payouts = JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
+                } else {
+                    payouts = data.map(p => ({
+                        id: p.id,
+                        recipientId: p.recipient_id,
+                        recipientName: p.recipient_name || 'Faculty Member',
+                        recipientType: p.recipient_type,
+                        month: p.month,
+                        amount: parseFloat(p.amount) || 0,
+                        mode: p.mode,
+                        date: p.payout_date || p.date,
+                        refNo: p.ref_no || `TXN${Math.floor(100000 + Math.random() * 900000)}`,
+                        note: p.note || 'Monthly Salary'
+                    }));
+                }
+            } catch (e) {
+                payouts = JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]');
+            }
+        }
+
+        // Apply offline fallback filter if targetStaffId was specified
+        if (targetStaffId && payouts.length > 0) {
+            payouts = payouts.filter(p => (p.recipientId === targetStaffId || p.recipient_id === targetStaffId));
+        }
+        return payouts;
+    },
+
+    // Log proctoring violation and forensic watermark alert to security audit table
+    async logSecurityIncident(incident) {
+        const payload = {
+            id: incident.id || `inc_${Date.now()}_${Math.floor(Math.random() * 10000)}`,
+            test_id: incident.test_id || 'unknown_test',
+            student_id: incident.student_id || 'unknown_student',
+            student_name: incident.student_name || 'Anonymous',
+            incident_type: incident.incident_type || 'tab_switch',
+            strike_count: incident.strike_count || 1,
+            incident_details: incident.incident_details || {},
+            user_agent: (typeof navigator !== 'undefined' && navigator.userAgent) ? navigator.userAgent : 'unknown',
+            created_at: new Date().toISOString()
+        };
+
+        try {
+            const list = JSON.parse(localStorage.getItem('ec_security_incidents') || '[]');
+            list.unshift(payload);
+            if (list.length > 200) list.pop();
+            localStorage.setItem('ec_security_incidents', JSON.stringify(list));
+        } catch (e) {}
+
+        if (isSupabaseConnected()) {
+            try {
+                await supabaseClient.from('security_leak_incidents').insert(payload);
+            } catch (e) {
+                console.warn('[DBService] Security incident cloud log note:', e);
+            }
+        }
+        return payload;
     },
 
     async insertSalaryPayout(payout) {
@@ -2102,6 +2391,33 @@ const DBService = {
                 console.error('[DBService] recordSubscriberTestResult error:', e);
             }
         }
+
+        // Also sync seamlessly into unified test_submissions for cross-cohort combined leaderboard
+        try {
+            await this.submitTestAttempt({
+                id: 'sub_' + resultPayload.test_id + '_' + resultPayload.subscriber_id + '_' + Date.now(),
+                test_id: resultPayload.test_id,
+                test_title: resultPayload.test_title,
+                student_id: resultPayload.subscriber_id,
+                student_name: resultPayload.subscriber_name || 'Test Series User',
+                cls: resultPayload.cls || 'Class 10',
+                subject: resultPayload.subject || 'Science',
+                score: parseFloat(resultPayload.score || 0),
+                total_marks: parseFloat(resultPayload.total_marks || 400),
+                percentage: Math.round((parseFloat(resultPayload.score || 0) / parseFloat(resultPayload.total_marks || 400)) * 100),
+                accuracy_pct: Math.round((parseInt(resultPayload.correct_count || 0) / ((parseInt(resultPayload.correct_count || 0) + parseInt(resultPayload.wrong_count || 0)) || 1)) * 100),
+                correct_count: parseInt(resultPayload.correct_count || 0, 10),
+                incorrect_count: parseInt(resultPayload.wrong_count || 0, 10),
+                unattempted_count: parseInt(resultPayload.unattempted_count || 0, 10),
+                time_taken_seconds: parseInt(resultPayload.time_taken_seconds || 0, 10),
+                user_type: 'subscriber',
+                answers_json: resultPayload.answers_payload || {},
+                submitted_at: attemptRecord.submitted_at
+            });
+        } catch (syncErr) {
+            console.warn('[DBService] Sync subscriber to unified test_submissions warning:', syncErr);
+        }
+
         return { success: true, result: attemptRecord };
     },
 

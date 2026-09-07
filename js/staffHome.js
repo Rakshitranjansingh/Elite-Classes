@@ -637,20 +637,22 @@ function selectStaffMarksClass(cls) {
     renderStaffExamScoreboard();
 }
 
-// Generate realistic or fetched marks per student & subject
+// Fetch genuine recorded marks per student & subject from DB / localStorage
 function getStudentExamMarks(student, examName, subject) {
     const allResults = JSON.parse(localStorage.getItem('ec_exam_results') || '[]');
     const found = allResults.find(r => 
         (r.student_id === student.id || r.studentId === student.id) &&
         (r.exam_name === examName || r.exam === examName) &&
-        (r.subject.toLowerCase() === subject.toLowerCase())
+        (r.subject && r.subject.toLowerCase() === subject.toLowerCase())
     );
-    if (found) return { marks: parseFloat(found.marks_obtained || found.marks || 0), max: parseFloat(found.max_marks || found.max || 100) };
-
-    // Deterministic pseudo-random seed based on student ID + subject char sum
-    const seed = (student.id.split('').reduce((a, c) => a + c.charCodeAt(0), 0) * 17 + subject.length * 23) % 36;
-    const marks = Math.min(100, 64 + seed);
-    return { marks: marks, max: 100 };
+    if (found) {
+        return { 
+            marks: parseFloat(found.marks_obtained !== undefined ? found.marks_obtained : (found.marks || 0)), 
+            max: parseFloat(found.max_marks !== undefined ? found.max_marks : (found.max || 100)),
+            isRecorded: true
+        };
+    }
+    return { marks: 0, max: 100, isRecorded: false };
 }
 
 async function renderStaffExamScoreboard() {
@@ -683,38 +685,52 @@ async function renderStaffExamScoreboard() {
     const studentScorecards = classStudents.map(s => {
         let totalObtained = 0;
         let totalMax = 0;
+        let recordedCount = 0;
         const subjectScores = {};
 
         examSubjects.forEach(sub => {
             const scoreObj = getStudentExamMarks(s, selectedStaffExam, sub);
-            subjectScores[sub] = scoreObj.marks;
-            totalObtained += scoreObj.marks;
-            totalMax += scoreObj.max;
+            subjectScores[sub] = scoreObj.isRecorded ? scoreObj.marks : '—';
+            if (scoreObj.isRecorded) {
+                totalObtained += scoreObj.marks;
+                totalMax += scoreObj.max;
+                recordedCount++;
+            }
         });
 
+        const hasAnyMarks = recordedCount > 0;
         const pct = totalMax > 0 ? Math.round((totalObtained / totalMax) * 1000) / 10 : 0;
         
-        let gradeBadge = '<span class="badge badge-success">A+ Distinction</span>';
-        if (pct < 60) gradeBadge = '<span class="badge badge-danger">C Passing</span>';
-        else if (pct < 70) gradeBadge = '<span class="badge badge-warning">B Average</span>';
-        else if (pct < 80) gradeBadge = '<span class="badge badge-purple">B+ Good</span>';
-        else if (pct < 90) gradeBadge = '<span class="badge badge-primary">A First Class</span>';
+        let gradeBadge = '<span class="badge badge-outline" style="color:var(--text-muted);">Pending Entry</span>';
+        if (hasAnyMarks) {
+            if (pct >= 90) gradeBadge = '<span class="badge badge-success">A+ Distinction</span>';
+            else if (pct >= 80) gradeBadge = '<span class="badge badge-primary">A First Class</span>';
+            else if (pct >= 70) gradeBadge = '<span class="badge badge-purple">B+ Good</span>';
+            else if (pct >= 60) gradeBadge = '<span class="badge badge-warning">B Average</span>';
+            else gradeBadge = '<span class="badge badge-danger">C Passing</span>';
+        }
 
         return {
             student: s,
             subjectScores,
-            totalObtained,
-            totalMax,
-            pct,
+            totalObtained: hasAnyMarks ? totalObtained : '—',
+            totalMax: hasAnyMarks ? totalMax : '—',
+            pct: hasAnyMarks ? pct : '—',
+            numericPct: hasAnyMarks ? pct : -1,
+            hasAnyMarks,
             gradeBadge
         };
     });
 
     // Sort descending by total percentage / marks obtained
-    studentScorecards.sort((a, b) => b.pct - a.pct || b.totalObtained - a.totalObtained);
+    studentScorecards.sort((a, b) => b.numericPct - a.numericPct);
 
     // Assign Ranks
     studentScorecards.forEach((sc, idx) => {
+        if (!sc.hasAnyMarks) {
+            sc.rankDisplay = '<span class="badge badge-outline" style="color:var(--text-muted); font-size:10.5px;">—</span>';
+            return;
+        }
         const rankNum = idx + 1;
         if (rankNum === 1) sc.rankDisplay = '<span class="badge" style="background:#fef3c7; color:#b45309; border:1px solid #fde68a; font-weight:800;">🥇 Rank 1</span>';
         else if (rankNum === 2) sc.rankDisplay = '<span class="badge" style="background:#f1f5f9; color:#475569; border:1px solid #cbd5e1; font-weight:800;">🥈 Rank 2</span>';
@@ -723,8 +739,11 @@ async function renderStaffExamScoreboard() {
     });
 
     // Compute Class Stats
-    const classAvgPct = Math.round((studentScorecards.reduce((acc, c) => acc + c.pct, 0) / studentScorecards.length) * 10) / 10;
-    const topScorer = studentScorecards[0];
+    const recordedCards = studentScorecards.filter(c => c.hasAnyMarks);
+    const classAvgPct = recordedCards.length > 0 
+        ? Math.round((recordedCards.reduce((acc, c) => acc + c.numericPct, 0) / recordedCards.length) * 10) / 10 
+        : '—';
+    const topScorer = recordedCards.length > 0 ? recordedCards[0] : null;
 
     container.innerHTML = `
         <!-- SUMMARY KPI CARDS -->
@@ -735,11 +754,11 @@ async function renderStaffExamScoreboard() {
             </div>
             <div style="background:#ffffff; border:1px solid var(--border); border-radius:12px; padding:12px 16px; box-shadow:0 1px 3px rgba(0,0,0,0.03);">
                 <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Class Average Score</div>
-                <div style="font-size:18px; font-weight:800; color:#2563eb; margin-top:2px;">${classAvgPct}% Overall</div>
+                <div style="font-size:18px; font-weight:800; color:#2563eb; margin-top:2px;">${classAvgPct !== '—' ? `${classAvgPct}% Overall` : 'Pending'}</div>
             </div>
             <div style="background:#ffffff; border:1px solid var(--border); border-radius:12px; padding:12px 16px; box-shadow:0 1px 3px rgba(0,0,0,0.03);">
                 <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Class Top Performer</div>
-                <div style="font-size:16px; font-weight:800; color:#16a34a; margin-top:2px;">${topScorer ? topScorer.student.name : '—'} (${topScorer ? topScorer.pct : 0}%)</div>
+                <div style="font-size:16px; font-weight:800; color:#16a34a; margin-top:2px;">${topScorer ? `${topScorer.student.name} (${topScorer.pct}%)` : '—'}</div>
             </div>
         </div>
 
@@ -770,8 +789,8 @@ async function renderStaffExamScoreboard() {
                             ${examSubjects.map(sub => `
                                 <td style="font-weight:700; color:var(--text);">${sc.subjectScores[sub]}</td>
                             `).join('')}
-                            <td style="font-weight:800; color:#2563eb;">${sc.totalObtained} / ${sc.totalMax}</td>
-                            <td style="font-weight:800; color:${sc.pct >= 80 ? '#16a34a' : sc.pct >= 60 ? '#2563eb' : '#dc2626'};">${sc.pct}%</td>
+                            <td style="font-weight:800; color:#2563eb;">${sc.hasAnyMarks ? `${sc.totalObtained} / ${sc.totalMax}` : '—'}</td>
+                            <td style="font-weight:800; color:${sc.hasAnyMarks ? (sc.numericPct >= 80 ? '#16a34a' : sc.numericPct >= 60 ? '#2563eb' : '#dc2626') : 'var(--text-muted)'};">${sc.hasAnyMarks ? `${sc.pct}%` : '—'}</td>
                             <td>${sc.gradeBadge}</td>
                             <td>
                                 ${isExamEditable ? `
