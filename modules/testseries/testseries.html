@@ -35,17 +35,8 @@
                 </div>
             </div>
 
-            <!-- CLASS SELECTOR PILLS -->
-            <div style="display:flex; align-items:center; gap:8px; margin-top:16px; flex-wrap:wrap; border-top:1px solid var(--border-light); padding-top:14px;" id="cbt-class-selector-pills">
-                <span style="font-size:12px; font-weight:700; color:var(--text-muted);">Class / Grade:</span>
-                <button class="btn btn-sm btn-primary cbt-class-pill" data-class="Class 10" onclick="selectCbtClassFilter('Class 10', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 10 (Live NCERT)</button>
-                <button class="btn btn-sm btn-outline cbt-class-pill" data-class="Class 9" onclick="selectCbtClassFilter('Class 9', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 9</button>
-                <button class="btn btn-sm btn-outline cbt-class-pill" data-class="Class 8" onclick="selectCbtClassFilter('Class 8', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 8</button>
-                <button class="btn btn-sm btn-outline cbt-class-pill" data-class="Class 5" onclick="selectCbtClassFilter('Class 5', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 5</button>
-            </div>
-
             <!-- FILTERS & SEARCH ROW -->
-            <div style="display:flex; gap:12px; margin-top:14px; align-items:center; flex-wrap:wrap;">
+            <div style="display:flex; gap:12px; margin-top:18px; align-items:center; flex-wrap:wrap; border-top:1px solid var(--border-light); padding-top:16px;">
                 <div class="search-input" style="max-width:300px; flex:1;">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg>
                     <input type="text" id="cbt-search-filter" placeholder="Search tests, chapters or topics..." oninput="filterTestSeriesCards()">

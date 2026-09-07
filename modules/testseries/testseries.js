@@ -13,12 +13,18 @@ async function renderStudentTestSeries() {
     const container = document.getElementById('st-tests-container') || document.getElementById('st-testseries-container');
     if (!container) return;
 
-    // Detect student's registered class from session or fallback to Class 10
-    const studentCls = (typeof currentStudent !== 'undefined' && currentStudent && currentStudent.cls)
-        ? currentStudent.cls
-        : (localStorage.getItem('ec_student_class') || 'Class 10');
+    // Detect student's registered class from session
+    let studentCls = 'Class 10';
+    if (typeof currentStudent !== 'undefined' && currentStudent && currentStudent.cls) {
+        studentCls = currentStudent.cls;
+    } else {
+        try {
+            const stored = JSON.parse(localStorage.getItem('ec_active_student'));
+            if (stored && stored.cls) studentCls = stored.cls;
+            else if (localStorage.getItem('ec_student_class')) studentCls = localStorage.getItem('ec_student_class');
+        } catch (e) {}
+    }
 
-    // Default view to student's class
     currentSelectedCbtClass = studentCls;
 
     // If container is st-tests-container (in student_home.html), inject the full module structure
@@ -32,7 +38,7 @@ async function renderStudentTestSeries() {
     }
 }
 
-// Build the top banner, class selector, search, and container for student_home.html
+// Build the top banner, search, and container for student_home.html
 function buildTestSeriesPortalMarkup(activeClass) {
     const isCls10 = (activeClass === 'Class 10');
 
@@ -52,7 +58,9 @@ function buildTestSeriesPortalMarkup(activeClass) {
                                 <span id="cbt-class-title-text">${activeClass}</span>: Online Test Series & Chapter-Wise CBT Mock Exams
                             </h2>
                             <p style="font-size:13px; color:var(--text-muted); margin:0;" id="cbt-class-subtitle">
-                                NCERT aligned computer-based assessments with real-time timers, negative marking, instant scorecards, and live class rankings.
+                                ${isCls10 
+                                    ? 'NCERT aligned computer-based assessments with real-time timers, negative marking, instant scorecards, and live class rankings.' 
+                                    : `Coaching assessments and scheduled chapter tests for ${activeClass}.`}
                             </p>
                         </div>
 
@@ -61,23 +69,14 @@ function buildTestSeriesPortalMarkup(activeClass) {
                                 🏆 Class 10 Leadership Hub →
                             </a>
                             <div style="text-align:right;" id="cbt-student-stats-pill">
-                                <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Assessment Mode</div>
-                                <div style="font-size:15px; font-weight:800; color:var(--primary);">Instant CBT</div>
+                                <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Enrolled Class</div>
+                                <div style="font-size:16px; font-weight:800; color:var(--primary);">${activeClass}</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- CLASS SELECTOR PILLS -->
-                    <div style="display:flex; align-items:center; gap:8px; margin-top:16px; flex-wrap:wrap; border-top:1px solid var(--border-light); padding-top:14px;" id="cbt-class-selector-pills">
-                        <span style="font-size:12px; font-weight:700; color:var(--text-muted);">Class / Grade:</span>
-                        <button class="btn btn-sm ${activeClass === 'Class 10' ? 'btn-primary' : 'btn-outline'} cbt-class-pill" data-class="Class 10" onclick="selectCbtClassFilter('Class 10', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 10 (Live NCERT)</button>
-                        <button class="btn btn-sm ${activeClass === 'Class 9' ? 'btn-primary' : 'btn-outline'} cbt-class-pill" data-class="Class 9" onclick="selectCbtClassFilter('Class 9', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 9</button>
-                        <button class="btn btn-sm ${activeClass === 'Class 8' ? 'btn-primary' : 'btn-outline'} cbt-class-pill" data-class="Class 8" onclick="selectCbtClassFilter('Class 8', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 8</button>
-                        <button class="btn btn-sm ${activeClass === 'Class 5' ? 'btn-primary' : 'btn-outline'} cbt-class-pill" data-class="Class 5" onclick="selectCbtClassFilter('Class 5', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 5</button>
-                    </div>
-
                     <!-- FILTERS & SEARCH ROW -->
-                    <div style="display:flex; gap:12px; margin-top:14px; align-items:center; flex-wrap:wrap;">
+                    <div style="display:flex; gap:12px; margin-top:18px; align-items:center; flex-wrap:wrap; border-top:1px solid var(--border-light); padding-top:16px;">
                         <div class="search-input" style="max-width:300px; flex:1;">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg>
                             <input type="text" id="cbt-search-filter" placeholder="Search tests, chapters or topics..." oninput="filterTestSeriesCards()">
@@ -126,37 +125,6 @@ function updateClassHeader(cls) {
     if (hubBtn) {
         hubBtn.style.display = (cls === 'Class 10') ? 'inline-block' : 'none';
     }
-}
-
-// Switch class view via Class Selector pills
-function selectCbtClassFilter(cls, btn) {
-    currentSelectedCbtClass = cls;
-
-    // Update button states
-    const pills = document.querySelectorAll('.cbt-class-pill');
-    pills.forEach(p => {
-        if (p.getAttribute('data-class') === cls || p === btn) {
-            p.className = 'btn btn-sm btn-primary cbt-class-pill';
-        } else {
-            p.className = 'btn btn-sm btn-outline cbt-class-pill';
-        }
-    });
-
-    updateClassHeader(cls);
-
-    // Reset subject filter to 'All'
-    currentSelectedCbtSubject = 'All';
-    const subjPills = document.querySelectorAll('.cbt-subj-pill');
-    subjPills.forEach((sp, idx) => {
-        if (idx === 0) sp.className = 'btn btn-sm btn-primary cbt-subj-pill active';
-        else sp.className = 'btn btn-sm btn-outline cbt-subj-pill';
-    });
-
-    // Clear search filter
-    const searchInput = document.getElementById('cbt-search-filter');
-    if (searchInput) searchInput.value = '';
-
-    renderTestCardsForClass(cls);
 }
 
 // Switch subject filter
@@ -435,17 +403,9 @@ async function renderGenericClassTestSeries(container, cls) {
             <div class="card" style="grid-column:1/-1; padding:48px 24px; text-align:center; border:1px dashed var(--border); background:#ffffff;">
                 <div style="font-size:42px; margin-bottom:14px;">📚</div>
                 <h3 style="font-size:18px; font-weight:800; color:var(--text); margin-bottom:8px;">Online Test Series for ${cls}</h3>
-                <p style="font-size:13.5px; color:var(--text-muted); max-width:540px; margin:0 auto 20px; line-height:1.5;">
-                    Chapterwise assessments for ${cls} are currently being scheduled by faculty. In the meantime, you can explore the live NCERT Class 10 Test Series with full CBT engines!
+                <p style="font-size:13.5px; color:var(--text-muted); max-width:540px; margin:0 auto; line-height:1.5;">
+                    Chapterwise assessments and scheduled coaching tests for ${cls} are currently being prepared by the faculty. Please check back soon.
                 </p>
-                <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-                    <button class="btn btn-primary btn-sm" onclick="selectCbtClassFilter('Class 10')" style="font-weight:700; padding:9px 20px;">
-                        🚀 Explore Class 10 Live Test Series
-                    </button>
-                    <a href="modules/testseries/data/class10/testseries_class_10.html" class="btn btn-outline btn-sm" style="font-weight:700; padding:9px 20px; text-decoration:none;">
-                        Open Class 10 Hub →
-                    </a>
-                </div>
             </div>
         `;
         return;
@@ -480,7 +440,6 @@ async function renderGenericClassTestSeries(container, cls) {
 // Global exports for window access
 if (typeof window !== 'undefined') {
     window.renderStudentTestSeries = renderStudentTestSeries;
-    window.selectCbtClassFilter = selectCbtClassFilter;
     window.selectCbtSubjectFilter = selectCbtSubjectFilter;
     window.filterTestSeriesCards = filterTestSeriesCards;
 }
