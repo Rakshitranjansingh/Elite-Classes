@@ -12,18 +12,22 @@
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
                 <div>
                     <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+                        <span class="badge badge-primary" id="cbt-class-badge" style="font-size:11.5px; padding:4px 10px;">Class 10</span>
                         <span class="badge badge-purple" style="font-size:11.5px; padding:4px 10px;">🧪 CBT Engine Active</span>
                         <span class="badge badge-success" id="cbt-status-badge" style="font-size:11.5px; padding:4px 10px;">🟢 Live Assessments</span>
                     </div>
                     <h2 style="font-size:20px; font-weight:800; color:var(--text); margin:0 0 4px;" id="st-tests-heading">
-                        Online Test Series & Chapter-Wise CBT Mock Exams
+                        <span id="cbt-class-title-text">Class 10</span>: Online Test Series & Chapter-Wise CBT Mock Exams
                     </h2>
-                    <p style="font-size:13px; color:var(--text-muted); margin:0;">
-                        Computer-based assessments with real-time timers, negative marking, instant scorecards, and live class rankings.
+                    <p style="font-size:13px; color:var(--text-muted); margin:0;" id="cbt-class-subtitle">
+                        NCERT aligned computer-based assessments with real-time timers, negative marking, instant scorecards, and live class rankings.
                     </p>
                 </div>
 
                 <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                    <a href="modules/testseries/data/class10/testseries_class_10.html" id="cbt-hub-link-btn" class="btn btn-outline btn-sm" style="text-decoration:none; font-weight:700; font-size:12px; padding:6px 14px;">
+                        🏆 Class 10 Leadership Hub →
+                    </a>
                     <div style="text-align:right;" id="cbt-student-stats-pill">
                         <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">My CBT Average</div>
                         <div style="font-size:18px; font-weight:800; color:var(--primary);" id="cbt-student-avg-score">-- %</div>
@@ -31,27 +35,220 @@
                 </div>
             </div>
 
+            <!-- CLASS SELECTOR PILLS -->
+            <div style="display:flex; align-items:center; gap:8px; margin-top:16px; flex-wrap:wrap; border-top:1px solid var(--border-light); padding-top:14px;" id="cbt-class-selector-pills">
+                <span style="font-size:12px; font-weight:700; color:var(--text-muted);">Class / Grade:</span>
+                <button class="btn btn-sm btn-primary cbt-class-pill" data-class="Class 10" onclick="selectCbtClassFilter('Class 10', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 10 (Live NCERT)</button>
+                <button class="btn btn-sm btn-outline cbt-class-pill" data-class="Class 9" onclick="selectCbtClassFilter('Class 9', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 9</button>
+                <button class="btn btn-sm btn-outline cbt-class-pill" data-class="Class 8" onclick="selectCbtClassFilter('Class 8', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 8</button>
+                <button class="btn btn-sm btn-outline cbt-class-pill" data-class="Class 5" onclick="selectCbtClassFilter('Class 5', this)" style="border-radius:16px; padding:4px 12px; font-size:11.5px;">Class 5</button>
+            </div>
+
             <!-- FILTERS & SEARCH ROW -->
-            <div style="display:flex; gap:12px; margin-top:18px; align-items:center; flex-wrap:wrap; border-top:1px solid var(--border-light); padding-top:16px;">
-                <div class="search-input" style="max-width:320px; flex:1;">
+            <div style="display:flex; gap:12px; margin-top:14px; align-items:center; flex-wrap:wrap;">
+                <div class="search-input" style="max-width:300px; flex:1;">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg>
                     <input type="text" id="cbt-search-filter" placeholder="Search tests, chapters or topics..." oninput="filterTestSeriesCards()">
                 </div>
 
-                <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;" id="cbt-subject-filter-chips">
-                    <button class="btn btn-sm btn-primary" onclick="selectCbtSubjectFilter('All', this)" style="border-radius:20px; padding:5px 14px; font-size:12px;">📚 All Subjects</button>
-                    <button class="btn btn-sm btn-outline" onclick="selectCbtSubjectFilter('Science', this)" style="border-radius:20px; padding:5px 14px; font-size:12px;">🧪 Science</button>
-                    <button class="btn btn-sm btn-outline" onclick="selectCbtSubjectFilter('Mathematics', this)" style="border-radius:20px; padding:5px 14px; font-size:12px;">📐 Mathematics</button>
-                    <button class="btn btn-sm btn-outline" onclick="selectCbtSubjectFilter('Social Studies', this)" style="border-radius:20px; padding:5px 14px; font-size:12px;">🌍 Social Studies</button>
-                    <button class="btn btn-sm btn-outline" onclick="selectCbtSubjectFilter('English', this)" style="border-radius:20px; padding:5px 14px; font-size:12px;">📖 English</button>
+                <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap;" id="cbt-subject-filter-chips">
+                    <button class="btn btn-sm btn-primary cbt-subj-pill active" onclick="selectCbtSubjectFilter('All', this)" style="border-radius:20px; padding:5px 12px; font-size:11.5px;">📚 All</button>
+                    <button class="btn btn-sm btn-outline cbt-subj-pill" onclick="selectCbtSubjectFilter('Science', this)" style="border-radius:20px; padding:5px 12px; font-size:11.5px;">🧪 Science</button>
+                    <button class="btn btn-sm btn-outline cbt-subj-pill" onclick="selectCbtSubjectFilter('Mathematics', this)" style="border-radius:20px; padding:5px 12px; font-size:11.5px;">📐 Math</button>
+                    <button class="btn btn-sm btn-outline cbt-subj-pill" onclick="selectCbtSubjectFilter('History', this)" style="border-radius:20px; padding:5px 12px; font-size:11.5px;">🏰 History</button>
+                    <button class="btn btn-sm btn-outline cbt-subj-pill" onclick="selectCbtSubjectFilter('Geography', this)" style="border-radius:20px; padding:5px 12px; font-size:11.5px;">🗺️ Geography</button>
+                    <button class="btn btn-sm btn-outline cbt-subj-pill" onclick="selectCbtSubjectFilter('Politics', this)" style="border-radius:20px; padding:5px 12px; font-size:11.5px;">⚖️ Politics</button>
+                    <button class="btn btn-sm btn-outline cbt-subj-pill" onclick="selectCbtSubjectFilter('Economics', this)" style="border-radius:20px; padding:5px 12px; font-size:11.5px;">📈 Economics</button>
+                    <button class="btn btn-sm btn-outline cbt-subj-pill" onclick="selectCbtSubjectFilter('English', this)" style="border-radius:20px; padding:5px 12px; font-size:11.5px;">📖 English</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- 2. TEST SERIES CARDS CONTAINER -->
-    <div class="content-cards-grid" id="st-testseries-container" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:18px;">
-        <!-- Dynamically injected test cards -->
+    <div class="content-cards-grid" id="st-testseries-container" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:18px;">
+        
+        <!-- CARD 1: SCIENCE -->
+        <div class="card cbt-card" data-subject="Science" data-class="Class 10" data-title="Science Chemical Reactions Acids Metals Life Processes Light Electricity" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-purple" style="font-size:10.5px;">13 Chapters</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    🧪 Science
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Chemical Reactions, Acids & Bases, Metals, Carbon, Life Processes, Light, Electricity & Magnetism.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">1300 Questions</span>
+                    <span class="badge badge-outline">400 Marks / Test</span>
+                    <span class="badge badge-outline">Negative Marking</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/class10/science/science_10.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Science Tests →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 2: MATHEMATICS -->
+        <div class="card cbt-card" data-subject="Mathematics" data-class="Class 10" data-title="Mathematics Real Numbers Polynomials Triangles Trigonometry Statistics Surface Areas Visual Diagrams" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">14 Chapters</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    📐 Mathematics
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Real Numbers, Polynomials, Linear Equations, Triangles, Trigonometry, Statistics & Surface Areas with Visual SVG Diagrams.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">1400 Questions</span>
+                    <span class="badge badge-outline">Visual Diagrams</span>
+                    <span class="badge badge-outline">400 Marks / Test</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/class10/mathematics/mathematics_10.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Mathematics Tests →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 3: HISTORY -->
+        <div class="card cbt-card" data-subject="History" data-class="Class 10" data-title="History Nationalism in Europe Nationalism in India Global World Age of Industrialisation Print Culture" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">5 Chapters</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    🏰 History
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    India and the Contemporary World - II. Rise of Nationalism in Europe & India, Global World, and Print Culture.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">500 Questions</span>
+                    <span class="badge badge-outline">Timeline & Chronology</span>
+                    <span class="badge badge-outline">400 Marks / Test</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/class10/history/history_10.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open History Tests →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 4: GEOGRAPHY -->
+        <div class="card cbt-card" data-subject="Geography" data-class="Class 10" data-title="Geography Resources Development Forest Wildlife Water Agriculture Minerals Energy Manufacturing Lifelines" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">7 Chapters</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    🗺️ Geography
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Contemporary India - II. Resources, Forest, Water, Agriculture, Minerals, Energy, Manufacturing & Lifelines.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">700 Questions</span>
+                    <span class="badge badge-outline">Maps & Concepts</span>
+                    <span class="badge badge-outline">400 Marks / Test</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/class10/geography/geography_10.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Geography Tests →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 5: POLITICS -->
+        <div class="card cbt-card" data-subject="Politics" data-class="Class 10" data-title="Politics Civics Power Sharing Federalism Gender Religion Caste Political Parties Outcomes Democracy" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">5 Chapters</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    ⚖️ Politics (Civics)
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Democratic Politics - II. Power-sharing, Federalism, Gender, Religion & Caste, Political Parties, and Outcomes.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">500 Questions</span>
+                    <span class="badge badge-outline">Case-Studies</span>
+                    <span class="badge badge-outline">400 Marks / Test</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/class10/politics/politics_10.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Politics Tests →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 6: ECONOMICS -->
+        <div class="card cbt-card" data-subject="Economics" data-class="Class 10" data-title="Economics Development Sectors Indian Economy Money Credit Globalisation Consumer Rights" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">5 Chapters</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    📈 Economics
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Understanding Economic Development. Sectors of Indian Economy, Money & Credit, Globalisation, and Consumer Rights.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">500 Questions</span>
+                    <span class="badge badge-outline">Economic Analysis</span>
+                    <span class="badge badge-outline">400 Marks / Test</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/class10/economics/economics_10.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Economics Tests →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 7: ENGLISH -->
+        <div class="card cbt-card" data-subject="English" data-class="Class 10" data-title="English Language Literature First Flight Footprints Without Feet Grammar Reading" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); opacity:0.85;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-warning" style="font-size:10.5px;">🟡 Scheduled</span>
+                    <span class="badge badge-outline" style="font-size:10.5px;">Curriculum Aligned</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    📖 English
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Language and Literature. First Flight, Footprints Without Feet, Reading Comprehension, and Grammar.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">Upcoming Release</span>
+                    <span class="badge badge-outline">Question Review</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-outline btn-sm" disabled style="width:100%; font-weight:700; padding:9px 12px; opacity:0.65; cursor:not-allowed;">
+                    Upcoming Test Series
+                </button>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -65,10 +262,10 @@
         <!-- TOP STICKY CBT HEADER BAR -->
         <header style="background:var(--topbar-bg); color:#ffffff; padding:12px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); flex-shrink:0;">
             <div style="display:flex; align-items:center; gap:14px;">
-                <img src="../../eliteLogo_crest.png" alt="Elite Classes" class="brand-logo-icon" style="width:34px; height:34px;">
+                <img src="eliteLogo_crest.png" onerror="this.src='../../eliteLogo_crest.png'" alt="Elite Classes" class="brand-logo-icon" style="width:34px; height:34px;">
                 <div>
-                    <div style="font-size:14px; font-weight:800; color:#ffffff;" id="cbt-modal-test-title">Chemical Reactions & Equations</div>
-                    <div style="font-size:11.5px; color:#94a3b8;" id="cbt-modal-test-sub">Class 10 Science • Full 100 Questions Bank</div>
+                    <div style="font-size:14px; font-weight:800; color:#ffffff;" id="cbt-modal-test-title">Assessment in Progress</div>
+                    <div style="font-size:11.5px; color:#94a3b8;" id="cbt-modal-test-sub"><span id="cbt-modal-class-subject">Chapter Assessment</span> • Full CBT Question Bank</div>
                 </div>
             </div>
 
