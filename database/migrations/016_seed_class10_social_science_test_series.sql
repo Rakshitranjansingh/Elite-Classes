@@ -5,28 +5,34 @@
 -- constraints for test_submissions, test_questions, and subscriber results.
 -- =========================================================================
 
--- 1. SEED SPECIFIC SOCIAL SCIENCE SUBJECTS IF NOT ALREADY PRESENT
-INSERT INTO subjects (id, name, code, description, is_active)
-VALUES
-('sub_hist', 'History', 'HIST', 'India and the Contemporary World - II', true),
-('sub_poli', 'Democratic Politics', 'POLI', 'Democratic Politics - II (Civics)', true),
-('sub_econ', 'Economics', 'ECON', 'Understanding Economic Development', true),
-('sub_geog', 'Geography', 'GEOG', 'Contemporary India - II', true)
-ON CONFLICT (id) DO UPDATE SET
-    name = EXCLUDED.name,
-    code = EXCLUDED.code,
-    description = EXCLUDED.description;
+-- 1. ENSURE TEST_SERIES TABLE EXISTS
+CREATE TABLE IF NOT EXISTS test_series (
+    id VARCHAR(50) PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    cls VARCHAR(50) NOT NULL,
+    subject VARCHAR(100) NOT NULL,
+    duration_mins INT DEFAULT 90,
+    total_marks NUMERIC(5, 2) DEFAULT 400.00,
+    passing_marks NUMERIC(5, 2) DEFAULT 160.00,
+    negative_marking NUMERIC(3, 2) DEFAULT 1.00,
+    questions_count INT DEFAULT 100,
+    status VARCHAR(50) DEFAULT 'published',
+    test_date VARCHAR(50),
+    instructions TEXT,
+    created_by VARCHAR(50),
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
 
--- 2. MAP TO CLASS 10
-INSERT INTO class_subjects (id, class_id, subject_id)
-VALUES
-('cs_c10_hist', 'c_10', 'sub_hist'),
-('cs_c10_poli', 'c_10', 'sub_poli'),
-('cs_c10_econ', 'c_10', 'sub_econ'),
-('cs_c10_geog', 'c_10', 'sub_geog')
-ON CONFLICT (class_id, subject_id) DO NOTHING;
+ALTER TABLE test_series ADD COLUMN IF NOT EXISTS duration_mins INT DEFAULT 90;
+ALTER TABLE test_series ADD COLUMN IF NOT EXISTS total_marks NUMERIC(5, 2) DEFAULT 400.00;
+ALTER TABLE test_series ADD COLUMN IF NOT EXISTS passing_marks NUMERIC(5, 2) DEFAULT 160.00;
+ALTER TABLE test_series ADD COLUMN IF NOT EXISTS negative_marking NUMERIC(3, 2) DEFAULT 1.00;
+ALTER TABLE test_series ADD COLUMN IF NOT EXISTS questions_count INT DEFAULT 100;
+ALTER TABLE test_series ADD COLUMN IF NOT EXISTS instructions TEXT;
+ALTER TABLE test_series ADD COLUMN IF NOT EXISTS created_by VARCHAR(50);
+ALTER TABLE test_series ADD COLUMN IF NOT EXISTS status VARCHAR(50) DEFAULT 'published';
 
--- 3. SEED ALL 22 MASTER CHAPTER ASSESSMENTS INTO TEST_SERIES
+-- 2. SEED ALL 22 MASTER CHAPTER ASSESSMENTS INTO TEST_SERIES
 INSERT INTO test_series (
     id, title, cls, subject, duration_mins, total_marks, passing_marks, negative_marking, questions_count, status, instructions, created_by
 ) VALUES
