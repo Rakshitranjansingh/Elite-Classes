@@ -190,9 +190,12 @@ const CBTPlayer = {
                         </div>
 
                         <!-- QUESTION TEXT -->
-                        <div id="cbt-q-body-text" style="font-size:15.5px; font-weight:700; color:#0f172a; line-height:1.6; margin-bottom:20px;">
+                        <div id="cbt-q-body-text" style="font-size:15.5px; font-weight:700; color:#0f172a; line-height:1.6; margin-bottom:14px;">
                             Question text loading...
                         </div>
+
+                        <!-- QUESTION FIGURE / DIAGRAM CONTAINER -->
+                        <div id="cbt-q-diagram-wrap" style="display:none; margin-bottom:18px; text-align:center;"></div>
 
                         <!-- OPTIONS CONTAINER -->
                         <div id="cbt-q-options-wrap" style="display:flex; flex-direction:column; gap:10px;">
@@ -276,7 +279,21 @@ const CBTPlayer = {
         const opts = this.getQuestionOptions(q);
 
         document.getElementById('cbt-q-number-badge').textContent = `Question ${this.currentQIdx + 1} of ${this.activeTest.questions.length}`;
-        document.getElementById('cbt-q-body-text').textContent = `Q${this.currentQIdx + 1}. ${qText}`;
+        document.getElementById('cbt-q-body-text').innerHTML = `Q${this.currentQIdx + 1}. ${qText}`;
+
+        const diagWrap = document.getElementById('cbt-q-diagram-wrap');
+        if (diagWrap) {
+            if (q.diagram_svg) {
+                diagWrap.style.display = 'block';
+                diagWrap.innerHTML = `<div style="background:#f8fafc; border:1.5px solid #e2e8f0; border-radius:12px; padding:12px 16px; display:inline-block; max-width:100%; box-shadow:0 2px 6px rgba(0,0,0,0.03);">${q.diagram_svg}</div>`;
+            } else if (q.image_url) {
+                diagWrap.style.display = 'block';
+                diagWrap.innerHTML = `<div style="background:#f8fafc; border:1.5px solid #e2e8f0; border-radius:12px; padding:12px 16px; display:inline-block; max-width:100%; box-shadow:0 2px 6px rgba(0,0,0,0.03);"><img src="${q.image_url}" alt="Question Diagram" style="max-width:100%; max-height:280px; object-fit:contain; border-radius:8px;"></div>`;
+            } else {
+                diagWrap.style.display = 'none';
+                diagWrap.innerHTML = '';
+            }
+        }
 
         const isAnswered = this.userAnswers[this.currentQIdx] !== undefined;
         const isFlagged = this.flaggedReview[this.currentQIdx] === true;
@@ -732,9 +749,24 @@ const CBTPlayer = {
                                 </div>
 
                                 <!-- Q TEXT -->
-                                <div style="font-size:14px; font-weight:700; color:#0f172a; line-height:1.55; margin-bottom:14px;">
+                                <div style="font-size:14px; font-weight:700; color:#0f172a; line-height:1.55; margin-bottom:12px;">
                                     ${qText}
                                 </div>
+
+                                <!-- Q DIAGRAM (IF ANY) -->
+                                ${q.diagram_svg ? `
+                                    <div style="margin-bottom:14px; text-align:center;">
+                                        <div style="background:#f8fafc; border:1.5px solid #e2e8f0; border-radius:10px; padding:10px 14px; display:inline-block; max-width:100%;">
+                                            ${q.diagram_svg}
+                                        </div>
+                                    </div>
+                                ` : (q.image_url ? `
+                                    <div style="margin-bottom:14px; text-align:center;">
+                                        <div style="background:#f8fafc; border:1.5px solid #e2e8f0; border-radius:10px; padding:10px 14px; display:inline-block; max-width:100%;">
+                                            <img src="${q.image_url}" alt="Question Diagram" style="max-width:100%; max-height:240px; object-fit:contain; border-radius:6px;">
+                                        </div>
+                                    </div>
+                                ` : '')}
 
                                 <!-- OPTIONS -->
                                 <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:14px;">

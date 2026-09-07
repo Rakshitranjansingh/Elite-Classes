@@ -48,7 +48,23 @@ const ALL_CLASS_10_TEST_METADATA = [
     { id: 'ts_c10_geog_ch4', ch: 4, subject: 'Geography', title: 'Chapter 4: Agriculture', defaultStatus: 'inactive' },
     { id: 'ts_c10_geog_ch5', ch: 5, subject: 'Geography', title: 'Chapter 5: Minerals and Energy Resources', defaultStatus: 'inactive' },
     { id: 'ts_c10_geog_ch6', ch: 6, subject: 'Geography', title: 'Chapter 6: Manufacturing Industries', defaultStatus: 'inactive' },
-    { id: 'ts_c10_geog_ch7', ch: 7, subject: 'Geography', title: 'Chapter 7: Lifelines of National Economy', defaultStatus: 'inactive' }
+    { id: 'ts_c10_geog_ch7', ch: 7, subject: 'Geography', title: 'Chapter 7: Lifelines of National Economy', defaultStatus: 'inactive' },
+
+    // --- MATHEMATICS (14 CHAPTERS: Ch 1 Active, Ch 2-14 Inactive by default) ---
+    { id: 'ts_c10_math_ch1', ch: 1, subject: 'Mathematics', title: 'Chapter 1: Real Numbers', defaultStatus: 'published' },
+    { id: 'ts_c10_math_ch2', ch: 2, subject: 'Mathematics', title: 'Chapter 2: Polynomials', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch3', ch: 3, subject: 'Mathematics', title: 'Chapter 3: Pair of Linear Equations in Two Variables', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch4', ch: 4, subject: 'Mathematics', title: 'Chapter 4: Quadratic Equations', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch5', ch: 5, subject: 'Mathematics', title: 'Chapter 5: Arithmetic Progressions', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch6', ch: 6, subject: 'Mathematics', title: 'Chapter 6: Triangles', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch7', ch: 7, subject: 'Mathematics', title: 'Chapter 7: Coordinate Geometry', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch8', ch: 8, subject: 'Mathematics', title: 'Chapter 8: Introduction to Trigonometry', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch9', ch: 9, subject: 'Mathematics', title: 'Chapter 9: Some Applications of Trigonometry', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch10', ch: 10, subject: 'Mathematics', title: 'Chapter 10: Circles', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch11', ch: 11, subject: 'Mathematics', title: 'Chapter 11: Areas Related to Circles', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch12', ch: 12, subject: 'Mathematics', title: 'Chapter 12: Surface Areas and Volumes', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch13', ch: 13, subject: 'Mathematics', title: 'Chapter 13: Statistics', defaultStatus: 'inactive' },
+    { id: 'ts_c10_math_ch14', ch: 14, subject: 'Mathematics', title: 'Chapter 14: Probability', defaultStatus: 'inactive' }
 ];
 
 // Backwards compatibility alias
@@ -157,7 +173,8 @@ async function renderAdminTestSeriesView() {
     const tabsContainer = document.getElementById('admin-testseries-filter-tabs');
     if (tabsContainer) {
         const subjects = [
-            { key: 'all', label: 'All Subjects', count: 35 },
+            { key: 'all', label: 'All Subjects', count: 49 },
+            { key: 'Mathematics', label: 'Mathematics', count: 14 },
             { key: 'Science', label: 'Science', count: 13 },
             { key: 'History', label: 'History', count: 5 },
             { key: 'Politics', label: 'Politics', count: 5 },
@@ -184,19 +201,19 @@ async function renderAdminTestSeriesView() {
     const subjInfo = document.getElementById('admin-testseries-subject-info');
     if (subjBadge) {
         subjBadge.textContent = currentAdminSubjectFilter === 'all' 
-            ? 'Class 10 All Subjects (35)' 
+            ? 'Class 10 All Subjects (49)' 
             : `Class 10 ${currentAdminSubjectFilter} (${filteredMetadata.length})`;
     }
     if (subjInfo) {
         subjInfo.textContent = currentAdminSubjectFilter === 'all'
-            ? '35 Chapters • 3,500 NCERT Questions • Science & Social Science Assessment Bank'
+            ? '49 Chapters • 4,900 NCERT Questions • Science, Mathematics & Social Science Assessment Bank'
             : `${filteredMetadata.length} Chapters • ${filteredMetadata.length * 100} NCERT Questions • Master Assessment Bank`;
     }
 
     // Update Bulk Toggle Button Labels
     const activateBtn = document.getElementById('admin-testseries-activate-btn');
     const deactivateBtn = document.getElementById('admin-testseries-deactivate-btn');
-    const filterLabel = currentAdminSubjectFilter === 'all' ? 'All (35)' : `${currentAdminSubjectFilter} (${filteredMetadata.length})`;
+    const filterLabel = currentAdminSubjectFilter === 'all' ? 'All (49)' : `${currentAdminSubjectFilter} (${filteredMetadata.length})`;
     if (activateBtn) activateBtn.innerHTML = `🟢 Activate ${filterLabel}`;
     if (deactivateBtn) deactivateBtn.innerHTML = `🔴 Deactivate ${filterLabel}`;
 
