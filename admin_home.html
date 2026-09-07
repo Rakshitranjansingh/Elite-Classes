@@ -618,27 +618,31 @@
                     </div>
                 </div>
                 <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-                    <button class="btn btn-outline btn-sm" onclick="adminBulkToggleTests('published')" style="border-color:#10b981; color:#059669; font-weight:700;">
-                        🟢 Activate All (13)
+                    <button id="admin-testseries-activate-btn" class="btn btn-outline btn-sm" onclick="adminBulkToggleTests('published')" style="border-color:#10b981; color:#059669; font-weight:700;">
+                        🟢 Activate All (35)
                     </button>
-                    <button class="btn btn-outline btn-sm" onclick="adminBulkToggleTests('inactive')" style="border-color:#ef4444; color:#dc2626; font-weight:700;">
-                        🔴 Deactivate All (13)
+                    <button id="admin-testseries-deactivate-btn" class="btn btn-outline btn-sm" onclick="adminBulkToggleTests('inactive')" style="border-color:#ef4444; color:#dc2626; font-weight:700;">
+                        🔴 Deactivate All (35)
                     </button>
                 </div>
             </div>
 
-            <!-- SUB-HEADER SUMMARY CARD -->
+            <!-- SUB-HEADER SUMMARY & SUBJECT FILTER CARD -->
             <div class="card" style="margin-bottom:16px;">
-                <div style="padding:14px 20px; background:#f8fafc; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-                    <div style="display:flex; align-items:center; gap:12px;">
-                        <span class="badge badge-primary" style="font-size:12px;">Class 10 Science</span>
-                        <span style="font-size:13px; color:var(--text-muted); font-weight:600;">
-                            13 Chapters • 1,300 NCERT Questions • Master Assessment Bank
+                <div style="padding:14px 20px; background:#f8fafc; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; border-bottom:1px solid var(--border-light);">
+                    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                        <span id="admin-testseries-subject-badge" class="badge badge-primary" style="font-size:12px;">Class 10 All Subjects (35)</span>
+                        <span id="admin-testseries-subject-info" style="font-size:13px; color:var(--text-muted); font-weight:600;">
+                            35 Chapters • 3,500 NCERT Questions • Science & Social Science Assessment Bank
                         </span>
                     </div>
                     <div id="admin-testseries-summary-pill" style="display:flex; gap:8px;">
                         <!-- Dynamic status pills -->
                     </div>
+                </div>
+                <!-- SUBJECT FILTER TABS (All, Science, History, Politics, Economics, Geography) -->
+                <div id="admin-testseries-filter-tabs" style="padding:10px 20px; background:#ffffff; display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                    <!-- Filter buttons injected dynamically by adminTestSeries.js -->
                 </div>
             </div>
 

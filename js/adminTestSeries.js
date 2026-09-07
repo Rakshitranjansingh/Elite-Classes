@@ -1,23 +1,66 @@
 /* =========================================================================
    ELITE CLASSES — ADMIN TEST SERIES & CBT SWITCHBOARD (adminTestSeries.js)
    Live One-Click Test Activation & Deactivation Controller for Faculty & Admins
+   Supports All Class 10 Subjects: Science (13), History (5), Politics (5), Economics (5), Geography (7)
    ========================================================================= */
 
-const CLASS_10_SCIENCE_TEST_METADATA = [
-    { id: 'ts_c10_sci_ch1', ch: 1, title: 'Chapter 1: Chemical Reactions Assessment' },
-    { id: 'ts_c10_sci_ch2', ch: 2, title: 'Chapter 2: Acids, Bases and Salts Assessment' },
-    { id: 'ts_c10_sci_ch3', ch: 3, title: 'Chapter 3: Metals and Non-Metals Assessment' },
-    { id: 'ts_c10_sci_ch4', ch: 4, title: 'Chapter 4: Carbon and its Compounds Assessment' },
-    { id: 'ts_c10_sci_ch5', ch: 5, title: 'Chapter 5: Life Processes Assessment' },
-    { id: 'ts_c10_sci_ch6', ch: 6, title: 'Chapter 6: Control and Coordination Assessment' },
-    { id: 'ts_c10_sci_ch7', ch: 7, title: 'Chapter 7: How do Organisms Reproduce Assessment' },
-    { id: 'ts_c10_sci_ch8', ch: 8, title: 'Chapter 8: Heredity Assessment' },
-    { id: 'ts_c10_sci_ch9', ch: 9, title: 'Chapter 9: Light – Reflection and Refraction Assessment' },
-    { id: 'ts_c10_sci_ch10', ch: 10, title: 'Chapter 10: The Human Eye and the Colourful World Assessment' },
-    { id: 'ts_c10_sci_ch11', ch: 11, title: 'Chapter 11: Electricity Assessment' },
-    { id: 'ts_c10_sci_ch12', ch: 12, title: 'Chapter 12: Magnetic Effects of Electric Current Assessment' },
-    { id: 'ts_c10_sci_ch13', ch: 13, title: 'Chapter 13: Our Environment Assessment' }
+const ALL_CLASS_10_TEST_METADATA = [
+    // --- SCIENCE (13 CHAPTERS) ---
+    { id: 'ts_c10_sci_ch1', ch: 1, subject: 'Science', title: 'Chapter 1: Chemical Reactions Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch2', ch: 2, subject: 'Science', title: 'Chapter 2: Acids, Bases and Salts Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch3', ch: 3, subject: 'Science', title: 'Chapter 3: Metals and Non-Metals Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch4', ch: 4, subject: 'Science', title: 'Chapter 4: Carbon and its Compounds Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch5', ch: 5, subject: 'Science', title: 'Chapter 5: Life Processes Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch6', ch: 6, subject: 'Science', title: 'Chapter 6: Control and Coordination Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch7', ch: 7, subject: 'Science', title: 'Chapter 7: How do Organisms Reproduce Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch8', ch: 8, subject: 'Science', title: 'Chapter 8: Heredity Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch9', ch: 9, subject: 'Science', title: 'Chapter 9: Light – Reflection and Refraction Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch10', ch: 10, subject: 'Science', title: 'Chapter 10: The Human Eye and the Colourful World Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch11', ch: 11, subject: 'Science', title: 'Chapter 11: Electricity Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch12', ch: 12, subject: 'Science', title: 'Chapter 12: Magnetic Effects of Electric Current Assessment', defaultStatus: 'published' },
+    { id: 'ts_c10_sci_ch13', ch: 13, subject: 'Science', title: 'Chapter 13: Our Environment Assessment', defaultStatus: 'published' },
+
+    // --- HISTORY (5 CHAPTERS: Ch 1 Active, Ch 2-5 Inactive by default) ---
+    { id: 'ts_c10_hist_ch1', ch: 1, subject: 'History', title: 'Chapter 1: The Rise of Nationalism in Europe', defaultStatus: 'published' },
+    { id: 'ts_c10_hist_ch2', ch: 2, subject: 'History', title: 'Chapter 2: Nationalism in India', defaultStatus: 'inactive' },
+    { id: 'ts_c10_hist_ch3', ch: 3, subject: 'History', title: 'Chapter 3: The Making of a Global World', defaultStatus: 'inactive' },
+    { id: 'ts_c10_hist_ch4', ch: 4, subject: 'History', title: 'Chapter 4: The Age of Industrialisation', defaultStatus: 'inactive' },
+    { id: 'ts_c10_hist_ch5', ch: 5, subject: 'History', title: 'Chapter 5: Print Culture and the Modern World', defaultStatus: 'inactive' },
+
+    // --- DEMOCRATIC POLITICS (5 CHAPTERS: Ch 1 Active, Ch 2-5 Inactive by default) ---
+    { id: 'ts_c10_poli_ch1', ch: 1, subject: 'Politics', title: 'Chapter 1: Power-sharing', defaultStatus: 'published' },
+    { id: 'ts_c10_poli_ch2', ch: 2, subject: 'Politics', title: 'Chapter 2: Federalism', defaultStatus: 'inactive' },
+    { id: 'ts_c10_poli_ch3', ch: 3, subject: 'Politics', title: 'Chapter 3: Gender, Religion and Caste', defaultStatus: 'inactive' },
+    { id: 'ts_c10_poli_ch4', ch: 4, subject: 'Politics', title: 'Chapter 4: Political Parties', defaultStatus: 'inactive' },
+    { id: 'ts_c10_poli_ch5', ch: 5, subject: 'Politics', title: 'Chapter 5: Outcomes of Democracy', defaultStatus: 'inactive' },
+
+    // --- ECONOMICS (5 CHAPTERS: Ch 1 Active, Ch 2-5 Inactive by default) ---
+    { id: 'ts_c10_econ_ch1', ch: 1, subject: 'Economics', title: 'Chapter 1: Development', defaultStatus: 'published' },
+    { id: 'ts_c10_econ_ch2', ch: 2, subject: 'Economics', title: 'Chapter 2: Sectors of the Indian Economy', defaultStatus: 'inactive' },
+    { id: 'ts_c10_econ_ch3', ch: 3, subject: 'Economics', title: 'Chapter 3: Money and Credit', defaultStatus: 'inactive' },
+    { id: 'ts_c10_econ_ch4', ch: 4, subject: 'Economics', title: 'Chapter 4: Globalisation and the Indian Economy', defaultStatus: 'inactive' },
+    { id: 'ts_c10_econ_ch5', ch: 5, subject: 'Economics', title: 'Chapter 5: Consumer Rights', defaultStatus: 'inactive' },
+
+    // --- GEOGRAPHY (7 CHAPTERS: Ch 1 Active, Ch 2-7 Inactive by default) ---
+    { id: 'ts_c10_geog_ch1', ch: 1, subject: 'Geography', title: 'Chapter 1: Resources and Development', defaultStatus: 'published' },
+    { id: 'ts_c10_geog_ch2', ch: 2, subject: 'Geography', title: 'Chapter 2: Forest and Wildlife Resources', defaultStatus: 'inactive' },
+    { id: 'ts_c10_geog_ch3', ch: 3, subject: 'Geography', title: 'Chapter 3: Water Resources', defaultStatus: 'inactive' },
+    { id: 'ts_c10_geog_ch4', ch: 4, subject: 'Geography', title: 'Chapter 4: Agriculture', defaultStatus: 'inactive' },
+    { id: 'ts_c10_geog_ch5', ch: 5, subject: 'Geography', title: 'Chapter 5: Minerals and Energy Resources', defaultStatus: 'inactive' },
+    { id: 'ts_c10_geog_ch6', ch: 6, subject: 'Geography', title: 'Chapter 6: Manufacturing Industries', defaultStatus: 'inactive' },
+    { id: 'ts_c10_geog_ch7', ch: 7, subject: 'Geography', title: 'Chapter 7: Lifelines of National Economy', defaultStatus: 'inactive' }
 ];
+
+// Backwards compatibility alias
+const CLASS_10_SCIENCE_TEST_METADATA = ALL_CLASS_10_TEST_METADATA.filter(t => t.subject === 'Science');
+
+// Filter state: 'all', 'Science', 'History', 'Politics', 'Economics', 'Geography'
+let currentAdminSubjectFilter = 'all';
+
+function setAdminSubjectFilter(subj) {
+    currentAdminSubjectFilter = subj;
+    renderAdminTestSeriesView();
+}
 
 // Render Admin Test Series Management View
 async function renderAdminTestSeriesView() {
@@ -40,20 +83,25 @@ async function renderAdminTestSeriesView() {
         testMap[t.id] = t;
     });
 
+    // Determine items based on subject filter
+    const filteredMetadata = (currentAdminSubjectFilter === 'all')
+        ? ALL_CLASS_10_TEST_METADATA
+        : ALL_CLASS_10_TEST_METADATA.filter(m => m.subject.toLowerCase() === currentAdminSubjectFilter.toLowerCase());
+
     let activeCount = 0;
     let inactiveCount = 0;
     let html = '';
 
-    CLASS_10_SCIENCE_TEST_METADATA.forEach(meta => {
+    filteredMetadata.forEach(meta => {
         const test = testMap[meta.id] || {
             id: meta.id,
             title: meta.title,
             cls: 'Class 10',
-            subject: 'Science',
+            subject: meta.subject,
             duration_mins: 90,
             total_marks: 400,
             questions_count: 100,
-            status: 'published'
+            status: meta.defaultStatus || 'published'
         };
 
         const isPublished = test.status === 'published' || test.status === 'active';
@@ -71,7 +119,7 @@ async function renderAdminTestSeriesView() {
                 </td>
                 <td>
                     <span class="meta-pill" style="font-size:11px;">Class 10</span>
-                    <span class="meta-pill" style="font-size:11px;">Science</span>
+                    <span class="meta-pill" style="font-size:11px; font-weight:700; color:var(--primary);">${meta.subject}</span>
                 </td>
                 <td>
                     <div style="font-size:12px; font-weight:600; color:var(--text);">100 Qs • 90 Mins</div>
@@ -105,6 +153,53 @@ async function renderAdminTestSeriesView() {
 
     tbody.innerHTML = html;
 
+    // Render Filter Tabs
+    const tabsContainer = document.getElementById('admin-testseries-filter-tabs');
+    if (tabsContainer) {
+        const subjects = [
+            { key: 'all', label: 'All Subjects', count: 35 },
+            { key: 'Science', label: 'Science', count: 13 },
+            { key: 'History', label: 'History', count: 5 },
+            { key: 'Politics', label: 'Politics', count: 5 },
+            { key: 'Economics', label: 'Economics', count: 5 },
+            { key: 'Geography', label: 'Geography', count: 7 }
+        ];
+
+        let tabsHtml = '';
+        subjects.forEach(s => {
+            const isSelected = (currentAdminSubjectFilter.toLowerCase() === s.key.toLowerCase());
+            tabsHtml += `
+                <button class="btn btn-sm ${isSelected ? 'btn-primary' : 'btn-outline'}" 
+                        onclick="setAdminSubjectFilter('${s.key}')" 
+                        style="font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; transition:all 0.15s ease;">
+                    ${s.label} (${s.count})
+                </button>
+            `;
+        });
+        tabsContainer.innerHTML = tabsHtml;
+    }
+
+    // Update Sub-Header Badge & Info
+    const subjBadge = document.getElementById('admin-testseries-subject-badge');
+    const subjInfo = document.getElementById('admin-testseries-subject-info');
+    if (subjBadge) {
+        subjBadge.textContent = currentAdminSubjectFilter === 'all' 
+            ? 'Class 10 All Subjects (35)' 
+            : `Class 10 ${currentAdminSubjectFilter} (${filteredMetadata.length})`;
+    }
+    if (subjInfo) {
+        subjInfo.textContent = currentAdminSubjectFilter === 'all'
+            ? '35 Chapters • 3,500 NCERT Questions • Science & Social Science Assessment Bank'
+            : `${filteredMetadata.length} Chapters • ${filteredMetadata.length * 100} NCERT Questions • Master Assessment Bank`;
+    }
+
+    // Update Bulk Toggle Button Labels
+    const activateBtn = document.getElementById('admin-testseries-activate-btn');
+    const deactivateBtn = document.getElementById('admin-testseries-deactivate-btn');
+    const filterLabel = currentAdminSubjectFilter === 'all' ? 'All (35)' : `${currentAdminSubjectFilter} (${filteredMetadata.length})`;
+    if (activateBtn) activateBtn.innerHTML = `🟢 Activate ${filterLabel}`;
+    if (deactivateBtn) deactivateBtn.innerHTML = `🔴 Deactivate ${filterLabel}`;
+
     // Update Summary Header Pills
     const summaryPill = document.getElementById('admin-testseries-summary-pill');
     if (summaryPill) {
@@ -117,7 +212,13 @@ async function renderAdminTestSeriesView() {
     // Update Dashboard Pallet Value if present
     const dashStat = document.getElementById('dash-stat-testseries');
     if (dashStat) {
-        dashStat.textContent = `${activeCount} Active`;
+        let totalAllActive = 0;
+        ALL_CLASS_10_TEST_METADATA.forEach(m => {
+            const t = testMap[m.id];
+            const isPub = t ? (t.status === 'published' || t.status === 'active') : (m.defaultStatus === 'published');
+            if (isPub) totalAllActive++;
+        });
+        dashStat.textContent = `${totalAllActive} / 35 Active`;
     }
 }
 
@@ -127,12 +228,12 @@ async function adminToggleTestStatus(testId, targetStatus) {
     let testObj = localTests.find(t => t.id === testId);
 
     if (!testObj) {
-        const meta = CLASS_10_SCIENCE_TEST_METADATA.find(m => m.id === testId);
+        const meta = ALL_CLASS_10_TEST_METADATA.find(m => m.id === testId);
         testObj = {
             id: testId,
             title: meta ? meta.title : testId,
             cls: 'Class 10',
-            subject: 'Science',
+            subject: meta ? meta.subject : 'Science',
             duration_mins: 90,
             total_marks: 400,
             passing_marks: 160,
@@ -162,21 +263,25 @@ async function adminToggleTestStatus(testId, targetStatus) {
     renderAdminTestSeriesView();
 }
 
-// Bulk Activate / Deactivate All 13 Tests
+// Bulk Activate / Deactivate for current filtered subjects
 async function adminBulkToggleTests(targetStatus) {
     let localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
     const localMap = {};
     localTests.forEach(t => { localMap[t.id] = t; });
 
+    const filteredMetadata = (currentAdminSubjectFilter === 'all')
+        ? ALL_CLASS_10_TEST_METADATA
+        : ALL_CLASS_10_TEST_METADATA.filter(m => m.subject.toLowerCase() === currentAdminSubjectFilter.toLowerCase());
+
     const batch = [];
-    CLASS_10_SCIENCE_TEST_METADATA.forEach(meta => {
+    filteredMetadata.forEach(meta => {
         let t = localMap[meta.id];
         if (!t) {
             t = {
                 id: meta.id,
                 title: meta.title,
                 cls: 'Class 10',
-                subject: 'Science',
+                subject: meta.subject,
                 duration_mins: 90,
                 total_marks: 400,
                 passing_marks: 160,
@@ -202,13 +307,17 @@ async function adminBulkToggleTests(targetStatus) {
         }
     }
 
-    showToast(`All Class 10 Science assessments have been ${targetStatus === 'published' ? 'Activated' : 'Deactivated'}!`, targetStatus === 'published' ? 'success' : 'danger');
+    const scopeName = currentAdminSubjectFilter === 'all' ? 'All 35 assessments' : `All ${filteredMetadata.length} ${currentAdminSubjectFilter} assessments`;
+    showToast(`${scopeName} have been ${targetStatus === 'published' ? 'Activated' : 'Deactivated'}!`, targetStatus === 'published' ? 'success' : 'danger');
 
     renderAdminTestSeriesView();
 }
 
 // Attach to window
 if (typeof window !== 'undefined') {
+    window.ALL_CLASS_10_TEST_METADATA = ALL_CLASS_10_TEST_METADATA;
+    window.CLASS_10_SCIENCE_TEST_METADATA = CLASS_10_SCIENCE_TEST_METADATA;
+    window.setAdminSubjectFilter = setAdminSubjectFilter;
     window.renderAdminTestSeriesView = renderAdminTestSeriesView;
     window.adminToggleTestStatus = adminToggleTestStatus;
     window.adminBulkToggleTests = adminBulkToggleTests;

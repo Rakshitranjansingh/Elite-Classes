@@ -272,7 +272,19 @@
             setTimeout(() => { t.className = 'toast'; }, 3000);
         }
 
+        function getTestStatus(testId) {
+            const localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+            const meta = localTests.find(t => t.id === testId);
+            if (meta && meta.status) return meta.status;
+            return testId.endsWith('_ch1') ? 'published' : 'inactive';
+        }
+
         function enrollInTest(testId) {
+            const status = getTestStatus(testId);
+            if (status === 'inactive' || status === 'disabled') {
+                showToast('This assessment is currently locked by the administrator.', 'danger');
+                return;
+            }
             if (!studentCbtData.enrolled) studentCbtData.enrolled = {};
             studentCbtData.enrolled[testId] = true;
             localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
@@ -282,6 +294,11 @@
         }
 
         function launchTest(testId) {
+            const status = getTestStatus(testId);
+            if (status === 'inactive' || status === 'disabled') {
+                showToast('This assessment is currently locked by the administrator.', 'danger');
+                return;
+            }
             const testObj = testsMap[testId];
             if (!testObj || !testObj.questions || testObj.questions.length === 0) {
                 showToast('Assessment questions are currently being loaded.', 'danger');
@@ -302,10 +319,16 @@
                 const a = document.getElementById('action-' + id);
                 if (!b || !a) return;
 
+                const status = getTestStatus(id);
+                const isInactive = (status === 'inactive' || status === 'disabled');
                 const isEnrolled = studentCbtData.enrolled && studentCbtData.enrolled[id];
                 const attempt = studentCbtData.attempts && studentCbtData.attempts[id];
 
-                if (attempt) {
+                if (isInactive) {
+                    b.className = 'badge badge-danger';
+                    b.textContent = '🔒 Inactive / Locked';
+                    a.innerHTML = `<button class="btn btn-outline btn-sm" disabled style="width:100%; font-weight:700; padding:8px; opacity:0.6; cursor:not-allowed; background:#f1f5f9; color:#94a3b8;">🔒 Locked by Admin</button>`;
+                } else if (attempt) {
                     b.className = 'badge badge-success';
                     b.textContent = `Completed: ${attempt.score} / ${attempt.total_marks}`;
                     a.innerHTML = `<button class="btn btn-outline btn-sm" onclick="launchTest('${id}')" style="width:100%; font-weight:700; padding:8px;">🔄 Retake Assessment</button>`;
@@ -313,12 +336,42 @@
                     b.className = 'badge badge-primary';
                     b.textContent = 'Enrolled & Ready';
                     a.innerHTML = `<button class="btn btn-primary btn-sm" onclick="launchTest('${id}')" style="width:100%; font-weight:700; padding:8px;">🚀 Start CBT Exam</button>`;
+                } else {
+                    b.className = 'badge badge-warning';
+                    b.textContent = 'Not Enrolled';
+                    a.innerHTML = `<button class="btn btn-outline btn-sm" onclick="enrollInTest('${id}')" style="width:100%; font-weight:700; padding:8px;">📝 Enroll in Test</button>`;
                 }
             });
         }
 
+        async function syncCloudTestStatuses() {
+            try {
+                if (typeof supabaseClient !== 'undefined' && supabaseClient && typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
+                    const { data, error } = await supabaseClient.from('test_series').select('id, status');
+                    if (!error && data && data.length > 0) {
+                        let localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
+                        const map = {};
+                        localTests.forEach(t => { map[t.id] = t; });
+                        data.forEach(item => {
+                            if (map[item.id]) {
+                                map[item.id].status = item.status;
+                            } else {
+                                map[item.id] = { id: item.id, status: item.status };
+                                localTests.push(map[item.id]);
+                            }
+                        });
+                        localStorage.setItem('ec_test_series', JSON.stringify(localTests));
+                        renderTestCards();
+                    }
+                }
+            } catch (e) {
+                console.warn('[Politics10] Cloud status sync warning:', e);
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             renderTestCards();
+            syncCloudTestStatuses();
         });
     </script>
 </body>
