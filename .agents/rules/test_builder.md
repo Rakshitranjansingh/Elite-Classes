@@ -22,3 +22,13 @@ Whenever the user asks to create, update, scaffold, or generate tests or test se
 
 5. **Automated Validation**:
    - Run `node .agents/skills/test-builder/scripts/validate_test.js <file>` on all newly created assessment files to confirm 100Q count and tier distribution.
+
+6. **Progressive Test Activation & Portal UI Locking**:
+   - **Chapter 1 Active, Chapters 2+ Inactive by Default**: New subject test series must deploy Chapter 1 as `published` and all subsequent chapters as `inactive` to allow faculty/administrators to release assessments progressively.
+   - **Portal UI Lock**: Inactive chapters must display `🔒 Inactive / Locked` badges and disabled `🔒 Locked by Admin` buttons.
+   - **Guarded Execution**: `enrollInTest` and `launchTest` must verify active status before allowing student entry.
+   - **Cloud Sync**: Portals must execute `syncCloudTestStatuses()` on page load to reflect real-time admin status changes from Supabase.
+
+7. **Database Migration & Admin Switchboard Registration**:
+   - Every subject deployment must include a migration script in `database/migrations/` setting Ch 1 to `'published'` and Ch 2+ to `'inactive'`.
+   - Update `js/adminTestSeries.js` with the subject's test metadata array and ensure subject filter tabs in `admin_home.html` allow 1-click and bulk activation/deactivation.

@@ -128,6 +128,7 @@ The application follows a clean 4-tier client-serverless architecture:
 2. **Subject Scaffolding**: Use `node .agents/skills/test-builder/scripts/scaffold_subject.js --class <X> --subject <name> --chapters <N>` to scaffold folder structure (`modules/testseries/data/class<X>/<subject>/ncert/`) and pre-wired portal HTML.
 3. **Automated Assessment Validation**: Run `node .agents/skills/test-builder/scripts/validate_test.js <path-to-test.js>` to verify exact 100Q count, 50E/10M/10H/20T/10VH tier distribution, option completeness, and Unicode typography.
 4. **Global CBT Engine**: All subject portals must load and utilize the shared `modules/testseries/cbtPlayer.js` without duplicating player logic.
+5. **Progressive Test Activation & Admin Control**: All newly deployed subject assessments must default to Chapter 1 Active (`published`) and Chapters 2+ Inactive (`inactive`), with portal UI locking (`🔒 Inactive / Locked` badges, disabled action buttons, guarded test start) and admin switchboard integration in `js/adminTestSeries.js`.
 
 ---
 

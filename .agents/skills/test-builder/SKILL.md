@@ -11,7 +11,7 @@ The **Test Builder Agent** is specialized in taking NCERT textbook chapters, cur
 
 ## 1. End-to-End Autonomous Operating Flow
 
-Whenever a user requests to build or add tests for a new subject or class, follow this strict 6-phase procedure:
+Whenever a user requests to build or add tests for a new subject or class, follow this strict 7-phase procedure:
 
 ```
 ┌────────────────────────────────────────────────────────┐
@@ -51,6 +51,14 @@ Whenever a user requests to build or add tests for a new subject or class, follo
 │  PHASE 6: HUB INTEGRATION & CBT VERIFICATION           │
 │  - Link portal in modules/testseries/data/class<X>/... │
 │  - Verify shared modules/testseries/cbtPlayer.js load  │
+└───────────────────────────┬────────────────────────────┘
+                            │
+┌───────────────────────────▼────────────────────────────┐
+│  PHASE 7: PROGRESSIVE ACTIVATION & ADMIN CONTROLS      │
+│  - Default: Ch 1 Active (published), Ch 2+ Inactive    │
+│  - Seed database migration with Ch 2+ inactive         │
+│  - Register metadata & tabs in adminTestSeries.js      │
+│  - Enforce portal UI locking & cloud status sync       │
 └────────────────────────────────────────────────────────┘
 ```
 
@@ -136,6 +144,27 @@ The validator guarantees:
    Update `modules/testseries/data/class<X>/testseries_class_<X>.html`:
    - Change the subject card badge from 🟡 `Scheduled / Coming Soon` to 🟢 `Active & Live`.
    - Update `href` to point directly to `<subject>/<subject>_<X>.html`.
+
+### Phase 7: Progressive Activation & Admin Switchboard Setup
+1. **Mandatory Default Deployment Status**:
+   - **Chapter 1**: Marked active/published (`status = 'published'`).
+   - **Chapters 2 and above**: Marked inactive/locked (`status = 'inactive'`) by default.
+   - Rationale: Gives faculty and administrators full pacing control to release chapters progressively as institute teaching progresses.
+2. **Database Migration Script**:
+   - Create sequentially numbered migration in `database/migrations/XXX_seed_<class>_<subject>_test_series.sql`.
+   - Ensure `status` is set to `'published'` for `_ch1` and `'inactive'` for all subsequent chapters.
+   - Include `ON CONFLICT (id) DO UPDATE SET status = EXCLUDED.status, ...` for idempotency.
+3. **Admin CBT Switchboard Integration** (`js/adminTestSeries.js` & `admin_home.html`):
+   - Add new subject metadata array to `ALL_CLASS_10_TEST_METADATA` with chapter numbers, titles, and default statuses.
+   - Ensure subject filter tabs include the new subject with correct count.
+   - Verify 1-click `▶️ Activate` / `⏸️ Deactivate` and bulk toggle update both `localStorage` and Supabase `test_series`.
+4. **Subject Portal UI Locking & Cloud Synchronization**:
+   - Every subject portal must include `getTestStatus(testId)`.
+   - Inactive chapters must render:
+     - Badge: `<span class="badge badge-danger">🔒 Inactive / Locked</span>`
+     - Action button: `<button class="btn btn-outline btn-sm" disabled style="opacity:0.6; cursor:not-allowed;">🔒 Locked by Admin</button>`
+   - `enrollInTest` and `launchTest` must guard against inactive statuses.
+   - Include `syncCloudTestStatuses()` called on `DOMContentLoaded` to reflect live status changes from Supabase.
 
 ---
 
