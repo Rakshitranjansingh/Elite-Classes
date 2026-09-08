@@ -137,7 +137,21 @@ The repository enforces autonomous, deterministic agent tooling across 5 core op
 5. **`security-auditor`** (`.agents/skills/security-auditor/SKILL.md`):
    - Automated verification tool (`audit_security.js`) checking anti-leak watermarks, proctor strikes, memory answer key stripping, and API privacy boundaries.
 6. **`course-builder`** (`.agents/skills/course-builder/SKILL.md`):
-   - Automated 20-module curriculum decomposition, NCERT coverage, points to remember, and 70% threshold mastery validation (`validate_course.js`) for interactive chapter courses.
+   - Automated 20-module curriculum decomposition, anti-boilerplate verification, points to remember, and 70% threshold mastery validation (`validate_course.js`) for interactive chapter courses.
+
+### G. Interactive Course & LMS Content Standards
+1. **Zero External Publisher Mentions**:
+   - Strictly prohibit and eliminate any mention of "NCERT" across all course files, titles, notes, points to remember, key notes, and questions. All curriculum materials must be branded as Elite Classes' native curriculum.
+2. **Anti-Boilerplate & Pedagogical Depth**:
+   - Every chapter must contain exactly **20 progressive mini-modules** with comprehensive Class 10 student standard notes (`theoryHtml`), specific balanced chemical/biological/physical equations (`Ca(OH)₂`, `Pb(NO₃)₂`, `Fe₃O₄`, $V = IR$), 3 `pointsToRemember`, and 1 `keyNotes` array.
+   - Absolutely NO generic placeholders or repetitive distractors (e.g., "color of the notebook", "day of the week").
+3. **Assessment Structure & Progressive Unlocking**:
+   - Exactly **10 high-yield MCQs per module (200 MCQs per chapter)** with 4 authentic curriculum options and full explanatory solutions.
+   - Modules 2 through 20 remain locked (🔒) until the student demonstrates mastery by scoring $\ge 70\%$ ($\ge 7/10$) on the preceding module.
+4. **Data Schema & Synchronized Identifiers**:
+   - The root object must define both `"chapterId": "c10_sci_ch<N>"` and `"chapterNumber": <N>`.
+   - `keyNotes` must strictly be an array of strings (`Array.isArray(mod.keyNotes) && mod.keyNotes.length >= 1`).
+   - Every chapter data file must export both to `window.COURSE_CHAPTER_DATA` and `module.exports`.
 
 
 ---
