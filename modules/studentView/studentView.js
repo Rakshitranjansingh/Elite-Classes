@@ -273,85 +273,98 @@ function renderStudentToday() {
     `;
 }
 
-// 2. Render Courses Tab (Enrolled Academic Subjects)
+// 2. Render Courses Tab (Enrolled Academic Subjects - Minimal UI)
 function renderStudentCourses() {
     const container = document.getElementById('st-courses-container');
     if (!container || !currentStudent) return;
 
-    const enrolledSubs = currentStudent.subjects ? currentStudent.subjects.split(',').map(s => s.trim()) : ['Mathematics', 'Science', 'English'];
+    const studentCls = currentStudent.cls || 'Class 10';
+    const enrolledSubs = currentStudent.subjects 
+        ? currentStudent.subjects.split(',').map(s => s.trim()).filter(Boolean)
+        : ['Science', 'Mathematics', 'Social Science', 'English'];
 
-    let cardsHtml = '';
-    const colors = ['#2563eb', '#8b5cf6', '#10b981', '#f59e0b', '#06b6d4', '#ec4899'];
-    const icons = ['📐', '🔬', '📖', '🧪', '🧬', '🌍'];
+    const subjectMetaMap = {
+        'Science': {
+            icon: '🔬',
+            color: '#2563eb',
+            desc: studentCls === 'Class 10' 
+                ? '13 Chapters • 260 Mini-Modules • 70% Mastery Threshold' 
+                : `${studentCls} Coaching Syllabus & Curriculum Notes`,
+            link: studentCls === 'Class 10' ? 'modules/course/class10/science/science_course_hub.html' : null
+        },
+        'Mathematics': {
+            icon: '📐',
+            color: '#8b5cf6',
+            desc: `${studentCls} Core Mathematics Syllabus & Problem Sets`,
+            link: null
+        },
+        'Social Science': {
+            icon: '🌍',
+            color: '#10b981',
+            desc: `${studentCls} History, Geography, Civics & Economics Notes`,
+            link: null
+        },
+        'English': {
+            icon: '📖',
+            color: '#f59e0b',
+            desc: `${studentCls} Literature & Language Competency Modules`,
+            link: null
+        }
+    };
 
-    enrolledSubs.forEach((sub, idx) => {
-        const color = colors[idx % colors.length];
-        const icon = icons[idx % icons.length];
-        const isScience = sub.toLowerCase().includes('science');
+    let cardsHtml = enrolledSubs.map(sub => {
+        const meta = subjectMetaMap[sub] || {
+            icon: '📘',
+            color: '#0284c7',
+            desc: `${studentCls} Academic Coaching Material`,
+            link: null
+        };
 
-        const scienceCourseModuleHtml = isScience ? `
-            <div style="margin-top:14px; padding:14px 16px; background:#f0f9ff; border:1px solid #bae6fd; border-radius:10px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        const isClass10Science = (studentCls === 'Class 10' && sub.toLowerCase().includes('science'));
+        const actionHtml = isClass10Science
+            ? `<a href="${meta.link}" class="btn btn-primary btn-sm" style="font-weight:700; border-radius:8px; padding:8px 16px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 6px rgba(37,99,235,0.2);">
+                   Open Course →
+               </a>`
+            : `<button class="btn btn-outline btn-sm" style="font-weight:600; border-radius:8px; padding:8px 14px;" onclick="showToast('${sub} syllabus materials for ${studentCls} are distributed during classroom lectures.', 'info')">
+                   Class Notes
+               </button>`;
+
+        return `
+            <div class="card" style="border-radius:14px; border:1px solid var(--border); box-shadow:0 2px 10px rgba(0,0,0,0.03); overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
                 <div>
-                    <div style="font-size:13px; font-weight:800; color:#0369a1;">🔬 Complete 13-Chapter Interactive Course Suite</div>
-                    <div style="font-size:11.5px; color:#0284c7; margin-top:2px;">260 Mini-Modules • 2,600 MCQs • 70% Mastery Unlocking</div>
-                </div>
-                <div style="display:flex; gap:8px;">
-                    <a href="modules/course/class10/science/science_course_hub.html" class="btn btn-primary btn-sm" style="background:#0284c7; border:none; font-size:12px; font-weight:700; padding:7px 14px; border-radius:6px; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
-                        Explore 13 Chapters →
-                    </a>
-                </div>
-            </div>
-        ` : '';
-
-        cardsHtml += `
-            <div class="card" style="border-radius:14px; border:1px solid var(--border); box-shadow:0 4px 12px rgba(0,0,0,0.03); overflow:hidden;">
-                <div style="background:${color}; padding:18px 20px; color:#ffffff; display:flex; justify-content:space-between; align-items:center;">
-                    <div style="display:flex; align-items:center; gap:10px;">
-                        <span style="font-size:24px;">${icon}</span>
-                        <div>
-                            <h3 style="font-size:16px; font-weight:800; margin:0; color:#ffffff;">${sub}</h3>
-                            <div style="font-size:11.5px; opacity:0.9; margin-top:2px;">${currentStudent.cls} Academic Curriculum</div>
+                    <div style="background:${meta.color}; padding:16px 18px; color:#ffffff; display:flex; justify-content:space-between; align-items:center;">
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <span style="font-size:24px;">${meta.icon}</span>
+                            <div>
+                                <h3 style="font-size:16px; font-weight:800; margin:0; color:#ffffff;">${sub}</h3>
+                                <div style="font-size:11px; opacity:0.9; margin-top:2px;">${studentCls} Curriculum</div>
+                            </div>
                         </div>
+                        <span style="background:rgba(255,255,255,0.2); color:#ffffff; font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:12px;">Enrolled</span>
                     </div>
-                    <span style="background:rgba(255,255,255,0.25); color:#ffffff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px;">Enrolled</span>
+                    <div class="card-body" style="padding:16px 18px;">
+                        <p style="font-size:13px; color:var(--text-muted); margin:0; line-height:1.5;">
+                            ${meta.desc}
+                        </p>
+                    </div>
                 </div>
-                <div class="card-body" style="padding:16px 20px;">
-                    <div style="font-size:13px; color:#0f172a; line-height:1.7;">
-                        <div>🏫 Institute Program: <b>Elite Classes Coaching Curriculum</b></div>
-                        <div>🎯 Course Scope: <b>Comprehensive Concept Building & Board Preparation</b></div>
-                    </div>
-                    ${scienceCourseModuleHtml}
+                <div style="padding:12px 18px; background:#f8fafc; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:11.5px; font-weight:700; color:var(--text-muted);">${studentCls}</span>
+                    ${actionHtml}
                 </div>
             </div>
         `;
-    });
-
-    const isClass10 = currentStudent.cls === 'Class 10';
-    const featuredBanner = isClass10 ? `
-        <div style="background:linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color:#ffffff; border-radius:14px; padding:22px 26px; margin-bottom:22px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; box-shadow:0 4px 16px rgba(30, 58, 138, 0.15);">
-            <div>
-                <span style="background:rgba(255,255,255,0.2); font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px; letter-spacing:0.4px;">✨ COMPLETE INTERACTIVE CURRICULUM</span>
-                <h3 style="font-size:18px; font-weight:800; margin:8px 0 4px; color:#ffffff;">Class 10 Science: All 13 Chapters Interactive Suite</h3>
-                <p style="font-size:12.5px; color:#dbeafe; margin:0; line-height:1.5;">260 progressive mini-modules across all 13 chapters. Each module features core theory notes, points to remember, and 10 MCQs with 70% mastery progressive unlocking.</p>
-            </div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <a href="modules/course/class10/science/science_course_hub.html" style="background:#ffffff; color:#1e3a8a; font-weight:800; font-size:13px; padding:10px 18px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 8px rgba(0,0,0,0.1); white-space:nowrap;">
-                    📚 Open Science Course Hub →
-                </a>
-                <a href="modules/course/class10/science/course_player.html?chapter=1" style="background:rgba(255,255,255,0.15); color:#ffffff; border:1px solid rgba(255,255,255,0.3); font-weight:700; font-size:13px; padding:10px 16px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; white-space:nowrap;">
-                    Start Chapter 1 →
-                </a>
-            </div>
-        </div>
-    ` : '';
+    }).join('');
 
     container.innerHTML = `
-        ${featuredBanner}
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-            <h3 style="font-size:16px; font-weight:700; margin:0;">Enrolled Academic Courses & Subjects (${currentStudent.cls})</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <div>
+                <h3 style="font-size:16px; font-weight:800; margin:0; color:var(--text);">Courses & Subjects</h3>
+                <span style="font-size:12px; color:var(--text-muted);">Enrolled curriculum materials for ${studentCls}</span>
+            </div>
             <span class="badge badge-primary">${enrolledSubs.length} Subjects</span>
         </div>
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:18px;">
+        <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">
             ${cardsHtml}
         </div>
     `;

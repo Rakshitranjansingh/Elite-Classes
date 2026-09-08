@@ -140,6 +140,69 @@
             border-color: rgba(255, 255, 255, 0.3);
         }
 
+        .btn-transparent-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: transparent;
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12.5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-transparent-nav:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-sidebar-close {
+            background: transparent;
+            border: 1px solid var(--c-border);
+            color: var(--c-muted);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-sidebar-close:hover {
+            background: #f1f5f9;
+            color: var(--c-text);
+        }
+
+        .sidebar-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            z-index: 990;
+        }
+
+        .sidebar-backdrop.active {
+            display: block;
+        }
+
+        body.drawer-locked {
+            overflow: hidden !important;
+        }
+
         .student-pill {
             display: flex;
             align-items: center;
@@ -776,22 +839,36 @@
         @media (max-width: 920px) {
             .course-sidebar {
                 position: fixed;
-                top: var(--course-header-h);
+                top: 0;
                 left: 0;
                 bottom: 0;
-                z-index: 90;
+                width: min(340px, 88vw);
+                min-width: min(340px, 88vw);
+                height: 100dvh;
+                max-height: 100dvh;
+                z-index: 1000;
                 transform: translateX(-100%);
-                box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+                box-shadow: 6px 0 30px rgba(0, 0, 0, 0.25);
+                overflow: hidden;
             }
 
             .course-sidebar.drawer-open {
                 transform: translateX(0);
             }
 
+            .modules-scroll-list {
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior: contain;
+                padding-bottom: 140px !important;
+                touch-action: pan-y;
+            }
+
             .mobile-drawer-btn {
                 display: inline-flex;
                 align-items: center;
-                gap: 6px;
+                gap: 5px;
+                font-size: 11.5px;
+                padding: 6px 10px;
             }
 
             .course-main {
@@ -803,8 +880,17 @@
             }
 
             .chapter-picker-select {
-                max-width: 140px;
+                max-width: 110px;
                 font-size: 11px;
+                padding: 5px 8px;
+            }
+
+            .hide-on-mobile {
+                display: none !important;
+            }
+
+            .course-nav-header {
+                padding: 10px 12px;
             }
         }
 
@@ -863,23 +949,25 @@
     <!-- DYNAMIC ANTI-LEAK WATERMARK OVERLAY -->
     <div id="course-watermark-overlay" class="course-watermark-overlay" aria-hidden="true"></div>
 
-    <!-- TOP NAVIGATION BAR -->
+    <!-- MOBILE SIDEBAR BACKDROP -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop" onclick="toggleMobileDrawer(true)"></div>
+
+    <!-- TOP NAVIGATION BAR (CLEAN & MINIMAL) -->
     <header class="course-nav-header">
 
-        <div style="display:flex; align-items:center; gap:12px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+            <a href="science_course_hub.html" class="btn-transparent-nav" title="Back to All Chapters">
+                ← Back
+            </a>
             <button class="mobile-drawer-btn" id="drawer-toggle-btn" onclick="toggleMobileDrawer()">
                 ☰ Modules
             </button>
-            <a href="science_course_hub.html" class="course-nav-brand">
-                <img src="../../../../eliteLogo_crest.png" alt="Elite Classes">
-                <div class="course-nav-title">
-                    <h1 id="top-nav-chapter-title">Class 10 Science</h1>
-                    <span id="top-nav-sub-title">Interactive Chapter Learning • 20 Mini-Modules</span>
-                </div>
-            </a>
+            <div class="course-nav-title">
+                <h1 id="top-nav-chapter-title">Class 10 Science</h1>
+            </div>
         </div>
 
-        <div style="display:flex; align-items:center; gap:10px;">
+        <div style="display:flex; align-items:center; gap:8px;">
             <!-- Chapter Selector Dropdown -->
             <select class="chapter-picker-select" id="global-chapter-picker" onchange="onChapterSelectChange(this.value)">
                 <option value="1">Ch 1: Chemical Reactions</option>
@@ -896,19 +984,11 @@
                 <option value="12">Ch 12: Magnetic Effects</option>
                 <option value="13">Ch 13: Our Environment</option>
             </select>
-        </div>
 
-        <div class="course-nav-actions">
             <div class="student-pill">
                 <span class="student-avatar" id="st-avatar">ST</span>
-                <span id="st-name">Student</span>
+                <span id="st-name" class="hide-on-mobile">Student</span>
             </div>
-            <a href="science_course_hub.html" class="btn-nav-action" title="View all Science Chapters">
-                📚 All Chapters
-            </a>
-            <a href="../../../../student_home.html" class="btn-nav-action" title="Back to Student Dashboard">
-                ← Exit
-            </a>
         </div>
     </header>
 
@@ -918,6 +998,12 @@
         <!-- LEFT SIDEBAR: 20 MODULES CURRICULUM -->
         <aside class="course-sidebar" id="course-sidebar">
             <div class="sidebar-header">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span style="font-size:13px; font-weight:800; color:var(--c-text);">All 20 Modules</span>
+                    <button class="btn-sidebar-close" onclick="toggleMobileDrawer(true)" title="Back to chapter content">
+                        ← Back
+                    </button>
+                </div>
                 <div class="sidebar-progress-label">
                     <span id="progress-modules-count">0 / 20 Completed</span>
                     <span id="progress-pct-badge">0%</span>
@@ -1238,10 +1324,7 @@
             activeModuleIndex = index;
             currentQuizSubmitted = false;
 
-            const sidebar = document.getElementById('course-sidebar');
-            if (sidebar && sidebar.classList.contains('drawer-open')) {
-                sidebar.classList.remove('drawer-open');
-            }
+            toggleMobileDrawer(true);
 
             renderSidebarModules();
             renderActiveModule();
@@ -1539,11 +1622,24 @@
             if (fillEl) fillEl.style.width = `${pct}%`;
         }
 
-        // Mobile Drawer Toggle
-        function toggleMobileDrawer() {
+        // Mobile Drawer Toggle with Backdrop & Scroll-Lock
+        function toggleMobileDrawer(forceClose = false) {
             const sidebar = document.getElementById('course-sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
             if (sidebar) {
-                sidebar.classList.toggle('drawer-open');
+                if (forceClose) {
+                    sidebar.classList.remove('drawer-open');
+                    if (backdrop) backdrop.classList.remove('active');
+                    document.body.classList.remove('drawer-locked');
+                } else {
+                    const isOpen = sidebar.classList.toggle('drawer-open');
+                    if (backdrop) backdrop.classList.toggle('active', isOpen);
+                    if (isOpen) {
+                        document.body.classList.add('drawer-locked');
+                    } else {
+                        document.body.classList.remove('drawer-locked');
+                    }
+                }
             }
         }
 

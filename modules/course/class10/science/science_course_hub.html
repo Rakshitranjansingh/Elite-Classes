@@ -29,7 +29,7 @@
             padding: 0;
         }
 
-        /* Top Header */
+        /* Top Header (Simple & Minimal) */
         .hub-header {
             position: sticky;
             top: 0;
@@ -42,120 +42,130 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 28px;
+            padding: 12px 24px;
         }
 
-        .hub-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .hub-brand img {
-            height: 38px;
-            width: auto;
-        }
-
-        .hub-title h1 {
-            font-size: 16px;
-            font-weight: 800;
-            margin: 0;
-            color: #f8fafc;
-            letter-spacing: -0.2px;
-        }
-
-        .hub-title span {
-            font-size: 11.5px;
-            color: #94a3b8;
-        }
-
-        .btn-exit-portal {
+        .btn-transparent-nav {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.1);
+            gap: 5px;
+            background: transparent;
             color: #f8fafc;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 7px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 12px;
             border-radius: 8px;
             font-size: 12.5px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
-        .btn-exit-portal:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .btn-transparent-nav:hover {
+            background: rgba(255, 255, 255, 0.15);
             color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.4);
         }
 
         /* Container */
         .hub-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 28px 24px 60px;
+            padding: 24px 20px 60px;
         }
 
-        /* Hero Banner */
-        .hub-hero {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            border-radius: 16px;
-            padding: 28px 32px;
-            color: #ffffff;
+        /* Circular Color Gradient Hero Section */
+        .hub-hero-clean {
+            position: relative;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 36px 28px 28px;
             margin-bottom: 28px;
-            box-shadow: 0 4px 20px rgba(30, 58, 138, 0.15);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+            overflow: hidden;
+            text-align: center;
         }
 
-        .hub-hero-text h2 {
-            font-size: 24px;
+        .hub-gradient-aura {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 480px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, rgba(16, 185, 129, 0.1) 45%, rgba(99, 102, 241, 0.03) 70%, transparent 100%);
+            filter: blur(36px);
+            pointer-events: none;
+        }
+
+        .hub-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .hub-class-tag {
+            display: inline-block;
+            font-size: 12px;
             font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-blue);
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.18);
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .hub-title-main {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-dark);
             margin: 0 0 6px;
             letter-spacing: -0.3px;
         }
 
-        .hub-hero-text p {
-            font-size: 14px;
-            color: #dbeafe;
-            margin: 0;
-            max-width: 620px;
-            line-height: 1.5;
+        .hub-sub-text {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin: 0 0 20px;
+            font-weight: 500;
         }
 
-        .hub-stats-grid {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .hub-stat-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+        .hub-horizontal-progress-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 12px 18px;
-            text-align: center;
-            min-width: 100px;
+            padding: 14px 18px;
+            text-align: left;
         }
 
-        .hub-stat-val {
-            font-size: 22px;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1;
+        .hub-progress-labels {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 8px;
         }
 
-        .hub-stat-label {
-            font-size: 11px;
-            color: #bfdbfe;
-            margin-top: 4px;
-            font-weight: 600;
+        .hub-progress-track {
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .hub-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2563eb, #10b981);
+            border-radius: 5px;
+            transition: width 0.5s ease;
         }
 
         /* Grid of 13 Chapters */
@@ -302,47 +312,37 @@
 
 <body>
 
-    <!-- TOP HEADER -->
+    <!-- TOP HEADER (SIMPLE & MINIMAL) -->
     <header class="hub-header">
-        <a href="../../../../student_home.html" class="hub-brand">
-            <img src="../../../../eliteLogo_crest.png" alt="Elite Classes">
-            <div class="hub-title">
-                <h1>Class 10 Science Interactive Curriculum</h1>
-                <span>Comprehensive 20-Module Chapter Learning & 70% Mastery Assessments</span>
-            </div>
-        </a>
-        <a href="../../../../student_home.html" class="btn-exit-portal">
-            ← Student Portal
-        </a>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <a href="../../../../student_home.html" class="btn-transparent-nav" title="Back to Student Portal">
+                ← Back
+            </a>
+            <span style="font-size:15px; font-weight:800; color:#f8fafc;">Class 10 Science</span>
+        </div>
+        <div style="font-size:12px; color:#94a3b8; font-weight:600;" id="hub-student-name">Student Portal</div>
     </header>
 
     <!-- MAIN HUB CONTAINER -->
     <div class="hub-container">
 
-        <!-- HERO STATS BANNER -->
-        <div class="hub-hero">
-            <div class="hub-hero-text">
-                <h2>🔬 Class 10 Science Mastery Suite</h2>
-                <p>
-                    Every chapter broken down into 20 bite-sized mini-modules with conceptual theory, points to remember, and 10-question mastery tests. Score 70% or higher to unlock the next module!
-                </p>
-            </div>
-            <div class="hub-stats-grid">
-                <div class="hub-stat-card">
-                    <div class="hub-stat-val">13</div>
-                    <div class="hub-stat-label">Chapters</div>
-                </div>
-                <div class="hub-stat-card">
-                    <div class="hub-stat-val">260</div>
-                    <div class="hub-stat-label">Mini-Modules</div>
-                </div>
-                <div class="hub-stat-card">
-                    <div class="hub-stat-val">2,600</div>
-                    <div class="hub-stat-label">MCQs</div>
-                </div>
-                <div class="hub-stat-card">
-                    <div class="hub-stat-val" id="total-progress-pct">0%</div>
-                    <div class="hub-stat-label">Completed</div>
+        <!-- CIRCULAR COLOR GRADIENT HERO SECTION -->
+        <div class="hub-hero-clean">
+            <div class="hub-gradient-aura" aria-hidden="true"></div>
+            <div class="hub-hero-content">
+                <div class="hub-class-tag">Class 10 • Science</div>
+                <h1 class="hub-title-main">Complete test to unlock new modules</h1>
+                <p class="hub-sub-text">13 Chapters • 260 Mini-Modules • 70% Mastery Unlocking</p>
+                
+                <!-- SINGLE HORIZONTAL PROGRESS BAR -->
+                <div class="hub-horizontal-progress-box">
+                    <div class="hub-progress-labels">
+                        <span>Overall Syllabus Progress</span>
+                        <span id="total-progress-pct">0% Completed (0/260 Modules)</span>
+                    </div>
+                    <div class="hub-progress-track">
+                        <div class="hub-progress-fill" id="total-progress-bar" style="width: 0%;"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -406,17 +406,27 @@
                 const pct = Math.round((passedCount / 20) * 100);
 
                 let statusBadge = '<span class="status-pill not-started">Not Started</span>';
-                let btnText = 'Start Chapter →';
+                let btnText = 'Start →';
                 if (passedCount === 20) {
-                    statusBadge = '<span class="status-pill completed">✓ Mastered (20/20)</span>';
-                    btnText = 'Review Chapter →';
+                    statusBadge = '<span class="status-pill completed">✓ Mastered</span>';
+                    btnText = 'Review →';
                 } else if (passedCount > 0) {
                     statusBadge = `<span class="status-pill in-progress">In Progress (${passedCount}/20)</span>`;
-                    btnText = `Resume (${passedCount}/20) →`;
+                    btnText = `Resume →`;
+                }
+
+                // Check Admin Active/Inactive Status
+                const courseStatusMap = JSON.parse(localStorage.getItem('ec_course_status_map') || '{}');
+                const isChActive = courseStatusMap[ch.id] !== false && courseStatusMap['class10_science'] !== false;
+                if (!isChActive) {
+                    statusBadge = '<span class="status-pill" style="background:#fee2e2; color:#991b1b;">🔴 Inactive / Coming Soon</span>';
+                    btnText = 'Coming Soon';
                 }
 
                 cardsHtml += `
-                    <a href="course_player.html?chapter=${ch.num}" class="chapter-card">
+                    <a href="${isChActive ? `course_player.html?chapter=${ch.num}` : 'javascript:void(0)'}" 
+                       class="chapter-card ${!isChActive ? 'chapter-inactive' : ''}" 
+                       ${!isChActive ? 'onclick="alert(\'This chapter is currently set to inactive by institute administration.\'); return false;" style="opacity:0.75; cursor:not-allowed;"' : ''}>
                         <div>
                             <div class="chapter-card-top">
                                 <span class="chapter-badge">Chapter ${String(ch.num).padStart(2, '0')}</span>
@@ -452,7 +462,11 @@
             const overallPct = Math.round((totalPassedAcrossAll / totalModulesOverall) * 100);
             const totalProgressEl = document.getElementById('total-progress-pct');
             if (totalProgressEl) {
-                totalProgressEl.textContent = `${overallPct}%`;
+                totalProgressEl.textContent = `${overallPct}% Completed (${totalPassedAcrossAll}/260 Modules)`;
+            }
+            const barEl = document.getElementById('total-progress-bar');
+            if (barEl) {
+                barEl.style.width = `${overallPct}%`;
             }
         }
 

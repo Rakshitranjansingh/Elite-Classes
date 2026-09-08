@@ -60,6 +60,9 @@ function navigateToView(viewName) {
     if (viewName === 'subscribers') {
         if (typeof renderSubscribersAdminView === 'function') renderSubscribersAdminView();
     }
+    if (viewName === 'courses') {
+        if (typeof renderAdminCoursesView === 'function') renderAdminCoursesView();
+    }
 }
 
 // Profile Type Switcher (Students / Teachers / Staff / Admins)
