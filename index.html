@@ -1508,6 +1508,25 @@
                 <!-- ERROR / PENDING MESSAGE ALERT -->
                 <div id="portal-error" class="error-alert" style="display:none; margin-bottom:16px; padding:10px 14px; border-radius:10px; font-size:12.5px; font-weight:600;"></div>
 
+                                <!-- GOOGLE OAUTH CONTINUATION -->
+                <div style="margin-bottom:18px;">
+                    <button type="button" id="btn-google-signin" onclick="handleGoogleSignIn()" style="width:100%; display:flex; align-items:center; justify-content:center; gap:10px; padding:12px; background:#ffffff; color:#1e293b; border:1.5px solid #cbd5e1; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.06); transition:all 0.2s ease;">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.27 21.36 7.35 24 12 24z"/>
+                            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
+                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.27 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                        </svg>
+                        <span>Continue with Google</span>
+                    </button>
+                </div>
+
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+                    <div style="flex:1; height:1px; background:#e2e8f0;"></div>
+                    <span style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:0.5px;">Or sign in with PIN</span>
+                    <div style="flex:1; height:1px; background:#e2e8f0;"></div>
+                </div>
+
                 <form id="portal-login-form" onsubmit="event.preventDefault(); handlePortalLogin();">
                     <div style="margin-bottom:16px;">
                         <label class="input-label" for="portal-phone" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
@@ -1554,6 +1573,199 @@
 
 
     <!-- APP TOAST -->
+    
+    <!-- ===================================================================== -->
+    <!-- MODAL 3: GOOGLE NEW STUDENT ONBOARDING & PROFILE LOCK MODAL           -->
+    <!-- ===================================================================== -->
+    <div class="modal-overlay" id="googleOnboardingModal">
+        <div class="custom-modal" style="max-width:500px;">
+            <div class="custom-modal-header">
+                <div>
+                    <h3 class="custom-modal-title">Complete Admission Profile</h3>
+                    <div style="font-size:11px; color:#64748b; margin-top:2px;">
+                        Google Verified Account • Pending Admin Review
+                    </div>
+                </div>
+                <button type="button" class="custom-modal-close" onclick="closeModal('googleOnboardingModal')">✕</button>
+            </div>
+
+            <div class="custom-modal-body">
+                <div id="google-onboard-alert" style="display:none; margin-bottom:14px; padding:10px 14px; border-radius:10px; font-size:12.5px; font-weight:600;"></div>
+
+                <!-- Google Account Card -->
+                <div style="display:flex; align-items:center; gap:12px; background:#f1f5f9; padding:12px 16px; border-radius:12px; margin-bottom:18px;">
+                    <img id="g-onboard-avatar" src="eliteLogo_crest.png" style="width:40px; height:40px; border-radius:50%; object-fit:cover; border:2px solid #2563eb;" alt="Avatar">
+                    <div style="overflow:hidden;">
+                        <div id="g-onboard-name" style="font-weight:800; font-size:14px; color:#0f172a; white-space:nowrap; text-overflow:ellipsis;">Student Name</div>
+                        <div id="g-onboard-email" style="font-size:12px; color:#64748b; white-space:nowrap; text-overflow:ellipsis;">email@gmail.com</div>
+                    </div>
+                </div>
+
+                <!-- Enrollment Type Segmented Control -->
+                <div style="margin-bottom:18px;">
+                    <label style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                        Enrollment Program
+                    </label>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                        <label id="lbl-type-regular" style="display:flex; flex-direction:column; align-items:center; padding:12px; border:2px solid #2563eb; background:#eff6ff; border-radius:10px; cursor:pointer; text-align:center;">
+                            <input type="radio" name="g_course_type" value="regular" checked onchange="updateCourseTypeUI('regular')" style="display:none;">
+                            <span style="font-size:18px; margin-bottom:4px;">🏫</span>
+                            <span style="font-weight:800; font-size:12.5px; color:#1e3a8a;">Regular Coaching</span>
+                            <span style="font-size:10.5px; color:#64748b;">Classroom + CBT</span>
+                        </label>
+                        <label id="lbl-type-testseries" style="display:flex; flex-direction:column; align-items:center; padding:12px; border:2px solid #e2e8f0; background:#ffffff; border-radius:10px; cursor:pointer; text-align:center;">
+                            <input type="radio" name="g_course_type" value="testseries" onchange="updateCourseTypeUI('testseries')" style="display:none;">
+                            <span style="font-size:18px; margin-bottom:4px;">📝</span>
+                            <span style="font-weight:800; font-size:12.5px; color:#334155;">Test Series Only</span>
+                            <span style="font-size:10.5px; color:#64748b;">₹499 Annual Pass</span>
+                        </label>
+                    </div>
+                </div>
+
+                <form id="google-onboarding-form" onsubmit="event.preventDefault(); handleGoogleOnboardingSubmit();">
+                    <div style="margin-bottom:14px;">
+                        <label class="input-label" for="g-onboard-phone" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                            WhatsApp Mobile Number *
+                        </label>
+                        <input type="tel" id="g-onboard-phone" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="10-digit WhatsApp number" maxlength="15" required>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px;">
+                        <div>
+                            <label class="input-label" for="g-onboard-class" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                                Academic Class *
+                            </label>
+                            <select id="g-onboard-class" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" required>
+                                <option value="Class 10" selected>Class 10</option>
+                                <option value="Class 9">Class 9</option>
+                                <option value="Class 8">Class 8</option>
+                                <option value="Class 7">Class 7</option>
+                                <option value="Class 6">Class 6</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="input-label" for="g-onboard-pin" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                                Secret 4-Digit PIN
+                            </label>
+                            <input type="password" id="g-onboard-pin" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="e.g. 1234" maxlength="6">
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:18px;">
+                        <label class="input-label" for="g-onboard-school" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                            School Name (Optional)
+                        </label>
+                        <input type="text" id="g-onboard-school" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="e.g. DPS / KV / St. Xavier">
+                    </div>
+
+                    <button type="submit" id="g-onboard-submit-btn" style="width:100%; padding:14px; background:linear-gradient(135deg, #2563eb, #1d4ed8); color:#ffffff; font-size:14.5px; font-weight:700; border:none; border-radius:12px; cursor:pointer; box-shadow:0 10px 20px -5px rgba(37,99,235,0.4);">
+                        Submit Application for Admin Approval →
+                    </button>
+                </form>
+
+                <div style="margin-top:16px; text-align:center; border-top:1px solid #e2e8f0; padding-top:12px;">
+                    <a href="javascript:void(0)" onclick="openLinkAccountModal()" style="font-size:12.5px; color:#2563eb; font-weight:700; text-decoration:none;">
+                        🔗 Already an Elite Classes student? Link existing account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL 4: PROFILE LOCKED - PENDING ADMIN APPROVAL                      -->
+    <!-- ===================================================================== -->
+    <div class="modal-overlay" id="pendingApprovalModal">
+        <div class="custom-modal" style="max-width:440px; text-align:center;">
+            <div class="custom-modal-body" style="padding:32px 24px;">
+                <div style="width:64px; height:64px; background:#fef3c7; color:#d97706; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:28px;">
+                    🔒
+                </div>
+                <h3 style="font-size:18px; font-weight:800; color:#0f172a; margin:0 0 8px;">
+                    Profile Locked: Pending Admin Approval
+                </h3>
+                <p style="font-size:13px; color:#64748b; line-height:1.5; margin:0 0 18px;">
+                    Your admission request for <strong id="lock-student-name">Student</strong> (<span id="lock-student-class">Class 10</span>) is recorded.
+                </p>
+
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:14px; margin-bottom:20px; text-align:left;">
+                    <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:6px;">
+                        <span style="color:#64748b;">Reference Code:</span>
+                        <strong style="color:#2563eb;" id="lock-tracking-code">EC-ADM-12345</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:6px;">
+                        <span style="color:#64748b;">Registered Email:</span>
+                        <strong style="color:#0f172a;" id="lock-student-email">email@gmail.com</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:12px;">
+                        <span style="color:#64748b;">Status:</span>
+                        <span style="color:#d97706; font-weight:700; background:#fef3c7; padding:2px 8px; border-radius:4px;">Pending Verification</span>
+                    </div>
+                </div>
+
+                <a id="lock-wa-btn" href="https://wa.me/919911519237" target="_blank" style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px; padding:12px; background:#10b981; color:#ffffff; font-weight:700; font-size:13.5px; border-radius:10px; text-decoration:none; margin-bottom:10px; box-shadow:0 4px 12px rgba(16,185,129,0.3); box-sizing:border-box;">
+                    💬 Message Admin on WhatsApp for Quick Approval →
+                </a>
+
+                <button type="button" class="btn btn-sm btn-outline" style="width:100%;" onclick="closeModal('pendingApprovalModal')">
+                    Back to Home
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL 5: LINK GOOGLE EMAIL TO EXISTING STUDENT ACCOUNT                -->
+    <!-- ===================================================================== -->
+    <div class="modal-overlay" id="linkAccountModal">
+        <div class="custom-modal" style="max-width:440px;">
+            <div class="custom-modal-header">
+                <div>
+                    <h3 class="custom-modal-title">Link Existing Profile</h3>
+                    <div style="font-size:11px; color:#64748b; margin-top:2px;">
+                        Bind this Google account to your registered student profile
+                    </div>
+                </div>
+                <button type="button" class="custom-modal-close" onclick="closeModal('linkAccountModal')">✕</button>
+            </div>
+
+            <div class="custom-modal-body">
+                <div id="link-account-alert" style="display:none; margin-bottom:14px; padding:10px 14px; border-radius:10px; font-size:12.5px; font-weight:600;"></div>
+
+                <p style="font-size:12.5px; color:#475569; margin:0 0 16px;">
+                    Google Account: <strong id="link-g-email" style="color:#2563eb;">email@gmail.com</strong>
+                </p>
+
+                <form id="link-account-form" onsubmit="event.preventDefault(); handleLinkExistingAccountSubmit();">
+                    <div style="margin-bottom:14px;">
+                        <label class="input-label" for="link-phone" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                            Registered WhatsApp Number *
+                        </label>
+                        <input type="tel" id="link-phone" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="e.g. 9876543210" required>
+                    </div>
+
+                    <div style="margin-bottom:18px;">
+                        <label class="input-label" for="link-pin" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                            Student PIN *
+                        </label>
+                        <input type="password" id="link-pin" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="Enter your 4 or 6 digit PIN" required>
+                    </div>
+
+                    <button type="submit" id="link-submit-btn" style="width:100%; padding:12px; background:linear-gradient(135deg, #10b981, #059669); color:#ffffff; font-size:14px; font-weight:700; border:none; border-radius:10px; cursor:pointer;">
+                        Verify & Link Google Account →
+                    </button>
+                </form>
+
+                <div style="margin-top:14px; text-align:center;">
+                    <button type="button" class="btn btn-sm btn-outline" style="width:100%;" onclick="closeModal('linkAccountModal'); openModal('googleOnboardingModal');">
+                        ← Back to Admission Form
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="toast" id="app-toast">
         <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-width="2.5"/></svg>
         <span id="toast-msg"></span>
@@ -1660,6 +1872,7 @@
                 initSupabaseClient();
             }
             await initPublicPage();
+            await checkGoogleAuthRedirect();
         });
 
         async function initPublicPage() {
@@ -2025,6 +2238,8 @@
                 }
 
                 showToast(`Welcome back, ${authResult.user.name || 'User'}!`, 'success');
+                establishUserSession(authResult, 'whatsapp_pin');
+                return;
 
                 if (authResult.role === 'admin') {
                     localStorage.setItem('ec_user_role', 'admin');
@@ -2088,6 +2303,268 @@
                 submitBtn.innerHTML = '<span>Enter Coaching Portal →</span>';
             }
         }
+
+        // -------------------------------------------------------------
+        // GOOGLE SIGN-IN & ONBOARDING CONTROLLER
+        // -------------------------------------------------------------
+        let currentGoogleUser = null;
+
+        async function handleGoogleSignIn() {
+            const btn = document.getElementById('btn-google-signin');
+            if (btn) {
+                btn.disabled = true;
+                btn.innerHTML = '<span>Connecting to Google...</span>';
+            }
+            const res = await DBService.signInWithGoogle();
+            if (!res.success) {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.27 21.36 7.35 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.27 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg><span>Continue with Google</span>`;
+                }
+                const errEl = document.getElementById('portal-error');
+                if (errEl) {
+                    errEl.textContent = res.message || 'Could not connect to Google sign-in.';
+                    errEl.style.display = 'block';
+                }
+            }
+        }
+
+        async function checkGoogleAuthRedirect() {
+            if (typeof isSupabaseConnected === 'function' && !isSupabaseConnected()) return;
+            try {
+                if (typeof supabaseClient === 'undefined' || !supabaseClient.auth) return;
+                const { data: { session }, error } = await supabaseClient.auth.getSession();
+                if (error) throw error;
+                if (session && session.user) {
+                    const authResult = await DBService.handleGoogleAuthSession(session.user);
+                    if (authResult.success) {
+                        showToast(`Welcome back, ${authResult.user.name || 'User'}!`, 'success');
+                        establishUserSession(authResult, 'google');
+                    } else if (authResult.isPending) {
+                        closeModal('portalLoginModal');
+                        openPendingApprovalModal(authResult.student || {
+                            name: session.user.user_metadata?.full_name || 'Student',
+                            class: 'Class 10',
+                            email: session.user.email,
+                            tracking_code: authResult.trackingCode || 'EC-ADM'
+                        });
+                    } else if (authResult.isUnregistered) {
+                        closeModal('portalLoginModal');
+                        currentGoogleUser = authResult.googleUser;
+                        openGoogleOnboardingModal(authResult.googleUser);
+                    } else {
+                        showToast(authResult.message || 'Google authentication failed', 'danger');
+                    }
+                }
+            } catch (err) {
+                console.warn('[Auth] Google OAuth check:', err);
+            }
+        }
+
+        function openGoogleOnboardingModal(gUser) {
+            currentGoogleUser = gUser;
+            document.getElementById('g-onboard-name').textContent = gUser.name || 'New Student';
+            document.getElementById('g-onboard-email').textContent = gUser.email;
+            if (gUser.avatar) {
+                document.getElementById('g-onboard-avatar').src = gUser.avatar;
+            }
+            openModal('googleOnboardingModal');
+        }
+
+        function updateCourseTypeUI(selectedType) {
+            const regLabel = document.getElementById('lbl-type-regular');
+            const tsLabel = document.getElementById('lbl-type-testseries');
+            if (selectedType === 'regular') {
+                regLabel.style.borderColor = '#2563eb';
+                regLabel.style.background = '#eff6ff';
+                tsLabel.style.borderColor = '#e2e8f0';
+                tsLabel.style.background = '#ffffff';
+            } else {
+                tsLabel.style.borderColor = '#2563eb';
+                tsLabel.style.background = '#eff6ff';
+                regLabel.style.borderColor = '#e2e8f0';
+                regLabel.style.background = '#ffffff';
+            }
+        }
+
+        async function handleGoogleOnboardingSubmit() {
+            if (!currentGoogleUser) return;
+            const phone = document.getElementById('g-onboard-phone').value.trim();
+            const cls = document.getElementById('g-onboard-class').value;
+            const pin = document.getElementById('g-onboard-pin').value.trim();
+            const school = document.getElementById('g-onboard-school').value.trim();
+            const courseType = document.querySelector('input[name="g_course_type"]:checked')?.value || 'regular';
+
+            const alertBox = document.getElementById('google-onboard-alert');
+            const submitBtn = document.getElementById('g-onboard-submit-btn');
+
+            alertBox.style.display = 'none';
+
+            if (!phone || phone.replace(/\D/g, '').length < 10) {
+                alertBox.textContent = 'Please enter a valid 10-digit WhatsApp phone number.';
+                alertBox.style.background = '#fef2f2';
+                alertBox.style.color = '#ef4444';
+                alertBox.style.display = 'block';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Recording Admission...';
+
+            try {
+                const res = await DBService.registerGoogleStudent({
+                    name: currentGoogleUser.name || 'New Student',
+                    email: currentGoogleUser.email,
+                    phone: phone,
+                    cls: cls,
+                    courseType: courseType,
+                    school: school,
+                    pin: pin || '1234'
+                });
+
+                if (!res.success) {
+                    alertBox.textContent = res.message || 'Registration error. Please check your details.';
+                    alertBox.style.background = '#fef2f2';
+                    alertBox.style.color = '#ef4444';
+                    alertBox.style.display = 'block';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Application for Admin Approval →';
+                    return;
+                }
+
+                closeModal('googleOnboardingModal');
+                openPendingApprovalModal(res.student);
+            } catch (err) {
+                console.error('Google onboarding error:', err);
+                alertBox.textContent = 'Connection error. Please try again.';
+                alertBox.style.background = '#fef2f2';
+                alertBox.style.color = '#ef4444';
+                alertBox.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Application for Admin Approval →';
+            }
+        }
+
+        function openPendingApprovalModal(studentData) {
+            document.getElementById('lock-student-name').textContent = studentData.name || 'Student';
+            document.getElementById('lock-student-class').textContent = studentData.class || studentData.cls || 'Class 10';
+            document.getElementById('lock-tracking-code').textContent = studentData.tracking_code || 'EC-ADM-PENDING';
+            document.getElementById('lock-student-email').textContent = studentData.email || '';
+
+            const waMsg = encodeURIComponent(`Hello Elite Classes, I have registered via Google. Candidate: ${studentData.name}, Class: ${studentData.class || studentData.cls}, Ref: ${studentData.tracking_code || 'N/A'}. Please review and approve my account.`);
+            document.getElementById('lock-wa-btn').href = `https://wa.me/919911519237?text=${waMsg}`;
+
+            openModal('pendingApprovalModal');
+        }
+
+        function openLinkAccountModal() {
+            closeModal('googleOnboardingModal');
+            if (currentGoogleUser) {
+                document.getElementById('link-g-email').textContent = currentGoogleUser.email;
+            }
+            openModal('linkAccountModal');
+        }
+
+        async function handleLinkExistingAccountSubmit() {
+            if (!currentGoogleUser) return;
+            const phone = document.getElementById('link-phone').value.trim();
+            const pin = document.getElementById('link-pin').value.trim();
+            const alertBox = document.getElementById('link-account-alert');
+            const submitBtn = document.getElementById('link-submit-btn');
+
+            alertBox.style.display = 'none';
+
+            if (!phone || !pin) {
+                alertBox.textContent = 'Please enter both your WhatsApp number and secret PIN.';
+                alertBox.style.background = '#fef2f2';
+                alertBox.style.color = '#ef4444';
+                alertBox.style.display = 'block';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Linking Account...';
+
+            try {
+                const res = await DBService.linkGoogleEmailToExistingStudent(phone, pin, currentGoogleUser.email);
+                if (!res.success) {
+                    alertBox.textContent = res.message || 'Verification failed. Please check WhatsApp & PIN.';
+                    alertBox.style.background = '#fef2f2';
+                    alertBox.style.color = '#ef4444';
+                    alertBox.style.display = 'block';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Verify & Link Google Account →';
+                    return;
+                }
+
+                closeModal('linkAccountModal');
+                showToast(`Account linked! Welcome back, ${res.student.name}!`, 'success');
+                establishUserSession({
+                    role: 'student',
+                    user: {
+                        id: res.student.id,
+                        name: res.student.name,
+                        cls: res.student.class || res.student.cls || 'Class 10',
+                        phone: res.student.phone
+                    },
+                    redirectUrl: 'student_home.html'
+                }, 'google');
+
+            } catch (err) {
+                console.error('Link account error:', err);
+                alertBox.textContent = 'Connection error. Please try again.';
+                alertBox.style.background = '#fef2f2';
+                alertBox.style.color = '#ef4444';
+                alertBox.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Verify & Link Google Account →';
+            }
+        }
+
+        // Establish Unified Session across all portals
+        function establishUserSession(authResult, provider = 'whatsapp_pin') {
+            localStorage.setItem('ec_auth_provider', provider);
+            localStorage.setItem('ec_last_activity', Date.now().toString());
+
+            if (authResult.role === 'admin') {
+                localStorage.setItem('ec_user_role', 'admin');
+                localStorage.setItem('ec_admin_id', authResult.user.id);
+                localStorage.setItem('ec_admin_name', authResult.user.name);
+                setTimeout(() => { window.location.href = 'admin_home.html'; }, 400);
+            } else if (authResult.role === 'student') {
+                localStorage.setItem('ec_user_role', 'student');
+                localStorage.setItem('ec_student_id', authResult.user.id);
+                localStorage.setItem('ec_student_name', authResult.user.name || 'Student');
+                localStorage.setItem('ec_active_student', JSON.stringify({
+                    id: authResult.user.id,
+                    name: authResult.user.name || 'Student',
+                    cls: authResult.user.class || authResult.user.cls || 'Class 10',
+                    phone: authResult.user.phone,
+                    email: authResult.user.email || ''
+                }));
+                setTimeout(() => { window.location.href = 'student_home.html'; }, 400);
+            } else if (authResult.role === 'staff') {
+                localStorage.setItem('ec_user_role', 'staff');
+                localStorage.setItem('ec_staff_id', authResult.user.id);
+                localStorage.setItem('ec_staff_name', authResult.user.name);
+                setTimeout(() => { window.location.href = 'staff_home.html'; }, 400);
+            } else if (authResult.role === 'testseries_subscriber') {
+                localStorage.setItem('ec_user_role', 'testseries_subscriber');
+                localStorage.setItem('ec_subscriber_id', authResult.user.id);
+                localStorage.setItem('ec_subscriber_name', authResult.user.name);
+                localStorage.setItem('ec_active_student', JSON.stringify({
+                    id: authResult.user.id,
+                    name: authResult.user.name || 'Subscriber',
+                    cls: authResult.user.cls || 'Class 10',
+                    phone: authResult.user.phone,
+                    is_subscriber: true
+                }));
+                setTimeout(() => { window.location.href = 'testseries_user_home.html'; }, 400);
+            } else {
+                window.location.href = authResult.redirectUrl || 'index.html';
+            }
+        }
+
     </script>
 </body>
 

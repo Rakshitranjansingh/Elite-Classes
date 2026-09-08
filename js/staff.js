@@ -63,7 +63,7 @@ function renderStaffTable() {
 function openAddStaffModal() {
     editingStaffId = null;
     document.getElementById('staffModalTitle').textContent = 'Add New Staff Member';
-    ['f-stname', 'f-strole', 'f-stemail', 'f-stphone', 'f-stsalary', 'f-stincentive'].forEach(id => {
+    ['f-stname', 'f-strole', 'f-stemail', 'f-staddemail', 'f-stphone', 'f-stsalary', 'f-stincentive'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = '';
     });
@@ -78,16 +78,18 @@ function editStaff(id) {
     document.getElementById('f-stname').value = s.name;
     document.getElementById('f-strole').value = s.role;
     if (document.getElementById('f-stemail')) document.getElementById('f-stemail').value = s.email || '';
+    if (document.getElementById('f-staddemail')) document.getElementById('f-staddemail').value = s.additional_email || s.additionalEmail || '';
     document.getElementById('f-stphone').value = s.phone;
     document.getElementById('f-stsalary').value = s.salary;
     document.getElementById('f-stincentive').value = s.incentive || 0;
     openModal('addStaffModal');
 }
 
-function saveStaffForm() {
+async function saveStaffForm() {
     const name = document.getElementById('f-stname').value.trim();
     const role = document.getElementById('f-strole').value.trim();
-    const email = (document.getElementById('f-stemail')?.value || '').trim();
+    const email = (document.getElementById('f-stemail')?.value || '').trim().toLowerCase();
+    const additionalEmail = (document.getElementById('f-staddemail')?.value || '').trim().toLowerCase();
     const phone = document.getElementById('f-stphone').value.trim();
     const salary = parseFloat(document.getElementById('f-stsalary').value);
     const incentive = parseFloat(document.getElementById('f-stincentive')?.value) || 0;
@@ -101,6 +103,34 @@ function saveStaffForm() {
     if (cleanPhone.length < 10) {
         showToast('Please enter a valid 10-digit phone number', 'danger');
         return;
+    }
+
+    // Strict Email Validation
+    if (email && additionalEmail && email === additionalEmail) {
+        showToast('Primary and Additional email cannot be identical', 'danger');
+        return;
+    }
+
+    const emailsToCheck = [email, additionalEmail].filter(Boolean);
+    if (typeof DBService !== 'undefined' && DBService.checkEmailUniqueness) {
+        for (const em of emailsToCheck) {
+            const res = await DBService.checkEmailUniqueness(em, editingStaffId);
+            if (!res.isUnique) {
+                showToast(res.message, 'danger');
+                return;
+            }
+        }
+    } else {
+        for (const em of emailsToCheck) {
+            const dup = staff.find(st => st.id !== editingStaffId && (
+                (st.email && st.email.trim().toLowerCase() === em) ||
+                ((st.additional_email || st.additionalEmail) && (st.additional_email || st.additionalEmail).trim().toLowerCase() === em)
+            ));
+            if (dup) {
+                showToast(`Email ${em} is already assigned to staff ${dup.name}!`, 'danger');
+                return;
+            }
+        }
     }
 
     if (!editingStaffId) {
@@ -119,13 +149,13 @@ function saveStaffForm() {
 
     if (editingStaffId) {
         const idx = staff.findIndex(s => s.id === editingStaffId);
-        staff[idx] = { ...staff[idx], name, role, email, phone, salary, incentive };
+        staff[idx] = { ...staff[idx], name, role, email, additional_email: additionalEmail || null, phone, salary, incentive };
         if (typeof DBService !== 'undefined') DBService.upsertStaff(staff[idx]);
         showToast('Staff member updated');
     } else {
         const newStaff = {
             id: 'st_' + Date.now(),
-            name, role, email, phone, salary, incentive,
+            name, role, email, additional_email: additionalEmail || null, phone, salary, incentive,
             color: AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)]
         };
         staff.push(newStaff);

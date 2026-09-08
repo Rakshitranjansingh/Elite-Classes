@@ -202,6 +202,8 @@ function openStudentDetailModal(studentId) {
                 <a href="https://wa.me/91${escapeHtml(s.phone)}" target="_blank" class="btn btn-sm btn-whatsapp" style="margin-top:8px; display:inline-flex; font-size:11px; padding:4px 8px;">
                     WhatsApp (${escapeHtml(s.phone)})
                 </a>
+                ${s.email ? `<div style="font-size:11px; color:var(--text); margin-top:6px; word-break:break-all;">✉️ <strong>Primary:</strong> ${escapeHtml(s.email)}</div>` : ''}
+                ${(s.additional_email || s.additionalEmail) ? `<div style="font-size:11px; color:var(--primary); margin-top:3px; word-break:break-all;">✉️ <strong>Google:</strong> ${escapeHtml(s.additional_email || s.additionalEmail)}</div>` : ''}
             </div>
 
             <div class="card" style="padding:14px; margin-bottom:0; background:#f8fafc;">
@@ -391,7 +393,7 @@ async function resolveStudentRemarkAction(remarkId, studentId) {
 function openAddStudentModal() {
     editingStudentId = null;
     document.getElementById('studentModalTitle').textContent = 'Add New Student';
-    ['f-sname', 'f-semail', 'f-sclass', 'f-sparent', 'f-sphone', 'f-spin', 'f-sfee', 'f-sscholarship', 'f-sdoa', 'f-sschool'].forEach(id => {
+    ['f-sname', 'f-semail', 'f-saddemail', 'f-sclass', 'f-sparent', 'f-sphone', 'f-spin', 'f-sfee', 'f-sscholarship', 'f-sdoa', 'f-sschool'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = id === 'f-spin' ? '123456' : '';
     });
@@ -412,6 +414,7 @@ function editStudent(studentId) {
     document.getElementById('studentModalTitle').textContent = 'Edit Student Details';
     document.getElementById('f-sname').value = s.name;
     if (document.getElementById('f-semail')) document.getElementById('f-semail').value = s.email || '';
+    if (document.getElementById('f-saddemail')) document.getElementById('f-saddemail').value = s.additional_email || s.additionalEmail || '';
     document.getElementById('f-sclass').value = s.cls;
     document.getElementById('f-sparent').value = s.parent;
     document.getElementById('f-sphone').value = s.phone;
@@ -428,9 +431,10 @@ function editStudent(studentId) {
     openModal('addStudentModal');
 }
 
-function saveStudentForm() {
+async function saveStudentForm() {
     const name = document.getElementById('f-sname').value.trim();
-    const email = (document.getElementById('f-semail')?.value || '').trim();
+    const email = (document.getElementById('f-semail')?.value || '').trim().toLowerCase();
+    const additionalEmail = (document.getElementById('f-saddemail')?.value || '').trim().toLowerCase();
     const cls = document.getElementById('f-sclass').value;
     const parent = document.getElementById('f-sparent').value.trim();
     const phone = document.getElementById('f-sphone').value.trim();
@@ -454,6 +458,34 @@ function saveStudentForm() {
         return;
     }
 
+    // Strict Email Validation
+    if (email && additionalEmail && email === additionalEmail) {
+        showToast('Primary and Additional email cannot be identical', 'danger');
+        return;
+    }
+
+    const emailsToCheck = [email, additionalEmail].filter(Boolean);
+    if (typeof DBService !== 'undefined' && DBService.checkEmailUniqueness) {
+        for (const em of emailsToCheck) {
+            const res = await DBService.checkEmailUniqueness(em, editingStudentId);
+            if (!res.isUnique) {
+                showToast(res.message, 'danger');
+                return;
+            }
+        }
+    } else {
+        for (const em of emailsToCheck) {
+            const dup = students.find(s => s.id !== editingStudentId && (
+                (s.email && s.email.trim().toLowerCase() === em) ||
+                ((s.additional_email || s.additionalEmail) && (s.additional_email || s.additionalEmail).trim().toLowerCase() === em)
+            ));
+            if (dup) {
+                showToast(`Email ${em} is already assigned to student ${dup.name}!`, 'danger');
+                return;
+            }
+        }
+    }
+
     // Check duplicate phone across students
     if (!editingStudentId) {
         const existing = students.find(s => (s.phone || '').replace(/\D/g, '') === cleanPhone);
@@ -473,7 +505,7 @@ function saveStudentForm() {
         const idx = students.findIndex(s => s.id === editingStudentId);
         students[idx] = {
             ...students[idx],
-            name, email, cls, parent, phone, pin, fee,
+            name, email, additional_email: additionalEmail || null, cls, parent, phone, pin, fee,
             scholarshipPct,
             due: document.getElementById('f-sdue').value,
             subjects,
@@ -485,7 +517,7 @@ function saveStudentForm() {
     } else {
         const newStudent = {
             id: 's_' + Date.now(),
-            name, email, cls, parent, phone, pin, fee,
+            name, email, additional_email: additionalEmail || null, cls, parent, phone, pin, fee,
             due: document.getElementById('f-sdue').value,
             subjects,
             scholarshipPct,

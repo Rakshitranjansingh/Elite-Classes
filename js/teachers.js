@@ -86,7 +86,7 @@ function renderTeacherChecklists(selectedSubjectsStr = '', selectedClassesStr = 
 function openAddTeacherModal() {
     editingTeacherId = null;
     document.getElementById('teacherModalTitle').textContent = 'Add New Teacher';
-    ['f-tname', 'f-temail', 'f-tphone', 'f-tsalary', 'f-tincentive'].forEach(id => {
+    ['f-tname', 'f-temail', 'f-taddemail', 'f-tphone', 'f-tsalary', 'f-tincentive'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = '';
     });
@@ -103,6 +103,7 @@ function editTeacher(id) {
     document.getElementById('teacherModalTitle').textContent = 'Edit Teacher Profile';
     document.getElementById('f-tname').value = t.name;
     if (document.getElementById('f-temail')) document.getElementById('f-temail').value = t.email || '';
+    if (document.getElementById('f-taddemail')) document.getElementById('f-taddemail').value = t.additional_email || t.additionalEmail || '';
     document.getElementById('f-tphone').value = t.phone;
     document.getElementById('f-tsalary').value = t.salary;
     document.getElementById('f-tincentive').value = t.incentive || 0;
@@ -112,9 +113,10 @@ function editTeacher(id) {
     openModal('addTeacherModal');
 }
 
-function saveTeacherForm() {
+async function saveTeacherForm() {
     const name = document.getElementById('f-tname').value.trim();
-    const email = (document.getElementById('f-temail')?.value || '').trim();
+    const email = (document.getElementById('f-temail')?.value || '').trim().toLowerCase();
+    const additionalEmail = (document.getElementById('f-taddemail')?.value || '').trim().toLowerCase();
     const phone = document.getElementById('f-tphone').value.trim();
     const salary = parseFloat(document.getElementById('f-tsalary').value);
     const incentive = parseFloat(document.getElementById('f-tincentive')?.value) || 0;
@@ -137,6 +139,34 @@ function saveTeacherForm() {
         return;
     }
 
+    // Strict Email Validation
+    if (email && additionalEmail && email === additionalEmail) {
+        showToast('Primary and Additional email cannot be identical', 'danger');
+        return;
+    }
+
+    const emailsToCheck = [email, additionalEmail].filter(Boolean);
+    if (typeof DBService !== 'undefined' && DBService.checkEmailUniqueness) {
+        for (const em of emailsToCheck) {
+            const res = await DBService.checkEmailUniqueness(em, editingTeacherId);
+            if (!res.isUnique) {
+                showToast(res.message, 'danger');
+                return;
+            }
+        }
+    } else {
+        for (const em of emailsToCheck) {
+            const dup = teachers.find(t => t.id !== editingTeacherId && (
+                (t.email && t.email.trim().toLowerCase() === em) ||
+                ((t.additional_email || t.additionalEmail) && (t.additional_email || t.additionalEmail).trim().toLowerCase() === em)
+            ));
+            if (dup) {
+                showToast(`Email ${em} is already assigned to teacher ${dup.name}!`, 'danger');
+                return;
+            }
+        }
+    }
+
     if (!editingTeacherId) {
         const existing = teachers.find(t => (t.phone || '').replace(/\D/g, '') === cleanPhone);
         if (existing) {
@@ -153,13 +183,13 @@ function saveTeacherForm() {
 
     if (editingTeacherId) {
         const idx = teachers.findIndex(t => t.id === editingTeacherId);
-        teachers[idx] = { ...teachers[idx], name, email, subjects, classes, phone, salary, incentive };
+        teachers[idx] = { ...teachers[idx], name, email, additional_email: additionalEmail || null, subjects, classes, phone, salary, incentive };
         if (typeof DBService !== 'undefined') DBService.upsertTeacher(teachers[idx]);
         showToast('Teacher profile updated');
     } else {
         const newTeacher = {
             id: 't_' + Date.now(),
-            name, email, subjects, classes, phone, salary, incentive,
+            name, email, additional_email: additionalEmail || null, subjects, classes, phone, salary, incentive,
             color: AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)]
         };
         teachers.push(newTeacher);

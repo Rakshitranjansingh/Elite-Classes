@@ -1,3 +1,7 @@
+if (typeof isSupabaseConnected !== 'function') {
+    globalThis.isSupabaseConnected = () => (typeof supabaseClient !== 'undefined' && !!supabaseClient);
+}
+
 // Default Seed Profiles for Reliable Demo & Fallback Authentication
 const SEED_STAFF_PROFILES = [
     { id: 't1', name: 'Dr. Ramesh Kumar', is_teacher: true, role: 'Mathematics Faculty', subjects: 'Mathematics, Physics', assigned_classes: 'Class 8, Class 9, Class 10', phone: '9811223344', pin: '123456', base_salary: 35000, incentive: 2500, avatar_color: '#2563eb' },
@@ -254,6 +258,7 @@ const DBService = {
         if (matchedStudent) {
             const expectedStudentPin = String(matchedStudent.pin || globalStudentKey || '123456').trim();
             if (enteredPin === expectedStudentPin) {
+                await this.recordUserDailyLogin(matchedStudent.id, 'student', matchedStudent.email || cleanPhone, 'whatsapp_pin');
                 return {
                     success: true,
                     role: 'student',
@@ -298,6 +303,7 @@ const DBService = {
             const expectedStaffPin = String(matchedStaff.pin || '123456').trim();
             if (enteredPin === expectedStaffPin) {
                 const isTeacher = !!matchedStaff.is_teacher;
+                await this.recordUserDailyLogin(matchedStaff.id, 'staff', matchedStaff.email || cleanPhone, 'whatsapp_pin');
                 return {
                     success: true,
                     role: 'staff',
@@ -438,6 +444,536 @@ const DBService = {
     },
 
     // ---------------------------------------------------------
+    // 2B. GOOGLE OAUTH & DAILY LOGIN ACTIVITY TRACKER
+    // ---------------------------------------------------------
+
+    async recordUserDailyLogin(userId, role, email, method = 'whatsapp_pin') {
+        const todayStr = new Date().toISOString().split('T')[0];
+        const ua = (typeof navigator !== 'undefined') ? navigator.userAgent : 'Unknown Browser';
+        
+        // 1. Online: Supabase PostgreSQL Execution
+        if (isSupabaseConnected()) {
+            try {
+                const { data, error } = await supabaseClient.rpc('record_daily_user_login', {
+                    p_user_id: String(userId),
+                    p_user_role: String(role),
+                    p_email: email || null,
+                    p_login_method: method,
+                    p_ip: null,
+                    p_user_agent: ua
+                });
+                if (!error && data) {
+                    this.updateLocalDailyLoginCache(userId, role, todayStr, data.login_count);
+                    return { success: true, count: data.login_count, login_count: data.login_count, date: todayStr };
+                }
+            } catch (err) {
+                console.warn('[DBService] RPC record_daily_user_login fallback:', err);
+            }
+
+            // Direct table upsert fallback
+            try {
+                const { data: existing } = await supabaseClient
+                    .from('user_daily_login_logs')
+                    .select('*')
+                    .eq('user_id', userId)
+                    .eq('login_date', todayStr)
+                    .maybeSingle();
+
+                if (existing) {
+                    const newCount = (existing.login_count || 1) + 1;
+                    await supabaseClient
+                        .from('user_daily_login_logs')
+                        .update({
+                            login_count: newCount,
+                            last_login_at: new Date().toISOString(),
+                            login_method: method,
+                            email: email || existing.email,
+                            user_agent: ua
+                        })
+                        .eq('id', existing.id);
+                    this.updateLocalDailyLoginCache(userId, role, todayStr, newCount);
+                    return { success: true, count: newCount, login_count: newCount, date: todayStr };
+                } else {
+                    await supabaseClient
+                        .from('user_daily_login_logs')
+                        .insert({
+                            user_id: String(userId),
+                            user_role: String(role),
+                            login_date: todayStr,
+                            login_count: 1,
+                            email: email || '',
+                            login_method: method,
+                            last_login_at: new Date().toISOString(),
+                            user_agent: ua
+                        });
+                    this.updateLocalDailyLoginCache(userId, role, todayStr, 1);
+                    return { success: true, count: 1, login_count: 1, date: todayStr };
+                }
+            } catch (upsertErr) {
+                console.warn('[DBService] Direct daily login upsert error, using local fallback:', upsertErr);
+            }
+        }
+
+        // 2. Offline / LocalStorage Cache Fallback
+        const currentCount = this.updateLocalDailyLoginCache(userId, role, todayStr);
+        return { success: true, count: currentCount, login_count: currentCount, date: todayStr };
+    },
+
+    updateLocalDailyLoginCache(userId, role, dateStr, countOverride = null) {
+        try {
+            const logs = JSON.parse(localStorage.getItem('ec_daily_login_logs') || '[]');
+            const idx = logs.findIndex(l => l.user_id === userId && l.login_date === dateStr);
+            let count = 1;
+            if (idx >= 0) {
+                count = countOverride !== null ? countOverride : (logs[idx].login_count || 1) + 1;
+                logs[idx].login_count = count;
+                logs[idx].last_login_at = new Date().toISOString();
+            } else {
+                count = countOverride !== null ? countOverride : 1;
+                logs.push({
+                    id: 'local_' + Date.now(),
+                    user_id: userId,
+                    user_role: role,
+                    login_date: dateStr,
+                    login_count: count,
+                    last_login_at: new Date().toISOString()
+                });
+            }
+            localStorage.setItem('ec_daily_login_logs', JSON.stringify(logs));
+            return count;
+        } catch (e) {
+            return 1;
+        }
+    },
+
+    async fetchDailyLoginLogs(filterDate = null) {
+        const targetDate = filterDate || new Date().toISOString().split('T')[0];
+        if (isSupabaseConnected()) {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('user_daily_login_logs')
+                    .select('*')
+                    .eq('login_date', targetDate)
+                    .order('last_login_at', { ascending: false });
+                if (!error && data) return data;
+            } catch (e) {
+                console.warn('[DBService] Fetch daily login logs error:', e);
+            }
+        }
+        const logs = JSON.parse(localStorage.getItem('ec_daily_login_logs') || '[]');
+        return logs.filter(l => l.login_date === targetDate);
+    },
+
+    async signInWithGoogle() {
+        if (!isSupabaseConnected()) {
+            return {
+                success: false,
+                message: 'Active cloud database connection required for Google OAuth. Please ensure Supabase credentials are configured.'
+            };
+        }
+        try {
+            const redirectUrl = window.location.origin + window.location.pathname;
+            const { data, error } = await supabaseClient.auth.signInWithOAuth({
+                provider: 'google',
+                options: {
+                    redirectTo: redirectUrl,
+                    queryParams: {
+                        access_type: 'offline',
+                        prompt: 'select_account'
+                    }
+                }
+            });
+            if (error) throw error;
+            return { success: true, data };
+        } catch (err) {
+            console.error('[DBService] Google sign-in dispatch error:', err);
+            return { success: false, message: err.message || 'Failed to initiate Google sign-in.' };
+        }
+    },
+
+    async checkEmailUniqueness(emailToCheck, excludeUserId = null) {
+        const clean = (emailToCheck || '').toLowerCase().trim();
+        if (!clean) return { isUnique: true };
+
+        // 1. Check Admins
+        let admins = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('admins').select('id, email, additional_email');
+                if (data) admins = data;
+            } catch(e) {}
+        }
+        if (admins.length === 0) admins = JSON.parse(localStorage.getItem('ec_admins') || '[]');
+        for (const a of admins) {
+            if (a.id !== excludeUserId) {
+                if ((a.email || '').toLowerCase().trim() === clean || (a.additional_email || '').toLowerCase().trim() === clean) {
+                    return { isUnique: false, role: 'admin', message: 'This email is already associated with an administrator account.' };
+                }
+            }
+        }
+
+        // 2. Check Staff
+        let staff = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('staff').select('id, email, additional_email');
+                if (data) staff = data;
+            } catch(e) {}
+        }
+        if (staff.length === 0) staff = JSON.parse(localStorage.getItem('ec_staff') || '[]');
+        for (const st of staff) {
+            if (st.id !== excludeUserId) {
+                if ((st.email || '').toLowerCase().trim() === clean || (st.additional_email || '').toLowerCase().trim() === clean) {
+                    return { isUnique: false, role: 'staff', message: 'This email is already associated with a faculty/staff account.' };
+                }
+            }
+        }
+
+        // 3. Check Students
+        let students = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('students').select('id, email, additional_email');
+                if (data) students = data;
+            } catch(e) {}
+        }
+        if (students.length === 0) students = JSON.parse(localStorage.getItem('ec_students') || '[]');
+        for (const s of students) {
+            if (s.id !== excludeUserId) {
+                if ((s.email || '').toLowerCase().trim() === clean || (s.additional_email || '').toLowerCase().trim() === clean) {
+                    return { isUnique: false, role: 'student', message: 'This email is already linked to another student account.' };
+                }
+            }
+        }
+
+        return { isUnique: true };
+    },
+
+    async handleGoogleAuthSession(googleUser) {
+        if (!googleUser || !googleUser.email) {
+            return { success: false, message: 'Invalid Google authentication session.' };
+        }
+
+        const cleanEmail = googleUser.email.toLowerCase().trim();
+        const googleName = (googleUser.user_metadata && googleUser.user_metadata.full_name) || googleUser.user_metadata?.name || '';
+        const googleAvatar = (googleUser.user_metadata && googleUser.user_metadata.avatar_url) || googleUser.user_metadata?.picture || '';
+
+        // 1. Check Admins
+        let admins = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('admins').select('*');
+                if (data) admins = data;
+            } catch(e) {}
+        }
+        if (admins.length === 0) admins = JSON.parse(localStorage.getItem('ec_admins') || '[]');
+        const matchedAdmin = admins.find(a => 
+            (a.email || '').toLowerCase().trim() === cleanEmail || 
+            (a.additional_email || '').toLowerCase().trim() === cleanEmail
+        );
+        if (matchedAdmin) {
+            await this.recordUserDailyLogin(matchedAdmin.id, 'admin', cleanEmail, 'google_oauth');
+            return {
+                success: true,
+                role: 'admin',
+                user: {
+                    id: matchedAdmin.id,
+                    name: matchedAdmin.name,
+                    email: cleanEmail,
+                    role: matchedAdmin.role || 'Super Admin',
+                    phone: matchedAdmin.phone,
+                    color: matchedAdmin.avatar_color || '#2563eb'
+                },
+                redirectUrl: 'admin_home.html'
+            };
+        }
+
+        // 2. Check Staff
+        let staff = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('staff').select('*');
+                if (data) staff = data;
+            } catch(e) {}
+        }
+        if (staff.length === 0) staff = JSON.parse(localStorage.getItem('ec_staff') || '[]');
+        const matchedStaff = staff.find(st => 
+            (st.email || '').toLowerCase().trim() === cleanEmail || 
+            (st.additional_email || '').toLowerCase().trim() === cleanEmail
+        );
+        if (matchedStaff) {
+            const isTeacher = !!matchedStaff.is_teacher;
+            await this.recordUserDailyLogin(matchedStaff.id, 'staff', cleanEmail, 'google_oauth');
+            return {
+                success: true,
+                role: 'staff',
+                user: {
+                    id: matchedStaff.id,
+                    name: matchedStaff.name,
+                    role: isTeacher ? (matchedStaff.role || 'Faculty Member') : (matchedStaff.role || 'Support Staff'),
+                    subjects: matchedStaff.subjects || '',
+                    classes: matchedStaff.assigned_classes || '',
+                    phone: matchedStaff.phone,
+                    type: isTeacher ? 'teacher' : 'staff',
+                    is_teacher: isTeacher,
+                    color: matchedStaff.avatar_color || '#2563eb'
+                },
+                redirectUrl: 'staff_home.html'
+            };
+        }
+
+        // 3. Check Students
+        let students = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('students').select('*');
+                if (data) students = data;
+            } catch(e) {}
+        }
+        if (students.length === 0) students = JSON.parse(localStorage.getItem('ec_students') || '[]');
+        const matchedStudent = students.find(s => 
+            (s.email || '').toLowerCase().trim() === cleanEmail || 
+            (s.additional_email || '').toLowerCase().trim() === cleanEmail
+        );
+        if (matchedStudent) {
+            if (matchedStudent.status === 'pending' || matchedStudent.status === 'pending_approval') {
+                return {
+                    success: false,
+                    isPending: true,
+                    trackingCode: matchedStudent.tracking_code || 'EC-REG',
+                    student: matchedStudent,
+                    message: `Registration for ${matchedStudent.name} (${matchedStudent.class || matchedStudent.cls}) is locked pending Admin Approval.`
+                };
+            }
+            await this.recordUserDailyLogin(matchedStudent.id, 'student', cleanEmail, 'google_oauth');
+            return {
+                success: true,
+                role: 'student',
+                user: {
+                    id: matchedStudent.id,
+                    name: matchedStudent.name,
+                    cls: matchedStudent.class || matchedStudent.cls || 'Class 10',
+                    parent: matchedStudent.parent_name || matchedStudent.parent,
+                    phone: matchedStudent.phone,
+                    email: cleanEmail,
+                    subjects: matchedStudent.subjects || '',
+                    color: matchedStudent.avatar_color || matchedStudent.color || '#2563eb'
+                },
+                redirectUrl: 'student_home.html'
+            };
+        }
+
+        // 4. Check Test Series Subscribers
+        let subscribers = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('testseries_subscribers').select('*');
+                if (data) subscribers = data;
+            } catch(e) {}
+        }
+        if (subscribers.length === 0) subscribers = JSON.parse(localStorage.getItem('ec_testseries_subscribers') || '[]');
+        const matchedSub = subscribers.find(sub => 
+            (sub.email || '').toLowerCase().trim() === cleanEmail || 
+            (sub.additional_email || '').toLowerCase().trim() === cleanEmail
+        );
+        if (matchedSub) {
+            if (matchedSub.status === 'approved' || matchedSub.status === 'active') {
+                await this.recordUserDailyLogin(matchedSub.id, 'testseries_subscriber', cleanEmail, 'google_oauth');
+                return {
+                    success: true,
+                    role: 'testseries_subscriber',
+                    user: matchedSub,
+                    redirectUrl: 'testseries_user_home.html'
+                };
+            } else {
+                return {
+                    success: false,
+                    isSubscriberPending: true,
+                    trackingCode: matchedSub.tracking_code,
+                    candidateName: matchedSub.name,
+                    phone: matchedSub.phone,
+                    message: `Test Series Pass subscription is pending Admin verification. Tracking Code: ${matchedSub.tracking_code || 'N/A'}.`
+                };
+            }
+        }
+
+        // 5. Unregistered Google User
+        return {
+            success: false,
+            isUnregistered: true,
+            googleUser: {
+                email: cleanEmail,
+                name: googleName,
+                avatar: googleAvatar
+            }
+        };
+    },
+
+    async linkGoogleEmailToExistingStudent(phoneInput, pinInput, googleEmail) {
+        const cleanPhone = (phoneInput || '').replace(/\D/g, '');
+        const cleanPin = (pinInput || '').trim();
+        const cleanEmail = (googleEmail || '').toLowerCase().trim();
+
+        if (!cleanPhone || !cleanPin || !cleanEmail) {
+            return { success: false, message: 'Please provide WhatsApp number, PIN, and Google email.' };
+        }
+
+        // Strict Uniqueness check
+        const uniqueCheck = await this.checkEmailUniqueness(cleanEmail);
+        if (!uniqueCheck.isUnique) {
+            return { success: false, message: uniqueCheck.message };
+        }
+
+        // Match student by phone
+        let students = [];
+        if (isSupabaseConnected()) {
+            try {
+                const { data } = await supabaseClient.from('students').select('*');
+                if (data) students = data;
+            } catch(e) {}
+        }
+        if (students.length === 0) students = JSON.parse(localStorage.getItem('ec_students') || '[]');
+        const st = students.find(s => {
+            const p = (s.phone || '').replace(/\D/g, '');
+            return p && (p === cleanPhone || p.endsWith(cleanPhone) || cleanPhone.endsWith(p));
+        });
+
+        if (!st) {
+            return { success: false, message: 'No student found with this WhatsApp number. Please check or register.' };
+        }
+
+        const expectedPin = String(st.pin || '123456').trim();
+        if (cleanPin !== expectedPin) {
+            return { success: false, message: 'Invalid PIN for this student account.' };
+        }
+
+        // Update student record with additional_email
+        st.additional_email = cleanEmail;
+        if (isSupabaseConnected()) {
+            try {
+                await supabaseClient.from('students').update({ additional_email: cleanEmail }).eq('id', st.id);
+            } catch (err) {
+                console.error('[DBService] Link Google email failed:', err);
+            }
+        }
+
+        // Update local storage
+        const localStudents = JSON.parse(localStorage.getItem('ec_students') || '[]');
+        const localIdx = localStudents.findIndex(s => s.id === st.id);
+        if (localIdx >= 0) {
+            localStudents[localIdx].additional_email = cleanEmail;
+            localStorage.setItem('ec_students', JSON.stringify(localStudents));
+        }
+
+        await this.recordUserDailyLogin(st.id, 'student', cleanEmail, 'google_oauth');
+        return {
+            success: true,
+            student: st,
+            message: `Account linked! Welcome back, ${st.name}.`
+        };
+    },
+
+    async registerGoogleStudent(formData) {
+        const cleanEmail = (formData.email || '').toLowerCase().trim();
+        const cleanPhone = (formData.phone || '').replace(/\D/g, '');
+        const name = (formData.name || '').trim();
+        const cls = formData.cls || 'Class 10';
+        const courseType = formData.program || formData.courseType || 'regular';
+        const pin = (formData.pin || '1234').trim();
+
+        if (!name || !cleanEmail || !cleanPhone) {
+            return { success: false, message: 'Name, email, and WhatsApp number are required.' };
+        }
+
+        // Strict Uniqueness check
+        const uniqueCheck = await this.checkEmailUniqueness(cleanEmail);
+        if (!uniqueCheck.isUnique) {
+            return { success: false, message: uniqueCheck.message };
+        }
+
+        const studentId = 'st_g_' + Date.now();
+        const isTs = courseType === 'testseries' || courseType === 'testseries_only';
+        const trackingCode = 'EC-' + (isTs ? 'TS-' : 'ADM-') + Math.random().toString(36).substring(2, 7).toUpperCase();
+
+        const newStudent = {
+            id: studentId,
+            name: name,
+            email: cleanEmail,
+            additional_email: '',
+            phone: cleanPhone,
+            cls: cls,
+            class: cls,
+            program: courseType,
+            courseType: courseType,
+            course: isTs ? 'Test Series Pass Only' : 'Regular Classroom Coaching',
+            parent: formData.parentName || '',
+            parent_name: formData.parentName || '',
+            parent_phone: formData.parentPhone || '',
+            school: formData.school || '',
+            school_name: formData.school || '',
+            pin: pin,
+            status: 'pending',
+            tracking_code: trackingCode,
+            date_of_admission: new Date().toISOString().split('T')[0],
+            created_at: new Date().toISOString()
+        };
+
+        if (isSupabaseConnected()) {
+            try {
+                await supabaseClient.from('students').insert({
+                    id: newStudent.id,
+                    name: newStudent.name,
+                    email: newStudent.email,
+                    phone: newStudent.phone,
+                    cls: newStudent.cls,
+                    school_name: newStudent.school_name,
+                    parent_name: newStudent.parent_name,
+                    parent_phone: newStudent.parent_phone,
+                    pin: newStudent.pin,
+                    status: 'pending',
+                    tracking_code: trackingCode
+                });
+            } catch (err) {
+                console.warn('[DBService] Supabase student registration insert:', err);
+            }
+
+            if (courseType === 'testseries') {
+                try {
+                    await supabaseClient.from('testseries_subscribers').insert({
+                        id: 'sub_' + Date.now(),
+                        name: name,
+                        email: cleanEmail,
+                        phone: cleanPhone,
+                        cls: cls,
+                        status: 'pending_verification',
+                        tracking_code: trackingCode,
+                        plan_name: 'Annual CBT Test Series Pass',
+                        plan_amount: 499.00
+                    });
+                } catch (subErr) {
+                    console.warn('[DBService] Supabase subscriber insert:', subErr);
+                }
+            }
+        }
+
+        // Save locally
+        const localStudents = JSON.parse(localStorage.getItem('ec_students') || '[]');
+        localStudents.push(newStudent);
+        localStorage.setItem('ec_students', JSON.stringify(localStudents));
+
+        // Record registration activity in login logs
+        await this.recordUserDailyLogin(studentId, 'student', cleanEmail, 'google_oauth_registered');
+
+        return {
+            success: true,
+            isPending: true,
+            student: newStudent,
+            trackingCode: trackingCode,
+            message: `Registration submitted! Your profile is locked pending Admin Approval.`
+        };
+    },
+
+    // ---------------------------------------------------------
     // 3. STUDENTS CRUD
     // ---------------------------------------------------------
     async fetchStudents() {
@@ -448,6 +984,7 @@ const DBService = {
             id: s.id,
             name: s.name,
             email: s.email || '',
+            additional_email: s.additional_email || s.additionalEmail || '',
             cls: s.cls,
             parent: s.parent_name !== undefined ? s.parent_name : s.parent,
             phone: s.phone,
@@ -490,6 +1027,7 @@ const DBService = {
                 id: student.id,
                 name: student.name,
                 email: student.email || '',
+                additional_email: student.additional_email || student.additionalEmail || '',
                 cls: student.cls,
                 parent_name: student.parent,
                 phone: student.phone,
@@ -533,6 +1071,7 @@ const DBService = {
                 id: a.id,
                 name: a.name,
                 email: a.email,
+                additional_email: a.additional_email || '',
                 role: a.role || 'Super Admin',
                 phone: a.phone || '',
                 pin: a.pin || '987654',
@@ -551,6 +1090,7 @@ const DBService = {
                 id: admin.id,
                 name: admin.name,
                 email: admin.email,
+                additional_email: admin.additional_email || admin.additionalEmail || null,
                 role: admin.role,
                 phone: admin.phone,
                 pin: admin.pin || '987654',
@@ -581,6 +1121,7 @@ const DBService = {
             id: t.id,
             name: t.name,
             email: t.email || '',
+            additional_email: t.additional_email || t.additionalEmail || '',
             subjects: t.subjects || '',
             classes: t.assigned_classes !== undefined ? t.assigned_classes : (t.classes || ''),
             phone: t.phone,
@@ -616,6 +1157,7 @@ const DBService = {
                 id: teacher.id,
                 name: teacher.name,
                 email: teacher.email || '',
+                additional_email: teacher.additional_email || teacher.additionalEmail || '',
                 is_teacher: true,
                 role: teacher.role || (teacher.subjects ? teacher.subjects + ' Faculty' : 'Teacher'),
                 subjects: teacher.subjects,
@@ -652,6 +1194,7 @@ const DBService = {
                 id: st.id,
                 name: st.name,
                 email: st.email || '',
+                additional_email: st.additional_email || st.additionalEmail || '',
                 role: st.role || 'Support Staff',
                 phone: st.phone,
                 pin: st.pin || '123456',
@@ -672,6 +1215,7 @@ const DBService = {
                 id: st.id,
                 name: st.name,
                 email: st.email || '',
+                additional_email: st.additional_email || st.additionalEmail || '',
                 is_teacher: false,
                 role: st.role,
                 phone: st.phone,
@@ -2614,3 +3158,10 @@ const DBService = {
         return results;
     }
 };
+
+if (typeof window !== 'undefined') {
+    window.DBService = DBService;
+}
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { DBService };
+}

@@ -51,7 +51,7 @@ function renderAdminsTable() {
 function openAddAdminModal() {
     editingAdminId = null;
     document.getElementById('adminModalTitle').textContent = 'Add Admin Account';
-    ['f-aname', 'f-aemail', 'f-arole', 'f-aphone', 'f-apin'].forEach(id => {
+    ['f-aname', 'f-aemail', 'f-aaddemail', 'f-arole', 'f-aphone', 'f-apin'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = id === 'f-apin' ? '987654' : '';
     });
@@ -65,6 +65,7 @@ function editAdmin(id) {
     document.getElementById('adminModalTitle').textContent = 'Edit Admin Account';
     document.getElementById('f-aname').value = a.name;
     document.getElementById('f-aemail').value = a.email;
+    if (document.getElementById('f-aaddemail')) document.getElementById('f-aaddemail').value = a.additional_email || a.additionalEmail || '';
     document.getElementById('f-arole').value = a.role || 'Super Admin';
     document.getElementById('f-aphone').value = a.phone || '';
     if (document.getElementById('f-apin')) document.getElementById('f-apin').value = a.pin || '987654';
@@ -73,7 +74,8 @@ function editAdmin(id) {
 
 async function saveAdminForm() {
     const name = document.getElementById('f-aname').value.trim();
-    const email = document.getElementById('f-aemail').value.trim();
+    const email = document.getElementById('f-aemail').value.trim().toLowerCase();
+    const additionalEmail = (document.getElementById('f-aaddemail')?.value || '').trim().toLowerCase();
     const role = document.getElementById('f-arole').value;
     const phone = document.getElementById('f-aphone').value.trim();
     const pin = (document.getElementById('f-apin')?.value || '987654').trim();
@@ -83,16 +85,44 @@ async function saveAdminForm() {
         return;
     }
 
+    // Strict Email Validation
+    if (email && additionalEmail && email === additionalEmail) {
+        showToast('Primary and Additional email cannot be identical', 'danger');
+        return;
+    }
+
+    const emailsToCheck = [email, additionalEmail].filter(Boolean);
+    if (typeof DBService !== 'undefined' && DBService.checkEmailUniqueness) {
+        for (const em of emailsToCheck) {
+            const res = await DBService.checkEmailUniqueness(em, editingAdminId);
+            if (!res.isUnique) {
+                showToast(res.message, 'danger');
+                return;
+            }
+        }
+    } else {
+        for (const em of emailsToCheck) {
+            const dup = admins.find(ad => ad.id !== editingAdminId && (
+                (ad.email && ad.email.trim().toLowerCase() === em) ||
+                ((ad.additional_email || ad.additionalEmail) && (ad.additional_email || ad.additionalEmail).trim().toLowerCase() === em)
+            ));
+            if (dup) {
+                showToast(`Email ${em} is already assigned to admin ${dup.name}!`, 'danger');
+                return;
+            }
+        }
+    }
+
     let updatedAdmin = null;
     if (editingAdminId) {
         const idx = admins.findIndex(a => a.id === editingAdminId);
-        admins[idx] = { ...admins[idx], name, email, role, phone, pin };
+        admins[idx] = { ...admins[idx], name, email, additional_email: additionalEmail || null, role, phone, pin };
         updatedAdmin = admins[idx];
         showToast('Admin account updated');
     } else {
         updatedAdmin = {
             id: 'a_' + Date.now(),
-            name, email, role, phone, pin,
+            name, email, additional_email: additionalEmail || null, role, phone, pin,
             color: AVATAR_COLORS[Math.floor(Math.random() * AVATAR_COLORS.length)]
         };
         admins.push(updatedAdmin);
