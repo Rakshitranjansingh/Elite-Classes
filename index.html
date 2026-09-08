@@ -143,6 +143,53 @@
             gap: 12px;
         }
 
+        .btn-portal-signin {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 9px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .btn-portal-signin:hover {
+            background: rgba(255, 255, 255, 0.22);
+            border-color: rgba(255, 255, 255, 0.45);
+            transform: translateY(-1px);
+        }
+
+        .btn-portal-signup {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 9px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .btn-portal-signup:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.5);
+        }
+
         .btn-apply-admission {
             background: linear-gradient(135deg, #f59e0b, #d97706);
             color: #ffffff;
@@ -162,27 +209,6 @@
         .btn-apply-admission:hover {
             transform: translateY(-1px);
             box-shadow: 0 6px 18px rgba(245, 158, 11, 0.45);
-        }
-
-        .btn-portal-signin {
-            background: rgba(255, 255, 255, 0.12);
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 13.5px;
-            padding: 10px 20px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .btn-portal-signin:hover {
-            background: rgba(255, 255, 255, 0.22);
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-1px);
         }
 
         /* NOTICE TICKER BAR (HARDWARE-ACCELERATED SMOOTH SCROLL) */
@@ -890,12 +916,45 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        @media (max-width: 640px) {
+            .pub-navbar {
+                padding: 10px 14px;
+                gap: 8px;
+            }
+            .pub-brand {
+                gap: 8px;
+            }
+            .pub-brand-icon {
+                width: 36px;
+                height: 36px;
+            }
+            .pub-brand-text h1 {
+                font-size: 16px;
+            }
+            .pub-brand-text p {
+                display: none;
+            }
+            .pub-nav-actions {
+                gap: 8px;
+            }
+            .btn-portal-signin {
+                padding: 7px 12px;
+                font-size: 12px;
+                border-radius: 8px;
+            }
+            .btn-portal-signup {
+                padding: 7px 12px;
+                font-size: 12px;
+                border-radius: 8px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- 1. PUBLIC TOP NAVIGATION -->
+    <!-- 1. PUBLIC TOP NAVIGATION (CLEANLY SEPARATED SIGN IN & SIGN UP) -->
     <header class="pub-navbar">
         <a href="index.html" class="pub-brand" title="Elite Classes - Home">
             <div class="pub-brand-icon">
@@ -917,6 +976,9 @@
         <div class="pub-nav-actions">
             <button type="button" class="btn-portal-signin" id="nav-btn-signin" onclick="openPortalLoginModal()">
                 <span>Sign In</span>
+            </button>
+            <button type="button" class="btn-portal-signup" id="nav-btn-signup" onclick="openStudentRegistrationModal()">
+                <span>Sign Up</span>
             </button>
         </div>
     </header>
@@ -947,7 +1009,7 @@
 
                 <div class="hero-buttons">
                     <button type="button" class="hero-btn-primary" id="hero-btn-apply" onclick="openStudentRegistrationModal()">
-                        <span>Apply Now →</span>
+                        <span>Sign Up / Apply Now →</span>
                     </button>
                     <button type="button" class="hero-btn-secondary" id="hero-btn-signin" onclick="openPortalLoginModal()">
                         <span>Sign In</span>
@@ -1276,6 +1338,12 @@
                             Submit Application →
                         </button>
                     </div>
+                    <div style="margin-top:16px; text-align:center; border-top:1px solid #e2e8f0; padding-top:12px;">
+                        <span style="font-size:12.5px; color:#64748b;">Already registered with Elite Classes?</span>
+                        <a href="javascript:void(0)" onclick="closeModal('studentRegistrationModal'); openPortalLoginModal();" style="margin-left:6px; font-size:12.5px; font-weight:700; color:#2563eb; text-decoration:none;">
+                            Sign In to Portal →
+                        </a>
+                    </div>
                 </form>
             </div>
 
@@ -1560,12 +1628,12 @@
                 </form>
 
                 <div style="margin-top:20px; text-align:center; border-top:1px solid #e2e8f0; padding-top:16px;">
-                    <div style="font-size:12.5px; color:#64748b;">
+                    <span style="font-size:13px; color:#64748b;">
                         New student without an account?
-                    </div>
-                    <button type="button" class="btn btn-sm btn-outline" style="margin-top:8px; width:100%;" onclick="closeModal('portalLoginModal'); openStudentRegistrationModal();">
-                        Apply Now →
-                    </button>
+                    </span>
+                    <a href="javascript:void(0)" onclick="closeModal('portalLoginModal'); openStudentRegistrationModal();" style="display:inline-block; margin-left:6px; font-size:13px; font-weight:700; color:#2563eb; text-decoration:none;">
+                        Sign Up / Apply Now →
+                    </a>
                 </div>
             </div>
         </div>
