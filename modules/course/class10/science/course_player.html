@@ -807,13 +807,65 @@
                 font-size: 11px;
             }
         }
+
+        /* -------------------------------------------------------------
+           TIER 1 ANTI-THEFT & CONTENT PROTECTION STYLES
+           ------------------------------------------------------------- */
+        .course-watermark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.055;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .watermark-item {
+            transform: rotate(-24deg);
+            font-size: 12.5px;
+            font-weight: 800;
+            color: #0f172a;
+            white-space: nowrap;
+            padding: 28px 36px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        /* Anti-Copy Protection */
+        .theory-body, .points-box, .key-notes-box, .question-card, .module-hero {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        /* Anti-Print Protection */
+        @media print {
+            body {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
+
 <body>
+
+    <!-- DYNAMIC ANTI-LEAK WATERMARK OVERLAY -->
+    <div id="course-watermark-overlay" class="course-watermark-overlay" aria-hidden="true"></div>
 
     <!-- TOP NAVIGATION BAR -->
     <header class="course-nav-header">
+
         <div style="display:flex; align-items:center; gap:12px;">
             <button class="mobile-drawer-btn" id="drawer-toggle-btn" onclick="toggleMobileDrawer()">
                 ☰ Modules
@@ -1036,6 +1088,9 @@
 
             // 3. Load Chapter Data
             await loadChapterData(currentChapterNum);
+
+            // 4. Initialize Tier 1 Content Security Guards
+            initSecurityGuards();
         }
 
         // Load specific chapter
@@ -1045,12 +1100,20 @@
                 await loadScriptAsync(dataPath);
                 courseData = window.COURSE_CHAPTER_DATA;
 
+                // Clean up global window scope to prevent console scraping
+                try {
+                    delete window.COURSE_CHAPTER_DATA;
+                } catch (e) {
+                    window.COURSE_CHAPTER_DATA = undefined;
+                }
+
                 if (!courseData || !courseData.modules || courseData.modules.length === 0) {
                     alert(`Failed to load Chapter ${chNum} course data.`);
                     return;
                 }
 
                 courseData.chapterId = courseData.chapterId || (`c10_sci_ch${courseData.chapterNumber}`);
+
 
 
                 // Update Header
@@ -1507,8 +1570,73 @@
             }, 3500);
         }
 
+        // -------------------------------------------------------------
+        // TIER 1 SECURITY & CONTENT ANTI-THEFT PROTECTION SUITE
+        // -------------------------------------------------------------
+        function initSecurityGuards() {
+            // 1. Disable Context Menu (Right Click)
+            document.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                showToast('⚠️ Content protection active. Right-click is restricted.', 'danger');
+                return false;
+            });
+
+            // 2. Disable DevTools & Source Inspecting Key Combos
+            document.addEventListener('keydown', (e) => {
+                // F12 key
+                if (e.key === 'F12' || e.keyCode === 123) {
+                    e.preventDefault();
+                    showToast('⚠️ Developer tools are disabled on this portal.', 'danger');
+                    return false;
+                }
+                // Ctrl+Shift+I (Inspect), Ctrl+Shift+J (Console), Ctrl+Shift+C (Inspect Element)
+                if (e.ctrlKey && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key)) {
+                    e.preventDefault();
+                    showToast('⚠️ Inspecting elements is restricted.', 'danger');
+                    return false;
+                }
+                // Ctrl+U (View Source), Ctrl+S (Save Page), Ctrl+P (Print)
+                if (e.ctrlKey && ['u', 'U', 's', 'S', 'p', 'P'].includes(e.key)) {
+                    e.preventDefault();
+                    showToast('⚠️ Page copying/saving is restricted.', 'danger');
+                    return false;
+                }
+            });
+
+            // 3. DevTools Open Detection via Dimension Diff
+            let devtoolsDetected = false;
+            const threshold = 160;
+            setInterval(() => {
+                const widthDiff = window.outerWidth - window.innerWidth > threshold;
+                const heightDiff = window.outerHeight - window.innerHeight > threshold;
+                if ((widthDiff || heightDiff) && !devtoolsDetected) {
+                    devtoolsDetected = true;
+                    showToast('⚠️ Developer tools inspection detected. Content protection active.', 'danger');
+                }
+            }, 2500);
+
+            // 4. Render Dynamic Anti-Leak Watermark
+            renderDynamicWatermark();
+        }
+
+        function renderDynamicWatermark() {
+            const overlay = document.getElementById('course-watermark-overlay');
+            if (!overlay) return;
+            const studentId = currentStudent ? (currentStudent.id || currentStudent.roll_number || 'ST_USER') : 'ST_USER';
+            const studentName = currentStudent ? (currentStudent.name || 'Student') : 'Student';
+            const phone = currentStudent && currentStudent.phone ? currentStudent.phone : '';
+            const watermarkText = `Elite Classes • ${studentName} (${studentId}) ${phone ? '• ' + phone : ''}`;
+
+            let html = '';
+            for (let i = 0; i < 35; i++) {
+                html += `<div class="watermark-item">${escapeHtml(watermarkText)}</div>`;
+            }
+            overlay.innerHTML = html;
+        }
+
         // Start
         window.addEventListener('DOMContentLoaded', initCoursePage);
+
     </script>
 </body>
 
