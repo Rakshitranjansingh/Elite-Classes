@@ -1140,10 +1140,113 @@ const CBTPlayer = {
         // 3. Close the Exam modal cleanly
         this.closeModal();
 
-        // 4. Callback to update card score and show toast (no intrusive auto-popup)
+        // 4. Show Instant Completion Scorecard with prominent Review button
+        this.showCompletionModal(this.activeTest, this.student, localData.attempts[this.activeTest.id], submissionObj);
+
+        // 5. Callback to update card score and show toast
         if (this.onCompleteCallback) {
             this.onCompleteCallback(submissionObj);
         }
+    },
+
+    // =========================================================================
+    // POST-EXAM INSTANT COMPLETION SCORECARD MODAL
+    // =========================================================================
+    showCompletionModal(testObj, student, attempt, submissionObj) {
+        let modal = document.getElementById('cbt-completion-modal-overlay');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'cbt-completion-modal-overlay';
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0;
+                width: 100vw; height: 100vh;
+                background: rgba(11, 19, 41, 0.88);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                z-index: 99999;
+                display: flex; align-items: center; justify-content: center;
+                font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+                padding: 16px;
+                box-sizing: border-box;
+            `;
+            document.body.appendChild(modal);
+        }
+
+        const score = submissionObj.score !== undefined ? submissionObj.score : (attempt ? attempt.score : 0);
+        const totalMarks = submissionObj.total_marks || (attempt ? attempt.total_marks : 400);
+        const pct = submissionObj.percentage !== undefined ? submissionObj.percentage : (attempt ? attempt.pct : 0);
+        const accuracy = submissionObj.accuracy_pct !== undefined ? submissionObj.accuracy_pct : (attempt ? attempt.accuracy : 0);
+        const correct = submissionObj.correct_count !== undefined ? submissionObj.correct_count : (attempt ? attempt.correct : 0);
+        const wrong = submissionObj.incorrect_count !== undefined ? submissionObj.incorrect_count : (attempt ? attempt.wrong : 0);
+        const skipped = submissionObj.unattempted_count !== undefined ? submissionObj.unattempted_count : (attempt ? attempt.unattempted : 0);
+        const timeFormatted = attempt && attempt.timeFormatted ? attempt.timeFormatted : `${Math.floor((submissionObj.time_taken_seconds || 0) / 60)}m ${(submissionObj.time_taken_seconds || 0) % 60}s`;
+
+        modal.style.display = 'flex';
+        modal.innerHTML = `
+            <div style="background:#ffffff; border-radius:18px; max-width:500px; width:100%; overflow:hidden; box-shadow:0 24px 48px rgba(0,0,0,0.35); border:1px solid #e2e8f0; animation:cbtModalPop 0.2s ease-out;">
+                <!-- HEADER -->
+                <div style="background:linear-gradient(135deg, #0b1329 0%, #1e293b 100%); padding:22px 24px; text-align:center; color:#ffffff;">
+                    <div style="font-size:36px; margin-bottom:6px;">🎯</div>
+                    <h2 style="margin:0 0 4px; font-size:20px; font-weight:800; color:#fff;">Assessment Completed!</h2>
+                    <p style="margin:0; font-size:12.5px; color:#94a3b8;">${testObj.title || 'Chapter Assessment'}</p>
+                </div>
+
+                <!-- SCORECARD BODY -->
+                <div style="padding:22px 24px;">
+                    <div style="text-align:center; margin-bottom:18px; background:#f8fafc; padding:16px; border-radius:14px; border:1px solid #e2e8f0;">
+                        <div style="font-size:11px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.5px;">Your Final Score</div>
+                        <div style="font-size:38px; font-weight:900; color:#2563eb; line-height:1.2; margin:4px 0;">
+                            ${score} <span style="font-size:18px; font-weight:600; color:#64748b;">/ ${totalMarks}</span>
+                        </div>
+                        <div style="display:flex; justify-content:center; gap:8px; margin-top:8px; flex-wrap:wrap;">
+                            <span style="background:#dbeafe; color:#1e40af; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px;">
+                                ${pct}% Score
+                            </span>
+                            <span style="background:#ede9fe; color:#6d28d9; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px;">
+                                🎯 ${accuracy}% Accuracy
+                            </span>
+                            <span style="background:#f1f5f9; color:#475569; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">
+                                ⏱️ ${timeFormatted}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- METRICS GRID -->
+                    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:22px; text-align:center;">
+                        <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:10px;">
+                            <div style="font-size:18px; font-weight:800; color:#16a34a;">${correct}</div>
+                            <div style="font-size:11px; font-weight:600; color:#166534;">Correct</div>
+                        </div>
+                        <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:10px; padding:10px;">
+                            <div style="font-size:18px; font-weight:800; color:#dc2626;">${wrong}</div>
+                            <div style="font-size:11px; font-weight:600; color:#991b1b;">Incorrect</div>
+                        </div>
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:10px;">
+                            <div style="font-size:18px; font-weight:800; color:#64748b;">${skipped}</div>
+                            <div style="font-size:11px; font-weight:600; color:#475569;">Skipped</div>
+                        </div>
+                    </div>
+
+                    <!-- ACTION BUTTONS -->
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        <button id="cbt-modal-btn-review" class="btn btn-primary" style="padding:12px 18px; font-weight:800; font-size:14px; border-radius:10px; display:flex; align-items:center; justify-content:center; gap:8px; background:linear-gradient(135deg, #2563eb, #1d4ed8); border:none; cursor:pointer; color:#fff; width:100%;">
+                            🔍 Review Test & Detailed Solutions →
+                        </button>
+                        <button id="cbt-modal-btn-close" class="btn btn-outline" style="padding:11px; font-weight:700; font-size:13px; border-radius:10px; border:1px solid #cbd5e1; background:#ffffff; color:#334155; cursor:pointer; width:100%;">
+                            ← Back to Chapter Assessments
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('cbt-modal-btn-review').onclick = () => {
+            modal.style.display = 'none';
+            this.openReview(testObj, student, attempt);
+        };
+        document.getElementById('cbt-modal-btn-close').onclick = () => {
+            modal.style.display = 'none';
+        };
     },
 
     // =========================================================================
@@ -1173,9 +1276,18 @@ const CBTPlayer = {
         const attempt = attemptData || (testId && localData.attempts ? localData.attempts[testId] : null) || {};
         const userAnswers = attempt.userAnswers || attempt.answers_json || {};
 
-        const reviewQuestions = (attempt && attempt.shuffledQuestions && attempt.shuffledQuestions.length > 0)
+        let reviewQuestions = (attempt && attempt.shuffledQuestions && attempt.shuffledQuestions.length > 0)
             ? attempt.shuffledQuestions
             : (testObj && Array.isArray(testObj.questions) && testObj.questions.length > 0 ? testObj.questions : null);
+
+        // Fallback: Check window.EliteTestRegistry
+        if ((!reviewQuestions || reviewQuestions.length === 0) && testId && window.EliteTestRegistry && Array.isArray(window.EliteTestRegistry)) {
+            const foundInRegistry = window.EliteTestRegistry.find(t => t && t.id === testId);
+            if (foundInRegistry && Array.isArray(foundInRegistry.questions) && foundInRegistry.questions.length > 0) {
+                reviewQuestions = foundInRegistry.questions;
+                if (!testObj || !testObj.title) testObj = foundInRegistry;
+            }
+        }
 
         if (!reviewQuestions || reviewQuestions.length === 0) {
             alert('Error: Question bank or review snapshot not found for this test.');

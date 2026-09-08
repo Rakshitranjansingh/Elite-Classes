@@ -557,6 +557,15 @@
             'ts_c10_math_ch14': (typeof Class10MathematicsChapter14FullBank !== 'undefined' ? Class10MathematicsChapter14FullBank : null)
         };
 
+        function getMathTest(id) {
+            if (testsMap[id]) return testsMap[id];
+            if (window.EliteTestRegistry && Array.isArray(window.EliteTestRegistry)) {
+                const found = window.EliteTestRegistry.find(t => t && t.id === id);
+                if (found) return found;
+            }
+            return null;
+        }
+
         function showToast(msg, type = 'success') {
             const t = document.getElementById('app-toast');
             const m = document.getElementById('toast-msg');
@@ -574,7 +583,7 @@
         }
 
         function enrollInTest(testId) {
-            const testObj = testsMap[testId];
+            const testObj = getMathTest(testId);
             if (!testObj || !testObj.questions || testObj.questions.length === 0) {
                 showToast('Assessment questions are currently being authored from NCERT textbooks.', 'info');
                 return;
@@ -585,6 +594,7 @@
                 showToast('This assessment is currently locked by the administrator.', 'danger');
                 return;
             }
+            studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
             if (!studentCbtData.enrolled) studentCbtData.enrolled = {};
             studentCbtData.enrolled[testId] = true;
             localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
@@ -594,7 +604,7 @@
         }
 
         function launchTest(testId) {
-            const testObj = testsMap[testId];
+            const testObj = getMathTest(testId);
             if (!testObj || !testObj.questions || testObj.questions.length === 0) {
                 showToast('Assessment questions are currently being authored from NCERT textbooks.', 'info');
                 return;
@@ -608,8 +618,12 @@
 
             if (typeof CBTPlayer !== 'undefined' && CBTPlayer.launch) {
                 CBTPlayer.launch(testObj, activeStudent, (res) => {
+                    studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
                     renderTestCards();
                     renderLeaderboard();
+                    if (res && res.score !== undefined) {
+                        showToast(`Test submitted! Score: ${res.score}/${res.total_marks || 400} (${res.percentage || 0}%)`);
+                    }
                 });
             } else {
                 alert('CBT Engine could not be loaded.');
@@ -714,12 +728,16 @@
         }
 
         function renderTestCards() {
+            studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
+            studentCbtData.enrolled = studentCbtData.enrolled || {};
+            studentCbtData.attempts = studentCbtData.attempts || {};
+
             Object.keys(testsMap).forEach(id => {
                 const b = document.getElementById('badge-status-' + id);
                 const a = document.getElementById('action-' + id);
                 if (!b || !a) return;
 
-                const testObj = testsMap[id];
+                const testObj = getMathTest(id);
                 const hasQuestions = testObj && testObj.questions && testObj.questions.length > 0;
 
                 if (!hasQuestions) {
@@ -731,8 +749,8 @@
 
                 const status = getTestStatus(id);
                 const isInactive = (status === 'inactive' || status === 'disabled');
-                const isEnrolled = studentCbtData.enrolled && studentCbtData.enrolled[id];
-                const attempt = studentCbtData.attempts && studentCbtData.attempts[id];
+                const isEnrolled = !!studentCbtData.enrolled[id];
+                const attempt = studentCbtData.attempts[id];
 
                 if (isInactive) {
                     b.className = 'badge badge-danger';
@@ -752,8 +770,9 @@
                         a.innerHTML = `<button class="btn btn-outline btn-sm" disabled style="width:100%; font-weight:700; padding:8px; opacity:0.6; cursor:not-allowed; background:#f1f5f9; color:#94a3b8;">🔒 Locked by Admin</button>`;
                     }
                 } else if (attempt) {
+                    const pctVal = attempt.pct !== undefined ? attempt.pct : (attempt.percentage !== undefined ? attempt.percentage : Math.round(((attempt.score || 0) / (attempt.total_marks || 400)) * 100));
                     b.className = 'badge badge-success';
-                    b.textContent = `Score: ${attempt.score} / ${attempt.total_marks || 400} (${attempt.pct || Math.round((attempt.score / (attempt.total_marks || 400)) * 100)}%)`;
+                    b.textContent = `Score: ${attempt.score} / ${attempt.total_marks || 400} (${pctVal}%)`;
                     a.innerHTML = `
                         <div style="display:flex; gap:8px;">
                             <button class="btn btn-outline btn-sm" onclick="reviewTest('${id}')" style="flex:1; font-weight:700; padding:8px; border-color:var(--primary); color:var(--primary); background:transparent;">
@@ -777,10 +796,55 @@
         }
 
         function reviewTest(testId) {
-            const test = testsMap[testId] || { id: testId };
+            studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
+            const test = getMathTest(testId) || { id: testId };
             const attempt = studentCbtData.attempts && studentCbtData.attempts[testId];
             if (typeof CBTPlayer !== 'undefined' && CBTPlayer.openReview) {
                 CBTPlayer.openReview(test, activeStudent, attempt);
+            } else {
+                alert('CBT Engine could not be loaded.');
+            }
+        }
+
+        // Sync test submissions from Supabase if connected
+        async function syncCloudSubmissions() {
+            if (!activeStudent || !activeStudent.id) return;
+            try {
+                let data = [];
+                if (typeof DBService !== 'undefined' && DBService.fetchStudentSubmissions) {
+                    data = await DBService.fetchStudentSubmissions(activeStudent.id);
+                }
+                if (data && data.length > 0) {
+                    studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{}, "attempts":{}}');
+                    studentCbtData.enrolled = studentCbtData.enrolled || {};
+                    studentCbtData.attempts = studentCbtData.attempts || {};
+                    let updated = false;
+                    data.forEach(sub => {
+                        studentCbtData.enrolled[sub.test_id] = true;
+                        if (!studentCbtData.attempts[sub.test_id] || (sub.score > (studentCbtData.attempts[sub.test_id].score || 0))) {
+                            studentCbtData.attempts[sub.test_id] = {
+                                score: parseFloat(sub.score || 0),
+                                total_marks: parseFloat(sub.total_marks || 400),
+                                pct: parseFloat(sub.percentage || 0),
+                                accuracy: parseFloat(sub.accuracy_pct || 0),
+                                correct: parseInt(sub.correct_count || 0),
+                                wrong: parseInt(sub.incorrect_count || 0),
+                                unattempted: parseInt(sub.unattempted_count || 0),
+                                userAnswers: sub.answers_json || {},
+                                timeFormatted: `${Math.floor((sub.time_taken_seconds || 0) / 60)}m ${(sub.time_taken_seconds || 0) % 60}s`,
+                                submitted_at: sub.submitted_at
+                            };
+                            updated = true;
+                        }
+                    });
+                    if (updated) {
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
+                        renderTestCards();
+                        renderLeaderboard();
+                    }
+                }
+            } catch (err) {
+                console.warn('[Math10] Cloud submissions sync warning:', err);
             }
         }
 
@@ -809,10 +873,11 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             renderTestCards();
             renderLeaderboard();
             syncCloudTestStatuses();
+            await syncCloudSubmissions();
         });
     </script>
 </body>

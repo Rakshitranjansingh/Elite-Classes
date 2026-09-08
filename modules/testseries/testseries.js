@@ -440,13 +440,40 @@ async function renderGenericClassTestSeries(container, cls) {
     }
 
     let html = '';
+    const stId = localStorage.getItem('ec_student_id') || 'st_guest';
+    const stStorageKey = `ec_cbt_enrollment_${stId}`;
+    const stLocalData = JSON.parse(localStorage.getItem(stStorageKey) || '{"enrolled":{}, "attempts":{}}');
+    const stAttempts = stLocalData.attempts || {};
+
     cachedTestSeriesList.forEach(t => {
+        const attempt = stAttempts[t.id];
+        const actionHtml = attempt
+            ? `
+                <div style="display:flex; gap:8px;">
+                    <button class="btn btn-outline btn-sm" onclick="if(window.CBTPlayer) CBTPlayer.openReview(cachedTestSeriesList.find(x => x.id === '${t.id}') || '${t.id}')" style="flex:1; font-weight:700; padding:8px; border-color:var(--primary); color:var(--primary); background:transparent;">
+                        🔍 Review Test
+                    </button>
+                    <button class="btn btn-primary btn-sm" onclick="if(window.CBTPlayer) CBTPlayer.launch(cachedTestSeriesList.find(x => x.id === '${t.id}'))" style="flex:1; font-weight:700; padding:8px;">
+                        🔄 Retake
+                    </button>
+                </div>
+            `
+            : `
+                <button class="btn btn-primary btn-sm" onclick="if(window.CBTPlayer) CBTPlayer.launch(cachedTestSeriesList.find(x => x.id === '${t.id}'))" style="width:100%; font-weight:700; padding:9px;">
+                    ✏️ Start Assessment
+                </button>
+            `;
+
+        const badgeHtml = attempt
+            ? `<span class="badge badge-success">Score: ${attempt.score}/${attempt.total_marks || 100}</span>`
+            : `<span class="badge badge-primary">${t.questions_count || 25} Questions</span>`;
+
         html += `
             <div class="card cbt-card" data-subject="${t.subject || 'General'}" data-class="${cls}" data-title="${t.title || ''}" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border);">
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                         <span class="badge badge-purple">${t.subject || 'General'}</span>
-                        <span class="badge badge-primary">${t.questions_count || 25} Questions</span>
+                        ${badgeHtml}
                     </div>
                     <h3 style="font-size:16px; font-weight:800; color:var(--text); margin:0 0 6px;">${t.title}</h3>
                     <div style="display:flex; gap:10px; font-size:12px; color:var(--text-muted); margin-bottom:12px;">
@@ -455,9 +482,7 @@ async function renderGenericClassTestSeries(container, cls) {
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-primary btn-sm" onclick="if(window.CBTPlayer) CBTPlayer.launch(cachedTestSeriesList.find(x => x.id === '${t.id}'))" style="width:100%; font-weight:700; padding:9px;">
-                        ✏️ Start Assessment
-                    </button>
+                    ${actionHtml}
                 </div>
             </div>
         `;
