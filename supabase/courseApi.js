@@ -11,11 +11,11 @@ const CourseDBService = {
     // 1. SAVE MODULE PROGRESS & QUIZ ATTEMPT
     // ---------------------------------------------------------
     async saveModuleProgress(payload) {
-        const studentId = payload.student_id;
-        const chapterId = payload.chapter_id;
-        const moduleId = payload.module_id;
-        const score = parseInt(payload.quiz_score || 0, 10);
-        const maxScore = parseInt(payload.quiz_max_score || 10, 10);
+        const studentId = payload.student_id || payload.studentId;
+        const chapterId = payload.chapter_id || payload.chapterId;
+        const moduleId = payload.module_id || payload.moduleId;
+        const score = parseInt(payload.quiz_score !== undefined ? payload.quiz_score : (payload.score || 0), 10);
+        const maxScore = parseInt(payload.quiz_max_score !== undefined ? payload.quiz_max_score : (payload.totalQuestions || 10), 10);
         const accuracyPct = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
         const isPassed = accuracyPct >= 70; // 70% passing threshold to unlock next module
 
@@ -23,17 +23,21 @@ const CourseDBService = {
         const moduleRecord = {
             id: recordId,
             student_id: studentId,
-            student_name: payload.student_name || 'Student',
+            student_name: payload.student_name || payload.studentName || 'Student',
             cls: payload.cls || 'Class 10',
             subject: payload.subject || 'Science',
             chapter_id: chapterId,
             module_id: moduleId,
-            module_number: parseInt(payload.module_number || 1, 10),
-            is_completed: isPassed || Boolean(payload.is_completed),
+            module_number: parseInt(payload.module_number || payload.moduleNumber || 1, 10),
+            is_completed: isPassed || Boolean(payload.is_completed || payload.passed),
             quiz_score: score,
+            score: score,
             quiz_max_score: maxScore,
+            totalQuestions: maxScore,
             accuracy_pct: accuracyPct,
-            answers_payload: payload.answers_payload || {},
+            answers_payload: payload.answers_payload || payload.answers || {},
+            answers: payload.answers_payload || payload.answers || {},
+            passed: isPassed || Boolean(payload.is_completed || payload.passed),
             completed_at: isPassed ? new Date().toISOString() : null,
             updated_at: new Date().toISOString()
         };
@@ -49,10 +53,13 @@ const CourseDBService = {
 
         // Keep highest score if re-attempted
         const existingRec = localProgressMap[moduleId];
-        if (existingRec && existingRec.quiz_score > score) {
-            moduleRecord.quiz_score = existingRec.quiz_score;
+        if (existingRec && (existingRec.quiz_score > score || existingRec.score > score)) {
+            const bestScore = Math.max(existingRec.quiz_score || 0, existingRec.score || 0);
+            moduleRecord.quiz_score = bestScore;
+            moduleRecord.score = bestScore;
             moduleRecord.accuracy_pct = existingRec.accuracy_pct;
             moduleRecord.is_completed = existingRec.is_completed || isPassed;
+            moduleRecord.passed = existingRec.passed || isPassed;
         }
 
         localProgressMap[moduleId] = moduleRecord;
@@ -62,8 +69,8 @@ const CourseDBService = {
 
         // Compute aggregate chapter stats
         const totalModules = 20;
-        const completedCount = Object.values(localProgressMap).filter(m => m.is_completed).length;
-        const totalScore = Object.values(localProgressMap).reduce((acc, m) => acc + (m.quiz_score || 0), 0);
+        const completedCount = Object.values(localProgressMap).filter(m => m && (m.is_completed || m.passed || (m.quiz_score >= 7) || (m.score >= 7))).length;
+        const totalScore = Object.values(localProgressMap).reduce((acc, m) => acc + (m.quiz_score || m.score || 0), 0);
         const completionPct = Math.round((completedCount / totalModules) * 100);
 
         const chapterStats = {
@@ -86,7 +93,25 @@ const CourseDBService = {
         // 2. Sync to Supabase Cloud if connected
         if (typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
             try {
-                await supabaseClient.from('course_module_progress').upsert([moduleRecord]);
+                // Ensure db-friendly payload for Supabase table
+                const cloudRecord = {
+                    id: moduleRecord.id,
+                    student_id: moduleRecord.student_id,
+                    student_name: moduleRecord.student_name,
+                    cls: moduleRecord.cls,
+                    subject: moduleRecord.subject,
+                    chapter_id: moduleRecord.chapter_id,
+                    module_id: moduleRecord.module_id,
+                    module_number: moduleRecord.module_number,
+                    is_completed: moduleRecord.is_completed,
+                    quiz_score: moduleRecord.quiz_score,
+                    quiz_max_score: moduleRecord.quiz_max_score,
+                    accuracy_pct: moduleRecord.accuracy_pct,
+                    answers_payload: moduleRecord.answers_payload,
+                    completed_at: moduleRecord.completed_at,
+                    updated_at: moduleRecord.updated_at
+                };
+                await supabaseClient.from('course_module_progress').upsert([cloudRecord]);
                 await supabaseClient.from('course_chapter_stats').upsert([chapterStats]);
             } catch (cloudErr) {
                 console.warn('[CourseDBService] Cloud sync error, queued locally:', cloudErr);
@@ -118,6 +143,25 @@ const CourseDBService = {
             progressMap = {};
         }
 
+        // Also check fallback key if previously saved without CourseDBService
+        const fallbackKey = `ec_course_prog_${studentId}_${chapterId}`;
+        try {
+            const fallbackMap = JSON.parse(localStorage.getItem(fallbackKey) || '{}');
+            Object.keys(fallbackMap).forEach(mId => {
+                if (!progressMap[mId]) {
+                    const fb = fallbackMap[mId];
+                    progressMap[mId] = {
+                        ...fb,
+                        module_id: mId,
+                        quiz_score: fb.score,
+                        quiz_max_score: fb.totalQuestions || 10,
+                        is_completed: fb.passed || (fb.score >= 7),
+                        passed: fb.passed || (fb.score >= 7)
+                    };
+                }
+            });
+        } catch (e) {}
+
         if (typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
             try {
                 const { data, error } = await supabaseClient
@@ -128,6 +172,12 @@ const CourseDBService = {
 
                 if (!error && Array.isArray(data)) {
                     data.forEach(row => {
+                        const isDone = Boolean(row.is_completed || (row.quiz_score >= 7) || (row.accuracy_pct >= 70));
+                        row.passed = isDone;
+                        row.is_completed = isDone;
+                        row.score = row.quiz_score;
+                        row.totalQuestions = row.quiz_max_score || 10;
+                        row.answers = row.answers_payload || {};
                         progressMap[row.module_id] = row;
                     });
                     try {

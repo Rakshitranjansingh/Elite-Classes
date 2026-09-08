@@ -1202,10 +1202,12 @@
 
 
 
-                // Update Header
+                // Update Header safely
                 document.title = `Ch ${courseData.chapterNumber}: ${courseData.chapterTitle} — Elite Classes`;
-                document.getElementById('top-nav-chapter-title').textContent = `Ch ${courseData.chapterNumber}: ${courseData.chapterTitle}`;
-                document.getElementById('top-nav-sub-title').textContent = `Class 10 Science • 20 Mini-Modules`;
+                const topTitle = document.getElementById('top-nav-chapter-title');
+                if (topTitle) topTitle.textContent = `Ch ${courseData.chapterNumber}: ${courseData.chapterTitle}`;
+                const topSub = document.getElementById('top-nav-sub-title');
+                if (topSub) topSub.textContent = `Class 10 Science • 20 Mini-Modules`;
 
                 // Fetch Student Progress
                 await loadStudentChapterProgress();
@@ -1245,21 +1247,44 @@
             }
         }
 
+        // Helper to check if a module's progress is passing
+        function isModulePassed(prog) {
+            if (!prog) return false;
+            if (prog.passed === true || prog.is_completed === true) return true;
+            if (typeof prog.score === 'number' && prog.score >= 7) return true;
+            if (typeof prog.quiz_score === 'number' && prog.quiz_score >= 7) return true;
+            if (typeof prog.accuracy_pct === 'number' && prog.accuracy_pct >= 70) return true;
+            return false;
+        }
+
+        // Helper to retrieve the best score of a module
+        function getModuleScore(prog) {
+            if (!prog) return 0;
+            if (typeof prog.score === 'number') return prog.score;
+            if (typeof prog.quiz_score === 'number') return prog.quiz_score;
+            return 0;
+        }
+
         // Determine if module at index is unlocked
         function isModuleUnlocked(index) {
             if (index === 0) return true;
+            if (!courseData || !courseData.modules) return false;
             const prevMod = courseData.modules[index - 1];
             if (!prevMod) return false;
             const prevProg = chapterProgress[prevMod.id];
-            return !!(prevProg && prevProg.passed);
+            return isModulePassed(prevProg);
         }
 
         // Determine initial active module
         function determineInitialModule() {
+            if (!courseData || !courseData.modules) {
+                activeModuleIndex = 0;
+                return;
+            }
             for (let i = 0; i < courseData.modules.length; i++) {
                 const mod = courseData.modules[i];
                 const prog = chapterProgress[mod.id];
-                if (!prog || !prog.passed) {
+                if (!isModulePassed(prog)) {
                     if (isModuleUnlocked(i)) {
                         activeModuleIndex = i;
                         return;
@@ -1272,13 +1297,14 @@
         // Render 20 Modules in Left Sidebar
         function renderSidebarModules() {
             const container = document.getElementById('modules-list-container');
-            if (!container) return;
+            if (!container || !courseData || !courseData.modules) return;
 
             let html = '';
             courseData.modules.forEach((mod, idx) => {
                 const unlocked = isModuleUnlocked(idx);
                 const prog = chapterProgress[mod.id];
-                const passed = !!(prog && prog.passed);
+                const passed = isModulePassed(prog);
+                const score = getModuleScore(prog);
                 const isActive = (idx === activeModuleIndex);
 
                 let cardClass = 'module-card';
@@ -1290,21 +1316,21 @@
                 if (!unlocked) {
                     badgeHtml = '<span class="badge-status locked">🔒 Locked</span>';
                 } else if (passed) {
-                    badgeHtml = `<span class="badge-status passed">🟢 Passed (${prog.score}/10)</span>`;
+                    badgeHtml = `<span class="badge-status passed">🟢 Passed (${score}/10)</span>`;
                 } else {
                     badgeHtml = '<span class="badge-status available">🟡 Available</span>';
                 }
 
-                const padNum = String(mod.moduleNumber).padStart(2, '0');
+                const padNum = String(mod.moduleNumber || (idx + 1)).padStart(2, '0');
 
                 html += `
                     <div class="${cardClass}" onclick="selectModule(${idx})">
                         <div class="module-number-pill">${padNum}</div>
                         <div class="module-card-body">
-                            <div class="module-card-title">${mod.title}</div>
+                            <div class="module-card-title">${escapeHtml(mod.title || '')}</div>
                             <div class="module-card-meta">
                                 ${badgeHtml}
-                                <span>⏱️ ${mod.readingTimeMins}m</span>
+                                <span>⏱️ ${mod.readingTimeMins || 4}m</span>
                             </div>
                         </div>
                     </div>
@@ -1316,8 +1342,13 @@
 
         // Select a module from sidebar
         function selectModule(index) {
+            if (!courseData || !courseData.modules || !courseData.modules[index]) return;
+
             if (!isModuleUnlocked(index)) {
-                showToast('🔒 Complete the previous module with ≥ 70% to unlock this topic.', 'danger');
+                const mod = courseData.modules[index];
+                const prevNum = mod && mod.moduleNumber ? (mod.moduleNumber - 1) : index;
+                showToast(`🔒 Module ${index + 1} is locked. Score ≥ 70% in Module ${prevNum} to unlock.`, 'danger');
+                toggleMobileDrawer(true); // Always close mobile drawer so student is not stuck
                 return;
             }
 
@@ -1328,7 +1359,8 @@
 
             renderSidebarModules();
             renderActiveModule();
-            document.getElementById('course-main-viewport').scrollTo({ top: 0, behavior: 'smooth' });
+            const mainViewport = document.getElementById('course-main-viewport');
+            if (mainViewport) mainViewport.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Render active module content and quiz
@@ -1375,8 +1407,9 @@
             actionsBar.style.display = 'flex';
 
             let questionsHtml = '';
-            const existingAnswers = (prog && prog.answers) ? prog.answers : {};
-            const isAlreadySubmitted = !!(prog && typeof prog.score === 'number');
+            const existingAnswers = (prog && (prog.answers || prog.answers_payload)) ? (prog.answers || prog.answers_payload) : {};
+            const progScore = prog ? (typeof prog.score === 'number' ? prog.score : prog.quiz_score) : undefined;
+            const isAlreadySubmitted = typeof progScore === 'number';
 
             mod.questions.forEach((q, qIdx) => {
                 const qNum = qIdx + 1;
@@ -1434,7 +1467,7 @@
             container.innerHTML = questionsHtml;
 
             if (isAlreadySubmitted) {
-                renderResultBanner(prog.score, mod.questions.length, prog.passed);
+                renderResultBanner(progScore, mod.questions.length, isModulePassed(prog));
             }
         }
 
@@ -1489,26 +1522,42 @@
             const pct = Math.round((score / total) * 100);
             const passed = pct >= courseData.passingPercentage; // 70%
 
-            const progressRecord = {
+            const progressPayload = {
+                student_id: currentStudent.id,
                 studentId: currentStudent.id,
+                student_name: currentStudent.name,
+                cls: currentStudent.cls || 'Class 10',
+                subject: 'Science',
+                chapter_id: courseData.chapterId,
                 chapterId: courseData.chapterId,
+                module_id: mod.id,
                 moduleId: mod.id,
+                module_number: mod.moduleNumber,
+                quiz_score: score,
                 score: score,
+                quiz_max_score: total,
                 totalQuestions: total,
-                answers: userAnswers
+                answers_payload: userAnswers,
+                answers: userAnswers,
+                is_completed: passed,
+                passed: passed
             };
 
             try {
                 if (window.CourseDBService) {
-                    await window.CourseDBService.saveModuleProgress(progressRecord);
+                    await window.CourseDBService.saveModuleProgress(progressPayload);
                 } else {
                     const localKey = `ec_course_prog_${currentStudent.id}_${courseData.chapterId}`;
                     const existing = JSON.parse(localStorage.getItem(localKey) || '{}');
                     existing[mod.id] = {
                         score,
+                        quiz_score: score,
                         totalQuestions: total,
+                        quiz_max_score: total,
                         passed,
+                        is_completed: passed,
                         answers: userAnswers,
+                        answers_payload: userAnswers,
                         updatedAt: new Date().toISOString()
                     };
                     localStorage.setItem(localKey, JSON.stringify(existing));
@@ -1519,9 +1568,13 @@
 
             chapterProgress[mod.id] = {
                 score,
+                quiz_score: score,
                 totalQuestions: total,
+                quiz_max_score: total,
                 passed,
-                answers: userAnswers
+                is_completed: passed,
+                answers: userAnswers,
+                answers_payload: userAnswers
             };
 
             updateOverallProgress();
@@ -1604,13 +1657,15 @@
         // Update overall chapter progress bar and badge
         function updateOverallProgress() {
             let passedCount = 0;
-            courseData.modules.forEach(m => {
-                if (chapterProgress[m.id] && chapterProgress[m.id].passed) {
-                    passedCount++;
-                }
-            });
+            if (courseData && courseData.modules) {
+                courseData.modules.forEach(m => {
+                    if (isModulePassed(chapterProgress[m.id])) {
+                        passedCount++;
+                    }
+                });
+            }
 
-            const total = courseData.modules.length;
+            const total = (courseData && courseData.modules) ? courseData.modules.length : 20;
             const pct = Math.round((passedCount / total) * 100);
 
             const countEl = document.getElementById('progress-modules-count');
