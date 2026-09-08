@@ -1,0 +1,1127 @@
+# -*- coding: utf-8 -*-
+"""
+CH9 Part 1: Modules 1 to 10
+Light – Reflection and Refraction (Class 10 Science)
+"""
+import json
+
+with open('scratch/ch9_bank_questions.json', 'r', encoding='utf-8') as f:
+    bank_questions = json.load(f)
+
+bank_by_id = {q['id']: q for q in bank_questions}
+
+def get_bank_q(qid, new_id):
+    q = bank_by_id[qid]
+    opts = [opt['text'] for opt in q['options']]
+    correct_key = q['correct_option']
+    correct_text = next(opt['text'] for opt in q['options'] if opt['key'] == correct_key)
+    qtext = q['question'].replace('NCERT', 'standard curriculum')
+    exp = q['explanation'].replace('NCERT', 'standard curriculum')
+    return {
+        "id": new_id,
+        "question": qtext,
+        "options": opts,
+        "answer": correct_text,
+        "explanation": exp
+    }
+
+modules_1_to_10 = []
+
+# ==========================================
+# Module 1: Nature of Light & Laws of Reflection
+# ==========================================
+m01 = {
+  "id": "m01", "moduleNumber": 1,
+  "title": "Nature of Light & The Fundamental Laws of Reflection",
+  "tagline": "Wave-particle duality overview, rectilinear propagation, and universal laws of reflection.",
+  "readingTimeMins": 5,
+  "theoryHtml": r"""
+<div class="module-content">
+  <div class="theory-section">
+    <h4>1. What is Light?</h4>
+    <p><strong>Light</strong> is a form of electromagnetic radiation that induces the sensation of vision in our eyes. It travels in straight lines through a homogeneous transparent medium—a property termed the <strong>rectilinear propagation of light</strong>. In a vacuum, light propagates at its maximum universal velocity of $c \approx 3 \times 10^8\text{ m/s}$.</p>
+
+    <h4>2. The Phenomenon of Reflection</h4>
+    <p>When a beam of light travelling through a medium strikes the boundary of another polished surface (such as a mirror) and is sent back into the original medium, the phenomenon is called <strong>reflection of light</strong>.</p>
+
+    <h4>3. The Two Universal Laws of Reflection</h4>
+    <p>Reflection at all surfaces—flat, curved, or irregular—obeys two fundamental laws:</p>
+    <ol>
+      <li><strong>First Law:</strong> The angle of incidence ($\angle i$) is strictly equal to the angle of reflection ($\angle r$):
+        $$\angle i = \angle r$$
+      </li>
+      <li><strong>Second Law:</strong> The incident ray, the reflected ray, and the normal to the reflecting surface at the point of incidence, all lie in the <strong>same geometric plane</strong>.</li>
+    </ol>
+
+    <h4>4. Normal Incidence ($\angle i = 0^\circ$)</h4>
+    <p>If a ray of light strikes a reflecting surface normally (perpendicularly, along the normal line), the angle of incidence is $\angle i = 0^\circ$. By the first law, the angle of reflection is also $\angle r = 0^\circ$. Hence, the ray retraces its exact path in the opposite direction.</p>
+  </div>
+</div>
+""",
+  "pointsToRemember": [
+    "Light travels in straight lines (rectilinear propagation) at $3 \times 10^8\\text{ m/s}$ in vacuum.",
+    "First Law of Reflection: Angle of incidence equals angle of reflection ($\\angle i = \\angle r$).",
+    "Second Law of Reflection: Incident ray, reflected ray, and normal at point of incidence all lie in the same plane."
+  ],
+  "keyNotes": [
+    "The laws of reflection apply universally to all reflecting surfaces, including plane, spherical, cylindrical, and parabolic surfaces."
+  ],
+  "questions": [
+    get_bank_q(1, "m01_q01"),
+    get_bank_q(2, "m01_q02"),
+    get_bank_q(21, "m01_q03"),
+    get_bank_q(70, "m01_q04"),
+    {
+      "id": "m01_q05",
+      "question": "What is the angle of reflection if a ray of light is incident perpendicular to a plane mirror?",
+      "options": ["90°", "45°", "0°", "180°"],
+      "answer": "0°",
+      "explanation": "When light strikes normally, the ray is collinear with the normal, so the angle of incidence is 0°. Hence, angle of reflection is also 0°."
+    },
+    {
+      "id": "m01_q06",
+      "question": "If the angle between the incident ray and the reflected ray is 80°, what is the angle of incidence?",
+      "options": ["80°", "40°", "50°", "20°"],
+      "answer": "40°",
+      "explanation": "The angle between incident and reflected rays is ∠i + ∠r. Since ∠i = ∠r, 2∠i = 80°, which gives ∠i = 40°."
+    },
+    {
+      "id": "m01_q07",
+      "question": "A ray of light strikes a plane mirror making a glancing angle of 35° with the mirror surface. What is the angle of reflection?",
+      "options": ["35°", "55°", "70°", "90°"],
+      "answer": "55°",
+      "explanation": "The normal is at 90° to the surface. Angle of incidence ∠i = 90° - 35° = 55°. By the law of reflection, ∠r = ∠i = 55°."
+    },
+    {
+      "id": "m01_q08",
+      "question": "Do the laws of reflection apply to curved (spherical) reflecting surfaces?",
+      "options": [
+        "No, they apply only to perfectly flat plane mirrors",
+        "Yes, they apply universally to all reflecting surfaces, including spherical mirrors",
+        "Only when light has a single wavelength",
+        "Only in total vacuum"
+      ],
+      "answer": "Yes, they apply universally to all reflecting surfaces, including spherical mirrors",
+      "explanation": "The laws of reflection are fundamental optical principles that hold true for all reflecting surfaces regardless of geometry."
+    },
+    {
+      "id": "m01_q09",
+      "question": "What is the speed of light in vacuum or dry air?",
+      "options": ["3 × 10^5 m/s", "3 × 10^8 m/s", "3 × 10^8 km/s", "332 m/s"],
+      "answer": "3 × 10^8 m/s",
+      "explanation": "The speed of light in vacuum (c) is precisely 299,792,458 m/s, approximately 3 × 10^8 m/s."
+    },
+    {
+      "id": "m01_q10",
+      "question": "The sharp shadow cast by an opaque object placed in front of a point light source provides direct evidence of:",
+      "options": [
+        "Diffraction of light",
+        "Rectilinear propagation of light (light travelling in straight lines)",
+        "Total internal reflection",
+        "Dispersion of white light"
+      ],
+      "answer": "Rectilinear propagation of light (light travelling in straight lines)",
+      "explanation": "The formation of sharp shadows (umbra) demonstrates that light travels along straight-line paths."
+    }
+  ]
+}
+modules_1_to_10.append(m01)
+
+# ==========================================
+# Module 2: Reflection at Plane Mirrors
+# ==========================================
+m02 = {
+  "id": "m02", "moduleNumber": 2,
+  "title": "Image Formation by Plane Mirrors & Lateral Inversion",
+  "tagline": "Virtual, erect, equal-sized images, object-image distance symmetry, and lateral reversal.",
+  "readingTimeMins": 5,
+  "theoryHtml": r"""
+<div class="module-content">
+  <div class="theory-section">
+    <h4>1. Image Formation by a Plane Mirror</h4>
+    <p>A <strong>plane mirror</strong> is a flat, highly polished reflecting surface (typically a glass plate coated on the rear side with a thin film of silver or aluminium protected by red lead oxide paint). When an object is placed in front of a plane mirror, rays diverge from each point of the object, reflect according to the laws of reflection, and appear to diverge from a point behind the mirror.</p>
+
+    <h4>2. Characteristics of Images Formed by Plane Mirrors</h4>
+    <ul>
+      <li><strong>Virtual and Erect:</strong> The image cannot be caught on a physical screen because reflected rays do not actually intersect; they merely appear to originate from behind the mirror.</li>
+      <li><strong>Size Equality ($h' = h$):</strong> The height of the image is strictly equal to the height of the object (magnification $m = +1$).</li>
+      <li><strong>Equidistant Property ($v = -u$):</strong> The distance of the image behind the mirror is exactly equal to the distance of the object in front of the mirror.</li>
+      <li><strong>Lateral Inversion:</strong> The left side of the object appears as the right side of the image, and vice-versa.</li>
+    </ul>
+
+    <h4>3. Practical Consequence: The AMBULANCE Sign</h4>
+    <p>Because of lateral inversion, the word <strong>"AMBULANCE"</strong> is painted backwards ($\text{ƎƆИA⅃UBMA}$) on emergency vehicles. A driver looking in the rear-view mirror reads the laterally inverted word as normally oriented, allowing immediate right-of-way.</p>
+  </div>
+</div>
+""",
+  "pointsToRemember": [
+    "Images formed by a plane mirror are always virtual, erect, and equal in size to the object ($m = +1$).",
+    "Image distance behind the plane mirror equals object distance in front of the mirror ($v = u$).",
+    "Lateral inversion causes the left and right sides of the image to appear reversed."
+  ],
+  "keyNotes": [
+    "To view one's full vertical height in a plane mirror, the mirror must have a minimum vertical length equal to at least half of the person's height ($H/2$)."
+  ],
+  "questions": [
+    get_bank_q(3, "m02_q01"),
+    get_bank_q(22, "m02_q02"),
+    get_bank_q(51, "m02_q03"),
+    {
+      "id": "m02_q04",
+      "question": "What is the linear magnification produced by a plane mirror?",
+      "options": ["-1", "+1", "Greater than +1", "Less than 1"],
+      "answer": "+1",
+      "explanation": "A plane mirror forms an erect image (positive sign) of the exact same size as the object (h' = h), so magnification m = +h/h = +1."
+    },
+    {
+      "id": "m02_q05",
+      "question": "If an object is placed 30 cm in front of a plane mirror, what is the distance between the object and its virtual image?",
+      "options": ["30 cm", "60 cm", "15 cm", "0 cm"],
+      "answer": "60 cm",
+      "explanation": "The image is formed 30 cm behind the mirror. The total distance between object and image is 30 cm + 30 cm = 60 cm."
+    },
+    {
+      "id": "m02_q06",
+      "question": "An object moves towards a stationary plane mirror at a speed of 2 m/s. At what speed does the image approach the object?",
+      "options": ["2 m/s", "4 m/s", "1 m/s", "0 m/s"],
+      "answer": "4 m/s",
+      "explanation": "As the object moves at speed v towards the mirror, the image also moves at speed v towards the mirror from the other side, so relative closing speed is 2v = 4 m/s."
+    },
+    {
+      "id": "m02_q07",
+      "question": "Why is the word 'AMBULANCE' written in reverse lettering on the front of emergency hospital vehicles?",
+      "options": [
+        "It is a foreign language tradition",
+        "So drivers viewing it in their rear-view mirrors read it upright due to lateral inversion",
+        "To prevent glare from oncoming headlights",
+        "It was a printing mistake that became standard"
+      ],
+      "answer": "So drivers viewing it in their rear-view mirrors read it upright due to lateral inversion",
+      "explanation": "Lateral inversion in the rear-view mirror flips the reverse lettering back to its readable format, alerting drivers immediately."
+    },
+    {
+      "id": "m02_q08",
+      "question": "What is the minimum vertical height of a plane mirror required for a person of height 180 cm to view their complete reflection?",
+      "options": ["180 cm", "90 cm", "60 cm", "45 cm"],
+      "answer": "90 cm",
+      "explanation": "By geometric ray tracing, a person needs a plane mirror of at least half their height (H/2 = 180/2 = 90 cm) to see their full reflection."
+    },
+    {
+      "id": "m02_q09",
+      "question": "What is the focal length of a flat plane mirror?",
+      "options": ["Zero", "Infinity", "1 metre", "Negative 25 cm"],
+      "answer": "Infinity",
+      "explanation": "A plane mirror can be considered a spherical mirror with an infinitely large radius of curvature (R = ∞). Hence f = R/2 = ∞."
+    },
+    {
+      "id": "m02_q10",
+      "question": "Which of the following optical devices utilizes multiple reflections between two parallel plane mirrors inclined at 45° to see over obstacles?",
+      "options": ["Kaleidoscope", "Periscope", "Compound microscope", "Astronomical telescope"],
+      "answer": "Periscope",
+      "explanation": "A periscope uses two plane mirrors oriented parallel to each other at 45° angles to reflect light around obstructions or submarine periscopes."
+    }
+  ]
+}
+modules_1_to_10.append(m02)
+
+# ==========================================
+# Module 3: Spherical Mirrors & Key Terminology
+# ==========================================
+m03 = {
+  "id": "m03", "moduleNumber": 3,
+  "title": "Spherical Mirrors: Concave & Convex Geometry & Key Parameters",
+  "tagline": "Curved reflecting surfaces, pole, centre of curvature, radius of curvature, and principal axis.",
+  "readingTimeMins": 5,
+  "theoryHtml": r"""
+<div class="module-content">
+  <div class="theory-section">
+    <h4>1. What is a Spherical Mirror?</h4>
+    <p>A <strong>spherical mirror</strong> is a reflecting mirror whose polished surface forms a portion of a hollow sphere of glass:</p>
+    <ul>
+      <li><strong>Concave Mirror (Converging Mirror):</strong> The reflecting surface is curved <em>inwards</em> (towards the centre of the sphere). The outer bulging surface is silvered and painted.</li>
+      <li><strong>Convex Mirror (Diverging Mirror):</strong> The reflecting surface is curved <em>outwards</em> (bulges away from the centre of the sphere). The inner hollow surface is silvered.</li>
+    </ul>
+
+    <h4>2. Essential Geometric Terminology</h4>
+    <ul>
+      <li><strong>Pole ($P$):</strong> The geometric centre of the spherical reflecting surface.</li>
+      <li><strong>Centre of Curvature ($C$):</strong> The centre of the hollow glass sphere of which the mirror forms a part. (Note: $C$ lies in front of a concave mirror, but lies <em>behind</em> a convex mirror).</li>
+      <li><strong>Radius of Curvature ($R$):</strong> The linear distance from the pole to the centre of curvature ($PC = R$).</li>
+      <li><strong>Principal Axis:</strong> The imaginary straight line passing perpendicularly through both the pole ($P$) and the centre of curvature ($C$) of the spherical mirror.</li>
+      <li><strong>Aperture:</strong> The effective diameter of the circular outline of the spherical reflecting surface.</li>
+    </ul>
+  </div>
+</div>
+""",
+  "pointsToRemember": [
+    "A concave mirror curves inwards; a convex mirror curves outwards.",
+    "The pole ($P$) is the geometric centre of the mirror's reflecting surface.",
+    "The centre of curvature ($C$) is the centre of the sphere from which the mirror was cut."
+  ],
+  "keyNotes": [
+    "The normal to a spherical mirror at any point of incidence is the straight line joining that point to the centre of curvature ($C$), because the radius is always perpendicular to the tangent of a sphere."
+  ],
+  "questions": [
+    get_bank_q(4, "m03_q01"),
+    get_bank_q(5, "m03_q02"),
+    get_bank_q(23, "m03_q03"),
+    get_bank_q(52, "m03_q04"),
+    {
+      "id": "m03_q05",
+      "question": "What is the straight line passing through the pole and the centre of curvature of a spherical mirror called?",
+      "options": ["Aperture", "Principal Axis", "Focal plane", "Chord of curvature"],
+      "answer": "Principal Axis",
+      "explanation": "The principal axis is the straight line extending through both the pole (P) and centre of curvature (C)."
+    },
+    {
+      "id": "m03_q06",
+      "question": "Where does the centre of curvature of a CONVEX mirror lie relative to its reflecting surface?",
+      "options": [
+        "In front of the reflecting surface",
+        "Behind the reflecting surface",
+        "Exactly on the reflecting surface",
+        "At infinite distance"
+      ],
+      "answer": "Behind the reflecting surface",
+      "explanation": "Because a convex mirror bulges outwards towards the light, the sphere's centre of curvature C lies behind the reflecting surface."
+    },
+    {
+      "id": "m03_q07",
+      "question": "What is the circular diameter of the reflecting surface of a spherical mirror termed?",
+      "options": ["Focal length", "Aperture", "Radius of curvature", "Dispersion limit"],
+      "answer": "Aperture",
+      "explanation": "The effective diameter of the circular reflecting boundary of a spherical mirror is called its aperture."
+    },
+    {
+      "id": "m03_q08",
+      "question": "At any arbitrary point on the reflecting surface of a spherical mirror, the geometric normal line must pass through:",
+      "options": ["The pole (P)", "The centre of curvature (C)", "The focus (F)", "Infinity"],
+      "answer": "The centre of curvature (C)",
+      "explanation": "Any line segment connecting the centre of curvature C to a point on a sphere is a radius, which is perpendicular to the tangent at that point."
+    },
+    {
+      "id": "m03_q09",
+      "question": "Which type of spherical mirror has its reflecting surface curved inwards?",
+      "options": ["Concave mirror", "Convex mirror", "Plane mirror", "Cylindrical convex mirror"],
+      "answer": "Concave mirror",
+      "explanation": "A concave mirror has its reflecting surface curved inwards towards the centre of the sphere."
+    },
+    {
+      "id": "m03_q10",
+      "question": "A spherical mirror with small aperture means that:",
+      "options": [
+        "Its radius of curvature is infinite",
+        "Its diameter is much smaller than its radius of curvature, minimizing spherical aberration",
+        "It cannot reflect light",
+        "It forms only inverted images"
+      ],
+      "answer": "Its diameter is much smaller than its radius of curvature, minimizing spherical aberration",
+      "explanation": "Small aperture mirrors satisfy paraxial ray conditions where aperture is significantly smaller than radius of curvature."
+    }
+  ]
+}
+modules_1_to_10.append(m03)
+
+# ==========================================
+# Module 4: Focus & Focal Length (f = R/2)
+# ==========================================
+m04 = {
+  "id": "m04", "moduleNumber": 4,
+  "title": "Principal Focus & Focal Length: Relationship f = R/2",
+  "tagline": "Real focus of concave mirrors, virtual focus of convex mirrors, and the mathematical formula f = R/2.",
+  "readingTimeMins": 5,
+  "theoryHtml": r"""
+<div class="module-content">
+  <div class="theory-section">
+    <h4>1. Principal Focus of a Concave Mirror</h4>
+    <p>When a beam of light rays parallel and close to the principal axis strikes a concave mirror, all the reflected rays converge and physically intersect at a single point on the principal axis. This point is called the <strong>principal focus ($F$)</strong> of the concave mirror. Because reflected rays genuinely pass through it, a concave mirror has a <strong>real focus</strong> situated in front of the mirror.</p>
+
+    <h4>2. Principal Focus of a Convex Mirror</h4>
+    <p>When parallel rays strike a convex mirror, they diverge upon reflection. When these reflected divergent rays are extended backwards, they appear to originate from a single point located behind the mirror on the principal axis. Hence, a convex mirror has a <strong>virtual focus ($F$)</strong> situated behind the mirror.</p>
+
+    <h4>3. Focal Length ($f$)</h4>
+    <p>The linear distance between the pole ($P$) and the principal focus ($F$) of a spherical mirror is called its <strong>focal length</strong> ($f = PF$).</p>
+
+    <h4>4. The Mathematical Relationship: $f = R/2$</h4>
+    <p>For spherical mirrors of small aperture, the principal focus lies exactly halfway between the pole ($P$) and the centre of curvature ($C$):</p>
+    $$R = 2f \quad \implies \quad f = \frac{R}{2}$$
+    <p>Where $R$ is the radius of curvature and $f$ is the focal length.</p>
+  </div>
+</div>
+""",
+  "pointsToRemember": [
+    "A concave mirror has a real principal focus; a convex mirror has a virtual principal focus.",
+    "The focal length is the distance from pole to principal focus ($f = PF$).",
+    "For mirrors with small aperture, focal length is exactly half the radius of curvature: $f = R/2$."
+  ],
+  "keyNotes": [
+    "If the radius of curvature of a concave mirror is $30\text{ cm}$, its focal length is exactly $f = 30/2 = 15\text{ cm}$."
+  ],
+  "questions": [
+    get_bank_q(6, "m04_q01"),
+    get_bank_q(7, "m04_q02"),
+    get_bank_q(24, "m04_q03"),
+    get_bank_q(53, "m04_q04"),
+    {
+      "id": "m04_q05",
+      "question": "What is the focal length of a spherical mirror whose radius of curvature is 32 cm?",
+      "options": ["64 cm", "32 cm", "16 cm", "8 cm"],
+      "answer": "16 cm",
+      "explanation": "Focal length f = R/2. With R = 32 cm, f = 32/2 = 16 cm."
+    },
+    {
+      "id": "m04_q06",
+      "question": "If the focal length of a convex mirror is 25 cm, what is its radius of curvature?",
+      "options": ["12.5 cm", "25 cm", "50 cm", "100 cm"],
+      "answer": "50 cm",
+      "explanation": "Radius of curvature R = 2f = 2 × 25 cm = 50 cm."
+    },
+    {
+      "id": "m04_q07",
+      "question": "Why is the principal focus of a concave mirror classified as a REAL focus?",
+      "options": [
+        "Because it is painted with real silver",
+        "Because incident parallel rays physically converge and intersect at that point after reflection",
+        "Because it lies behind the glass",
+        "Because it produces inverted sound waves"
+      ],
+      "answer": "Because incident parallel rays physically converge and intersect at that point after reflection",
+      "explanation": "A real focus is formed by the actual physical intersection of reflected light rays on the principal axis in front of the mirror."
+    },
+    {
+      "id": "m04_q08",
+      "question": "Where does the virtual focus of a convex mirror lie?",
+      "options": [
+        "In front of the mirror at the centre of curvature",
+        "Behind the reflecting surface on the principal axis",
+        "At the pole of the mirror",
+        "At infinity"
+      ],
+      "answer": "Behind the reflecting surface on the principal axis",
+      "explanation": "In a convex mirror, reflected divergent rays appear to diverge from a point behind the mirror, forming a virtual focus."
+    },
+    {
+      "id": "m04_q09",
+      "question": "In a simple solar cooker, why is a concave mirror used to focus sunlight?",
+      "options": [
+        "It scatters light in all directions",
+        "It converges all parallel incoming solar rays to its principal focus, generating high thermal energy",
+        "It changes the colour of sunlight to green",
+        "It cools the food rapidly"
+      ],
+      "answer": "It converges all parallel incoming solar rays to its principal focus, generating high thermal energy",
+      "explanation": "Parallel solar rays reflect from the concave surface and concentrate at the focus, generating intense heat to cook food."
+    },
+    {
+      "id": "m04_q10",
+      "question": "If a concave mirror is submerged in a beaker of water, does its focal length change?",
+      "options": [
+        "Yes, it decreases by 1.33 times",
+        "Yes, it increases by 4 times",
+        "No, the focal length of a mirror depends only on its geometry (f = R/2), independent of the surrounding medium",
+        "It becomes zero"
+      ],
+      "answer": "No, the focal length of a mirror depends only on its geometry (f = R/2), independent of the surrounding medium",
+      "explanation": "Reflection obeys ∠i = ∠r regardless of the medium. The focal length of a mirror is purely geometric (f = R/2) and remains unchanged in water."
+    }
+  ]
+}
+modules_1_to_10.append(m04)
+
+# ==========================================
+# Module 5: Ray Tracing Rules for Spherical Mirrors
+# ==========================================
+m05 = {
+  "id": "m05", "moduleNumber": 5,
+  "title": "Ray Diagrams: The Four Fundamental Ray Tracing Rules",
+  "tagline": "Rules governing parallel rays, focal rays, radial rays through C, and oblique rays at pole P.",
+  "readingTimeMins": 5,
+  "theoryHtml": r"""
+<div class="module-content">
+  <div class="theory-section">
+    <h4>1. Principles of Ray Tracing</h4>
+    <p>To locate the position, nature, and size of the image formed by a spherical mirror, we trace at least <strong>two characteristic rays</strong> emanating from a point on the object. Any two of the following four standard rays can be chosen:</p>
+
+    <h4>2. The Four Standard Ray Rules</h4>
+    <ol>
+      <li><strong>Ray 1 (Parallel to Principal Axis):</strong>
+        <ul>
+          <li><em>Concave Mirror:</em> A ray travelling parallel to the principal axis passes directly through the <strong>principal focus ($F$)</strong> after reflection.</li>
+          <li><em>Convex Mirror:</em> A ray parallel to the principal axis appears to diverge from the principal focus ($F$) behind the mirror.</li>
+        </ul>
+      </li>
+      <li><strong>Ray 2 (Passing Through or Directed Towards Focus):</strong>
+        <ul>
+          <li><em>Concave Mirror:</em> A ray passing through the focus ($F$) emerges <strong>parallel to the principal axis</strong> after reflection.</li>
+          <li><em>Convex Mirror:</em> A ray directed towards the focus ($F$) emerges parallel to the principal axis.</li>
+        </ul>
+      </li>
+      <li><strong>Ray 3 (Passing Through Centre of Curvature $C$):</strong>
+        <ul>
+          <li>A ray passing through (or directed towards) the centre of curvature ($C$) strikes the surface normally ($\angle i = 0^\circ$) and <strong>retraces its path back along the same line</strong>.</li>
+        </ul>
+      </li>
+      <li><strong>Ray 4 (Incident Obliquely at the Pole $P$):</strong>
+        <ul>
+          <li>A ray incident obliquely at the pole ($P$) reflects symmetrically such that the angle of reflection equals the angle of incidence with the principal axis ($\angle i = \angle r$).</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</div>
+""",
+  "pointsToRemember": [
+    "Tracing any two of the four standard rays is sufficient to determine image location and size.",
+    "Parallel rays reflect through the focus; focal rays reflect parallel to the axis.",
+    "Rays passing through $C$ strike normally ($\angle i = 0^\circ$) and reflect back along the same path."
+  ],
+  "keyNotes": [
+    "A ray directed through the centre of curvature ($C$) retraces its path because it strikes the mirror surface at $90^\circ$ (normal incidence), meaning $\angle i = \angle r = 0^\circ$."
+  ],
+  "questions": [
+    get_bank_q(8, "m05_q01"),
+    get_bank_q(25, "m05_q02"),
+    get_bank_q(54, "m05_q03"),
+    {
+      "id": "m05_q04",
+      "question": "Why does a light ray passing through the centre of curvature (C) of a concave mirror retrace its path after reflection?",
+      "options": [
+        "It gets absorbed by the mirror",
+        "It strikes the spherical mirror along the normal line (angle of incidence = 0°)",
+        "The mirror is transparent at point C",
+        "It bends due to high air pressure"
+      ],
+      "answer": "It strikes the spherical mirror along the normal line (angle of incidence = 0°)",
+      "explanation": "The line from C to the mirror surface is a radius, which is normal to the surface. Since ∠i = 0°, ∠r = 0°, so the ray retraces its exact path."
+    },
+    {
+      "id": "m05_q05",
+      "question": "A ray of light incident parallel to the principal axis of a concave mirror passes through which point after reflection?",
+      "options": ["Centre of curvature (C)", "Principal focus (F)", "Pole (P)", "Infinity"],
+      "answer": "Principal focus (F)",
+      "explanation": "By definition, all paraxial rays parallel to the principal axis reflect through the principal focus of a concave mirror."
+    },
+    {
+      "id": "m05_q06",
+      "question": "A ray of light passing through the principal focus (F) of a concave mirror emerges in what direction after reflection?",
+      "options": [
+        "Back through the focus",
+        "Parallel to the principal axis",
+        "Through the centre of curvature",
+        "Perpendicular to the surface"
+      ],
+      "answer": "Parallel to the principal axis",
+      "explanation": "By the principle of reversibility of light paths, a ray passing through the focus reflects parallel to the principal axis."
+    },
+    {
+      "id": "m05_q07",
+      "question": "How many characteristic ray paths are strictly needed to geometrically construct an image point in a ray diagram?",
+      "options": ["At least two rays", "Exactly four rays", "Ten rays", "Only one ray"],
+      "answer": "At least two rays",
+      "explanation": "The intersection of at least two reflected rays (or their backward extensions) uniquely defines the image point."
+    },
+    {
+      "id": "m05_q08",
+      "question": "For a ray incident obliquely at the pole (P) making an angle of 30° with the principal axis, what is the angle of reflection?",
+      "options": ["60°", "30°", "0°", "45°"],
+      "answer": "30°",
+      "explanation": "The principal axis acts as the normal at the pole. Since ∠i = 30°, the angle of reflection ∠r must also be 30°."
+    },
+    {
+      "id": "m05_q09",
+      "question": "In a convex mirror, a ray directed towards the centre of curvature (C) behind the mirror will:",
+      "options": [
+        "Reflect parallel to the principal axis",
+        "Reflect back along its own path",
+        "Pass straight through into the glass",
+        "Reflect through the pole"
+      ],
+      "answer": "Reflect back along its own path",
+      "explanation": "A ray directed towards C strikes the convex surface normally, reflecting straight back along its path of incidence."
+    },
+    {
+      "id": "m05_q10",
+      "question": "The optical principle stating that the path of a ray of light is completely reversible if its direction is reversed is called:",
+      "options": ["Principle of Reversibility of Light", "Snell's Law", "Fermat's Theorem", "Newton's First Law"],
+      "answer": "Principle of Reversibility of Light",
+      "explanation": "The principle of reversibility states that if the direction of a ray of light is reversed, it retraces its entire original optical path."
+    }
+  ]
+}
+modules_1_to_10.append(m05)
+
+# ==========================================
+# Module 6: Image Formation by Concave Mirror
+# ==========================================
+m06 = {
+  "id": "m06", "moduleNumber": 6,
+  "title": "Image Formation by Concave Mirror: The Six Object Positions",
+  "tagline": "Real vs virtual images, magnification changes, and dental mirror applications.",
+  "readingTimeMins": 5,
+  "theoryHtml": r"""
+<div class="module-content">
+  <div class="theory-section">
+    <h4>1. Image Formation Summary for Concave Mirror</h4>
+    <p>A concave mirror produces varied images—real or virtual, magnified, diminished, or same size—depending on object placement along the principal axis:</p>
+    <table class="table-bordered" style="width:100%; border-collapse:collapse; font-size:0.85rem; margin:10px 0;">
+      <thead><tr style="background:#f1f5f9;"><th>Object Position</th><th>Image Position</th><th>Image Size</th><th>Nature</th></tr></thead>
+      <tbody>
+        <tr><td><strong>At Infinity</strong></td><td>At Focus ($F$)</td><td>Highly diminished (point-sized)</td><td>Real and inverted</td></tr>
+        <tr><td><strong>Beyond $C$</strong></td><td>Between $F$ and $C$</td><td>Diminished</td><td>Real and inverted</td></tr>
+        <tr><td><strong>At $C$</strong></td><td>At $C$</td><td>Same size as object ($m = -1$)</td><td>Real and inverted</td></tr>
+        <tr><td><strong>Between $C$ and $F$</strong></td><td>Beyond $C$</td><td>Enlarged (magnified)</td><td>Real and inverted</td></tr>
+        <tr><td><strong>At Focus ($F$)</strong></td><td>At Infinity</td><td>Infinitely large (highly enlarged)</td><td>Real and inverted</td></tr>
+        <tr><td><strong>Between $P$ and $F$</strong></td><td>Behind the mirror</td><td>Enlarged (magnified)</td><td><strong>Virtual and erect</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h4>2. The Special Case: Object Between Pole ($P$) and Focus ($F$)</h4>
+    <p>This is the <strong>only position</strong> where a concave mirror forms a <strong>virtual, erect, and magnified image</strong>. The reflected rays diverge in front of the mirror; their backward extensions intersect behind the mirror. This unique optical property is exploited in:</p>
+    <ul>
+      <li><strong>Dentist's Mirrors:</strong> Held close to teeth ($< f$) to see large, upright virtual views of cavities.</li>
+      <li><strong>Shaving and Makeup Mirrors:</strong> Placed close to the face to reveal an enlarged, erect reflection for precise grooming.</li>
+    </ul>
+  </div>
+</div>
+""",
+  "pointsToRemember": [
+    "Object at $C$ produces an image at $C$, real, inverted, and of the exact same size ($m = -1$).",
+    "Object at $F$ produces a highly enlarged real image at infinity.",
+    "Object between $P$ and $F$ produces a virtual, erect, and magnified image behind the mirror (dentist mirror)."
+  ],
+  "keyNotes": [
+    "A concave mirror can form both real and virtual images, whereas a convex mirror can ONLY form virtual, erect, and diminished images."
+  ],
+  "questions": [
+    get_bank_q(9, "m06_q01"),
+    get_bank_q(10, "m06_q02"),
+    get_bank_q(26, "m06_q03"),
+    get_bank_q(55, "m06_q04"),
+    {
+      "id": "m06_q05",
+      "question": "Where should an object be placed in front of a concave mirror to obtain an image of the EXACT SAME SIZE as the object?",
+      "options": ["At the focus (F)", "At the centre of curvature (C)", "Beyond C", "Between P and F"],
+      "answer": "At the centre of curvature (C)",
+      "explanation": "When an object is placed at C, the image is formed at C, real, inverted, and of the exact same size (m = -1)."
+    },
+    {
+      "id": "m06_q06",
+      "question": "Where must an object be placed relative to a concave mirror to obtain a VIRTUAL, ERECT, and MAGNIFIED image?",
+      "options": [
+        "Between the pole (P) and the principal focus (F)",
+        "At the centre of curvature (C)",
+        "At infinity",
+        "Beyond C"
+      ],
+      "answer": "Between the pole (P) and the principal focus (F)",
+      "explanation": "Placing the object between P and F produces divergent reflected rays that appear to meet behind the mirror, forming an enlarged virtual erect image."
+    },
+    {
+      "id": "m06_q07",
+      "question": "Why do dentists use a concave mirror rather than a plane or convex mirror?",
+      "options": [
+        "It forms an erect, magnified virtual image of the tooth when held close within its focal length",
+        "It illuminates the mouth with X-rays",
+        "It makes teeth appear smaller to fit on the screen",
+        "It produces inverted images that are easier to drill"
+      ],
+      "answer": "It forms an erect, magnified virtual image of the tooth when held close within its focal length",
+      "explanation": "Holding the tooth between P and F produces an upright, magnified virtual image, allowing detailed examination of cavities."
+    },
+    {
+      "id": "m06_q08",
+      "question": "Where is the image formed when an object is placed at the principal focus (F) of a concave mirror?",
+      "options": ["At the pole", "At the centre of curvature", "At infinity", "Between P and F"],
+      "answer": "At infinity",
+      "explanation": "Rays reflecting from an object placed at F emerge parallel to each other, intersecting only at infinity to form an infinitely large image."
+    },
+    {
+      "id": "m06_q09",
+      "question": "If an object is placed 25 cm in front of a concave mirror of focal length 20 cm, what is the nature of the image?",
+      "options": [
+        "Virtual, erect, and magnified",
+        "Real, inverted, and magnified (since object is between C and F)",
+        "Real, inverted, and diminished",
+        "Same size as the object"
+      ],
+      "answer": "Real, inverted, and magnified (since object is between C and F)",
+      "explanation": "With f = 20 cm, C is at 40 cm. An object at 25 cm lies between C and F, producing an enlarged, real, inverted image beyond C."
+    },
+    {
+      "id": "m06_q10",
+      "question": "In torches, searchlights, and automobile headlights, where is the light bulb filament placed relative to the concave reflector?",
+      "options": ["At the centre of curvature", "Very close to the focus of the reflector", "Between pole and focus", "At infinity"],
+      "answer": "Very close to the focus of the reflector",
+      "explanation": "Placing the lamp filament at the focus of the concave reflector causes all reflected rays to emerge as a powerful, parallel beam of light."
+    }
+  ]
+}
+modules_1_to_10.append(m06)
+
+# ==========================================
+# Module 7: Convex Mirror Image Formation & Uses
+# ==========================================
+m07 = {
+  "id": "m07", "moduleNumber": 7,
+  "title": "Image Formation by Convex Mirrors & Rear-View Applications",
+  "tagline": "Always virtual, erect, and diminished images; wide field of view in automotive side mirrors.",
+  "readingTimeMins": 5,
+  "theoryHtml": r"""
+<div class="module-content">
+  <div class="theory-section">
+    <h4>1. Image Formation by a Convex Mirror</h4>
+    <p>A convex mirror diverges incident light rays outward. Regardless of where an object is placed in front of a convex mirror (except at infinity where the image is a point at $F$), the image formed has invariable characteristics:</p>
+    <ul>
+      <li><strong>Location:</strong> Always formed <strong>behind the mirror</strong>, between the pole ($P$) and the focus ($F$).</li>
+      <li><strong>Nature:</strong> Always <strong>virtual and erect</strong> ($m > 0$).</li>
+      <li><strong>Size:</strong> Always <strong>diminished</strong> (smaller than the object, $m < 1$).</li>
+    </ul>
+
+    <h4>2. Why Convex Mirrors are Used as Rear-View Mirrors in Vehicles</h4>
+    <p>Convex mirrors are preferred as side/rear-view mirrors in automobiles for two paramount optical advantages:</p>
+    <ol>
+      <li><strong>Always Erect Image:</strong> They always produce an erect (upright) image, enabling the driver to track traffic safely without confusion.</li>
+      <li><strong>Wider Field of View:</strong> Because a convex mirror curves outward towards the viewer, it captures light from a much broader angular field than a flat plane mirror of the same size. This enables the driver to monitor a significantly wider swath of highway behind the vehicle.</li>
+    </ol>
+  </div>
+</div>
+""",
+  "pointsToRemember": [
+    "Convex mirrors ALWAYS form virtual, erect, and diminished images behind the mirror between $P$ and $F$.",
+    "They provide a vastly wider field of view because they curve outward.",
+    "Used universally as rear-view mirrors in cars, trucks, and security mirrors in retail stores."
+  ],
+  "keyNotes": [
+    "A convex mirror can never form a real or inverted image of a real object under any circumstances."
+  ],
+  "questions": [
+    get_bank_q(11, "m07_q01"),
+    get_bank_q(27, "m07_q02"),
+    get_bank_q(56, "m07_q03"),
+    {
+      "id": "m07_q04",
+      "question": "What is the nature and relative size of the image formed by a convex mirror for any finite position of an object in front of it?",
+      "options": [
+        "Real, inverted, and magnified",
+        "Virtual, erect, and diminished",
+        "Virtual, erect, and magnified",
+        "Real, inverted, and same size"
+      ],
+      "answer": "Virtual, erect, and diminished",
+      "explanation": "A convex mirror always forms a virtual, erect, and diminished image located between its pole and principal focus behind the mirror."
+    },
+    {
+      "id": "m07_q05",
+      "question": "Why are convex mirrors preferred over plane mirrors as vehicle rear-view mirrors?",
+      "options": [
+        "They are cheaper to manufacture",
+        "They give an upright image and provide a much wider field of view due to outward curvature",
+        "They eliminate all shadows completely",
+        "They zoom in on distant objects to make them look larger"
+      ],
+      "answer": "They give an upright image and provide a much wider field of view due to outward curvature",
+      "explanation": "Outward curvature captures a broader visual angle, showing a wide panoramic view of traffic in an upright orientation."
+    },
+    {
+      "id": "m07_q06",
+      "question": "Where is the image formed when an object is at infinity in front of a convex mirror?",
+      "options": [
+        "At the focus (F) behind the mirror, point-sized and virtual",
+        "At the centre of curvature in front of the mirror",
+        "At the pole, magnified",
+        "At infinity behind the mirror"
+      ],
+      "answer": "At the focus (F) behind the mirror, point-sized and virtual",
+      "explanation": "Parallel rays from infinity diverge upon reflection; their extensions meet at the virtual principal focus F behind the mirror as a point."
+    },
+    {
+      "id": "m07_q07",
+      "question": "Can a driver see their own reflection inverted in a standard car side-view convex mirror?",
+      "options": [
+        "Yes, if they lean back",
+        "No, convex mirrors cannot form inverted images of real objects",
+        "Yes, on sunny days",
+        "Only when the car is moving at high speed"
+      ],
+      "answer": "No, convex mirrors cannot form inverted images of real objects",
+      "explanation": "Because all reflected rays diverge from points behind the mirror, convex mirrors form exclusively erect virtual images of real objects."
+    },
+    {
+      "id": "m07_q08",
+      "question": "Which of the following optical mirrors is commonly installed at sharp blind corners in parking garages and mountainous roads?",
+      "options": ["Large convex mirror", "Concave mirror", "Cylindrical concave mirror", "Tinted plane mirror"],
+      "answer": "Large convex mirror",
+      "explanation": "Large convex mirrors afford a wide-angle field of view around blind corners, helping drivers view approaching traffic."
+    },
+    {
+      "id": "m07_q09",
+      "question": "Why is the warning 'Objects in mirror are closer than they appear' inscribed on passenger-side automotive convex mirrors?",
+      "options": [
+        "Because the mirror is tinted blue",
+        "Because convex mirrors diminish image size, making objects look further away than they actually are",
+        "Because light travels slower through curved glass",
+        "To warn about speeding tickets"
+      ],
+      "answer": "Because convex mirrors diminish image size, making objects look further away than they actually are",
+      "explanation": "Diminished images fool human depth perception into assuming an object is farther away than its true physical distance."
+    },
+    {
+      "id": "m07_q10",
+      "question": "What is the range of linear magnification (m) for a real object in front of a convex mirror?",
+      "options": ["m > 1", "0 < m < 1", "m < -1", "m = 0"],
+      "answer": "0 < m < 1",
+      "explanation": "The image is always erect (positive m) and diminished (magnitude less than 1), so 0 < m < 1."
+    }
+  ]
+}
+modules_1_to_10.append(m07)
+
+# ==========================================
+# Module 8: Cartesian Sign Convention
+# ==========================================
+m08 = {
+  "id": "m08", "moduleNumber": 8,
+  "title": "New Cartesian Sign Convention for Spherical Mirrors",
+  "tagline": "Sign rules for object distance u, image distance v, focal length f, and heights.",
+  "readingTimeMins": 5,
+  "theoryHtml": r"""
+<div class="module-content">
+  <div class="theory-section">
+    <h4>1. The New Cartesian Sign Convention</h4>
+    <p>To perform accurate mathematical calculations for spherical mirrors, we adhere strictly to the <strong>New Cartesian Sign Convention</strong>, where the mirror's pole ($P$) is taken as the origin $(0,0)$ and the principal axis is the $x$-axis:</p>
+    <ol>
+      <li><strong>Object Placement:</strong> The object is always placed to the <strong>left</strong> of the mirror. Light travels from left to right.</li>
+      <li><strong>Distances along Principal Axis:</strong>
+        <ul>
+          <li>All distances measured in the direction of incident light (to the right of the pole, $+x$) are taken as <strong>positive ($+$)</strong>.</li>
+          <li>All distances measured against the direction of incident light (to the left of the pole, $-x$) are taken as <strong>negative ($-$)</strong>.</li>
+        </ul>
+      </li>
+      <li><strong>Heights Perpendicular to Principal Axis:</strong>
+        <ul>
+          <li>Heights measured upwards and perpendicular to the principal axis ($+y$) are taken as <strong>positive ($+$)</strong> (erect objects/images).</li>
+          <li>Heights measured downwards below the principal axis ($-y$) are taken as <strong>negative ($-$)</strong> (inverted images).</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h4>2. Summary of Signs for Mirrors</h4>
+    <ul>
+      <li><strong>Object Distance ($u$):</strong> Always <strong>negative ($-$)</strong> for real objects placed in front of the mirror.</li>
+      <li><strong>Concave Mirror Focal Length ($f$):</strong> Always <strong>negative ($-$)</strong> (focus lies to the left of the pole).</li>
+      <li><strong>Convex Mirror Focal Length ($f$):</strong> Always <strong>positive ($+$)</strong> (focus lies to the right of the pole).</li>
+      <li><strong>Real Image Distance ($v$):</strong> <strong>Negative ($-$)</strong> (formed in front of the mirror).</li>
+      <li><strong>Virtual Image Distance ($v$):</strong> <strong>Positive ($+$)</strong> (formed behind the mirror).</li>
+    </ul>
+  </div>
+</div>
+""",
+  "pointsToRemember": [
+    "Pole ($P$) is the origin; incident light travels from left to right.",
+    "Object distance ($u$) is always negative ($-$).",
+    "Concave mirror: focal length $f$ is negative ($-$). Convex mirror: focal length $f$ is positive ($+$)."
+  ],
+  "keyNotes": [
+    "Remember the golden rule: Concave mirror $f < 0$; Convex mirror $f > 0$."
+  ],
+  "questions": [
+    get_bank_q(12, "m08_q01"),
+    get_bank_q(28, "m08_q02"),
+    get_bank_q(57, "m08_q03"),
+    {
+      "id": "m08_q04",
+      "question": "According to the New Cartesian Sign Convention, what is the sign of the focal length of a CONCAVE mirror?",
+      "options": ["Always positive (+)", "Always negative (-)", "Zero", "Positive only in water"],
+      "answer": "Always negative (-)",
+      "explanation": "The principal focus of a concave mirror lies in front of the mirror (to the left of the pole), so its focal length f is always negative."
+    },
+    {
+      "id": "m08_q05",
+      "question": "According to the New Cartesian Sign Convention, what is the sign of the focal length of a CONVEX mirror?",
+      "options": ["Always positive (+)", "Always negative (-)", "Variable", "Undefined"],
+      "answer": "Always positive (+)",
+      "explanation": "The principal focus of a convex mirror lies behind the reflecting surface (to the right of the pole), so its focal length f is always positive."
+    },
+    {
+      "id": "m08_q06",
+      "question": "Under the Cartesian sign convention, why is the object distance (u) almost universally taken with a negative sign?",
+      "options": [
+        "Because objects have negative mass",
+        "Because by convention the object is placed to the left of the mirror, against the direction of incident light",
+        "Because virtual light goes backwards",
+        "To make algebra harder"
+      ],
+      "answer": "Because by convention the object is placed to the left of the mirror, against the direction of incident light",
+      "explanation": "Measuring from the pole origin to the left (against incident rays) gives a negative sign for object distance u."
+    },
+    {
+      "id": "m08_q07",
+      "question": "If an image has a negative height (h' < 0), what does this indicate about the nature of the image?",
+      "options": ["It is virtual and erect", "It is real and inverted", "It is point-sized at infinity", "It is enlarged by 100%"],
+      "answer": "It is real and inverted",
+      "explanation": "Heights measured downwards below the principal axis (-y direction) are negative, representing inverted (real) images."
+    },
+    {
+      "id": "m08_q08",
+      "question": "In a calculation for a concave mirror, if the image distance is found to be v = +15 cm, where is the image located?",
+      "options": [
+        "15 cm in front of the mirror (real image)",
+        "15 cm behind the mirror (virtual image)",
+        "At the centre of curvature",
+        "At infinity"
+      ],
+      "answer": "15 cm behind the mirror (virtual image)",
+      "explanation": "A positive value of v means the image lies to the right of the pole (behind the mirror), which characterizes a virtual image."
+    },
+    {
+      "id": "m08_q09",
+      "question": "Which point on a spherical mirror serves as the geometric origin (0,0) in Cartesian sign convention?",
+      "options": ["Centre of curvature (C)", "Principal focus (F)", "Pole (P)", "Top of aperture"],
+      "answer": "Pole (P)",
+      "explanation": "The pole (P) of the reflecting surface is defined as the coordinate origin (0,0) for all optical distance measurements."
+    },
+    {
+      "id": "m08_q10",
+      "question": "What is the sign of the radius of curvature (R) for a convex mirror?",
+      "options": ["Negative (-)", "Positive (+)", "Zero", "Fluctuating"],
+      "answer": "Positive (+)",
+      "explanation": "The centre of curvature of a convex mirror lies to the right of the pole (behind the mirror), so R is positive."
+    }
+  ]
+}
+modules_1_to_10.append(m08)
+
+# ==========================================
+# Module 9: The Mirror Formula & Magnification
+# ==========================================
+m09 = {
+  "id": "m09", "moduleNumber": 9,
+  "title": "The Mirror Formula & Linear Magnification",
+  "tagline": "Derivation and application of 1/v + 1/u = 1/f, and magnification m = h'/h = -v/u.",
+  "readingTimeMins": 5,
+  "theoryHtml": r"""
+<div class="module-content">
+  <div class="theory-section">
+    <h4>1. The Mirror Formula</h4>
+    <p>The mathematical equation relating the object distance ($u$), image distance ($v$), and focal length ($f$) of a spherical mirror is called the <strong>Mirror Formula</strong>:</p>
+    $$\frac{1}{v} + \frac{1}{u} = \frac{1}{f}$$
+    <p>This fundamental relation holds universally for both concave and convex spherical mirrors for all object positions, provided proper Cartesian sign conventions are inserted for every variable.</p>
+
+    <h4>2. Linear Magnification ($m$)</h4>
+    <p><strong>Magnification</strong> produced by a spherical mirror expresses the relative ratio of the height of the image ($h'$) to the height of the object ($h$):</p>
+    $$m = \frac{\text{Height of image }(h')}{\text{Height of object }(h)}$$
+    <p>Magnification is also directly related to object distance ($u$) and image distance ($v$) by:</p>
+    $$m = -\frac{v}{u}$$
+    <p>Combining both definitions yields the master magnification formula:</p>
+    $$m = \frac{h'}{h} = -\frac{v}{u}$$
+
+    <h4>3. Physical Significance of the Sign of Magnification</h4>
+    <ul>
+      <li><strong>Negative Magnification ($m < 0$):</strong> Image is <strong>real and inverted</strong>.</li>
+      <li><strong>Positive Magnification ($m > 0$):</strong> Image is <strong>virtual and erect</strong>.</li>
+      <li><strong>$|m| > 1$:</strong> Image is enlarged (magnified).</li>
+      <li><strong>$|m| < 1$:</strong> Image is diminished (smaller).</li>
+      <li><strong>$|m| = 1$:</strong> Image is of the exact same size as the object.</li>
+    </ul>
+  </div>
+</div>
+""",
+  "pointsToRemember": [
+    "The Mirror Formula: $\\frac{1}{v} + \\frac{1}{u} = \\frac{1}{f}$.",
+    "Magnification formula: $m = \\frac{h'}{h} = -\\frac{v}{u}$.",
+    "Negative $m$ indicates a real, inverted image; positive $m$ indicates a virtual, erect image."
+  ],
+  "keyNotes": [
+    "Always remember the negative sign in the mirror magnification formula: $m = -v/u$. (This contrasts with lenses where $m = +v/u$)."
+  ],
+  "questions": [
+    get_bank_q(13, "m09_q01"),
+    get_bank_q(29, "m09_q02"),
+    get_bank_q(58, "m09_q03"),
+    {
+      "id": "m09_q04",
+      "question": "Which of the following equations correctly represents the spherical mirror formula?",
+      "options": [
+        "1/v - 1/u = 1/f",
+        "1/v + 1/u = 1/f",
+        "v + u = f",
+        "1/f + 1/v = 1/u"
+      ],
+      "answer": "1/v + 1/u = 1/f",
+      "explanation": "The mirror formula is 1/v + 1/u = 1/f relating image distance v, object distance u, and focal length f."
+    },
+    {
+      "id": "m09_q05",
+      "question": "What is the linear magnification formula for a spherical mirror in terms of image distance (v) and object distance (u)?",
+      "options": ["m = +v/u", "m = -v/u", "m = -u/v", "m = v × u"],
+      "answer": "m = -v/u",
+      "explanation": "For spherical mirrors, magnification is given by m = h'/h = -v/u."
+    },
+    {
+      "id": "m09_q06",
+      "question": "If a spherical mirror produces a magnification of m = -2, what does this tell you about the image?",
+      "options": [
+        "It is virtual, erect, and half the object size",
+        "It is real, inverted, and magnified to twice the object size",
+        "It is virtual and twice the object size",
+        "The mirror is convex"
+      ],
+      "answer": "It is real, inverted, and magnified to twice the object size",
+      "explanation": "The negative sign signifies a real and inverted image, while |m| = 2 means the image height is twice the object height."
+    },
+    {
+      "id": "m09_q07",
+      "question": "If a concave mirror produces a magnification of m = +3, what is the nature of the image?",
+      "options": [
+        "Real and inverted",
+        "Virtual, erect, and magnified 3 times",
+        "Diminished by a factor of 3",
+        "Formed at the centre of curvature"
+      ],
+      "answer": "Virtual, erect, and magnified 3 times",
+      "explanation": "A positive magnification means an upright (virtual and erect) image; |m| = 3 means it is magnified three times."
+    },
+    {
+      "id": "m09_q08",
+      "question": "A magnification of m = +1 is produced by which optical device?",
+      "options": ["Concave mirror with object at C", "Plane mirror", "Convex mirror", "Concave lens"],
+      "answer": "Plane mirror",
+      "explanation": "A plane mirror always produces an erect image (positive) of the exact same size as the object (h' = h), so m = +1."
+    },
+    {
+      "id": "m09_q09",
+      "question": "Can a convex mirror ever produce a magnification greater than +1 for a real object?",
+      "options": [
+        "Yes, when the object is very close to the pole",
+        "No, a convex mirror always forms diminished images (0 < m < 1)",
+        "Yes, in water",
+        "Only when the radius of curvature is large"
+      ],
+      "answer": "No, a convex mirror always forms diminished images (0 < m < 1)",
+      "explanation": "For any real object, a convex mirror produces an image that is strictly smaller than the object, so m is always less than 1."
+    },
+    {
+      "id": "m09_q10",
+      "question": "If m = -1 for a concave mirror, where is the object located?",
+      "options": ["At infinity", "At the principal focus (F)", "At the centre of curvature (C)", "Between P and F"],
+      "answer": "At the centre of curvature (C)",
+      "explanation": "When an object is placed at C, the image is formed at C, real and inverted (negative sign), with the exact same height as the object (|m| = 1)."
+    }
+  ]
+}
+modules_1_to_10.append(m09)
+
+# ==========================================
+# Module 10: Mirror Numerical Problem Solving
+# ==========================================
+m10 = {
+  "id": "m10", "moduleNumber": 10,
+  "title": "Numerical Problem Solving: Spherical Mirrors",
+  "tagline": "Step-by-step calculations for focal length, object/image positions, and image height.",
+  "readingTimeMins": 5,
+  "theoryHtml": r"""
+<div class="module-content">
+  <div class="theory-section">
+    <h4>1. Systematic Problem-Solving Protocol for Mirrors</h4>
+    <ol>
+      <li><strong>Identify Mirror Type:</strong>
+        <ul>
+          <li>Concave Mirror $\rightarrow f$ is <strong>negative</strong>.</li>
+          <li>Convex Mirror $\rightarrow f$ is <strong>positive</strong>.</li>
+        </ul>
+      </li>
+      <li><strong>Assign Signs to Known Quantities:</strong>
+        <ul>
+          <li>Object distance $u$ is always <strong>negative</strong> (e.g., $u = -20\text{ cm}$).</li>
+          <li>Object height $h$ is positive ($h > 0$).</li>
+        </ul>
+      </li>
+      <li><strong>Apply the Mirror Formula:</strong>
+        $$\frac{1}{v} + \frac{1}{u} = \frac{1}{f} \implies \frac{1}{v} = \frac{1}{f} - \frac{1}{u}$$
+      </li>
+      <li><strong>Solve for $v$ and Interpret:</strong>
+        <ul>
+          <li>If $v$ is negative $\rightarrow$ image is real and formed in front of the mirror.</li>
+          <li>If $v$ is positive $\rightarrow$ image is virtual and formed behind the mirror.</li>
+        </ul>
+      </li>
+      <li><strong>Calculate Magnification & Image Height:</strong>
+        $$m = -\frac{v}{u} = \frac{h'}{h} \implies h' = m \cdot h$$
+      </li>
+    </ol>
+
+    <h4>2. Worked Example</h4>
+    <p>A convex mirror used for rear-view on an automobile has a radius of curvature of $3.00\text{ m}$. If a bus is located at $5.00\text{ m}$ from this mirror, find the position, nature, and size of the image:</p>
+    <ul>
+      <li>$R = +3.00\text{ m} \implies f = +1.50\text{ m}$</li>
+      <li>$u = -5.00\text{ m}$</li>
+      <li>$\frac{1}{v} = \frac{1}{f} - \frac{1}{u} = \frac{1}{1.50} - \frac{1}{-5.00} = \frac{1}{1.50} + \frac{1}{5.00} = \frac{5 + 1.5}{7.5} = \frac{6.5}{7.5} = \frac{13}{15}$</li>
+      <li>$v = +\frac{15}{13} = +1.15\text{ m}$ (formed $1.15\text{ m}$ behind the mirror, virtual).</li>
+      <li>$m = -\frac{v}{u} = -\frac{+1.15}{-5.00} = +0.23$ (erect and diminished to $23\%$ of original size).</li>
+    </ul>
+  </div>
+</div>
+""",
+  "pointsToRemember": [
+    "Always write given variables with proper algebraic signs before plugging into formulas.",
+    "Substitute $f = R/2$ with positive sign for convex and negative sign for concave mirrors.",
+    "Verify results physically: a concave mirror with object beyond $C$ must yield $v$ between $F$ and $C$."
+  ],
+  "keyNotes": [
+    "A positive $v$ always means a virtual image formed behind the mirror; a negative $v$ always means a real image in front of the mirror."
+  ],
+  "questions": [
+    get_bank_q(14, "m10_q01"),
+    get_bank_q(15, "m10_q02"),
+    get_bank_q(30, "m10_q03"),
+    get_bank_q(59, "m10_q04"),
+    {
+      "id": "m10_q05",
+      "question": "An object is placed at a distance of 15 cm in front of a concave mirror of focal length 10 cm. What is the image distance v?",
+      "options": ["-30 cm", "+30 cm", "-6 cm", "+6 cm"],
+      "answer": "-30 cm",
+      "explanation": "1/v = 1/f - 1/u. Here f = -10 cm, u = -15 cm. 1/v = 1/(-10) - 1/(-15) = -1/10 + 1/15 = -1/30. So v = -30 cm (real image in front of mirror)."
+    },
+    {
+      "id": "m10_q06",
+      "question": "In the question above (u = -15 cm, v = -30 cm), what is the magnification produced?",
+      "options": ["-2", "+2", "-0.5", "+0.5"],
+      "answer": "-2",
+      "explanation": "m = -v/u = -(-30) / (-15) = -(+2) = -2. The image is real, inverted, and magnified twice."
+    },
+    {
+      "id": "m10_q07",
+      "question": "An object 4 cm in size is placed at 25 cm in front of a concave mirror of focal length 15 cm. At what distance from the mirror should a screen be placed to obtain a sharp image?",
+      "options": ["-37.5 cm", "+37.5 cm", "-15 cm", "-50 cm"],
+      "answer": "-37.5 cm",
+      "explanation": "f = -15 cm, u = -25 cm. 1/v = 1/(-15) - 1/(-25) = -1/15 + 1/25 = (-5 + 3)/75 = -2/75. v = -75/2 = -37.5 cm. Screen should be placed 37.5 cm in front of the mirror."
+    },
+    {
+      "id": "m10_q08",
+      "question": "What is the height of the image formed in the problem above (h = 4 cm, u = -25 cm, v = -37.5 cm)?",
+      "options": ["-6 cm", "+6 cm", "-4 cm", "+2.5 cm"],
+      "answer": "-6 cm",
+      "explanation": "m = -v/u = -(-37.5)/(-25) = -1.5. Image height h' = m × h = -1.5 × 4 cm = -6 cm (inverted image of height 6 cm)."
+    },
+    {
+      "id": "m10_q09",
+      "question": "An object is placed at 10 cm in front of a convex mirror of focal length 15 cm. Find the image distance v:",
+      "options": ["+6 cm", "-6 cm", "+25 cm", "-30 cm"],
+      "answer": "+6 cm",
+      "explanation": "For convex mirror, f = +15 cm, u = -10 cm. 1/v = 1/f - 1/u = 1/15 - 1/(-10) = 1/15 + 1/10 = (2 + 3)/30 = 5/30 = 1/6. v = +6 cm (behind mirror)."
+    },
+    {
+      "id": "m10_q10",
+      "question": "What is the magnification in the convex mirror problem above (u = -10 cm, v = +6 cm)?",
+      "options": ["+0.6", "-0.6", "+1.5", "-1.5"],
+      "answer": "+0.6",
+      "explanation": "m = -v/u = -(+6) / (-10) = +0.6. The image is virtual, erect, and diminished to 0.6 of object height."
+    }
+  ]
+}
+modules_1_to_10.append(m10)
+
+with open('scratch/ch9_part1.json', 'w', encoding='utf-8') as f:
+    json.dump(modules_1_to_10, f, indent=2, ensure_ascii=False)
+
+print(f"Successfully generated Chapter 9 Part 1 (Modules 1 to 10): {len(modules_1_to_10)} modules.")

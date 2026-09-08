@@ -1,0 +1,1385 @@
+[
+  {
+    "id": "m01",
+    "moduleNumber": 1,
+    "title": "Electric Charge, Quantization of Charge & Electric Current",
+    "tagline": "Fundamental charge e, Q = ne, rate of flow of charge I = Q/t, and the Ampere.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Electric Charge ($Q$) & Quantization</h4>\n    <p><strong>Electric charge</strong> is an intrinsic fundamental property of subatomic particles that causes them to experience an electrostatic force. Charges exist in two polarities: positive (carried by protons) and negative (carried by electrons). The SI unit of electric charge is the <strong>coulomb (C)</strong>.</p>\n    <p>Charge is quantized: any observable quantity of charge $Q$ is an integral multiple of the fundamental elementary charge $e \\approx 1.6 \\times 10^{-19}\\text{ C}$:</p>\n    $$Q = n \\cdot e$$\n    <p>Where $n$ is an integer ($1, 2, 3, \\dots$). From this relation, the number of electrons constituting $1\\text{ coulomb}$ of negative charge is:</p>\n    $$n = \\frac{Q}{e} = \\frac{1\\text{ C}}{1.6 \\times 10^{-19}\\text{ C}} = \\mathbf{6.25 \\times 10^{18}\\text{ electrons}}$$\n\n    <h4>2. Definition of Electric Current ($I$)</h4>\n    <p><strong>Electric current</strong> is defined as the rate of flow of electric charge across any cross-section of a conductor in unit time:</p>\n    $$I = \\frac{Q}{t}$$\n    <p>Where $I$ is electric current, $Q$ is net charge flowing, and $t$ is the time interval.</p>\n\n    <h4>3. The SI Unit of Electric Current: The Ampere ($\\text{A}$)</h4>\n    <p>The SI unit of electric current is the <strong>ampere (A)</strong>, named in honour of French physicist André-Marie Ampère:</p>\n    <blockquote style=\"background:#f8fafc; border-left:4px solid #0284c7; padding:10px 14px; margin:10px 0; font-style:italic;\">\n      \"1 ampere is constituted by the flow of 1 coulomb of charge through a conductor in 1 second ($1\\text{ A} = 1\\text{ C/s}$).\"\n    </blockquote>\n    <p>Smaller sub-units commonly used in electronics:</p>\n    <ul>\n      <li>$1\\text{ milliampere (mA)} = 10^{-3}\\text{ A}$</li>\n      <li>$1\\text{ microampere (}\\mu\\text{A)} = 10^{-6}\\text{ A}$</li>\n    </ul>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Charge is quantized: $Q = ne$; $1\\text{ C}$ equals the charge of approximately $6.25 \\times 10^{18}$ electrons.",
+      "Electric current is the rate of flow of charge: $I = Q/t$.",
+      "The SI unit of current is the Ampere ($1\\text{ A} = 1\\text{ C/s}$)."
+    ],
+    "keyNotes": [
+      "A steady current of 1 ampere flowing through a copper wire means that $6.25 \\times 10^{18}$ electrons pass through its cross-sectional area every single second!"
+    ],
+    "questions": [
+      {
+        "id": "m01_q01",
+        "question": "Electric current is defined as the rate of flow of electric charges across a cross-section of a conductor. What is its mathematical formula?",
+        "options": [
+          "I = Q × t",
+          "I = Q / t",
+          "I = t / Q",
+          "I = W / Q"
+        ],
+        "answer": "I = Q / t",
+        "explanation": "Electric current I = Q / t, where Q is net charge flowing in time t."
+      },
+      {
+        "id": "m01_q02",
+        "question": "What is the SI unit of electric current?",
+        "options": [
+          "Coulomb (C)",
+          "Ampere (A)",
+          "Volt (V)",
+          "Ohm (Ω)"
+        ],
+        "answer": "Ampere (A)",
+        "explanation": "The SI unit of electric current is ampere (A), named after André-Marie Ampère."
+      },
+      {
+        "id": "m01_q03",
+        "question": "What is the SI unit of electric charge?",
+        "options": [
+          "Ampere",
+          "Coulomb (C)",
+          "Joule",
+          "Watt"
+        ],
+        "answer": "Coulomb (C)",
+        "explanation": "The SI unit of electric charge is the coulomb (C)."
+      },
+      {
+        "id": "m01_q04",
+        "question": "How many electrons collectively constitute a net charge of ONE COULOMB (1 C)?",
+        "options": [
+          "1.6 × 10⁻¹⁹ electrons",
+          "6.25 × 10¹⁸ electrons (≈ 6 × 10¹⁸)",
+          "6.022 × 10²³ electrons",
+          "10⁶ electrons"
+        ],
+        "answer": "6.25 × 10¹⁸ electrons (≈ 6 × 10¹⁸)",
+        "explanation": "Number of electrons n = Q / e = 1 C / (1.6 × 10⁻¹⁹ C) = 6.25 × 10¹⁸ electrons."
+      },
+      {
+        "id": "m01_q05",
+        "question": "What is the magnitude of the negative charge possessed by a single electron?",
+        "options": [
+          "1.6 × 10⁻¹⁹ C",
+          "9.1 × 10⁻³¹ C",
+          "1.6 × 10¹⁹ C",
+          "1.0 C"
+        ],
+        "answer": "1.6 × 10⁻¹⁹ C",
+        "explanation": "The elementary charge of an electron is e = -1.6 × 10⁻¹⁹ C."
+      },
+      {
+        "id": "m01_q06",
+        "question": "How many electrons constitute a net electric charge of 1 Coulomb?",
+        "options": [
+          "6.25 × 10^18 electrons",
+          "1.6 × 10^-19 electrons",
+          "6.023 × 10^23 electrons",
+          "1.0 × 10^6 electrons"
+        ],
+        "answer": "6.25 × 10^18 electrons",
+        "explanation": "n = Q / e = 1 / (1.6 × 10^-19) = 6.25 × 10^18 electrons."
+      },
+      {
+        "id": "m01_q07",
+        "question": "If an electric current of 0.5 A is drawn by a filament of an electric bulb for 10 minutes, what is the amount of electric charge that flows through the circuit?",
+        "options": [
+          "5 C",
+          "300 C",
+          "50 C",
+          "3000 C"
+        ],
+        "answer": "300 C",
+        "explanation": "t = 10 minutes = 10 × 60 s = 600 s. Q = I × t = 0.5 A × 600 s = 300 C."
+      },
+      {
+        "id": "m01_q08",
+        "question": "What is the SI unit of electric charge?",
+        "options": [
+          "Ampere (A)",
+          "Coulomb (C)",
+          "Volt (V)",
+          "Joule (J)"
+        ],
+        "answer": "Coulomb (C)",
+        "explanation": "The SI unit of electric charge is the coulomb, symbolized as C."
+      },
+      {
+        "id": "m01_q09",
+        "question": "A current of 1 milliampere (1 mA) is equal to how many amperes?",
+        "options": [
+          "10^-3 A",
+          "10^-6 A",
+          "10^3 A",
+          "10^-1 A"
+        ],
+        "answer": "10^-3 A",
+        "explanation": "1 milliampere (mA) is one-thousandth of an ampere: 1 mA = 10^-3 A."
+      },
+      {
+        "id": "m01_q10",
+        "question": "What is the elementary charge carried by a single electron?",
+        "options": [
+          "-1.6 × 10^-19 C",
+          "+1.6 × 10^-19 C",
+          "-1.0 C",
+          "-9.1 × 10^-31 C"
+        ],
+        "answer": "-1.6 × 10^-19 C",
+        "explanation": "The fundamental quantum of electric charge on an electron is -1.6 × 10^-19 coulombs."
+      }
+    ]
+  },
+  {
+    "id": "m02",
+    "moduleNumber": 2,
+    "title": "Direction of Electric Current vs Electron Drift & Circuit Diagrams",
+    "tagline": "Conventional current from positive to negative vs physical electron drift from negative to positive.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Conventional Current vs Electronic Current</h4>\n    <p>Electricity was discovered before the electron was identified by J.J. Thomson in 1897. Early scientists postulated that electricity consisted of a flow of positive charges:</p>\n    <ul>\n      <li><strong>Conventional Current Direction:</strong> By historical convention, the direction of electric current is defined as the direction in which positive charges would move—from the <strong>positive terminal ($+$) to the negative terminal ($-$)</strong> of the cell through the external circuit.</li>\n      <li><strong>Actual Electron Flow (Electronic Current):</strong> In metallic conductors, the atomic nuclei and positive ions are anchored in a solid crystal lattice and cannot migrate. The actual mobile charge carriers are <strong>free electrons</strong> (negative charges) which drift from the <strong>negative terminal ($-$) to the positive terminal ($+$)</strong>.</li>\n      <li>Therefore, conventional electric current is always <strong>opposite to the direction of electron drift</strong>.</li>\n    </ul>\n\n    <h4>2. Electric Circuits & Closed Loops</h4>\n    <p>An <strong>electric circuit</strong> is a continuous and closed conducting loop through which an electric current flows. If the circuit is broken anywhere (e.g., an open switch or a broken filament), current ceases instantly.</p>\n\n    <h4>3. Standard Circuit Symbols</h4>\n    <ul>\n      <li><strong>Electric Cell:</strong> Long thin vertical line (positive) and short thick vertical line (negative).</li>\n      <li><strong>Battery:</strong> Series combination of two or more cells.</li>\n      <li><strong>Plug Key (Open vs Closed):</strong> $( \\quad )$ for open; $( \\cdot )$ for closed.</li>\n      <li><strong>Rheostat (Variable Resistor):</strong> Resistor with an arrow across or sliding contact on top.</li>\n      <li><strong>Ammeter & Voltmeter:</strong> Circles enclosing letter 'A' and letter 'V' respectively.</li>\n    </ul>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Conventional current flows from positive ($+$) to negative ($-$) terminal through the external circuit.",
+      "Electrons physically drift in the opposite direction, from negative ($-$) to positive ($+$) terminal.",
+      "A continuous, closed conducting loop is required for electric current to flow."
+    ],
+    "keyNotes": [
+      "Even though individual electron drift velocity in a wire is surprisingly slow (~1 mm/s), the electric field propagates through the circuit near the speed of light, causing appliances to turn on instantaneously!"
+    ],
+    "questions": [
+      {
+        "id": "m02_q01",
+        "question": "By convention, what is the direction of electric current in an electric circuit relative to the flow of electrons?",
+        "options": [
+          "In the exact same direction as electron flow",
+          "Opposite to the direction of flow of electrons (from positive to negative terminal outside the cell)",
+          "Perpendicular to electron flow",
+          "From negative to positive terminal"
+        ],
+        "answer": "Opposite to the direction of flow of electrons (from positive to negative terminal outside the cell)",
+        "explanation": "Conventional current flows from the positive to negative terminal, opposite to the direction of negatively charged electron drift."
+      },
+      {
+        "id": "m02_q02",
+        "question": "Which measuring instrument is connected in SERIES in an electric circuit to measure electric current?",
+        "options": [
+          "Voltmeter",
+          "Ammeter",
+          "Galvanometer in parallel",
+          "Rheostat"
+        ],
+        "answer": "Ammeter",
+        "explanation": "An ammeter has very low electrical resistance and is always connected in series to measure current flowing through a branch."
+      },
+      {
+        "id": "m02_q03",
+        "question": "What gases are filled inside incandescent electric light bulbs to prolong the life of the tungsten filament?",
+        "options": [
+          "Hydrogen and oxygen",
+          "Chemically inactive nitrogen and argon gases",
+          "Chlorine gas",
+          "Carbon dioxide"
+        ],
+        "answer": "Chemically inactive nitrogen and argon gases",
+        "explanation": "Unreactive nitrogen and argon prevent tungsten filament oxidation and suppress thermal evaporation."
+      },
+      {
+        "id": "m02_q04",
+        "question": "A metal wire of length 1 m and diameter 0.3 mm has a resistance of 26 Ω at 20°C. What is the electrical resistivity of the metal?",
+        "options": [
+          "1.84 × 10⁻⁶ Ω m (Manganese)",
+          "1.60 × 10⁻⁸ Ω m",
+          "10.0 × 10⁻⁸ Ω m",
+          "44 × 10⁻⁶ Ω m"
+        ],
+        "answer": "1.84 × 10⁻⁶ Ω m (Manganese)",
+        "explanation": "r = 0.15 mm = 1.5 × 10⁻⁴ m. A = πr² = π(1.5 × 10⁻⁴)² ≈ 7.068 × 10⁻⁸ m². ρ = RA/l = (26 × 7.068 × 10⁻⁸) / 1 = 1.84 × 10⁻⁶ Ω m."
+      },
+      {
+        "id": "m02_q05",
+        "question": "What is the direction of conventional electric current in an external electrical circuit?",
+        "options": [
+          "From the positive terminal (+) to the negative terminal (-) of the battery",
+          "From the negative terminal (-) to the positive terminal (+) of the battery",
+          "From the ground to the sky",
+          "It oscillates randomly in all directions"
+        ],
+        "answer": "From the positive terminal (+) to the negative terminal (-) of the battery",
+        "explanation": "By international convention, current is defined as flowing from the positive terminal to the negative terminal."
+      },
+      {
+        "id": "m02_q06",
+        "question": "In a metallic copper wire carrying electric current, in what direction do the mobile free electrons physically move?",
+        "options": [
+          "From the positive terminal to the negative terminal",
+          "From the negative terminal to the positive terminal (opposite to conventional current)",
+          "They remain completely stationary and spin",
+          "Perpendicular to the wire into the surrounding air"
+        ],
+        "answer": "From the negative terminal to the positive terminal (opposite to conventional current)",
+        "explanation": "Negatively charged electrons are repelled by the negative terminal and attracted towards the positive terminal."
+      },
+      {
+        "id": "m02_q07",
+        "question": "What happens in an electric circuit when the switch (plug key) is opened?",
+        "options": [
+          "Current increases by 200%",
+          "The conducting loop is broken and current ceases to flow instantly",
+          "Electrons leak out onto the floor",
+          "The battery voltage reverses"
+        ],
+        "answer": "The conducting loop is broken and current ceases to flow instantly",
+        "explanation": "An open switch creates an infinite-resistance air gap, breaking the closed loop and halting current flow."
+      },
+      {
+        "id": "m02_q08",
+        "question": "What component in an electrical circuit is used to regulate current without changing the voltage source?",
+        "options": [
+          "Ammeter",
+          "Rheostat (variable resistor)",
+          "Voltmeter",
+          "Electric fuse"
+        ],
+        "answer": "Rheostat (variable resistor)",
+        "explanation": "A rheostat provides an adjustable resistance to vary the circuit current smoothly without altering the power source."
+      },
+      {
+        "id": "m02_q09",
+        "question": "Why does an electric light bulb illuminate virtually instantaneously when the wall switch is closed, despite the slow drift speed of electrons (~1 mm/s)?",
+        "options": [
+          "Electrons jump through the air",
+          "The electromagnetic field travels through the conducting wire at near the speed of light, mobilizing electrons everywhere simultaneously",
+          "The filament stores spare light in advance",
+          "The wall switch emits thermal photons"
+        ],
+        "answer": "The electromagnetic field travels through the conducting wire at near the speed of light, mobilizing electrons everywhere simultaneously",
+        "explanation": "The electric field establishes almost instantaneously throughout the entire circuit, driving all conduction electrons concurrently."
+      },
+      {
+        "id": "m02_q10",
+        "question": "What are the mobile charge carriers responsible for electric current in metallic conductors?",
+        "options": [
+          "Protons",
+          "Free conduction electrons",
+          "Neutrons",
+          "Positively charged ions"
+        ],
+        "answer": "Free conduction electrons",
+        "explanation": "In solid metals, outer valence electrons are delocalized, forming a mobile electron gas that drifts under an electric field."
+      }
+    ]
+  },
+  {
+    "id": "m03",
+    "moduleNumber": 3,
+    "title": "Electric Potential & Potential Difference ($V = W/Q$)",
+    "tagline": "Electrostatic work done per unit charge, the Volt, and gravitational water-pipe analogy.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. The Water-Pipe Analogy: Why Do Charges Flow?</h4>\n    <p>Water does not flow spontaneously through a perfectly horizontal copper tube. However, if one end of the tube is connected to an elevated tank, a <strong>pressure difference</strong> is created by gravity, and water gushes through. Similarly, electric charges do not flow through a metal wire on their own. For electrons to move in a conductor, there must be a difference of electric pressure—called <strong>potential difference</strong>.</p>\n\n    <h4>2. Definition of Electric Potential Difference ($V$)</h4>\n    <p>The <strong>electric potential difference</strong> between two points in an electric circuit is defined as the amount of work done ($W$) in moving a unit positive charge ($Q$) from one point to the other:</p>\n    $$V = \\frac{W}{Q}$$\n    <p>Where $V$ is potential difference, $W$ is work done in joules, and $Q$ is electric charge in coulombs.</p>\n\n    <h4>3. The SI Unit: The Volt ($\\text{V}$)</h4>\n    <p>The SI unit of electric potential difference is the <strong>volt (V)</strong>, named in honour of Italian physicist Alessandro Volta:</p>\n    <blockquote style=\"background:#f8fafc; border-left:4px solid #0284c7; padding:10px 14px; margin:10px 0; font-style:italic;\">\n      \"1 volt is defined as the potential difference between two points in a current-carrying conductor when 1 joule of work is done in moving a charge of 1 coulomb from one point to the other ($1\\text{ V} = 1\\text{ J/C} = 1\\text{ J}\\cdot\\text{C}^{-1}$).\"\n    </blockquote>\n\n    <h4>4. How is Potential Difference Maintained?</h4>\n    <p>A chemical <strong>cell or battery</strong> maintains a constant potential difference between its terminals through internal electrochemical reactions. Chemical energy is converted into electrical potential energy, driving electrons continuously through the external circuit.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Potential difference is the work done per unit charge moving between two points: $V = W/Q$.",
+      "The SI unit of potential difference is the Volt ($1\\text{ V} = 1\\text{ J/C}$).",
+      "Chemical reactions inside a battery maintain the potential difference across its terminals."
+    ],
+    "keyNotes": [
+      "Charge always flows naturally from a region of higher potential (positive terminal) to a region of lower potential (negative terminal)."
+    ],
+    "questions": [
+      {
+        "id": "m03_q01",
+        "question": "How is electric potential difference (V) between two points defined mathematically in terms of work done (W) and charge (Q)?",
+        "options": [
+          "V = W × Q",
+          "V = W / Q",
+          "V = Q / W",
+          "V = W / t"
+        ],
+        "answer": "V = W / Q",
+        "explanation": "Potential difference V = W / Q is the work done in moving a unit positive charge between two points."
+      },
+      {
+        "id": "m03_q02",
+        "question": "What is the SI unit of electric potential and potential difference?",
+        "options": [
+          "Ohm",
+          "Volt (V, where 1 V = 1 J/C)",
+          "Watt",
+          "Ampere"
+        ],
+        "answer": "Volt (V, where 1 V = 1 J/C)",
+        "explanation": "The SI unit of potential difference is volt (V), named after Alessandro Volta (1 V = 1 J C⁻¹)."
+      },
+      {
+        "id": "m03_q03",
+        "question": "When several resistors R₁, R₂, R₃ are connected in SERIES, what is the formula for the equivalent resistance (Rs)?",
+        "options": [
+          "1/Rs = 1/R₁ + 1/R₂ + 1/R₃",
+          "Rs = R₁ + R₂ + R₃",
+          "Rs = R₁ × R₂ × R₃",
+          "Rs = (R₁ + R₂) / R₃"
+        ],
+        "answer": "Rs = R₁ + R₂ + R₃",
+        "explanation": "In series, the total resistance equals the sum of individual resistances: Rs = R₁ + R₂ + R₃."
+      },
+      {
+        "id": "m03_q04",
+        "question": "A wire of length l and cross-sectional area A has a resistance of 4 Ω. What is the resistance of another wire of the SAME material having length l/2 and area 2A?",
+        "options": [
+          "4 Ω",
+          "1 Ω",
+          "16 Ω",
+          "2 Ω"
+        ],
+        "answer": "1 Ω",
+        "explanation": "R₂ = ρ(l/2) / (2A) = (1/4) ρ(l/A) = (1/4) R₁ = (1/4) × 4 Ω = 1 Ω."
+      },
+      {
+        "id": "m03_q05",
+        "question": "What is the SI unit of electric potential difference?",
+        "options": [
+          "Ampere (A)",
+          "Volt (V)",
+          "Ohm (Ω)",
+          "Watt (W)"
+        ],
+        "answer": "Volt (V)",
+        "explanation": "The SI unit of potential difference is the volt, symbolized as V (where 1 V = 1 Joule / Coulomb)."
+      },
+      {
+        "id": "m03_q06",
+        "question": "How much work is done in moving a charge of 2 Coulombs across two points having a potential difference of 12 Volts?",
+        "options": [
+          "6 J",
+          "24 J",
+          "14 J",
+          "10 J"
+        ],
+        "answer": "24 J",
+        "explanation": "W = V × Q = 12 V × 2 C = 24 Joules."
+      },
+      {
+        "id": "m03_q07",
+        "question": "Define 1 Volt of electric potential difference:",
+        "options": [
+          "The potential difference when 1 Joule of work is done in moving 1 Coulomb of charge",
+          "The current flowing when 1 Ohm is connected to 1 Ampere",
+          "The power dissipated by 1 Watt in 1 second",
+          "The charge carried by 1 electron in 1 second"
+        ],
+        "answer": "The potential difference when 1 Joule of work is done in moving 1 Coulomb of charge",
+        "explanation": "By definition, 1 V = 1 J / 1 C (1 joule of work per coulomb of charge)."
+      },
+      {
+        "id": "m03_q08",
+        "question": "What device is used in a circuit to maintain a constant potential difference across a conductor?",
+        "options": [
+          "A voltmeter",
+          "An electric cell or battery",
+          "An ammeter",
+          "A resistor"
+        ],
+        "answer": "An electric cell or battery",
+        "explanation": "Electrochemical reactions inside a battery continuously regenerate the potential difference between its terminals."
+      },
+      {
+        "id": "m03_q09",
+        "question": "If 100 Joules of work is performed to transfer 20 Coulombs of charge from point A to point B, what is the potential difference between A and B?",
+        "options": [
+          "2000 V",
+          "5 V",
+          "0.2 V",
+          "80 V"
+        ],
+        "answer": "5 V",
+        "explanation": "V = W / Q = 100 J / 20 C = 5 V."
+      },
+      {
+        "id": "m03_q10",
+        "question": "In the gravitational water-pipe analogy, electric potential difference corresponds directly to:",
+        "options": [
+          "Water flow rate",
+          "Water pressure difference caused by height difference",
+          "Diameter of the pipe",
+          "Turbulence of water"
+        ],
+        "answer": "Water pressure difference caused by height difference",
+        "explanation": "Just as hydrostatic pressure drives water flow, electric potential difference (voltage) drives electric charge flow."
+      }
+    ]
+  },
+  {
+    "id": "m04",
+    "moduleNumber": 4,
+    "title": "Measuring Instruments: Ammeter vs Voltmeter Connection & Resistance",
+    "tagline": "Series connection of low-resistance ammeter vs parallel connection of high-resistance voltmeter.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. The Ammeter (Measuring Electric Current)</h4>\n    <p>An <strong>ammeter</strong> measures the electric current flowing through a circuit branch:</p>\n    <ul>\n      <li><strong>Connection:</strong> Always connected in <strong>SERIES</strong> with the component whose current is to be measured. All current flowing through the component must pass through the ammeter.</li>\n      <li><strong>Internal Resistance:</strong> An ideal ammeter must have <strong>zero resistance</strong> (and a practical ammeter has extremely low resistance). If an ammeter had significant resistance, it would increase the total circuit resistance and falsely decrease the current it is trying to measure.</li>\n    </ul>\n\n    <h4>2. The Voltmeter (Measuring Potential Difference)</h4>\n    <p>A <strong>voltmeter</strong> measures the electrical potential difference between two designated points:</p>\n    <ul>\n      <li><strong>Connection:</strong> Always connected in <strong>PARALLEL</strong> across the two points or component.</li>\n      <li><strong>Internal Resistance:</strong> An ideal voltmeter must have <strong>infinite resistance</strong> (and a practical voltmeter has very high resistance). High resistance ensures that negligible current is drawn from the main circuit branch, preventing perturbation of the voltage being measured.</li>\n    </ul>\n\n    <h4>3. Summary of Differences</h4>\n    <table class=\"table-bordered\" style=\"width:100%; border-collapse:collapse; margin:10px 0;\">\n      <thead><tr style=\"background:#f1f5f9;\"><th>Feature</th><th>Ammeter</th><th>Voltmeter</th></tr></thead>\n      <tbody>\n        <tr><td><strong>Measures</strong></td><td>Electric Current ($I$, Amperes)</td><td>Potential Difference ($V$, Volts)</td></tr>\n        <tr><td><strong>Circuit Connection</strong></td><td><strong>Series</strong></td><td><strong>Parallel</strong></td></tr>\n        <tr><td><strong>Internal Resistance</strong></td><td><strong>Extremely Low</strong> (Ideal: $R = 0$)</td><td><strong>Extremely High</strong> (Ideal: $R = \\infty$)</td></tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "An ammeter is connected in SERIES and has very LOW resistance (ideal: $0$).",
+      "A voltmeter is connected in PARALLEL and has very HIGH resistance (ideal: $\\infty$).",
+      "Reversing the connection (connecting ammeter in parallel) will cause a massive short circuit!"
+    ],
+    "keyNotes": [
+      "Always connect the positive ($+$) terminal of an ammeter or voltmeter towards the positive pole of the battery, and the negative ($-$) terminal towards the negative pole."
+    ],
+    "questions": [
+      {
+        "id": "m04_q01",
+        "question": "Which measuring instrument is always connected in PARALLEL across two points to measure the potential difference between them?",
+        "options": [
+          "Ammeter",
+          "Voltmeter",
+          "Galvanometer in series",
+          "Rheostat"
+        ],
+        "answer": "Voltmeter",
+        "explanation": "A voltmeter has high electrical resistance and is connected in parallel across components to measure voltage drop."
+      },
+      {
+        "id": "m04_q02",
+        "question": "In a series circuit containing multiple resistors connected across a battery, which quantity remains CONSTANT through every resistor?",
+        "options": [
+          "Potential difference (V)",
+          "Electric current (I)",
+          "Power dissipation",
+          "Resistance"
+        ],
+        "answer": "Electric current (I)",
+        "explanation": "In a single unbranched series loop, electric current I is identical through all components."
+      },
+      {
+        "id": "m04_q03",
+        "question": "How can three resistors of resistances 2 Ω, 3 Ω, and 6 Ω be connected to yield a total equivalent resistance of EXACTLY 4 Ω?",
+        "options": [
+          "All three connected in series",
+          "Connect 3 Ω and 6 Ω in parallel, and put this combination in series with the 2 Ω resistor",
+          "Connect 2 Ω and 3 Ω in parallel, in series with 6 Ω",
+          "All three connected in parallel"
+        ],
+        "answer": "Connect 3 Ω and 6 Ω in parallel, and put this combination in series with the 2 Ω resistor",
+        "explanation": "Parallel of 3 Ω and 6 Ω: Rp = (3 × 6)/(3 + 6) = 18/9 = 2 Ω. Adding 2 Ω in series: R_total = 2 Ω + 2 Ω = 4 Ω."
+      },
+      {
+        "id": "m04_q04",
+        "question": "How is an ammeter connected in an electric circuit to measure current?",
+        "options": [
+          "Always in parallel",
+          "Always in series",
+          "Across the battery terminals only",
+          "Outside the room"
+        ],
+        "answer": "Always in series",
+        "explanation": "An ammeter must be placed in series so the entire current of the branch passes through its sensor."
+      },
+      {
+        "id": "m04_q05",
+        "question": "How is a voltmeter connected in an electric circuit to measure potential difference across a resistor?",
+        "options": [
+          "Always in series",
+          "Always in parallel across the resistor",
+          "Between ground and sky",
+          "Directly inside the battery acid"
+        ],
+        "answer": "Always in parallel across the resistor",
+        "explanation": "A voltmeter is connected in parallel across the two points to measure the potential difference between them."
+      },
+      {
+        "id": "m04_q06",
+        "question": "What is the internal resistance of an IDEAL ammeter and an IDEAL voltmeter?",
+        "options": [
+          "Ammeter: Zero; Voltmeter: Infinite",
+          "Ammeter: Infinite; Voltmeter: Zero",
+          "Both have 100 Ohms",
+          "Both have zero resistance"
+        ],
+        "answer": "Ammeter: Zero; Voltmeter: Infinite",
+        "explanation": "An ideal ammeter has 0 Ω resistance so it doesn't change circuit current; an ideal voltmeter has ∞ Ω resistance so it draws zero current."
+      },
+      {
+        "id": "m04_q07",
+        "question": "What catastrophic mistake occurs if an ammeter (having very low resistance) is accidentally connected in PARALLEL across a battery?",
+        "options": [
+          "The voltmeter explodes",
+          "A massive short-circuit current flows through the ammeter, which may burn out the meter and damage the battery",
+          "The circuit current drops to zero permanently",
+          "The battery voltage doubles"
+        ],
+        "answer": "A massive short-circuit current flows through the ammeter, which may burn out the meter and damage the battery",
+        "explanation": "Low resistance across a voltage source causes excessive current (I = V/R), damaging the ammeter coil."
+      },
+      {
+        "id": "m04_q08",
+        "question": "What happens to the circuit current if a high-resistance voltmeter is accidentally connected in SERIES in a simple circuit?",
+        "options": [
+          "The current becomes dangerously high",
+          "The total circuit resistance becomes enormous, causing the current to drop to nearly zero",
+          "The bulb glows 10 times brighter",
+          "The battery explodes"
+        ],
+        "answer": "The total circuit resistance becomes enormous, causing the current to drop to nearly zero",
+        "explanation": "A voltmeter's huge internal resistance in series throttles the circuit current down to near zero."
+      },
+      {
+        "id": "m04_q09",
+        "question": "Why must an ammeter have low resistance?",
+        "options": [
+          "To prevent it from altering the actual current flowing in the circuit",
+          "To make it lighter in weight",
+          "To allow it to measure voltage as well",
+          "To reduce battery chemical reactions"
+        ],
+        "answer": "To prevent it from altering the actual current flowing in the circuit",
+        "explanation": "Adding series resistance alters total circuit impedance; keeping it near zero ensures the ammeter measures true undisturbed current."
+      },
+      {
+        "id": "m04_q10",
+        "question": "A milliammeter has a range of 0 to 500 mA with 50 divisions on its scale. What is its least count?",
+        "options": [
+          "10 mA",
+          "1 mA",
+          "5 mA",
+          "0.1 mA"
+        ],
+        "answer": "10 mA",
+        "explanation": "Least count = Total range / Number of divisions = 500 mA / 50 = 10 mA per division."
+      }
+    ]
+  },
+  {
+    "id": "m05",
+    "moduleNumber": 5,
+    "title": "Ohm's Law: Mathematical Formulation ($V = IR$) & The V-I Graph",
+    "tagline": "Direct proportionality between V and I, linear V-I graphs, and the concept of electrical resistance.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Georg Simon Ohm's Discovery (1827)</h4>\n    <p>German physicist Georg Simon Ohm conducted precise experiments investigating the relationship between the potential difference across a metallic conductor and the resulting current flowing through it. He formulated <strong>Ohm's Law</strong>:</p>\n    <blockquote style=\"background:#f8fafc; border-left:4px solid #0284c7; padding:10px 14px; margin:10px 0; font-style:italic;\">\n      \"The electric current flowing through a metallic conductor is directly proportional to the potential difference applied across its ends, provided its temperature and other physical conditions remain constant.\"\n    </blockquote>\n    $$V \\propto I \\quad \\implies \\quad \\frac{V}{I} = \\text{constant} = R$$\n    $$V = I \\cdot R$$\n    <p>Where the proportionality constant $R$ is called the <strong>electrical resistance</strong> of the conductor.</p>\n\n    <h4>2. The V-I Characteristic Graph</h4>\n    <p>If we plot a graph of potential difference ($V$) along the $y$-axis against current ($I$) along the $x$-axis for a metallic conductor at constant temperature:</p>\n    <ul>\n      <li>The graph is a <strong>straight line passing through the origin $(0,0)$</strong>.</li>\n      <li>The <strong>slope of the $V\\text{-}I$ graph</strong> represents the electrical resistance ($R$) of the conductor:\n        $$\\text{Slope} = \\frac{\\Delta V}{\\Delta I} = R$$\n      </li>\n      <li>Conductors that obey Ohm's law with a straight-line graph are called <strong>ohmic conductors</strong> (e.g., metals, nichrome wire). Devices where the $V\\text{-}I$ graph is non-linear (e.g., diodes, transistors) are called <strong>non-ohmic conductors</strong>.</li>\n    </ul>\n\n    <h4>3. SI Unit of Resistance: The Ohm ($\\Omega$)</h4>\n    <p>The SI unit of resistance is the <strong>ohm</strong>, symbolized by the Greek capital letter $\\mathbf{\\Omega}$:</p>\n    $$1\\ \\Omega = \\frac{1\\text{ Volt}}{1\\text{ Ampere}} = 1\\text{ V/A}$$\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Ohm's Law: $V = IR$ at constant temperature and physical dimensions.",
+      "The $V\\text{-}I$ graph for an ohmic conductor is a straight line through the origin; its slope equals resistance $R$.",
+      "SI unit of resistance is the Ohm ($\\Omega$): $1\\ \\Omega = 1\\text{ V}/1\\text{ A}$."
+    ],
+    "keyNotes": [
+      "Temperature must remain constant for Ohm's law to hold; if a filament gets red-hot, its resistance increases and the V-I curve bends upwards away from linearity."
+    ],
+    "questions": [
+      {
+        "id": "m05_q01",
+        "question": "According to Georg Simon Ohm's Law (1827), what is the relationship between potential difference (V) and current (I) across a metallic conductor at constant temperature?",
+        "options": [
+          "V ∝ 1/I",
+          "V ∝ I (V = IR)",
+          "V ∝ I²",
+          "V × I = constant"
+        ],
+        "answer": "V ∝ I (V = IR)",
+        "explanation": "Ohm's Law: The potential difference across a conductor is directly proportional to the current flowing through it at constant temperature (V = IR)."
+      },
+      {
+        "id": "m05_q02",
+        "question": "What is the shape of the V–I graph for a metallic conductor (like nichrome wire) obeying Ohm's Law?",
+        "options": [
+          "A parabolic curve",
+          "A straight line passing through the origin",
+          "A circular arc",
+          "A hyperbolic wave"
+        ],
+        "answer": "A straight line passing through the origin",
+        "explanation": "A linear V-I plot passing through the origin confirms constant resistance (R = V/I = slope)."
+      },
+      {
+        "id": "m05_q03",
+        "question": "When three resistors R₁, R₂, R₃ are connected in PARALLEL across a battery, what is the formula for the equivalent resistance (Rp)?",
+        "options": [
+          "Rp = R₁ + R₂ + R₃",
+          "1/Rp = 1/R₁ + 1/R₂ + 1/R₃",
+          "Rp = 1/(R₁ + R₂ + R₃)",
+          "Rp = R₁R₂R₃"
+        ],
+        "answer": "1/Rp = 1/R₁ + 1/R₂ + 1/R₃",
+        "explanation": "In parallel, reciprocal of equivalent resistance equals sum of reciprocals: 1/Rp = 1/R₁ + 1/R₂ + 1/R₃."
+      },
+      {
+        "id": "m05_q04",
+        "question": "How can three resistors of resistances 2 Ω, 3 Ω, and 6 Ω be connected to yield a total equivalent resistance of EXACTLY 1 Ω?",
+        "options": [
+          "All three connected in parallel",
+          "All three connected in series",
+          "2 Ω in series with parallel of 3 Ω and 6 Ω",
+          "6 Ω in parallel with 2 Ω, in series with 3 Ω"
+        ],
+        "answer": "All three connected in parallel",
+        "explanation": "1/Rp = 1/2 + 1/3 + 1/6 = (3 + 2 + 1)/6 = 6/6 = 1 ⇒ Rp = 1 Ω."
+      },
+      {
+        "id": "m05_q05",
+        "question": "What is the mathematical formulation of Ohm's Law?",
+        "options": [
+          "V = I / R",
+          "V = I × R",
+          "I = V × R",
+          "R = V × I"
+        ],
+        "answer": "V = I × R",
+        "explanation": "Ohm's law states that potential difference equals current multiplied by resistance: V = IR."
+      },
+      {
+        "id": "m05_q06",
+        "question": "What does the slope of a linear Potential Difference vs Current (V-I) graph represent?",
+        "options": [
+          "Electric charge",
+          "Electrical resistance (R)",
+          "Electric power",
+          "Heat energy"
+        ],
+        "answer": "Electrical resistance (R)",
+        "explanation": "Slope = ΔV / ΔI = R, which represents the resistance of the metallic conductor."
+      },
+      {
+        "id": "m05_q07",
+        "question": "Under what essential physical condition does Ohm's Law hold strictly true for a metallic conductor?",
+        "options": [
+          "Temperature and physical state of the conductor must remain constant",
+          "It must be placed in a magnetic field",
+          "Current must be greater than 100 Amperes",
+          "Light must shine on the wire"
+        ],
+        "answer": "Temperature and physical state of the conductor must remain constant",
+        "explanation": "Resistance changes with temperature; Ohm's law strictly applies only when temperature and dimensions remain unchanged."
+      },
+      {
+        "id": "m05_q08",
+        "question": "What is the resistance of an electric lamp if a potential difference of 220 V draws a current of 0.5 A?",
+        "options": [
+          "110 Ω",
+          "440 Ω",
+          "220 Ω",
+          "55 Ω"
+        ],
+        "answer": "440 Ω",
+        "explanation": "R = V / I = 220 V / 0.5 A = 440 Ω."
+      },
+      {
+        "id": "m05_q09",
+        "question": "Define 1 Ohm (1 Ω) of electrical resistance:",
+        "options": [
+          "The resistance of a conductor through which a current of 1 A flows when 1 V potential difference is maintained across its ends",
+          "The resistance of 1 meter of copper wire",
+          "The power dissipated by 1 Watt in 1 second",
+          "The charge of 6.25 × 10^18 electrons"
+        ],
+        "answer": "The resistance of a conductor through which a current of 1 A flows when 1 V potential difference is maintained across its ends",
+        "explanation": "1 Ω = 1 V / 1 A, by definition of the SI unit of resistance."
+      },
+      {
+        "id": "m05_q10",
+        "question": "If the potential difference across a constant resistor is doubled, what happens to the current flowing through it?",
+        "options": [
+          "It is halved",
+          "It doubles",
+          "It quadruples",
+          "It remains unchanged"
+        ],
+        "answer": "It doubles",
+        "explanation": "According to Ohm's law (I = V/R), current is directly proportional to voltage, so doubling V doubles I."
+      }
+    ]
+  },
+  {
+    "id": "m06",
+    "moduleNumber": 6,
+    "title": "Factors Affecting Electrical Resistance ($R = \\rho l / A$)",
+    "tagline": "Dependence of resistance on conductor length, cross-sectional area, material nature, and temperature.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. What is Electrical Resistance?</h4>\n    <p><strong>Resistance</strong> is the property of a conductor by virtue of which it opposes the flow of electric charges through it. At the microscopic level, drifting electrons continuously collide with vibrating lattice ions, losing kinetic energy and facing resistance.</p>\n\n    <h4>2. The Four Determinative Factors of Resistance</h4>\n    <p>Systematic laboratory experiments prove that the electrical resistance ($R$) of a uniform metallic conductor depends on four distinct factors:</p>\n    <ol>\n      <li><strong>Length of the Conductor ($l$):</strong> Resistance is <strong>directly proportional</strong> to length:\n        $$R \\propto l$$\n        Doubling the length doubles the number of ion collisions, doubling resistance.\n      </li>\n      <li><strong>Cross-Sectional Area ($A$):</strong> Resistance is <strong>inversely proportional</strong> to cross-sectional area (thickness):\n        $$R \\propto \\frac{1}{A} \\quad \\left(\\text{or } R \\propto \\frac{1}{r^2} \\text{ where } r \\text{ is radius}\\right)$$\n        A thicker wire provides a wider path with more free electrons, offering less resistance.\n      </li>\n      <li><strong>Nature of the Material:</strong> Different metals possess differing free electron densities and lattice structures, characterized by <strong>electrical resistivity ($\\rho$)</strong>.</li>\n      <li><strong>Temperature:</strong> For pure metallic conductors, resistance <strong>increases with increasing temperature</strong> due to enhanced thermal lattice vibrations.</li>\n    </ol>\n\n    <h4>3. The Master Resistance Formula</h4>\n    <p>Combining the geometric dependencies yields:</p>\n    $$R = \\rho \\frac{l}{A} = \\rho \\frac{l}{\\pi r^2}$$\n    <p>Where $\\rho$ (rho) is the specific electrical resistivity of the material.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Resistance is directly proportional to length: $R \\propto l$.",
+      "Resistance is inversely proportional to cross-sectional area: $R \\propto 1/A$.",
+      "Master resistance equation: $R = \\rho \\frac{l}{A}$.",
+      "Resistance of pure metals increases with temperature."
+    ],
+    "keyNotes": [
+      "If a wire is stretched to double its length, its volume remains constant ($V = A \\cdot l$), so its area is halved ($A' = A/2$), causing its resistance to increase by a factor of FOUR ($R' = 4R$)!"
+    ],
+    "questions": [
+      {
+        "id": "m06_q01",
+        "question": "What is the SI unit of electrical resistance?",
+        "options": [
+          "Ampere",
+          "Ohm (Ω, where 1 Ω = 1 V / 1 A)",
+          "Volt",
+          "Siemens"
+        ],
+        "answer": "Ohm (Ω, where 1 Ω = 1 V / 1 A)",
+        "explanation": "The SI unit of resistance is the ohm (Ω). 1 Ω = 1 V / 1 A."
+      },
+      {
+        "id": "m06_q02",
+        "question": "A circuit component used to adjust and regulate current in an electric circuit without changing the potential difference of the voltage source is called a:",
+        "options": [
+          "Voltmeter",
+          "Rheostat (Variable resistor)",
+          "Galvanometer",
+          "Fuse"
+        ],
+        "answer": "Rheostat (Variable resistor)",
+        "explanation": "A rheostat provides variable resistance, allowing continuous regulation of current without altering the source voltage."
+      },
+      {
+        "id": "m06_q03",
+        "question": "In a parallel electric circuit, which physical quantity is the SAME across each individual branch resistor?",
+        "options": [
+          "Electric current (I)",
+          "Potential difference (V, Voltage)",
+          "Resistance",
+          "Charge flow rate"
+        ],
+        "answer": "Potential difference (V, Voltage)",
+        "explanation": "All parallel branches connect between the same two common nodes, maintaining identical potential difference V."
+      },
+      {
+        "id": "m06_q04",
+        "question": "What are the HIGHEST and LOWEST total resistances that can be secured by combining four resistance coils of 4 Ω, 8 Ω, 12 Ω, and 24 Ω?",
+        "options": [
+          "Highest = 24 Ω; Lowest = 4 Ω",
+          "Highest = 48 Ω (in series); Lowest = 2 Ω (in parallel)",
+          "Highest = 96 Ω; Lowest = 1 Ω",
+          "Highest = 48 Ω; Lowest = 4 Ω"
+        ],
+        "answer": "Highest = 48 Ω (in series); Lowest = 2 Ω (in parallel)",
+        "explanation": "Highest (series): 4 + 8 + 12 + 24 = 48 Ω. Lowest (parallel): 1/Rp = 1/4 + 1/8 + 1/12 + 1/24 = (6 + 3 + 2 + 1)/24 = 12/24 = 1/2 ⇒ Rp = 2 Ω."
+      },
+      {
+        "id": "m06_q05",
+        "question": "How does the electrical resistance of a uniform metallic wire change if its length is doubled while keeping its thickness constant?",
+        "options": [
+          "It is halved",
+          "It doubles (2R)",
+          "It quadruples (4R)",
+          "It remains unchanged"
+        ],
+        "answer": "It doubles (2R)",
+        "explanation": "Since R ∝ l, doubling length at constant cross-sectional area directly doubles resistance."
+      },
+      {
+        "id": "m06_q06",
+        "question": "Between a thick wire and a thin wire of the same material and length, which one offers LESS resistance to current flow?",
+        "options": [
+          "The thick wire offers less resistance",
+          "The thin wire offers less resistance",
+          "Both offer identical resistance",
+          "It depends on atmospheric humidity"
+        ],
+        "answer": "The thick wire offers less resistance",
+        "explanation": "Resistance is inversely proportional to cross-sectional area (R ∝ 1/A); a thicker wire provides a wider path and lower resistance."
+      },
+      {
+        "id": "m06_q07",
+        "question": "A cylindrical wire of resistance R is stretched mechanically so that its length is doubled without changing its mass. What is its new resistance?",
+        "options": [
+          "2R",
+          "4R",
+          "R/2",
+          "R/4"
+        ],
+        "answer": "4R",
+        "explanation": "Volume is constant: when length doubles (l' = 2l), area is halved (A' = A/2). New resistance R' = ρ(2l)/(A/2) = 4(ρl/A) = 4R."
+      },
+      {
+        "id": "m06_q08",
+        "question": "If the radius of a metallic wire is halved while its length remains constant, how does its resistance change?",
+        "options": [
+          "It increases by 2 times",
+          "It increases by 4 times",
+          "It increases by 16 times",
+          "It is halved"
+        ],
+        "answer": "It increases by 4 times",
+        "explanation": "Area A = πr^2. Halving radius makes A' = π(r/2)^2 = A/4. Since R ∝ 1/A, resistance increases by 4 times."
+      },
+      {
+        "id": "m06_q09",
+        "question": "How does increasing the temperature affect the electrical resistance of pure metallic conductors like copper and aluminium?",
+        "options": [
+          "Resistance decreases",
+          "Resistance increases because thermal vibrations of lattice ions increase collisions with electrons",
+          "Resistance drops to zero",
+          "Resistance remains strictly constant"
+        ],
+        "answer": "Resistance increases because thermal vibrations of lattice ions increase collisions with electrons",
+        "explanation": "Heating increases amplitude of metallic lattice ion vibrations, causing more frequent collisions and higher resistance."
+      },
+      {
+        "id": "m06_q10",
+        "question": "Which mathematical equation correctly relates resistance (R), resistivity (ρ), length (l), and cross-sectional area (A)?",
+        "options": [
+          "R = ρ × l / A",
+          "R = ρ × A / l",
+          "R = l × A / ρ",
+          "ρ = R × l / A"
+        ],
+        "answer": "R = ρ × l / A",
+        "explanation": "Resistance is directly proportional to length and inversely proportional to area: R = ρl/A."
+      }
+    ]
+  },
+  {
+    "id": "m07",
+    "moduleNumber": 7,
+    "title": "Electrical Resistivity ($\\rho$): The Intrinsic Material Property",
+    "tagline": "Specific resistance, SI unit Ohm-metre (Ω·m), and conductors, alloys vs insulators.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Definition of Electrical Resistivity ($\\rho$)</h4>\n    <p>From the resistance formula $R = \\rho \\frac{l}{A}$, solving for $\\rho$ gives:</p>\n    $$\\rho = R \\frac{A}{l}$$\n    <p>If we consider a specimen of a material with unit length ($l = 1\\text{ m}$) and unit cross-sectional area ($A = 1\\text{ m}^2$):</p>\n    $$\\rho = R$$\n    <p>Hence, <strong>electrical resistivity</strong> (or specific resistance) of a substance is numerically equal to the resistance offered by a unit cube ($1\\text{ m} \\times 1\\text{ m} \\times 1\\text{ m}$) of that material across opposing faces.</p>\n\n    <h4>2. SI Unit of Electrical Resistivity: The Ohm-metre ($\\Omega\\cdot\\text{m}$)</h4>\n    $$\\text{Unit of } \\rho = \\frac{\\Omega \\cdot \\text{m}^2}{\\text{m}} = \\mathbf{\\Omega\\cdot\\text{m}}$$\n\n    <h4>3. Classification of Materials by Resistivity</h4>\n    <ul>\n      <li><strong>Conductors (Metals):</strong> Extremely low resistivity in the range of $10^{-8}\\ \\Omega\\cdot\\text{m}\\text{ to }10^{-6}\\ \\Omega\\cdot\\text{m}$.\n        <ul>\n          <li><strong>Silver ($\\rho \\approx 1.60 \\times 10^{-8}\\ \\Omega\\cdot\\text{m}$):</strong> Best electrical conductor.</li>\n          <li><strong>Copper ($\\rho \\approx 1.62 \\times 10^{-8}\\ \\Omega\\cdot\\text{m}$) & Aluminium:</strong> Used universally for domestic transmission cables.</li>\n        </ul>\n      </li>\n      <li><strong>Alloys (e.g., Nichrome, Manganin, Constantan):</strong> Higher resistivity than constituent metals ($10^{-6}\\ \\Omega\\cdot\\text{m}$). They do not oxidize (burn) readily even at high red-hot temperatures ($>800^\\circ\\text{C}$), making them ideal for heating elements.</li>\n      <li><strong>Insulators (e.g., Glass, Hard Rubber):</strong> Enormously high resistivity in the range of $10^{12}\\ \\Omega\\cdot\\text{m}\\text{ to }10^{17}\\ \\Omega\\cdot\\text{m}$.</li>\n    </ul>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Resistivity ($\\rho$) is an intrinsic material property; it does NOT depend on wire length or thickness.",
+      "The SI unit of electrical resistivity is the Ohm-metre ($\\Omega\\cdot\\text{m}$).",
+      "Silver is the best electrical conductor; copper/aluminium are used for wiring; nichrome alloy is used for heating elements."
+    ],
+    "keyNotes": [
+      "Resistance changes when you cut or stretch a wire, but electrical resistivity ($\\rho$) remains completely unchanged because resistivity depends only on material and temperature!"
+    ],
+    "questions": [
+      {
+        "id": "m07_q01",
+        "question": "The electrical resistance (R) of a uniform cylindrical metallic conductor depends directly on its length (l) and inversely on its area of cross-section (A). What is the formula?",
+        "options": [
+          "R = ρ × (A / l)",
+          "R = ρ × (l / A)",
+          "R = ρ × l × A",
+          "R = l / (ρ × A)"
+        ],
+        "answer": "R = ρ × (l / A)",
+        "explanation": "Resistance R = ρ(l / A), where ρ is the electrical resistivity of the material."
+      },
+      {
+        "id": "m07_q02",
+        "question": "What is the SI unit of electrical resistivity (ρ)?",
+        "options": [
+          "Ohm (Ω)",
+          "Ohm metre (Ω m)",
+          "Ohm per metre (Ω/m)",
+          "Volt metre"
+        ],
+        "answer": "Ohm metre (Ω m)",
+        "explanation": "Resistivity ρ = R·A / l = (Ω · m²) / m = Ω m."
+      },
+      {
+        "id": "m07_q03",
+        "question": "Why is domestic household wiring connected in PARALLEL rather than in series?",
+        "options": [
+          "Series wiring uses too many fuses",
+          "Parallel connection provides the same rated voltage (220 V) to every appliance, allows independent on/off switching, and prevents total circuit failure if one device fails",
+          "Parallel wiring increases total resistance",
+          "Series wiring produces no heat"
+        ],
+        "answer": "Parallel connection provides the same rated voltage (220 V) to every appliance, allows independent on/off switching, and prevents total circuit failure if one device fails",
+        "explanation": "Parallel circuits provide full supply voltage to each load, enable independent control, and prevent single-point failure."
+      },
+      {
+        "id": "m07_q04",
+        "question": "How many 176 Ω resistors connected in parallel are required to carry a current of 5 A on a 220 V line?",
+        "options": [
+          "2 resistors",
+          "4 resistors",
+          "8 resistors",
+          "10 resistors"
+        ],
+        "answer": "4 resistors",
+        "explanation": "Required total resistance R = V / I = 220 V / 5 A = 44 Ω. Since R = 176 / n ⇒ n = 176 / 44 = 4 resistors."
+      },
+      {
+        "id": "m07_q05",
+        "question": "What is the SI unit of electrical resistivity?",
+        "options": [
+          "Ohm (Ω)",
+          "Ohm-metre (Ω·m)",
+          "Ohm / metre (Ω/m)",
+          "Siemens / metre"
+        ],
+        "answer": "Ohm-metre (Ω·m)",
+        "explanation": "From ρ = R·A/l = (Ω·m²)/m = Ω·m, the SI unit of resistivity is the ohm-metre."
+      },
+      {
+        "id": "m07_q06",
+        "question": "If a copper wire of length l and area A is cut into two equal halves, what happens to the electrical RESISTIVITY of each piece?",
+        "options": [
+          "It is halved",
+          "It doubles",
+          "It remains completely unchanged",
+          "It becomes zero"
+        ],
+        "answer": "It remains completely unchanged",
+        "explanation": "Resistivity is an intensive material property that depends only on the chemical nature of the metal and temperature, not on dimensions."
+      },
+      {
+        "id": "m07_q07",
+        "question": "Which of the following metals has the lowest electrical resistivity, making it the best known electrical conductor?",
+        "options": [
+          "Copper",
+          "Silver",
+          "Gold",
+          "Aluminium"
+        ],
+        "answer": "Silver",
+        "explanation": "Silver has the lowest resistivity (~1.60 × 10^-8 Ω·m), making it the superior electrical conductor."
+      },
+      {
+        "id": "m07_q08",
+        "question": "Why are copper and aluminium preferred for commercial electric transmission lines rather than silver?",
+        "options": [
+          "Silver cannot conduct electricity",
+          "Silver is too expensive and precious, whereas copper and aluminium are abundant, economical, and have very low resistivity",
+          "Copper is lighter than air",
+          "Aluminium does not have electrons"
+        ],
+        "answer": "Silver is too expensive and precious, whereas copper and aluminium are abundant, economical, and have very low resistivity",
+        "explanation": "While silver is slightly better, copper and aluminium provide outstanding conductivity at a fraction of the cost."
+      },
+      {
+        "id": "m07_q09",
+        "question": "What is the typical order of magnitude of electrical resistivity for good metallic conductors?",
+        "options": [
+          "10^-8 to 10^-6 Ω·m",
+          "10^12 to 10^17 Ω·m",
+          "10^2 to 10^4 Ω·m",
+          "1.0 Ω·m"
+        ],
+        "answer": "10^-8 to 10^-6 Ω·m",
+        "explanation": "Metals have very low resistivities ranging from 10^-8 to 10^-6 Ω·m, allowing easy charge transport."
+      },
+      {
+        "id": "m07_q10",
+        "question": "What two physical parameters solely determine the electrical resistivity of a given pure substance?",
+        "options": [
+          "Length and cross-sectional area of the wire",
+          "Nature of the material and temperature",
+          "Battery voltage and current",
+          "Atmospheric pressure and altitude"
+        ],
+        "answer": "Nature of the material and temperature",
+        "explanation": "Resistivity is an intrinsic property governed strictly by the material's atomic structure and its thermal temperature."
+      }
+    ]
+  },
+  {
+    "id": "m08",
+    "moduleNumber": 8,
+    "title": "Resistors in Series: Current Invariance & Equivalent Resistance ($R_s$)",
+    "tagline": "Single conducting pathway, identical current throughout, voltage addition, and Rs = R1 + R2 + R3.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Definition of a Series Combination</h4>\n    <p>Two or more resistors are said to be connected in <strong>series</strong> when they are joined end-to-end consecutively so that there is only a <strong>single continuous conducting path</strong> for electric current to flow from the source through all the resistors.</p>\n\n    <h4>2. Fundamental Laws of Series Circuits</h4>\n    <ol>\n      <li><strong>Current Invariance ($I$ is Constant):</strong> The electric current ($I$) flowing through each individual resistor in series is <strong>strictly identical</strong>, because electric charge cannot accumulate or leak along the single pathway:\n        $$I = I_1 = I_2 = I_3$$\n      </li>\n      <li><strong>Voltage Division ($V$ Adds Up):</strong> The total potential difference ($V$) applied across the combination equals the sum of the individual potential drops across each resistor:\n        $$V = V_1 + V_2 + V_3$$\n      </li>\n    </ol>\n\n    <h4>3. Derivation of Equivalent Resistance ($R_s$)</h4>\n    <p>Applying Ohm's law to each resistor:</p>\n    $$V_1 = I R_1, \\quad V_2 = I R_2, \\quad V_3 = I R_3$$\n    <p>If $R_s$ is the equivalent resistance of the series combination, then $V = I R_s$. Substituting into the voltage addition equation:</p>\n    $$I R_s = I R_1 + I R_2 + I R_3$$\n    <p>Dividing throughout by the common current $I$:</p>\n    $$\\mathbf{R_s = R_1 + R_2 + R_3}$$\n    <p>For $n$ identical resistors of resistance $R$ in series: $R_s = n \\cdot R$.</p>\n    <p><em>Conclusion:</em> The equivalent resistance of a series combination is <strong>always greater than the highest individual resistance</strong> in the circuit.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "In a series circuit, the current ($I$) through all resistors is strictly identical.",
+      "The total voltage equals the sum of individual voltage drops: $V = V_1 + V_2 + V_3$.",
+      "Equivalent series resistance is the sum: $R_s = R_1 + R_2 + R_3$.",
+      "$R_s$ is always larger than the greatest individual resistor in the combination."
+    ],
+    "keyNotes": [
+      "The potential difference divides across series resistors in direct proportion to their resistances ($V_1 : V_2 = R_1 : R_2$)."
+    ],
+    "questions": [
+      {
+        "id": "m08_q01",
+        "question": "Which metal has the LOWEST electrical resistivity (1.60 × 10⁻⁸ Ω m at 20°C) and is the BEST conductor of electricity?",
+        "options": [
+          "Copper",
+          "Silver",
+          "Aluminium",
+          "Iron"
+        ],
+        "answer": "Silver",
+        "explanation": "Silver has the lowest electrical resistivity (1.60 × 10⁻⁸ Ω m), making it the finest electrical conductor."
+      },
+      {
+        "id": "m08_q02",
+        "question": "Why are copper and aluminium metals universally employed for electrical power transmission lines?",
+        "options": [
+          "They are insulators",
+          "They have very low electrical resistivity, minimizing I²Rt energy losses, and are ductile and economical",
+          "They melt easily",
+          "They have negative resistance"
+        ],
+        "answer": "They have very low electrical resistivity, minimizing I²Rt energy losses, and are ductile and economical",
+        "explanation": "Low resistivity of copper (1.62 × 10⁻⁸ Ω m) and aluminium (2.63 × 10⁻⁸ Ω m) minimizes resistive heat dissipation during power transmission."
+      },
+      {
+        "id": "m08_q03",
+        "question": "What is Joule's Law of Heating for the heat (H) produced in a resistor of resistance R carrying current I for time t?",
+        "options": [
+          "H = I R t",
+          "H = I² R t (or H = V I t = V²t / R)",
+          "H = I R² t",
+          "H = I² / (R t)"
+        ],
+        "answer": "H = I² R t (or H = V I t = V²t / R)",
+        "explanation": "Joule's Law: Heat generated is directly proportional to I², R, and t: H = I²Rt."
+      },
+      {
+        "id": "m08_q04",
+        "question": "An electric oven hot plate has two resistance coils A and B, each of 24 Ω, connected to a 220 V line. What are the currents when used (i) separately, (ii) in series, and (iii) in parallel?",
+        "options": [
+          "Separately = 9.17 A; Series = 4.58 A; Parallel = 18.33 A",
+          "Separately = 10 A; Series = 5 A; Parallel = 20 A",
+          "Separately = 4.58 A; Series = 9.17 A; Parallel = 18.33 A",
+          "Separately = 24 A; Series = 48 A; Parallel = 12 A"
+        ],
+        "answer": "Separately = 9.17 A; Series = 4.58 A; Parallel = 18.33 A",
+        "explanation": "(i) Separately: I = 220/24 = 9.167 A. (ii) Series (48 Ω): I = 220/48 = 4.583 A. (iii) Parallel (12 Ω): I = 220/12 = 18.33 A."
+      },
+      {
+        "id": "m08_q05",
+        "question": "What is the equivalent resistance of three resistors of 2 Ω, 3 Ω, and 5 Ω connected in series?",
+        "options": [
+          "10 Ω",
+          "1 Ω",
+          "30 Ω",
+          "0.97 Ω"
+        ],
+        "answer": "10 Ω",
+        "explanation": "In series, equivalent resistance is the algebraic sum: Rs = R1 + R2 + R3 = 2 + 3 + 5 = 10 Ω."
+      },
+      {
+        "id": "m08_q06",
+        "question": "What physical quantity remains strictly IDENTICAL through every resistor connected in a series circuit?",
+        "options": [
+          "Electric current (I)",
+          "Potential difference (V)",
+          "Power consumed",
+          "Heat energy"
+        ],
+        "answer": "Electric current (I)",
+        "explanation": "Because there is only one pathway for charge, the current flowing through every series component is identical."
+      },
+      {
+        "id": "m08_q07",
+        "question": "If an electric lamp of resistance 20 Ω and a conductor of resistance 4 Ω are connected in series to a 6 V battery, what is the total circuit current?",
+        "options": [
+          "0.25 A",
+          "1.5 A",
+          "0.5 A",
+          "2.4 A"
+        ],
+        "answer": "0.25 A",
+        "explanation": "Rs = 20 + 4 = 24 Ω. By Ohm's law, I = V / Rs = 6 V / 24 Ω = 0.25 A."
+      },
+      {
+        "id": "m08_q08",
+        "question": "In the circuit above (I = 0.25 A, R_lamp = 20 Ω, R_conductor = 4 Ω), what is the potential difference across the electric lamp?",
+        "options": [
+          "5 V",
+          "1 V",
+          "6 V",
+          "4 V"
+        ],
+        "answer": "5 V",
+        "explanation": "V_lamp = I × R_lamp = 0.25 A × 20 Ω = 5 V. (The remaining 1 V drops across the 4 Ω conductor)."
+      },
+      {
+        "id": "m08_q09",
+        "question": "If n identical resistors each of resistance R are connected in series, what is the equivalent resistance of the combination?",
+        "options": [
+          "n × R",
+          "R / n",
+          "n^2 × R",
+          "R / n^2"
+        ],
+        "answer": "n × R",
+        "explanation": "Rs = R + R + ... (n times) = nR."
+      },
+      {
+        "id": "m08_q10",
+        "question": "How does the equivalent resistance of a series combination compare to the individual resistors?",
+        "options": [
+          "It is always smaller than the smallest resistor",
+          "It is always larger than the greatest individual resistance in the combination",
+          "It is the geometric mean",
+          "It equals zero"
+        ],
+        "answer": "It is always larger than the greatest individual resistance in the combination",
+        "explanation": "Because resistors add directly in series, Rs is strictly greater than any individual resistance in the group."
+      }
+    ]
+  },
+  {
+    "id": "m09",
+    "moduleNumber": 9,
+    "title": "Resistors in Parallel: Voltage Invariance & Equivalent Resistance ($R_p$)",
+    "tagline": "Multiple conducting branches, common voltage V, current splitting, and 1/Rp = 1/R1 + 1/R2 + 1/R3.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Definition of a Parallel Combination</h4>\n    <p>Resistors are connected in <strong>parallel</strong> when they are connected across the same two common junction points, providing <strong>multiple alternative conducting branches</strong> for electric current.</p>\n\n    <h4>2. Fundamental Laws of Parallel Circuits</h4>\n    <ol>\n      <li><strong>Voltage Invariance ($V$ is Constant):</strong> The potential difference ($V$) across each individual parallel branch is <strong>strictly identical</strong> and equal to the applied voltage of the power source:\n        $$V = V_1 = V_2 = V_3$$\n      </li>\n      <li><strong>Current Division ($I$ Adds Up):</strong> The total current ($I$) entering the junction splits among the branches according to their individual resistances:\n        $$I = I_1 + I_2 + I_3$$\n      </li>\n    </ol>\n\n    <h4>3. Derivation of Equivalent Resistance ($R_p$)</h4>\n    <p>Applying Ohm's law to each branch:</p>\n    $$I_1 = \\frac{V}{R_1}, \\quad I_2 = \\frac{V}{R_2}, \\quad I_3 = \\frac{V}{R_3}$$\n    <p>If $R_p$ is the equivalent resistance, then $I = \\frac{V}{R_p}$. Substituting into the current equation:</p>\n    $$\\frac{V}{R_p} = \\frac{V}{R_1} + \\frac{V}{R_2} + \\frac{V}{R_3}$$\n    <p>Dividing throughout by the common potential difference $V$:</p>\n    $$\\mathbf{\\frac{1}{R_p} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3}}$$\n\n    <h4>4. Two Resistors in Parallel (Shortcut Formula)</h4>\n    $$R_p = \\frac{R_1 R_2}{R_1 + R_2} = \\frac{\\text{Product}}{\\text{Sum}}$$\n    <p>For $n$ identical resistors of resistance $R$ in parallel: $R_p = \\frac{R}{n}$.</p>\n    <p><em>Conclusion:</em> The equivalent resistance of a parallel circuit is <strong>always smaller than the smallest individual resistance</strong> in the group!</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "In a parallel circuit, the voltage ($V$) across all branches is strictly identical.",
+      "Total current is the sum of branch currents: $I = I_1 + I_2 + I_3$.",
+      "Reciprocal formula: $\\frac{1}{R_p} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3}$.",
+      "$R_p$ is always smaller than the smallest individual resistor in the combination."
+    ],
+    "keyNotes": [
+      "Current splits in parallel inversely proportional to resistance: lower resistance branches carry the lion's share of current."
+    ],
+    "questions": [
+      {
+        "id": "m09_q01",
+        "question": "Which metal with an exceptionally high melting point of 3380°C is used almost exclusively for the filaments of incandescent electric lamps?",
+        "options": [
+          "Copper",
+          "Tungsten (W)",
+          "Aluminium",
+          "Lead"
+        ],
+        "answer": "Tungsten (W)",
+        "explanation": "Tungsten has a melting point of 3380°C and high tensile strength, allowing filaments to glow white-hot without melting."
+      },
+      {
+        "id": "m09_q02",
+        "question": "How is an electric safety fuse connected in a domestic circuit to protect appliances from overcurrent and short-circuits?",
+        "options": [
+          "In parallel across the neutral wire",
+          "In series with the live wire before appliances",
+          "In parallel with the earth wire",
+          "Inside the electricity meter only"
+        ],
+        "answer": "In series with the live wire before appliances",
+        "explanation": "A fuse is placed in series with the live wire so excessive current heats and melts the fuse wire, breaking the circuit."
+      },
+      {
+        "id": "m09_q03",
+        "question": "Which appliance consumes more electrical energy: a 250 W TV set operated for 1 hour, or a 1200 W toaster operated for 10 minutes?",
+        "options": [
+          "Toaster uses more energy",
+          "TV set uses more energy (250 Wh = 9.0 × 10⁵ J vs Toaster 200 Wh = 7.2 × 10⁵ J)",
+          "Both consume identical energy",
+          "Cannot be determined without voltage"
+        ],
+        "answer": "TV set uses more energy (250 Wh = 9.0 × 10⁵ J vs Toaster 200 Wh = 7.2 × 10⁵ J)",
+        "explanation": "E_TV = 250 W × 1 h = 250 Wh. E_Toaster = 1200 W × (10/60 h) = 200 Wh. The TV consumes 250 Wh > 200 Wh."
+      },
+      {
+        "id": "m09_q04",
+        "question": "What is the equivalent resistance of two resistors of 6 Ω and 3 Ω connected in parallel?",
+        "options": [
+          "9 Ω",
+          "2 Ω",
+          "0.5 Ω",
+          "18 Ω"
+        ],
+        "answer": "2 Ω",
+        "explanation": "Rp = (R1 × R2) / (R1 + R2) = (6 × 3) / (6 + 3) = 18 / 9 = 2 Ω."
+      },
+      {
+        "id": "m09_q05",
+        "question": "What physical quantity remains strictly CONSTANT across each resistor in a parallel circuit?",
+        "options": [
+          "Electric current",
+          "Potential difference (Voltage)",
+          "Power consumed",
+          "Electric charge flow rate"
+        ],
+        "answer": "Potential difference (Voltage)",
+        "explanation": "Because all parallel resistors connect across the same two common nodes, the potential difference across each is identical."
+      },
+      {
+        "id": "m09_q06",
+        "question": "How does the equivalent resistance of a parallel combination compare to the individual resistors?",
+        "options": [
+          "It is always smaller than the smallest individual resistor in the combination",
+          "It is always greater than the largest resistor",
+          "It equals the average of the resistors",
+          "It is infinite"
+        ],
+        "answer": "It is always smaller than the smallest individual resistor in the combination",
+        "explanation": "Adding parallel paths provides more conduits for charge flow, reducing total resistance below that of any single branch."
+      },
+      {
+        "id": "m09_q07",
+        "question": "If five identical resistors each of 10 Ω are connected in parallel, what is the effective resistance?",
+        "options": [
+          "50 Ω",
+          "2 Ω",
+          "10 Ω",
+          "0.5 Ω"
+        ],
+        "answer": "2 Ω",
+        "explanation": "Rp = R / n = 10 Ω / 5 = 2 Ω."
+      },
+      {
+        "id": "m09_q08",
+        "question": "In a parallel circuit consisting of a 10 Ω resistor and a 1000 Ω resistor, where does the majority of current flow?",
+        "options": [
+          "Equally through both",
+          "Nearly all current flows through the low-resistance 10 Ω branch",
+          "Current flows only through the 1000 Ω resistor",
+          "No current flows"
+        ],
+        "answer": "Nearly all current flows through the low-resistance 10 Ω branch",
+        "explanation": "Current divides inversely proportional to resistance (I = V/R), concentrating in the path of least resistance."
+      },
+      {
+        "id": "m09_q09",
+        "question": "What is the equivalent resistance of three resistors of 1 Ω, 10^3 Ω, and 10^6 Ω connected in parallel?",
+        "options": [
+          "Slightly less than 1 Ω",
+          "10^6 Ω",
+          "10^3 Ω",
+          "Zero"
+        ],
+        "answer": "Slightly less than 1 Ω",
+        "explanation": "The equivalent resistance in parallel is always strictly less than the smallest individual resistor, so Rp < 1 Ω."
+      },
+      {
+        "id": "m09_q10",
+        "question": "Three resistors of 5 Ω, 10 Ω, and 30 Ω are connected in parallel across a 12 V battery. What is the total current drawn from the battery?",
+        "options": [
+          "1 A",
+          "4 A",
+          "12 A",
+          "0.5 A"
+        ],
+        "answer": "4 A",
+        "explanation": "1/Rp = 1/5 + 1/10 + 1/30 = (6 + 3 + 1)/30 = 10/30 = 1/3 => Rp = 3 Ω. Total current I = V / Rp = 12 V / 3 Ω = 4 A."
+      }
+    ]
+  },
+  {
+    "id": "m10",
+    "moduleNumber": 10,
+    "title": "Domestic Electrical Circuits: Why Parallel Wiring is Essential",
+    "tagline": "Independent appliance operation, constant 220V supply, low total resistance vs fatal series flaws.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. The Major Disadvantages of Series Wiring in Homes</h4>\n    <p>In domestic electrical circuits, household appliances are <strong>never connected in series</strong> because of several critical engineering drawbacks:</p>\n    <ul>\n      <li><strong>1. Single Point of Failure:</strong> In a series circuit, if one appliance burns out, fails, or is switched off, the entire circuit is broken, and <strong>all other appliances turn off simultaneously</strong>. (A classic frustration with old-fashioned decorative fairy lights!).</li>\n      <li><strong>2. No Independent Switching:</strong> All appliances must share a single master switch. It is impossible to turn on the refrigerator without also running the television and air conditioner!</li>\n      <li><strong>3. Voltage Division:</strong> In series, the total $220\\text{ V}$ mains voltage is partitioned among all appliances. High-power appliances (like heaters) would receive very little voltage and fail to operate.</li>\n      <li><strong>4. Different Current Requirements:</strong> An electric bulb requires only $\\sim 0.5\\text{ A}$, while an electric heater requires $\\sim 10\\text{ A}$. In series, forced identical current means either the bulb explodes or the heater fails to warm up!</li>\n    </ul>\n\n    <h4>2. The Decisive Advantages of Parallel Domestic Wiring</h4>\n    <ol>\n      <li><strong>Full Operating Voltage:</strong> Every single appliance receives the full, uncompromised mains potential difference of <strong>$220\\text{ V}$</strong>.</li>\n      <li><strong>Independent Control:</strong> Each appliance has its own dedicated switch and can be operated or turned off independently without affecting others.</li>\n      <li><strong>Tailored Current Supply:</strong> Appliances draw current based solely on their own resistance ($I = V/R$), ensuring proper operation.</li>\n      <li><strong>Fault Isolation:</strong> If one light bulb fuses, all other lights and fans continue operating smoothly.</li>\n      <li><strong>Lower Overall Resistance:</strong> Parallel circuits keep total equivalent resistance low, minimizing energy wastage in wiring.</li>\n    </ol>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Domestic wiring is strictly PARALLEL: every appliance receives the full $220\\text{ V}$ mains voltage.",
+      "Parallel connection allows independent switching and isolates faults.",
+      "Series wiring fails at home because one burnt bulb kills the entire circuit and appliances receive divided voltage."
+    ],
+    "keyNotes": [
+      "Decorative festive fairy lights use series connections to save copper wire cost, but finding one blown bulb requires testing every single bulb along the string!"
+    ],
+    "questions": [
+      {
+        "id": "m10_q01",
+        "question": "Why are the heating elements of electric irons, toasters, and geysers made of ALLOY (like nichrome) rather than pure metals?",
+        "options": [
+          "Alloys conduct zero electricity",
+          "Alloys have higher resistivity than constituent metals and do not oxidize (burn) readily at high temperatures (red-hot states)",
+          "Alloys are transparent",
+          "Alloys freeze at 100°C"
+        ],
+        "answer": "Alloys have higher resistivity than constituent metals and do not oxidize (burn) readily at high temperatures (red-hot states)",
+        "explanation": "Nichrome (Ni-Cr-Mn-Fe) possesses high resistivity (100 × 10⁻⁶ Ω m) and resists high-temperature thermal oxidation."
+      },
+      {
+        "id": "m10_q02",
+        "question": "What is the SI unit of electric power?",
+        "options": [
+          "Joule (J)",
+          "Watt (W, where 1 W = 1 V × 1 A = 1 J/s)",
+          "Kilowatt hour",
+          "Coulomb"
+        ],
+        "answer": "Watt (W, where 1 W = 1 V × 1 A = 1 J/s)",
+        "explanation": "Electric power P = VI is measured in watts (W), where 1 W = 1 J/s = 1 V A."
+      },
+      {
+        "id": "m10_q03",
+        "question": "Two lamps, one rated 100 W at 220 V and the other 60 W at 220 V, are connected in parallel to a 220 V mains supply. What is the total current drawn from the line?",
+        "options": [
+          "0.45 A",
+          "0.73 A (160 W / 220 V)",
+          "1.25 A",
+          "2.0 A"
+        ],
+        "answer": "0.73 A (160 W / 220 V)",
+        "explanation": "Total power P = 100 W + 60 W = 160 W. Total current I = P / V = 160 W / 220 V = 0.727 A ≈ 0.73 A."
+      },
+      {
+        "id": "m10_q04",
+        "question": "Why are domestic electrical appliances in a house connected in PARALLEL rather than in series?",
+        "options": [
+          "To make wires look neat",
+          "So each appliance receives the full 220 V mains voltage and can be switched ON/OFF independently without affecting other devices",
+          "To double the electricity bill",
+          "Because series wires are banned by law"
+        ],
+        "answer": "So each appliance receives the full 220 V mains voltage and can be switched ON/OFF independently without affecting other devices",
+        "explanation": "Parallel wiring provides full mains voltage to all devices and prevents one faulty appliance from cutting power to the whole house."
+      },
+      {
+        "id": "m10_q05",
+        "question": "What happens in a series circuit if one bulb's filament burns out and fuses?",
+        "options": [
+          "All other bulbs glow twice as bright",
+          "The entire circuit is broken and all other bulbs go off immediately",
+          "Only that bulb turns blue",
+          "The battery voltage drops to zero"
+        ],
+        "answer": "The entire circuit is broken and all other bulbs go off immediately",
+        "explanation": "In a series circuit, there is only one conducting pathway; a single break halts current to all components."
+      },
+      {
+        "id": "m10_q06",
+        "question": "What is the standard alternating potential difference (voltage) supplied to domestic households in India?",
+        "options": [
+          "110 V",
+          "220 V",
+          "440 V",
+          "12 V"
+        ],
+        "answer": "220 V",
+        "explanation": "In India, standard domestic AC electricity is supplied at 220 V at a frequency of 50 Hz."
+      },
+      {
+        "id": "m10_q07",
+        "question": "Why is it impractical to connect an electric bulb (current requirement ~0.5 A) and an electric heater (current requirement ~10 A) in series?",
+        "options": [
+          "Because both devices require identical voltage and resistance",
+          "Because a series circuit forces the same current through both; 0.5 A is too low for the heater to work, while 10 A would burn out the bulb",
+          "Because heater coils emit magnetic fields that break glass",
+          "Because the bulb would absorb the heater's water"
+        ],
+        "answer": "Because a series circuit forces the same current through both; 0.5 A is too low for the heater to work, while 10 A would burn out the bulb",
+        "explanation": "In series, identical current cannot satisfy the vastly differing current demands of bulbs vs heavy heating appliances."
+      },
+      {
+        "id": "m10_q08",
+        "question": "What happens to the total equivalent resistance of a house's electrical installation when more electrical appliances are switched ON in parallel?",
+        "options": [
+          "Total resistance decreases, allowing more total current to be drawn from the mains",
+          "Total resistance increases infinitely",
+          "Total resistance remains constant at 220 Ω",
+          "Voltage drops to zero"
+        ],
+        "answer": "Total resistance decreases, allowing more total current to be drawn from the mains",
+        "explanation": "Adding parallel branches reduces total equivalent resistance (1/Rp increases), drawing proportionally higher total current."
+      },
+      {
+        "id": "m10_q09",
+        "question": "In a festive string of 50 miniature decorative fairy lights connected in series across a 220 V supply, what is the voltage drop across each bulb?",
+        "options": [
+          "220 V",
+          "4.4 V",
+          "50 V",
+          "0.22 V"
+        ],
+        "answer": "4.4 V",
+        "explanation": "Voltage divides equally across identical series bulbs: V_bulb = 220 V / 50 = 4.4 V per bulb."
+      },
+      {
+        "id": "m10_q10",
+        "question": "If one bulb in the 50-bulb series fairy light string fuses, what must a technician do to locate the defect?",
+        "options": [
+          "Look at the master meter",
+          "Test each bulb individually along the entire string because current is cut to all 50 bulbs simultaneously",
+          "Shake the wire until it glows",
+          "Increase voltage to 1000 V"
+        ],
+        "answer": "Test each bulb individually along the entire string because current is cut to all 50 bulbs simultaneously",
+        "explanation": "Because a single break disables the entire series circuit, locating the blown filament requires checking each bulb one by one."
+      }
+    ]
+  }
+]

@@ -45,5 +45,6 @@ node .agents/skills/faculty-manager/scripts/manage_faculty.js disburse-salary \
 
 ## 3. Privacy & Compliance Guardrails
 
-- Faculty PINs and base salaries are strictly invisible to students and non-admin staff in UI and API payloads.
-- In `staff_home.html`, faculty only see salary slips issued specifically to their own staff ID.
+- **Wire-Level Column Scoping**: Non-admin queries to `staff` select only public directory fields (`id, name, email, subjects, assigned_classes, avatar_color, role`), stripping `base_salary`, `incentive`, and `pin` before network transmission.
+- **Server-Side RPC Authentication**: Portal authentication is performed server-side via PostgreSQL RPC `authenticate_portal_user(p_phone, p_pin)`, preventing client-side profile or password dumps.
+- **Strict Ledger Isolation**: In `staff_home.html`, faculty only see salary slips issued specifically to their own staff ID via parameterized `recipient_id` queries.

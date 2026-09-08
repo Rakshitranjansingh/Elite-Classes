@@ -136,6 +136,8 @@ The repository enforces autonomous, deterministic agent tooling across 5 core op
    - Teacher provisioning, class/subject assignments, and confidential salary payouts with RBAC scoping via `manage_faculty.js`.
 5. **`security-auditor`** (`.agents/skills/security-auditor/SKILL.md`):
    - Automated verification tool (`audit_security.js`) checking anti-leak watermarks, proctor strikes, memory answer key stripping, and API privacy boundaries.
+6. **`course-builder`** (`.agents/skills/course-builder/SKILL.md`):
+   - Automated 20-module curriculum decomposition, NCERT coverage, points to remember, and 70% threshold mastery validation (`validate_course.js`) for interactive chapter courses.
 
 
 ---

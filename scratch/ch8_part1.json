@@ -1,0 +1,1382 @@
+[
+  {
+    "id": "m01",
+    "moduleNumber": 1,
+    "title": "Heredity & Accumulation of Variations during Reproduction",
+    "tagline": "Transmission of traits, DNA copying inaccuracy, and phenotypic variation in asexual vs sexual reproduction.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Definition of Heredity</h4>\n    <p><strong>Heredity</strong> refers to the biological mechanism by which physical, biochemical, and physiological characteristics (traits) are transmitted from parents to their biological offspring across successive generations. The basic blueprint for all inherited traits resides within the chromosomes present in the cell nucleus, encoded in molecules of deoxyribonucleic acid (<strong>DNA</strong>).</p>\n\n    <h4>2. Variations during Reproduction</h4>\n    <p>Reproduction inherently creates new individuals that resemble their parents while exhibiting subtle or pronounced differences. These differences in traits among individuals of the same species are termed <strong>variations</strong>:</p>\n    <ul>\n      <li><strong>In Asexual Reproduction:</strong> Because a single parent divides mitotically without gamete fusion, variation is extremely minimal—arising solely from minor biochemical inaccuracies during DNA replication. For example, in a field of sugarcane grown by stem cuttings, millions of plants display near-identical morphological traits.</li>\n      <li><strong>In Sexual Reproduction:</strong> Involves the fusion of two distinct gametes derived from two separate parents, each contributing half of the genetic information. The crossing over during meiosis combined with random union of gametes generates vast phenotypic diversity.</li>\n    </ul>\n\n    <h4>3. Accumulation of Variations across Generations</h4>\n    <p>When a bacterium divides by binary fission, it gives rise to two daughter bacteria. If one daughter possesses a minor mutation (for instance, tolerance to higher heat), its subsequent progeny will inherit this variation along with newly generated differences. Over successive generations, variations accumulate within the gene pool, providing the essential substrate for natural selection and evolutionary survival in changing environments.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Heredity is the biological transmission of traits from parents to offspring governed by cellular DNA.",
+      "Asexual reproduction produces clones with very low variation; sexual reproduction generates substantial diversity.",
+      "Variations accumulate over generations and provide adaptability to shifting environmental niches (e.g., heat-resistant bacteria)."
+    ],
+    "keyNotes": [
+      "Depending on the nature of variations, different individuals possess distinct survival advantages in varying environmental conditions."
+    ],
+    "questions": [
+      {
+        "id": "m01_q01",
+        "question": "The transmission of genetically determined characters and traits from parents to their offspring is known as:",
+        "options": [
+          "Respiration",
+          "Heredity",
+          "Translocation",
+          "Excretion"
+        ],
+        "answer": "Heredity",
+        "explanation": "Heredity refers to the biological mechanism by which genetic characteristics and traits are faithfully transmitted across successive generations."
+      },
+      {
+        "id": "m01_q02",
+        "question": "Who is universally regarded as the 'Father of Genetics' for his pioneering mathematical hybridization experiments on garden peas?",
+        "options": [
+          "Charles Darwin",
+          "Gregor Johann Mendel",
+          "Louis Pasteur",
+          "Robert Hooke"
+        ],
+        "answer": "Gregor Johann Mendel",
+        "explanation": "Gregor Johann Mendel (1822–1884) formulated the fundamental laws of inheritance through statistical hybridization crosses in garden peas."
+      },
+      {
+        "id": "m01_q03",
+        "question": "Which plant species was chosen by Gregor Mendel for his classic hybridization experiments on the inheritance of traits?",
+        "options": [
+          "Sweet pea (Lathyrus odoratus)",
+          "Garden pea (Pisum sativum)",
+          "Mustard (Brassica nigra)",
+          "Sunflower (Helianthus annuus)"
+        ],
+        "answer": "Garden pea (Pisum sativum)",
+        "explanation": "Mendel selected the garden pea (Pisum sativum) due to its well-defined contrasting traits, short life cycle, and bisexual self-pollinating flowers."
+      },
+      {
+        "id": "m01_q04",
+        "question": "What is the statistical probability of having a male child versus a female child in every human pregnancy?",
+        "options": [
+          "3 : 1",
+          "1 : 1 (50% chance of a boy and 50% chance of a girl)",
+          "9 : 3",
+          "100% boy"
+        ],
+        "answer": "1 : 1 (50% chance of a boy and 50% chance of a girl)",
+        "explanation": "Since X-bearing and Y-bearing sperms are produced in exactly equal 50:50 proportions, each conception carries an equal 50% probability of being male or female."
+      },
+      {
+        "id": "m01_q05",
+        "question": "Why do asexually propagated sugarcane fields show very little variation among individual plants?",
+        "options": [
+          "Sugarcane plants have no DNA",
+          "They are grown by vegetative cloning involving mitotic division from a single parent with negligible DNA copying inaccuracies",
+          "Sugarcane produces too many seeds",
+          "They reproduce by multiple fission"
+        ],
+        "answer": "They are grown by vegetative cloning involving mitotic division from a single parent with negligible DNA copying inaccuracies",
+        "explanation": "Sugarcane is vegetatively propagated through stem setts; progeny inherit an exact duplicate of the parental genome without meiotic assortment."
+      },
+      {
+        "id": "m01_q06",
+        "question": "What is the primary cellular source of novel variations arising during asexual reproduction?",
+        "options": [
+          "Biochemical inaccuracies during enzymatic DNA replication",
+          "Meiotic crossing over between homologous chromosomes",
+          "Fusion of gametes from two distinct parental plants",
+          "Digestion of cellular starch by amylase"
+        ],
+        "answer": "Biochemical inaccuracies during enzymatic DNA replication",
+        "explanation": "In asexual reproduction, where no meiotic recombination occurs, minor copying errors during DNA replication are the sole source of genetic variations."
+      },
+      {
+        "id": "m01_q07",
+        "question": "Why do sexually reproducing populations exhibit vastly higher phenotypic diversity than asexually reproducing ones?",
+        "options": [
+          "They consume more dietary protein",
+          "Two parental genomes recombine via meiosis and fertilisation to produce unique gene combinations",
+          "Their cells divide at three times the speed",
+          "They do not rely on cellular DNA"
+        ],
+        "answer": "Two parental genomes recombine via meiosis and fertilisation to produce unique gene combinations",
+        "explanation": "Sexual reproduction shuffles alleles through meiotic independent assortment, crossing over, and random syngamy from two parents, creating immense diversity."
+      },
+      {
+        "id": "m01_q08",
+        "question": "If a sudden heatwave strikes a pond, which bacterial population is most likely to survive?",
+        "options": [
+          "A population of identical clones possessing zero heat tolerance",
+          "A diverse population containing pre-existing heat-resistant variant individuals",
+          "Only bacteria that stop reproducing completely",
+          "Only bacteria lacking cell walls"
+        ],
+        "answer": "A diverse population containing pre-existing heat-resistant variant individuals",
+        "explanation": "Pre-existing genetic variants with heat-resistant enzymes survive the temperature spike, proliferate, and ensure the survival of the species."
+      },
+      {
+        "id": "m01_q09",
+        "question": "Asexual clones in a commercial sugarcane plantation exhibit very little morphological variation because:",
+        "options": [
+          "Sugarcane lacks DNA",
+          "All plants are produced from vegetative cuttings with identical genetic material derived from a single parent",
+          "Sugarcane flowers every 24 hours",
+          "Soil nutrients suppress all gene expression"
+        ],
+        "answer": "All plants are produced from vegetative cuttings with identical genetic material derived from a single parent",
+        "explanation": "Vegetative propagation in sugarcane relies exclusively on mitotic division of parental tissues, producing genetic clones."
+      },
+      {
+        "id": "m01_q10",
+        "question": "Which of the following best describes the evolutionary significance of genetic variation in a population?",
+        "options": [
+          "It guarantees that all individuals remain identical",
+          "It provides raw material for natural selection to preserve species against unpredictable niche changes",
+          "It eliminates all dominant alleles from the gene pool",
+          "It halts cellular respiration in older individuals"
+        ],
+        "answer": "It provides raw material for natural selection to preserve species against unpredictable niche changes",
+        "explanation": "Genetic variation ensures that at least some individuals possess traits that allow them to survive changing climates, predators, or novel pathogens."
+      }
+    ]
+  },
+  {
+    "id": "m02",
+    "moduleNumber": 2,
+    "title": "Inherited Traits vs Acquired Traits: Somatic vs Germ Cells",
+    "tagline": "Transmission through reproductive germ cells vs environmental modifications in somatic tissues.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Inherited Traits</h4>\n    <p><strong>Inherited traits</strong> are genetically determined characteristics passed down from parents to offspring through the DNA of reproductive cells (gametes: sperms and ova). Examples include eye colour (brown vs blue), natural hair texture (curly vs straight), earlobe attachment (free vs attached), and ABO blood groups.</p>\n    <p>Because the genetic instructions are coded into the germ-line DNA, inherited traits are permanent and transmissible to subsequent generations.</p>\n\n    <h4>2. Acquired Traits</h4>\n    <p><strong>Acquired traits</strong> are phenotypic modifications developed by an organism during its lifetime as an adaptive response to environmental factors, lifestyle, injury, or learning. Examples include muscular hypertrophy from athletic weightlifting, scars from surgery, knowledge of a foreign language, and weight loss caused by starvation.</p>\n\n    <h4>3. Somatic Cells vs Germ Cells</h4>\n    <p>The crucial biological distinction lies in the cellular location of the alteration:</p>\n    <ul>\n      <li><strong>Somatic Cells:</strong> Form the non-reproductive tissues of the body (muscles, skin, bones). Environmental changes to somatic tissues do not alter the nucleotide sequence of DNA in germ cells, and therefore <strong>cannot be passed to offspring</strong>.</li>\n      <li><strong>Germ Cells (Gametes):</strong> Produce eggs and sperm. Only mutations or alleles present in germ-cell DNA are transmitted during fertilisation.</li>\n    </ul>\n\n    <h4>4. August Weismann's Experiment</h4>\n    <p>August Weismann disproved the inheritance of acquired traits by amputating the tails of mice over 20 successive generations. Every generation of newborn mice was born with a full-length tail, conclusively proving that mutilation of somatic tissue does not alter germ-cell DNA.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Inherited traits are encoded in germ-cell DNA and transmitted across generations (e.g., earlobe attachment, eye colour).",
+      "Acquired traits develop during an individual's lifetime in somatic tissues and cannot be inherited (e.g., muscular build, scars).",
+      "Weismann's tail-docking experiment conclusively demonstrated that somatic alterations do not affect the germ plasm."
+    ],
+    "keyNotes": [
+      "Changes in non-reproductive (somatic) tissues cannot be passed on to the DNA of the germ cells, so acquired traits do not drive heredity or direct evolution."
+    ],
+    "questions": [
+      {
+        "id": "m02_q01",
+        "question": "In an asexually reproducing population, if trait A is present in 10% of individuals and trait B is present in 60% of individuals, which trait is likely to have arisen EARLIER in evolutionary time?",
+        "options": [
+          "Trait A",
+          "Trait B",
+          "Both arose at the exact same moment",
+          "Neither trait is heritable"
+        ],
+        "answer": "Trait B",
+        "explanation": "In asexual lineages with clonal replication, traits arising earlier accumulate and replicate over more generations, establishing a higher population frequency (60%)."
+      },
+      {
+        "id": "m02_q02",
+        "question": "In which of the following animals is the sex of the developing offspring determined by environmental incubation temperature rather than sex chromosomes?",
+        "options": [
+          "Human beings",
+          "Certain reptiles (e.g. lizards, turtles, crocodiles)",
+          "Pea plants",
+          "Drosophila fruit flies"
+        ],
+        "answer": "Certain reptiles (e.g. lizards, turtles, crocodiles)",
+        "explanation": "In several reptiles, temperature-dependent sex determination (TSD) dictates whether embryos develop into males or females based on clutch incubation temperature."
+      },
+      {
+        "id": "m02_q03",
+        "question": "Which of the following is an example of an acquired trait that CANNOT be inherited by biological offspring?",
+        "options": [
+          "Attached earlobe",
+          "Loss of a finger in an accident / Muscle enlargement from gym weightlifting",
+          "Eye colour",
+          "Blood group"
+        ],
+        "answer": "Loss of a finger in an accident / Muscle enlargement from gym weightlifting",
+        "explanation": "Acquired somatic traits (scar tissue, muscle hypertrophy, weight loss) alter non-reproductive somatic cells without modifying germline DNA, and cannot be inherited."
+      },
+      {
+        "id": "m02_q04",
+        "question": "Why is the inheritance of light-coloured eyes in children when both parents have light eyes insufficient evidence by itself to prove whether light eye colour is dominant or recessive?",
+        "options": [
+          "Eye colour is not controlled by DNA",
+          "If light eyes are recessive (bb × bb), all children are bb; if light eyes are homozygous dominant (BB × BB), all children are also BB. Without observing crosses with dark-eyed individuals across generations, dominance cannot be deduced",
+          "Children always have different eyes from parents",
+          "Eye colour depends only on sunlight"
+        ],
+        "answer": "If light eyes are recessive (bb × bb), all children are bb; if light eyes are homozygous dominant (BB × BB), all children are also BB. Without observing crosses with dark-eyed individuals across generations, dominance cannot be deduced",
+        "explanation": "Crossing two like-phenotype parents (light × light) yields 100% light-eyed offspring under both homozygous dominant (BB) and homozygous recessive (bb) models; determining dominance requires outcrossing to dark eyes."
+      },
+      {
+        "id": "m02_q05",
+        "question": "Why does a woman who suffers from severe malnutrition during pregnancy give birth to an infant with low birth weight, but the infant's own biological children have normal birth weight when properly nourished?",
+        "options": [
+          "Low birth weight is a dominant mutation",
+          "Maternal undernutrition causes an acquired phenotypic change in somatic tissue that does not alter germline DNA sequences, so it is not inherited by the next generation",
+          "Children inherit traits only from grandparents",
+          "Nutrients alter DNA permanently"
+        ],
+        "answer": "Maternal undernutrition causes an acquired phenotypic change in somatic tissue that does not alter germline DNA sequences, so it is not inherited by the next generation",
+        "explanation": "Nutritional deficits affect somatic fetal intrauterine growth without changing gametogenic nucleotide sequences, so offspring with adequate nutrition attain normal weight."
+      },
+      {
+        "id": "m02_q06",
+        "question": "Which of the following is a classic example of an inherited trait in human beings?",
+        "options": [
+          "Ability to speak fluent French",
+          "Attached vs free earlobes",
+          "Calluses on a guitarist's fingers",
+          "Loss of an arm in an accident"
+        ],
+        "answer": "Attached vs free earlobes",
+        "explanation": "Attached vs free earlobes is a genetically determined Mendelian trait governed by chromosomal DNA."
+      },
+      {
+        "id": "m02_q07",
+        "question": "Why can an Olympic weightlifter with massive muscular development NOT pass this muscularity to his newborn child?",
+        "options": [
+          "Muscles do not contain proteins",
+          "Muscular hypertrophy is a somatic adaptation that does not alter germ-cell DNA",
+          "Sperm cells carry no cytoplasm",
+          "Testosterone is not an endocrine hormone"
+        ],
+        "answer": "Muscular hypertrophy is a somatic adaptation that does not alter germ-cell DNA",
+        "explanation": "Muscle hypertrophy affects somatic muscle cells; it does not change the DNA sequence inside gametes (sperm cells)."
+      },
+      {
+        "id": "m02_q08",
+        "question": "In August Weismann's experiment, mice had their tails amputated for 20 successive generations. Why were the 21st generation mice born with normal tails?",
+        "options": [
+          "Tails regrew inside the uterus",
+          "Somatic injury does not alter the genes in reproductive germ cells",
+          "Mice possess an anti-cutting gene in their fur",
+          "The mice learned to hide their tails"
+        ],
+        "answer": "Somatic injury does not alter the genes in reproductive germ cells",
+        "explanation": "Cutting the tail alters somatic tissue only; the germ cells continue to carry the unmutated DNA instructions for tail development."
+      },
+      {
+        "id": "m02_q09",
+        "question": "Which cell lineage carries the genetic blueprint from one generation to the next in sexually reproducing organisms?",
+        "options": [
+          "Somatic cells",
+          "Germ cells (gametes)",
+          "Epidermal cells",
+          "Erythrocytes"
+        ],
+        "answer": "Germ cells (gametes)",
+        "explanation": "Germ cells (sperms and ova) alone undergo meiosis to transmit genomic information to the next generation."
+      },
+      {
+        "id": "m02_q10",
+        "question": "If a person gets a permanent tattoo on their arm, will their biological child be born with a tattoo? Why or why not?",
+        "options": [
+          "Yes, because tattoos alter epidermal DNA",
+          "No, because ink deposition in the dermis is an acquired somatic change that cannot affect gametic DNA",
+          "Yes, if both parents have identical tattoos",
+          "Only male children will inherit the tattoo"
+        ],
+        "answer": "No, because ink deposition in the dermis is an acquired somatic change that cannot affect gametic DNA",
+        "explanation": "Tattoos are external somatic modifications; they do not alter germ-line DNA in sperms or eggs."
+      }
+    ]
+  },
+  {
+    "id": "m03",
+    "moduleNumber": 3,
+    "title": "Gregor Johann Mendel: The Father of Genetics & Choice of Pea Plant",
+    "tagline": "Scientific methodology, statistical record-keeping, and the seven contrasting traits of Pisum sativum.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Gregor Johann Mendel (1822–1884)</h4>\n    <p>Gregor Johann Mendel, an Austrian monk and scientist working in the monastery garden at Brno, conducted hybridization experiments between 1856 and 1863 that laid the mathematical foundations of modern genetics. Mendel was the first to combine rigorous experimental biology with <strong>mathematical statistics and large sample sizes</strong>.</p>\n\n    <h4>2. Why Did Mendel Choose the Garden Pea (Pisum sativum)?</h4>\n    <p>The garden pea was the ideal model organism for several compelling biological reasons:</p>\n    <ul>\n      <li><strong>Distinct Contrasting Traits:</strong> Displayed clear-cut, easily observable alternative traits with no intermediate forms (e.g., tall vs dwarf, violet vs white flowers).</li>\n      <li><strong>Bisexual Flowers & Natural Self-Pollination:</strong> Pea flowers are naturally self-pollinating because petals enclose the reproductive whorls, ensuring pure-breeding parent lines.</li>\n      <li><strong>Easy Artificial Cross-Pollination:</strong> Cross-breeding could easily be manipulated by <em>emasculation</em> (removal of anthers before dehiscence) and manual dusting of selected pollen onto the stigma.</li>\n      <li><strong>Short Life Cycle & High Seed Yield:</strong> Annual herb completing its life cycle in a single season, producing hundreds of seeds per pod, allowing statistical analysis over multiple generations.</li>\n    </ul>\n\n    <h4>3. The Seven Contrasting Traits Studied by Mendel</h4>\n    <table class=\"table-bordered\" style=\"width:100%; border-collapse:collapse; margin:10px 0;\">\n      <thead><tr style=\"background:#f1f5f9;\"><th>Character</th><th>Dominant Trait</th><th>Recessive Trait</th></tr></thead>\n      <tbody>\n        <tr><td>Plant Height</td><td>Tall (T)</td><td>Dwarf (t)</td></tr>\n        <tr><td>Flower Colour</td><td>Violet / Purple (W)</td><td>White (w)</td></tr>\n        <tr><td>Flower Position</td><td>Axial (A)</td><td>Terminal (a)</td></tr>\n        <tr><td>Pod Shape</td><td>Inflated / Full (I)</td><td>Constricted (i)</td></tr>\n        <tr><td>Pod Colour</td><td>Green (G)</td><td>Yellow (g)</td></tr>\n        <tr><td>Seed Shape</td><td>Round (R)</td><td>Wrinkled (r)</td></tr>\n        <tr><td>Seed Colour</td><td>Yellow (Y)</td><td>Green (y)</td></tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Gregor Mendel is universally recognized as the 'Father of Modern Genetics'.",
+      "Pisum sativum was selected due to clear contrasting traits, short life span, natural self-pollination, and high seed yield.",
+      "Mendel studied 7 contrasting character pairs, including tall/dwarf stem, round/wrinkled seeds, and yellow/green cotyledons."
+    ],
+    "keyNotes": [
+      "Mendel's monumental success stemmed from studying one or two traits at a time and applying quantitative mathematical ratios to biological data."
+    ],
+    "questions": [
+      {
+        "id": "m03_q01",
+        "question": "In human populations, which earlobe attachment phenotype represents the dominant allele variant?",
+        "options": [
+          "Attached earlobes",
+          "Free (unattached) earlobes",
+          "Pointed earlobes",
+          "Absent earlobes"
+        ],
+        "answer": "Free (unattached) earlobes",
+        "explanation": "Free (hanging) earlobes are governed by a dominant autosomal allele, whereas attached earlobes represent a homozygous recessive condition."
+      },
+      {
+        "id": "m03_q02",
+        "question": "In which of the following animals can individuals naturally change their sex during their lifetime, proving sex is not genetically fixed?",
+        "options": [
+          "Snails",
+          "Dogs",
+          "Pea plants",
+          "Humans"
+        ],
+        "answer": "Snails",
+        "explanation": "Snails can switch sex based on developmental or environmental cues, demonstrating that sex determination in them is non-genetic."
+      },
+      {
+        "id": "m03_q03",
+        "question": "A Mendelian experiment bred tall pea plants bearing violet flowers with short pea plants bearing white flowers. All F1 progeny bore violet flowers, but approximately half of them were short. What was the exact genotype of the tall violet parent plant?",
+        "options": [
+          "TTWW",
+          "TtWW",
+          "TTww",
+          "TtWw"
+        ],
+        "answer": "TtWW",
+        "explanation": "Since all progeny had violet flowers, the parent was homozygous dominant for violet ('WW'). Since half were short (1:1 ratio with tt), the parent was heterozygous for height ('Tt'). Thus: TtWW."
+      },
+      {
+        "id": "m03_q04",
+        "question": "What is the scientific biological name of the garden pea plant selected by Gregor Mendel?",
+        "options": [
+          "Pisum sativum",
+          "Solanum tuberosum",
+          "Brassica oleracea",
+          "Oryza sativa"
+        ],
+        "answer": "Pisum sativum",
+        "explanation": "Mendel worked with the garden pea, scientifically named Pisum sativum."
+      },
+      {
+        "id": "m03_q05",
+        "question": "Which of the following was a major reason why Pisum sativum was ideally suited for hybridization experiments?",
+        "options": [
+          "It takes 50 years to produce flowers",
+          "It naturally self-pollinates and exhibits sharply contrasting, discrete morphological characters",
+          "It reproduces solely through underground tubers",
+          "Its flowers have no pistils"
+        ],
+        "answer": "It naturally self-pollinates and exhibits sharply contrasting, discrete morphological characters",
+        "explanation": "Pea plants have distinct contrasting characters, natural self-pollination, a short life cycle, and allow easy artificial hybridization."
+      },
+      {
+        "id": "m03_q06",
+        "question": "What is the surgical removal of immature anthers from a bisexual flower bud before self-pollination called?",
+        "options": [
+          "Emasculation",
+          "Bagging",
+          "Germination",
+          "Syngamy"
+        ],
+        "answer": "Emasculation",
+        "explanation": "Emasculation is the removal of anthers from bisexual flowers to prevent unwanted self-pollination during artificial hybridization."
+      },
+      {
+        "id": "m03_q07",
+        "question": "Which of the following seed traits was identified as DOMINANT by Mendel?",
+        "options": [
+          "Wrinkled seed shape",
+          "Green seed colour",
+          "Round seed shape",
+          "Constricted seed coat"
+        ],
+        "answer": "Round seed shape",
+        "explanation": "Round seed shape (R) is dominant over wrinkled seed shape (r); yellow seed colour (Y) is dominant over green (y)."
+      },
+      {
+        "id": "m03_q08",
+        "question": "Regarding stem height in pea plants, what are the dominant and recessive phenotypes?",
+        "options": [
+          "Tall is dominant; Dwarf is recessive",
+          "Dwarf is dominant; Tall is recessive",
+          "Medium height is dominant; Tall is recessive",
+          "Both are co-dominant"
+        ],
+        "answer": "Tall is dominant; Dwarf is recessive",
+        "explanation": "Tallness (T) is dominant over dwarfism (t) in Pisum sativum."
+      },
+      {
+        "id": "m03_q09",
+        "question": "Regarding pod colour in pea plants, which trait is dominant over the other?",
+        "options": [
+          "Green pod colour is dominant over yellow pod colour",
+          "Yellow pod colour is dominant over green pod colour",
+          "White pod colour is dominant over violet pod colour",
+          "All pods are red"
+        ],
+        "answer": "Green pod colour is dominant over yellow pod colour",
+        "explanation": "In pea pods, green pod colour (G) is dominant over yellow pod colour (g), whereas in seeds, yellow is dominant over green."
+      },
+      {
+        "id": "m03_q10",
+        "question": "What groundbreaking methodological approach distinguished Mendel's experiments from previous breeders?",
+        "options": [
+          "Using electron microscopes",
+          "Applying mathematical statistics, ratios, and large sample sizes to biological heredity",
+          "Using radioactive isotopes",
+          "Cloning somatic cells in nutrient agar"
+        ],
+        "answer": "Applying mathematical statistics, ratios, and large sample sizes to biological heredity",
+        "explanation": "Mendel was the first to maintain exact numerical counts, tracking discrete individual traits using mathematical ratios."
+      }
+    ]
+  },
+  {
+    "id": "m04",
+    "moduleNumber": 4,
+    "title": "Mendel's Monohybrid Cross: Pure Breeding Parents & The F1 Generation",
+    "tagline": "Tracking a single trait, dominance vs recessiveness, and 100% tall F1 progeny.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. What is a Monohybrid Cross?</h4>\n    <p>A <strong>monohybrid cross</strong> is a breeding experiment between two parent organisms that differ in only <strong>one pair of contrasting traits</strong> (for example, plant height: tall vs dwarf).</p>\n\n    <h4>2. Setting Up the Parental Generation (P Generation)</h4>\n    <p>Mendel started with <strong>pure-breeding (homozygous)</strong> parental lines obtained by allowing plants to self-pollinate for many successive generations until all offspring bred true:</p>\n    <ul>\n      <li>Homozygous Tall Parent: Genotype $TT$ (carries two identical dominant alleles for tallness).</li>\n      <li>Homozygous Dwarf Parent: Genotype $tt$ (carries two identical recessive alleles for dwarfness).</li>\n    </ul>\n\n    <h4>3. Cross-Pollination and the F1 Generation</h4>\n    <p>Mendel dusted pollen from the dwarf plant ($tt$) onto the emasculated stigma of the tall plant ($TT$) and vice-versa (reciprocal cross). During gamete formation (meiosis):</p>\n    <ul>\n      <li>$TT$ parent produces gametes with allele $T$.</li>\n      <li>$tt$ parent produces gametes with allele $t$.</li>\n    </ul>\n    <p>Fertilisation yields the <strong>First Filial Generation ($F_1$)</strong>: $T \\times t \\rightarrow Tt$ (heterozygous). Every single plant in the $F_1$ generation was <strong>100% phenotypically Tall</strong>. Not a single dwarf plant or medium-height plant appeared.</p>\n\n    <h4>4. Principle of Dominance</h4>\n    <p>From this result, Mendel concluded that:</p>\n    <ul>\n      <li>Traits are controlled by discrete particulate entities which he termed <strong>factors</strong> (now known as <strong>genes</strong>).</li>\n      <li>In a heterozygous individual ($Tt$), only one factor expresses itself phenotypically—this is the <strong>dominant allele</strong> ($T$).</li>\n      <li>The factor that remains masked or unexpressed in the presence of the dominant allele is the <strong>recessive allele</strong> ($t$).</li>\n    </ul>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "A monohybrid cross tracks the inheritance of a single contrasting character pair (e.g., height).",
+      "Crossing pure tall ($TT$) and pure dwarf ($tt$) produces 100% tall heterozygous ($Tt$) $F_1$ progeny.",
+      "The Principle of Dominance states that the dominant allele masks the recessive allele in the heterozygous state."
+    ],
+    "keyNotes": [
+      "Recessive traits are not lost or destroyed in the $F_1$ generation; they simply remain hidden and unexpressed until the recessive alleles pair together in the homozygous condition ($tt$)."
+    ],
+    "questions": [
+      {
+        "id": "m04_q01",
+        "question": "When Mendel crossed a pure-breeding tall pea plant (TT) with a pure-breeding short dwarf pea plant (tt), what was the phenotype of the F1 generation progeny?",
+        "options": [
+          "50% Tall and 50% Short",
+          "100% Tall plants (no medium-height plants)",
+          "100% Short plants",
+          "100% Medium-height plants"
+        ],
+        "answer": "100% Tall plants (no medium-height plants)",
+        "explanation": "All F1 plants were phenotypically tall (Tt genotype) because the dominant allele 'T' completely masks the recessive allele 't'."
+      },
+      {
+        "id": "m04_q02",
+        "question": "An organism with two identical alleles for a given gene locus (such as TT or tt) is described as:",
+        "options": [
+          "Heterozygous",
+          "Homozygous",
+          "Hemizygous",
+          "Polyploid"
+        ],
+        "answer": "Homozygous",
+        "explanation": "Homozygous organisms possess identical alleles for a gene locus (homozygous dominant TT or homozygous recessive tt)."
+      },
+      {
+        "id": "m04_q03",
+        "question": "A cross between a heterozygous tall plant (Tt) and a homozygous dwarf plant (tt) produces what expected phenotypic ratio of offspring?",
+        "options": [
+          "3 Tall : 1 Dwarf",
+          "1 Tall : 1 Dwarf (50% Tall, 50% Dwarf)",
+          "All Tall",
+          "All Dwarf"
+        ],
+        "answer": "1 Tall : 1 Dwarf (50% Tall, 50% Dwarf)",
+        "explanation": "This monohybrid testcross (Tt × tt) yields 50% Tt (Tall) and 50% tt (Dwarf), giving a 1:1 phenotypic ratio."
+      },
+      {
+        "id": "m04_q04",
+        "question": "What was the phenotypic appearance of ALL plants in the F1 generation of Mendel's tall vs dwarf monohybrid cross?",
+        "options": [
+          "100% Tall",
+          "100% Dwarf",
+          "50% Tall, 50% Dwarf",
+          "100% Intermediate (Medium height)"
+        ],
+        "answer": "100% Tall",
+        "explanation": "Because tallness (T) is completely dominant over dwarfism (t), all heterozygous (Tt) F1 offspring exhibit the tall phenotype."
+      },
+      {
+        "id": "m04_q05",
+        "question": "What is the genotype of the F1 progeny obtained by crossing homozygous tall (TT) and homozygous dwarf (tt) pea plants?",
+        "options": [
+          "TT",
+          "Tt",
+          "tt",
+          "TTtt"
+        ],
+        "answer": "Tt",
+        "explanation": "Each F1 plant inherits allele 'T' from the tall parent and allele 't' from the dwarf parent, resulting in the heterozygous genotype Tt."
+      },
+      {
+        "id": "m04_q06",
+        "question": "What term did Mendel use to describe the physical units of inheritance that control traits?",
+        "options": [
+          "Chromosomes",
+          "Factors",
+          "Histones",
+          "Plasmids"
+        ],
+        "answer": "Factors",
+        "explanation": "Mendel used the word 'factors' to describe the discrete particulate carriers of heredity, which are today known as genes."
+      },
+      {
+        "id": "m04_q07",
+        "question": "An allele is defined as:",
+        "options": [
+          "A group of chromosomes in the cytoplasm",
+          "An alternative variant form of a given gene",
+          "A protein synthesized in ribosomes",
+          "An enzyme in mitochondria"
+        ],
+        "answer": "An alternative variant form of a given gene",
+        "explanation": "Alleles are alternative forms of the same gene located at corresponding loci on homologous chromosomes (e.g., T and t)."
+      },
+      {
+        "id": "m04_q08",
+        "question": "Why did NO dwarf plants appear in Mendel's F1 generation?",
+        "options": [
+          "The dwarf allele was mutated into a flower gene",
+          "The dwarf allele is recessive and is masked phenotypically by the dominant tall allele",
+          "Dwarf seeds cannot absorb water",
+          "Mendel destroyed the dwarf plants"
+        ],
+        "answer": "The dwarf allele is recessive and is masked phenotypically by the dominant tall allele",
+        "explanation": "Under Mendel's Principle of Dominance, a single copy of the dominant allele (T) completely masks the expression of the recessive allele (t)."
+      },
+      {
+        "id": "m04_q09",
+        "question": "An individual having two identical alleles for a specific gene (such as TT or tt) is termed:",
+        "options": [
+          "Heterozygous",
+          "Homozygous",
+          "Hemizygous",
+          "Polyploid"
+        ],
+        "answer": "Homozygous",
+        "explanation": "Homozygous organisms possess two identical alleles for a particular trait (e.g., TT is homozygous dominant, tt is homozygous recessive)."
+      },
+      {
+        "id": "m04_q10",
+        "question": "If a pure violet-flowered pea plant (WW) is crossed with a pure white-flowered plant (ww), what percentage of F1 plants will bear violet flowers?",
+        "options": [
+          "25%",
+          "50%",
+          "75%",
+          "100%"
+        ],
+        "answer": "100%",
+        "explanation": "Violet (W) is dominant over white (w). All F1 offspring have genotype Ww and produce 100% violet flowers."
+      }
+    ]
+  },
+  {
+    "id": "m05",
+    "moduleNumber": 5,
+    "title": "F2 Generation of Monohybrid Cross: 3:1 Phenotypic & 1:2:1 Genotypic Ratios",
+    "tagline": "Self-pollination of F1 hybrids, reappearance of dwarfism, and mathematical genetics.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Self-Pollination of F1 Hybrids</h4>\n    <p>To investigate whether the dwarf trait was permanently lost, Mendel allowed the heterozygous $F_1$ tall plants ($Tt$) to self-pollinate ($Tt \\times Tt$). The resulting generation is the <strong>Second Filial Generation ($F_2$)</strong>.</p>\n\n    <h4>2. Reappearance of the Recessive Trait</h4>\n    <p>In the $F_2$ generation, the dwarf trait suddenly <strong>reappeared in one-quarter of the total offspring</strong> without any blending or intermediate heights. Out of 1,064 $F_2$ plants counted by Mendel:</p>\n    <ul>\n      <li>787 were Tall</li>\n      <li>277 were Dwarf</li>\n      <li>The mathematical ratio was approximately $2.84:1 \\approx \\mathbf{3:1}$.</li>\n    </ul>\n\n    <h4>3. Punnett Square Analysis</h4>\n    <p>When the $Tt$ plant produces gametes, $50\\%$ carry allele $T$ and $50\\%$ carry allele $t$:</p>\n    <table class=\"table-bordered\" style=\"width:100%; border-collapse:collapse; text-align:center; margin:10px 0;\">\n      <thead><tr style=\"background:#f1f5f9;\"><th>Male \\ Female Gametes</th><th>$T$ ($50\\%$)</th><th>$t$ ($50\\%$)</th></tr></thead>\n      <tbody>\n        <tr><td><strong>$T$ ($50\\%$)</strong></td><td>$TT$ (Tall)</td><td>$Tt$ (Tall)</td></tr>\n        <tr><td><strong>$t$ ($50\\%$)</strong></td><td>$Tt$ (Tall)</td><td>$tt$ (Dwarf)</td></tr>\n      </tbody>\n    </table>\n\n    <h4>4. Phenotypic vs Genotypic Ratios in F2</h4>\n    <ul>\n      <li><strong>Phenotypic Ratio (Observable appearance):</strong> $\\mathbf{3\\text{ Tall} : 1\\text{ Dwarf}}$ ($75\\%$ tall, $25\\%$ dwarf).</li>\n      <li><strong>Genotypic Ratio (Genetic constitution):</strong> $\\mathbf{1\\,TT : 2\\,Tt : 1\\,tt}$ ($1:2:1$).</li>\n    </ul>\n    <p>This proved that recessive alleles remain intact within hybrids without altering their integrity.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Selfing the $F_1$ generation ($Tt \times Tt$) produces the $F_2$ generation with reappearance of the recessive trait.",
+      "Monohybrid $F_2$ Phenotypic Ratio is $\\mathbf{3:1}$ ($3\text{ dominant} : 1\text{ recessive}$).",
+      "Monohybrid $F_2$ Genotypic Ratio is $\\mathbf{1:2:1}$ ($1\\,TT : 2\\,Tt : 1\\,tt$)."
+    ],
+    "keyNotes": [
+      "The reappearance of the dwarf phenotype in $F_2$ proves that alleles do not blend or contaminate each other in heterozygotes."
+    ],
+    "questions": [
+      {
+        "id": "m05_q01",
+        "question": "What is the phenotypic ratio of tall to dwarf plants obtained in the F2 generation of a Mendelian monohybrid cross (Tt × Tt)?",
+        "options": [
+          "1 : 1",
+          "3 : 1 (3 Tall : 1 Dwarf)",
+          "9 : 3 : 3 : 1",
+          "1 : 2 : 1"
+        ],
+        "answer": "3 : 1 (3 Tall : 1 Dwarf)",
+        "explanation": "In the F2 generation of a monohybrid cross, 75% of progeny exhibit the dominant tall phenotype and 25% exhibit the dwarf phenotype (3:1 ratio)."
+      },
+      {
+        "id": "m05_q02",
+        "question": "An organism possessing two different alleles for a given gene (such as Tt) is described as:",
+        "options": [
+          "Homozygous",
+          "Heterozygous (Hybrid)",
+          "Aneuploid",
+          "Haploid"
+        ],
+        "answer": "Heterozygous (Hybrid)",
+        "explanation": "Heterozygous individuals have two distinct alleles for a particular locus (e.g. Tt, Rr)."
+      },
+      {
+        "id": "m05_q03",
+        "question": "If a homozygous round seed plant (RR) is crossed with a wrinkled seed plant (rr), what percentage of the F2 generation will have round seeds?",
+        "options": [
+          "25%",
+          "50%",
+          "75% (3/4 of F2)",
+          "100%"
+        ],
+        "answer": "75% (3/4 of F2)",
+        "explanation": "Selfing F1 (Rr × Rr) yields 1 RR + 2 Rr (75% round seeds) and 1 rr (25% wrinkled seeds)."
+      },
+      {
+        "id": "m05_q04",
+        "question": "What is the expected genotypic ratio in the progeny of a cross between two heterozygous individuals for a single gene locus (Aa × Aa)?",
+        "options": [
+          "3 : 1",
+          "1 AA : 2 Aa : 1 aa (1:2:1)",
+          "9 : 3 : 3 : 1",
+          "1 : 1"
+        ],
+        "answer": "1 AA : 2 Aa : 1 aa (1:2:1)",
+        "explanation": "Heterozygous monohybrid selfing (Aa × Aa) yields 1/4 AA, 1/2 Aa, and 1/4 aa (1:2:1 genotypic ratio)."
+      },
+      {
+        "id": "m05_q05",
+        "question": "What is the expected phenotypic ratio in the F2 generation of a classic Mendelian monohybrid cross?",
+        "options": [
+          "1:1",
+          "3:1",
+          "9:3:3:1",
+          "1:2:1"
+        ],
+        "answer": "3:1",
+        "explanation": "The phenotypic ratio of dominant to recessive in the F2 generation of a monohybrid cross is 3:1."
+      },
+      {
+        "id": "m05_q06",
+        "question": "What is the exact genotypic ratio in the F2 generation of Mendel's monohybrid cross between Tt x Tt?",
+        "options": [
+          "3:1",
+          "1:2:1 (1 TT : 2 Tt : 1 tt)",
+          "9:3:3:1",
+          "1:1:1:1"
+        ],
+        "answer": "1:2:1 (1 TT : 2 Tt : 1 tt)",
+        "explanation": "Genotypically, 1/4 are homozygous dominant (TT), 2/4 are heterozygous (Tt), and 1/4 are homozygous recessive (tt), giving a 1:2:1 ratio."
+      },
+      {
+        "id": "m05_q07",
+        "question": "If 800 pea plants are obtained in the F2 generation of a monohybrid cross (Tt x Tt), approximately how many are expected to be dwarf?",
+        "options": [
+          "800",
+          "600",
+          "400",
+          "200"
+        ],
+        "answer": "200",
+        "explanation": "Dwarf plants constitute 25% (1/4) of the F2 generation: 1/4 × 800 = 200 plants."
+      },
+      {
+        "id": "m05_q08",
+        "question": "Among the tall plants appearing in the F2 generation (TT and Tt), what fraction is heterozygous (Tt)?",
+        "options": [
+          "1/3",
+          "2/3",
+          "1/4",
+          "3/4"
+        ],
+        "answer": "2/3",
+        "explanation": "Out of the 3 tall plants (1 TT + 2 Tt), two are heterozygous, so the fraction is 2/3 (roughly 66.7%)."
+      },
+      {
+        "id": "m05_q09",
+        "question": "What graphical checkerboard tool invented by Reginald Punnett is used to calculate genotypic probabilities?",
+        "options": [
+          "Pedigree chart",
+          "Punnett Square",
+          "Karyotype",
+          "Chromatogram"
+        ],
+        "answer": "Punnett Square",
+        "explanation": "A Punnett square is a diagrammatic grid used to predict the genotypes of a particular cross or breeding experiment."
+      },
+      {
+        "id": "m05_q10",
+        "question": "Why did the dwarf trait reappear in the F2 generation even though it was completely absent in the F1 generation?",
+        "options": [
+          "The dwarf allele mutated spontaneously during flower opening",
+          "The recessive allele 't' segregated cleanly into gametes during meiosis without blending with 'T'",
+          "The soil lost nitrogen during self-pollination",
+          "The plants were exposed to cooler weather"
+        ],
+        "answer": "The recessive allele 't' segregated cleanly into gametes during meiosis without blending with 'T'",
+        "explanation": "Alleles segregate during gametogenesis; when two 't'-bearing gametes fuse ($t \times t$), the homozygous dwarf genotype is re-established."
+      }
+    ]
+  },
+  {
+    "id": "m06",
+    "moduleNumber": 6,
+    "title": "Mendel's First Law: The Principle of Segregation (Purity of Gametes)",
+    "tagline": "Meiotic separation of paired alleles, haploid gametes, and the law of purity of gametes.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. The Principle of Segregation (Mendel's First Law)</h4>\n    <p>Mendel formulated the <strong>Principle of Segregation</strong> based on his monohybrid cross observations:</p>\n    <blockquote style=\"background:#f8fafc; border-left:4px solid #0284c7; padding:10px 14px; margin:10px 0; font-style:italic;\">\n      \"The two alleles of a gene pair separate (segregate) during gamete formation, such that each gamete receives only one allele from the pair.\"\n    </blockquote>\n\n    <h4>2. Cellular & Meiotic Basis of Segregation</h4>\n    <p>In somatic diploid cells ($2n$), homologous chromosomes exist in pairs. One chromosome carries allele $T$ while the other carries allele $t$. During <strong>Anaphase I of meiosis</strong>:</p>\n    <ul>\n      <li>Homologous chromosomes separate and migrate to opposite poles of the dividing cell.</li>\n      <li>Consequently, the paired alleles $T$ and $t$ physically segregate into different daughter cells.</li>\n      <li>Each gamete (sperm or egg cell) is <strong>haploid ($n$)</strong> and carries strictly <strong>one allele</strong> for any given gene.</li>\n    </ul>\n\n    <h4>3. The Law of Purity of Gametes</h4>\n    <p>Because a gamete can never carry two alleles for the same gene, it is always \"pure\" for whichever allele it receives. A gamete never contains a blended or contaminated intermediate mixture. When two gametes unite at fertilisation, the paired diploid condition ($2n$) is restored in the zygote.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Mendel's First Law (Law of Segregation): Alleles separate during gamete formation; each gamete carries one allele.",
+      "Segregation corresponds to the physical separation of homologous chromosomes during Anaphase I of meiosis.",
+      "Gametes are always pure for a single trait (the Law of Purity of Gametes)."
+    ],
+    "keyNotes": [
+      "The Law of Segregation has no biological exceptions in all normally functioning meiotic systems; every gamete is strictly haploid."
+    ],
+    "questions": [
+      {
+        "id": "m06_q01",
+        "question": "What is the genotypic ratio of TT : Tt : tt in the F2 generation of a Mendelian monohybrid cross?",
+        "options": [
+          "3 : 1",
+          "1 : 2 : 1 (1 TT : 2 Tt : 1 tt)",
+          "9 : 3 : 3 : 1",
+          "2 : 1 : 1"
+        ],
+        "answer": "1 : 2 : 1 (1 TT : 2 Tt : 1 tt)",
+        "explanation": "Self-pollination of heterozygous F1 plants (Tt × Tt) yields 25% homozygous tall (TT), 50% heterozygous tall (Tt), and 25% homozygous dwarf (tt) (1:2:1)."
+      },
+      {
+        "id": "m06_q02",
+        "question": "The observable physical or physiological expression of a genetic trait (such as 'Tall' or 'Short') is termed its:",
+        "options": [
+          "Genotype",
+          "Phenotype",
+          "Karyotype",
+          "Gamete"
+        ],
+        "answer": "Phenotype",
+        "explanation": "Phenotype is the observable structural or functional manifestation of an organism's genotype."
+      },
+      {
+        "id": "m06_q03",
+        "question": "Why did Mendel formulate the hypothesis that each sexually reproducing organism must carry TWO copies of each gene, but each gamete receives only ONE copy?",
+        "options": [
+          "To prevent cells from becoming too large",
+          "Because if gametes had two copies, each new generation would end up with twice the chromosome number and DNA content of its parents",
+          "Because pollen grains have no nuclei",
+          "To eliminate recessive traits permanently"
+        ],
+        "answer": "Because if gametes had two copies, each new generation would end up with twice the chromosome number and DNA content of its parents",
+        "explanation": "Meiotic reduction to a single gene set per gamete prevents exponential doubling of genomic DNA content across successive generations."
+      },
+      {
+        "id": "m06_q04",
+        "question": "What is another well-known scientific name for Mendel's Principle of Segregation?",
+        "options": [
+          "Law of Independent Assortment",
+          "Law of Purity of Gametes",
+          "Law of Natural Selection",
+          "Law of Acquired Characters"
+        ],
+        "answer": "Law of Purity of Gametes",
+        "explanation": "The Law of Segregation is also known as the Law of Purity of Gametes because gametes receive only one unblended allele of each gene pair."
+      },
+      {
+        "id": "m06_q05",
+        "question": "During which specific stage of meiotic cell division do homologous chromosomes physically segregate to opposite poles?",
+        "options": [
+          "Prophase II",
+          "Metaphase II",
+          "Anaphase I",
+          "Telophase II"
+        ],
+        "answer": "Anaphase I",
+        "explanation": "During Anaphase I of meiosis, homologous chromosomes separate and move towards opposite poles, causing allele segregation."
+      },
+      {
+        "id": "m06_q06",
+        "question": "How many alleles for a specific gene does a single mature human sperm or egg carry?",
+        "options": [
+          "One allele",
+          "Two alleles",
+          "Four alleles",
+          "Twenty-three alleles"
+        ],
+        "answer": "One allele",
+        "explanation": "Gametes are haploid (n) and carry exactly one allele for each gene."
+      },
+      {
+        "id": "m06_q07",
+        "question": "A heterozygous plant with genotype Tt will produce what types of gametes and in what ratio?",
+        "options": [
+          "100% T gametes",
+          "100% t gametes",
+          "50% T gametes and 50% t gametes (1:1 ratio)",
+          "75% T gametes and 25% t gametes"
+        ],
+        "answer": "50% T gametes and 50% t gametes (1:1 ratio)",
+        "explanation": "Segregation ensures that half the gametes receive the T allele and half receive the t allele in equal 50:50 proportion."
+      },
+      {
+        "id": "m06_q08",
+        "question": "Which of the following events restores the diploid (2n) state of paired alleles in the life cycle?",
+        "options": [
+          "Meiosis",
+          "Fertilisation (Syngamy)",
+          "Mitosis",
+          "Transpiration"
+        ],
+        "answer": "Fertilisation (Syngamy)",
+        "explanation": "Fertilisation unites the haploid maternal gamete (n) and haploid paternal gamete (n), restoring the paired diploid (2n) state."
+      },
+      {
+        "id": "m06_q09",
+        "question": "Why is the Law of Segregation considered universal with no exceptions in diploid sexually reproducing organisms?",
+        "options": [
+          "Because DNA replication is always 100% error-free",
+          "Because meiotic reduction division strictly segregates homologous chromosome pairs in all normal gametes",
+          "Because all plants have flowers",
+          "Because dominant alleles eliminate recessive alleles"
+        ],
+        "answer": "Because meiotic reduction division strictly segregates homologous chromosome pairs in all normal gametes",
+        "explanation": "Reduction division inherently splits homologous chromosome pairs, ensuring each viable gamete receives one chromosome from each pair."
+      },
+      {
+        "id": "m06_q10",
+        "question": "If a plant has the homozygous genotype tt, what percentage of its gametes will carry the 't' allele?",
+        "options": [
+          "0%",
+          "25%",
+          "50%",
+          "100%"
+        ],
+        "answer": "100%",
+        "explanation": "Since the plant carries only 't' alleles, 100% of its gametes will inevitably carry the 't' allele."
+      }
+    ]
+  },
+  {
+    "id": "m07",
+    "moduleNumber": 7,
+    "title": "Mendel's Dihybrid Cross: Tracking Two Traits Simultaneously & F1 Generation",
+    "tagline": "Seed shape and seed colour, pure-breeding parents RRYY x rryy, and dihybrid F1 progeny.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. What is a Dihybrid Cross?</h4>\n    <p>A <strong>dihybrid cross</strong> is a breeding experiment between two parent organisms that differ in <strong>two distinct pairs of contrasting traits</strong> simultaneously (e.g., seed shape and seed colour).</p>\n\n    <h4>2. Choosing Contrasting Parental Characters</h4>\n    <p>Mendel selected two well-defined seed characters in <em>Pisum sativum</em>:</p>\n    <ul>\n      <li><strong>Seed Shape:</strong> Round ($R$, dominant) vs Wrinkled ($r$, recessive).</li>\n      <li><strong>Seed Colour:</strong> Yellow ($Y$, dominant) vs Green ($y$, recessive).</li>\n    </ul>\n\n    <h4>3. The Parental Generation (P Generation)</h4>\n    <p>Mendel crossed two pure-breeding (homozygous) parental lines:</p>\n    <ul>\n      <li><strong>Parent 1:</strong> Round Yellow seeds — Genotype $\\mathbf{RRYY}$. (Produces gametes carrying alleles $\\mathbf{RY}$).</li>\n      <li><strong>Parent 2:</strong> Wrinkled Green seeds — Genotype $\\mathbf{rryy}$. (Produces gametes carrying alleles $\\mathbf{ry}$).</li>\n    </ul>\n\n    <h4>4. The F1 Dihybrid Progeny</h4>\n    <p>Upon cross-pollination, the fusion of an $RY$ gamete with an $ry$ gamete produces the $F_1$ generation:</p>\n    <ul>\n      <li>Genotype: $\\mathbf{RrYy}$ (double heterozygous).</li>\n      <li>Phenotype: $\\mathbf{100\\%\\text{ Round Yellow seeds}}$.</li>\n    </ul>\n    <p>This confirmed that the dominant alleles ($R$ for round shape and $Y$ for yellow colour) completely suppress the recessive alleles ($r$ for wrinkled shape and $y$ for green colour) in the $F_1$ generation.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "A dihybrid cross tracks two pairs of contrasting traits simultaneously (e.g., seed shape and seed colour).",
+      "Crossing pure Round Yellow ($RRYY$) with Wrinkled Green ($rryy$) yields $100\\%$ Round Yellow ($RrYy$) in $F_1$.",
+      "The $F_1$ dihybrid plants are heterozygous for both gene pairs ($RrYy$)."
+    ],
+    "keyNotes": [
+      "In the $F_1$ generation, both dominant phenotypes (Round and Yellow) express together, demonstrating that dominance applies to multiple traits simultaneously."
+    ],
+    "questions": [
+      {
+        "id": "m07_q01",
+        "question": "A cross between pea plants involving TWO pairs of contrasting characters (such as seed shape and seed colour) is termed a:",
+        "options": [
+          "Monohybrid cross",
+          "Dihybrid cross",
+          "Test cross",
+          "Reciprocal cross"
+        ],
+        "answer": "Dihybrid cross",
+        "explanation": "A dihybrid cross tracks the simultaneous inheritance and assortment of two distinct gene pairs controlling two different traits."
+      },
+      {
+        "id": "m07_q02",
+        "question": "The underlying genetic and allelic constitution of an organism (such as TT, Tt, or tt) is termed its:",
+        "options": [
+          "Phenotype",
+          "Genotype",
+          "Serotype",
+          "Ecotype"
+        ],
+        "answer": "Genotype",
+        "explanation": "Genotype refers to the specific allelic genetic makeup of an organism for a given gene locus."
+      },
+      {
+        "id": "m07_q03",
+        "question": "In an F2 dihybrid generation of 16 possible combinations (RrYy × RrYy), how many offspring are RECOMBINANTS exhibiting new combinations of traits absent in the true-breeding parental lines (RRYY and rryy)?",
+        "options": [
+          "1 out of 16",
+          "6 out of 16 (3 Round Green + 3 Wrinkled Yellow = 37.5%)",
+          "9 out of 16",
+          "10 out of 16"
+        ],
+        "answer": "6 out of 16 (3 Round Green + 3 Wrinkled Yellow = 37.5%)",
+        "explanation": "Parental phenotypes are Round Yellow (9/16) and Wrinkled Green (1/16). Recombinant non-parental phenotypes are Round Green (3/16) and Wrinkled Yellow (3/16), totaling 6/16."
+      },
+      {
+        "id": "m07_q04",
+        "question": "What is the genotype of the F1 generation in Mendel's dihybrid cross between RRYY and rryy?",
+        "options": [
+          "RRYY",
+          "rryy",
+          "RrYy",
+          "Rryy"
+        ],
+        "answer": "RrYy",
+        "explanation": "Fusion of an RY gamete from the dominant parent with an ry gamete from the recessive parent results in the heterozygous dihybrid genotype RrYy."
+      },
+      {
+        "id": "m07_q05",
+        "question": "What phenotype was observed in 100% of the F1 plants in Mendel's dihybrid cross?",
+        "options": [
+          "Round Green seeds",
+          "Wrinkled Yellow seeds",
+          "Round Yellow seeds",
+          "Wrinkled Green seeds"
+        ],
+        "answer": "Round Yellow seeds",
+        "explanation": "Both round seed shape (R) and yellow seed colour (Y) are dominant, so all RrYy F1 seeds appear round and yellow."
+      },
+      {
+        "id": "m07_q06",
+        "question": "How many different types of alleles are combined in the F1 dihybrid genotype RrYy?",
+        "options": [
+          "1",
+          "2",
+          "4 (R, r, Y, y)",
+          "8"
+        ],
+        "answer": "4 (R, r, Y, y)",
+        "explanation": "The dihybrid genotype RrYy combines 4 distinct alleles: two for shape (R, r) and two for colour (Y, y)."
+      },
+      {
+        "id": "m07_q07",
+        "question": "How many pairs of contrasting characters are analyzed in a dihybrid cross?",
+        "options": [
+          "One pair",
+          "Two pairs",
+          "Three pairs",
+          "Seven pairs"
+        ],
+        "answer": "Two pairs",
+        "explanation": "A dihybrid cross involves tracking the inheritance of two contrasting character pairs simultaneously."
+      },
+      {
+        "id": "m07_q08",
+        "question": "What gametes can be produced by a pure-breeding plant with the genotype rryy?",
+        "options": [
+          "ry only",
+          "RY only",
+          "Ry and rY",
+          "r and y as separate gametes"
+        ],
+        "answer": "ry only",
+        "explanation": "Being homozygous recessive for both genes, the plant can produce gametes carrying only the 'ry' combination."
+      },
+      {
+        "id": "m07_q09",
+        "question": "What gametes can be produced by a pure-breeding plant with the genotype RRYY?",
+        "options": [
+          "RY only",
+          "ry only",
+          "Ry and rY",
+          "Rr and Yy"
+        ],
+        "answer": "RY only",
+        "explanation": "Homozygous dominant for both genes, the plant produces gametes containing only the 'RY' allele combination."
+      },
+      {
+        "id": "m07_q10",
+        "question": "Why did neither green seed colour nor wrinkled seed shape appear in the F1 generation of Mendel's dihybrid cross?",
+        "options": [
+          "Because green and wrinkled alleles were destroyed by enzymes",
+          "Because both alleles are recessive and completely masked by the dominant alleles R and Y",
+          "Because Mendel only planted yellow seeds",
+          "Because wrinkled seeds cannot germinate"
+        ],
+        "answer": "Because both alleles are recessive and completely masked by the dominant alleles R and Y",
+        "explanation": "In the heterozygous condition (RrYy), the dominant alleles R and Y express their phenotypes, masking the recessive r and y alleles."
+      }
+    ]
+  },
+  {
+    "id": "m08",
+    "moduleNumber": 8,
+    "title": "F2 Generation of Dihybrid Cross: The 9:3:3:1 Phenotypic Ratio",
+    "tagline": "Self-pollination of F1 dihybrids, 16-box Punnett square, and novel recombinant phenotypes.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Self-Pollination of F1 Dihybrids ($RrYy \\times RrYy$)</h4>\n    <p>When Mendel allowed $F_1$ dihybrid plants ($RrYy$) to self-pollinate, each plant produced four distinct types of gametes in equal proportions ($25\\%$ each):</p>\n    <ul>\n      <li>$\\mathbf{RY}$ ($25\\%$) — Parental combination</li>\n      <li>$\\mathbf{Ry}$ ($25\\%$) — Recombinant combination</li>\n      <li>$\\mathbf{rY}$ ($25\\%$) — Recombinant combination</li>\n      <li>$\\mathbf{ry}$ ($25\\%$) — Parental combination</li>\n    </ul>\n\n    <h4>2. The 16-Square Punnett Grid</h4>\n    <p>Random fertilization among these 4 types of male and female gametes produces $4 \\times 4 = 16$ possible genetic combinations in the $F_2$ generation:</p>\n    <table class=\"table-bordered\" style=\"width:100%; border-collapse:collapse; font-size:0.85rem; text-align:center; margin:10px 0;\">\n      <thead><tr style=\"background:#f1f5f9;\"><th>Gametes</th><th>$RY$</th><th>$Ry$</th><th>$rY$</th><th>$ry$</th></tr></thead>\n      <tbody>\n        <tr><td><strong>$RY$</strong></td><td>$RRYY$ (R-Y)</td><td>$RRYy$ (R-Y)</td><td>$RrYY$ (R-Y)</td><td>$RrYy$ (R-Y)</td></tr>\n        <tr><td><strong>$Ry$</strong></td><td>$RRYy$ (R-Y)</td><td>$RRyy$ (R-G)</td><td>$RrYy$ (R-Y)</td><td>$Rryy$ (R-G)</td></tr>\n        <tr><td><strong>$rY$</strong></td><td>$RrYY$ (R-Y)</td><td>$RrYy$ (R-Y)</td><td>$rrYY$ (W-Y)</td><td>$rrYy$ (W-Y)</td></tr>\n        <tr><td><strong>$ry$</strong></td><td>$RrYy$ (R-Y)</td><td>$Rryy$ (R-G)</td><td>$rrYy$ (W-Y)</td><td>$rryy$ (W-G)</td></tr>\n      </tbody>\n    </table>\n\n    <h4>3. The Dihybrid Phenotypic Ratio (9:3:3:1)</h4>\n    <p>Counting the 16 combinations reveals four distinct phenotypic classes:</p>\n    <ol>\n      <li><strong>Round Yellow:</strong> $\\mathbf{9/16}$ (Both dominant traits — Parental phenotype)</li>\n      <li><strong>Round Green:</strong> $\\mathbf{3/16}$ (Dominant shape, recessive colour — <em>Novel Recombinant</em>)</li>\n      <li><strong>Wrinkled Yellow:</strong> $\\mathbf{3/16}$ (Recessive shape, dominant colour — <em>Novel Recombinant</em>)</li>\n      <li><strong>Wrinkled Green:</strong> $\\mathbf{1/16}$ (Both recessive traits — Parental phenotype)</li>\n    </ol>\n    <p>The classic dihybrid phenotypic ratio is $\\mathbf{9 : 3 : 3 : 1}$.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Dihybrid $F_1$ plants produce 4 types of gametes: $RY$, $Ry$, $rY$, $ry$ in a $1:1:1:1$ ratio.",
+      "The 16-box Punnett square produces a phenotypic ratio of $\\mathbf{9:3:3:1}$.",
+      "Novel recombinant classes (Round Green and Wrinkled Yellow) prove that traits sort independently."
+    ],
+    "keyNotes": [
+      "The appearance of new combinations not present in either original parent (Round Green and Wrinkled Yellow) demonstrated that seed shape and seed colour are inherited completely independently."
+    ],
+    "questions": [
+      {
+        "id": "m08_q01",
+        "question": "In Mendel's dihybrid cross between a pure round yellow-seeded pea plant (RRYY) and a wrinkled green-seeded pea plant (rryy), what was the phenotype of all F1 offspring?",
+        "options": [
+          "Wrinkled and green seeds",
+          "Round and yellow seeds (RrYy)",
+          "Round and green seeds",
+          "Wrinkled and yellow seeds"
+        ],
+        "answer": "Round and yellow seeds (RrYy)",
+        "explanation": "All F1 individuals were heterozygous Round Yellow (RrYy), expressing both dominant traits (Round 'R' and Yellow 'Y')."
+      },
+      {
+        "id": "m08_q02",
+        "question": "Which of the following represents a homozygous recessive genotype for seed shape in pea plants?",
+        "options": [
+          "RR",
+          "Rr",
+          "rr (Wrinkled seeds)",
+          "YY"
+        ],
+        "answer": "rr (Wrinkled seeds)",
+        "explanation": "'rr' represents the homozygous recessive genotype expressing the wrinkled seed phenotype."
+      },
+      {
+        "id": "m08_q03",
+        "question": "A woman with homozygous blood group B (IB IB) has a child with a man who has homozygous blood group A (IA IA). What will be the blood group of their child?",
+        "options": [
+          "Blood group A",
+          "Blood group B",
+          "Blood group AB (100% IA IB)",
+          "Blood group O"
+        ],
+        "answer": "Blood group AB (100% IA IB)",
+        "explanation": "Mother contributes allele IB and father contributes allele IA. The child is 100% IA IB (Blood group AB due to codominance)."
+      },
+      {
+        "id": "m08_q04",
+        "question": "In pea plants, tallness (T) is dominant over dwarfness (t), and yellow seed (Y) is dominant over green seed (y). A plant of genotype Tt Yy is self-pollinated and produces 800 seeds. How many seeds are expected to be BOTH TALL AND GREEN?",
+        "options": [
+          "450 seeds",
+          "150 seeds (3/16 of 800)",
+          "50 seeds",
+          "200 seeds"
+        ],
+        "answer": "150 seeds (3/16 of 800)",
+        "explanation": "P(Tall) = 3/4; P(Green) = 1/4. P(Tall Green) = 3/4 × 1/4 = 3/16. In 800 seeds: 3/16 × 800 = 150 seeds."
+      },
+      {
+        "id": "m08_q05",
+        "question": "What is the phenotypic ratio obtained in the F2 generation of a classic Mendelian dihybrid cross?",
+        "options": [
+          "3:1",
+          "1:2:1",
+          "9:3:3:1",
+          "1:1:1:1"
+        ],
+        "answer": "9:3:3:1",
+        "explanation": "The dihybrid F2 phenotypic ratio is 9 (Round Yellow) : 3 (Round Green) : 3 (Wrinkled Yellow) : 1 (Wrinkled Green)."
+      },
+      {
+        "id": "m08_q06",
+        "question": "Which of the following phenotypic classes in the dihybrid F2 generation represent novel RECOMBINANT phenotypes not seen in the original parents?",
+        "options": [
+          "Round Yellow and Wrinkled Green",
+          "Round Green and Wrinkled Yellow",
+          "Only Round Yellow",
+          "Only Wrinkled Green"
+        ],
+        "answer": "Round Green and Wrinkled Yellow",
+        "explanation": "The original parents were Round Yellow and Wrinkled Green. Round Green (3/16) and Wrinkled Yellow (3/16) are newly recombined phenotypes."
+      },
+      {
+        "id": "m08_q07",
+        "question": "What fraction of the total F2 progeny in a dihybrid cross is homozygous recessive for BOTH traits (rryy)?",
+        "options": [
+          "9/16",
+          "3/16",
+          "1/16",
+          "1/4"
+        ],
+        "answer": "1/16",
+        "explanation": "Only 1 out of the 16 combinations (rryy, bottom-right box of the Punnett square) is homozygous recessive for both traits."
+      },
+      {
+        "id": "m08_q08",
+        "question": "If 1600 seeds are collected from an F2 dihybrid generation, approximately how many seeds are expected to be Round Green?",
+        "options": [
+          "900",
+          "300",
+          "100",
+          "160"
+        ],
+        "answer": "300",
+        "explanation": "Round Green represents 3/16 of the total progeny: (3/16) × 1600 = 300 seeds."
+      },
+      {
+        "id": "m08_q09",
+        "question": "How many total boxes (genotypic combinations) are present in the Punnett square of a dihybrid cross?",
+        "options": [
+          "4",
+          "8",
+          "16",
+          "64"
+        ],
+        "answer": "16",
+        "explanation": "Since each parent produces 4 types of gametes, the grid has 4 × 4 = 16 boxes."
+      },
+      {
+        "id": "m08_q10",
+        "question": "What is the proportion of parental phenotypes compared to recombinant phenotypes in the dihybrid F2 generation?",
+        "options": [
+          "10 parental : 6 recombinant (10/16 vs 6/16)",
+          "8 parental : 8 recombinant",
+          "16 parental : 0 recombinant",
+          "1 parental : 15 recombinant"
+        ],
+        "answer": "10 parental : 6 recombinant (10/16 vs 6/16)",
+        "explanation": "Parental phenotypes are 9 (Round Yellow) + 1 (Wrinkled Green) = 10/16. Recombinant phenotypes are 3 (Round Green) + 3 (Wrinkled Yellow) = 6/16."
+      }
+    ]
+  },
+  {
+    "id": "m09",
+    "moduleNumber": 9,
+    "title": "Mendel's Second Law: The Principle of Independent Assortment",
+    "tagline": "Independent sorting of distinct gene pairs during gamete formation and meiotic chromosomal alignment.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. The Principle of Independent Assortment (Mendel's Second Law)</h4>\n    <p>From the dihybrid cross results, Mendel formulated his <strong>Second Law of Inheritance</strong>:</p>\n    <blockquote style=\"background:#f8fafc; border-left:4px solid #0284c7; padding:10px 14px; margin:10px 0; font-style:italic;\">\n      \"When two pairs of traits are combined in a hybrid, the segregation of one pair of characters is completely independent of the segregation of the other pair of characters during gamete formation.\"\n    </blockquote>\n\n    <h4>2. Independent Behaviour of Gene Pairs</h4>\n    <p>Consider the dihybrid individual $RrYy$:</p>\n    <ul>\n      <li>The allele pair for seed shape ($R$ and $r$) segregates independently into gametes ($50\\% R : 50\\% r$).</li>\n      <li>The allele pair for seed colour ($Y$ and $y$) also segregates independently into gametes ($50\\% Y : 50\\% y$).</li>\n      <li>Because their sorting is completely unrelated, the probability of an allele combination is the mathematical product of their independent probabilities:\n        $$\\text{P}(RY) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4} = 25\\%$$\n        $$\\text{P}(Ry) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4} = 25\\%$$\n        $$\\text{P}(rY) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4} = 25\\%$$\n        $$\\text{P}(ry) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4} = 25\\%$$\n      </li>\n    </ul>\n\n    <h4>3. Chromosomal Mechanism of Independent Assortment</h4>\n    <p>During <strong>Metaphase I of meiosis</strong>, non-homologous chromosome pairs align randomly at the equatorial plate. The orientation of the chromosome pair carrying the gene for seed shape has zero influence on the orientation of the chromosome pair carrying the gene for seed colour. This random assortment generates unique gametic combinations.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Mendel's Second Law: Allele pairs for different traits segregate independently during gamete formation.",
+      "Independent assortment occurs during Metaphase I and Anaphase I of meiosis for genes located on different chromosomes.",
+      "Four types of gametes are formed in equal $1:1:1:1$ frequency ($25\\%$ each) from a dihybrid ($RrYy$)."
+    ],
+    "keyNotes": [
+      "Independent assortment holds true for genes that are located on separate (non-homologous) chromosomes or far apart on the same chromosome."
+    ],
+    "questions": [
+      {
+        "id": "m09_q01",
+        "question": "What is the classic Mendelian phenotypic dihybrid ratio observed in the F2 generation following self-pollination of RrYy plants?",
+        "options": [
+          "1 : 1 : 1 : 1",
+          "9 : 3 : 3 : 1",
+          "3 : 1",
+          "1 : 2 : 1"
+        ],
+        "answer": "9 : 3 : 3 : 1",
+        "explanation": "The F2 dihybrid phenotypic ratio is 9 Round Yellow : 3 Round Green : 3 Wrinkled Yellow : 1 Wrinkled Green (9:3:3:1)."
+      },
+      {
+        "id": "m09_q02",
+        "question": "In pea plants, what flower colours did Mendel identify as dominant and recessive, respectively?",
+        "options": [
+          "White (dominant) and Violet (recessive)",
+          "Violet (dominant) and White (recessive)",
+          "Yellow (dominant) and Red (recessive)",
+          "Green (dominant) and Blue (recessive)"
+        ],
+        "answer": "Violet (dominant) and White (recessive)",
+        "explanation": "Violet flower colour is dominant (W / V), and white flower colour is recessive (w / v)."
+      },
+      {
+        "id": "m09_q03",
+        "question": "What is the physical cytological basis that explains Mendel's Law of Independent Assortment in modern genetics?",
+        "options": [
+          "All genes are on a single long DNA thread",
+          "Genes are located on distinct, separate pairs of homologous chromosomes that align and segregate independently on the meiotic metaphase plate",
+          "Mitochondria divide before the nucleus",
+          "Enzymes cut DNA randomly"
+        ],
+        "answer": "Genes are located on distinct, separate pairs of homologous chromosomes that align and segregate independently on the meiotic metaphase plate",
+        "explanation": "Non-homologous chromosome pairs orient independently during meiotic Metaphase I, distributing non-allelic unlinked genes independently into gametes."
+      },
+      {
+        "id": "m09_q04",
+        "question": "What is the ratio of the four types of gametes (RY : Ry : rY : ry) produced by an F1 dihybrid pea plant (RrYy)?",
+        "options": [
+          "9:3:3:1",
+          "1:1:1:1",
+          "3:1",
+          "1:2:1"
+        ],
+        "answer": "1:1:1:1",
+        "explanation": "Due to independent assortment, the 4 types of gametes are produced in equal frequencies: 25% RY, 25% Ry, 25% rY, and 25% ry (1:1:1:1 ratio)."
+      },
+      {
+        "id": "m09_q05",
+        "question": "During which phase of meiosis does the physical independent alignment of non-homologous chromosome pairs take place?",
+        "options": [
+          "Prophase II",
+          "Metaphase I",
+          "Telophase I",
+          "Cytokinesis"
+        ],
+        "answer": "Metaphase I",
+        "explanation": "Random orientation and alignment of different homologous chromosome pairs along the equatorial metaphase plate occurs during Metaphase I."
+      },
+      {
+        "id": "m09_q06",
+        "question": "Mendel's Law of Independent Assortment is based directly on observations from which type of genetic cross?",
+        "options": [
+          "Monohybrid cross",
+          "Dihybrid cross",
+          "Test cross with one trait",
+          "Clonal propagation"
+        ],
+        "answer": "Dihybrid cross",
+        "explanation": "The Law of Independent Assortment requires analyzing at least two pairs of traits simultaneously (a dihybrid cross)."
+      },
+      {
+        "id": "m09_q07",
+        "question": "If two genes are located very close to each other on the EXACT SAME chromosome, what genetic phenomenon can prevent independent assortment?",
+        "options": [
+          "Linkage",
+          "Segregation",
+          "Dominance",
+          "Epistasis"
+        ],
+        "answer": "Linkage",
+        "explanation": "Genes situated closely on the same chromosome tend to be inherited together as a unit (genetic linkage), an exception to independent assortment."
+      },
+      {
+        "id": "m09_q08",
+        "question": "In a dihybrid cross, if you examine ONLY the seed shape trait (Round vs Wrinkled) in the F2 generation, what ratio do you obtain?",
+        "options": [
+          "3 Round : 1 Wrinkled",
+          "9 Round : 3 Wrinkled",
+          "1:1",
+          "All are round"
+        ],
+        "answer": "3 Round : 1 Wrinkled",
+        "explanation": "Out of 16 boxes: 12 are Round and 4 are Wrinkled, which simplifies to the classic 3:1 monohybrid ratio (12:4 = 3:1)."
+      },
+      {
+        "id": "m09_q09",
+        "question": "In a dihybrid cross, if you examine ONLY the seed colour trait (Yellow vs Green) in the F2 generation, what ratio do you obtain?",
+        "options": [
+          "1:2:1",
+          "3 Yellow : 1 Green",
+          "9 Yellow : 7 Green",
+          "All are yellow"
+        ],
+        "answer": "3 Yellow : 1 Green",
+        "explanation": "Out of 16 boxes: 12 are Yellow and 4 are Green, which also simplifies to 3:1 (12:4 = 3:1)."
+      },
+      {
+        "id": "m09_q10",
+        "question": "How does multiplying the independent monohybrid ratios (3:1) for shape and colour yield the dihybrid ratio?",
+        "options": [
+          "(3 Round + 1 Wrinkled) × (3 Yellow + 1 Green) = 9 Round-Yellow + 3 Round-Green + 3 Wrinkled-Yellow + 1 Wrinkled-Green",
+          "It cannot be mathematically calculated",
+          "By dividing 16 by 4",
+          "By subtracting recessive from dominant"
+        ],
+        "answer": "(3 Round + 1 Wrinkled) × (3 Yellow + 1 Green) = 9 Round-Yellow + 3 Round-Green + 3 Wrinkled-Yellow + 1 Wrinkled-Green",
+        "explanation": "Independent assortment mathematically means the probabilities multiply: (3:1) × (3:1) = 9:3:3:1."
+      }
+    ]
+  },
+  {
+    "id": "m10",
+    "moduleNumber": 10,
+    "title": "Molecular Basis of Heredity: How do Genes Express Traits?",
+    "tagline": "Cellular DNA, genes as instruction codes, protein/enzyme synthesis, and hormone regulation of traits.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Genes as Segments of Cellular DNA</h4>\n    <p>Mendel's mysterious \"factors\" are now known to be <strong>genes</strong>—specific segments of <strong>cellular DNA</strong> (deoxyribonucleic acid) located at defined positions on chromosomes. A gene contains the coded nucleotide sequence that provides the instructions for synthesizing a specific <strong>protein</strong>.</p>\n\n    <h4>2. The Biochemical Pathway of Trait Expression</h4>\n    <p>How does a gene determine a physical trait such as plant height? Consider the molecular chain of events:</p>\n    <ol>\n      <li><strong>DNA Segment (Gene):</strong> Carries the nucleotide code for an enzyme involved in synthesizing a plant growth hormone (such as <strong>gibberellin</strong>).</li>\n      <li><strong>Functional Enzyme Production:</strong> The dominant allele ($T$) contains the correct code to produce a fully functional, highly efficient enzyme.</li>\n      <li><strong>Hormone Synthesis:</strong> This active enzyme synthesizes an abundant amount of gibberellin growth hormone.</li>\n      <li><strong>Phenotypic Manifestation:</strong> Abundant gibberellin triggers rapid cell elongation in the stem, producing a <strong>Tall pea plant</strong>.</li>\n    </ol>\n\n    <h4>3. The Mechanism of Recessive Alleles</h4>\n    <p>What makes the dwarf allele ($t$) recessive? An alteration (mutation) in the nucleotide sequence of the gene produces an enzyme that is less efficient, defective, or absent altogether. Consequently, significantly less growth hormone is synthesized, stem elongation is stunted, and the plant remains <strong>Dwarf</strong>.</p>\n    <p>In a heterozygous plant ($Tt$), the single copy of the dominant allele ($T$) produces sufficient active enzyme to synthesize enough hormone for full tallness—which is why $T$ is dominant over $t$.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "A gene is a functional segment of cellular DNA providing instructions to synthesize a specific protein.",
+      "Proteins act as enzymes that catalyze biochemical reactions, such as synthesis of growth hormones.",
+      "Dominant alleles code for efficient enzymes, while recessive alleles often code for defective or inactive enzymes."
+    ],
+    "keyNotes": [
+      "The central dogma of genetics connects genotype to phenotype: Gene (DNA) $\\rightarrow$ mRNA $\\rightarrow$ Functional Protein (Enzyme) $\\rightarrow$ Biochemical Product (Hormone) $\\rightarrow$ Observable Physical Trait."
+    ],
+    "questions": [
+      {
+        "id": "m10_q01",
+        "question": "Out of a total of 556 seeds harvested by Mendel in an F2 dihybrid cross, how many seeds exhibited the double recessive 'wrinkled green' phenotype?",
+        "options": [
+          "315",
+          "108",
+          "101",
+          "32 (approximately 1/16 of total)"
+        ],
+        "answer": "32 (approximately 1/16 of total)",
+        "explanation": "In Mendel's dihybrid data: 315 Round Yellow, 108 Round Green, 101 Wrinkled Yellow, and exactly 32 Wrinkled Green (32/556 ≈ 1/16)."
+      },
+      {
+        "id": "m10_q02",
+        "question": "If a couple has already given birth to three daughters in a row, what is the exact probability that their fourth child will be a boy?",
+        "options": [
+          "100%",
+          "50% (1/2, because each pregnancy is an independent genetic event)",
+          "12.5%",
+          "25%"
+        ],
+        "answer": "50% (1/2, because each pregnancy is an independent genetic event)",
+        "explanation": "Each conception is an independent probabilistic event; paternal sperm segregation guarantees an exact 50% chance of XY (boy) on every pregnancy."
+      },
+      {
+        "id": "m10_q03",
+        "question": "What would happen if a mutated gene encodes an enzyme that is completely NON-FUNCTIONAL in the biosynthetic pathway of a plant growth hormone?",
+        "options": [
+          "The plant grows to gigantic height",
+          "Insufficient growth hormone is synthesized, causing the plant to remain dwarf (short phenotype)",
+          "The plant turns into a fungus",
+          "The seeds turn into flowers"
+        ],
+        "answer": "Insufficient growth hormone is synthesized, causing the plant to remain dwarf (short phenotype)",
+        "explanation": "A null mutation in the hormone synthase gene (e.g. GA 3-beta-hydroxylase for gibberellin) prevents hormone synthesis, yielding a dwarf phenotype."
+      },
+      {
+        "id": "m10_q04",
+        "question": "In a monohybrid cross of heterozygous round seeded plants (Rr × Rr), what fraction of the round-seeded progeny is GENOTYPICALLY HETEROZYGOUS (Rr)?",
+        "options": [
+          "1/4",
+          "2/3 (approximately 66.7% of round seeds)",
+          "1/2",
+          "3/4"
+        ],
+        "answer": "2/3 (approximately 66.7% of round seeds)",
+        "explanation": "Total round progeny comprise 1 RR + 2 Rr = 3. Among these round seeds, the proportion of heterozygous Rr is 2/3 (66.7%)."
+      },
+      {
+        "id": "m10_q05",
+        "question": "At the molecular level, what constitutes a gene?",
+        "options": [
+          "A carbohydrate molecule stored in the liver",
+          "A specific functional segment of cellular DNA providing instructions to synthesize a protein",
+          "A lipid droplet floating in the cytoplasm",
+          "A calcium crystal in bone tissue"
+        ],
+        "answer": "A specific functional segment of cellular DNA providing instructions to synthesize a protein",
+        "explanation": "A gene is a distinct sequence of nucleotides within cellular DNA that codes for the synthesis of a specific polypeptide or protein."
+      },
+      {
+        "id": "m10_q06",
+        "question": "Which plant growth hormone promotes stem elongation, causing pea plants with the dominant 'T' allele to grow tall?",
+        "options": [
+          "Abscisic acid",
+          "Gibberellin",
+          "Insulin",
+          "Adrenaline"
+        ],
+        "answer": "Gibberellin",
+        "explanation": "The 'T' gene codes for an enzyme that synthesizes gibberellin, a plant hormone that promotes stem elongation and internode growth."
+      },
+      {
+        "id": "m10_q07",
+        "question": "Why does a pea plant with the homozygous recessive genotype 'tt' remain dwarf?",
+        "options": [
+          "It produces too much gibberellin",
+          "The mutated 't' gene codes for a non-functional or less efficient enzyme, producing insufficient growth hormone",
+          "It lacks chromosomes altogether",
+          "Its roots cannot absorb water"
+        ],
+        "answer": "The mutated 't' gene codes for a non-functional or less efficient enzyme, producing insufficient growth hormone",
+        "explanation": "The recessive allele 't' has an altered sequence resulting in a less efficient enzyme, producing deficient hormone and stunted height."
+      },
+      {
+        "id": "m10_q08",
+        "question": "Why is the heterozygous plant 'Tt' just as tall as the homozygous 'TT' plant?",
+        "options": [
+          "The 't' allele is destroyed by white blood cells",
+          "One copy of the dominant 'T' allele produces enough active enzyme to synthesize the required threshold of growth hormone",
+          "The 't' allele produces a growth-promoting poison",
+          "It is shorter, but human eyes cannot tell"
+        ],
+        "answer": "One copy of the dominant 'T' allele produces enough active enzyme to synthesize the required threshold of growth hormone",
+        "explanation": "A single functional allele (T) produces sufficient active enzyme to make ample gibberellin, producing the full tall phenotype."
+      },
+      {
+        "id": "m10_q09",
+        "question": "What is the universal biochemical intermediary that conveys genetic instructions from nuclear DNA to cytoplasmic ribosomes for protein synthesis?",
+        "options": [
+          "Glucose",
+          "Messenger RNA (mRNA)",
+          "Hemoglobin",
+          "ATP synthase"
+        ],
+        "answer": "Messenger RNA (mRNA)",
+        "explanation": "Information in DNA is transcribed into mRNA, which carries the code to ribosomes where proteins are synthesized."
+      },
+      {
+        "id": "m10_q10",
+        "question": "Which cellular organelle houses the chromosomes carrying an organism's genomic DNA in eukaryotic cells?",
+        "options": [
+          "Cell wall",
+          "Nucleus",
+          "Vacuole",
+          "Ribosome"
+        ],
+        "answer": "Nucleus",
+        "explanation": "In eukaryotic organisms, chromosomes carrying genetic DNA are enclosed within the membrane-bound cell nucleus."
+      }
+    ]
+  }
+]

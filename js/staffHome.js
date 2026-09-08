@@ -170,20 +170,20 @@ async function renderStaffStudentsList() {
             <tr>
                 <td>
                     <div style="display:flex; align-items:center; gap:12px;">
-                        <div class="avatar" style="background:${s.color || '#2563eb'}">${initials}</div>
+                        <div class="avatar" style="background:${escapeHtml(s.color || '#2563eb')}">${escapeHtml(initials)}</div>
                         <div>
-                            <div style="font-weight:700; color:var(--text);">${s.name}</div>
-                            <div style="font-size:11.5px; color:var(--text-muted);">${s.doa ? 'Joined: ' + s.doa : 'Enrolled Student'}</div>
+                            <div style="font-weight:700; color:var(--text);">${escapeHtml(s.name)}</div>
+                            <div style="font-size:11.5px; color:var(--text-muted);">${escapeHtml(s.doa ? 'Joined: ' + s.doa : 'Enrolled Student')}</div>
                         </div>
                     </div>
                 </td>
-                <td><span class="badge badge-primary">${s.cls}</span></td>
-                <td><span style="font-size:12.5px; font-weight:600; color:var(--text);">${s.subjects || 'General Subjects'}</span></td>
-                <td style="color:var(--text-muted); font-size:13px;">${s.school || '—'}</td>
+                <td><span class="badge badge-primary">${escapeHtml(s.cls)}</span></td>
+                <td><span style="font-size:12.5px; font-weight:600; color:var(--text);">${escapeHtml(s.subjects || 'General Subjects')}</span></td>
+                <td style="color:var(--text-muted); font-size:13px;">${escapeHtml(s.school || '—')}</td>
                 <td>
                     <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
                         ${remarkBadge}
-                        <button class="btn btn-sm btn-outline" onclick="openAddRemarkModal('${s.id}', '${s.name.replace(/'/g, "\\'")}')" style="font-size:11.5px; padding:4px 10px; display:inline-flex; align-items:center; gap:4px;">
+                        <button class="btn btn-sm btn-outline" onclick="openAddRemarkModal('${escapeHtml(s.id)}', '${escapeHtml(s.name).replace(/'/g, "\\'")}')" style="font-size:11.5px; padding:4px 10px; display:inline-flex; align-items:center; gap:4px;">
                             💬 Add Remark
                         </button>
                     </div>
@@ -296,13 +296,13 @@ async function openViewRemarksModal(studentId, studentName) {
                 <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px 16px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                         <div style="display:flex; align-items:center; gap:6px;">
-                            <span class="badge badge-purple" style="font-size:11px;">${r.category || 'General Observation'}</span>
+                            <span class="badge badge-purple" style="font-size:11px;">${escapeHtml(r.category || 'General Observation')}</span>
                             <span class="badge badge-warning" style="font-size:11px;">🟡 In Review</span>
                         </div>
                         <span style="font-size:11.5px; color:var(--text-muted);">${r.created_at ? new Date(r.created_at).toLocaleDateString() : 'Recent'}</span>
                     </div>
-                    <div style="font-size:13.5px; color:var(--text); line-height:1.5;">${r.remark}</div>
-                    <div style="font-size:11px; color:var(--text-muted); margin-top:6px; font-style:italic;">— Raised by ${r.staff_name || 'Faculty Member'} (Awaiting Admin Resolution)</div>
+                    <div style="font-size:13.5px; color:var(--text); line-height:1.5;">${escapeHtml(r.remark)}</div>
+                    <div style="font-size:11px; color:var(--text-muted); margin-top:6px; font-style:italic;">— Raised by ${escapeHtml(r.staff_name || 'Faculty Member')} (Awaiting Admin Resolution)</div>
                 </div>
             `).join('')}
         </div>

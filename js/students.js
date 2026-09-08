@@ -102,25 +102,25 @@ function renderStudentsTable() {
         const effectiveFee = feeInfo.effectiveFee;
         const statusBadge = feeInfo.badge;
 
-        return `<tr class="clickable-row" onclick="openStudentDetailModal('${s.id}')">
+        return `<tr class="clickable-row" onclick="openStudentDetailModal('${escapeHtml(s.id)}')">
             <td>
                 <div style="display:flex; align-items:center; gap:12px;">
-                    <div class="avatar" style="background:${s.color}">${initials}</div>
+                    <div class="avatar" style="background:${escapeHtml(s.color)}">${escapeHtml(initials)}</div>
                     <div>
-                        <div style="font-weight:700; color:var(--text);">${s.name}</div>
-                        <div style="font-size:11.5px; color:var(--text-muted);">Due: ${s.due}th of month</div>
+                        <div style="font-weight:700; color:var(--text);">${escapeHtml(s.name)}</div>
+                        <div style="font-size:11.5px; color:var(--text-muted);">Due: ${escapeHtml(s.due)}th of month</div>
                     </div>
                 </div>
             </td>
-            <td><span class="badge badge-primary">${s.cls}</span></td>
+            <td><span class="badge badge-primary">${escapeHtml(s.cls)}</span></td>
             <td>
-                <div>${s.parent}</div>
-                <a href="https://wa.me/91${s.phone}" target="_blank" onclick="event.stopPropagation()" style="font-size:11.5px; color:#25D366; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:3px;">
+                <div>${escapeHtml(s.parent)}</div>
+                <a href="https://wa.me/91${escapeHtml(s.phone)}" target="_blank" onclick="event.stopPropagation()" style="font-size:11.5px; color:#25D366; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:3px;">
                     <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
-                    ${s.phone}
+                    ${escapeHtml(s.phone)}
                 </a>
             </td>
-            <td style="font-size:12px; color:var(--text-muted);">${s.subjects || '—'}</td>
+            <td style="font-size:12px; color:var(--text-muted);">${escapeHtml(s.subjects || '—')}</td>
             <td style="font-weight:700;">
                 ₹${effectiveFee.toLocaleString()}
                 ${s.scholarshipPct > 0 ? `<div style="font-size:10.5px; color:var(--success); font-weight:600;">${s.scholarshipPct}% Scholarship</div>` : ''}
@@ -128,13 +128,13 @@ function renderStudentsTable() {
             <td>${statusBadge}</td>
             <td onclick="event.stopPropagation()">
                 <div class="action-group">
-                    <button class="icon-btn" onclick="openStudentDetailModal('${s.id}')" title="View Student Profile">
+                    <button class="icon-btn" onclick="openStudentDetailModal('${escapeHtml(s.id)}')" title="View Student Profile">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-width="2"/></svg>
                     </button>
-                    <button class="icon-btn" onclick="editStudent('${s.id}')" title="Edit Info">
+                    <button class="icon-btn" onclick="editStudent('${escapeHtml(s.id)}')" title="Edit Info">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke-width="2"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke-width="2"/></svg>
                     </button>
-                    <button class="icon-btn danger" onclick="deleteStudent('${s.id}')" title="Delete">
+                    <button class="icon-btn danger" onclick="deleteStudent('${escapeHtml(s.id)}')" title="Delete">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6" stroke-width="2"/><path d="M19 6l-1 14H6L5 6" stroke-width="2"/><path d="M10 11v6M14 11v6" stroke-width="2"/><path d="M9 6V4h6v2" stroke-width="2"/></svg>
                     </button>
                 </div>
@@ -178,17 +178,17 @@ function openStudentDetailModal(studentId) {
 
     modalBody.innerHTML = `
         <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid var(--border);">
-            <div class="avatar" style="background:${s.color}; width:52px; height:52px; font-size:18px;">${initials}</div>
+            <div class="avatar" style="background:${escapeHtml(s.color)}; width:52px; height:52px; font-size:18px;">${escapeHtml(initials)}</div>
             <div style="flex:1;">
-                <div style="font-size:18px; font-weight:800; color:var(--text);">${s.name}</div>
+                <div style="font-size:18px; font-weight:800; color:var(--text);">${escapeHtml(s.name)}</div>
                 <div style="display:flex; gap:8px; align-items:center; margin-top:4px;">
-                    <span class="badge badge-primary">${s.cls}</span>
-                    <span style="font-size:12px; color:var(--text-muted);">Admitted: ${s.doa || 'N/A'}</span>
-                    <span style="font-size:12px; color:var(--text-muted);">School: ${s.school || 'N/A'}</span>
+                    <span class="badge badge-primary">${escapeHtml(s.cls)}</span>
+                    <span style="font-size:12px; color:var(--text-muted);">Admitted: ${escapeHtml(s.doa || 'N/A')}</span>
+                    <span style="font-size:12px; color:var(--text-muted);">School: ${escapeHtml(s.school || 'N/A')}</span>
                 </div>
             </div>
             <div>
-                <button class="btn btn-sm btn-outline" onclick="closeModal('studentDetailModal'); editStudent('${s.id}')">
+                <button class="btn btn-sm btn-outline" onclick="closeModal('studentDetailModal'); editStudent('${escapeHtml(s.id)}')">
                     <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke-width="2"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke-width="2"/></svg>
                     Edit
                 </button>
@@ -198,9 +198,9 @@ function openStudentDetailModal(studentId) {
         <div class="form-grid" style="grid-template-columns: 1fr 1fr 1fr; gap:12px; margin-bottom:24px;">
             <div class="card" style="padding:14px; margin-bottom:0; background:#f8fafc;">
                 <div style="font-size:11px; color:var(--text-muted); font-weight:700; text-transform:uppercase;">Parent / Guardian</div>
-                <div style="font-size:13.5px; font-weight:700; margin-top:2px;">${s.parent}</div>
-                <a href="https://wa.me/91${s.phone}" target="_blank" class="btn btn-sm btn-whatsapp" style="margin-top:8px; display:inline-flex; font-size:11px; padding:4px 8px;">
-                    WhatsApp (${s.phone})
+                <div style="font-size:13.5px; font-weight:700; margin-top:2px;">${escapeHtml(s.parent)}</div>
+                <a href="https://wa.me/91${escapeHtml(s.phone)}" target="_blank" class="btn btn-sm btn-whatsapp" style="margin-top:8px; display:inline-flex; font-size:11px; padding:4px 8px;">
+                    WhatsApp (${escapeHtml(s.phone)})
                 </a>
             </div>
 
@@ -345,17 +345,17 @@ async function loadStudentRemarksInAdminModal(studentId) {
                 <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px 14px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-wrap:wrap; gap:6px;">
                         <div style="display:flex; align-items:center; gap:6px;">
-                            <span class="badge badge-purple" style="font-size:11px;">${r.category || 'General Observation'}</span>
+                            <span class="badge badge-purple" style="font-size:11px;">${escapeHtml(r.category || 'General Observation')}</span>
                             ${isPending 
                                 ? `<span class="badge badge-warning" style="font-size:11px;">🟡 In Review</span>`
                                 : `<span class="badge badge-success" style="font-size:11px;">🟢 Resolved</span>`}
                         </div>
                         <span style="font-size:11px; color:var(--text-muted);">${r.created_at ? new Date(r.created_at).toLocaleDateString() : 'Recent'}</span>
                     </div>
-                    <div style="font-size:13.5px; color:var(--text); line-height:1.45;">${r.remark}</div>
+                    <div style="font-size:13.5px; color:var(--text); line-height:1.45;">${escapeHtml(r.remark)}</div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; flex-wrap:wrap; gap:8px;">
                         <div style="font-size:11px; color:var(--text-muted); font-style:italic;">
-                            — Raised by ${r.staff_name || 'Faculty Member'}
+                            — Raised by ${escapeHtml(r.staff_name || 'Faculty Member')}
                             ${r.resolved_at ? ` • <span style="color:var(--success); font-weight:600;">Resolved on ${new Date(r.resolved_at).toLocaleDateString()}</span>` : ''}
                         </div>
                         ${isPending ? `
@@ -605,31 +605,31 @@ async function renderPendingRegistrations() {
             <tr>
                 <td>
                     <div style="display:flex; align-items:center; gap:12px;">
-                        <div class="avatar" style="background:#2563eb;">${initials}</div>
+                        <div class="avatar" style="background:#2563eb;">${escapeHtml(initials)}</div>
                         <div>
-                            <div style="font-weight:700; color:var(--text);">${r.name}</div>
-                            <div style="font-size:11.5px; color:var(--text-muted);">PIN: ${r.pin || '123456'}</div>
+                            <div style="font-weight:700; color:var(--text);">${escapeHtml(r.name)}</div>
+                            <div style="font-size:11.5px; color:var(--text-muted);">PIN: ${escapeHtml(r.pin || '123456')}</div>
                         </div>
                     </div>
                 </td>
-                <td><span class="badge badge-primary">${r.cls}</span></td>
+                <td><span class="badge badge-primary">${escapeHtml(r.cls)}</span></td>
                 <td>
-                    <div>${r.parent_name || '—'}</div>
-                    <a href="https://wa.me/91${r.phone}" target="_blank" style="font-size:11.5px; color:#25D366; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:3px;">
+                    <div>${escapeHtml(r.parent_name || '—')}</div>
+                    <a href="https://wa.me/91${escapeHtml(r.phone)}" target="_blank" style="font-size:11.5px; color:#25D366; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:3px;">
                         <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
-                        ${r.phone}
+                        ${escapeHtml(r.phone)}
                     </a>
                 </td>
-                <td style="font-size:12.5px; color:var(--text);">${r.course_interest || 'General Admission'}</td>
-                <td style="font-size:12px; color:var(--text-muted);">${r.school_name || '—'}</td>
+                <td style="font-size:12.5px; color:var(--text);">${escapeHtml(r.course_interest || 'General Admission')}</td>
+                <td style="font-size:12px; color:var(--text-muted);">${escapeHtml(r.school_name || '—')}</td>
                 <td style="font-size:12px; color:var(--text-muted);">${dateStr}</td>
                 <td><span class="badge badge-warning">🟡 Pending Approval</span></td>
                 <td>
                     <div class="action-group">
-                        <button class="btn btn-sm btn-success" onclick="openApproveAdmissionModal('${r.id}')" title="Approve Student Admission" style="padding:4px 10px; font-size:11.5px; display:inline-flex; align-items:center; gap:4px;">
+                        <button class="btn btn-sm btn-success" onclick="openApproveAdmissionModal('${escapeHtml(r.id)}')" title="Approve Student Admission" style="padding:4px 10px; font-size:11.5px; display:inline-flex; align-items:center; gap:4px;">
                             ✓ Approve
                         </button>
-                        <button class="icon-btn danger" onclick="rejectAdmissionAction('${r.id}')" title="Reject Application">
+                        <button class="icon-btn danger" onclick="rejectAdmissionAction('${escapeHtml(r.id)}')" title="Reject Application">
                             <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="2"/></svg>
                         </button>
                     </div>

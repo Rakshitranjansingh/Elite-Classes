@@ -9,6 +9,10 @@
    - Offline-First Storage + Cloud Supabase Persistence (DBService)
    ========================================================================= */
 
+// Private Closure Vault for Anti-Cheat Memory Answer Protection
+const _secretAnswerVault = new Map();
+const _secretExplanationVault = new Map();
+
 const CBTPlayer = {
     activeTest: null,
     currentQIdx: 0,
@@ -83,6 +87,13 @@ const CBTPlayer = {
             const opts = this.getQuestionOptions(q);
             if (!opts || opts.length < 2) return q;
 
+            // Preserve natural order if any option has positional references (e.g. "All of the above", "None of the above", "Both (A) and (B)")
+            const hasPositionalOption = opts.some(o => /all of the above|all the above|none of the above|none of these|both \([a-d]\)|both [a-d]|neither \([a-d]\)|neither [a-d]|either \([a-d]\)|either [a-d]/i.test(o.text || ''));
+            if (hasPositionalOption) {
+                q.options = opts;
+                return q;
+            }
+
             // Target correct text
             const targetCorrectText = (opts.find(o => o.key === (q.correct_option || '').toUpperCase()) || {}).text;
 
@@ -122,8 +133,15 @@ const CBTPlayer = {
             finalQuestions = this.shuffleArray(randomizedQuestions);
         }
 
-        // 3. Strip answers from active client memory (stored securely in private CBTPlayer state)
+        // 3. Strip answers from active client memory (stored securely in private closure vault & protected state)
+        _secretAnswerVault.clear();
+        _secretExplanationVault.clear();
+        this._hiddenAnswerKey = {};
+        this._hiddenExplanations = {};
+
         const sanitizedQuestions = finalQuestions.map((q, idx) => {
+            _secretAnswerVault.set(idx, q.correct_option);
+            _secretExplanationVault.set(idx, q.explanation || '');
             this._hiddenAnswerKey[idx] = q.correct_option;
             this._hiddenExplanations[idx] = q.explanation || '';
             const safeQ = { ...q };
@@ -145,10 +163,12 @@ const CBTPlayer = {
             return;
         }
 
-        // Security Gate: Launch-time DevTools detection
-        const devDiffX = window.outerWidth - window.innerWidth;
-        const devDiffY = window.outerHeight - window.innerHeight;
-        if (devDiffX > 160 || devDiffY > 160) {
+        // Security Gate: Launch-time DevTools detection (DPI & Sidebar aware)
+        const dpr = window.devicePixelRatio || 1;
+        const devDiffX = Math.abs(window.outerWidth - window.innerWidth);
+        const devDiffY = Math.abs(window.outerHeight - window.innerHeight);
+        const threshold = Math.max(220, Math.round(180 * dpr));
+        if (devDiffX > threshold || devDiffY > threshold) {
             alert('🛑 Security Alert: Developer Tools / Inspect Element is currently open.\n\nPlease close Developer Tools and refresh to proceed to the examination.');
             return;
         }
@@ -1017,7 +1037,9 @@ const CBTPlayer = {
 
         this.activeTest.questions.forEach((q, idx) => {
             const userChoice = this.userAnswers[idx];
-            const correctOpt = (this._hiddenAnswerKey && this._hiddenAnswerKey[idx] !== undefined) ? this._hiddenAnswerKey[idx] : q.correct_option;
+            const correctOpt = _secretAnswerVault.has(idx) 
+                ? _secretAnswerVault.get(idx) 
+                : ((this._hiddenAnswerKey && this._hiddenAnswerKey[idx] !== undefined) ? this._hiddenAnswerKey[idx] : q.correct_option);
             if (!userChoice) {
                 unattemptedCount++;
             } else if (userChoice === correctOpt) {
@@ -1028,11 +1050,17 @@ const CBTPlayer = {
         });
 
         // Restore hidden answers and explanations for solutions review
-        const reviewQuestions = this.activeTest.questions.map((q, idx) => ({
-            ...q,
-            correct_option: (this._hiddenAnswerKey && this._hiddenAnswerKey[idx] !== undefined) ? this._hiddenAnswerKey[idx] : q.correct_option,
-            explanation: (this._hiddenExplanations && this._hiddenExplanations[idx] !== undefined) ? this._hiddenExplanations[idx] : q.explanation
-        }));
+        const reviewQuestions = this.activeTest.questions.map((q, idx) => {
+            const cOpt = _secretAnswerVault.has(idx) ? _secretAnswerVault.get(idx) : ((this._hiddenAnswerKey && this._hiddenAnswerKey[idx] !== undefined) ? this._hiddenAnswerKey[idx] : q.correct_option);
+            const exp = _secretExplanationVault.has(idx) ? _secretExplanationVault.get(idx) : ((this._hiddenExplanations && this._hiddenExplanations[idx] !== undefined) ? this._hiddenExplanations[idx] : q.explanation);
+            if (!this._hiddenAnswerKey) this._hiddenAnswerKey = {};
+            this._hiddenAnswerKey[idx] = cOpt;
+            return {
+                ...q,
+                correct_option: cOpt,
+                explanation: exp
+            };
+        });
         this.activeTest.questions = reviewQuestions;
 
         const rawScore = (correctCount * marksPerCorrect) - (wrongCount * negMarkPerWrong);

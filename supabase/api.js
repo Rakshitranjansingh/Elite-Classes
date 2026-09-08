@@ -19,6 +19,62 @@ const SEED_ADMIN_PROFILES = [
 
 const DBService = {
     // ---------------------------------------------------------
+    // 0. OFFLINE MUTATION QUEUE (NON-DESTRUCTIVE CLOUD REPLAY)
+    // ---------------------------------------------------------
+    enqueueOfflineMutation(action, payload) {
+        if (typeof localStorage === 'undefined') return;
+        try {
+            const queue = JSON.parse(localStorage.getItem('ec_offline_mutation_queue') || '[]');
+            queue.push({ action, payload, timestamp: Date.now() });
+            localStorage.setItem('ec_offline_mutation_queue', JSON.stringify(queue));
+            console.log(`[DBService] Queued offline mutation (${action}):`, payload?.id || '');
+        } catch (e) {
+            console.warn('[DBService] Failed to enqueue offline mutation:', e);
+        }
+    },
+
+    async processOfflineMutationQueue() {
+        if (!isSupabaseConnected() || typeof localStorage === 'undefined') return;
+        const rawQueue = localStorage.getItem('ec_offline_mutation_queue');
+        if (!rawQueue) return;
+
+        let queue = [];
+        try {
+            queue = JSON.parse(rawQueue);
+        } catch (e) {
+            return;
+        }
+        if (!Array.isArray(queue) || queue.length === 0) return;
+
+        console.log(`[DBService] Replaying ${queue.length} pending offline mutations to cloud...`);
+        const remainingQueue = [];
+
+        for (const item of queue) {
+            try {
+                if (item.action === 'upsertStudent') {
+                    await this.upsertStudent(item.payload, true);
+                } else if (item.action === 'deleteStudent') {
+                    await this.deleteStudent(item.payload, true);
+                } else if (item.action === 'insertPayment') {
+                    await this.insertPayment(item.payload, true);
+                } else if (item.action === 'insertSalaryPayout') {
+                    await this.insertSalaryPayout(item.payload, true);
+                }
+            } catch (err) {
+                console.warn(`[DBService] Replaying offline mutation failed (${item.action}):`, err);
+                remainingQueue.push(item);
+            }
+        }
+
+        if (remainingQueue.length === 0) {
+            localStorage.removeItem('ec_offline_mutation_queue');
+            console.log('[DBService] All offline mutations synchronized to cloud successfully!');
+        } else {
+            localStorage.setItem('ec_offline_mutation_queue', JSON.stringify(remainingQueue));
+        }
+    },
+
+    // ---------------------------------------------------------
     // 1. COACHING ACCESS KEY & SETTINGS
     // ---------------------------------------------------------
     async getCoachingKey() {
@@ -82,10 +138,33 @@ const DBService = {
             return { success: false, message: 'Please enter your security PIN.' };
         }
 
+        // Primary: Secure Server-Side RPC Authentication (Zero Data Leak)
+        if (isSupabaseConnected()) {
+            try {
+                const { data: rpcResult, error: rpcErr } = await supabaseClient.rpc('authenticate_portal_user', {
+                    p_phone: cleanPhone,
+                    p_pin: enteredPin
+                });
+                if (!rpcErr && rpcResult && typeof rpcResult === 'object') {
+                    if (rpcResult.success) {
+                        return rpcResult;
+                    }
+                    if (rpcResult.isSubscriberPending) {
+                        return rpcResult;
+                    }
+                    if (rpcResult.message && (rpcResult.message.includes('Invalid') || rpcResult.message.includes('No registered'))) {
+                        return rpcResult;
+                    }
+                }
+            } catch (rpcEx) {
+                console.warn('[DBService] Supabase server RPC auth fallback:', rpcEx);
+            }
+        }
+
         const globalAdminKey = await this.getCoachingKey();
         const globalStudentKey = await this.getStudentAccessKey();
 
-        // 1. Check in Admins
+        // 1. Check in Admins (Offline / Fallback Mode)
         let adminList = [];
         if (isSupabaseConnected()) {
             try {
@@ -387,7 +466,11 @@ const DBService = {
             return raw.map(mapStudent);
         }
         try {
-            const { data, error } = await supabaseClient.from('students').select('*').order('created_at', { ascending: true });
+            // Over-the-wire query scoping: Exclude financial and security PINs for non-admin callers
+            const queryCols = isAdmin
+                ? '*'
+                : 'id, name, email, cls, parent_name, phone, subjects, date_of_admission, school_name, avatar_color';
+            const { data, error } = await supabaseClient.from('students').select(queryCols).order('created_at', { ascending: true });
             if (error) throw error;
             return data.map(mapStudent);
         } catch (e) {
@@ -397,8 +480,11 @@ const DBService = {
         }
     },
 
-    async upsertStudent(student) {
-        if (!isSupabaseConnected()) return;
+    async upsertStudent(student, isReplay = false) {
+        if (!isSupabaseConnected()) {
+            if (!isReplay) this.enqueueOfflineMutation('upsertStudent', student);
+            return;
+        }
         try {
             await supabaseClient.from('students').upsert({
                 id: student.id,
@@ -418,15 +504,20 @@ const DBService = {
             });
         } catch (e) {
             console.error('[DBService] Upsert student failed:', e);
+            if (!isReplay) this.enqueueOfflineMutation('upsertStudent', student);
         }
     },
 
-    async deleteStudent(studentId) {
-        if (!isSupabaseConnected()) return;
+    async deleteStudent(studentId, isReplay = false) {
+        if (!isSupabaseConnected()) {
+            if (!isReplay) this.enqueueOfflineMutation('deleteStudent', studentId);
+            return;
+        }
         try {
             await supabaseClient.from('students').delete().eq('id', studentId);
         } catch (e) {
             console.error('[DBService] Delete student failed:', e);
+            if (!isReplay) this.enqueueOfflineMutation('deleteStudent', studentId);
         }
     },
 
@@ -504,7 +595,11 @@ const DBService = {
             return raw.map(mapTeacher);
         }
         try {
-            const { data, error } = await supabaseClient.from('staff').select('*').eq('is_teacher', true).order('created_at', { ascending: true });
+            // Over-the-wire query scoping: Exclude base_salary, incentive, and pin for non-admin callers
+            const queryCols = isAdmin
+                ? '*'
+                : 'id, name, email, subjects, assigned_classes, phone, is_teacher, role, avatar_color';
+            const { data, error } = await supabaseClient.from('staff').select(queryCols).eq('is_teacher', true).order('created_at', { ascending: true });
             if (error) throw error;
             return data.map(mapTeacher);
         } catch (e) {
@@ -622,8 +717,11 @@ const DBService = {
         }
     },
 
-    async insertPayment(p) {
-        if (!isSupabaseConnected()) return;
+    async insertPayment(p, isReplay = false) {
+        if (!isSupabaseConnected()) {
+            if (!isReplay) this.enqueueOfflineMutation('insertPayment', p);
+            return;
+        }
         try {
             await supabaseClient.from('payments').insert({
                 id: p.id,
@@ -636,6 +734,7 @@ const DBService = {
             });
         } catch (e) {
             console.error('[DBService] Insert payment failed:', e);
+            if (!isReplay) this.enqueueOfflineMutation('insertPayment', p);
         }
     },
 
@@ -643,8 +742,11 @@ const DBService = {
     // 8. SALARY PAYOUTS LEDGER (See Section 16 for Scoped Implementation)
     // ---------------------------------------------------------
 
-    async insertSalaryPayout(sp) {
-        if (!isSupabaseConnected()) return;
+    async insertSalaryPayout(sp, isReplay = false) {
+        if (!isSupabaseConnected()) {
+            if (!isReplay) this.enqueueOfflineMutation('insertSalaryPayout', sp);
+            return;
+        }
         try {
             await supabaseClient.from('salary_payouts').insert({
                 id: sp.id,
@@ -657,6 +759,7 @@ const DBService = {
             });
         } catch (e) {
             console.error('[DBService] Insert salary payout failed:', e);
+            if (!isReplay) this.enqueueOfflineMutation('insertSalaryPayout', sp);
         }
     },
 

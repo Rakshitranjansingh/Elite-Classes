@@ -777,4 +777,249 @@ DROP POLICY IF EXISTS "Allow admin to view incident reports" ON security_leak_in
 CREATE POLICY "Allow admin to view incident reports" ON security_leak_incidents
     FOR SELECT USING (true);
 
+-- Ensure Salary Payouts Table has Recipient & Date Indexes for Scoped Queries
+CREATE INDEX IF NOT EXISTS idx_salary_payouts_recipient ON salary_payouts(recipient_id);
 
+DO $$
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM information_schema.columns 
+        WHERE table_name = 'salary_payouts' AND column_name = 'payout_date'
+    ) THEN
+        CREATE INDEX IF NOT EXISTS idx_salary_payouts_date ON salary_payouts(payout_date DESC);
+    ELSIF EXISTS (
+        SELECT 1 FROM information_schema.columns 
+        WHERE table_name = 'salary_payouts' AND column_name = 'date'
+    ) THEN
+        CREATE INDEX IF NOT EXISTS idx_salary_payouts_date ON salary_payouts(date DESC);
+    END IF;
+END $$;
+
+
+-- =============================================================================
+-- AUTHENTICATION RPC (MIGRATION 020)
+-- Server-Side WhatsApp & PIN Authentication
+-- =============================================================================
+CREATE OR REPLACE FUNCTION authenticate_portal_user(p_phone TEXT, p_pin TEXT)
+RETURNS JSONB
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+DECLARE
+    v_clean_phone TEXT;
+    v_entered_pin TEXT;
+    v_admin RECORD;
+    v_student RECORD;
+    v_staff RECORD;
+    v_subscriber RECORD;
+BEGIN
+    v_clean_phone := regexp_replace(COALESCE(p_phone, ''), '\D', '', 'g');
+    v_entered_pin := trim(COALESCE(p_pin, ''));
+
+    IF v_clean_phone = '' THEN
+        RETURN jsonb_build_object('success', false, 'message', 'Please enter your registered WhatsApp number.');
+    END IF;
+    IF v_entered_pin = '' THEN
+        RETURN jsonb_build_object('success', false, 'message', 'Please enter your security PIN.');
+    END IF;
+
+    -- 1. Check Admins
+    SELECT id, name, email, role, phone, pin, avatar_color INTO v_admin
+    FROM admins
+    WHERE regexp_replace(COALESCE(phone, ''), '\D', '', 'g') = v_clean_phone
+       OR regexp_replace(COALESCE(phone, ''), '\D', '', 'g') LIKE '%' || v_clean_phone
+       OR v_clean_phone LIKE '%' || regexp_replace(COALESCE(phone, ''), '\D', '', 'g')
+    LIMIT 1;
+
+    IF FOUND THEN
+        IF v_entered_pin = trim(COALESCE(v_admin.pin, '987654')) THEN
+            RETURN jsonb_build_object(
+                'success', true,
+                'role', 'admin',
+                'redirectUrl', 'admin_home.html',
+                'user', jsonb_build_object(
+                    'id', v_admin.id,
+                    'name', v_admin.name,
+                    'email', v_admin.email,
+                    'role', COALESCE(v_admin.role, 'Super Admin'),
+                    'phone', v_admin.phone,
+                    'color', COALESCE(v_admin.avatar_color, '#2563eb')
+                )
+            );
+        ELSE
+            RETURN jsonb_build_object('success', false, 'message', 'Invalid Admin Security PIN for this WhatsApp number.');
+        END IF;
+    END IF;
+
+    -- 2. Check Students
+    SELECT id, name, email, cls, parent_name, phone, pin, monthly_fee, fee_due_day, scholarship_pct, subjects, date_of_admission, school_name, avatar_color
+    INTO v_student
+    FROM students
+    WHERE regexp_replace(COALESCE(phone, ''), '\D', '', 'g') = v_clean_phone
+       OR regexp_replace(COALESCE(phone, ''), '\D', '', 'g') LIKE '%' || v_clean_phone
+       OR v_clean_phone LIKE '%' || regexp_replace(COALESCE(phone, ''), '\D', '', 'g')
+    LIMIT 1;
+
+    IF FOUND THEN
+        IF v_entered_pin = trim(COALESCE(v_student.pin, '123456')) THEN
+            RETURN jsonb_build_object(
+                'success', true,
+                'role', 'student',
+                'redirectUrl', 'student_home.html',
+                'user', jsonb_build_object(
+                    'id', v_student.id,
+                    'name', v_student.name,
+                    'email', v_student.email,
+                    'cls', v_student.cls,
+                    'parent', v_student.parent_name,
+                    'phone', v_student.phone,
+                    'fee', v_student.monthly_fee,
+                    'due', v_student.fee_due_day,
+                    'scholarshipPct', v_student.scholarship_pct,
+                    'subjects', v_student.subjects,
+                    'doa', v_student.date_of_admission,
+                    'school', v_student.school_name,
+                    'color', COALESCE(v_student.avatar_color, '#2563eb')
+                )
+            );
+        ELSE
+            RETURN jsonb_build_object('success', false, 'message', 'Invalid Student Security PIN for this WhatsApp number.');
+        END IF;
+    END IF;
+
+    -- 3. Check Staff / Teachers
+    SELECT id, name, email, role, phone, pin, is_teacher, subjects, assigned_classes, avatar_color
+    INTO v_staff
+    FROM staff
+    WHERE regexp_replace(COALESCE(phone, ''), '\D', '', 'g') = v_clean_phone
+       OR regexp_replace(COALESCE(phone, ''), '\D', '', 'g') LIKE '%' || v_clean_phone
+       OR v_clean_phone LIKE '%' || regexp_replace(COALESCE(phone, ''), '\D', '', 'g')
+    LIMIT 1;
+
+    IF FOUND THEN
+        IF v_entered_pin = trim(COALESCE(v_staff.pin, '123456')) THEN
+            RETURN jsonb_build_object(
+                'success', true,
+                'role', 'staff',
+                'redirectUrl', 'staff_home.html',
+                'user', jsonb_build_object(
+                    'id', v_staff.id,
+                    'name', v_staff.name,
+                    'email', v_staff.email,
+                    'role', v_staff.role,
+                    'phone', v_staff.phone,
+                    'is_teacher', v_staff.is_teacher,
+                    'subjects', v_staff.subjects,
+                    'classes', v_staff.assigned_classes,
+                    'color', COALESCE(v_staff.avatar_color, '#2563eb')
+                )
+            );
+        ELSE
+            RETURN jsonb_build_object('success', false, 'message', 'Invalid Staff Security PIN for this WhatsApp number.');
+        END IF;
+    END IF;
+
+    -- 4. Check Test Series Subscribers
+    SELECT id, name, phone, pin, cls, status, tracking_code
+    INTO v_subscriber
+    FROM testseries_subscribers
+    WHERE regexp_replace(COALESCE(phone, ''), '\D', '', 'g') = v_clean_phone
+       OR regexp_replace(COALESCE(phone, ''), '\D', '', 'g') LIKE '%' || v_clean_phone
+       OR v_clean_phone LIKE '%' || regexp_replace(COALESCE(phone, ''), '\D', '', 'g')
+    LIMIT 1;
+
+    IF FOUND THEN
+        IF v_entered_pin = trim(COALESCE(v_subscriber.pin, '123456')) THEN
+            IF v_subscriber.status = 'active' THEN
+                RETURN jsonb_build_object(
+                    'success', true,
+                    'role', 'testseries_subscriber',
+                    'redirectUrl', 'testseries_user_home.html',
+                    'user', jsonb_build_object(
+                        'id', v_subscriber.id,
+                        'name', v_subscriber.name,
+                        'phone', v_subscriber.phone,
+                        'cls', v_subscriber.cls,
+                        'tracking_code', v_subscriber.tracking_code,
+                        'status', v_subscriber.status
+                    )
+                );
+            ELSE
+                RETURN jsonb_build_object(
+                    'success', false,
+                    'isSubscriberPending', true,
+                    'trackingCode', v_subscriber.tracking_code,
+                    'message', 'Your subscription is pending admin verification.'
+                );
+            END IF;
+        ELSE
+            RETURN jsonb_build_object('success', false, 'message', 'Invalid Subscriber PIN for this WhatsApp number.');
+        END IF;
+    END IF;
+
+    -- 5. No user found
+    RETURN jsonb_build_object('success', false, 'message', 'No registered account found matching this WhatsApp number.');
+END;
+$$;
+
+GRANT EXECUTE ON FUNCTION authenticate_portal_user(TEXT, TEXT) TO anon, authenticated, public;
+
+-- =============================================================================
+-- 20. COURSE MODULE PROGRESS & CHAPTER STATS (MIGRATION 021)
+-- =============================================================================
+CREATE TABLE IF NOT EXISTS course_module_progress (
+    id VARCHAR(100) PRIMARY KEY,
+    student_id VARCHAR(50) NOT NULL,
+    student_name VARCHAR(100),
+    cls VARCHAR(20) NOT NULL DEFAULT 'Class 10',
+    subject VARCHAR(50) NOT NULL DEFAULT 'Science',
+    chapter_id VARCHAR(50) NOT NULL,
+    module_id VARCHAR(20) NOT NULL,
+    module_number INT NOT NULL DEFAULT 1,
+    is_completed BOOLEAN NOT NULL DEFAULT false,
+    quiz_score INT NOT NULL DEFAULT 0,
+    quiz_max_score INT NOT NULL DEFAULT 10,
+    accuracy_pct NUMERIC(5,2) NOT NULL DEFAULT 0.00,
+    answers_payload JSONB DEFAULT '{}'::jsonb,
+    completed_at TIMESTAMPTZ,
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS course_chapter_stats (
+    id VARCHAR(100) PRIMARY KEY,
+    student_id VARCHAR(50) NOT NULL,
+    chapter_id VARCHAR(50) NOT NULL,
+    modules_completed INT NOT NULL DEFAULT 0,
+    total_modules INT NOT NULL DEFAULT 20,
+    completion_percentage NUMERIC(5,2) NOT NULL DEFAULT 0.00,
+    total_quiz_score INT NOT NULL DEFAULT 0,
+    total_quiz_max INT NOT NULL DEFAULT 200,
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_course_mod_prog_student ON course_module_progress(student_id);
+CREATE INDEX IF NOT EXISTS idx_course_mod_prog_chap ON course_module_progress(chapter_id);
+CREATE INDEX IF NOT EXISTS idx_course_mod_prog_std_chap ON course_module_progress(student_id, chapter_id);
+CREATE INDEX IF NOT EXISTS idx_course_chap_stats_std_chap ON course_chapter_stats(student_id, chapter_id);
+
+ALTER TABLE course_module_progress ENABLE ROW LEVEL SECURITY;
+ALTER TABLE course_chapter_stats ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Allow public read course_module_progress" ON course_module_progress;
+CREATE POLICY "Allow public read course_module_progress" ON course_module_progress FOR SELECT USING (true);
+
+DROP POLICY IF EXISTS "Allow public insert course_module_progress" ON course_module_progress;
+CREATE POLICY "Allow public insert course_module_progress" ON course_module_progress FOR INSERT WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow public update course_module_progress" ON course_module_progress;
+CREATE POLICY "Allow public update course_module_progress" ON course_module_progress FOR UPDATE USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow public read course_chapter_stats" ON course_chapter_stats;
+CREATE POLICY "Allow public read course_chapter_stats" ON course_chapter_stats FOR SELECT USING (true);
+
+DROP POLICY IF EXISTS "Allow public insert course_chapter_stats" ON course_chapter_stats;
+CREATE POLICY "Allow public insert course_chapter_stats" ON course_chapter_stats FOR INSERT WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow public update course_chapter_stats" ON course_chapter_stats;
+CREATE POLICY "Allow public update course_chapter_stats" ON course_chapter_stats FOR UPDATE USING (true) WITH CHECK (true);

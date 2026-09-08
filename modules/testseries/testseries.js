@@ -22,7 +22,7 @@ async function renderStudentTestSeries() {
             const stored = JSON.parse(localStorage.getItem('ec_active_student'));
             if (stored && stored.cls) studentCls = stored.cls;
             else if (localStorage.getItem('ec_student_class')) studentCls = localStorage.getItem('ec_student_class');
-        } catch (e) {}
+        } catch (e) { }
     }
 
     currentSelectedCbtClass = studentCls;
@@ -44,8 +44,11 @@ function buildTestSeriesPortalMarkup(activeClass) {
 
     return `
         <div id="st-tab-section-testseries" class="st-tab-section" style="display:block;">
-            <!-- 1. HEADER BANNER & STATS PALLET -->
-            <div class="card" style="margin-bottom:20px; border-left:4px solid var(--primary); background:linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);">
+            <!-- 1. HEADER BANNER & CHAPTER TESTS CARD -->
+            <div class="card cbt-header-card" id="cbt-main-chapter-card" onclick="toggleChapterTestsSubjects()" 
+                onmouseenter="this.style.boxShadow='0 8px 24px rgba(37,99,235,0.12)'; this.style.transform='translateY(-2px)';" 
+                onmouseleave="this.style.boxShadow='none'; this.style.transform='none';"
+                style="margin-bottom:20px; border-left:4px solid var(--primary); background:linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); cursor:pointer; transition:transform 0.15s ease, box-shadow 0.15s ease;">
                 <div class="card-body" style="padding:22px 24px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
                         <div>
@@ -55,28 +58,33 @@ function buildTestSeriesPortalMarkup(activeClass) {
                                 <span class="badge badge-success" id="cbt-status-badge" style="font-size:11.5px; padding:4px 10px;">🟢 Live Assessments</span>
                             </div>
                             <h2 style="font-size:20px; font-weight:800; color:var(--text); margin:0 0 4px;" id="st-tests-heading">
-                                <span id="cbt-class-title-text">${activeClass}</span>: Online Test Series & Chapter-Wise CBT Mock Exams
+                                <span id="cbt-class-title-text" style="display:none;">${activeClass}</span>Chapter Tests
                             </h2>
                             <p style="font-size:13px; color:var(--text-muted); margin:0;" id="cbt-class-subtitle">
-                                ${isCls10 
-                                    ? 'NCERT aligned computer-based assessments with real-time timers, negative marking, instant scorecards, and live class rankings.' 
-                                    : `Coaching assessments and scheduled chapter tests for ${activeClass}.`}
+                                ${isCls10
+            ? 'NCERT aligned computer-based assessments with real-time timers, negative marking, instant scorecards, and live class rankings.'
+            : `Coaching assessments and scheduled chapter tests for ${activeClass}.`}
                             </p>
                         </div>
 
-                        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-                            <a href="modules/testseries/data/class10/testseries_class_10.html" id="cbt-hub-link-btn" class="btn btn-outline btn-sm" style="text-decoration:none; font-weight:700; font-size:12px; padding:6px 14px; ${isCls10 ? '' : 'display:none;'}">
-                                🏆 Class 10 Leadership Hub →
-                            </a>
+                        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                            <span class="badge badge-primary" id="cbt-expand-badge" style="font-size:12px; padding:7px 16px; font-weight:700; border-radius:20px; display:inline-flex; align-items:center; gap:6px;">
+                                View Subjects <span id="cbt-expand-arrow">▼</span>
+                            </span>
                             <div style="text-align:right;" id="cbt-student-stats-pill">
                                 <div style="font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Enrolled Class</div>
                                 <div style="font-size:16px; font-weight:800; color:var(--primary);">${activeClass}</div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!-- FILTERS & SEARCH ROW -->
-                    <div style="display:flex; gap:12px; margin-top:18px; align-items:center; flex-wrap:wrap; border-top:1px solid var(--border-light); padding-top:16px;">
+            <!-- 2. EXPANDABLE SUBJECT-WISE TESTS SECTION (HIDDEN BY DEFAULT) -->
+            <div id="cbt-subjects-expandable-section" style="display:none;">
+                <!-- FILTERS & SEARCH ROW -->
+                <div class="card" style="margin-bottom:18px; padding:14px 20px; background:#ffffff; border:1px solid var(--border);">
+                    <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
                         <div class="search-input" style="max-width:300px; flex:1;">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/></svg>
                             <input type="text" id="cbt-search-filter" placeholder="Search tests, chapters or topics..." oninput="filterTestSeriesCards()">
@@ -94,15 +102,35 @@ function buildTestSeriesPortalMarkup(activeClass) {
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- 2. TEST SERIES CARDS CONTAINER -->
-            <div class="content-cards-grid" id="st-testseries-container" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:18px;">
-                <!-- Dynamically rendered cards -->
+                <!-- 3. TEST SERIES CARDS CONTAINER -->
+                <div class="content-cards-grid" id="st-testseries-container" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:18px;">
+                    <!-- Dynamically rendered cards -->
+                </div>
             </div>
         </div>
     `;
 }
+
+// Toggle Visibility of Subject-Wise Tests on Chapter Tests Card Click
+function toggleChapterTestsSubjects() {
+    const section = document.getElementById('cbt-subjects-expandable-section');
+    if (!section) return;
+    const badge = document.getElementById('cbt-expand-badge');
+
+    const isHidden = (section.style.display === 'none' || section.style.display === '');
+    if (isHidden) {
+        section.style.display = 'block';
+        if (badge) badge.innerHTML = 'Hide Subjects <span id="cbt-expand-arrow">▲</span>';
+        setTimeout(() => {
+            section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 50);
+    } else {
+        section.style.display = 'none';
+        if (badge) badge.innerHTML = 'View Subjects <span id="cbt-expand-arrow">▼</span>';
+    }
+}
+window.toggleChapterTestsSubjects = toggleChapterTestsSubjects;
 
 // Update Header Titles and Badges
 function updateClassHeader(cls) {
@@ -397,7 +425,7 @@ async function renderGenericClassTestSeries(container, cls) {
         console.warn(`[testseries] DB fetch for ${cls} fallback:`, err);
         cachedTestSeriesList = [];
     }
-    
+
     if (!cachedTestSeriesList || cachedTestSeriesList.length === 0) {
         container.innerHTML = `
             <div class="card" style="grid-column:1/-1; padding:48px 24px; text-align:center; border:1px dashed var(--border); background:#ffffff;">

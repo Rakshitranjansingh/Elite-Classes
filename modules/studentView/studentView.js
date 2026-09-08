@@ -287,6 +287,21 @@ function renderStudentCourses() {
     enrolledSubs.forEach((sub, idx) => {
         const color = colors[idx % colors.length];
         const icon = icons[idx % icons.length];
+        const isScience = sub.toLowerCase().includes('science');
+
+        const scienceCourseModuleHtml = isScience ? `
+            <div style="margin-top:14px; padding:14px 16px; background:#f0f9ff; border:1px solid #bae6fd; border-radius:10px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+                <div>
+                    <div style="font-size:13px; font-weight:800; color:#0369a1;">🔬 Complete 13-Chapter Interactive Course Suite</div>
+                    <div style="font-size:11.5px; color:#0284c7; margin-top:2px;">260 Mini-Modules • 2,600 MCQs • 70% Mastery Unlocking</div>
+                </div>
+                <div style="display:flex; gap:8px;">
+                    <a href="modules/course/class10/science/science_course_hub.html" class="btn btn-primary btn-sm" style="background:#0284c7; border:none; font-size:12px; font-weight:700; padding:7px 14px; border-radius:6px; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+                        Explore 13 Chapters →
+                    </a>
+                </div>
+            </div>
+        ` : '';
 
         cardsHtml += `
             <div class="card" style="border-radius:14px; border:1px solid var(--border); box-shadow:0 4px 12px rgba(0,0,0,0.03); overflow:hidden;">
@@ -305,12 +320,33 @@ function renderStudentCourses() {
                         <div>🏫 Institute Program: <b>Elite Classes Coaching Curriculum</b></div>
                         <div>🎯 Course Scope: <b>Comprehensive Concept Building & Board Preparation</b></div>
                     </div>
+                    ${scienceCourseModuleHtml}
                 </div>
             </div>
         `;
     });
 
+    const isClass10 = currentStudent.cls === 'Class 10';
+    const featuredBanner = isClass10 ? `
+        <div style="background:linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color:#ffffff; border-radius:14px; padding:22px 26px; margin-bottom:22px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; box-shadow:0 4px 16px rgba(30, 58, 138, 0.15);">
+            <div>
+                <span style="background:rgba(255,255,255,0.2); font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px; letter-spacing:0.4px;">✨ COMPLETE INTERACTIVE CURRICULUM</span>
+                <h3 style="font-size:18px; font-weight:800; margin:8px 0 4px; color:#ffffff;">Class 10 Science: All 13 Chapters Interactive Suite</h3>
+                <p style="font-size:12.5px; color:#dbeafe; margin:0; line-height:1.5;">260 progressive mini-modules across all 13 chapters. Each module features core theory notes, points to remember, and 10 MCQs with 70% mastery progressive unlocking.</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <a href="modules/course/class10/science/science_course_hub.html" style="background:#ffffff; color:#1e3a8a; font-weight:800; font-size:13px; padding:10px 18px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 8px rgba(0,0,0,0.1); white-space:nowrap;">
+                    📚 Open Science Course Hub →
+                </a>
+                <a href="modules/course/class10/science/course_player.html?chapter=1" style="background:rgba(255,255,255,0.15); color:#ffffff; border:1px solid rgba(255,255,255,0.3); font-weight:700; font-size:13px; padding:10px 16px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; white-space:nowrap;">
+                    Start Chapter 1 →
+                </a>
+            </div>
+        </div>
+    ` : '';
+
     container.innerHTML = `
+        ${featuredBanner}
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
             <h3 style="font-size:16px; font-weight:700; margin:0;">Enrolled Academic Courses & Subjects (${currentStudent.cls})</h3>
             <span class="badge badge-primary">${enrolledSubs.length} Subjects</span>
@@ -436,12 +472,12 @@ function renderStudentFees() {
     studentPayments.forEach(p => {
         rowsHtml += `
             <tr>
-                <td><b>${p.month}</b></td>
+                <td><b>${escapeHtml(p.month)}</b></td>
                 <td>₹${(p.amount || 0).toLocaleString()}</td>
-                <td><span class="badge badge-success">${p.mode || 'UPI'}</span></td>
-                <td>${p.date || '2025-08-10'}</td>
+                <td><span class="badge badge-success">${escapeHtml(p.mode || 'UPI')}</span></td>
+                <td>${escapeHtml(p.date || '2025-08-10')}</td>
                 <td>
-                    <button class="btn btn-sm btn-outline" onclick="viewReceiptFromLedger('${p.id}')">📜 View Receipt</button>
+                    <button class="btn btn-sm btn-outline" onclick="viewReceiptFromLedger('${escapeHtml(p.id)}')">📜 View Receipt</button>
                 </td>
             </tr>
         `;
@@ -491,18 +527,18 @@ function viewReceiptFromLedger(paymentId) {
             </div>
 
             <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:10px;">
-                <span>Receipt No: <b>#REC-${payment.id.slice(-6)}</b></span>
-                <span>Date: <b>${payment.date}</b></span>
+                <span>Receipt No: <b>#REC-${escapeHtml(payment.id ? payment.id.slice(-6) : '')}</b></span>
+                <span>Date: <b>${escapeHtml(payment.date)}</b></span>
             </div>
 
             <hr style="border:none; border-top:1px solid #e2e8f0; margin:12px 0;">
 
             <div style="font-size:13.5px; line-height:1.8;">
-                <div>Student Name: <b>${currentStudent.name}</b></div>
-                <div>Class / Standard: <b>${currentStudent.cls}</b></div>
-                <div>Parent Name: <b>${currentStudent.parent}</b></div>
-                <div>Fee Month: <b>${payment.month}</b></div>
-                <div>Payment Method: <b>${payment.mode}</b></div>
+                <div>Student Name: <b>${escapeHtml(currentStudent.name)}</b></div>
+                <div>Class / Standard: <b>${escapeHtml(currentStudent.cls)}</b></div>
+                <div>Parent Name: <b>${escapeHtml(currentStudent.parent)}</b></div>
+                <div>Fee Month: <b>${escapeHtml(payment.month)}</b></div>
+                <div>Payment Method: <b>${escapeHtml(payment.mode)}</b></div>
             </div>
 
             <hr style="border:none; border-top:1px solid #e2e8f0; margin:12px 0;">

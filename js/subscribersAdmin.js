@@ -98,22 +98,22 @@ function renderPendingVerificationQueue(subscribers) {
         return `
             <tr style="background:#fffbeb;">
                 <td>
-                    <div style="font-weight:700; color:#0f172a;">${sub.name}</div>
-                    <div style="font-size:11.5px; color:#64748b;">WhatsApp: ${sub.phone}</div>
+                    <div style="font-weight:700; color:#0f172a;">${escapeHtml(sub.name)}</div>
+                    <div style="font-size:11.5px; color:#64748b;">WhatsApp: ${escapeHtml(sub.phone)}</div>
                 </td>
                 <td>
-                    <span class="badge" style="background:#e0e7ff; color:#3730a3; font-weight:700;">${sub.cls || 'Class 10'}</span>
+                    <span class="badge" style="background:#e0e7ff; color:#3730a3; font-weight:700;">${escapeHtml(sub.cls || 'Class 10')}</span>
                 </td>
                 <td>
                     <span style="font-family:monospace; font-weight:800; color:#1e40af; background:#eff6ff; padding:2px 8px; border-radius:4px; border:1px solid #bfdbfe;">
-                        ${sub.tracking_code || 'EC-TS-REG'}
+                        ${escapeHtml(sub.tracking_code || 'EC-TS-REG')}
                     </span>
                 </td>
                 <td>
                     <div style="font-family:monospace; font-weight:700; color:#0f172a; font-size:13px;">
-                        ${sub.payment_ref || '<span style="color:#ef4444;">No UTR submitted</span>'}
+                        ${sub.payment_ref ? escapeHtml(sub.payment_ref) : '<span style="color:#ef4444;">No UTR submitted</span>'}
                     </div>
-                    <div style="font-size:11px; color:#94a3b8;">${timeStr}</div>
+                    <div style="font-size:11px; color:#94a3b8;">${escapeHtml(timeStr)}</div>
                 </td>
                 <td>
                     <span class="badge" style="background:#fef3c7; color:#92400e; font-weight:700; padding:4px 8px;">
@@ -205,18 +205,18 @@ function renderSubscribersDirectoryTable(subscribers) {
         return `
             <tr>
                 <td>
-                    <div style="font-weight:700; color:#0f172a;">${sub.name}</div>
-                    <div style="font-size:11px; color:#64748b;">Code: <strong style="font-family:monospace; color:#2563eb;">${sub.tracking_code || '—'}</strong></div>
+                    <div style="font-weight:700; color:#0f172a;">${escapeHtml(sub.name)}</div>
+                    <div style="font-size:11px; color:#64748b;">Code: <strong style="font-family:monospace; color:#2563eb;">${escapeHtml(sub.tracking_code || '—')}</strong></div>
                 </td>
                 <td>
-                    <span class="badge" style="background:#f1f5f9; color:#334155; font-weight:700;">${sub.cls || 'Class 10'}</span>
+                    <span class="badge" style="background:#f1f5f9; color:#334155; font-weight:700;">${escapeHtml(sub.cls || 'Class 10')}</span>
                 </td>
                 <td>
-                    <div style="font-weight:600; color:#0f172a;">${sub.phone}</div>
-                    <div style="font-size:11px; font-family:monospace; color:#64748b;">UTR: ${sub.payment_ref || '—'}</div>
+                    <div style="font-weight:600; color:#0f172a;">${escapeHtml(sub.phone)}</div>
+                    <div style="font-size:11px; font-family:monospace; color:#64748b;">UTR: ${escapeHtml(sub.payment_ref || '—')}</div>
                 </td>
                 <td style="font-size:12.5px; color:#334155; font-weight:600;">
-                    ${validUntilStr}
+                    ${escapeHtml(validUntilStr)}
                 </td>
                 <td>
                     ${statusBadge}

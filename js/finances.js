@@ -64,17 +64,17 @@ function renderFeePaymentsTable() {
     tbody.innerHTML = filtered.map(p => {
         const s = students.find(x => x.id === p.studentId) || { name: 'Unknown Student', cls: 'N/A' };
         return `<tr>
-            <td style="font-weight:700;">${p.month}</td>
-            <td>${p.date}</td>
+            <td style="font-weight:700;">${escapeHtml(p.month)}</td>
+            <td>${escapeHtml(p.date)}</td>
             <td>
-                <div style="font-weight:700;">${s.name}</div>
-                <div style="font-size:11.5px; color:var(--text-muted);">${s.cls}</div>
+                <div style="font-weight:700;">${escapeHtml(s.name)}</div>
+                <div style="font-size:11.5px; color:var(--text-muted);">${escapeHtml(s.cls)}</div>
             </td>
             <td style="font-weight:700; color:var(--success);">₹${p.amount.toLocaleString()}</td>
-            <td><span class="badge badge-purple">${p.mode}</span></td>
-            <td style="font-size:12px; color:var(--text-muted);">${p.remarks || '—'}</td>
+            <td><span class="badge badge-purple">${escapeHtml(p.mode)}</span></td>
+            <td style="font-size:12px; color:var(--text-muted);">${escapeHtml(p.remarks || '—')}</td>
             <td>
-                <button class="btn btn-sm btn-outline" onclick="showReceiptForPayment('${p.id}')">
+                <button class="btn btn-sm btn-outline" onclick="showReceiptForPayment('${escapeHtml(p.id)}')">
                     Receipt
                 </button>
             </td>
@@ -99,16 +99,16 @@ function renderSalaryPayoutsTable() {
         const personRole = p.type === 'teacher' ? 'Teacher' : (person?.role || 'Staff');
 
         return `<tr>
-            <td style="font-weight:700;">${p.month}</td>
-            <td>${p.date}</td>
+            <td style="font-weight:700;">${escapeHtml(p.month)}</td>
+            <td>${escapeHtml(p.date)}</td>
             <td>
-                <div style="font-weight:700;">${personName}</div>
-                <div style="font-size:11.5px; color:var(--text-muted);">${personRole}</div>
+                <div style="font-weight:700;">${escapeHtml(personName)}</div>
+                <div style="font-size:11.5px; color:var(--text-muted);">${escapeHtml(personRole)}</div>
             </td>
             <td style="font-weight:700; color:var(--primary);">₹${p.amount.toLocaleString()}</td>
-            <td><span class="badge badge-info">${p.mode}</span></td>
+            <td><span class="badge badge-info">${escapeHtml(p.mode)}</span></td>
             <td>
-                <button class="btn btn-sm btn-outline" onclick="showSalarySlip('${p.id}')">
+                <button class="btn btn-sm btn-outline" onclick="showSalarySlip('${escapeHtml(p.id)}')">
                     Slip
                 </button>
             </td>
@@ -267,16 +267,16 @@ function showReceiptForPayment(paymentId) {
             <div class="receipt-header">
                 <div style="font-size:22px; font-weight:800; color:var(--primary);">elite<span>.</span>classes</div>
                 <div style="font-size:12px; color:var(--text-muted); font-weight:700;">OFFICIAL FEE RECEIPT</div>
-                <div style="font-size:11px; color:var(--text-light); margin-top:2px;">Receipt No: #${p.id}</div>
+                <div style="font-size:11px; color:var(--text-light); margin-top:2px;">Receipt No: #${escapeHtml(p.id)}</div>
             </div>
-            <div class="receipt-row"><span>Student Name:</span><span style="font-weight:700;">${s.name}</span></div>
-            <div class="receipt-row"><span>Class:</span><span>${s.cls}</span></div>
-            <div class="receipt-row"><span>Parent / Guardian:</span><span>${s.parent}</span></div>
-            <div class="receipt-row"><span>Phone Contact:</span><span>${s.phone}</span></div>
-            <div class="receipt-row"><span>Fee Month:</span><span style="font-weight:700;">${p.month}</span></div>
-            <div class="receipt-row"><span>Payment Date:</span><span>${p.date}</span></div>
-            <div class="receipt-row"><span>Payment Mode:</span><span class="badge badge-purple">${p.mode}</span></div>
-            ${p.remarks ? `<div class="receipt-row"><span>Remarks:</span><span>${p.remarks}</span></div>` : ''}
+            <div class="receipt-row"><span>Student Name:</span><span style="font-weight:700;">${escapeHtml(s.name)}</span></div>
+            <div class="receipt-row"><span>Class:</span><span>${escapeHtml(s.cls)}</span></div>
+            <div class="receipt-row"><span>Parent / Guardian:</span><span>${escapeHtml(s.parent)}</span></div>
+            <div class="receipt-row"><span>Phone Contact:</span><span>${escapeHtml(s.phone)}</span></div>
+            <div class="receipt-row"><span>Fee Month:</span><span style="font-weight:700;">${escapeHtml(p.month)}</span></div>
+            <div class="receipt-row"><span>Payment Date:</span><span>${escapeHtml(p.date)}</span></div>
+            <div class="receipt-row"><span>Payment Mode:</span><span class="badge badge-purple">${escapeHtml(p.mode)}</span></div>
+            ${p.remarks ? `<div class="receipt-row"><span>Remarks:</span><span>${escapeHtml(p.remarks)}</span></div>` : ''}
             <div class="receipt-row receipt-total"><span>Amount Paid:</span><span style="color:var(--success);">₹${p.amount.toLocaleString()}</span></div>
             <div style="text-align:center; margin-top:16px; font-size:11px; color:var(--text-muted);">
                 Generated on ${new Date().toLocaleDateString('en-IN')} • Elite Classes Management Portal
@@ -303,13 +303,13 @@ function showSalarySlip(payoutId) {
             <div class="receipt-header">
                 <div style="font-size:22px; font-weight:800; color:var(--primary);">elite<span>.</span>classes</div>
                 <div style="font-size:12px; color:var(--text-muted); font-weight:700;">SALARY DISBURSEMENT SLIP</div>
-                <div style="font-size:11px; color:var(--text-light); margin-top:2px;">Voucher No: #${p.id}</div>
+                <div style="font-size:11px; color:var(--text-light); margin-top:2px;">Voucher No: #${escapeHtml(p.id)}</div>
             </div>
-            <div class="receipt-row"><span>Employee Name:</span><span style="font-weight:700;">${personName}</span></div>
-            <div class="receipt-row"><span>Designation:</span><span>${personRole}</span></div>
-            <div class="receipt-row"><span>Salary Month:</span><span style="font-weight:700;">${p.month}</span></div>
-            <div class="receipt-row"><span>Disbursement Date:</span><span>${p.date}</span></div>
-            <div class="receipt-row"><span>Payment Mode:</span><span class="badge badge-info">${p.mode}</span></div>
+            <div class="receipt-row"><span>Employee Name:</span><span style="font-weight:700;">${escapeHtml(personName)}</span></div>
+            <div class="receipt-row"><span>Designation:</span><span>${escapeHtml(personRole)}</span></div>
+            <div class="receipt-row"><span>Salary Month:</span><span style="font-weight:700;">${escapeHtml(p.month)}</span></div>
+            <div class="receipt-row"><span>Disbursement Date:</span><span>${escapeHtml(p.date)}</span></div>
+            <div class="receipt-row"><span>Payment Mode:</span><span class="badge badge-info">${escapeHtml(p.mode)}</span></div>
             <div class="receipt-row receipt-total"><span>Net Disbursed:</span><span style="color:var(--primary);">₹${p.amount.toLocaleString()}</span></div>
         </div>
     `;

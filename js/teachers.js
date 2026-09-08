@@ -30,15 +30,15 @@ function renderTeachersTable() {
         return `<tr>
             <td>
                 <div style="display:flex; align-items:center; gap:12px;">
-                    <div class="avatar" style="background:${t.color || '#2563eb'}">${initials}</div>
+                    <div class="avatar" style="background:${escapeHtml(t.color || '#2563eb')}">${escapeHtml(initials)}</div>
                     <div>
-                        <div style="font-weight:700; color:var(--text);">${t.name}</div>
-                        <div style="font-size:11.5px; color:var(--text-muted);">${t.phone}</div>
+                        <div style="font-weight:700; color:var(--text);">${escapeHtml(t.name)}</div>
+                        <div style="font-size:11.5px; color:var(--text-muted);">${escapeHtml(t.phone)}</div>
                     </div>
                 </div>
             </td>
-            <td><span class="badge badge-purple">${t.subjects || 'General'}</span></td>
-            <td><span class="badge badge-info">${t.classes || 'All'}</span></td>
+            <td><span class="badge badge-purple">${escapeHtml(t.subjects || 'General')}</span></td>
+            <td><span class="badge badge-info">${escapeHtml(t.classes || 'All')}</span></td>
             <td>
                 <div style="font-weight:700; color:var(--text);">₹${totalSalary.toLocaleString()} / mo</div>
                 ${incentive > 0 ? `<div style="font-size:10.5px; color:var(--success); font-weight:600;">(Base ₹${t.salary.toLocaleString()} + ₹${incentive.toLocaleString()} Incentive)</div>` : ''}
@@ -46,13 +46,13 @@ function renderTeachersTable() {
             <td>${salaryBadge}</td>
             <td>
                 <div class="action-group">
-                    <button class="btn btn-sm btn-success" onclick="openSalaryPayoutModal('${t.id}', 'teacher')">
+                    <button class="btn btn-sm btn-success" onclick="openSalaryPayoutModal('${escapeHtml(t.id)}', 'teacher')">
                         Pay Salary
                     </button>
-                    <button class="icon-btn" onclick="editTeacher('${t.id}')" title="Edit Teacher">
+                    <button class="icon-btn" onclick="editTeacher('${escapeHtml(t.id)}')" title="Edit Teacher">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke-width="2"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke-width="2"/></svg>
                     </button>
-                    <button class="icon-btn danger" onclick="deleteTeacher('${t.id}')" title="Delete">
+                    <button class="icon-btn danger" onclick="deleteTeacher('${escapeHtml(t.id)}')" title="Delete">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6" stroke-width="2"/><path d="M19 6l-1 14H6L5 6" stroke-width="2"/><path d="M10 11v6M14 11v6" stroke-width="2"/><path d="M9 6V4h6v2" stroke-width="2"/></svg>
                     </button>
                 </div>

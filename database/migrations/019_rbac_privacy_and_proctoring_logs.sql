@@ -39,6 +39,21 @@ CREATE POLICY "Allow admin to view incident reports" ON security_leak_incidents
     FOR SELECT
     USING (true);
 
--- 4. Ensure Salary Payouts Table has Staff ID Index for High-Performance Scoping
-CREATE INDEX IF NOT EXISTS idx_salary_payouts_staff_id ON salary_payouts(staff_id);
-CREATE INDEX IF NOT EXISTS idx_salary_payouts_date ON salary_payouts(payout_date DESC);
+-- 4. Ensure Salary Payouts Table has Recipient & Date Indexes for High-Performance Scoping
+CREATE INDEX IF NOT EXISTS idx_salary_payouts_recipient ON salary_payouts(recipient_id);
+
+DO $$
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM information_schema.columns 
+        WHERE table_name = 'salary_payouts' AND column_name = 'payout_date'
+    ) THEN
+        CREATE INDEX IF NOT EXISTS idx_salary_payouts_date ON salary_payouts(payout_date DESC);
+    ELSIF EXISTS (
+        SELECT 1 FROM information_schema.columns 
+        WHERE table_name = 'salary_payouts' AND column_name = 'date'
+    ) THEN
+        CREATE INDEX IF NOT EXISTS idx_salary_payouts_date ON salary_payouts(date DESC);
+    END IF;
+END $$;
+

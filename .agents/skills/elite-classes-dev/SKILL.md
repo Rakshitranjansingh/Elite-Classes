@@ -48,17 +48,14 @@ Use this skill whenever you are building features, modifying UI views, refactori
 ### Data Access Layer (`DBService`)
 - Never execute direct Supabase queries in HTML/views. Route all calls through `DBService` in `supabase/api.js`.
 - Always provide fallback defaults if offline or if Supabase query fails.
+- **Wire-Level Column Scoping**: Non-admin read queries must strictly omit sensitive columns (PINs, full salaries, fee ledgers) from payloads.
+- **Non-Destructive Offline Sync Queue**: Write mutations made while offline must be recorded in `ec_offline_mutation_queue` via `DBService.enqueueOfflineMutation(action, payload)` and auto-drained idempotently via `DBService.processOfflineMutationQueue()` upon network reconnection.
 
-### Database Migrations
-- All SQL scripts MUST be idempotent (`IF NOT EXISTS`, `ON CONFLICT DO UPDATE/NOTHING`, `ALTER TABLE ... ADD COLUMN IF NOT EXISTS`).
-- Whenever a feature requires database changes:
-  1. Add a sequentially numbered file in `database/migrations/` (e.g. `006_feature_name.sql`).
-  2. Update `supabase/schema.sql`.
-  3. Update `database/releases/release_vX.X.X.sql`.
-  4. Update `DBService` in `supabase/api.js`.
+### Authentication & Authorization
+- **Stored Procedure Gate**: Multi-portal authentication is executed via the `authenticate_portal_user(p_phone, p_pin)` PostgreSQL RPC function (Migration 020), preventing unauthorized exposure of PIN columns over client-side REST filters.
 
-### Profile Tables
-- `students`, `staff`, and `admins` must maintain `phone`, `pin`, and `email` columns for multi-method authentication (WhatsApp PIN + future Google SSO).
+### UI Rendering & XSS Defensive Standards
+- **Template Sanitization**: All user-controlled and persisted attributes rendered inside innerHTML or template literals must be filtered through `escapeHtml(str)` (available globally via `window.escapeHtml`). Never interpolate raw strings directly into table rows or modal summaries.
 
 ### Chapter-Wise Test Series Standards
 - **Source Material**: Read NCERT chapter PDFs in `modules/testseries/data/class10/science/ncert/` (`jesc101.pdf`, `jesc102.pdf`, ..., `jesc113.pdf`).

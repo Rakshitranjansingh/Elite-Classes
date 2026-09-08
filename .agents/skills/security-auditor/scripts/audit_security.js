@@ -42,6 +42,8 @@ if (fs.existsSync(cbtPath)) {
     assertCheck('3-Strike Tab Proctor & Window Blur Monitor Active', cbtContent.includes('triggerProctorStrike') && cbtContent.includes('visibilitychange'));
     assertCheck('DevTools Geometry Check Active', cbtContent.includes('outerWidth - window.innerWidth'));
     assertCheck('Memory Answer Key Stripping in randomizeTest()', cbtContent.includes('_hiddenAnswerKey') && (cbtContent.includes('delete safeQ.correct_option') || cbtContent.includes('delete q.correct_option')));
+    assertCheck('Private Closure Answer Vault Active', cbtContent.includes('_secretAnswerVault'));
+    assertCheck('Positional Options Guard (All/Both) Active', cbtContent.includes('hasPositionalOption'));
     assertCheck('Canary QR Forensic Honeypot Seal Active', cbtContent.includes('generateCanaryQRSvg') && cbtContent.includes('cbt-canary-seal'));
     assertCheck('Proctor Security Cloud Logging Hook', cbtContent.includes('logSecurityIncident'));
 } else {

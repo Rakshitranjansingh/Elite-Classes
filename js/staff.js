@@ -30,14 +30,14 @@ function renderStaffTable() {
         return `<tr>
             <td>
                 <div style="display:flex; align-items:center; gap:12px;">
-                    <div class="avatar" style="background:${s.color || '#06b6d4'}">${initials}</div>
+                    <div class="avatar" style="background:${escapeHtml(s.color || '#06b6d4')}">${escapeHtml(initials)}</div>
                     <div>
-                        <div style="font-weight:700; color:var(--text);">${s.name}</div>
-                        <div style="font-size:11.5px; color:var(--text-muted);">${s.phone}</div>
+                        <div style="font-weight:700; color:var(--text);">${escapeHtml(s.name)}</div>
+                        <div style="font-size:11.5px; color:var(--text-muted);">${escapeHtml(s.phone)}</div>
                     </div>
                 </div>
             </td>
-            <td><span class="badge badge-purple">${s.role}</span></td>
+            <td><span class="badge badge-purple">${escapeHtml(s.role)}</span></td>
             <td>
                 <div style="font-weight:700; color:var(--text);">₹${totalSalary.toLocaleString()} / mo</div>
                 ${incentive > 0 ? `<div style="font-size:10.5px; color:var(--success); font-weight:600;">(Base ₹${s.salary.toLocaleString()} + ₹${incentive.toLocaleString()} Incentive)</div>` : ''}
@@ -45,13 +45,13 @@ function renderStaffTable() {
             <td>${salaryBadge}</td>
             <td>
                 <div class="action-group">
-                    <button class="btn btn-sm btn-success" onclick="openSalaryPayoutModal('${s.id}', 'staff')">
+                    <button class="btn btn-sm btn-success" onclick="openSalaryPayoutModal('${escapeHtml(s.id)}', 'staff')">
                         Pay Salary
                     </button>
-                    <button class="icon-btn" onclick="editStaff('${s.id}')" title="Edit Staff">
+                    <button class="icon-btn" onclick="editStaff('${escapeHtml(s.id)}')" title="Edit Staff">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke-width="2"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke-width="2"/></svg>
                     </button>
-                    <button class="icon-btn danger" onclick="deleteStaff('${s.id}')" title="Delete">
+                    <button class="icon-btn danger" onclick="deleteStaff('${escapeHtml(s.id)}')" title="Delete">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6" stroke-width="2"/><path d="M19 6l-1 14H6L5 6" stroke-width="2"/><path d="M10 11v6M14 11v6" stroke-width="2"/><path d="M9 6V4h6v2" stroke-width="2"/></svg>
                     </button>
                 </div>

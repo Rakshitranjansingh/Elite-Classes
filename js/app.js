@@ -10,6 +10,20 @@ let salaryPayouts = JSON.parse(localStorage.getItem('ec_salary_payouts') || '[]'
 
 const AVATAR_COLORS = ['#2563eb', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444', '#06b6d4', '#ea580c', '#ec4899'];
 
+// Central XSS Defensive Sanitizer
+function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+if (typeof window !== 'undefined') {
+    window.escapeHtml = escapeHtml;
+}
+
 function saveState() {
     localStorage.setItem('ec_students', JSON.stringify(students));
     localStorage.setItem('ec_teachers', JSON.stringify(teachers));
@@ -345,6 +359,11 @@ async function syncDataFromSupabase() {
     if (typeof isSupabaseConnected !== 'function' || !isSupabaseConnected()) return;
 
     try {
+        // Non-destructive synchronization: Replay pending offline mutations first
+        if (typeof DBService !== 'undefined' && typeof DBService.processOfflineMutationQueue === 'function') {
+            await DBService.processOfflineMutationQueue();
+        }
+
         students = await DBService.fetchStudents();
         teachers = await DBService.fetchTeachers();
         staff = await DBService.fetchStaff();
@@ -383,3 +402,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 });
+
+// Register PWA Service Worker for Instant Offline Boot
+if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').then((reg) => {
+            console.log('[PWA] Service Worker registered successfully:', reg.scope);
+        }).catch((err) => {
+            console.warn('[PWA] Service Worker registration skipped:', err);
+        });
+    });
+}
+

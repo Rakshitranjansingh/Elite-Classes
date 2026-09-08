@@ -1,0 +1,1383 @@
+[
+  {
+    "id": "m11",
+    "moduleNumber": 11,
+    "title": "Fertilisation in Flowering Plants: Pollen Tube Chemotropism & Syngamy",
+    "tagline": "Pollen tube germination on the stigma, chemotropic journey through style, and fusion of male and female gametes.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Pollen Grain Germination on the Stigma</h4>\n    <p>When compatible pollen grains land on the receptive, sticky stigma of the carpel, they absorb moisture and sugary secretions secreted by the stigmatic papillae. This initiates germination: the pollen grain produces a microscopic projection called a <strong>pollen tube</strong> that emerges through one of its germ pores.</p>\n    \n    <h4>2. Chemotropism Through the Style</h4>\n    <p>The pollen tube grows downwards through the tissue of the style towards the ovary. This directional growth is guided by chemical signals secreted by the female tissues (a classic example of <strong>chemotropism</strong>). The pollen tube carries two non-motile male gametes within its cytoplasm as it elongates.</p>\n\n    <h4>3. Entry into Ovule & Syngamy (Fertilisation)</h4>\n    <p>Upon reaching the ovary, the pollen tube enters the ovule through a tiny aperture called the <strong>micropyle</strong> and penetrates the embryo sac. The tip of the pollen tube bursts open, discharging the two male gametes:</p>\n    <ul>\n      <li><strong>Syngamy (True Fertilisation):</strong> One male gamete (haploid, $n$) fuses with the female egg cell (haploid, $n$) to form a diploid ($2n$) cell called the <strong>zygote</strong>. This single-celled zygote represents the starting point of the next sporophytic generation.</li>\n      <li><strong>Triple Fusion:</strong> The second male gamete ($n$) moves to the centre and fuses with the two haploid polar nuclei ($n + n$) to form a triploid ($3n$) primary endosperm nucleus (PEN), which subsequently develops into nutrient-rich <strong>endosperm</strong> tissue to nourish the growing embryo.</li>\n    </ul>\n\n    <h4>4. Double Fertilisation</h4>\n    <p>Because two distinct fusions take place within the embryo sac of flowering plants—syngamy ($n + n \\rightarrow 2n$) and triple fusion ($n + n + n \\rightarrow 3n$)—this unique phenomenon is termed <strong>double fertilisation</strong>. It is an evolutionary hallmark exclusive to angiosperms.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Pollen tube growth down the style towards the ovule is guided by chemical attractants (chemotropism).",
+      "Syngamy is the fusion of one haploid male gamete with the haploid egg cell to form a diploid zygote ($2n$).",
+      "Double fertilisation comprises syngamy and triple fusion, resulting in the diploid zygote and triploid nutritive endosperm."
+    ],
+    "keyNotes": [
+      "Double fertilisation ensures that nutritive endosperm tissue is produced only when successful fertilisation has occurred, conserving vital plant resources."
+    ],
+    "questions": [
+      {
+        "id": "m11_q01",
+        "question": "What is the primary function of the sticky surface of the mature stigma in flowering plants?",
+        "options": [
+          "To trap insects to digest them",
+          "To securely adhere incoming pollen grains and provide sugary stigmatic fluid that hydrates and stimulates pollen germination",
+          "To produce fragrance",
+          "To prevent sunlight from entering"
+        ],
+        "answer": "To securely adhere incoming pollen grains and provide sugary stigmatic fluid that hydrates and stimulates pollen germination",
+        "explanation": "The sticky stigmatic exudate physically anchors pollen grains and provides moisture, calcium, and sugars essential for pollen tube emergence."
+      },
+      {
+        "id": "m11_q02",
+        "question": "A diploid flowering plant has 2n = 24 chromosomes in its somatic vegetative leaf cells. How many chromosomes are present in its: (1) Pollen grain vegetative cell, (2) Zygote, (3) Primary endosperm nucleus (PEN), and (4) Seed coat cell?",
+        "options": [
+          "(1) 24, (2) 24, (3) 24, (4) 24",
+          "(1) 12 (n), (2) 24 (2n), (3) 36 (3n), (4) 24 (2n)",
+          "(1) 12, (2) 12, (3) 24, (4) 12",
+          "(1) 6, (2) 12, (3) 18, (4) 24"
+        ],
+        "answer": "(1) 12 (n), (2) 24 (2n), (3) 36 (3n), (4) 24 (2n)",
+        "explanation": "Given 2n = 24 (n = 12): Pollen cell is haploid (n = 12); Zygote is diploid (2n = 24); Primary endosperm nucleus formed by triple fusion is triploid (3n = 36); Seed coat derived from maternal integument is diploid (2n = 24)."
+      },
+      {
+        "id": "m11_q03",
+        "question": "In an artificial pollination experiment on bisexual pea flowers (Pisum sativum), what two essential steps must a plant breeder perform to ensure controlled cross-fertilisation?",
+        "options": [
+          "Watering the leaves and heating the stem",
+          "Emasculation (removal of anthers from the female parent flower before dehiscence) followed by Bagging (covering the emasculated flower with a butter paper bag to prevent contamination by unwanted foreign pollen)",
+          "Cutting off all roots and petals",
+          "Freezing the flower in liquid nitrogen"
+        ],
+        "answer": "Emasculation (removal of anthers from the female parent flower before dehiscence) followed by Bagging (covering the emasculated flower with a butter paper bag to prevent contamination by unwanted foreign pollen)",
+        "explanation": "Emasculation eliminates self-pollination; bagging prevents accidental open pollination by airborne or insect-carried stray pollen grains."
+      },
+      {
+        "id": "m11_q04",
+        "question": "Why is water NOT required for pollination in the majority of flowering angiosperm land plants unlike lower bryophytes and pteridophytes?",
+        "options": [
+          "Flowering plants produce motile swimming sperms",
+          "Angiosperms produce non-motile pollen grains transferred by wind, insects, or animals, and non-motile male gametes are carried inside a pollen tube directly to the ovule (Siphonogamy)",
+          "Flowers are waterproof",
+          "Pollen grains dissolve in water"
+        ],
+        "answer": "Angiosperms produce non-motile pollen grains transferred by wind, insects, or animals, and non-motile male gametes are carried inside a pollen tube directly to the ovule (Siphonogamy)",
+        "explanation": "Angiosperms evolved siphonogamous pollen tube siphonage, freeing fertilization from reliance on external ambient water films."
+      },
+      {
+        "id": "m11_q05",
+        "question": "Which of the following parts of a flower persists and remains attached in the mature fruit of a tomato, brinjal, or strawberry?",
+        "options": [
+          "Persistent Petals",
+          "Persistent Calyx (Sepals)",
+          "Persistent Anther",
+          "Persistent Stigma"
+        ],
+        "answer": "Persistent Calyx (Sepals)",
+        "explanation": "In Solanaceae fruits (brinjal, tomato, chili) and strawberry, the green sepals (calyx) remain persistent and crown the base of the ripe fruit."
+      },
+      {
+        "id": "m11_q06",
+        "question": "What type of directional tropism guides the pollen tube towards the ovule inside the flower's carpel?",
+        "options": [
+          "Phototropism",
+          "Chemotropism",
+          "Geotropism",
+          "Hydrotropism"
+        ],
+        "answer": "Chemotropism",
+        "explanation": "Pollen tube growth down the style towards the ovary is a response to chemical secretions released by the ovule and stigma tissues, known as chemotropism."
+      },
+      {
+        "id": "m11_q07",
+        "question": "In flowering plants, the fusion of the second male gamete with the two central polar nuclei results in the formation of:",
+        "options": [
+          "Diploid zygote",
+          "Triploid endosperm nucleus",
+          "Haploid antipodal cell",
+          "Diploid seed coat"
+        ],
+        "answer": "Triploid endosperm nucleus",
+        "explanation": "Triple fusion involves the fusion of one haploid male gamete (n) with two polar nuclei (n + n), producing a triploid (3n) endosperm nucleus that nourishes the embryo."
+      },
+      {
+        "id": "m11_q08",
+        "question": "Through which microscopic opening in the ovule does the pollen tube typically enter the embryo sac?",
+        "options": [
+          "Stoma",
+          "Micropyle",
+          "Chalaza",
+          "Funicle"
+        ],
+        "answer": "Micropyle",
+        "explanation": "The micropyle is the small pore or aperture in the integuments of an ovule through which the pollen tube enters to discharge male gametes."
+      },
+      {
+        "id": "m11_q09",
+        "question": "What is the ploidy level of the functional zygote formed immediately after syngamy in angiosperms?",
+        "options": [
+          "Haploid (n)",
+          "Diploid (2n)",
+          "Triploid (3n)",
+          "Tetraploid (4n)"
+        ],
+        "answer": "Diploid (2n)",
+        "explanation": "Syngamy unites a haploid male gamete (n) with a haploid female egg (n), restoring the full somatic diploid chromosome number (2n)."
+      },
+      {
+        "id": "m11_q10",
+        "question": "Why is the reproductive process in angiosperms referred to as 'double fertilisation'?",
+        "options": [
+          "Two pollen grains fertilise two separate ovules simultaneously",
+          "Two separate fusions occur: syngamy (egg + sperm) and triple fusion (polar nuclei + sperm)",
+          "Fertilisation occurs twice in the same blooming season",
+          "Both petals and sepals fuse to form the seed coat"
+        ],
+        "answer": "Two separate fusions occur: syngamy (egg + sperm) and triple fusion (polar nuclei + sperm)",
+        "explanation": "Double fertilisation specifically designates the two distinct fusion events occurring inside the embryo sac: syngamy forming the diploid zygote and triple fusion forming the triploid endosperm."
+      }
+    ]
+  },
+  {
+    "id": "m12",
+    "moduleNumber": 12,
+    "title": "Post-Fertilisation Changes, Seed Architecture & Germination",
+    "tagline": "Transformation of floral organs: ovule to seed, ovary to fruit, and embryonic development.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Post-Fertilisation Transformation of Floral Organs</h4>\n    <p>Following successful double fertilisation, significant morphological and physiological transformations occur in the flower:</p>\n    <ul>\n      <li><strong>Zygote:</strong> Divides repeatedly by mitosis to develop into an <strong>embryo</strong> with future root and shoot systems.</li>\n      <li><strong>Ovule:</strong> Develops a tough, protective outer coat (testa) and gradually matures into a <strong>seed</strong>.</li>\n      <li><strong>Ovary:</strong> Swells, accumulates sugars and nutrients, and ripens to form the <strong>fruit</strong>.</li>\n      <li><strong>Sepals, Petals, Stamens, Style, and Stigma:</strong> Have fulfilled their functions; they generally wither, shrivel, and fall off (though in some fruits like brinjal and tomato, persistent sepals remain attached).</li>\n    </ul>\n\n    <h4>2. Seed Architecture & Embryo Anatomy</h4>\n    <p>A mature dicot seed (e.g., gram or pea) consists of three essential parts:</p>\n    <ul>\n      <li><strong>Seed Coat (Testa):</strong> Tough outer protective layer guarding against desiccation and mechanical injury.</li>\n      <li><strong>Cotyledons (Seed Leaves):</strong> Fleshy storage organs containing reserve food (proteins, starch, lipids) to sustain the seedling before true photosynthesis begins.</li>\n      <li><strong>Embryonal Axis:</strong> Comprises the <strong>radicle</strong> (the future root that grows geotropically downward) and the <strong>plumule</strong> (the future shoot that grows phototropically upward).</li>\n    </ul>\n\n    <h4>3. Seed Germination</h4>\n    <p>Seeds remain in a dormant, quiescent state of suspended metabolic animation until favourable conditions are provided:</p>\n    <ul>\n      <li><strong>Adequate Moisture (Water):</strong> Imbibed through the micropyle to hydrate dehydrated tissues and activate digestive hydrolytic enzymes (such as amylases).</li>\n      <li><strong>Oxygen:</strong> Essential for continuous aerobic respiration to synthesize cellular ATP needed for rapid cell division.</li>\n      <li><strong>Suitable Temperature:</strong> Provides optimal kinetic energy for embryonic metabolic enzymes.</li>\n    </ul>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Post-fertilisation: the ovule develops into the seed, while the ovary ripens into the fruit.",
+      "The embryo consists of the plumule (future shoot), radicle (future root), and cotyledons (food stores).",
+      "Germination requires water (imbibition and enzyme activation), oxygen (aerobic cellular respiration), and suitable temperature."
+    ],
+    "keyNotes": [
+      "The seed coat protects the dormant embryo, while cotyledons or endosperm provide energy reserves until newly sprouted green leaves can perform photosynthesis."
+    ],
+    "questions": [
+      {
+        "id": "m12_q01",
+        "question": "Which structure in a seed provides physical mechanical protection to the delicate embryo inside during environmental dormancy?",
+        "options": [
+          "Plumule",
+          "Seed coat (Testa)",
+          "Radicle",
+          "Cotyledon"
+        ],
+        "answer": "Seed coat (Testa)",
+        "explanation": "The hardened outer seed coat (testa derived from ovular integuments) protects the dormant embryo from mechanical trauma, desiccation, and pathogens."
+      },
+      {
+        "id": "m12_q02",
+        "question": "Which anatomical structure of a flower develops into the fruit after successful fertilisation?",
+        "options": [
+          "Ovule",
+          "Ovary",
+          "Stigma",
+          "Style"
+        ],
+        "answer": "Ovary",
+        "explanation": "After fertilisation, the floral ovary grows rapidly, ripens, and transforms into the fruit enclosing the seeds."
+      },
+      {
+        "id": "m12_q03",
+        "question": "The tough, resistant outer coat of a mature seed develops directly from which floral structure?",
+        "options": [
+          "Ovary wall",
+          "Integuments of the ovule",
+          "Petals",
+          "Anther wall"
+        ],
+        "answer": "Integuments of the ovule",
+        "explanation": "The integuments surrounding the ovule harden and dehydrate to form the protective seed coat (testa)."
+      },
+      {
+        "id": "m12_q04",
+        "question": "In a germinating seed, which embryonic part emerges first to establish the primary root system?",
+        "options": [
+          "Plumule",
+          "Radicle",
+          "Cotyledon",
+          "Hypocotyl"
+        ],
+        "answer": "Radicle",
+        "explanation": "The radicle emerges first through the micropyle, anchoring the seedling in soil and absorbing water and minerals."
+      },
+      {
+        "id": "m12_q05",
+        "question": "Which part of the embryo develops into the future shoot bearing the leaves and stem?",
+        "options": [
+          "Radicle",
+          "Plumule",
+          "Testa",
+          "Micropyle"
+        ],
+        "answer": "Plumule",
+        "explanation": "The plumule is the embryonic shoot tip that grows upward towards light to form the leafy shoot system."
+      },
+      {
+        "id": "m12_q06",
+        "question": "What is the primary physiological function of cotyledons in non-endospermic seeds such as gram and pea?",
+        "options": [
+          "To absorb carbon dioxide from atmospheric air",
+          "To store reserve food materials to nourish the germinating embryo",
+          "To protect the flower from herbivorous insects",
+          "To attract insect pollinators by emitting sweet nectar"
+        ],
+        "answer": "To store reserve food materials to nourish the germinating embryo",
+        "explanation": "In dicots like gram, bean, and pea, cotyledons store starch, proteins, and fats that are hydrolysed to fuel embryonic growth until photosynthesis commences."
+      },
+      {
+        "id": "m12_q07",
+        "question": "What happens to the petals, sepals, and stamens in the majority of flowering plants after fertilisation?",
+        "options": [
+          "They turn green and become cotyledons",
+          "They wither, shrivel, and fall off",
+          "They fuse together to create the embryo",
+          "They enlarge to form the seed coat"
+        ],
+        "answer": "They wither, shrivel, and fall off",
+        "explanation": "Once pollination and fertilisation are complete, non-essential accessory organs (petals, sepals, stamens) wither and drop off."
+      },
+      {
+        "id": "m12_q08",
+        "question": "Why is water essential for initiating seed germination?",
+        "options": [
+          "It cools down the seed to induce dormancy",
+          "It softens the seed coat and hydrates enzymes to mobilise stored nutrients",
+          "It directly provides glucose for the embryo",
+          "It triggers chlorophyll breakdown in the radicle"
+        ],
+        "answer": "It softens the seed coat and hydrates enzymes to mobilise stored nutrients",
+        "explanation": "Imbibition of water softens the impermeable seed coat, swells embryonic cells, and activates metabolic enzymes like amylase and proteases."
+      },
+      {
+        "id": "m12_q09",
+        "question": "Why do dry seeds fail to germinate if placed in water in an airtight container completely devoid of oxygen?",
+        "options": [
+          "Water cannot enter without oxygen pressure",
+          "Aerobic cellular respiration cannot occur to generate ATP for cellular growth",
+          "Cotyledons decompose instantly in water",
+          "The plumule requires oxygen to produce pollen grains"
+        ],
+        "answer": "Aerobic cellular respiration cannot occur to generate ATP for cellular growth",
+        "explanation": "Germination involves rapid cell division and synthesis, demanding substantial metabolic energy (ATP) generated via aerobic cellular respiration."
+      },
+      {
+        "id": "m12_q10",
+        "question": "In which of the following vegetables does the calyx (sepals) remain persistently attached to the ripe fruit?",
+        "options": [
+          "Mango",
+          "Brinjal (Eggplant)",
+          "Apple",
+          "Gram"
+        ],
+        "answer": "Brinjal (Eggplant)",
+        "explanation": "In members of the Solanaceae family such as brinjal (eggplant) and tomato, the green sepals (calyx) persist and remain attached to the fruit base."
+      }
+    ]
+  },
+  {
+    "id": "m13",
+    "moduleNumber": 13,
+    "title": "Human Reproduction: Adolescence, Puberty & Secondary Sexual Characteristics",
+    "tagline": "Somatic growth vs reproductive maturity, endocrine orchestration by testosterone and estrogen.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. General Growth vs Reproductive Maturity</h4>\n    <p>Human development progresses through childhood with steady somatic enlargement—bones lengthen, body mass increases, and milk teeth are replaced by permanent dentition. However, during the teenage years, general somatic growth slows down while a distinct phase of sexual and reproductive maturation begins, known as <strong>puberty</strong>.</p>\n\n    <h4>2. What is Puberty?</h4>\n    <p>Puberty is the developmental transition phase during which gonads (testes in males and ovaries in females) become functionally active, commence production of mature gametes (sperms and ova), and secrete sex hormones that trigger secondary sexual characteristics.</p>\n\n    <h4>3. Common Physical Changes in Both Sexes</h4>\n    <ul>\n      <li>Thick hair growth in new body regions: armpits (axillae) and pubic region between the thighs.</li>\n      <li>Finer hair development on limbs, legs, and face.</li>\n      <li>Increased activity of <strong>sebaceous (oil) glands</strong> and sweat glands in the skin, frequently resulting in adolescent acne and pimples.</li>\n      <li>Heightened self-awareness and emotional sensitivity.</li>\n    </ul>\n\n    <h4>4. Gender-Specific Secondary Sexual Characteristics</h4>\n    <ul>\n      <li><strong>In Boys (Driven by Testosterone):</strong> Enlargement of testes and penis; development of facial hair (moustache, beard); deepening of voice due to enlargement of the larynx (\"Adam's apple\"); broader shoulders and chest; occasional nighttime erections.</li>\n      <li><strong>In Girls (Driven by Estrogen & Progesterone):</strong> Enlargement and development of breast tissue with darkening of nipple areolas; widening of the pelvis and hips; deposition of subcutaneous fat; initiation of ovulation and the <strong>menstrual cycle</strong> (menarche).</li>\n    </ul>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Puberty is the period when reproductive organs mature and gamete production commences.",
+      "Testosterone governs male secondary sexual traits (deep voice, facial hair, muscular build).",
+      "Estrogen and progesterone govern female secondary traits (breast development, hip widening, menstrual cycle onset)."
+    ],
+    "keyNotes": [
+      "Secondary sexual characteristics serve as biological signals of reproductive maturity, driven by endocrine secretions from the pituitary gland and gonads."
+    ],
+    "questions": [
+      {
+        "id": "m13_q01",
+        "question": "Which of the following physical changes occurs in teenage boys at the onset of puberty?",
+        "options": [
+          "Enlargement of breasts",
+          "Growth of facial hair and cracking/deepening of the voice",
+          "Onset of menstruation",
+          "Shrinkage of testes"
+        ],
+        "answer": "Growth of facial hair and cracking/deepening of the voice",
+        "explanation": "Testosterone stimulates laryngeal enlargement (Adam's apple, voice cracking/deepening), facial/body hair growth, and testicular/penile development in boys."
+      },
+      {
+        "id": "m13_q02",
+        "question": "Which of the following physical changes is characteristic of puberty in adolescent girls?",
+        "options": [
+          "Cracking of voice",
+          "Enlargement of breasts, darkening of nipple skin, and onset of menstruation (Menarche)",
+          "Growth of thick beard",
+          "Broadening of shoulders only"
+        ],
+        "answer": "Enlargement of breasts, darkening of nipple skin, and onset of menstruation (Menarche)",
+        "explanation": "Estrogen surges induce breast thelarche, pelvic widening, and initiation of monthly uterine menstrual bleeding cycles (menarche)."
+      },
+      {
+        "id": "m13_q03",
+        "question": "Why do teenage adolescents frequently experience acne, oily skin, and pimples on their face during puberty?",
+        "options": [
+          "Due to lack of red blood cells",
+          "Surging pubertal androgenic hormones stimulate sebaceous (oil) glands in the facial skin to hypersecrete sebum, clogging pores with bacteria",
+          "Due to excess saliva",
+          "Due to drinking milk"
+        ],
+        "answer": "Surging pubertal androgenic hormones stimulate sebaceous (oil) glands in the facial skin to hypersecrete sebum, clogging pores with bacteria",
+        "explanation": "Pubertal androgens enlarge and stimulate sebaceous glands; hyperkeratinization and sebum accumulation support Cutibacterium acnes proliferation, causing acne."
+      },
+      {
+        "id": "m13_q04",
+        "question": "Which endocrine gland at the base of the brain orchestrates the onset of puberty by releasing gonadotropic hormones?",
+        "options": [
+          "Adrenal gland",
+          "Pituitary gland",
+          "Thyroid gland",
+          "Pancreas"
+        ],
+        "answer": "Pituitary gland",
+        "explanation": "The anterior pituitary gland secretes LH (Luteinizing Hormone) and FSH (Follicle Stimulating Hormone) that stimulate the gonads to produce sex hormones."
+      },
+      {
+        "id": "m13_q05",
+        "question": "What is the primary male sex hormone responsible for deepening of the voice and facial hair growth at puberty?",
+        "options": [
+          "Estrogen",
+          "Progesterone",
+          "Testosterone",
+          "Insulin"
+        ],
+        "answer": "Testosterone",
+        "explanation": "Testosterone, produced by the Leydig cells of the testes, drives male secondary sexual characteristics."
+      },
+      {
+        "id": "m13_q06",
+        "question": "The onset of the first menstrual cycle in adolescent human females is scientifically termed:",
+        "options": [
+          "Menopause",
+          "Menarche",
+          "Gestation",
+          "Parturition"
+        ],
+        "answer": "Menarche",
+        "explanation": "Menarche marks the initiation of the first menstrual cycle during female puberty, typically occurring between ages 11 and 14."
+      },
+      {
+        "id": "m13_q07",
+        "question": "Why does a boy's voice deepen and become cracked or hoarse during early puberty?",
+        "options": [
+          "Infection of the trachea",
+          "Enlargement and protrusion of the larynx (Adam's apple) and lengthening of vocal cords",
+          "Shrinkage of the pharynx",
+          "Accumulation of mucous in bronchial tubes"
+        ],
+        "answer": "Enlargement and protrusion of the larynx (Adam's apple) and lengthening of vocal cords",
+        "explanation": "Under testosterone influence, the cartilaginous larynx grows prominently (Adam's apple) and vocal cords thicken and lengthen, lowering the pitch."
+      },
+      {
+        "id": "m13_q08",
+        "question": "Which ovarian hormone is primarily responsible for the development of secondary sexual traits such as breast enlargement in adolescent girls?",
+        "options": [
+          "Testosterone",
+          "Estrogen",
+          "Adrenaline",
+          "Thyroxine"
+        ],
+        "answer": "Estrogen",
+        "explanation": "Estrogen produced by developing ovarian follicles promotes female secondary sexual traits, including breast development and fat deposition."
+      },
+      {
+        "id": "m13_q09",
+        "question": "Why do adolescents frequently develop facial pimples and acne during puberty?",
+        "options": [
+          "Deficiency of red blood cells",
+          "Hyperactivity and increased secretion of sebaceous (oil) and sweat glands in the skin",
+          "Excessive calcium deposition in facial bones",
+          "Dehydration of epidermal keratinocytes"
+        ],
+        "answer": "Hyperactivity and increased secretion of sebaceous (oil) and sweat glands in the skin",
+        "explanation": "Surging sex hormones during puberty stimulate sebaceous glands, causing increased sebum production that clogs pores and fosters acne-causing bacteria."
+      },
+      {
+        "id": "m13_q10",
+        "question": "At puberty, somatic body growth slows down because:",
+        "options": [
+          "Cells lose the ability to divide mitotically",
+          "Body resources are redirected towards the maturation of reproductive tissues and organs",
+          "Food intake drops significantly during teenage years",
+          "The skeletal system stops responding to human growth hormone entirely"
+        ],
+        "answer": "Body resources are redirected towards the maturation of reproductive tissues and organs",
+        "explanation": "During puberty, energy and nutritional resources prioritize the maturation of primary reproductive structures and gamete-producing gonads."
+      }
+    ]
+  },
+  {
+    "id": "m14",
+    "moduleNumber": 14,
+    "title": "Male Reproductive System: Testes, Scrotum & Vas Deferens",
+    "tagline": "Spermatogenesis thermoregulation, testicular anatomy, and sperm transport pathways.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Anatomical Position of the Testes & The Scrotum</h4>\n    <p>The male gonads, a pair of oval <strong>testes</strong>, lie outside the primary abdominal cavity within a pouch of pigmented skin called the <strong>scrotum</strong>. This anatomical arrangement is crucial for thermoregulation:</p>\n    <ul>\n      <li>Human core body temperature is approximately $37^\\circ\\text{C}$ ($98.6^\\circ\\text{F}$), which is too high for viable sperm formation.</li>\n      <li>The scrotum maintains a localized temperature roughly <strong>$2\\text{ to }2.5^\\circ\\text{C}$ lower</strong> than abdominal core temperature, providing the optimal thermal environment required for <strong>spermatogenesis</strong>.</li>\n    </ul>\n\n    <h4>2. Dual Endocrine and Exocrine Functions of the Testes</h4>\n    <ul>\n      <li><strong>Exocrine Function:</strong> Continuous production of millions of microscopic male gametes (sperms) inside convoluted seminiferous tubules.</li>\n      <li><strong>Endocrine Function:</strong> Interstitial Leydig cells produce the steroid hormone <strong>testosterone</strong>, which regulates spermatogenesis and maintains male secondary sexual characteristics.</li>\n    </ul>\n\n    <h4>3. Sperm Duct (Vas Deferens) Pathway</h4>\n    <p>Mature sperms leave the coiled epididymis and travel upward through the <strong>vas deferens</strong> (sperm duct). The vas deferens loops over the urinary bladder, where it is joined by ducts from the seminal vesicles to form the ejaculatory duct, which merges into the urethra.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "The scrotum suspends testes outside the abdomen to maintain a temperature $2\text{ to }2.5^\\circ\text{C}$ below body temperature.",
+      "Testes perform two essential roles: sperm production (gametogenesis) and testosterone secretion (endocrine).",
+      "The vas deferens conveys sperms from the epididymis towards the urethra."
+    ],
+    "keyNotes": [
+      "If the testes fail to descend into the scrotum during foetal development (cryptorchidism), viable sperm production is halted due to higher abdominal temperatures, resulting in male sterility."
+    ],
+    "questions": [
+      {
+        "id": "m14_q01",
+        "question": "Where are human male testes anatomically located, and why are they situated outside the abdominal cavity in the scrotum?",
+        "options": [
+          "Inside the liver; for oxygen supply",
+          "In the scrotum outside abdominal cavity; because spermatogenesis requires a temperature 2 to 2.5°C lower than core internal body temperature",
+          "In the chest; to be near the heart",
+          "Inside the pelvis; to avoid moving"
+        ],
+        "answer": "In the scrotum outside abdominal cavity; because spermatogenesis requires a temperature 2 to 2.5°C lower than core internal body temperature",
+        "explanation": "The extra-abdominal scrotum maintains testicular temperature at ~34–35°C (2–2.5°C below core body 37°C), essential for viable sperm production."
+      },
+      {
+        "id": "m14_q02",
+        "question": "Which duct transports mature sperms from the testes to the urethra?",
+        "options": [
+          "Fallopian tube",
+          "Vas deferens (Sperm duct)",
+          "Ureter",
+          "Cervix"
+        ],
+        "answer": "Vas deferens (Sperm duct)",
+        "explanation": "The vas deferens carries spermatozoa from the epididymis up through the inguinal canal to join the urethra at the ejaculatory duct."
+      },
+      {
+        "id": "m14_q03",
+        "question": "In the human male reproductive system, what would happen if the vas deferens on BOTH sides are surgically ligated and excised (bilateral vasectomy)?",
+        "options": [
+          "Sperm production stops and testosterone drops to zero",
+          "Testes continue producing sperms and testosterone, but ejaculated semen contains no spermatozoa (azoospermic semen), preventing fertilisation",
+          "The patient cannot urinate",
+          "Secondary sexual traits disappear"
+        ],
+        "answer": "Testes continue producing sperms and testosterone, but ejaculated semen contains no spermatozoa (azoospermic semen), preventing fertilisation",
+        "explanation": "Spermatogenesis and testosterone secretion continue normally; un-ejaculated spermatozoa are phagocytosed in the epididymis. Semen volume from prostate/vesicles is maintained without sperms."
+      },
+      {
+        "id": "m14_q04",
+        "question": "What is the primary biological reason that human sperms must be produced in millions per ejaculate even though only ONE sperm fertilises the egg?",
+        "options": [
+          "All sperms fertilize together",
+          "Millions of sperms are lost, neutralized by acidic vaginal pH, or trapped in cervical mucus during the long transit up the female tract, ensuring enough reach the ampulla to digest the ovum's outer layer",
+          "Sperms convert into blood",
+          "Sperms produce breast milk"
+        ],
+        "answer": "Millions of sperms are lost, neutralized by acidic vaginal pH, or trapped in cervical mucus during the long transit up the female tract, ensuring enough reach the ampulla to digest the ovum's outer layer",
+        "explanation": "High sperm counts compensate for vaginal acid mortality, phagocytosis, and long female tract transit; multiple acrosomes are needed to disperse corona radiata cells."
+      },
+      {
+        "id": "m14_q05",
+        "question": "In human spermatogenesis, how many functional haploid spermatozoa are produced from 100 primary spermatocytes, and how many functional mature ova are produced from 100 primary oocytes in human oogenesis?",
+        "options": [
+          "100 sperms and 100 ova",
+          "400 sperms (each primary spermatocyte yields 4 functional spermatozoa) and 100 ova (each primary oocyte yields 1 functional ovum + 3 non-functional polar bodies)",
+          "200 sperms and 200 ova",
+          "400 sperms and 400 ova"
+        ],
+        "answer": "400 sperms (each primary spermatocyte yields 4 functional spermatozoa) and 100 ova (each primary oocyte yields 1 functional ovum + 3 non-functional polar bodies)",
+        "explanation": "Male meiosis is symmetric: 1 primary spermatocyte $\\rightarrow$ 4 viable sperms (100 $\\rightarrow$ 400). Female meiosis is asymmetric: 1 primary oocyte $\\rightarrow$ 1 ovum + polar bodies (100 $\\rightarrow$ 100)."
+      },
+      {
+        "id": "m14_q06",
+        "question": "What is the optimal temperature difference maintained by the human scrotum compared to core body temperature?",
+        "options": [
+          "10°C higher",
+          "2 to 2.5°C lower",
+          "5°C higher",
+          "Exact same temperature"
+        ],
+        "answer": "2 to 2.5°C lower",
+        "explanation": "The scrotum maintains testicular temperature 2 to 2.5°C lower than normal body temperature (37°C), which is essential for viable spermatogenesis."
+      },
+      {
+        "id": "m14_q07",
+        "question": "Which specific cells in the interstitial spaces of the testes synthesize and secrete testosterone?",
+        "options": [
+          "Sertoli cells",
+          "Leydig (interstitial) cells",
+          "Acinar cells",
+          "Goblet cells"
+        ],
+        "answer": "Leydig (interstitial) cells",
+        "explanation": "Leydig cells located in the connective tissue spaces between seminiferous tubules synthesize testosterone under pituitary LH stimulation."
+      },
+      {
+        "id": "m14_q08",
+        "question": "What surgical procedure involves cutting and ligating the vas deferens to prevent sperm discharge during ejaculation?",
+        "options": [
+          "Tubectomy",
+          "Vasectomy",
+          "Oophorectomy",
+          "Hysterectomy"
+        ],
+        "answer": "Vasectomy",
+        "explanation": "A vasectomy is the surgical ligation of the vas deferens, permanently preventing sperm from entering the ejaculatory duct."
+      },
+      {
+        "id": "m14_q09",
+        "question": "Where are mature sperms temporarily stored and granted final physiological motility prior to ejaculation?",
+        "options": [
+          "Urinary bladder",
+          "Epididymis",
+          "Prostate gland",
+          "Kidney"
+        ],
+        "answer": "Epididymis",
+        "explanation": "The epididymis is the tightly coiled duct on the posterior surface of each testis where immature sperms mature, gain motility, and are stored."
+      },
+      {
+        "id": "m14_q10",
+        "question": "What would be the clinical consequence if both testes remained inside the pelvic cavity and failed to descend into the scrotum?",
+        "options": [
+          "Normal fertility but absence of testosterone",
+          "Sterility due to impaired spermatogenesis caused by elevated temperature",
+          "Overproduction of hyperactive sperms",
+          "Development of ovaries instead of testes"
+        ],
+        "answer": "Sterility due to impaired spermatogenesis caused by elevated temperature",
+        "explanation": "Elevated abdominal temperature impairs sperm production, leading to sterility, even though testosterone secretion may remain largely intact."
+      }
+    ]
+  },
+  {
+    "id": "m15",
+    "moduleNumber": 15,
+    "title": "Accessory Sex Glands, Semen Composition & The Common Urethra",
+    "tagline": "Seminal vesicles, prostate gland, alkaline fluid protection, and the dual-purpose male urethra.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. The Male Accessory Glands</h4>\n    <p>Along the path of the vas deferens, secretions from two major accessory glands are discharged into the reproductive tract:</p>\n    <ul>\n      <li><strong>Seminal Vesicles (Paired):</strong> Secrete a thick, yellowish, alkaline fluid rich in <strong>fructose</strong> (which serves as an energy substrate for sperm flagellar motion), ascorbic acid, and prostaglandins.</li>\n      <li><strong>Prostate Gland (Single, Chestnut-shaped):</strong> Encircles the neck of the bladder and urethra. It contributes a milky, slightly alkaline fluid containing citrate, calcium, and proteolytic enzymes that neutralize acidity.</li>\n    </ul>\n\n    <h4>2. Composition & Biological Significance of Semen</h4>\n    <p><strong>Semen</strong> is a viscous fluid mixture consisting of sperm cells (~10% volume) suspended in glandular seminal plasma (~90% volume). This fluid serves three indispensable functions:</p>\n    <ol>\n      <li><strong>Fluid Transport Medium:</strong> Provides a liquid vehicle allowing sperms to swim towards the female oviduct.</li>\n      <li><strong>Nutrition:</strong> Fructose from the seminal vesicles supplies carbohydrate fuel for continuous mitochondrial ATP generation in the sperm middle piece.</li>\n      <li><strong>Acid Neutralization:</strong> The alkaline pH of seminal plasma protects fragile sperms by buffering the acidic environment of both the male urethra and the female vagina.</li>\n    </ol>\n\n    <h4>3. Dual-Function Urethra & The Penis</h4>\n    <p>In human males, the <strong>urethra</strong> forms a single common conduit originating from the urinary bladder, traversing the prostate and the erectile shaft of the penis. It performs two distinct exocrine roles at different times: the excretion of urine and the expulsion of semen (ejaculation). Sphincter muscles at the bladder base prevent urine passage during ejaculation.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Accessory glands (prostate and seminal vesicles) contribute seminal plasma to form semen.",
+      "Seminal fluid provides fructose for energy, a fluid medium for motility, and alkaline buffers against acid.",
+      "The male urethra serves as a shared conduit for both urine and semen, though never simultaneously."
+    ],
+    "keyNotes": [
+      "Sperm motility is heavily dependent on ATP produced by mitochondria tightly wrapped around the sperm flagellum's middle piece, fueled by fructose in seminal fluid."
+    ],
+    "questions": [
+      {
+        "id": "m15_q01",
+        "question": "In the human male anatomy, which tube serves as a common passageway for BOTH urine and seminal fluid (sperms)?",
+        "options": [
+          "Ureter",
+          "Urethra",
+          "Vas deferens",
+          "Oviduct"
+        ],
+        "answer": "Urethra",
+        "explanation": "In human males, the urethra passes through the prostate and corpus spongiosum of the penis, conveying both urine and semen (urinogenital tract)."
+      },
+      {
+        "id": "m15_q02",
+        "question": "What is the functional role of secretions from the prostate gland and seminal vesicles in the male reproductive tract?",
+        "options": [
+          "They destroy sperms",
+          "They provide an alkaline fluid medium containing fructose and enzymes that nourishes sperms and facilitates fluid transport",
+          "They produce red blood cells",
+          "They convert urine into water"
+        ],
+        "answer": "They provide an alkaline fluid medium containing fructose and enzymes that nourishes sperms and facilitates fluid transport",
+        "explanation": "Seminal fluid neutralises acidic urethral/vaginal environments, provides fructose for sperm ATP generation, and constitutes the bulk of seminal volume."
+      },
+      {
+        "id": "m15_q03",
+        "question": "What is the primary anatomical feature of a human sperm cell that provides motility to swim towards the female ovum?",
+        "options": [
+          "A heavy nucleus",
+          "A long flagellar tail powered by mitochondrial ATP",
+          "A protective thick shell",
+          "Cilia covering the entire head"
+        ],
+        "answer": "A long flagellar tail powered by mitochondrial ATP",
+        "explanation": "A sperm cell consists of an acrosome-capped haploid head, a midpiece packed with spiraled mitochondria, and a long microtubular flagellar tail for swimming."
+      },
+      {
+        "id": "m15_q04",
+        "question": "Which specific sugar present in seminal vesicle fluid serves as the direct metabolic fuel for sperm motility?",
+        "options": [
+          "Glucose",
+          "Fructose",
+          "Sucrose",
+          "Lactose"
+        ],
+        "answer": "Fructose",
+        "explanation": "Seminal vesicles secrete fructose, which sperm mitochondria metabolize via cellular respiration to generate ATP for flagellar propulsion."
+      },
+      {
+        "id": "m15_q05",
+        "question": "Why is the alkaline nature of prostatic and seminal secretions critical for sperm survival?",
+        "options": [
+          "It breaks down the sperm cell membrane",
+          "It neutralizes the lethal acidity of the female vagina and male urethra",
+          "It causes blood clotting inside the vas deferens",
+          "It converts sperms into somatic cells"
+        ],
+        "answer": "It neutralizes the lethal acidity of the female vagina and male urethra",
+        "explanation": "The vaginal environment is naturally acidic (pH ~4.0) to inhibit pathogens; alkaline seminal fluid neutralizes this acid to ensure sperm viability."
+      },
+      {
+        "id": "m15_q06",
+        "question": "In human males, which tube serves as a common passageway for discharging both urine and semen to the outside?",
+        "options": [
+          "Ureter",
+          "Vas deferens",
+          "Urethra",
+          "Epididymis"
+        ],
+        "answer": "Urethra",
+        "explanation": "The male urethra extends from the urinary bladder through the penis, functioning as a shared conduit for both urination and ejaculation."
+      },
+      {
+        "id": "m15_q07",
+        "question": "Which portion of a mature human sperm cell contains a dense spiral of mitochondria producing motility energy?",
+        "options": [
+          "Head",
+          "Acrosome",
+          "Middle piece",
+          "Tail end"
+        ],
+        "answer": "Middle piece",
+        "explanation": "The middle piece contains numerous mitochondria arranged spirally around the axial filament, generating ATP for the whiplike lashing of the tail."
+      },
+      {
+        "id": "m15_q08",
+        "question": "What is the specialized enzyme-filled cap at the anterior tip of the human sperm head called?",
+        "options": [
+          "Centrosome",
+          "Acrosome",
+          "Nucleolus",
+          "Basal body"
+        ],
+        "answer": "Acrosome",
+        "explanation": "The acrosome is a lysosome-derived cap containing hydrolytic enzymes (hyaluronidase) that dissolve the protective coats of the ovum during fertilization."
+      },
+      {
+        "id": "m15_q09",
+        "question": "Which organ surrounds the base of the male urethra and can cause urinary difficulties in elderly men when enlarged?",
+        "options": [
+          "Seminal vesicle",
+          "Prostate gland",
+          "Bulbourethral gland",
+          "Testis"
+        ],
+        "answer": "Prostate gland",
+        "explanation": "The prostate gland encircles the upper part of the urethra; benign prostatic hyperplasia (BPH) constricts the urethra, causing urination difficulties."
+      },
+      {
+        "id": "m15_q10",
+        "question": "Semen consists of approximately what proportion of fluid secretions from accessory glands compared to sperm volume?",
+        "options": [
+          "1% accessory fluids, 99% sperms",
+          "50% accessory fluids, 50% sperms",
+          "90% accessory fluids, 10% sperms",
+          "0% fluids (it is entirely composed of dry cells)"
+        ],
+        "answer": "90% accessory fluids, 10% sperms",
+        "explanation": "Seminal plasma produced by the seminal vesicles and prostate makes up roughly 90% of total semen volume, providing nutrition and transport for sperms."
+      }
+    ]
+  },
+  {
+    "id": "m16",
+    "moduleNumber": 16,
+    "title": "Female Reproductive System: Ovaries, Fallopian Tubes & Uterus",
+    "tagline": "Ovarian foliculogenesis, ciliated oviducts, and the muscular architecture of the uterus.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. The Ovaries (Primary Female Gonads)</h4>\n    <p>A human female has a pair of almond-shaped <strong>ovaries</strong> situated in the lower abdominal pelvic cavity on either side of the uterus. The ovaries perform two fundamental functions:</p>\n    <ul>\n      <li><strong>Oogenesis:</strong> At birth, a female's ovaries already contain thousands of immature follicles. Starting at puberty, one mature egg (ovum) is released alternately every 28 days by one of the ovaries (a process called <strong>ovulation</strong>).</li>\n      <li><strong>Endocrine Function:</strong> Ovarian cells synthesize the female steroid sex hormones <strong>estrogen</strong> (promotes follicular growth and secondary sexual traits) and <strong>progesterone</strong> (prepares and maintains the uterine lining for pregnancy).</li>\n    </ul>\n\n    <h4>2. Fallopian Tubes (Oviducts)</h4>\n    <p>Each ovary is flanked by a muscular tube called the <strong>fallopian tube</strong> (or oviduct). The tube ends near the ovary in a funnel-shaped opening fringed with finger-like projections (fimbriae) that sweep up the ovulated egg.</p>\n    <p>The interior lumen of the oviduct is lined with <strong>ciliated epithelial cells</strong> whose rhythmic, coordinated beating propels the non-motile ovum towards the uterus. The ampulla-isthmus junction of the fallopian tube is the precise biological site where <strong>fertilisation</strong> normally occurs.</p>\n\n    <h4>3. The Uterus (Womb) & Birth Canal</h4>\n    <p>The two oviducts unite into an elastic, hollow, inverted pear-shaped muscular organ called the <strong>uterus</strong> (womb):</p>\n    <ul>\n      <li><strong>Endometrium:</strong> The inner glandular and vascular mucous membrane that thickens every month to receive and nourish an implanted embryo.</li>\n      <li><strong>Myometrium:</strong> A thick layer of smooth muscle capable of powerful rhythmic contractions during childbirth (parturition).</li>\n      <li><strong>Cervix & Vagina:</strong> The uterus opens through a narrow neck called the <strong>cervix</strong> into the muscular canal known as the <strong>vagina</strong>, which receives the penis during copulation and serves as the birth canal.</li>\n    </ul>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Ovaries release one mature ovum each month and secrete the hormones estrogen and progesterone.",
+      "Cilia lining the fallopian tubes move the ovum towards the uterus; fertilisation occurs within the oviduct.",
+      "The uterus is an elastic muscular chamber lined by the vascular endometrium, designed to support foetal growth."
+    ],
+    "keyNotes": [
+      "Unlike males who produce hundreds of millions of sperms continuously throughout life, females are born with a finite reservoir of primary oocytes, of which only about 400 will ever mature and ovulate."
+    ],
+    "questions": [
+      {
+        "id": "m16_q01",
+        "question": "Where are human female eggs (ova) produced and released monthly at puberty?",
+        "options": [
+          "Uterus",
+          "Ovaries",
+          "Vagina",
+          "Cervix"
+        ],
+        "answer": "Ovaries",
+        "explanation": "Ovaries house primordial follicles from birth; starting at puberty, one mature Graafian follicle ovulates one secondary oocyte roughly every 28 days."
+      },
+      {
+        "id": "m16_q02",
+        "question": "Which of the following structures in human female reproductive anatomy serves as BOTH the organ of copulation and the birth canal during parturition?",
+        "options": [
+          "Oviduct",
+          "Vagina",
+          "Ovary",
+          "Uterus"
+        ],
+        "answer": "Vagina",
+        "explanation": "The vagina receives the penis and semen during coitus and, together with the dilated cervix, forms the birth canal during parturition."
+      },
+      {
+        "id": "m16_q03",
+        "question": "Why does the surgical removal of both ovaries (bilateral oophorectomy) in a premenopausal woman cause immediate cessation of menstruation (surgical menopause) and permanent infertility?",
+        "options": [
+          "Fallopian tubes produce too much acid",
+          "Ovaries are the sole source of both cyclic mature ova and ovarian steroid hormones (estrogen and progesterone); their absence permanently abolishes both ovulation and endometrial cyclic priming",
+          "Blood stops flowing to the brain",
+          "Kidneys stop functioning"
+        ],
+        "answer": "Ovaries are the sole source of both cyclic mature ova and ovarian steroid hormones (estrogen and progesterone); their absence permanently abolishes both ovulation and endometrial cyclic priming",
+        "explanation": "Oophorectomy eliminates oocyte follicles and the primary source of cyclic estrogen/progesterone, halting endometrial growth and inducing surgical menopause."
+      },
+      {
+        "id": "m16_q04",
+        "question": "What type of epithelial tissue lines the interior lumen of the fallopian tube to move the non-motile egg towards the uterus?",
+        "options": [
+          "Squamous epithelium",
+          "Ciliated epithelium",
+          "Stratified keratinized epithelium",
+          "Cartilaginous tissue"
+        ],
+        "answer": "Ciliated epithelium",
+        "explanation": "Rhythmic wave-like beating of microscopic cilia on oviduct epithelial cells propels the egg down the fallopian tube towards the uterus."
+      },
+      {
+        "id": "m16_q05",
+        "question": "What is the normal shape and structural nature of the human uterus (womb)?",
+        "options": [
+          "A rigid spherical bone cage",
+          "A hollow, inverted pear-shaped, highly elastic muscular organ",
+          "A thin, membranous straight tube",
+          "A multi-chambered sac filled with air"
+        ],
+        "answer": "A hollow, inverted pear-shaped, highly elastic muscular organ",
+        "explanation": "The uterus is an inverted pear-shaped muscular organ with thick smooth-muscle walls capable of tremendous expansion during pregnancy."
+      },
+      {
+        "id": "m16_q06",
+        "question": "What is the narrow lower neck of the uterus that connects into the vagina called?",
+        "options": [
+          "Cervix",
+          "Clitoris",
+          "Fallopian funnel",
+          "Perimetrium"
+        ],
+        "answer": "Cervix",
+        "explanation": "The cervix is the narrow muscular neck at the bottom of the uterus opening into the vagina."
+      },
+      {
+        "id": "m16_q07",
+        "question": "Which ovarian hormone is primarily responsible for vascularizing and maintaining the uterine endometrium during the post-ovulatory phase?",
+        "options": [
+          "Adrenaline",
+          "Progesterone",
+          "Thyroxine",
+          "Insulin"
+        ],
+        "answer": "Progesterone",
+        "explanation": "Progesterone secreted by the corpus luteum stimulates glandular growth and vascular development of the uterine endometrium, preparing it for implantation."
+      },
+      {
+        "id": "m16_q08",
+        "question": "What constitutes the 'birth canal' through which a baby passes during natural delivery?",
+        "options": [
+          "Ureter and urethra",
+          "Cervix and vagina",
+          "Oviduct and ovary",
+          "Abdominal rectus and bladder"
+        ],
+        "answer": "Cervix and vagina",
+        "explanation": "The cervical canal together with the muscular vagina constitutes the birth canal."
+      },
+      {
+        "id": "m16_q09",
+        "question": "On average, how many mature ova are normally released by the ovaries during each human menstrual cycle?",
+        "options": [
+          "1 egg",
+          "100 eggs",
+          "Thousands of eggs",
+          "Millions of eggs"
+        ],
+        "answer": "1 egg",
+        "explanation": "In human females, typically only one egg is released per month alternately by one of the ovaries during ovulation."
+      },
+      {
+        "id": "m16_q10",
+        "question": "Which finger-like projections at the ovarian end of the fallopian tube help capture the ovulated egg?",
+        "options": [
+          "Villi",
+          "Fimbriae",
+          "Papillae",
+          "Flagella"
+        ],
+        "answer": "Fimbriae",
+        "explanation": "Fimbriae are finger-like ciliated fringes at the distal end of the fallopian tube that sweep over the ovary to catch the released ovum."
+      }
+    ]
+  },
+  {
+    "id": "m17",
+    "moduleNumber": 17,
+    "title": "Ovulation, Fertilisation in the Fallopian Tube & Embryonic Cleavage",
+    "tagline": "Sperm transit, acrosomal penetration, syngamy in the oviduct, and mitotic cleavage to the blastocyst.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Ovulation & Ovum Viability</h4>\n    <p>Midway through the 28-day menstrual cycle (around Day 14), an LH surge triggers the rupture of a mature Graafian follicle, discharging a viable secondary oocyte into the pelvic peritoneal space, from where it is swiftly drawn into the fallopian tube. An ovulated egg remains viable for fertilisation for roughly <strong>24 to 48 hours</strong>.</p>\n\n    <h4>2. Sperm Transit & The Site of Fertilisation</h4>\n    <p>During copulation (coitus), several hundred million sperms are deposited into the vagina. Swimming upwards via flagellar lashing through the cervix and across the uterus, a few thousand sperms reach the fallopian tubes. <strong>Fertilisation takes place in the fallopian tube (oviduct)</strong>, specifically in the ampullary region.</p>\n\n    <h4>3. Acrosomal Reaction & Syngamy</h4>\n    <p>When a sperm encounters the ovum:</p>\n    <ul>\n      <li>Its <strong>acrosome</strong> releases hydrolytic enzymes (including hyaluronidase and acrosin) that digest the corona radiata and zona pellucida surrounding the egg.</li>\n      <li>Upon contact between the first sperm head and the egg plasma membrane, a rapid electrical depolarization and cortical reaction occur. This alters the zona pellucida, <strong>blocking polyspermy</strong> (entry of additional sperms) to preserve diploidy.</li>\n      <li>The sperm nucleus enters the ovum cytoplasm, and the haploid male pronucleus fuses with the haploid female pronucleus (<strong>syngamy</strong>), forming a single diploid ($2n = 46\\text{ chromosomes}$) <strong>zygote</strong>.</li>\n    </ul>\n\n    <h4>4. Early Cleavage & Journey to the Uterus</h4>\n    <p>As the zygote is propelled slowly along the oviduct by ciliary action and peristaltic contractions, it undergoes rapid mitotic divisions known as <strong>cleavage</strong>: $1 \\rightarrow 2 \\rightarrow 4 \\rightarrow 8 \\rightarrow 16\\text{ cells}$ (morula), eventually forming a hollow ball of cells called the <strong>blastocyst</strong> over 4 to 6 days.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Fertilisation normally occurs in the fallopian tube (oviduct), not in the uterus or vagina.",
+      "The acrosomal reaction enables sperm penetration, and the cortical block prevents polyspermy.",
+      "The single-celled diploid zygote divides mitotically (cleavage) into a hollow blastocyst while travelling to the uterus."
+    ],
+    "keyNotes": [
+      "Fertilisation can occur only if both sperm and ovum are transported simultaneously to the ampullary-isthmic junction of the fallopian tube within the narrow fertile window."
+    ],
+    "questions": [
+      {
+        "id": "m17_q01",
+        "question": "In the human female reproductive tract, where does fertilisation (fusion of sperm and egg) normally take place?",
+        "options": [
+          "Vagina",
+          "Oviduct / Fallopian tube (Ampulla)",
+          "Uterus",
+          "Cervix"
+        ],
+        "answer": "Oviduct / Fallopian tube (Ampulla)",
+        "explanation": "Fertilisation occurs in the upper portion (ampullary-isthmic junction) of the oviduct / Fallopian tube."
+      },
+      {
+        "id": "m17_q02",
+        "question": "During human fertilization, what is the precise biochemical mechanism of the 'acrosome reaction' enabling sperm entry into the oocyte?",
+        "options": [
+          "Sperm explodes using electrical current",
+          "Binding of sperm head to ZP3 glycoproteins on the zona pellucida triggers exocytosis of acrosomal hydrolytic enzymes (hyaluronidase and acrosin) that digest a path through the corona radiata and zona pellucida",
+          "Sperm dissolves the entire uterus",
+          "Egg engulfs sperm by phagocytosis like Amoeba"
+        ],
+        "answer": "Binding of sperm head to ZP3 glycoproteins on the zona pellucida triggers exocytosis of acrosomal hydrolytic enzymes (hyaluronidase and acrosin) that digest a path through the corona radiata and zona pellucida",
+        "explanation": "ZP3 binding induces $\\text{Ca}^{2+}$-dependent acrosomal exocytosis; hyaluronidase disperses follicle cells, and acrosin hydrolyses the zona pellucida to allow sperm-oolemma membrane fusion."
+      },
+      {
+        "id": "m17_q03",
+        "question": "Why does the sexual mode of reproduction accelerate evolutionary adaptation to changing environments compared to asexual reproduction?",
+        "options": [
+          "Sexual reproduction requires less energy",
+          "Sexual reproduction combines accumulated independent beneficial mutations from two distinct parental genomes via meiotic recombination and random syngamy, generating novel polygenic combinations and purging deleterious mutations",
+          "Asexual reproduction creates new genes every second",
+          "Sexual organisms do not have DNA copying errors"
+        ],
+        "answer": "Sexual reproduction combines accumulated independent beneficial mutations from two distinct parental genomes via meiotic recombination and random syngamy, generating novel polygenic combinations and purging deleterious mutations",
+        "explanation": "Sexual reproduction accelerates evolutionary adaptation through independent assortment, crossing over, and syngamy, bringing together favorable alleles while breaking Muller's ratchet (purging deleterious mutations)."
+      },
+      {
+        "id": "m17_q04",
+        "question": "Where does fertilisation of the human egg by a sperm normally occur under physiological conditions?",
+        "options": [
+          "Vagina",
+          "Uterus",
+          "Fallopian tube (oviduct)",
+          "Ovary"
+        ],
+        "answer": "Fallopian tube (oviduct)",
+        "explanation": "Fertilisation between the sperm and ovum takes place within the ampullary region of the fallopian tube (oviduct)."
+      },
+      {
+        "id": "m17_q05",
+        "question": "What prevents multiple sperms from fertilising a single human egg (polyspermy)?",
+        "options": [
+          "Sperms run out of energy after one touches the egg",
+          "A biochemical cortical reaction rapidly hardens the zona pellucida upon entry of the first sperm",
+          "The uterus expels all other sperms into the bloodstream",
+          "The egg's mitochondria destroy excess sperms"
+        ],
+        "answer": "A biochemical cortical reaction rapidly hardens the zona pellucida upon entry of the first sperm",
+        "explanation": "Contact with the first sperm triggers cortical granule exocytosis, modifying the zona pellucida and permanently blocking polyspermy."
+      },
+      {
+        "id": "m17_q06",
+        "question": "How long does an ovulated human egg generally remain viable and capable of being fertilised in the fallopian tube?",
+        "options": [
+          "2 hours",
+          "24 to 48 hours",
+          "14 days",
+          "28 days"
+        ],
+        "answer": "24 to 48 hours",
+        "explanation": "A human ovum remains viable for fertilisation for about 24 to 48 hours after ovulation."
+      },
+      {
+        "id": "m17_q07",
+        "question": "What is the series of rapid mitotic cell divisions that converts the single-celled zygote into a multicellular embryo called?",
+        "options": [
+          "Meiosis",
+          "Cleavage",
+          "Metamorphosis",
+          "Budding"
+        ],
+        "answer": "Cleavage",
+        "explanation": "Cleavage refers to the rapid succession of mitotic divisions where cell number increases without overall growth in total embryonic mass."
+      },
+      {
+        "id": "m17_q08",
+        "question": "What is the hollow sphere of embryonic cells called that reaches the uterus ready for implantation?",
+        "options": [
+          "Zygote",
+          "Blastocyst (Blastula)",
+          "Gastrula",
+          "Gamete"
+        ],
+        "answer": "Blastocyst (Blastula)",
+        "explanation": "Around 5 to 6 days after fertilisation, the dividing embryo reaches the stage of a hollow fluid-filled ball called a blastocyst."
+      },
+      {
+        "id": "m17_q09",
+        "question": "How many total chromosomes are restored in the nucleus of a normal human zygote upon syngamy?",
+        "options": [
+          "23 chromosomes",
+          "46 chromosomes (23 pairs)",
+          "92 chromosomes",
+          "12 chromosomes"
+        ],
+        "answer": "46 chromosomes (23 pairs)",
+        "explanation": "Syngamy combines 23 maternal chromosomes from the ovum and 23 paternal chromosomes from the sperm, establishing the diploid human complement of 46 chromosomes."
+      },
+      {
+        "id": "m17_q10",
+        "question": "If a woman ovulates on Day 14 of her 28-day cycle, during which window is intercourse most likely to result in pregnancy?",
+        "options": [
+          "Days 1 to 5",
+          "Days 11 to 16",
+          "Days 22 to 26",
+          "Days 27 to 28"
+        ],
+        "answer": "Days 11 to 16",
+        "explanation": "Because sperms can survive in the female tract for up to 3 days and the egg survives 24-48 hours, Days 11-16 represent the peak fertile window."
+      }
+    ]
+  },
+  {
+    "id": "m18",
+    "moduleNumber": 18,
+    "title": "Implantation, The Placenta & Human Gestation",
+    "tagline": "Endometrial embedding, the disc-shaped placenta, nutrient exchange, and foetal development.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Implantation in the Uterine Wall</h4>\n    <p>Approximately 6 to 9 days after fertilisation, the developing blastocyst reaches the uterus. Trophoblast cells on its outer perimeter secrete proteolytic enzymes that digest a small pocket in the soft, spongy, vascularized <strong>endometrium</strong>. The embryo sinks into the tissue and becomes completely embedded—a vital event termed <strong>implantation</strong>. Implantation confirms the biological establishment of pregnancy.</p>\n\n    <h4>2. The Placenta: Structure & Adaptations</h4>\n    <p>Following implantation, a specialized intimate physiological connection develops between the maternal body and the developing embryo: the <strong>placenta</strong>. Structurally:</p>\n    <ul>\n      <li>It is a <strong>disc-shaped vascular organ</strong> embedded firmly in the uterine wall.</li>\n      <li>On the embryo's side, it contains millions of branching, microscopic <strong>chorionic villi</strong> that vastly expand surface area for exchange.</li>\n      <li>On the mother's side, maternal tissue forms large open blood spaces (lacunae) that surround and bathe the villi in maternal arterial blood.</li>\n    </ul>\n\n    <h4>3. Essential Transport Functions of the Placenta</h4>\n    <ul>\n      <li><strong>Nutrition:</strong> Glucose, amino acids, fatty acids, vitamins, and minerals diffuse across the thin placental barrier from maternal blood into foetal blood.</li>\n      <li><strong>Respiration:</strong> Dissolved oxygen ($O_2$) diffuses from maternal haemoglobin across to foetal haemoglobin, while foetal carbon dioxide ($CO_2$) diffuses into the maternal circulation for elimination by the mother's lungs.</li>\n      <li><strong>Excretion:</strong> Metabolic waste products generated by the growing foetus (such as urea and creatinine) diffuse across the placenta into maternal blood for filtration by the mother's kidneys.</li>\n      <li><strong>Endocrine Function:</strong> The placenta secretes hormones including human chorionic gonadotropin (hCG), estrogen, and progesterone to sustain pregnancy.</li>\n    </ul>\n\n    <h4>4. Umbilical Cord & Gestation Period</h4>\n    <p>The embryo is anchored to the placenta via the <strong>umbilical cord</strong>, which contains umbilical arteries and an umbilical vein carrying blood between foetus and placenta. The total duration of human pregnancy—from fertilisation to childbirth—is the <strong>gestation period</strong>, which lasts approximately <strong>9 months (roughly 280 days or 40 weeks)</strong> from the last menstrual period.</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "Implantation is the embedding of the blastocyst into the thickened, vascular uterine endometrium.",
+      "The placenta is a disc-shaped organ with chorionic villi providing a vast surface area for nutrient and waste exchange.",
+      "The human gestation period lasts approximately 9 months (~280 days), concluding with childbirth (parturition)."
+    ],
+    "keyNotes": [
+      "Maternal and foetal blood systems do not mix directly; exchange occurs strictly by diffusion across the thin cellular membrane of the placental villi, protecting the foetus from maternal blood pressure and incompatibilities."
+    ],
+    "questions": [
+      {
+        "id": "m18_q01",
+        "question": "Where does the developing embryo implant and grow into a foetus inside the mother's body?",
+        "options": [
+          "Ovary",
+          "Uterus (Womb)",
+          "Fallopian tube",
+          "Abdominal cavity"
+        ],
+        "answer": "Uterus (Womb)",
+        "explanation": "The cleaving blastocyst embeds (implants) in the vascularized, glandular endometrium of the uterus for embryonic development."
+      },
+      {
+        "id": "m18_q02",
+        "question": "What specialized disc-shaped vascular tissue connects the developing embryo to the uterine wall for nutrient uptake and waste exchange?",
+        "options": [
+          "Corpus luteum",
+          "Placenta",
+          "Amnion",
+          "Fallopian tube"
+        ],
+        "answer": "Placenta",
+        "explanation": "The placenta features chorionic villi interdigitated with maternal blood sinuses, facilitating diffusion of glucose, amino acids, O₂, and urea clearance."
+      },
+      {
+        "id": "m18_q03",
+        "question": "What is the average gestation period (duration of pregnancy) in human beings from conception to delivery?",
+        "options": [
+          "3 months",
+          "Approximately 9 months (around 280 days)",
+          "15 months",
+          "5 months"
+        ],
+        "answer": "Approximately 9 months (around 280 days)",
+        "explanation": "Human pregnancy spans approximately 9 calendar months (38–40 weeks / 280 days from last menstrual period)."
+      },
+      {
+        "id": "m18_q04",
+        "question": "Consider the maternal-foetal exchange across the human placenta. Which of the following substances pass from maternal blood to foetal blood, and which pass from foetal blood to maternal blood?",
+        "options": [
+          "Urea passes to foetus; Oxygen passes to mother",
+          "Glucose, amino acids, oxygen, and maternal IgG antibodies pass to foetus; Urea, uric acid, and carbon dioxide pass from foetus to maternal blood for excretion",
+          "Red blood cells pass freely in both directions",
+          "Digestive bile passes to foetus"
+        ],
+        "answer": "Glucose, amino acids, oxygen, and maternal IgG antibodies pass to foetus; Urea, uric acid, and carbon dioxide pass from foetus to maternal blood for excretion",
+        "explanation": "The placenta allows nutrient and respiratory influx (glucose, O₂, amino acids, passive IgG) and metabolic waste efflux (CO₂, urea, creatinine) without RBC mixing."
+      },
+      {
+        "id": "m18_q05",
+        "question": "What is the structural adaptation on the embryo's side of the placenta that maximizes surface area for nutrient diffusion?",
+        "options": [
+          "Ciliated flagella",
+          "Microscopic chorionic villi",
+          "Smooth keratinized scales",
+          "Calcified plates"
+        ],
+        "answer": "Microscopic chorionic villi",
+        "explanation": "Chorionic villi provide an immense surface area for the diffusion of glucose, amino acids, and oxygen from maternal blood spaces to the embryo."
+      },
+      {
+        "id": "m18_q06",
+        "question": "Which flexible vascular structure connects the developing foetus directly to the placenta?",
+        "options": [
+          "Fallopian tube",
+          "Umbilical cord",
+          "Cervix",
+          "Amniotic duct"
+        ],
+        "answer": "Umbilical cord",
+        "explanation": "The umbilical cord contains blood vessels that transport blood between the foetus and the placenta."
+      },
+      {
+        "id": "m18_q07",
+        "question": "Which of the following metabolic waste substances produced by the foetus diffuses across the placenta into maternal blood for excretion?",
+        "options": [
+          "Glucose",
+          "Urea",
+          "Glycogen",
+          "Bile salts"
+        ],
+        "answer": "Urea",
+        "explanation": "Urea and carbon dioxide generated by the foetus diffuse across the placenta into the mother's circulation for removal by her kidneys and lungs."
+      },
+      {
+        "id": "m18_q08",
+        "question": "Why do maternal blood and foetal blood normally NOT mix directly in the placenta?",
+        "options": [
+          "Maternal blood has no cells",
+          "They are separated by a thin placental membrane barrier across which substances diffuse",
+          "Foetal blood flows backward into the uterus",
+          "Maternal blood is solid inside the placenta"
+        ],
+        "answer": "They are separated by a thin placental membrane barrier across which substances diffuse",
+        "explanation": "A thin cellular placental barrier prevents direct blood mixing, avoiding lethal immune rejection and protecting delicate foetal capillaries from high maternal blood pressure."
+      },
+      {
+        "id": "m18_q09",
+        "question": "What is the average duration of the human gestation period from conception to birth?",
+        "options": [
+          "3 months (~90 days)",
+          "6 months (~180 days)",
+          "9 months (~280 days)",
+          "12 months (~365 days)"
+        ],
+        "answer": "9 months (~280 days)",
+        "explanation": "Human gestation spans approximately 9 months, or roughly 280 days (40 weeks), culminating in labour and birth."
+      },
+      {
+        "id": "m18_q10",
+        "question": "The powerful rhythmic contractions of which uterine layer drive the expulsion of the baby during childbirth (parturition)?",
+        "options": [
+          "Endometrium",
+          "Myometrium (muscular wall)",
+          "Peritoneum",
+          "Placental villi"
+        ],
+        "answer": "Myometrium (muscular wall)",
+        "explanation": "The thick smooth-muscle wall of the uterus (myometrium) contracts rhythmically under the influence of oxytocin to deliver the baby."
+      }
+    ]
+  },
+  {
+    "id": "m19",
+    "moduleNumber": 19,
+    "title": "The Menstrual Cycle: Endometrial Preparation & Menstruation",
+    "tagline": "Cyclic uterine preparation, luteal breakdown, and the physiological process of menstrual bleeding.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. The 28-Day Biological Cycle</h4>\n    <p>Starting at puberty (menarche) and concluding at menopause (typically around age 45-50), the human female reproductive system undergoes a regular monthly cycle of hormonal and histological modifications known as the <strong>menstrual cycle</strong>. Its average duration is <strong>28 days</strong>.</p>\n\n    <h4>2. Uterine Preparation for Anticipated Pregnancy</h4>\n    <p>Every month, the female body prepares systematically for the possibility of fertilisation:</p>\n    <ul>\n      <li>Under the influence of rising <strong>estrogen</strong> secreted by developing ovarian follicles, the uterine lining (endometrium) thickens, becomes spongy, and proliferates with a dense network of capillary blood vessels.</li>\n      <li>Following ovulation (around Day 14), the ruptured follicle in the ovary transforms into a temporary yellow glandular body called the <strong>corpus luteum</strong>, which pours out substantial amounts of <strong>progesterone</strong> to further stabilize and maintain the rich endometrium.</li>\n    </ul>\n\n    <h4>3. What Happens When the Egg is NOT Fertilised?</h4>\n    <p>If the released ovum is not fertilised by a sperm within its 24-48 hour viability window, the biological machinery shifts:</p>\n    <ol>\n      <li>The unfertilised egg dies and degenerates.</li>\n      <li>Without pregnancy signals (such as hCG), the <strong>corpus luteum degenerates</strong> into fibrous scar tissue.</li>\n      <li>Blood levels of progesterone and estrogen drop drastically.</li>\n      <li>Deprived of hormonal support, the thick, vascular uterine endometrium can no longer be sustained. Its capillaries constrict, break down, and the spongy lining sloughs off.</li>\n    </ol>\n\n    <h4>4. Menstruation (The Menstrual Flow)</h4>\n    <p>The detached pieces of endometrial tissue, unfertilised ovum, mucous, and blood are discharged through the cervix and out through the vagina. This process is called <strong>menstruation</strong>:</p>\n    <ul>\n      <li>The bleeding phase typically lasts between <strong>3 to 5 days</strong> (sometimes up to 7 days).</li>\n      <li>Day 1 of bleeding marks the official start (Day 1) of a new menstrual cycle, during which new ovarian follicles begin maturing for the next cycle.</li>\n    </ul>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "The menstrual cycle repeats roughly every 28 days from puberty (menarche) until menopause (~45-50 years).",
+      "If fertilisation fails, the corpus luteum degenerates, progesterone drops, and the uterine lining sloughs off.",
+      "Menstrual discharge consists of discarded endometrial lining, blood, mucus, and the unfertilised egg, lasting 3 to 5 days."
+    ],
+    "keyNotes": [
+      "The temporary cessation of the menstrual cycle is usually the earliest physiological indicator of pregnancy in a healthy, sexually active woman."
+    ],
+    "questions": [
+      {
+        "id": "m19_q01",
+        "question": "If an ovulated human egg is NOT fertilised by a sperm, what happens to the prepared uterine endometrial lining?",
+        "options": [
+          "It turns into a placenta",
+          "It slowly breaks down and is shed along with unfertilised egg, blood, and mucus through the vagina as Menstruation",
+          "It solidifies into bone",
+          "It remains thick permanently"
+        ],
+        "answer": "It slowly breaks down and is shed along with unfertilised egg, blood, and mucus through the vagina as Menstruation",
+        "explanation": "Without fertilisation, progesterone drops, triggering constriction of spiral arterioles, endometrial ischemia, necrosis, and menstrual bleeding."
+      },
+      {
+        "id": "m19_q02",
+        "question": "How long does the menstrual bleeding phase typically last in a human female?",
+        "options": [
+          "1 hour",
+          "About 2 to 8 days",
+          "20 to 25 days",
+          "60 days"
+        ],
+        "answer": "About 2 to 8 days",
+        "explanation": "The menstrual flow phase typically lasts between 2 to 8 days (average 3–5 days)."
+      },
+      {
+        "id": "m19_q03",
+        "question": "What is the fate of the corpus luteum in the ovary if the released ovum IS successfully fertilised and implants in the uterus?",
+        "options": [
+          "It degenerates immediately into a scar",
+          "It is maintained by hCG hormone secreted by the trophoblast and continues secreting high levels of progesterone to support the pregnancy",
+          "It turns into an egg",
+          "It travels into the Fallopian tube"
+        ],
+        "answer": "It is maintained by hCG hormone secreted by the trophoblast and continues secreting high levels of progesterone to support the pregnancy",
+        "explanation": "Human chorionic gonadotropin (hCG) from the early placenta rescues the corpus luteum, sustaining progesterone secretion to prevent endometrial shedding."
+      },
+      {
+        "id": "m19_q04",
+        "question": "During human reproduction, what triggers the rhythmic, progressive muscular contractions of the uterus during labour?",
+        "options": [
+          "Release of insulin from pancreas",
+          "Release of the hormone Oxytocin from the maternal posterior pituitary stimulated by foetal ejection reflex",
+          "Drop in blood pressure to zero",
+          "Sudden secretion of saliva"
+        ],
+        "answer": "Release of the hormone Oxytocin from the maternal posterior pituitary stimulated by foetal ejection reflex",
+        "explanation": "The mature fetus and placenta initiate the foetal ejection reflex, triggering posterior pituitary oxytocin release, which stimulates powerful myometrial contractions via positive feedback."
+      },
+      {
+        "id": "m19_q05",
+        "question": "What is the typical average duration of the human menstrual cycle?",
+        "options": [
+          "7 days",
+          "14 days",
+          "28 days",
+          "60 days"
+        ],
+        "answer": "28 days",
+        "explanation": "The human menstrual cycle typically repeats on an average 28-day cycle, although normal cycles can vary between 21 and 35 days."
+      },
+      {
+        "id": "m19_q06",
+        "question": "The permanent cessation of menstrual cycles and reproductive fertility in women around age 45-50 is termed:",
+        "options": [
+          "Menarche",
+          "Menopause",
+          "Amenorrhea",
+          "Ovulation"
+        ],
+        "answer": "Menopause",
+        "explanation": "Menopause marks the permanent physiological end of ovarian follicular activity and menstrual periods in women, usually around age 45-50."
+      },
+      {
+        "id": "m19_q07",
+        "question": "What sudden hormonal change triggers the breakdown and shedding of the uterine endometrium during menstruation?",
+        "options": [
+          "Sharp drop in blood levels of progesterone and estrogen",
+          "Massive spike in adrenaline",
+          "Sudden increase in testosterone",
+          "Excess secretion of growth hormone"
+        ],
+        "answer": "Sharp drop in blood levels of progesterone and estrogen",
+        "explanation": "Degeneration of the corpus luteum causes a steep drop in progesterone and estrogen levels, starving the endometrium of hormonal support and triggering its sloughing."
+      },
+      {
+        "id": "m19_q08",
+        "question": "How long does the menstrual bleeding phase typically last in a healthy adolescent girl?",
+        "options": [
+          "1 hour",
+          "3 to 5 days",
+          "14 days",
+          "28 days"
+        ],
+        "answer": "3 to 5 days",
+        "explanation": "The menstrual flow phase usually lasts between 3 to 5 days, during which the vascular lining is expelled."
+      },
+      {
+        "id": "m19_q09",
+        "question": "What is the primary biological reason the uterine lining thickens and becomes richly vascularized each month?",
+        "options": [
+          "To store excess water for kidney filtration",
+          "To receive, nourish, and support a potentially implanted blastocyst",
+          "To cool the internal temperature of the abdominal pelvis",
+          "To produce antibodies against incoming sperms"
+        ],
+        "answer": "To receive, nourish, and support a potentially implanted blastocyst",
+        "explanation": "The endometrium proliferates to provide an optimal nutrient-rich bed for embryonic implantation in anticipation of pregnancy."
+      },
+      {
+        "id": "m19_q10",
+        "question": "Why is the absence of a scheduled menstrual period often the first noticeable sign of pregnancy?",
+        "options": [
+          "The ovaries dissolve permanently upon conception",
+          "The implanted blastocyst produces hCG, maintaining the corpus luteum and high progesterone levels that preserve the endometrium",
+          "Blood is redirected entirely to the mother's brain",
+          "The cervix closes with solid bone"
+        ],
+        "answer": "The implanted blastocyst produces hCG, maintaining the corpus luteum and high progesterone levels that preserve the endometrium",
+        "explanation": "After implantation, embryonic hCG keeps the corpus luteum active to continuously secrete progesterone, preventing endometrial breakdown and menstruation."
+      }
+    ]
+  },
+  {
+    "id": "m20",
+    "moduleNumber": 20,
+    "title": "Reproductive Health: STDs, Contraceptive Strategies & Social Responsibility",
+    "tagline": "Bacterial vs viral STDs, mechanical/chemical/surgical contraception, and ethical considerations.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<div class=\"module-content\">\n  <div class=\"theory-section\">\n    <h4>1. Sexually Transmitted Diseases (STDs / STIs)</h4>\n    <p>Sexual intercourse involves intimate physical contact and exchange of body fluids, creating potential transmission routes for infectious pathogens:</p>\n    <ul>\n      <li><strong>Bacterial STDs:</strong> Caused by bacterial pathogens—notably <strong>Gonorrhoea</strong> (<em>Neisseria gonorrhoeae</em>) and <strong>Syphilis</strong> (<em>Treponema pallidum</em>). These cause painful urination, genital sores, and discharge, but can generally be cured if treated promptly with targeted antibiotics.</li>\n      <li><strong>Viral STDs:</strong> Caused by viruses—such as <strong>Genital Warts</strong> (Human Papillomavirus / HPV) and <strong>HIV-AIDS</strong> (Human Immunodeficiency Virus). Viral STDs cannot be eradicated by antibiotics and often persist as chronic or life-threatening infections damaging the immune system.</li>\n    </ul>\n\n    <h4>2. Methods of Contraception (Family Planning)</h4>\n    <p>Contraception comprises techniques and devices designed to prevent unwanted pregnancy:</p>\n    <ul>\n      <li><strong>1. Mechanical Barrier Methods:</strong> Condoms (worn over the penis) or diaphragms/caps (inserted into the female vagina). Condoms prevent sperm from entering the female genital tract and are the <strong>only contraceptive method that provides dual protection</strong> against both pregnancy and STDs/HIV.</li>\n      <li><strong>2. Chemical / Hormonal Methods:</strong> Oral contraceptive pills contain synthetic estrogen and progesterone analogs that alter hormonal feedback, preventing ovulation. (Side effects: hormonal imbalances, nausea, weight fluctuations).</li>\n      <li><strong>3. Intrauterine Devices (IUDs):</strong> Small devices like <strong>Copper-T</strong> inserted into the uterus by a trained medical professional. Copper ions released suppress sperm motility and fertilising capacity, while preventing implantation.</li>\n      <li><strong>4. Surgical Methods (Sterilization):</strong>\n        <ul>\n          <li><strong>Vasectomy:</strong> In males, a small portion of both vasa deferentia is cut and ligated, preventing sperm from entering semen.</li>\n          <li><strong>Tubectomy:</strong> In females, both fallopian tubes are cut and ligated, blocking egg transit and sperm passage.</li>\n          <li>Both methods provide near 100% permanent birth control without altering sexual desire or hormone secretion, but are difficult to reverse.</li>\n        </ul>\n      </li>\n    </ul>\n\n    <h4>3. Social Issues: Female Foeticide & The Child Sex Ratio</h4>\n    <p>The illegal misuse of prenatal diagnostic ultrasound techniques to determine the sex of the foetus has led to indiscriminate sex-selective abortion of female foetuses (<strong>female foeticide</strong>). This has skewed the child sex ratio in many regions. Consequently, prenatal sex determination is strictly prohibited and made a punishable criminal offence by law (PCPNDT Act).</p>\n  </div>\n</div>\n",
+    "pointsToRemember": [
+      "STDs can be bacterial (Gonorrhoea, Syphilis - treatable with antibiotics) or viral (Warts, HIV-AIDS - chronic).",
+      "Condoms provide unique dual protection: preventing pregnancy and shielding against transmission of STDs/HIV.",
+      "Surgical sterilization (vasectomy in males, tubectomy in females) is highly effective and irreversible.",
+      "Prenatal sex determination is legally banned to prevent female foeticide and protect the sex ratio."
+    ],
+    "keyNotes": [
+      "Contraceptive pills and Copper-T devices prevent conception but offer zero physical protection against sexually transmitted infections like HIV."
+    ],
+    "questions": [
+      {
+        "id": "m20_q01",
+        "question": "Which of the following sexually transmitted infections (STIs) are caused by BACTERIAL pathogens?",
+        "options": [
+          "Warts and HIV-AIDS",
+          "Gonorrhoea and Syphilis",
+          "Malaria and Dengue",
+          "Typhoid and Cholera"
+        ],
+        "answer": "Gonorrhoea and Syphilis",
+        "explanation": "Gonorrhoea (Neisseria gonorrhoeae) and Syphilis (Treponema pallidum) are bacterial STIs; Genital warts (HPV) and AIDS (HIV) are viral."
+      },
+      {
+        "id": "m20_q02",
+        "question": "Which of the following sexually transmitted diseases is caused by a VIRAL infection and compromises the human immune system?",
+        "options": [
+          "Syphilis",
+          "HIV-AIDS",
+          "Gonorrhoea",
+          "Tuberculosis"
+        ],
+        "answer": "HIV-AIDS",
+        "explanation": "Human Immunodeficiency Virus (HIV) attacks CD4 helper T-lymphocytes, causing Acquired Immunodeficiency Syndrome (AIDS)."
+      },
+      {
+        "id": "m20_q03",
+        "question": "Which barrier method of contraception worn over the penis during intercourse helps in preventing BOTH unwanted pregnancy and the transmission of STIs?",
+        "options": [
+          "Oral pill",
+          "Condom",
+          "Copper-T",
+          "Vasectomy"
+        ],
+        "answer": "Condom",
+        "explanation": "Latex condoms form a physical barrier preventing direct mucosal fluid contact, blocking both sperm entry and pathogenic viral/bacterial STI transmission."
+      },
+      {
+        "id": "m20_q04",
+        "question": "How do oral contraceptive pills taken by women prevent conception?",
+        "options": [
+          "They destroy sperms in the vagina",
+          "They alter hormonal levels (estrogen/progestin) to inhibit ovulation so that no egg is released from the ovaries",
+          "They surgically block the uterus",
+          "They dissolve the embryo after 3 months"
+        ],
+        "answer": "They alter hormonal levels (estrogen/progestin) to inhibit ovulation so that no egg is released from the ovaries",
+        "explanation": "Oral pills contain synthetic progestin-estrogen combinations that suppress pituitary FSH and LH secretion, preventing follicular maturation and ovulation."
+      },
+      {
+        "id": "m20_q05",
+        "question": "Which intrauterine contraceptive device (IUD) is medically placed inside the uterus by a doctor to prevent pregnancy?",
+        "options": [
+          "Condom",
+          "Copper-T / Loop",
+          "Oral steroid",
+          "Diaphragm cap"
+        ],
+        "answer": "Copper-T / Loop",
+        "explanation": "Copper-T and intrauterine loops release copper ions that suppress sperm motility and fertilising capacity while creating a hostile uterine environment against blastocyst implantation."
+      },
+      {
+        "id": "m20_q06",
+        "question": "What are the surgical permanent sterilization methods in males and females called, respectively?",
+        "options": [
+          "Tubectomy (in males) and Vasectomy (in females)",
+          "Vasectomy (blocking vas deferens in males) and Tubectomy (blocking Fallopian tubes in females)",
+          "Dialysis and Chemotherapy",
+          "Grafting and Layering"
+        ],
+        "answer": "Vasectomy (blocking vas deferens in males) and Tubectomy (blocking Fallopian tubes in females)",
+        "explanation": "Vasectomy cuts/ligates the vas deferens in men to prevent sperm ejaculation; Tubectomy cuts/ligates the oviducts in women to prevent egg transport and fertilisation."
+      },
+      {
+        "id": "m20_q07",
+        "question": "Why do oral contraceptive pills sometimes cause nausea, weight changes, or irregular spotting in some women?",
+        "options": [
+          "Pills contain toxic metals",
+          "Synthetic estrogen and progestin alter the body's natural endocrine hormonal balance, which can produce systemic side-effects in hormone-sensitive tissues",
+          "Pills destroy red blood cells",
+          "Pills stop digestion"
+        ],
+        "answer": "Synthetic estrogen and progestin alter the body's natural endocrine hormonal balance, which can produce systemic side-effects in hormone-sensitive tissues",
+        "explanation": "Exogenous steroid hormones affect systemic target tissues, occasionally altering fluid retention, lipid metabolism, and endometrial stability."
+      },
+      {
+        "id": "m20_q08",
+        "question": "Which of the following contraceptive methods is considered NON-REVERSIBLE (permanent)?",
+        "options": [
+          "Condom",
+          "Surgical Vasectomy / Tubectomy",
+          "Oral contraceptive pill",
+          "Copper-T"
+        ],
+        "answer": "Surgical Vasectomy / Tubectomy",
+        "explanation": "Surgical ligation (vasectomy/tubectomy) permanently severs gamete conduits; surgical reversal is technically complex with low fertility success."
+      },
+      {
+        "id": "m20_q09",
+        "question": "How does the chemical action of a copper-releasing IUD (such as Copper-T) prevent pregnancy at the cellular and immunological level?",
+        "options": [
+          "It freezes the ovaries",
+          "Released Cu²⁺ ions exert a toxic spermicidal effect suppressing sperm motility and fertilising capacity, while inducing a sterile local endometrial inflammatory response that prevents blastocyst implantation",
+          "It destroys the pituitary gland",
+          "It turns all eggs into water"
+        ],
+        "answer": "Released Cu²⁺ ions exert a toxic spermicidal effect suppressing sperm motility and fertilising capacity, while inducing a sterile local endometrial inflammatory response that prevents blastocyst implantation",
+        "explanation": "Cu²⁺ ions impair sperm energy metabolism and flagellar axonemal motility, while the physical IUD induces leukocyte infiltration in the endometrium, preventing blastocyst implantation."
+      },
+      {
+        "id": "m20_q10",
+        "question": "Why has the government legally banned prenatal sex determination via ultrasound?",
+        "options": [
+          "Ultrasound waves damage foetal hearing permanently",
+          "To prevent sex-selective female foeticide and maintain a balanced demographic sex ratio",
+          "It consumes too much institute electrical power",
+          "To encourage large family sizes"
+        ],
+        "answer": "To prevent sex-selective female foeticide and maintain a balanced demographic sex ratio",
+        "explanation": "Prenatal sex determination was banned under the PCPNDT Act to curb female foeticide and protect the girl child, ensuring a healthy gender balance in society."
+      }
+    ]
+  }
+]

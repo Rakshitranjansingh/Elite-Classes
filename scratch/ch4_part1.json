@@ -1,0 +1,1382 @@
+[
+  {
+    "id": "m01",
+    "moduleNumber": 1,
+    "title": "Bonding in Carbon: The Covalent Bond & The Problem of C⁴⁺ and C⁴⁻",
+    "tagline": "Why carbon cannot form ionic bonds and relies exclusively on electron sharing.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<p>Carbon is an element of immense biological and industrial significance. Everything from food, clothes, medicines, books, and fuels to living organisms is built around carbon compounds. Yet, carbon's abundance in nature is surprisingly tiny:</p>\n<ul>\n  <li>The Earth's crust contains only <strong>$0.02\\%$ carbon</strong> in the form of minerals (carbonates, hydrogen carbonates, coal, and petroleum).</li>\n  <li>The atmosphere contains a mere <strong>$0.03\\%$ carbon dioxide ($\\text{CO}_2$)</strong>.</li>\n</ul>\n\n<h3>The Atomic Structure of Carbon:</h3>\n<p>Carbon has atomic number $Z = 6$. Its electronic configuration is $2, 4$, meaning it possesses <strong>$4$ valence electrons</strong> in its outermost $L$-shell. To attain the stable octet of noble gas neon ($2, 8$) or helium ($2$), carbon requires $4$ additional electrons. Why can carbon NOT gain or lose electrons to form ionic bonds?</p>\n\n<h3>Why Carbon Cannot Form Ionic Bonds ($C^{4+}$ or $C^{4-}$):</h3>\n<ol>\n  <li><strong>It cannot gain 4 electrons to form a $C^{4-}$ anion:</strong><br>\n  A carbon nucleus contains only $6$ protons. It would be energetically impossible for a tiny nucleus with just $6$ protons to hold on securely to $10$ electrons ($6$ original $+ 4$ extra), causing severe inter-electronic repulsion.</li>\n  <li><strong>It cannot lose 4 electrons to form a $C^{4+}$ cation:</strong><br>\n  Removing $4$ electrons in succession requires an enormous amount of ionisation energy, leaving a tiny $C^{4+}$ cation with $6$ protons holding just $2$ electrons.</li>\n</ol>\n\n<p><strong>The Solution — Covalent Bonding:</strong> Carbon overcomes this fundamental energy barrier by <strong>sharing its valence electrons</strong> with other carbon atoms or with atoms of other elements. Chemical bonds formed by the mutual sharing of electron pairs between two atoms are called <strong>covalent bonds</strong>.</p>\n",
+    "pointsToRemember": [
+      "Carbon has atomic number 6 with electronic configuration 2, 4 (tetravalent).",
+      "Carbon cannot form C⁴⁻ (6 protons cannot hold 10 electrons) or C⁴⁺ (requires enormous ionisation energy to remove 4 electrons).",
+      "Carbon resolves this by sharing electron pairs with other atoms, forming stable covalent bonds."
+    ],
+    "keyNotes": [
+      "Board Exam Classic: Explain why carbon always forms covalent bonds instead of ionic bonds by discussing the energetic impossibility of C⁴⁺ and C⁴⁻."
+    ],
+    "questions": [
+      {
+        "id": "m01_q01",
+        "question": "What is the percentage of carbon present in the Earth's crust in the form of minerals?",
+        "options": [
+          "0.03%",
+          "0.02%",
+          "0.5%",
+          "2.0%"
+        ],
+        "answer": "0.02%",
+        "explanation": "The Earth's crust contains only 0.02% carbon in the form of minerals like carbonates, hydrogencarbonates, coal, and petroleum."
+      },
+      {
+        "id": "m01_q02",
+        "question": "What is the percentage of carbon dioxide (CO₂) gas present in the Earth's atmosphere?",
+        "options": [
+          "0.02%",
+          "0.03%",
+          "0.08%",
+          "0.21%"
+        ],
+        "answer": "0.03%",
+        "explanation": "The Earth's atmosphere contains approximately 0.03% carbon dioxide gas."
+      },
+      {
+        "id": "m01_q03",
+        "question": "What is the atomic number and electronic configuration of a carbon atom?",
+        "options": [
+          "Atomic number 6; Electronic configuration (2, 4)",
+          "Atomic number 8; Electronic configuration (2, 6)",
+          "Atomic number 12; Electronic configuration (2, 8, 2)",
+          "Atomic number 14; Electronic configuration (2, 8, 4)"
+        ],
+        "answer": "Atomic number 6; Electronic configuration (2, 4)",
+        "explanation": "Carbon has atomic number 6 with 6 electrons distributed as 2 in the K-shell and 4 in the L-shell (2, 4)."
+      },
+      {
+        "id": "m01_q04",
+        "question": "What is the valency of carbon based on its outermost valence shell electrons?",
+        "options": [
+          "Monovalent (1)",
+          "Divalent (2)",
+          "Trivalent (3)",
+          "Tetravalent (4)"
+        ],
+        "answer": "Tetravalent (4)",
+        "explanation": "Carbon possesses 4 valence electrons in its outermost shell, giving it a combining capacity of 4 (tetravalency)."
+      },
+      {
+        "id": "m01_q05",
+        "question": "Bonds formed by the mutual sharing of electron pairs between two atoms are called:",
+        "options": [
+          "Ionic bonds",
+          "Covalent bonds",
+          "Metallic bonds",
+          "Hydrogen bonds"
+        ],
+        "answer": "Covalent bonds",
+        "explanation": "Covalent bonds are formed when atoms share pairs of valence electrons to achieve stable noble gas electron configurations."
+      },
+      {
+        "id": "m01_q06",
+        "question": "What is the primary physical reason why a carbon atom cannot accept four electrons to form a stable C⁴⁻ anion?",
+        "options": [
+          "Carbon atoms do not have electron shells.",
+          "A nucleus with only 6 protons cannot stably hold onto 10 electrons due to intense inter-electronic repulsion.",
+          "Carbon instantly turns into a gas upon touching an electron.",
+          "The atomic mass of carbon is too small to permit negative charges."
+        ],
+        "answer": "A nucleus with only 6 protons cannot stably hold onto 10 electrons due to intense inter-electronic repulsion.",
+        "explanation": "With only 6 positive nuclear protons, the effective nuclear charge is insufficient to hold 10 total electrons in a small radius."
+      },
+      {
+        "id": "m01_q07",
+        "question": "Why is the removal of four valence electrons from a carbon atom to yield a C⁴⁺ cation energetically unfeasible?",
+        "options": [
+          "Carbon has zero ionization energy.",
+          "It would require an enormous amount of ionisation energy to strip four successive electrons from the pull of 6 protons.",
+          "Electrons in carbon cannot be separated from neutrons.",
+          "The resulting C⁴⁺ cation would be too heavy to float."
+        ],
+        "answer": "It would require an enormous amount of ionisation energy to strip four successive electrons from the pull of 6 protons.",
+        "explanation": "Stripping four electrons against an increasing positive nuclear charge requires an astronomical input of energy."
+      },
+      {
+        "id": "m01_q08",
+        "question": "A chemical bond formed by the mutual, equal sharing of electron pairs between two reacting atoms is known as a/an:",
+        "options": [
+          "Electrovalent bond",
+          "Ionic bond",
+          "Covalent bond",
+          "Metallic lattice bond"
+        ],
+        "answer": "Covalent bond",
+        "explanation": "A covalent bond is specifically defined as a bond formed by the mutual sharing of pairs of electrons between combining atoms."
+      },
+      {
+        "id": "m01_q09",
+        "question": "What is the percentage concentration of carbon dioxide (CO₂) naturally present in the Earth's atmosphere?",
+        "options": [
+          "0.03%",
+          "0.2%",
+          "3.0%",
+          "21.0%"
+        ],
+        "answer": "0.03%",
+        "explanation": "Atmospheric air contains approximately 0.03% to 0.04% carbon dioxide gas by volume."
+      },
+      {
+        "id": "m01_q10",
+        "question": "How does sharing of electrons allow combining atoms to achieve chemical stability?",
+        "options": [
+          "Shared electrons orbit both nuclei, effectively completing the outer valence shell octet or duplet for both atoms.",
+          "Shared electrons cancel out the mass of the nucleus.",
+          "Shared electrons turn both atoms into neutral photons.",
+          "Shared electrons convert carbon into radioactive radium."
+        ],
+        "answer": "Shared electrons orbit both nuclei, effectively completing the outer valence shell octet or duplet for both atoms.",
+        "explanation": "Sharing electrons allows each participating atom to attain a stable, low-energy noble gas electronic configuration."
+      }
+    ]
+  },
+  {
+    "id": "m02",
+    "moduleNumber": 2,
+    "title": "Covalent Bonding in Simple Diatomic Molecules: H₂, Cl₂, O₂ & N₂",
+    "tagline": "Single, double, and triple covalent bonds illustrated by Lewis electron-dot models.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<p>To master covalent bonding, we first examine simple diatomic molecules formed by non-metals sharing electron pairs:</p>\n\n<h3>1. Single Covalent Bond — Hydrogen Molecule ($\\text{H}_2$):</h3>\n<p>A hydrogen atom has atomic number $1$ with a single electron in its $K$-shell ($1s^1$). To achieve the stable duplet of helium, it needs $1$ more electron. Two hydrogen atoms share their single electrons to form a pair of shared electrons:</p>\n<p style=\"text-align:center; font-size:1.1em; color:#1e3a8a;\">\n  $\\text{H}\\cdot + \\cdot\\text{H} \\longrightarrow \\text{H}:\\text{H} \\quad\\text{or}\\quad \\text{H}-\\text{H}$\n</p>\n<p>The shared pair constitutes a <strong>single covalent bond</strong> between the two hydrogen atoms.</p>\n\n<h3>2. Chlorine Molecule ($\\text{Cl}_2$):</h3>\n<p>Chlorine ($Z = 17$, configuration $2, 8, 7$) has $7$ valence electrons. Two chlorine atoms contribute one electron each to share a single electron pair, completing octets for both atoms: $:\\ddot{\\text{Cl}}-\\ddot{\\text{Cl}}:$.</p>\n\n<h3>3. Double Covalent Bond — Oxygen Molecule ($\\text{O}_2$):</h3>\n<p>Oxygen has atomic number $8$ (configuration $2, 6$) and requires $2$ electrons to complete its octet. Two oxygen atoms share <strong>two pairs of electrons</strong>:</p>\n<p style=\"text-align:center; font-size:1.1em; color:#1e3a8a;\">\n  $:\\ddot{\\text{O}}\\cdot\\cdot + \\cdot\\cdot\\ddot{\\text{O}}: \\longrightarrow :\\ddot{\\text{O}}::\\ddot{\\text{O}}: \\quad\\text{or}\\quad \\text{O}=\\text{O}$\n</p>\n<p>Sharing two pairs of electrons establishes a <strong>double covalent bond</strong>.</p>\n\n<h3>4. Triple Covalent Bond — Nitrogen Molecule ($\\text{N}_2$):</h3>\n<p>Nitrogen has atomic number $7$ (configuration $2, 5$). Each nitrogen atom needs $3$ electrons. Two nitrogen atoms share <strong>three pairs of electrons</strong>:</p>\n<p style=\"text-align:center; font-size:1.1em; color:#1e3a8a;\">\n  $:\\text{N}\\vdots\\vdots\\text{N}: \\quad\\text{or}\\quad \\text{N}\\equiv\\text{N}$\n</p>\n<p>This forms an exceptionally strong <strong>triple covalent bond</strong>, explaining why nitrogen gas ($\\text{N}_2$) is chemically inert at room temperature.</p>\n",
+    "pointsToRemember": [
+      "A single covalent bond (—) involves 1 shared electron pair (e.g. H₂).",
+      "A double covalent bond (=) involves 2 shared electron pairs (e.g. O₂).",
+      "A triple covalent bond (≡) involves 3 shared electron pairs (e.g. N₂), conferring high chemical stability."
+    ],
+    "keyNotes": [
+      "Exam Diagrams: Draw electron-dot structures showing overlapping circles or electron dots for H₂ (single bond), O₂ (double bond), and N₂ (triple bond)."
+    ],
+    "questions": [
+      {
+        "id": "m02_q01",
+        "question": "How many total covalent bonds are present in a molecule of ethane (C₂H₆)?",
+        "options": [
+          "6 covalent bonds",
+          "7 covalent bonds",
+          "8 covalent bonds",
+          "9 covalent bonds"
+        ],
+        "answer": "7 covalent bonds",
+        "explanation": "Ethane (H₃C—CH₃) contains 1 C—C single bond and 6 C—H single bonds, giving a total of 7 covalent bonds."
+      },
+      {
+        "id": "m02_q02",
+        "question": "What type of bond exists between the two nitrogen atoms in a diatomic nitrogen molecule (N₂)?",
+        "options": [
+          "Single covalent bond",
+          "Double covalent bond",
+          "Triple covalent bond",
+          "Ionic bond"
+        ],
+        "answer": "Triple covalent bond",
+        "explanation": "Each nitrogen atom (2, 5) shares 3 valence electrons to form a triple covalent bond (:N≡N:)."
+      },
+      {
+        "id": "m02_q03",
+        "question": "What type of bond exists between the two oxygen atoms in a diatomic oxygen molecule (O₂)?",
+        "options": [
+          "Single covalent bond",
+          "Double covalent bond",
+          "Triple covalent bond",
+          "Electrovalent bond"
+        ],
+        "answer": "Double covalent bond",
+        "explanation": "Each oxygen atom (2, 6) shares 2 valence electrons with the other, forming a double covalent bond (O=O)."
+      },
+      {
+        "id": "m02_q04",
+        "question": "Why do covalent compounds generally have low melting and boiling points?",
+        "options": [
+          "The covalent bonds within the molecule are very weak",
+          "The intermolecular forces of attraction between separate molecules are weak",
+          "They contain charged ions",
+          "They decompose into gases at absolute zero"
+        ],
+        "answer": "The intermolecular forces of attraction between separate molecules are weak",
+        "explanation": "Covalent molecules have strong intramolecular covalent bonds, but the intermolecular forces holding separate molecules together are weak, requiring little thermal energy to separate."
+      },
+      {
+        "id": "m02_q05",
+        "question": "What is the electron dot structure of a molecule of sulphur (S₈)?",
+        "options": [
+          "A straight linear chain of 8 sulphur atoms",
+          "A puckered crown-shaped ring of 8 sulphur atoms connected by single covalent bonds",
+          "A cubic lattice of sulphur ions",
+          "An octahedron of 8 double-bonded atoms"
+        ],
+        "answer": "A puckered crown-shaped ring of 8 sulphur atoms connected by single covalent bonds",
+        "explanation": "Eight sulphur atoms form a crown-shaped octagonal ring (S₈) where each sulphur atom shares one electron pair with each of its two neighbors."
+      },
+      {
+        "id": "m02_q06",
+        "question": "How many total electron pairs are shared between the two nitrogen atoms in a molecule of nitrogen (N₂)?",
+        "options": [
+          "1 pair (single bond)",
+          "2 pairs (double bond)",
+          "3 pairs (triple bond)",
+          "4 pairs (quadruple bond)"
+        ],
+        "answer": "3 pairs (triple bond)",
+        "explanation": "Nitrogen atoms share three pairs of valence electrons (6 shared electrons total) to form a triple bond (N≡N)."
+      },
+      {
+        "id": "m02_q07",
+        "question": "Why is elemental nitrogen gas (N₂) chemically inert and unreactive under ordinary ambient room conditions?",
+        "options": [
+          "Nitrogen atoms have zero valence electrons.",
+          "The N≡N triple bond has an exceptionally high bond dissociation energy, making it difficult to cleave.",
+          "Nitrogen molecules dissolve completely in light waves.",
+          "Nitrogen gas is solid at room temperature."
+        ],
+        "answer": "The N≡N triple bond has an exceptionally high bond dissociation energy, making it difficult to cleave.",
+        "explanation": "The strong triple bond (945 kJ/mol) requires intense energy to break, rendering N₂ inert under ambient conditions."
+      },
+      {
+        "id": "m02_q08",
+        "question": "What type of covalent bond joins the two oxygen atoms in a diatomic molecule of oxygen (O₂)?",
+        "options": [
+          "Single covalent bond",
+          "Double covalent bond (two shared electron pairs)",
+          "Triple covalent bond",
+          "Coordinate electrovalent bond"
+        ],
+        "answer": "Double covalent bond (two shared electron pairs)",
+        "explanation": "Each oxygen atom needs two electrons, sharing two pairs to form a double covalent bond (O=O)."
+      },
+      {
+        "id": "m02_q09",
+        "question": "How many total valence electrons are involved in the single covalent bond holding a hydrogen chloride (HCl) molecule together?",
+        "options": [
+          "1 electron",
+          "2 electrons (one shared electron pair)",
+          "4 electrons",
+          "8 electrons"
+        ],
+        "answer": "2 electrons (one shared electron pair)",
+        "explanation": "Hydrogen contributes 1 electron and chlorine contributes 1 electron, forming one shared pair (2 electrons) in H—Cl."
+      },
+      {
+        "id": "m02_q10",
+        "question": "A molecule of elemental sulphur consists of eight sulphur atoms joined together. What geometric shape does this S₈ ring take?",
+        "options": [
+          "A planar hexagon",
+          "A puckered crown-shaped ring",
+          "A straight linear chain",
+          "A perfect cube"
+        ],
+        "answer": "A puckered crown-shaped ring",
+        "explanation": "Eight sulphur atoms form a crown-shaped octagonal ring where each sulphur atom shares single covalent bonds with two neighbours."
+      }
+    ]
+  },
+  {
+    "id": "m03",
+    "moduleNumber": 3,
+    "title": "Covalent Bonding in Polyatomic Molecules: CH₄, H₂O & NH₃",
+    "tagline": "Electron-dot Lewis structures, single bond networks, and physical properties of covalent compounds.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<p>Having explored diatomic molecules, we now look at how carbon and other non-metals form multi-atom covalent compounds:</p>\n\n<h3>1. Methane ($\\text{CH}_4$) — The Simplest Hydrocarbon:</h3>\n<p>Methane is a major component of natural gas, biogas, and compressed natural gas ($\\text{CNG}$). In methane, one central carbon atom shares its $4$ valence electrons with $4$ individual hydrogen atoms:</p>\n<ul>\n  <li>Carbon achieves a neon octet ($2, 8$).</li>\n  <li>Each of the four hydrogen atoms achieves a helium duplet ($2$).</li>\n  <li>Methane contains <strong>$4$ single covalent $\\text{C}-\\text{H}$ bonds</strong> directed symmetrically towards the vertices of a regular tetrahedron.</li>\n</ul>\n\n<h3>2. Water Molecule ($\\text{H}_2\\text{O}$):</h3>\n<p>The central oxygen atom ($2, 6$) shares two single pairs of electrons with two hydrogen atoms, leaving <strong>two unshared lone pairs</strong> of electrons on oxygen: $\\text{H}-\\ddot{\\text{O}}-\\text{H}$.</p>\n\n<h3>3. Ammonia Molecule ($\\text{NH}_3$):</h3>\n<p>Nitrogen ($2, 5$) shares three electron pairs with three hydrogen atoms, retaining <strong>one unshared lone pair</strong> of electrons: $\\text{H}-\\ddot{\\text{N}}(\\text{H})-\\text{H}$.</p>\n\n<hr style=\"border:0; border-top:1px solid #cbd5e1; margin:16px 0;\">\n\n<h3>Characteristic Physical Properties of Covalent Compounds:</h3>\n<p>Covalent molecules exhibit distinct physical behaviors that contrast sharply with ionic compounds:</p>\n<ol>\n  <li><strong>Low Melting and Boiling Points:</strong><br>\n  Although covalent bonds <em>within</em> molecules (intramolecular forces) are strong, the <strong>intermolecular forces</strong> (forces between separate molecules) are weak. Small amounts of heat energy can easily separate the molecules, so substances like methane ($\\text{BP} = -161\\ ^\\circ\\text{C}$), chloroform, and ethanol have low melting and boiling points.</li>\n  <li><strong>Poor Electrical Conductivity:</strong><br>\n  Because electrons are mutually shared between atoms and no free charged ions are produced, covalent compounds are <strong>poor conductors of electricity</strong> in all states.</li>\n</ol>\n",
+    "pointsToRemember": [
+      "Methane (CH₄) contains 4 single C—H covalent bonds forming a tetrahedral geometry.",
+      "Covalent compounds have low melting and boiling points due to weak intermolecular forces between molecules.",
+      "Covalent compounds do not conduct electricity because they have no free ions or mobile charge carriers."
+    ],
+    "keyNotes": [
+      "Board Highlight: Be prepared to state the difference between strong intramolecular covalent bonds vs weak intermolecular forces to explain low melting points."
+    ],
+    "questions": [
+      {
+        "id": "m03_q01",
+        "question": "How many covalent bonds are present in a molecule of methane (CH₄)?",
+        "options": [
+          "1",
+          "2",
+          "4",
+          "6"
+        ],
+        "answer": "4",
+        "explanation": "In methane (CH₄), the central carbon atom forms 4 single covalent bonds with 4 separate hydrogen atoms."
+      },
+      {
+        "id": "m03_q02",
+        "question": "Why are carbon compounds and other covalent molecules generally poor conductors of electricity?",
+        "options": [
+          "They have a high boiling point",
+          "Electrons are shared and no free ions or charged particles are formed in solution",
+          "They contain only metal atoms",
+          "They absorb magnetic fields"
+        ],
+        "answer": "Electrons are shared and no free ions or charged particles are formed in solution",
+        "explanation": "Electrical conduction requires mobile charge carriers (ions or free electrons). Neutral covalent molecules lack free ions and do not conduct electricity."
+      },
+      {
+        "id": "m03_q03",
+        "question": "What is the total number of covalent bonds (including single and double bonds) in a molecule of benzene (C₆H₆)?",
+        "options": [
+          "12",
+          "15",
+          "18",
+          "9"
+        ],
+        "answer": "15",
+        "explanation": "Benzene has 6 C—H single bonds, 3 C—C single bonds, and 3 C=C double bonds (counting each bond individually: 6 + 3 + 6 = 15 covalent bonds)."
+      },
+      {
+        "id": "m03_q04",
+        "question": "What is the structural formula of propanal?",
+        "options": [
+          "CH₃—CO—CH₃",
+          "CH₃—CH₂—CHO",
+          "CH₃—CH₂—COOH",
+          "CH₃—CH₂—CH₂OH"
+        ],
+        "answer": "CH₃—CH₂—CHO",
+        "explanation": "Propanal is a 3-carbon aldehyde: CH₃CH₂CHO."
+      },
+      {
+        "id": "m03_q05",
+        "question": "How many single and double covalent bonds are present in a molecule of carbon dioxide (CO₂)?",
+        "options": [
+          "Two single bonds",
+          "Two double covalent bonds (O=C=O) with zero single bonds",
+          "One single bond and one triple bond",
+          "Four single bonds"
+        ],
+        "answer": "Two double covalent bonds (O=C=O) with zero single bonds",
+        "explanation": "Carbon dioxide (O=C=O) has a central carbon sharing two electron pairs with each of the two oxygen atoms, forming two double bonds."
+      },
+      {
+        "id": "m03_q06",
+        "question": "How many total covalent bonds are present in a single molecule of methane (CH₄)?",
+        "options": [
+          "1 covalent bond",
+          "2 covalent bonds",
+          "3 covalent bonds",
+          "4 single covalent bonds"
+        ],
+        "answer": "4 single covalent bonds",
+        "explanation": "A central carbon atom shares each of its four valence electrons with a hydrogen atom, forming four distinct C—H single covalent bonds."
+      },
+      {
+        "id": "m03_q07",
+        "question": "Why do covalent compounds like methane, ethanol, and chloroform typically possess low melting and boiling points?",
+        "options": [
+          "Covalent bonds inside the molecule are extremely weak and dissolve in air.",
+          "The intermolecular forces of attraction between separate molecules are weak and easily overcome by gentle heating.",
+          "Covalent compounds have zero molecular mass.",
+          "All covalent compounds are radioactive."
+        ],
+        "answer": "The intermolecular forces of attraction between separate molecules are weak and easily overcome by gentle heating.",
+        "explanation": "While intramolecular covalent bonds are strong, intermolecular forces are weak, requiring little thermal energy to separate molecules."
+      },
+      {
+        "id": "m03_q08",
+        "question": "Why are covalent compounds universally poor conductors of electricity in both solid and liquid states?",
+        "options": [
+          "They contain free protons that cancel all current.",
+          "Electrons are locked in shared pairs between atoms, so no free mobile ions or electrons exist to carry electric current.",
+          "They turn into lead when connected to a battery.",
+          "They absorb magnetic fields completely."
+        ],
+        "answer": "Electrons are locked in shared pairs between atoms, so no free mobile ions or electrons exist to carry electric current.",
+        "explanation": "Electrical conduction requires mobile charge carriers (ions or free electrons). Neutral covalent molecules have neither."
+      },
+      {
+        "id": "m03_q09",
+        "question": "How many unshared (lone) pairs of electrons reside on the central oxygen atom in a molecule of water (H₂O)?",
+        "options": [
+          "0 lone pairs",
+          "1 lone pair",
+          "2 lone pairs",
+          "3 lone pairs"
+        ],
+        "answer": "2 lone pairs",
+        "explanation": "Oxygen has 6 valence electrons: 2 are shared with two hydrogen atoms, leaving 4 non-bonding electrons as 2 lone pairs."
+      },
+      {
+        "id": "m03_q10",
+        "question": "In a molecule of ammonia (NH₃), how many single covalent bonds and lone pairs are present around the nitrogen atom?",
+        "options": [
+          "3 single covalent bonds and 1 lone pair",
+          "2 single covalent bonds and 2 lone pairs",
+          "4 single covalent bonds and 0 lone pairs",
+          "1 triple bond and 0 lone pairs"
+        ],
+        "answer": "3 single covalent bonds and 1 lone pair",
+        "explanation": "Nitrogen shares 3 electrons with 3 hydrogen atoms (3 N—H single bonds) and retains 1 lone pair (2 non-bonding electrons)."
+      }
+    ]
+  },
+  {
+    "id": "m04",
+    "moduleNumber": 4,
+    "title": "Allotropes of Carbon: Diamond — Rigid 3D Tetrahedral Network",
+    "tagline": "Crystal structure, extreme hardness, optical dispersion, and industrial rock-drilling uses.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<p>The phenomenon where an element exists in two or more distinct physical forms having identical chemical properties but vastly different physical structures is called <strong>allotropy</strong>. Carbon possesses three primary allotropes: <strong>Diamond</strong>, <strong>Graphite</strong>, and <strong>Fullerenes</strong>.</p>\n\n<h3>Crystal Architecture of Diamond:</h3>\n<p>In diamond, each carbon atom is covalently bonded to <strong>four other carbon atoms</strong> in a rigid, three-dimensional tetrahedral network:</p>\n<ul>\n  <li><strong>Bonding:</strong> All four valence electrons of every carbon atom are firmly engaged in single covalent bonds ($s p^3$ hybridisation). There are <strong>zero free or delocalised electrons</strong> anywhere in the crystal.</li>\n  <li><strong>Hardness:</strong> Because breaking diamond requires rupturing thousands of extremely strong, interlocking covalent $\\text{C}-\\text{C}$ bonds across the lattice, diamond is the <strong>hardest naturally occurring substance known</strong> on Earth (Mohs hardness $10$).</li>\n  <li><strong>Melting Point:</strong> Diamond has an exceptionally high melting point of over $3500\\ ^\\circ\\text{C}$ ($3800\\text{ K}$) due to its dense, continuous covalent network.</li>\n  <li><strong>Electrical Conductivity:</strong> Because all valence electrons are locked rigidly into localised covalent bonds, diamond possesses no free mobile charge carriers and is a <strong>complete electrical insulator</strong>.</li>\n  <li><strong>Optical Properties:</strong> High refractive index ($2.42$) and high dispersion cause total internal reflection, producing diamond's brilliant sparkle when properly faceted.</li>\n</ul>\n\n<h3>Synthetic Diamonds:</h3>\n<p>Pure carbon (such as graphite) can be transformed into synthetic diamonds by subjecting it to <strong>extremely high temperature and astronomical pressure</strong>. Synthetic diamonds are small but otherwise indistinguishable from natural diamonds, and are widely used industrially in glass cutters, rock-drilling bits, and precision surgical scalpels.</p>\n",
+    "pointsToRemember": [
+      "In diamond, each carbon atom is bonded to 4 other carbon atoms in a rigid 3D tetrahedral network.",
+      "Diamond is the hardest natural substance known and has an exceptionally high melting point (>3500 °C).",
+      "Diamond does NOT conduct electricity because all 4 valence electrons are locked in covalent bonds with zero free electrons."
+    ],
+    "keyNotes": [
+      "Board Highlight: Know why diamond is an insulator (all 4 electrons bonded, no free electrons) vs graphite (conducts electricity due to 1 free electron per atom)."
+    ],
+    "questions": [
+      {
+        "id": "m04_q01",
+        "question": "The unique ability of carbon to form bonds with other carbon atoms to give rise to long chains and rings is called:",
+        "options": [
+          "Tetravalency",
+          "Catenation",
+          "Isomerism",
+          "Halogenation"
+        ],
+        "answer": "Catenation",
+        "explanation": "Catenation is the self-linking property of atoms of the same element through covalent bonds to form straight chains, branched chains, or cyclic rings."
+      },
+      {
+        "id": "m04_q02",
+        "question": "What is the total number of single covalent bonds in a molecule of cyclopentane (C₅H₁₀)?",
+        "options": [
+          "10",
+          "15",
+          "12",
+          "20"
+        ],
+        "answer": "15",
+        "explanation": "Cyclopentane consists of 5 C—C ring bonds and 10 C—H bonds (2 on each carbon), totaling 15 single covalent bonds."
+      },
+      {
+        "id": "m04_q03",
+        "question": "Why does a glowing piece of charcoal in an 'angithi' give out steady heat WITHOUT a visible flame once initial volatile matter has burnt off?",
+        "options": [
+          "Charcoal does not react with oxygen",
+          "A flame is only produced when gaseous substances or vaporised matter burn; non-volatile solid carbon simply glows red",
+          "Charcoal is an electric conductor",
+          "Charcoal burns below 0°C"
+        ],
+        "answer": "A flame is only produced when gaseous substances or vaporised matter burn; non-volatile solid carbon simply glows red",
+        "explanation": "Flames occur only during the combustion of volatile vaporised gases. Solid carbon does not vaporise, so it undergoes incandescent glowing combustion without a flame."
+      },
+      {
+        "id": "m04_q04",
+        "question": "Why does the blue flame of a Bunsen burner turn into a yellow, luminous flame when the air vent at the base is closed?",
+        "options": [
+          "The temperature increases above 5000°C",
+          "Incomplete combustion due to restricted air supply generates unburnt incandescent carbon particles that glow yellow",
+          "Nitrogen gas burns with a yellow flame",
+          "Water vapor cools the burner"
+        ],
+        "answer": "Incomplete combustion due to restricted air supply generates unburnt incandescent carbon particles that glow yellow",
+        "explanation": "Closing the air hole starves the combustion zone of oxygen, causing incomplete combustion. Unburnt carbon soot particles heat to incandescence and emit yellow light."
+      },
+      {
+        "id": "m04_q05",
+        "question": "What happens when a drop of soap solution and a drop of detergent solution are added to separate test tubes containing hard water and shaken?",
+        "options": [
+          "Both form equal thick lather",
+          "Soap forms a curdy white precipitate (scum) with little foam, while detergent forms copious rich foam without precipitate",
+          "Detergent forms solid scum",
+          "Neither cleans hard water"
+        ],
+        "answer": "Soap forms a curdy white precipitate (scum) with little foam, while detergent forms copious rich foam without precipitate",
+        "explanation": "Soap precipitates as calcium/magnesium scum. Synthetic detergents do not form precipitates with Ca²⁺/Mg²⁺ and produce abundant foam."
+      },
+      {
+        "id": "m04_q06",
+        "question": "In the crystal structure of diamond, how many other carbon atoms is each individual carbon atom covalently linked to?",
+        "options": [
+          "2 other carbon atoms in a straight chain",
+          "3 other carbon atoms in flat sheets",
+          "4 other carbon atoms in a rigid three-dimensional tetrahedral lattice",
+          "6 other carbon atoms in an octahedral cage"
+        ],
+        "answer": "4 other carbon atoms in a rigid three-dimensional tetrahedral lattice",
+        "explanation": "Each carbon atom forms four strong covalent bonds directed towards the corners of a regular tetrahedron."
+      },
+      {
+        "id": "m04_q07",
+        "question": "Why is diamond a complete non-conductor of electricity?",
+        "options": [
+          "Its crystal lattice contains radioactive neutrons.",
+          "All four valence electrons of every carbon atom are firmly engaged in covalent bonds, leaving zero free electrons or ions to conduct current.",
+          "Diamond melts at room temperature.",
+          "Diamond repels all electric voltages."
+        ],
+        "answer": "All four valence electrons of every carbon atom are firmly engaged in covalent bonds, leaving zero free electrons or ions to conduct current.",
+        "explanation": "With all valence electrons locked in strong single bonds, there are no mobile charge carriers available for electrical conduction."
+      },
+      {
+        "id": "m04_q08",
+        "question": "Under what laboratory conditions can pure carbon be transformed into synthetic diamonds?",
+        "options": [
+          "Zero gravity and cryogenic liquid nitrogen temperature",
+          "Extremely high pressures and high temperatures",
+          "Submersion in concentrated sulphuric acid at room temperature",
+          "Electrolysis of carbon dioxide gas"
+        ],
+        "answer": "Extremely high pressures and high temperatures",
+        "explanation": "Synthetic diamonds are fabricated by mimicking geological mantle conditions: enormous pressure (>5 GPa) and temperatures (>1500 °C)."
+      },
+      {
+        "id": "m04_q09",
+        "question": "Which heavy-duty industrial application directly relies on the extreme physical hardness of diamond?",
+        "options": [
+          "Lubricating high-speed automotive engine pistons",
+          "Diamond-tipped rock drilling bits and precision glass-cutting blades",
+          "Electrodes for electrolytic aluminium smelting",
+          "Synthetic fuel manufacture"
+        ],
+        "answer": "Diamond-tipped rock drilling bits and precision glass-cutting blades",
+        "explanation": "Being the hardest known natural substance, diamond easily cuts through hard glass, granite, and geological rock formations."
+      },
+      {
+        "id": "m04_q10",
+        "question": "What is the refractive index of diamond that causes total internal reflection and its brilliant sparkle?",
+        "options": [
+          "1.00",
+          "1.33",
+          "1.52",
+          "2.42"
+        ],
+        "answer": "2.42",
+        "explanation": "Diamond has a very high optical refractive index of 2.42 and a low critical angle (24.4°), producing intense total internal reflection."
+      }
+    ]
+  },
+  {
+    "id": "m05",
+    "moduleNumber": 5,
+    "title": "Allotropes of Carbon: Graphite & Fullerenes (C₆₀)",
+    "tagline": "Hexagonal layers, delocalised electron conductivity, dry lubrication, and buckyballs.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<h3>1. The Hexagonal Layered Structure of Graphite:</h3>\n<p>Graphite has a structure and properties completely different from diamond, despite consisting of pure carbon atoms:</p>\n<ul>\n  <li><strong>Bonding:</strong> In graphite, each carbon atom is covalently bonded to only <strong>three other carbon atoms</strong> in the same plane, creating a flat network of interlocking <strong>hexagonal rings</strong>.</li>\n  <li><strong>Delocalised Electrons & Electrical Conduction:</strong> Since carbon has $4$ valence electrons and bonds to only $3$ neighbours, <strong>one valence electron per carbon atom remains unbonded and free to move</strong> throughout the planar layers. These mobile, delocalised electrons make graphite an <strong>excellent conductor of electricity</strong>, used in dry cell battery electrodes and arc lamp rods.</li>\n  <li><strong>Lubricating Properties:</strong> The parallel hexagonal layers are held together only by weak <strong>van der Waals forces</strong>. Under shear pressure, these layers slide smoothly over one another. This gives graphite a soft, slippery, and soapy feel, making it an ideal <strong>dry solid lubricant</strong> for high-temperature machinery where oil would burn.</li>\n</ul>\n\n<hr style=\"border:0; border-top:1px solid #cbd5e1; margin:16px 0;\">\n\n<h3>2. Fullerenes — The Third Allotropic Form:</h3>\n<p>Fullerenes form another class of carbon allotropes discovered in 1985:</p>\n<ul>\n  <li>The first identified fullerene was <strong>$\\text{C}_{60}$</strong>, which consists of $60$ carbon atoms arranged in a hollow spherical cage resembling a soccer ball.</li>\n  <li>The structure consists of interlocking $20$ hexagons and $12$ pentagons.</li>\n  <li>It was named <strong>Buckminsterfullerene</strong> in honor of the visionary American architect <strong>Buckminster Fuller</strong>, because its spherical geodesic cage resembled the geodesic domes he designed.</li>\n</ul>\n",
+    "pointsToRemember": [
+      "In graphite, each carbon atom is bonded to 3 other carbon atoms in hexagonal layers, leaving 1 free mobile electron per atom.",
+      "Graphite conducts electricity due to delocalised electrons; its layers slide over each other making it a soft dry lubricant.",
+      "Fullerenes (like C₆₀) consist of carbon atoms arranged in hollow spherical cages resembling geodesic domes or soccer balls."
+    ],
+    "keyNotes": [
+      "Exam Comparison: Diamond is hard and an insulator (4 bonded electrons, 3D network); Graphite is soft and a conductor (3 bonded electrons, 1 free electron, 2D layers)."
+    ],
+    "questions": [
+      {
+        "id": "m05_q01",
+        "question": "Hydrocarbons containing only single covalent bonds between carbon atoms are called:",
+        "options": [
+          "Alkenes",
+          "Alkynes",
+          "Saturated hydrocarbons (Alkanes)",
+          "Aromatic hydrocarbons"
+        ],
+        "answer": "Saturated hydrocarbons (Alkanes)",
+        "explanation": "Saturated hydrocarbons (alkanes) have each carbon-carbon valency satisfied by single C—C sigma bonds."
+      },
+      {
+        "id": "m05_q02",
+        "question": "Why is the carbon-carbon (C—C) single covalent bond exceptionally strong and stable compared to the silicon-silicon (Si—Si) bond?",
+        "options": [
+          "Silicon has more valence electrons",
+          "Carbon's small atomic size allows its nucleus to hold shared electron pairs tightly close; larger silicon atoms have diffuse, weaker bonds",
+          "Carbon has metallic properties",
+          "Silicon does not form covalent bonds"
+        ],
+        "answer": "Carbon's small atomic size allows its nucleus to hold shared electron pairs tightly close; larger silicon atoms have diffuse, weaker bonds",
+        "explanation": "Carbon's small atomic radius ensures strong overlap of valence orbitals and high bond dissociation energy. Silicon's larger atomic radius weakens Si—Si bonds, making silanes beyond 7–8 atoms unstable."
+      },
+      {
+        "id": "m05_q03",
+        "question": "When cooking oil and animal fat are tested with alkaline KMnO₄, why does vegetable cooking oil decolourise the pink permanganate solution while animal fat does not?",
+        "options": [
+          "Vegetable oil contains unsaturated fatty acids which undergo oxidation/addition, whereas animal fat contains saturated fatty acids",
+          "Vegetable oil is acidic",
+          "Animal fat is an inorganic mineral",
+          "Permanganate is soluble only in animal fats"
+        ],
+        "answer": "Vegetable oil contains unsaturated fatty acids which undergo oxidation/addition, whereas animal fat contains saturated fatty acids",
+        "explanation": "Vegetable oils contain healthy unsaturated carbon chains with C=C bonds that react with and decolourise alkaline KMnO₄ (Baeyer's reagent), whereas saturated animal fats are unreactive."
+      },
+      {
+        "id": "m05_q04",
+        "question": "An organic compound 'X' has molecular formula C₂H₄O₂. It reacts with ethanol in the presence of conc. H₂SO₄ to give a sweet-fruity smelling compound 'Y'. Identify 'X' and 'Y':",
+        "options": [
+          "X = Ethanol, Y = Ethanoic acid",
+          "X = Ethanoic acid (CH₃COOH), Y = Ethyl ethanoate (CH₃COOC₂H₅)",
+          "X = Methanol, Y = Methyl ethanoate",
+          "X = Acetone, Y = Ethyl alcohol"
+        ],
+        "answer": "X = Ethanoic acid (CH₃COOH), Y = Ethyl ethanoate (CH₃COOC₂H₅)",
+        "explanation": "C₂H₄O₂ is ethanoic acid (CH₃COOH). Esterification with ethanol produces ethyl ethanoate (CH₃COOC₂H₅), which has a sweet fruity fragrance."
+      },
+      {
+        "id": "m05_q05",
+        "question": "When solid sodium carbonate is added to dilute ethanoic acid in a test tube, brisk effervescence occurs. What happens when the evolved gas is passed through lime water?",
+        "options": [
+          "Lime water turns dark blue",
+          "Lime water turns milky due to CaCO₃, and clears on passing excess gas",
+          "Lime water burns with a pop sound",
+          "No change occurs"
+        ],
+        "answer": "Lime water turns milky due to CaCO₃, and clears on passing excess gas",
+        "explanation": "The gas evolved is CO₂. Ca(OH)₂ + CO₂ → CaCO₃↓ (milky) + H₂O; with excess CO₂, soluble Ca(HCO₃)₂ forms, clearing the milkiness."
+      },
+      {
+        "id": "m05_q06",
+        "question": "What enables graphite to conduct electricity with such high efficiency, despite being a non-metal allotrope?",
+        "options": [
+          "It contains free sodium ions trapped between its sheets.",
+          "Each carbon atom is bonded to only 3 neighbours, leaving one free delocalised electron that moves freely across the hexagonal layers.",
+          "Graphite absorbs light photons and converts them into metallic copper.",
+          "It has an ionic lattice that dissociates in water."
+        ],
+        "answer": "Each carbon atom is bonded to only 3 neighbours, leaving one free delocalised electron that moves freely across the hexagonal layers.",
+        "explanation": "The fourth valence electron is delocalised across the sp2 planar sheet, facilitating high electrical conductivity."
+      },
+      {
+        "id": "m05_q07",
+        "question": "Why is powdered graphite widely utilized as a dry solid lubricant in heavy industrial machinery operating at elevated temperatures?",
+        "options": [
+          "It dissolves machine parts to make them lighter.",
+          "Its planar hexagonal carbon sheets are held by weak van der Waals forces and slide easily over one another without burning.",
+          "Graphite produces oil when squeezed.",
+          "Graphite melts into water at 50 °C."
+        ],
+        "answer": "Its planar hexagonal carbon sheets are held by weak van der Waals forces and slide easily over one another without burning.",
+        "explanation": "The weak interlayer attraction permits smooth sliding of sheets, providing dry lubricity at temperatures where liquid oils vaporise."
+      },
+      {
+        "id": "m05_q08",
+        "question": "What is the molecular formula and structural shape of the famous fullerene named after architect Buckminster Fuller?",
+        "options": [
+          "C100, forming a long cylinder",
+          "C60, forming a hollow spherical soccer-ball shaped geodesic cage",
+          "C12, forming a flat planar triangle",
+          "C24, forming a solid pyramid"
+        ],
+        "answer": "C60, forming a hollow spherical soccer-ball shaped geodesic cage",
+        "explanation": "C60 contains 60 carbon atoms organised into 12 pentagons and 20 hexagons, forming a spherical geodesic cage."
+      },
+      {
+        "id": "m05_q09",
+        "question": "How many other carbon atoms is each carbon atom covalently bonded to inside a single sheet of graphite?",
+        "options": [
+          "2 carbon atoms",
+          "3 carbon atoms",
+          "4 carbon atoms",
+          "6 carbon atoms"
+        ],
+        "answer": "3 carbon atoms",
+        "explanation": "In graphite, each carbon atom forms planar covalent bonds with three adjacent carbon atoms at 120° angles in hexagonal rings."
+      },
+      {
+        "id": "m05_q10",
+        "question": "Which of the following carbon allotropes is commonly used in pencil leads because of its ability to leave dark, flaky marks on paper?",
+        "options": [
+          "Diamond",
+          "Graphite (mixed with clay)",
+          "Fullerene C60",
+          "Carbon nanotube"
+        ],
+        "answer": "Graphite (mixed with clay)",
+        "explanation": "Pencil lead is a blend of powdered graphite and clay; the slippery layers shear off easily to mark paper."
+      }
+    ]
+  },
+  {
+    "id": "m06",
+    "moduleNumber": 6,
+    "title": "The Versatile Nature of Carbon: Catenation & Strong C—C Bonds",
+    "tagline": "Explaining the existence of millions of organic compounds through self-linking chemistry.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<p>Chemists have identified and synthesised millions of carbon compounds—vastly outnumbering the compounds of all other periodic table elements combined! What unique properties allow carbon to form this immense family of compounds?</p>\n<p>Two exceptional factors govern carbon's versatile nature:</p>\n\n<h3>1. Catenation (Self-Linking Ability):</h3>\n<p><strong>Catenation</strong> is the unique ability of an element to form strong covalent bonds with other atoms of the same element, generating vast chains, branched structures, and rings of atoms:</p>\n<ul>\n  <li>Carbon atoms can link together to form <strong>straight long chains</strong> of dozens or hundreds of carbon atoms (e.g. in synthetic polymers and biological DNA).</li>\n  <li>They can form intricate <strong>branched chains</strong> and <strong>closed cyclic rings</strong>.</li>\n  <li>Carbon atoms can be linked by single bonds, double bonds, or triple bonds.</li>\n</ul>\n\n<h3>Why Carbon's Catenation Is Unique:</h3>\n<p>Although other elements in Group 14 like silicon ($\\text{Si}$) also show catenation (forming chains with hydrogen up to $7$ or $8$ atoms), silicon-silicon compounds are highly reactive, unstable, and thermally sensitive.</p>\n<p>In stark contrast, the <strong>carbon-carbon ($\\text{C}-\\text{C}$) bond is exceptionally strong, robust, and stable</strong>.</p>\n\n<h3>Why Is the C—C Bond So Exceptionally Strong?</h3>\n<p>Because of carbon's <strong>small atomic size</strong> ($Z = 6$, only two electron shells). The small radius allows the positively charged carbon nucleus to hold shared electron pairs tightly and securely. As we move down the periodic table to larger elements, the atomic size increases, placing the shared electrons further from the nucleus, resulting in dramatically weaker bonds.</p>\n",
+    "pointsToRemember": [
+      "Catenation is the unique ability of carbon to form bonds with other carbon atoms, giving rise to long chains, branches, and rings.",
+      "Carbon-carbon (C—C) bonds are exceptionally strong and stable because of carbon's small atomic size.",
+      "Silicon forms chains only up to 7-8 atoms, which are unstable and highly reactive, whereas carbon forms stable chains of unlimited length."
+    ],
+    "keyNotes": [
+      "Core Board Question: Define catenation and explain why carbon shows catenation to an extent unmatched by any other element (small size enables strong C—C bonds)."
+    ],
+    "questions": [
+      {
+        "id": "m06_q01",
+        "question": "Hydrocarbons containing at least one double or triple bond between carbon atoms are called:",
+        "options": [
+          "Saturated compounds",
+          "Unsaturated compounds",
+          "Alkanes",
+          "Alcohols"
+        ],
+        "answer": "Unsaturated compounds",
+        "explanation": "Unsaturated hydrocarbons contain one or more carbon-carbon double (alkenes) or triple (alkynes) bonds."
+      },
+      {
+        "id": "m06_q02",
+        "question": "Why can carbon NOT form C⁴⁺ cations or C⁴⁻ anions to form ionic bonds?",
+        "options": [
+          "Carbon is a radioactive gas",
+          "Gaining 4e⁻ requires 6 protons to hold 10 electrons; losing 4e⁻ requires massive ionisation energy to overcome nuclear charge",
+          "Carbon has an odd atomic number",
+          "Carbon has no valence electrons"
+        ],
+        "answer": "Gaining 4e⁻ requires 6 protons to hold 10 electrons; losing 4e⁻ requires massive ionisation energy to overcome nuclear charge",
+        "explanation": "Forming C⁴⁻ is electrostatically unstable (6 protons holding 10 electrons). Forming C⁴⁺ requires enormous energy to strip 4 successive electrons. Hence, carbon exclusively shares electrons."
+      },
+      {
+        "id": "m06_q03",
+        "question": "Who disproved the 'Vital Force Theory' in 1828 by synthesizing the organic compound urea from inorganic ammonium cyanate?",
+        "options": [
+          "Dmitri Mendeleev",
+          "Friedrich Wöhler",
+          "Antoine Lavoisier",
+          "John Dalton"
+        ],
+        "answer": "Friedrich Wöhler",
+        "explanation": "Friedrich Wöhler synthesized urea [CO(NH₂)₂] by heating ammonium cyanate [NH₄CNO] in 1828, proving organic compounds can be created from inorganic precursors."
+      },
+      {
+        "id": "m06_q04",
+        "question": "What is the structural formula of the four-carbon ketone butanone?",
+        "options": [
+          "CH₃—CH₂—CH₂—CHO",
+          "CH₃—CO—CH₂—CH₃",
+          "CH₃—CH₂—CH₂—COOH",
+          "CH₃—CH₂—CH₂—CH₂OH"
+        ],
+        "answer": "CH₃—CO—CH₂—CH₃",
+        "explanation": "Butanone contains 4 carbon atoms with a carbonyl group at carbon-2: CH₃COCH₂CH₃."
+      },
+      {
+        "id": "m06_q05",
+        "question": "What is the correct IUPAC name of the compound CH₃—CH₂—CHO?",
+        "options": [
+          "Propanol",
+          "Propanal",
+          "Propanone",
+          "Propanoic acid"
+        ],
+        "answer": "Propanal",
+        "explanation": "A 3-carbon chain with an aldehyde functional group (—CHO) is named Propanal."
+      },
+      {
+        "id": "m06_q06",
+        "question": "What technical term describes the property of an element to form covalent bonds with other atoms of itself to build long chains or rings?",
+        "options": [
+          "Allotropy",
+          "Catenation",
+          "Electronegativity",
+          "Saponification"
+        ],
+        "answer": "Catenation",
+        "explanation": "Catenation is the linkage of atoms of the same element into longer chains, branches, or rings via covalent bonding."
+      },
+      {
+        "id": "m06_q07",
+        "question": "Why are carbon-carbon (C—C) single covalent bonds exceptionally strong and chemically stable compared to silicon-silicon (Si—Si) bonds?",
+        "options": [
+          "Carbon atoms have zero neutrons.",
+          "Carbon has a very small atomic size, enabling its nucleus to hold shared electron pairs tightly.",
+          "Silicon atoms are completely non-polar.",
+          "Silicon can only form ionic bonds with itself."
+        ],
+        "answer": "Carbon has a very small atomic size, enabling its nucleus to hold shared electron pairs tightly.",
+        "explanation": "Due to its compact atomic radius, the shared electron pair is held close to both carbon nuclei, yielding high bond energy."
+      },
+      {
+        "id": "m06_q08",
+        "question": "Silicon also forms compounds with hydrogen showing chains of up to 7 or 8 atoms. How do these silicon chains compare with carbon chains?",
+        "options": [
+          "Silicon chains are completely unbreakable.",
+          "Silicon chains are thermally unstable, fragile, and react violently with air.",
+          "Silicon chains are radioactive.",
+          "Silicon chains only exist in liquid helium."
+        ],
+        "answer": "Silicon chains are thermally unstable, fragile, and react violently with air.",
+        "explanation": "Si—Si bonds are weak because of silicon's larger atomic size; silanes are unstable and ignite spontaneously in air."
+      },
+      {
+        "id": "m06_q09",
+        "question": "In 1828, German chemist Friedrich Wöhler famously disproved the 'Vital Force Theory' by synthesising which organic compound from ammonium cyanate in the lab?",
+        "options": [
+          "Methane",
+          "Urea [NH₂CONH₂]",
+          "Acetic acid",
+          "Ethanol"
+        ],
+        "answer": "Urea [NH₂CONH₂]",
+        "explanation": "Wöhler heated the inorganic compound ammonium cyanate (NH4CNO) and produced urea, proving organic molecules do not require a living 'vital force'."
+      },
+      {
+        "id": "m06_q10",
+        "question": "What three structural geometric arrangements can carbon atoms adopt when forming catenated frameworks?",
+        "options": [
+          "Straight linear chains, branched chains, and closed cyclic rings",
+          "Only straight lines without any branching",
+          "Only hollow concentric spheres",
+          "Only helical spirals"
+        ],
+        "answer": "Straight linear chains, branched chains, and closed cyclic rings",
+        "explanation": "Carbon catenation allows for open straight chains, branched structures, and closed rings containing single, double, or triple bonds."
+      }
+    ]
+  },
+  {
+    "id": "m07",
+    "moduleNumber": 7,
+    "title": "Tetravalency of Carbon & Saturated vs Unsaturated Hydrocarbons",
+    "tagline": "Valency of four, single vs multiple bonds, and chemical reactivity differences.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<h3>1. Tetravalency of Carbon:</h3>\n<p>The second pillar of carbon's versatile nature is its <strong>tetravalency</strong>. Since carbon has a valency of $4$, it is capable of bonding with $4$ other atoms of carbon or atoms of other monovalent elements (such as hydrogen, halogens) or multivalent elements (oxygen, nitrogen, sulphur).</p>\n<p>Compounds containing only <strong>carbon and hydrogen</strong> are called <strong>hydrocarbons</strong>.</p>\n\n<hr style=\"border:0; border-top:1px solid #cbd5e1; margin:16px 0;\">\n\n<h3>2. Saturated Hydrocarbons (Alkanes):</h3>\n<ul>\n  <li>Hydrocarbons in which all carbon atoms are linked to one another <strong>exclusively by single covalent bonds</strong> ($\\text{C}-\\text{C}$) are called <strong>saturated hydrocarbons</strong>.</li>\n  <li>They are also known as <strong>alkanes</strong>.</li>\n  <li><strong>Chemical Reactivity:</strong> Saturated hydrocarbons are relatively unreactive and chemically inert under ordinary conditions because all valence requirements are satisfied by strong single bonds.</li>\n  <li><strong>Combustion:</strong> They burn with a clean, blue, non-sooty flame in sufficient oxygen.</li>\n</ul>\n\n<h3>3. Unsaturated Hydrocarbons (Alkenes & Alkynes):</h3>\n<ul>\n  <li>Hydrocarbons containing <strong>at least one double bond ($\\text{C}=\\text{C}$) or triple bond ($\\text{C}\\equiv\\text{C}$)</strong> between carbon atoms are called <strong>unsaturated hydrocarbons</strong>.</li>\n  <li>Compounds with a double bond are called <strong>alkenes</strong> (e.g. ethene, $\\text{C}_2\\text{H}_4$).</li>\n  <li>Compounds with a triple bond are called <strong>alkynes</strong> (e.g. ethyne, $\\text{C}_2\\text{H}_2$).</li>\n  <li><strong>Chemical Reactivity:</strong> Unsaturated hydrocarbons are <strong>far more chemically reactive</strong> than saturated hydrocarbons because the extra shared electron pairs in double and triple bonds are readily available to undergo addition reactions.</li>\n  <li><strong>Combustion:</strong> They burn with a yellow, luminous, and smoky/sooty flame due to higher carbon percentages.</li>\n</ul>\n",
+    "pointsToRemember": [
+      "Tetravalency means carbon has a valency of 4 and can form 4 covalent bonds.",
+      "Saturated hydrocarbons (alkanes) contain only single C—C bonds and are relatively unreactive.",
+      "Unsaturated hydrocarbons contain double bonds (alkenes) or triple bonds (alkynes) and are much more chemically reactive."
+    ],
+    "keyNotes": [
+      "Board Highlight: Differentiate between saturated and unsaturated hydrocarbons based on type of bond (single vs double/triple) and chemical reactivity (alkenes/alkynes undergo addition reactions)."
+    ],
+    "questions": [
+      {
+        "id": "m07_q01",
+        "question": "What is the general chemical formula for the homologous series of alkanes?",
+        "options": [
+          "CₙH₂ₙ₊₂",
+          "CₙH₂ₙ",
+          "CₙH₂ₙ₋₂",
+          "CₙHₙ"
+        ],
+        "answer": "CₙH₂ₙ₊₂",
+        "explanation": "Alkanes follow the general homologous formula CₙH₂ₙ₊₂ (where n = 1, 2, 3...)."
+      },
+      {
+        "id": "m07_q02",
+        "question": "What is the general chemical formula for the homologous series of alkenes?",
+        "options": [
+          "CₙH₂ₙ₊₂",
+          "CₙH₂ₙ",
+          "CₙH₂ₙ₋₂",
+          "CₙH₂ₙ₊₁OH"
+        ],
+        "answer": "CₙH₂ₙ",
+        "explanation": "Alkenes with one double bond follow the general formula CₙH₂ₙ (where n = 2, 3, 4...)."
+      },
+      {
+        "id": "m07_q03",
+        "question": "What is the general chemical formula for the homologous series of alkynes?",
+        "options": [
+          "CₙH₂ₙ₊₂",
+          "CₙH₂ₙ",
+          "CₙH₂ₙ₋₂",
+          "CₙHₙ"
+        ],
+        "answer": "CₙH₂ₙ₋₂",
+        "explanation": "Alkynes with one triple bond follow the general formula CₙH₂ₙ₋₂ (where n = 2, 3, 4...)."
+      },
+      {
+        "id": "m07_q04",
+        "question": "What is the molecular formula of cyclohexane, a cyclic saturated hydrocarbon?",
+        "options": [
+          "C₆H₆",
+          "C₆H₁₂",
+          "C₆H₁₄",
+          "C₆H₁₀"
+        ],
+        "answer": "C₆H₁₂",
+        "explanation": "Cyclohexane is a closed 6-carbon saturated ring with molecular formula C₆H₁₂."
+      },
+      {
+        "id": "m07_q05",
+        "question": "What is the molecular formula and structure of benzene?",
+        "options": [
+          "C₆H₁₂, with single bonds only",
+          "C₆H₆, with alternating single and double bonds in a 6-carbon ring",
+          "C₆H₁₄, a straight chain",
+          "C₆H₈, with two triple bonds"
+        ],
+        "answer": "C₆H₆, with alternating single and double bonds in a 6-carbon ring",
+        "explanation": "Benzene is an unsaturated cyclic hydrocarbon with molecular formula C₆H₆ containing 3 alternating double bonds in a hexagonal ring."
+      },
+      {
+        "id": "m07_q06",
+        "question": "What is the structural definition of an unsaturated hydrocarbon?",
+        "options": [
+          "A hydrocarbon with oxygen dissolved inside it.",
+          "A carbon compound that contains at least one carbon-carbon double (C=C) or triple (C≡C) covalent bond.",
+          "A hydrocarbon that dissolves in water.",
+          "A compound composed exclusively of single bonds."
+        ],
+        "answer": "A carbon compound that contains at least one carbon-carbon double (C=C) or triple (C≡C) covalent bond.",
+        "explanation": "Unsaturated hydrocarbons contain double or triple bonds between carbon atoms, permitting addition reactions."
+      },
+      {
+        "id": "m07_q07",
+        "question": "Why are unsaturated hydrocarbons (alkenes and alkynes) chemically much more reactive than saturated alkanes?",
+        "options": [
+          "They have lower molecular masses.",
+          "The double and triple bonds provide accessible electron density that readily opens up to undergo addition reactions with reagents.",
+          "They contain unstable free neutrons.",
+          "They possess ionic bonds in their backbones."
+        ],
+        "answer": "The double and triple bonds provide accessible electron density that readily opens up to undergo addition reactions with reagents.",
+        "explanation": "The multiple bonds contain pi electrons that are more exposed and readily participate in addition reactions."
+      },
+      {
+        "id": "m07_q08",
+        "question": "Which type of hydrocarbon burns with a clean, clear blue flame under conditions of complete combustion in air?",
+        "options": [
+          "Saturated hydrocarbons (alkanes) with sufficient air supply",
+          "Aromatic alkynes with high carbon percentage",
+          "Unsaturated alkenes in limited air",
+          "Pure coal dust"
+        ],
+        "answer": "Saturated hydrocarbons (alkanes) with sufficient air supply",
+        "explanation": "Saturated hydrocarbons have a lower carbon percentage and burn completely with a non-sooty blue flame."
+      },
+      {
+        "id": "m07_q09",
+        "question": "What is the common chemical name for the hydrocarbon family possessing only single carbon-carbon bonds?",
+        "options": [
+          "Alkenes",
+          "Alkynes",
+          "Alkanes (paraffins)",
+          "Arenes"
+        ],
+        "answer": "Alkanes (paraffins)",
+        "explanation": "Alkanes are saturated aliphatic hydrocarbons containing exclusively single carbon-carbon covalent bonds."
+      },
+      {
+        "id": "m07_q10",
+        "question": "A hydrocarbon molecule has the molecular formula C₃H₆. Is it saturated or unsaturated, and to which family does it belong?",
+        "options": [
+          "Saturated alkane",
+          "Unsaturated alkene (propene)",
+          "Unsaturated alkyne (propyne)",
+          "Cyclic ether"
+        ],
+        "answer": "Unsaturated alkene (propene)",
+        "explanation": "C₃H₆ matches the alkene general formula CnH₂n (where n = 3), so it is the unsaturated hydrocarbon propene."
+      }
+    ]
+  },
+  {
+    "id": "m08",
+    "moduleNumber": 8,
+    "title": "Alkanes (Saturated Hydrocarbons): General Formula CnH₂n₊₂ & Homologues",
+    "tagline": "Straight-chain alkanes from methane to hexane, formulas, and structural representations.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<p><strong>Alkanes</strong> are the foundational family of saturated hydrocarbons. In every alkane, every carbon atom uses all four of its valence bonds to link either to adjacent carbon atoms or to hydrogen atoms through single covalent bonds.</p>\n\n<h3>The General Chemical Formula for Alkanes:</h3>\n<p style=\"text-align:center; font-weight:bold; font-size:1.2em; color:#1e3a8a;\">\n  $\\text{C}_n\\text{H}_{2n+2}$\n</p>\n<p>where $n$ represents the integer number of carbon atoms in the molecule.</p>\n\n<h3>The First Six Alkanes of the Series:</h3>\n<table style=\"width:100%; border-collapse:collapse; text-align:center; margin:16px 0;\">\n  <tr style=\"background:#e2e8f0; font-weight:bold;\">\n    <td style=\"padding:6px; border:1px solid #cbd5e1;\">$n$</td>\n    <td style=\"padding:6px; border:1px solid #cbd5e1;\">Name</td>\n    <td style=\"padding:6px; border:1px solid #cbd5e1;\">Formula ($\\text{C}_n\\text{H}_{2n+2}$)</td>\n    <td style=\"padding:6px; border:1px solid #cbd5e1;\">Condensed Structural Formula</td>\n  </tr>\n  <tr>\n    <td style=\"padding:6px; border:1px solid #cbd5e1;\">$1$</td>\n    <td style=\"border:1px solid #cbd5e1; font-weight:bold;\">Methane</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{CH}_4$</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{CH}_4$</td>\n  </tr>\n  <tr style=\"background:#f8fafc;\">\n    <td style=\"padding:6px; border:1px solid #cbd5e1;\">$2$</td>\n    <td style=\"border:1px solid #cbd5e1; font-weight:bold;\">Ethane</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{C}_2\\text{H}_6$</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{CH}_3-\\text{CH}_3$</td>\n  </tr>\n  <tr>\n    <td style=\"padding:6px; border:1px solid #cbd5e1;\">$3$</td>\n    <td style=\"border:1px solid #cbd5e1; font-weight:bold;\">Propane</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{C}_3\\text{H}_8$</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{CH}_3-\\text{CH}_2-\\text{CH}_3$</td>\n  </tr>\n  <tr style=\"background:#f8fafc;\">\n    <td style=\"padding:6px; border:1px solid #cbd5e1;\">$4$</td>\n    <td style=\"border:1px solid #cbd5e1; font-weight:bold;\">Butane</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{C}_4\\text{H}_{10}$</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{CH}_3-\\text{CH}_2-\\text{CH}_2-\\text{CH}_3$</td>\n  </tr>\n  <tr>\n    <td style=\"padding:6px; border:1px solid #cbd5e1;\">$5$</td>\n    <td style=\"border:1px solid #cbd5e1; font-weight:bold;\">Pentane</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{C}_5\\text{H}_{12}$</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{CH}_3-(\\text{CH}_2)_3-\\text{CH}_3$</td>\n  </tr>\n  <tr style=\"background:#f8fafc;\">\n    <td style=\"padding:6px; border:1px solid #cbd5e1;\">$6$</td>\n    <td style=\"border:1px solid #cbd5e1; font-weight:bold;\">Hexane</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{C}_6\\text{H}_{14}$</td>\n    <td style=\"border:1px solid #cbd5e1;\">$\\text{CH}_3-(\\text{CH}_2)_4-\\text{CH}_3$</td>\n  </tr>\n</table>\n\n<h3>Structural Representation:</h3>\n<p>To draw the structure of any alkane (e.g. propane, $\\text{C}_3\\text{H}_8$):</p>\n<ol>\n  <li>First connect the carbon atoms together in a chain with single bonds: $\\text{C}-\\text{C}-\\text{C}$.</li>\n  <li>Then satisfy the remaining tetravalent bonds of each carbon atom by attaching hydrogen atoms. The terminal carbon atoms bond with $3$ hydrogens each ($-\\text{CH}_3$), while interior carbon atoms bond with $2$ hydrogens ($-\\text{CH}_2-$).</li>\n</ol>\n",
+    "pointsToRemember": [
+      "General formula for alkanes: CnH₂n₊₂.",
+      "First four alkanes are Methane (CH₄), Ethane (C₂H₆), Propane (C₃H₈), and Butane (C₄H₁₀).",
+      "Each successive member differs by a —CH₂— group (14 u molecular mass)."
+    ],
+    "keyNotes": [
+      "Formula Rule: Given n carbons, calculate hydrogens using 2n + 2 for alkanes (e.g., if n=5, H = 2(5)+2 = 12 → Pentane, C₅H₁₂)."
+    ],
+    "questions": [
+      {
+        "id": "m08_q01",
+        "question": "Compounds with the same molecular formula but different structural arrangements are known as:",
+        "options": [
+          "Allotropes",
+          "Homologues",
+          "Structural isomers",
+          "Polymers"
+        ],
+        "answer": "Structural isomers",
+        "explanation": "Structural isomers are molecules sharing identical molecular formulas but possessing different connectivity/skeletal structures."
+      },
+      {
+        "id": "m08_q02",
+        "question": "How many structural isomers can be drawn for pentane (C₅H₁₂)?",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "answer": "3",
+        "explanation": "Pentane (C₅H₁₂) has 3 structural isomers: n-pentane, isopentane (2-methylbutane), and neopentane (2,2-dimethylpropane)."
+      },
+      {
+        "id": "m08_q03",
+        "question": "In a hydrocarbon chain, an atom or group of atoms other than carbon and hydrogen that confers specific properties is called a:",
+        "options": [
+          "Cation",
+          "Heteroatom / Functional group",
+          "Catalyst",
+          "Electrolyte"
+        ],
+        "answer": "Heteroatom / Functional group",
+        "explanation": "A heteroatom (like Cl, Br, O, N, S) and the functional group containing it bestow characteristic chemical properties to the carbon chain."
+      },
+      {
+        "id": "m08_q04",
+        "question": "What is the functional group present in alcohols?",
+        "options": [
+          "—CHO",
+          "—OH",
+          ">C=O",
+          "—COOH"
+        ],
+        "answer": "—OH",
+        "explanation": "Alcohols contain the hydroxyl functional group (—OH)."
+      },
+      {
+        "id": "m08_q05",
+        "question": "What is the functional group present in aldehydes?",
+        "options": [
+          "—OH",
+          "—CHO",
+          ">C=O",
+          "—COOH"
+        ],
+        "answer": "—CHO",
+        "explanation": "Aldehydes contain the terminal carbonyl group (—CHO, or —C(=O)H)."
+      },
+      {
+        "id": "m08_q06",
+        "question": "What is the molecular formula of an alkane containing exactly 5 carbon atoms?",
+        "options": [
+          "C5H10",
+          "C5H12",
+          "C5H8",
+          "C5H14"
+        ],
+        "answer": "C5H12",
+        "explanation": "Applying the alkane formula CnH₂n+2 with n = 5: H = 2(5) + 2 = 12, yielding pentane (C5H12)."
+      },
+      {
+        "id": "m08_q07",
+        "question": "How many total single covalent bonds are present in a molecule of ethane (C₂H₆)?",
+        "options": [
+          "6 bonds",
+          "7 single covalent bonds (one C—C bond and six C—H bonds)",
+          "8 bonds",
+          "5 bonds"
+        ],
+        "answer": "7 single covalent bonds (one C—C bond and six C—H bonds)",
+        "explanation": "Ethane has one carbon-carbon single bond and six carbon-hydrogen single bonds, giving 1 + 6 = 7 covalent bonds."
+      },
+      {
+        "id": "m08_q08",
+        "question": "What is the molecular mass difference between any two successive members of the alkane homologous series?",
+        "options": [
+          "2 u",
+          "12 u",
+          "14 u (corresponding to one —CH₂— unit)",
+          "16 u"
+        ],
+        "answer": "14 u (corresponding to one —CH₂— unit)",
+        "explanation": "Every successive member differs by a —CH₂— unit, which has a mass of 12 (carbon) + 2×1 (hydrogen) = 14 u."
+      },
+      {
+        "id": "m08_q09",
+        "question": "Which alkane is the principal component of Liquefied Petroleum Gas (LPG) supplied in domestic cooking cylinders?",
+        "options": [
+          "Methane",
+          "Butane (C4H10)",
+          "Hexane",
+          "Acetylene"
+        ],
+        "answer": "Butane (C4H10)",
+        "explanation": "Commercial LPG consists primarily of liquefied butane (along with some propane) under pressure."
+      },
+      {
+        "id": "m08_q10",
+        "question": "What is the condensed structural formula of propane?",
+        "options": [
+          "CH3—CH3",
+          "CH3—CH₂—CH3",
+          "CH3—CH₂—CH₂—CH3",
+          "CH₂=CH—CH3"
+        ],
+        "answer": "CH3—CH₂—CH3",
+        "explanation": "Propane has 3 carbons in a chain: two terminal methyl groups (-CH3) bonded to a central methylene group (-CH₂-)."
+      }
+    ]
+  },
+  {
+    "id": "m09",
+    "moduleNumber": 9,
+    "title": "Alkenes (CnH₂n) & Alkynes (CnH₂n₋₂): Unsaturated Hydrocarbons",
+    "tagline": "Ethene, ethyne, multiple bond electron sharing, and hydrogenation tests.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<h3>1. Alkenes — The Double-Bond Family:</h3>\n<p>Alkenes are unsaturated hydrocarbons containing at least one <strong>carbon-carbon double bond ($\\text{C}=\\text{C}$)</strong>.</p>\n<p><strong>General Formula for Alkenes:</strong></p>\n<p style=\"text-align:center; font-weight:bold; font-size:1.2em; color:#1e3a8a;\">\n  $\\text{C}_n\\text{H}_{2n}\\quad (\\text{where } n \\ge 2)$\n</p>\n<ul>\n  <li><strong>Ethene ($\\text{C}_2\\text{H}_4$):</strong> The simplest alkene. Two carbon atoms share two electron pairs ($\\text{C}=\\text{C}$), and each carbon bonds with two hydrogen atoms:\n  $$\\text{H}_2\\text{C}=\\text{CH}_2$$\n  </li>\n  <li><strong>Propene ($\\text{C}_3\\text{H}_6$):</strong> $\\text{CH}_3-\\text{CH}=\\text{CH}_2$</li>\n  <li><strong>Butene ($\\text{C}_4\\text{H}_8$):</strong> $\\text{CH}_3-\\text{CH}_2-\\text{CH}=\\text{CH}_2$</li>\n</ul>\n\n<h3>2. Alkynes — The Triple-Bond Family:</h3>\n<p>Alkynes are unsaturated hydrocarbons containing at least one <strong>carbon-carbon triple bond ($\\text{C}\\equiv\\text{C}$)</strong>.</p>\n<p><strong>General Formula for Alkynes:</strong></p>\n<p style=\"text-align:center; font-weight:bold; font-size:1.2em; color:#1e3a8a;\">\n  $\\text{C}_n\\text{H}_{2n-2}\\quad (\\text{where } n \\ge 2)$\n</p>\n<ul>\n  <li><strong>Ethyne ($\\text{C}_2\\text{H}_2$, commonly called Acetylene):</strong> The simplest alkyne. Two carbon atoms share three electron pairs ($\\text{C}\\equiv\\text{C}$), with one hydrogen on each carbon:\n  $$\\text{H}-\\text{C}\\equiv\\text{C}-\\text{H}$$\n  Ethyne is mixed with oxygen in oxy-acetylene torches to produce an intensely hot flame ($>3000\\ ^\\circ\\text{C}$) for welding metals.\n  </li>\n  <li><strong>Propyne ($\\text{C}_3\\text{H}_4$):</strong> $\\text{CH}_3-\\text{C}\\equiv\\text{CH}$</li>\n  <li><strong>Butyne ($\\text{C}_4\\text{H}_6$):</strong> $\\text{CH}_3-\\text{CH}_2-\\text{C}\\equiv\\text{CH}$</li>\n</ul>\n\n<div class=\"activity-box\" style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n  <strong>🔬 Chemical Distinction Test (Bromine Water Test)</strong>\n  <p style=\"margin:4px 0 0 0; line-height:1.6;\">When reddish-brown bromine water is shaken with an unsaturated hydrocarbon (alkene or alkyne), the bromine adds across the double/triple bond, causing the reddish-brown color to <strong>decolorise rapidly</strong>. Saturated alkanes do not decolorise bromine water in the dark.</p>\n</div>\n",
+    "pointsToRemember": [
+      "Alkenes contain a C=C double bond with general formula CnH₂n (starting with ethene, C₂H₄).",
+      "Alkynes contain a C≡C triple bond with general formula CnH₂n₋₂ (starting with ethyne, C₂H₂).",
+      "Unsaturated hydrocarbons decolorize reddish-brown bromine water; saturated alkanes do not."
+    ],
+    "keyNotes": [
+      "Exam Alert: Ethyne is commonly known as acetylene (C₂H₂). Remember the general formulas: Alkane = CnH₂n+2, Alkene = CnH₂n, Alkyne = CnH₂n-2."
+    ],
+    "questions": [
+      {
+        "id": "m09_q01",
+        "question": "What is the functional group present in carboxylic acids?",
+        "options": [
+          "—CHO",
+          "—COOH",
+          "—OH",
+          ">C=O"
+        ],
+        "answer": "—COOH",
+        "explanation": "Carboxylic acids contain the carboxyl functional group (—COOH)."
+      },
+      {
+        "id": "m09_q02",
+        "question": "What is the IUPAC suffix used for naming ketones?",
+        "options": [
+          "-al",
+          "-ol",
+          "-one",
+          "-oic acid"
+        ],
+        "answer": "-one",
+        "explanation": "Ketones are named by replacing the terminal '-e' of the alkane name with the suffix '-one' (e.g., Propane → Propanone)."
+      },
+      {
+        "id": "m09_q03",
+        "question": "What is the IUPAC suffix used for naming aldehydes?",
+        "options": [
+          "-ol",
+          "-al",
+          "-one",
+          "-ene"
+        ],
+        "answer": "-al",
+        "explanation": "Aldehydes are named by adding the suffix '-al' to the alkane stem (e.g., Ethane → Ethanal)."
+      },
+      {
+        "id": "m09_q04",
+        "question": "What is the IUPAC name of the three-carbon ketone CH₃—CO—CH₃?",
+        "options": [
+          "Propanol",
+          "Propanal",
+          "Propanone (Acetone)",
+          "Propanoic acid"
+        ],
+        "answer": "Propanone (Acetone)",
+        "explanation": "CH₃COCH₃ has 3 carbons with a ketone group; its IUPAC name is Propanone (commonly acetone)."
+      },
+      {
+        "id": "m09_q05",
+        "question": "Which of the following organic compounds is used as an additive in petrol (Gasohol) in some countries as a cleaner fuel?",
+        "options": [
+          "Methanol",
+          "Ethanol",
+          "Ethanoic acid",
+          "Chloroform"
+        ],
+        "answer": "Ethanol",
+        "explanation": "Ethanol derived from fermented sugarcane molasses is blended with petrol (gasohol) because it burns cleanly to produce only CO₂ and water."
+      },
+      {
+        "id": "m09_q06",
+        "question": "What is the common trivial name and molecular formula of the simplest member of the alkyne homologous series?",
+        "options": [
+          "Methane, CH₄",
+          "Acetylene (Ethyne), C₂H₂",
+          "Ethylene (Ethene), C₂H₄",
+          "Propylene, C3H6"
+        ],
+        "answer": "Acetylene (Ethyne), C₂H₂",
+        "explanation": "Ethyne (H-C≡C-H), commonly known as acetylene, is the simplest alkyne with formula C₂H₂."
+      },
+      {
+        "id": "m09_q07",
+        "question": "Why is pure ethyne (acetylene) burned with pure oxygen rather than air in oxy-acetylene welding torches?",
+        "options": [
+          "Air is too cold to support combustion.",
+          "In air, incomplete combustion produces a smoky yellow flame, whereas burning in pure oxygen gives complete combustion yielding an intensely hot 3000 °C welding flame.",
+          "Oxygen prevents ethyne from turning into coal.",
+          "Air makes ethyne non-flammable."
+        ],
+        "answer": "In air, incomplete combustion produces a smoky yellow flame, whereas burning in pure oxygen gives complete combustion yielding an intensely hot 3000 °C welding flame.",
+        "explanation": "High carbon percentage causes soot in air; pure oxygen achieves complete combustion generating temperatures over 3000 °C."
+      },
+      {
+        "id": "m09_q08",
+        "question": "What visual observation occurs when an alkene gas (such as ethene) is bubbled through reddish-brown bromine water?",
+        "options": [
+          "The solution turns dark black.",
+          "The reddish-brown color rapidly discharges and becomes completely colorless.",
+          "A thick green precipitate forms.",
+          "The solution glows in the dark."
+        ],
+        "answer": "The reddish-brown color rapidly discharges and becomes completely colorless.",
+        "explanation": "Bromine adds across the carbon-carbon double bond to form colorless 1,2-dibromoethane, discharging the brown color."
+      },
+      {
+        "id": "m09_q09",
+        "question": "What is the molecular formula of an alkyne containing 4 carbon atoms?",
+        "options": [
+          "C4H10",
+          "C4H8",
+          "C4H6",
+          "C4H4"
+        ],
+        "answer": "C4H6",
+        "explanation": "Applying the alkyne formula CnH₂n-2 with n = 4: H = 2(4) - 2 = 6, giving butyne (C4H6)."
+      },
+      {
+        "id": "m09_q10",
+        "question": "How many electrons are shared between the two carbon atoms in a molecule of ethene (C₂H₄)?",
+        "options": [
+          "2 electrons (1 pair)",
+          "4 electrons (2 shared pairs forming a double bond)",
+          "6 electrons (3 pairs)",
+          "8 electrons"
+        ],
+        "answer": "4 electrons (2 shared pairs forming a double bond)",
+        "explanation": "The carbon-carbon double bond in ethene consists of two shared pairs of electrons (4 electrons total)."
+      }
+    ]
+  },
+  {
+    "id": "m10",
+    "moduleNumber": 10,
+    "title": "Structural Isomerism: Chain Isomers of Butane (C₄H₁₀) and Pentane (C₅H₁₂)",
+    "tagline": "Identical molecular formulas with differing carbon chain skeletons.",
+    "readingTimeMins": 5,
+    "theoryHtml": "\n<p>Compounds that have the <strong>same molecular formula</strong> but <strong>different structural formulas</strong> (differing arrangements of atoms in space) are called <strong>structural isomers</strong>, and this phenomenon is called <strong>structural isomerism</strong>.</p>\n<p>Because the first three alkanes—methane ($\\text{CH}_4$), ethane ($\\text{C}_2\\text{H}_6$), and propane ($\\text{C}_3\\text{H}_8$)—have only one possible structural arrangement, isomerism begins with <strong>butane ($\\text{C}_4\\text{H}_{10}$)</strong>.</p>\n\n<h3>1. Isomers of Butane ($\\text{C}_4\\text{H}_{10}$):</h3>\n<p>There are exactly <strong>$2$ structural isomers</strong> of butane:</p>\n<ol>\n  <li><strong>Normal Butane ($n$-butane):</strong> A continuous straight chain of four carbon atoms:\n  $$\\text{CH}_3-\\text{CH}_2-\\text{CH}_2-\\text{CH}_3$$\n  </li>\n  <li><strong>Isobutane ($2$-methylpropane):</strong> A branched three-carbon chain with a methyl branch on the central carbon:\n  $$\\begin{matrix}\n  \\text{CH}_3-\\text{CH}-\\text{CH}_3 \\\\\n  \\quad\\quad| \\\\\n  \\quad\\quad\\text{CH}_3\n  \\end{matrix}$$\n  </li>\n</ol>\n\n<h3>2. Isomers of Pentane ($\\text{C}_5\\text{H}_{12}$):</h3>\n<p>There are exactly <strong>$3$ structural isomers</strong> of pentane:</p>\n<ol>\n  <li><strong>$n$-pentane:</strong> Straight five-carbon chain: $\\text{CH}_3-(\\text{CH}_2)_3-\\text{CH}_3$.</li>\n  <li><strong>Isopentane ($2$-methylbutane):</strong> Four-carbon chain with one branch: $\\text{CH}_3-\\text{CH}(\\text{CH}_3)-\\text{CH}_2-\\text{CH}_3$.</li>\n  <li><strong>Neopentane ($2,2$-dimethylpropane):</strong> A central carbon bonded symmetrically to four methyl groups: $\\text{C}(\\text{CH}_3)_4$.</li>\n</ol>\n\n<p><strong>Physical vs Chemical Differences:</strong> Isomers have the same chemical formula, but differ in physical properties such as boiling point. For example, branching makes molecules more compact, reducing surface area and lowering van der Waals forces, which lowers the boiling point.</p>\n",
+    "pointsToRemember": [
+      "Structural isomers have the same molecular formula but different structural arrangements.",
+      "Butane (C₄H₁₀) has 2 isomers: n-butane and isobutane (2-methylpropane).",
+      "Pentane (C₅H₁₂) has 3 isomers: n-pentane, isopentane (2-methylbutane), and neopentane (2,2-dimethylpropane)."
+    ],
+    "keyNotes": [
+      "Common Board Exam Question: Draw the electron-dot and structural formulas of the two isomers of butane (n-butane and isobutane)."
+    ],
+    "questions": [
+      {
+        "id": "m10_q01",
+        "question": "How many structural isomers are possible for butane (C₄H₁₀)?",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "answer": "2",
+        "explanation": "Butane (C₄H₁₀) exhibits 2 structural isomers: n-butane (straight chain) and isobutane / 2-methylpropane (branched chain)."
+      },
+      {
+        "id": "m10_q02",
+        "question": "How many structural isomers are possible for bromopentane (C₅H₁₁Br)?",
+        "options": [
+          "3 positional isomers (1-bromopentane, 2-bromopentane, 3-bromopentane) for the straight-chain skeleton",
+          "1 only",
+          "5 only",
+          "None, it cannot form isomers"
+        ],
+        "answer": "3 positional isomers (1-bromopentane, 2-bromopentane, 3-bromopentane) for the straight-chain skeleton",
+        "explanation": "On the n-pentane carbon skeleton, the bromine atom can attach to carbon-1, carbon-2, or carbon-3, yielding 3 positional isomers (plus additional chain isomers on branched pentyl skeletons)."
+      },
+      {
+        "id": "m10_q03",
+        "question": "Bromine water is decolourised (from reddish-brown to colourless) by which class of hydrocarbons?",
+        "options": [
+          "Saturated hydrocarbons (Alkanes)",
+          "Unsaturated hydrocarbons (Alkenes and Alkynes)",
+          "Noble gases",
+          "Carbon dioxide"
+        ],
+        "answer": "Unsaturated hydrocarbons (Alkenes and Alkynes)",
+        "explanation": "Bromine water addition test: Unsaturated C=C and C≡C bonds rapidly add bromine across the pi-bonds, discharging the brown color of Br₂."
+      },
+      {
+        "id": "m10_q04",
+        "question": "What is the structure of C-60 Buckminsterfullerene?",
+        "options": [
+          "A flat sheet of hexagonal rings only",
+          "A spherical soccer-ball cluster of 60 carbon atoms consisting of 20 hexagons and 12 pentagons",
+          "A single long linear chain of 60 carbons",
+          "A tetrahedral 3D diamond lattice"
+        ],
+        "answer": "A spherical soccer-ball cluster of 60 carbon atoms consisting of 20 hexagons and 12 pentagons",
+        "explanation": "Buckminsterfullerene (C₆₀) is a hollow truncated icosahedron shaped like a soccer ball, consisting of 20 hexagonal and 12 pentagonal carbon rings."
+      },
+      {
+        "id": "m10_q05",
+        "question": "What is the result when blue and red litmus papers are tested on a neutral soap solution?",
+        "options": [
+          "Both remain unchanged",
+          "Red litmus paper turns blue because soap is the salt of a weak fatty acid and a strong base (NaOH)",
+          "Blue litmus turns red",
+          "Both papers bleach white"
+        ],
+        "answer": "Red litmus paper turns blue because soap is the salt of a weak fatty acid and a strong base (NaOH)",
+        "explanation": "Soap is a basic salt formed from a weak fatty acid and strong base (NaOH). Its aqueous solution undergoes anionic hydrolysis, turning red litmus blue."
+      },
+      {
+        "id": "m10_q06",
+        "question": "What is the IUPAC systematic name for the branched isomer of butane known as isobutane?",
+        "options": [
+          "1-methylpropane",
+          "2-methylpropane",
+          "Dimethylmethane",
+          "Cyclobutane"
+        ],
+        "answer": "2-methylpropane",
+        "explanation": "Isobutane has a 3-carbon parent propane chain with a methyl group on carbon 2: 2-methylpropane."
+      },
+      {
+        "id": "m10_q07",
+        "question": "How many distinct structural chain isomers are possible for the alkane pentane (C₅H₁₂)?",
+        "options": [
+          "2 isomers",
+          "3 structural isomers (n-pentane, isopentane, neopentane)",
+          "4 isomers",
+          "5 isomers"
+        ],
+        "answer": "3 structural isomers (n-pentane, isopentane, neopentane)",
+        "explanation": "Pentane forms exactly three isomers: n-pentane, 2-methylbutane (isopentane), and 2,2-dimethylpropane (neopentane)."
+      },
+      {
+        "id": "m10_q08",
+        "question": "Why do the first three alkanes—methane (CH₄), ethane (C₂H₆), and propane (C₃H₈)—NOT exhibit structural isomerism?",
+        "options": [
+          "They are gases at room temperature.",
+          "There is only one possible way to arrange 1, 2, or 3 carbon atoms in space without branching.",
+          "Their covalent bonds are too weak to bend.",
+          "They contain odd numbers of protons."
+        ],
+        "answer": "There is only one possible way to arrange 1, 2, or 3 carbon atoms in space without branching.",
+        "explanation": "Any arrangement of 1, 2, or 3 carbon atoms forms a continuous unbranched chain; branching requires at least 4 carbons."
+      },
+      {
+        "id": "m10_q09",
+        "question": "Which of the following compounds is a structural isomer of normal hexane (C₆H₁₄)?",
+        "options": [
+          "Cyclohexane (C6H12)",
+          "2-methylpentane (C6H14)",
+          "Hexene (C6H12)",
+          "Benzene (C6H6)"
+        ],
+        "answer": "2-methylpentane (C6H14)",
+        "explanation": "2-methylpentane has the identical formula C6H14 with a branched skeleton, making it an isomer of hexane."
+      },
+      {
+        "id": "m10_q10",
+        "question": "How does increased branching in structural isomers affect their physical boiling points?",
+        "options": [
+          "Branching raises boiling points to 1000 °C.",
+          "Branching makes molecules more spherical and compact, decreasing surface area and lowering the boiling point.",
+          "Branching has zero effect on any physical property.",
+          "Branching turns liquids into permanent gases that cannot be condensed."
+        ],
+        "answer": "Branching makes molecules more spherical and compact, decreasing surface area and lowering the boiling point.",
+        "explanation": "Branching reduces molecular surface area, weakening intermolecular van der Waals forces and lowering the boiling point."
+      }
+    ]
+  }
+]

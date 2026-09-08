@@ -18,11 +18,12 @@ node .agents/skills/security-auditor/scripts/audit_security.js
 ```
 
 The script autonomously validates:
-1. **Memory Answer Stripping**: Verifies `cbtPlayer.js` does not expose `correct_option` or `explanation` in raw unsubmitted question objects.
-2. **Proctoring Hooks**: Verifies presence of Tab-Switch detector, `MutationObserver` watermark defender, and DevTools geometry check.
-3. **RBAC Data Scoping**: Verifies `supabase/api.js` scopes `fetchSalaryPayouts(staffId)` and sanitizes `pin`/`salary` in `fetchStudents()` / `fetchTeachers()`.
-4. **Database RLS**: Verifies policies and migrations in `database/migrations/` and `supabase/schema.sql`.
-5. **No Pseudo-random Marks**: Verifies `js/staffHome.js` does not synthesize fake marks with Math.random or deterministic seeds.
+1. **Memory Answer Stripping & Private Vault**: Verifies `cbtPlayer.js` strips `correct_option`/`explanation` from active question memory and encapsulates keys in a private closure vault (`_secretAnswerVault`).
+2. **Positional Options Guard**: Verifies questions with "All of the above" or "Both A and B" maintain natural sequence order during test randomization (`hasPositionalOption`).
+3. **Proctoring Hooks & DPI Tolerance**: Verifies presence of Tab-Switch detector, `MutationObserver` watermark defender, and DPI-scaling-aware DevTools geometry check.
+4. **RBAC Data Scoping**: Verifies `supabase/api.js` scopes `fetchSalaryPayouts(staffId)` and sanitizes `pin`/`salary` in `fetchStudents()` / `fetchTeachers()`.
+5. **Database RLS**: Verifies policies and migrations in `database/migrations/` and `supabase/schema.sql`.
+6. **No Pseudo-random Marks**: Verifies `js/staffHome.js` does not synthesize fake marks with Math.random or deterministic seeds.
 
 ---
 
