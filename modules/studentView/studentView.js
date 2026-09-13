@@ -300,9 +300,57 @@ function renderStudentCourses() {
         },
         'Social Science': {
             icon: '🌍',
-            color: '#10b981',
-            desc: `${studentCls} History, Geography, Civics & Economics Notes`,
+            color: '#0d9488',
+            desc: studentCls === 'Class 10' 
+                ? '4 Disciplines • 22 Chapters • 440 Mini-Modules • 4,400 Questions' 
+                : `${studentCls} History, Geography, Civics & Economics Notes`,
+            subLinks: studentCls === 'Class 10' ? [
+                { title: 'History', icon: '🏛️', chapters: '5 Ch', color: '#b45309', url: 'modules/course/class10/history/history_course_hub.html' },
+                { title: 'Geography', icon: '🌐', chapters: '7 Ch', color: '#0284c7', url: 'modules/course/class10/geography/geography_course_hub.html' },
+                { title: 'Politics', icon: '⚖️', chapters: '5 Ch', color: '#4338ca', url: 'modules/course/class10/politics/politics_course_hub.html' },
+                { title: 'Economics', icon: '📈', chapters: '5 Ch', color: '#059669', url: 'modules/course/class10/economics/economics_course_hub.html' }
+            ] : null,
             link: null
+        },
+        'History': {
+            icon: '🏛️',
+            color: '#b45309',
+            desc: studentCls === 'Class 10' 
+                ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' 
+                : `${studentCls} History Curriculum Modules`,
+            link: studentCls === 'Class 10' ? 'modules/course/class10/history/history_course_hub.html' : null
+        },
+        'Geography': {
+            icon: '🌐',
+            color: '#0284c7',
+            desc: studentCls === 'Class 10' 
+                ? '7 Chapters • 140 Mini-Modules • 1,400 Questions • 70% Mastery' 
+                : `${studentCls} Geography Curriculum Modules`,
+            link: studentCls === 'Class 10' ? 'modules/course/class10/geography/geography_course_hub.html' : null
+        },
+        'Democratic Politics': {
+            icon: '⚖️',
+            color: '#4338ca',
+            desc: studentCls === 'Class 10' 
+                ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' 
+                : `${studentCls} Civics Curriculum Modules`,
+            link: studentCls === 'Class 10' ? 'modules/course/class10/politics/politics_course_hub.html' : null
+        },
+        'Politics': {
+            icon: '⚖️',
+            color: '#4338ca',
+            desc: studentCls === 'Class 10' 
+                ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' 
+                : `${studentCls} Democratic Politics Curriculum Modules`,
+            link: studentCls === 'Class 10' ? 'modules/course/class10/politics/politics_course_hub.html' : null
+        },
+        'Economics': {
+            icon: '📈',
+            color: '#059669',
+            desc: studentCls === 'Class 10' 
+                ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' 
+                : `${studentCls} Economics Curriculum Modules`,
+            link: studentCls === 'Class 10' ? 'modules/course/class10/economics/economics_course_hub.html' : null
         },
         'English': {
             icon: '📖',
@@ -320,14 +368,32 @@ function renderStudentCourses() {
             link: null
         };
 
-        const isClass10Science = (studentCls === 'Class 10' && sub.toLowerCase().includes('science'));
-        const actionHtml = isClass10Science
-            ? `<a href="${meta.link}" class="btn btn-primary btn-sm" style="font-weight:700; border-radius:8px; padding:8px 16px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 6px rgba(37,99,235,0.2);">
+        const hasInteractiveCourse = (studentCls === 'Class 10' && meta.link);
+        const hasSubLinks = (studentCls === 'Class 10' && Array.isArray(meta.subLinks));
+
+        const actionHtml = hasInteractiveCourse
+            ? `<a href="${meta.link}" class="btn btn-primary btn-sm" style="font-weight:700; border-radius:8px; padding:8px 16px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; background:${meta.color}; border-color:${meta.color}; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
                    Open Course →
                </a>`
+            : hasSubLinks
+            ? `<span style="font-size:11.5px; font-weight:700; color:#0d9488;">Select Subject Above ↗</span>`
             : `<button class="btn btn-outline btn-sm" style="font-weight:600; border-radius:8px; padding:8px 14px;" onclick="showToast('${sub} syllabus materials for ${studentCls} are distributed during classroom lectures.', 'info')">
                    Class Notes
                </button>`;
+
+        const subLinksHtml = hasSubLinks
+            ? `<div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px;">
+                ${meta.subLinks.map(sl => `
+                    <a href="${sl.url}" style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; text-decoration:none; color:#0f172a; font-size:12px; font-weight:700; transition:all 0.2s ease;">
+                        <span style="font-size:16px;">${sl.icon}</span>
+                        <div style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                            <div style="color:${sl.color};">${sl.title}</div>
+                            <div style="font-size:10.5px; font-weight:500; color:#64748b;">${sl.chapters} • Course</div>
+                        </div>
+                    </a>
+                `).join('')}
+               </div>`
+            : '';
 
         return `
             <div class="card" style="border-radius:14px; border:1px solid var(--border); box-shadow:0 2px 10px rgba(0,0,0,0.03); overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
@@ -346,6 +412,7 @@ function renderStudentCourses() {
                         <p style="font-size:13px; color:var(--text-muted); margin:0; line-height:1.5;">
                             ${meta.desc}
                         </p>
+                        ${subLinksHtml}
                     </div>
                 </div>
                 <div style="padding:12px 18px; background:#f8fafc; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
