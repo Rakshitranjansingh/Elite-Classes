@@ -263,130 +263,6 @@ function renderStudentToday() {
     if (!container || !currentStudent) return;
 
     const rawCls = (currentStudent.cls || currentStudent.class || 'Class 10').toString().trim();
-    const isClass10 = (rawCls === 'Class 10' || rawCls === '10' || rawCls.toLowerCase().includes('10'));
-
-    let coursesPreviewHtml = '';
-    if (isClass10) {
-        coursesPreviewHtml = `
-            <div style="margin-top:20px;">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <span style="font-size:18px;">🚀</span>
-                        <h3 style="font-size:16px; font-weight:800; color:var(--text); margin:0;">
-                            Interactive Courses & LMS Modules
-                        </h3>
-                    </div>
-                    <button class="btn btn-outline btn-sm" onclick="switchStudentTab('courses')" style="font-size:11.5px; font-weight:700; border-radius:8px;">
-                        View All Subjects →
-                    </button>
-                </div>
-
-                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px;">
-                    <!-- SCIENCE -->
-                    <div class="card" style="border-radius:12px; border:1px solid #bfdbfe; background:#ffffff; box-shadow:0 2px 8px rgba(37,99,235,0.06); padding:16px; display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
-                        <div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                                <span style="font-size:24px;">🔬</span>
-                                <span class="badge badge-primary" style="font-size:10.5px; font-weight:800;">13 Chapters • 260 Modules</span>
-                            </div>
-                            <h4 style="font-size:15px; font-weight:800; color:#1e3a8a; margin:0 0 4px;">Science Interactive Course</h4>
-                            <p style="font-size:12px; color:var(--text-muted); margin:0 0 14px; line-height:1.4;">
-                                Chemical Reactions, Acids & Bases, Life Processes, Light, Electricity & Environment with 70% Mastery Gating.
-                            </p>
-                        </div>
-                        <a href="modules/course/class10/science/science_course_hub.html" class="btn btn-primary btn-sm" style="font-weight:700; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#2563eb; border-color:#2563eb;">
-                            Continue Science →
-                        </a>
-                    </div>
-
-                    <!-- GEOGRAPHY -->
-                    <div class="card" style="border-radius:12px; border:1px solid #bae6fd; background:#ffffff; box-shadow:0 2px 8px rgba(2,132,199,0.06); padding:16px; display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
-                        <div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                                <span style="font-size:24px;">🌐</span>
-                                <span class="badge" style="background:#e0f2fe; color:#0369a1; font-size:10.5px; font-weight:800;">7 Chapters • 140 Modules</span>
-                            </div>
-                            <h4 style="font-size:15px; font-weight:800; color:#0369a1; margin:0 0 4px;">Geography Interactive Course</h4>
-                            <p style="font-size:12px; color:var(--text-muted); margin:0 0 14px; line-height:1.4;">
-                                Resources, Forests & Wildlife, Water, Agriculture, Minerals & Manufacturing Industries.
-                            </p>
-                        </div>
-                        <a href="modules/course/class10/geography/geography_course_hub.html" class="btn btn-primary btn-sm" style="font-weight:700; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#0284c7; border-color:#0284c7;">
-                            Continue Geography →
-                        </a>
-                    </div>
-
-                    <!-- HISTORY -->
-                    <div class="card" style="border-radius:12px; border:1px solid #fed7aa; background:#ffffff; box-shadow:0 2px 8px rgba(180,83,9,0.06); padding:16px; display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
-                        <div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                                <span style="font-size:24px;">🏛️</span>
-                                <span class="badge" style="background:#fef3c7; color:#b45309; font-size:10.5px; font-weight:800;">5 Chapters • 100 Modules</span>
-                            </div>
-                            <h4 style="font-size:15px; font-weight:800; color:#b45309; margin:0 0 4px;">History Interactive Course</h4>
-                            <p style="font-size:12px; color:var(--text-muted); margin:0 0 14px; line-height:1.4;">
-                                Nationalism in Europe & India, Making of a Global World, Industrialisation & Print Culture.
-                            </p>
-                        </div>
-                        <a href="modules/course/class10/history/history_course_hub.html" class="btn btn-primary btn-sm" style="font-weight:700; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#b45309; border-color:#b45309;">
-                            Continue History →
-                        </a>
-                    </div>
-
-                    <!-- POLITICS -->
-                    <div class="card" style="border-radius:12px; border:1px solid #c7d2fe; background:#ffffff; box-shadow:0 2px 8px rgba(67,56,202,0.06); padding:16px; display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
-                        <div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                                <span style="font-size:24px;">⚖️</span>
-                                <span class="badge" style="background:#e0e7ff; color:#4338ca; font-size:10.5px; font-weight:800;">5 Chapters • 100 Modules</span>
-                            </div>
-                            <h4 style="font-size:15px; font-weight:800; color:#4338ca; margin:0 0 4px;">Democratic Politics Course</h4>
-                            <p style="font-size:12px; color:var(--text-muted); margin:0 0 14px; line-height:1.4;">
-                                Power-sharing, Federalism, Gender & Religion, Political Parties & Outcomes of Democracy.
-                            </p>
-                        </div>
-                        <a href="modules/course/class10/politics/politics_course_hub.html" class="btn btn-primary btn-sm" style="font-weight:700; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#4338ca; border-color:#4338ca;">
-                            Continue Politics →
-                        </a>
-                    </div>
-
-                    <!-- ECONOMICS -->
-                    <div class="card" style="border-radius:12px; border:1px solid #a7f3d0; background:#ffffff; box-shadow:0 2px 8px rgba(5,150,105,0.06); padding:16px; display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
-                        <div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                                <span style="font-size:24px;">📈</span>
-                                <span class="badge" style="background:#d1fae5; color:#059669; font-size:10.5px; font-weight:800;">5 Chapters • 100 Modules</span>
-                            </div>
-                            <h4 style="font-size:15px; font-weight:800; color:#059669; margin:0 0 4px;">Economics Interactive Course</h4>
-                            <p style="font-size:12px; color:var(--text-muted); margin:0 0 14px; line-height:1.4;">
-                                Development, Sectors of Economy, Money & Credit, Globalisation & Consumer Rights.
-                            </p>
-                        </div>
-                        <a href="modules/course/class10/economics/economics_course_hub.html" class="btn btn-primary btn-sm" style="font-weight:700; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#059669; border-color:#059669;">
-                            Continue Economics →
-                        </a>
-                    </div>
-
-                    <!-- CBT TEST SERIES -->
-                    <div class="card" style="border-radius:12px; border:1px solid #e2e8f0; background:linear-gradient(135deg, #0b1329 0%, #1e293b 100%); color:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.1); padding:16px; display:flex; flex-direction:column; justify-content:space-between; margin-bottom:0;">
-                        <div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                                <span style="font-size:24px;">📝</span>
-                                <span class="badge badge-success" style="font-size:10.5px; font-weight:800;">🟢 CBT Live</span>
-                            </div>
-                            <h4 style="font-size:15px; font-weight:800; color:#ffffff; margin:0 0 4px;">Class 10 CBT Assessments</h4>
-                            <p style="font-size:12px; color:#94a3b8; margin:0 0 14px; line-height:1.4;">
-                                100-Question full chapter timed examinations with negative marking, leaderboards & instant scorecards.
-                            </p>
-                        </div>
-                        <a href="modules/testseries/data/class10/testseries_class_10.html" class="btn btn-primary btn-sm" style="font-weight:700; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#3b82f6; border-color:#3b82f6;">
-                            Open CBT Test Hub →
-                        </a>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
 
     container.innerHTML = `
         <div class="card" style="padding:22px 24px; background:linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border:1px solid var(--border); border-radius:14px; margin-bottom:16px;">
@@ -407,15 +283,22 @@ function renderStudentToday() {
                 </div>
                 <div style="display:flex; gap:8px;">
                     <button class="btn btn-outline btn-sm" onclick="switchStudentTab('courses')" style="font-weight:700; border-radius:8px;">
-                        📚 All Courses
+                        📚 Courses
                     </button>
                     <button class="btn btn-primary btn-sm" onclick="switchStudentTab('tests')" style="font-weight:700; border-radius:8px;">
-                        📝 CBT Tests
+                        📝 Tests
                     </button>
                 </div>
             </div>
         </div>
-        ${coursesPreviewHtml}
+
+        <div class="card" style="padding:32px 24px; text-align:center; background:#ffffff; border:1px dashed var(--border); border-radius:14px;">
+            <div style="font-size:32px; margin-bottom:10px;">📅</div>
+            <h3 style="font-size:16px; font-weight:700; color:#0f172a; margin:0 0 6px 0;">Today's Daily Feed & Classroom Agenda</h3>
+            <p style="font-size:13px; color:var(--text-muted); margin:0 auto; max-width:440px; line-height:1.5;">
+                Daily classroom announcements, scheduled lecture updates, and coaching notices will appear here. Switch to <b>Courses</b> to study or <b>Tests</b> to take exams.
+            </p>
+        </div>
     `;
 }
 
