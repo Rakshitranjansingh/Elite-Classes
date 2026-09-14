@@ -257,13 +257,18 @@ function switchStudentTab(tab) {
     if (tab === 'marks') renderStudentExamResults();
 }
 
-// 1. Render Today Tab
+// 1. Render Today Tab (Delegates to modular TodayViewManager & class-specific handlers)
 function renderStudentToday() {
     const container = document.getElementById('st-today-container');
     if (!container || !currentStudent) return;
 
-    const rawCls = (currentStudent.cls || currentStudent.class || 'Class 10').toString().trim();
+    if (window.TodayViewManager && typeof window.TodayViewManager.render === 'function') {
+        window.TodayViewManager.render(container, currentStudent);
+        return;
+    }
 
+    // Direct fallback if today.js is loaded asynchronously
+    const rawCls = (currentStudent.cls || currentStudent.class || 'Class 10').toString().trim();
     container.innerHTML = `
         <div class="card" style="padding:22px 24px; background:linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border:1px solid var(--border); border-radius:14px; margin-bottom:16px;">
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
