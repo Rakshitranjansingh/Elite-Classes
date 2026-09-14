@@ -517,8 +517,8 @@ VALUES
 ('s2', 'Ananya Singh', 'ananya.singh@gmail.com', 'Class 5', 'Vikram Singh', '9876543211', '123456', 1500, 10, 10, 'Mathematics, Science, English', '2025-04-02', 'Delhi Public School', '#8b5cf6'),
 ('s3', 'Rohan Gupta', 'rohan.gupta@gmail.com', 'Class 8', 'Suresh Gupta', '9876543212', '123456', 2000, 5, 0, 'Mathematics, Science', '2025-04-05', 'Kendriya Vidyalaya', '#10b981'),
 ('s4', 'Ishita Patel', 'ishita.patel@gmail.com', 'LKG', 'Amit Patel', '9876543213', '123456', 1200, 1, 0, 'Rhymes, Drawing, English', '2025-04-10', 'Little Tots Play School', '#ec4899'),
-('s5', 'Karan Mehta', 'karan.mehta@gmail.com', 'Class 10', 'Pankaj Mehta', '9876543214', '123456', 3000, 10, 25, 'Mathematics, Physics, Chemistry', '2025-03-15', 'Modern High School', '#f59e0b')
-ON CONFLICT (id) DO UPDATE SET email = EXCLUDED.email, pin = EXCLUDED.pin, phone = EXCLUDED.phone;
+('s5', 'Karan Mehta', 'karan.mehta@gmail.com', 'Class 10', 'Pankaj Mehta', '9876543214', '123456', 3000, 10, 25, 'Science, Social Science, Mathematics, English', '2025-03-15', 'Modern High School', '#f59e0b')
+ON CONFLICT (id) DO UPDATE SET email = EXCLUDED.email, pin = EXCLUDED.pin, phone = EXCLUDED.phone, subjects = EXCLUDED.subjects;
 
 -- SEED UNIFIED STAFF (WITH EMAIL)
 INSERT INTO staff (id, name, email, is_teacher, role, subjects, assigned_classes, phone, pin, base_salary, incentive, avatar_color)

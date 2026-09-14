@@ -231,7 +231,7 @@ function initSeedData() {
             { id: 's2', name: 'Ananya Singh', email: 'ananya.singh@gmail.com', cls: 'Class 5', parent: 'Vikram Singh', phone: '9876543211', pin: '123456', fee: 1500, due: '10', subjects: 'Mathematics, Science, English', doa: '2025-04-02', school: 'Delhi Public School', color: '#8b5cf6' },
             { id: 's3', name: 'Rohan Gupta', email: 'rohan.gupta@gmail.com', cls: 'Class 8', parent: 'Suresh Gupta', phone: '9876543212', pin: '123456', fee: 2000, due: '5', subjects: 'Mathematics, Science', doa: '2025-04-05', school: 'Kendriya Vidyalaya', color: '#10b981' },
             { id: 's4', name: 'Ishita Patel', email: 'ishita.patel@gmail.com', cls: 'LKG', parent: 'Amit Patel', phone: '9876543213', pin: '123456', fee: 1200, due: '1', subjects: 'Rhymes, Drawing, English', doa: '2025-04-10', school: 'Little Tots Play School', color: '#ec4899' },
-            { id: 's5', name: 'Karan Mehta', email: 'karan.mehta@gmail.com', cls: 'Class 10', parent: 'Pankaj Mehta', phone: '9876543214', pin: '123456', fee: 3000, due: '10', subjects: 'Mathematics, Physics, Chemistry', doa: '2025-03-15', school: 'Modern High School', color: '#f59e0b' }
+            { id: 's5', name: 'Karan Mehta', email: 'karan.mehta@gmail.com', cls: 'Class 10', parent: 'Pankaj Mehta', phone: '9876543214', pin: '123456', fee: 3000, due: '10', subjects: 'Science, Social Science, Mathematics, English', doa: '2025-03-15', school: 'Modern High School', color: '#f59e0b' }
         ];
 
         teachers = [
