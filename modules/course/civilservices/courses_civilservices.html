@@ -102,7 +102,30 @@
         </div>
     </div>
 
-    <!-- 2. SUBJECTS CATALOG -->
+    <!-- 2. DYNAMIC CLASS & CURRICULUM SWITCHER -->
+    <div class="class-switcher-bar" style="background:#ffffff; border:1px solid var(--border); border-radius:12px; padding:12px 18px; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:20px;">🎓</span>
+            <div>
+                <div style="font-size:13.5px; font-weight:800; color:var(--text);">Select Curriculum / Class:</div>
+                <div style="font-size:11px; color:var(--text-muted);">Civil Services & Foundation aspirants have full access to all classes</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+            <select id="course-class-selector" onchange="switchCourseClass(this.value)" style="padding:7px 14px; border-radius:8px; border:1.5px solid var(--primary); font-weight:700; font-size:13px; color:var(--text); background:#f8fafc; cursor:pointer;">
+                <option value="civilservices" selected>🏛️ Civil Services: Advanced GS & CSAT</option>
+                <option value="class10">📘 Class 10 (35 Chapters Live)</option>
+                <option value="class9">📗 Class 9 Foundation</option>
+                <option value="class8">📙 Class 8 Foundation</option>
+                <option value="class7">📕 Class 7 Foundation</option>
+                <option value="class6">📒 Class 6 Foundation</option>
+                <option value="class11">🔬 Class 11 Foundation</option>
+                <option value="class12">🎓 Class 12 Foundation</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- 3. SUBJECTS CATALOG -->
     <div style="margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
         <div>
             <div style="font-size:15px; font-weight:800; color:var(--text);">General Studies & CSAT Disciplines</div>
@@ -337,6 +360,26 @@
     </div>
 
     <script>
+        const CURRENT_CLASS_KEY = 'civilservices';
+
+        function switchCourseClass(clsKey) {
+            if (clsKey === CURRENT_CLASS_KEY) return;
+            localStorage.setItem('ec_civil_selected_course_class', clsKey);
+            const classUrlMap = {
+                'civilservices': '../civilservices/courses_civilservices.html',
+                'class10': '../class10/courses_class_10.html',
+                'class9': '../class9/courses_class_9.html',
+                'class8': '../class8/courses_class_8.html',
+                'class7': '../class7/courses_class_7.html',
+                'class6': '../class6/courses_class_6.html',
+                'class11': '../class11/courses_class_11.html',
+                'class12': '../class12/courses_class_12.html'
+            };
+            if (classUrlMap[clsKey]) {
+                window.location.href = classUrlMap[clsKey];
+            }
+        }
+
         // Synchronize Active Student Info
         try {
             const raw = localStorage.getItem('ec_active_student');

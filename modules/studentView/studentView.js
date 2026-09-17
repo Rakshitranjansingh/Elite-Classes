@@ -181,6 +181,18 @@ async function loadStudentDashboard() {
             ? 'Civil Services Subject Test Series & Mock Exams' 
             : 'CBT Assessments, Real-Time Timer & Leaderboard';
     }
+
+    // Civil Services Multi-Class Navigation Bar Control
+    const civilNav = document.getElementById('st-civil-course-nav');
+    if (civilNav) {
+        civilNav.style.display = isCivil ? 'block' : 'none';
+        if (isCivil) {
+            const savedClass = localStorage.getItem('ec_civil_selected_course_class') || 'civilservices';
+            const sel = document.getElementById('st-civil-class-select');
+            if (sel) sel.value = savedClass;
+            onCivilCourseClassChange(savedClass);
+        }
+    }
 }
 
 // Render Profile Info Cards inside Settings Modal
@@ -280,13 +292,57 @@ function getStudentActiveClassName() {
     return studentCls.toString().trim();
 }
 
-function navigateToStudentCourses() {
-    const cls = getStudentActiveClassName().toLowerCase();
-    if (cls.includes('civil') || cls.includes('upsc')) {
-        window.location.href = 'modules/course/civilservices/courses_civilservices.html';
-    } else {
-        window.location.href = 'modules/course/class10/courses_class_10.html';
+const COURSE_CLASS_URL_MAP = {
+    'civilservices': 'modules/course/civilservices/courses_civilservices.html',
+    'class10': 'modules/course/class10/courses_class_10.html',
+    'class9': 'modules/course/class9/courses_class_9.html',
+    'class8': 'modules/course/class8/courses_class_8.html',
+    'class7': 'modules/course/class7/courses_class_7.html',
+    'class6': 'modules/course/class6/courses_class_6.html',
+    'class11': 'modules/course/class11/courses_class_11.html',
+    'class12': 'modules/course/class12/courses_class_12.html'
+};
+
+function onCivilCourseClassChange(clsKey) {
+    if (!clsKey) return;
+    try {
+        localStorage.setItem('ec_civil_selected_course_class', clsKey);
+    } catch (e) { }
+    const sel = document.getElementById('st-civil-class-select');
+    if (sel && sel.value !== clsKey) sel.value = clsKey;
+    const courseSub = document.getElementById('st-course-btn-subtitle');
+    if (courseSub) {
+        const titleMap = {
+            'civilservices': 'Civil Services GS Papers I-III & CSAT LMS',
+            'class10': 'Class 10 Interactive Chapter Curriculum & Notes',
+            'class9': 'Class 9 Foundation Curriculum & Concept Notes',
+            'class8': 'Class 8 Foundation Curriculum & Concept Notes',
+            'class7': 'Class 7 Foundation Curriculum & Concept Notes',
+            'class6': 'Class 6 Foundation Curriculum & Concept Notes',
+            'class11': 'Class 11 Senior Secondary & GS Pre-Foundation',
+            'class12': 'Class 12 Senior Secondary & GS Pre-Foundation'
+        };
+        if (titleMap[clsKey]) courseSub.textContent = titleMap[clsKey];
     }
+}
+
+function navigateToStudentCourses(targetClassKey) {
+    const cls = getStudentActiveClassName().toLowerCase();
+    const isCivil = cls.includes('civil') || cls.includes('upsc');
+
+    let key = targetClassKey;
+    if (!key && isCivil) {
+        try {
+            key = localStorage.getItem('ec_civil_selected_course_class') || 'civilservices';
+        } catch (e) {
+            key = 'civilservices';
+        }
+    } else if (!key) {
+        key = 'class10';
+    }
+
+    const targetUrl = COURSE_CLASS_URL_MAP[key] || (isCivil ? COURSE_CLASS_URL_MAP['civilservices'] : COURSE_CLASS_URL_MAP['class10']);
+    window.location.href = targetUrl;
 }
 
 function navigateToStudentTests() {
@@ -299,9 +355,11 @@ function navigateToStudentTests() {
 }
 
 if (typeof window !== 'undefined') {
+    window.COURSE_CLASS_URL_MAP = COURSE_CLASS_URL_MAP;
     window.getStudentActiveClassName = getStudentActiveClassName;
     window.navigateToStudentCourses = navigateToStudentCourses;
     window.navigateToStudentTests = navigateToStudentTests;
+    window.onCivilCourseClassChange = onCivilCourseClassChange;
 }
 
 // Switch Student Dashboard Tabs

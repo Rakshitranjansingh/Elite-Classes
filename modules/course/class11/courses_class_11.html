@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Elite Classes — Class 10 Interactive Courses Hub</title>
+    <title>Elite Classes — Class 11 Interactive Courses Hub</title>
     <meta name="apple-mobile-web-app-title" content="Elite Classes">
     <meta name="application-name" content="Elite Classes">
     <link rel="icon" type="image/png" href="../../../favicon-32x32.png">
@@ -74,7 +74,7 @@
             <img src="../../../eliteLogo_crest.png" alt="Elite Classes" class="brand-logo-icon" style="width:32px; height:32px;">
             <div>
                 <div style="font-size:14px; font-weight:800; color:var(--text);">Elite Classes</div>
-                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Interactive Learning Management System</div>
+                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Class 11 Interactive LMS</div>
             </div>
         </a>
 
@@ -89,16 +89,16 @@
     <div class="hub-hero">
         <div>
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-                <span class="badge badge-primary" style="font-size:10.5px; font-weight:800;">Class 10 LMS</span>
-                <span class="badge badge-success" style="font-size:10.5px; font-weight:700;">🟢 35 Chapters Live</span>
+                <span class="badge badge-primary" style="font-size:10.5px; font-weight:800; background:#ea580c; border-color:#ea580c; color:#ffffff;">Senior Secondary & UPSC Pre-Foundation</span>
+                <span class="badge badge-success" style="font-size:10.5px; font-weight:700;">🟢 6 Subjects Available</span>
             </div>
-            <h1>Class 10: Interactive Courses Hub</h1>
+            <h1>Class 11: Interactive Courses Hub</h1>
             <p style="font-size:12.5px; color:#94a3b8; margin:4px 0 0;">
                 Comprehensive Chapter Curriculum • Concept Theory & Interactive Mastery Assessments
             </p>
         </div>
         <div style="font-size:12px; color:#cbd5e1; display:flex; align-items:center; gap:10px;">
-            <span id="active-student-pill" style="color:#ffffff; font-weight:700; background:rgba(255,255,255,0.15); padding:4px 10px; border-radius:20px;">Class 10 Student</span>
+            <span id="active-student-pill" style="color:#ffffff; font-weight:700; background:rgba(255,255,255,0.15); padding:4px 10px; border-radius:20px;">Class 11 Student</span>
         </div>
     </div>
 
@@ -114,7 +114,7 @@
         <div style="display:flex; align-items:center; gap:8px;">
             <select id="course-class-selector" onchange="switchCourseClass(this.value)" style="padding:7px 14px; border-radius:8px; border:1.5px solid var(--primary); font-weight:700; font-size:13px; color:var(--text); background:#f8fafc; cursor:pointer;">
                 <option value="civilservices">🏛️ Civil Services: Advanced GS & CSAT</option>
-                <option value="class10" selected>📘 Class 10 (35 Chapters Live)</option>
+                <option value="class10">📘 Class 10 (35 Chapters Live)</option>
                 <option value="class9">📗 Class 9 Foundation</option>
                 <option value="class8">📙 Class 8 Foundation</option>
                 <option value="class7">📕 Class 7 Foundation</option>
@@ -128,201 +128,176 @@
     <!-- 3. SUBJECTS CATALOG -->
     <div style="margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
         <div>
-            <div style="font-size:15px; font-weight:800; color:var(--text);">Enrolled Curriculum Subjects</div>
-            <div style="font-size:12px; color:var(--text-muted);">Select a subject to begin interactive module study</div>
+            <div style="font-size:15px; font-weight:800; color:var(--text);">Class 11 Curriculum Subjects</div>
+            <div style="font-size:12px; color:var(--text-muted);">Select a subject to explore chapter notes and concept assessments</div>
         </div>
-        <span class="badge badge-primary">5 Interactive Hubs Live</span>
+        <span class="badge badge-primary">6 Subjects</span>
     </div>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; margin-bottom:30px;">
-
-        <!-- SUBJECT 1: SCIENCE -->
-        <a href="science/science_course_hub.html" class="subject-card">
+        
+        <!-- SUBJECT: Indian Constitution at Work & Political Theory -->
+        <div class="subject-card">
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">13 Chapters</span>
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
+                    <span class="badge badge-primary" style="font-size:10.5px; background:#4338ca; border-color:#4338ca;">18 Ch</span>
                 </div>
                 <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🔬 Science
+                    ⚖️ Indian Constitution at Work & Political Theory
                 </div>
                 <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Chemical Reactions, Acids & Bases, Metals, Carbon Compounds, Life Processes, Control & Coordination, Light, Electricity & Magnetism.
+                    Constitution as a Living Document, Rights, Election & Representation, Executive, Legislature, Judiciary, Federalism, Local Governments, Political Theory & Liberty.
                 </div>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🔬 13 Chapters</span>
+                    <span class="meta-pill">⚖️ 18 Ch</span>
                     <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
+                    <span class="meta-pill">🎯 Concept Quizzes</span>
+                    <span class="meta-pill">🔒 Progressive Unlocking</span>
                 </div>
             </div>
             <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#2563eb; border-color:#2563eb;">
-                    Open Science Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 2: GEOGRAPHY -->
-        <a href="geography/geography_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">7 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🌐 Geography
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Contemporary India - II. Resources & Development, Forest & Wildlife, Water, Agriculture, Minerals & Energy, Manufacturing & Lifelines.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🌐 7 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#0284c7; border-color:#0284c7;">
-                    Open Geography Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 3: HISTORY -->
-        <a href="history/history_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">5 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🏛️ History
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    India & the Contemporary World - II. Rise of Nationalism in Europe, Nationalism in India, Making of a Global World, Age of Industrialisation, Print Culture.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🏛️ 5 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#b45309; border-color:#b45309;">
-                    Open History Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 4: DEMOCRATIC POLITICS -->
-        <a href="politics/politics_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">5 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    ⚖️ Democratic Politics
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Democratic Politics - II. Power Sharing, Federalism, Gender Religion and Caste, Political Parties, Outcomes of Democracy.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">⚖️ 5 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#4338ca; border-color:#4338ca;">
-                    Open Politics Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 5: ECONOMICS -->
-        <a href="economics/economics_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">5 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    📈 Economics
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Understanding Economic Development. Development, Sectors of Indian Economy, Money & Credit, Globalisation & Consumer Rights.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">📈 5 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#059669; border-color:#059669;">
-                    Open Economics Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 6: MATHEMATICS -->
-        <div class="subject-card" style="opacity:0.95;">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-primary" style="font-size:10.5px;">Classroom Lectures</span>
-                    <span class="badge badge-outline" style="font-size:10.5px;">14 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    📐 Mathematics
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Real Numbers, Polynomials, Quadratic Equations, Triangles, Trigonometry, Statistics & Surface Areas.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">📐 14 Chapters</span>
-                    <span class="meta-pill">📝 Class Notes</span>
-                    <span class="meta-pill">📋 Worksheets</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-outline btn-sm" style="width:100%; font-weight:700; padding:8px;" onclick="showToast('Mathematics curriculum notes are distributed during classroom lectures.', 'info')">
-                    Class Notes & Worksheets
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#4338ca; border-color:#4338ca;" onclick="showToast('Indian Constitution at Work & Political Theory modules for Class 11 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
+                    Explore Indian Constitution at Work & Political Theory →
                 </button>
             </div>
         </div>
-
-        <!-- SUBJECT 7: ENGLISH -->
-        <div class="subject-card" style="opacity:0.95;">
+        
+        <!-- SUBJECT: Fundamentals of Physical Geography & India -->
+        <div class="subject-card">
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-primary" style="font-size:10.5px;">Classroom Lectures</span>
-                    <span class="badge badge-outline" style="font-size:10.5px;">Language & Lit</span>
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
+                    <span class="badge badge-primary" style="font-size:10.5px; background:#0284c7; border-color:#0284c7;">22 Ch</span>
                 </div>
                 <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    📖 English
+                    🌐 Fundamentals of Physical Geography & India
                 </div>
                 <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    First Flight & Footprints without Feet. Comprehensive Literature Analysis, Grammar & Reading Comprehension.
+                    Origin & Evolution of Earth, Interior of Earth, Plate Tectonics, Geomorphic Processes, Atmospheric Circulation & Weather, Water & Oceans, Indian Physiography & Drainage.
                 </div>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">📖 First Flight</span>
-                    <span class="meta-pill">👣 Footprints</span>
-                    <span class="meta-pill">✍️ Writing Skills</span>
+                    <span class="meta-pill">🌐 22 Ch</span>
+                    <span class="meta-pill">📚 Complete Theory</span>
+                    <span class="meta-pill">🎯 Concept Quizzes</span>
+                    <span class="meta-pill">🔒 Progressive Unlocking</span>
                 </div>
             </div>
             <div>
-                <button class="btn btn-outline btn-sm" style="width:100%; font-weight:700; padding:8px;" onclick="showToast('English literature materials are distributed during classroom lectures.', 'info')">
-                    Class Notes & Worksheets
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#0284c7; border-color:#0284c7;" onclick="showToast('Fundamentals of Physical Geography & India modules for Class 11 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
+                    Explore Fundamentals of Physical Geography & India →
                 </button>
             </div>
         </div>
-
+        
+        <!-- SUBJECT: Themes in World History -->
+        <div class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
+                    <span class="badge badge-primary" style="font-size:10.5px; background:#b45309; border-color:#b45309;">7 Ch</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    🏛️ Themes in World History
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    Writing and City Life, An Empire Across Three Continents, Nomadic Empires, The Three Orders, Changing Cultural Traditions, Displacing Indigenous Peoples, Paths to Modernisation.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">🏛️ 7 Ch</span>
+                    <span class="meta-pill">📚 Complete Theory</span>
+                    <span class="meta-pill">🎯 Concept Quizzes</span>
+                    <span class="meta-pill">🔒 Progressive Unlocking</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#b45309; border-color:#b45309;" onclick="showToast('Themes in World History modules for Class 11 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
+                    Explore Themes in World History →
+                </button>
+            </div>
+        </div>
+        
+        <!-- SUBJECT: Indian Economic Development & Statistics -->
+        <div class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
+                    <span class="badge badge-primary" style="font-size:10.5px; background:#059669; border-color:#059669;">10 Ch</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    📈 Indian Economic Development & Statistics
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    Indian Economy on the Eve of Independence, Five Year Plans 1950-1990, Economic Reforms 1991 (LPG), Current Challenges, Rural Development, Employment, Sustainable Development.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">📈 10 Ch</span>
+                    <span class="meta-pill">📚 Complete Theory</span>
+                    <span class="meta-pill">🎯 Concept Quizzes</span>
+                    <span class="meta-pill">🔒 Progressive Unlocking</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#059669; border-color:#059669;" onclick="showToast('Indian Economic Development & Statistics modules for Class 11 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
+                    Explore Indian Economic Development & Statistics →
+                </button>
+            </div>
+        </div>
+        
+        <!-- SUBJECT: Physics -->
+        <div class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
+                    <span class="badge badge-primary" style="font-size:10.5px; background:#2563eb; border-color:#2563eb;">14 Ch</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    ⚛️ Physics
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    Units & Measurements, Motion in Straight Line & Plane, Laws of Motion, Work, Energy & Power, Rotational Motion, Gravitation, Thermodynamics, Waves & Oscillations.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">⚛️ 14 Ch</span>
+                    <span class="meta-pill">📚 Complete Theory</span>
+                    <span class="meta-pill">🎯 Concept Quizzes</span>
+                    <span class="meta-pill">🔒 Progressive Unlocking</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#2563eb; border-color:#2563eb;" onclick="showToast('Physics modules for Class 11 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
+                    Explore Physics →
+                </button>
+            </div>
+        </div>
+        
+        <!-- SUBJECT: Chemistry -->
+        <div class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
+                    <span class="badge badge-primary" style="font-size:10.5px; background:#0891b2; border-color:#0891b2;">14 Ch</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    🧪 Chemistry
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    Basic Concepts, Structure of Atom, Periodic Classification, Chemical Bonding & Molecular Structure, Thermodynamics, Equilibrium, Redox Reactions, Organic Chemistry Basics.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">🧪 14 Ch</span>
+                    <span class="meta-pill">📚 Complete Theory</span>
+                    <span class="meta-pill">🎯 Concept Quizzes</span>
+                    <span class="meta-pill">🔒 Progressive Unlocking</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#0891b2; border-color:#0891b2;" onclick="showToast('Chemistry modules for Class 11 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
+                    Explore Chemistry →
+                </button>
+            </div>
+        </div>
+        
     </div>
 
     <!-- TOAST -->
@@ -331,7 +306,13 @@
     </div>
 
     <script>
-        const CURRENT_CLASS_KEY = 'class10';
+        const CURRENT_CLASS_KEY = 'class11';
+
+        // Initialize Class Selector
+        const selector = document.getElementById('course-class-selector');
+        if (selector) {
+            selector.value = CURRENT_CLASS_KEY;
+        }
 
         function switchCourseClass(clsKey) {
             if (clsKey === CURRENT_CLASS_KEY) return;
@@ -358,7 +339,7 @@
                 const s = JSON.parse(raw);
                 if (s && s.name) {
                     const pill = document.getElementById('active-student-pill');
-                    if (pill) pill.textContent = s.name + ' • ' + (s.cls || 'Class 10');
+                    if (pill) pill.textContent = s.name + ' • ' + (s.cls || 'Class 11');
                 }
             }
         } catch(e) {}
