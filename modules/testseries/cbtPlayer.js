@@ -269,14 +269,11 @@ const CBTPlayer = {
 
             <!-- DUAL-LAYER RESPONSIVE CBT HEADER -->
             <header style="flex-shrink:0; width:100%; box-shadow:0 2px 8px rgba(0,0,0,0.18);">
-                <!-- LAYER 1: TEST NAME (LEFT) & CANDIDATE NAME (RIGHT) -->
+                <!-- LAYER 1: BRAND (LEFT) & CANDIDATE NAME (RIGHT) -->
                 <div style="background:#070d1e; color:#ffffff; padding:8px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.08); gap:10px;">
-                    <div style="display:flex; align-items:center; gap:10px; min-width:0; flex:1;">
+                    <div style="display:flex; align-items:center; gap:10px;">
                         <div style="width:28px; height:28px; border-radius:50%; background:#2563eb; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:11px; color:#fff; flex-shrink:0;">EC</div>
-                        <div style="min-width:0; overflow:hidden;">
-                            <div style="font-size:13px; font-weight:800; color:#ffffff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" id="cbt-header-title">Assessment</div>
-                            <div style="font-size:10.5px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" id="cbt-header-subtitle">Class 10 Science</div>
-                        </div>
+                        <div style="font-size:14px; font-weight:800; color:#ffffff; letter-spacing:-0.2px;">ELITE CLASSES</div>
                     </div>
 
                     <div style="display:flex; align-items:center; gap:6px; flex-shrink:0; background:rgba(255,255,255,0.08); padding:4px 10px; border-radius:20px; border:1px solid rgba(255,255,255,0.12);">
@@ -305,6 +302,17 @@ const CBTPlayer = {
                     <button onclick="CBTPlayer.confirmSubmit()" style="background:#ef4444; color:#ffffff; border:none; padding:6px 14px; border-radius:8px; font-weight:800; font-size:12px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; box-shadow:0 2px 4px rgba(239,68,68,0.3); flex-shrink:0;">
                         <span>✓ Finish & Submit</span>
                     </button>
+                </div>
+
+                <!-- FIXED SECONDARY SUB-HEADER (LIGHT BACKGROUND): CHAPTER / ASSESSMENT NAME -->
+                <div style="background:#f8fafc; color:#0f172a; padding:8px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e2e8f0; box-shadow:0 1px 3px rgba(0,0,0,0.03); width:100%; min-width:0;">
+                    <div style="display:flex; align-items:center; gap:8px; min-width:0; flex:1;">
+                        <span style="font-size:14px; flex-shrink:0;">📖</span>
+                        <div style="min-width:0; overflow:hidden;">
+                            <div style="font-size:13px; font-weight:800; color:#0f172a; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" id="cbt-header-title">Assessment</div>
+                            <div style="font-size:10.5px; color:#64748b; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" id="cbt-header-subtitle">Class 10 Science</div>
+                        </div>
+                    </div>
                 </div>
             </header>
 
