@@ -90,24 +90,45 @@
     </style>
 </head>
 
-<body style="background:var(--bg); padding:16px; max-width:1100px; margin:0 auto; font-family:'Plus Jakarta Sans', sans-serif;">
+<body style="background:var(--bg); margin:0; font-family:'Plus Jakarta Sans', sans-serif;">
 
-    <!-- TOP HEADER -->
-    <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-        <a href="../../../../student_home.html" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
-            <img src="../../../../eliteLogo_crest.png" alt="Elite Classes" class="brand-logo-icon" style="width:30px; height:30px;">
-            <div>
-                <div style="font-size:13.5px; font-weight:800; color:var(--text);">Elite Classes</div>
-                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Committed to success</div>
-            </div>
-        </a>
-
-        <div style="display:flex; align-items:center; gap:8px;">
-            <a href="../../../../student_home.html" class="btn btn-outline btn-sm" style="text-decoration:none; font-size:11.5px; padding:4px 10px;">
-                ← Student Portal
+    <!-- STICKY FIXED HEADER -->
+    <header class="app-header-sticky">
+        <div class="top-banner">
+            <a href="../../../../student_home.html" class="brand-wrapper" style="text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
+                <img src="../../../../eliteLogo_crest.png" onerror="this.src='../../../../favicon-32x32.png'" alt="Elite Classes" class="brand-logo-icon">
+                <div>
+                    <div class="brand-text">Elite Classes</div>
+                    <div class="brand-sub">Committed to success</div>
+                </div>
             </a>
         </div>
     </header>
+
+    <main class="main-content" style="max-width:1100px; margin:0 auto; padding:20px 16px 60px;">
+
+    <!-- DYNAMIC CLASS & CURRICULUM SWITCHER -->
+    <div class="class-switcher-bar" style="background:#ffffff; border:1px solid var(--border); border-radius:12px; padding:12px 18px; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:20px;">🎓</span>
+            <div>
+                <div style="font-size:13.5px; font-weight:800; color:var(--text);">Select Curriculum / Class Test Series:</div>
+                <div style="font-size:11px; color:var(--text-muted);">Civil Services & Foundation aspirants have full access to all test series</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+            <select id="test-class-selector" onchange="switchTestClass(this.value)" style="padding:7px 14px; border-radius:8px; border:1.5px solid var(--primary); font-weight:700; font-size:13px; color:var(--text); background:#f8fafc; cursor:pointer;">
+                <option value="civilservices">🏛️ Civil Services: Advanced GS & CSAT</option>
+                <option value="class10" selected>📘 Class 10 (NCERT Chapterwise CBT)</option>
+                <option value="class9">📗 Class 9 Foundation</option>
+                <option value="class8">📙 Class 8 Foundation</option>
+                <option value="class7">📕 Class 7 Foundation</option>
+                <option value="class6">📒 Class 6 Foundation</option>
+                <option value="class11">🔬 Class 11 Foundation</option>
+                <option value="class12">🎓 Class 12 Foundation</option>
+            </select>
+        </div>
+    </div>
 
     <!-- 1. MINIMAL TRANSPARENT HERO BANNER -->
     <div class="hub-hero">
@@ -381,6 +402,7 @@
 
         </div>
     </div>
+    </main>
 
     <!-- APP TOAST -->
     <div class="toast" id="app-toast">
@@ -551,6 +573,26 @@
             tm.textContent = msg;
             t.className = `toast show ${type}`;
             setTimeout(() => { t.className = 'toast'; }, 3000);
+        }
+
+        function switchTestClass(clsKey) {
+            if (clsKey === 'class10') return;
+            try {
+                localStorage.setItem('ec_civil_selected_course_class', clsKey);
+            } catch (e) { }
+            const testClassUrlMap = {
+                'civilservices': '../civilservices/testseries_civilservices.html',
+                'class10': 'testseries_class_10.html',
+                'class9': 'testseries_class_10.html',
+                'class8': 'testseries_class_10.html',
+                'class7': 'testseries_class_10.html',
+                'class6': 'testseries_class_10.html',
+                'class11': 'testseries_class_10.html',
+                'class12': 'testseries_class_10.html'
+            };
+            if (testClassUrlMap[clsKey]) {
+                window.location.href = testClassUrlMap[clsKey];
+            }
         }
 
         initOverallLeaderboard();

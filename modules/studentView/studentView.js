@@ -303,6 +303,17 @@ const COURSE_CLASS_URL_MAP = {
     'class12': 'modules/course/class12/courses_class_12.html'
 };
 
+const TEST_CLASS_URL_MAP = {
+    'civilservices': 'modules/testseries/data/civilservices/testseries_civilservices.html',
+    'class10': 'modules/testseries/data/class10/testseries_class_10.html',
+    'class9': 'modules/testseries/data/class10/testseries_class_10.html',
+    'class8': 'modules/testseries/data/class10/testseries_class_10.html',
+    'class7': 'modules/testseries/data/class10/testseries_class_10.html',
+    'class6': 'modules/testseries/data/class10/testseries_class_10.html',
+    'class11': 'modules/testseries/data/class10/testseries_class_10.html',
+    'class12': 'modules/testseries/data/class10/testseries_class_10.html'
+};
+
 function onCivilCourseClassChange(clsKey, autoNavigate = false) {
     if (!clsKey) return;
     try {
@@ -323,6 +334,16 @@ function onCivilCourseClassChange(clsKey, autoNavigate = false) {
             'class12': 'Class 12 Senior Secondary & GS Pre-Foundation'
         };
         if (titleMap[clsKey]) courseSub.textContent = titleMap[clsKey];
+    }
+    const testSub = document.getElementById('st-test-btn-subtitle');
+    if (testSub) {
+        if (clsKey === 'civilservices') {
+            testSub.textContent = 'Civil Services GS Prelims & CSAT CBT Mock Tests';
+        } else if (clsKey === 'class10') {
+            testSub.textContent = 'Class 10 NCERT CBT Chapterwise Assessments & Leaderboards';
+        } else {
+            testSub.textContent = `${clsKey.toUpperCase()} Foundation Assessments & CBT Player`;
+        }
     }
     if (autoNavigate) {
         navigateToStudentCourses(clsKey);
@@ -348,17 +369,32 @@ function navigateToStudentCourses(targetClassKey) {
     window.location.href = targetUrl;
 }
 
-function navigateToStudentTests() {
+function navigateToStudentTests(targetClassKey) {
     const cls = getStudentActiveClassName().toLowerCase();
-    if (cls.includes('civil') || cls.includes('upsc')) {
-        window.location.href = 'modules/testseries/data/civilservices/testseries_civilservices.html';
-    } else {
-        window.location.href = 'modules/testseries/data/class10/testseries_class_10.html';
+    const isCivil = cls.includes('civil') || cls.includes('upsc');
+
+    let key = targetClassKey;
+    if (!key && isCivil) {
+        try {
+            key = localStorage.getItem('ec_civil_selected_course_class') || 'civilservices';
+        } catch (e) {
+            key = 'civilservices';
+        }
+        const sel = document.getElementById('st-civil-class-select');
+        if (sel && sel.value) {
+            key = sel.value;
+        }
+    } else if (!key) {
+        key = 'class10';
     }
+
+    const targetUrl = TEST_CLASS_URL_MAP[key] || (isCivil && key === 'civilservices' ? TEST_CLASS_URL_MAP['civilservices'] : TEST_CLASS_URL_MAP['class10']);
+    window.location.href = targetUrl;
 }
 
 if (typeof window !== 'undefined') {
     window.COURSE_CLASS_URL_MAP = COURSE_CLASS_URL_MAP;
+    window.TEST_CLASS_URL_MAP = TEST_CLASS_URL_MAP;
     window.getStudentActiveClassName = getStudentActiveClassName;
     window.navigateToStudentCourses = navigateToStudentCourses;
     window.navigateToStudentTests = navigateToStudentTests;
@@ -733,22 +769,43 @@ function renderStudentTests() {
     const container = document.getElementById('st-tests-container');
     if (!container || !currentStudent) return;
 
-    const isCivil = (studentCls === 'Civil Services');
-    const hubUrl = isCivil 
-        ? 'modules/testseries/data/civilservices/testseries_civilservices.html' 
-        : 'modules/testseries/data/class10/testseries_class_10.html';
-    const hubTitle = isCivil ? 'Civil Services Assessment Hub' : 'Class 10 Assessment Hub';
-    const hubBtnText = isCivil ? 'Open Civil Services Test Hub →' : 'Open Class 10 Test Hub →';
+    if (isCivil) {
+        container.innerHTML = `
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
+                <div class="card" style="padding:28px; text-align:center;">
+                    <div style="font-size:36px; margin-bottom:12px;">🏛️</div>
+                    <h3 style="font-size:16px; font-weight:700; color:var(--text); margin-bottom:6px;">Civil Services Assessment Hub</h3>
+                    <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
+                        GS Prelims & CSAT full-length CBT mock assessments and leaderboards.
+                    </p>
+                    <a href="modules/testseries/data/civilservices/testseries_civilservices.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700;">
+                        Open Civil Services Test Hub →
+                    </a>
+                </div>
+                <div class="card" style="padding:28px; text-align:center;">
+                    <div style="font-size:36px; margin-bottom:12px;">📘</div>
+                    <h3 style="font-size:16px; font-weight:700; color:var(--text); margin-bottom:6px;">Class 10 NCERT Foundation Hub</h3>
+                    <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
+                        Full NCERT foundation chapterwise test series (Science, Maths, Social Sciences).
+                    </p>
+                    <a href="modules/testseries/data/class10/testseries_class_10.html" class="btn btn-outline btn-sm" style="text-decoration:none; font-weight:700; border-color:var(--primary); color:var(--primary);">
+                        Open Class 10 Test Hub →
+                    </a>
+                </div>
+            </div>
+        `;
+        return;
+    }
 
     container.innerHTML = `
         <div class="card" style="padding:40px; text-align:center;">
             <div style="font-size:36px; margin-bottom:12px;">🏛️</div>
-            <h3 style="font-size:16px; font-weight:700; color:var(--text); margin-bottom:6px;">${hubTitle}</h3>
+            <h3 style="font-size:16px; font-weight:700; color:var(--text); margin-bottom:6px;">Class 10 Assessment Hub</h3>
             <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
                 Access all subjectwise test series and full-length CBT mock exams.
             </p>
-            <a href="${hubUrl}" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700;">
-                ${hubBtnText}
+            <a href="modules/testseries/data/class10/testseries_class_10.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700;">
+                Open Class 10 Test Hub →
             </a>
         </div>
     `;

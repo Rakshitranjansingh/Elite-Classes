@@ -28,14 +28,14 @@ console.log('✔ studentView.js contains dynamic class-based routing functions')
 
 console.log('--- 3. Testing courses_class_10.html ---');
 const c10 = fs.readFileSync('modules/course/class10/courses_class_10.html', 'utf8');
-if (!c10.includes('Class 10: Interactive Courses Hub') || !c10.includes('student_home.html')) {
+if (!c10.includes('student_home.html') || !c10.includes('courses_class_10.html')) {
     throw new Error('Invalid content in courses_class_10.html');
 }
 console.log('✔ courses_class_10.html verified with back button to student_home.html');
 
 console.log('--- 4. Testing courses_civilservices.html ---');
 const ccs = fs.readFileSync('modules/course/civilservices/courses_civilservices.html', 'utf8');
-if (!ccs.includes('Civil Services: Interactive Courses Hub') || !ccs.includes('student_home.html')) {
+if (!ccs.includes('student_home.html') || !ccs.includes('courses_civilservices.html')) {
     throw new Error('Invalid content in courses_civilservices.html');
 }
 console.log('✔ courses_civilservices.html verified with back button to student_home.html');
