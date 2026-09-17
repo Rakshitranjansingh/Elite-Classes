@@ -27,7 +27,7 @@ const filesToCheck = [
     'modules/course/class10/economics/course_player.html',
     'modules/course/class10/history/course_player.html',
     'modules/course/class10/politics/course_player.html',
-    'modules/course/civilservices/revisionCourse/physics/course_player.html',
+    'modules/course/course_player.html',
 
     // Test series class hubs
     'modules/testseries/data/class10/testseries_class_10.html',

@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Civil Services Physics Revision Course — Elite Classes</title>
+    <title>Interactive Course Player — Elite Classes</title>
 
     <meta name="application-name" content="Elite Classes">
     <meta name="apple-mobile-web-app-title" content="Elite Classes">
-    <link rel="icon" type="image/png" href="../../../../../favicon-32x32.png">
-    <link rel="stylesheet" href="../../../../../css/styles.css">
+    <link rel="icon" type="image/png" href="../../favicon-32x32.png">
+    <link rel="stylesheet" href="../../css/styles.css">
 
     <style>
         :root {
@@ -956,10 +956,10 @@
     <header class="course-nav-header">
 
         <div style="display:flex; align-items:center; gap:8px;">
-            <a href="../../../../../student_home.html" style="display:flex; align-items:center; text-decoration:none; margin-right:4px;" title="Return to Student Portal">
-                <img src="../../../../../eliteLogo_crest.png" onerror="this.src='../../../../../favicon-32x32.png'" alt="Elite Classes" style="height:28px; width:28px; border-radius:6px; cursor:pointer;">
+            <a href="../../student_home.html" style="display:flex; align-items:center; text-decoration:none; margin-right:4px;" title="Return to Student Portal">
+                <img src="../../assets/eliteLogo_crest.png" onerror="this.src='../../favicon-32x32.png'" alt="Elite Classes" style="height:28px; width:28px; border-radius:6px; cursor:pointer;">
             </a>
-            <a href="physics_course_hub.html" class="btn-transparent-nav" title="Back to Physics Hub">
+            <a href="#" id="course-back-btn" class="btn-transparent-nav" title="Back to Hub">
                 ← Back
             </a>
             <button class="mobile-drawer-btn" id="drawer-toggle-btn" onclick="toggleMobileDrawer()">
@@ -967,6 +967,7 @@
             </button>
             <div class="course-nav-title">
                 <h1 id="top-nav-chapter-title">Civil Services Physics</h1>
+                <span id="top-nav-sub-title" style="font-size:11px; color:#94a3b8;">Civil Services • Physics</span>
             </div>
         </div>
 
@@ -1111,9 +1112,9 @@
 
     <!-- SUPABASE & DATA SERVICES -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../../../../../supabase/config.js"></script>
-    <script src="../../../../../supabase/api.js"></script>
-    <script src="../../../../../supabase/courseApi.js"></script>
+    <script src="../../supabase/config.js"></script>
+    <script src="../../supabase/api.js"></script>
+    <script src="../../supabase/courseApi.js"></script>
 
     <!-- DYNAMIC COURSE ENGINE CONTROLLER -->
     <script>
@@ -1140,6 +1141,12 @@
             });
         }
 
+        // Dynamic Context Variables
+        let currentClass = 'civilservices';
+        let currentCourse = 'revisionCourse';
+        let currentSubject = 'physics';
+        let customBackUrl = '';
+
         // Initialize Course Engine
         async function initCoursePage() {
             // 1. Identify active student
@@ -1161,13 +1168,36 @@
             const initials = currentStudent.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
             document.getElementById('st-avatar').textContent = initials || 'ST';
 
-            // 2. Parse Chapter from URL (default 1, max 13)
+            // 2. Parse URL parameters (class, course, subject, chapter, backUrl)
             const urlParams = new URLSearchParams(window.location.search);
-            const chParam = parseInt(urlParams.get('chapter')) || 1;
-            currentChapterNum = Math.max(1, Math.min(7, chParam));
+            currentClass = urlParams.get('class') || 'civilservices';
+            currentCourse = urlParams.get('course') || (currentClass === 'civilservices' ? 'revisionCourse' : '');
+            currentSubject = urlParams.get('subject') || 'physics';
+            customBackUrl = urlParams.get('backUrl') || '';
+            const chParam = parseInt(urlParams.get('chapter'), 10) || 1;
+            currentChapterNum = Math.max(1, chParam);
 
+            // Setup dynamic back navigation
+            let backUrl = customBackUrl;
+            if (!backUrl) {
+                if (currentCourse) {
+                    backUrl = `${currentClass}/${currentCourse}/${currentSubject}/${currentSubject}_course_hub.html`;
+                } else {
+                    backUrl = `${currentClass}/${currentSubject}/${currentSubject}_course_hub.html`;
+                }
+            }
+            const backBtn = document.getElementById('course-back-btn');
+            if (backBtn) {
+                backBtn.href = backUrl;
+                const subjTitle = currentSubject.charAt(0).toUpperCase() + currentSubject.slice(1);
+                backBtn.title = `Back to ${subjTitle} Hub`;
+            }
+
+            // Sync Dropdown
             const picker = document.getElementById('global-chapter-picker');
-            if (picker) picker.value = String(currentChapterNum);
+            if (picker) {
+                picker.value = String(currentChapterNum);
+            }
 
             // 3. Load Chapter Data
             await loadChapterData(currentChapterNum);
@@ -1179,7 +1209,12 @@
         // Load specific chapter
         async function loadChapterData(chNum) {
             try {
-                const dataPath = `../../../data/civilservices/revisionCourse/physics/chapter${chNum}_course_data.js`;
+                let dataPath = '';
+                if (currentCourse) {
+                    dataPath = `data/${currentClass}/${currentCourse}/${currentSubject}/chapter${chNum}_course_data.js`;
+                } else {
+                    dataPath = `data/${currentClass}/${currentSubject}/chapter${chNum}_course_data.js`;
+                }
                 await loadScriptAsync(dataPath);
                 courseData = window.COURSE_CHAPTER_DATA;
 
@@ -1225,7 +1260,12 @@
 
         // Dropdown Switcher
         function onChapterSelectChange(newCh) {
-            window.location.search = `?chapter=${newCh}`;
+            const params = new URLSearchParams(window.location.search);
+            params.set('chapter', newCh);
+            if (!params.has('class')) params.set('class', currentClass);
+            if (currentCourse && !params.has('course')) params.set('course', currentCourse);
+            if (!params.has('subject')) params.set('subject', currentSubject);
+            window.location.search = params.toString();
         }
 
         // Fetch progress for this student and chapter

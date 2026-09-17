@@ -29,17 +29,17 @@ const hubHtml = fs.readFileSync(hubPath, 'utf8');
 assert(hubHtml.includes('student_home.html'), 'Hub must have link to student_home.html');
 assert(hubHtml.includes('cs_phy_ch1'), 'Hub must register cs_phy_ch1');
 assert(hubHtml.includes('CHAPTERS_LIST'), 'Hub must contain CHAPTERS_LIST');
-assert(hubHtml.includes('eliteLogo_crest.png'), 'Hub must contain eliteLogo_crest.png');
-console.log('✔ physics_course_hub.html verified.');
+assert(hubHtml.includes('../../../course_player.html'), 'Hub must link to central course_player.html');
+console.log('✔ physics_course_hub.html verified with central player link.');
 
-// 2. Test Player
-const playerPath = path.join(__dirname, '../modules/course/civilservices/revisionCourse/physics/course_player.html');
-assert(fs.existsSync(playerPath), 'course_player.html must exist');
+// 2. Test Central Course Player
+const playerPath = path.join(__dirname, '../modules/course/course_player.html');
+assert(fs.existsSync(playerPath), 'central course_player.html must exist in modules/course/');
 const playerHtml = fs.readFileSync(playerPath, 'utf8');
 assert(playerHtml.includes('student_home.html'), 'Player must link to student_home.html via clickable logo');
-assert(playerHtml.includes('physics_course_hub.html'), 'Player must link back to physics_course_hub.html');
-assert(playerHtml.includes('chapter1_course_data.js') || playerHtml.includes('chapter${chNum}_course_data.js'), 'Player must load physics chapter course data');
-console.log('✔ course_player.html verified.');
+assert(playerHtml.includes('course-back-btn'), 'Player must have dynamic back button');
+assert(playerHtml.includes('loadChapterData'), 'Player must load chapter course data');
+console.log('✔ central course_player.html verified.');
 
 // 3. Test Chapter 1 Course Data
 const dataPath = path.join(__dirname, '../modules/course/data/civilservices/revisionCourse/physics/chapter1_course_data.js');
