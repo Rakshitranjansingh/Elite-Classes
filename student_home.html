@@ -69,20 +69,34 @@
         <!-- STUDENT PORTAL DASHBOARD VIEW -->
         <section class="page-view active" id="view-student-portal">
 
-            <!-- STUDENT PORTAL TAB NAVIGATION -->
-            <div class="profile-switcher" style="margin-bottom:20px;">
-                <div class="profile-tab active" data-sttab="courses" onclick="switchStudentTab('courses')">📚 My Courses</div>
-                <div class="profile-tab" data-sttab="tests" onclick="switchStudentTab('tests')">📝 Test Series & Exams</div>
+            <!-- STUDENT PORTAL ACTION BUTTONS (DYNAMIC CLASS HUBS) -->
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:24px;">
+                <button type="button" class="btn" onclick="navigateToStudentCourses()" style="background:linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); color:#ffffff; border:none; border-radius:14px; padding:20px 24px; text-align:left; cursor:pointer; box-shadow:0 4px 16px rgba(37,99,235,0.22); transition:all 0.15s ease; display:flex; justify-content:space-between; align-items:center;" onmouseenter="this.style.transform='translateY(-2px)';" onmouseleave="this.style.transform='none';">
+                    <div>
+                        <div style="font-size:26px; margin-bottom:6px;">📚</div>
+                        <div style="font-size:18px; font-weight:800; color:#ffffff;">My Courses</div>
+                        <div style="font-size:12px; color:#dbeafe; opacity:0.9; margin-top:2px;" id="st-course-btn-subtitle">Interactive 20-Module LMS & Chapter Notes</div>
+                    </div>
+                    <div style="font-size:18px; font-weight:800; background:rgba(255,255,255,0.2); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center;">
+                        →
+                    </div>
+                </button>
+
+                <button type="button" class="btn" onclick="navigateToStudentTests()" style="background:linear-gradient(135deg, #4338ca 0%, #6366f1 100%); color:#ffffff; border:none; border-radius:14px; padding:20px 24px; text-align:left; cursor:pointer; box-shadow:0 4px 16px rgba(99,102,241,0.22); transition:all 0.15s ease; display:flex; justify-content:space-between; align-items:center;" onmouseenter="this.style.transform='translateY(-2px)';" onmouseleave="this.style.transform='none';">
+                    <div>
+                        <div style="font-size:26px; margin-bottom:6px;">📝</div>
+                        <div style="font-size:18px; font-weight:800; color:#ffffff;">Test Series & Exams</div>
+                        <div style="font-size:12px; color:#e0e7ff; opacity:0.9; margin-top:2px;" id="st-test-btn-subtitle">CBT Assessments, Real-Time Timer & Leaderboard</div>
+                    </div>
+                    <div style="font-size:18px; font-weight:800; background:rgba(255,255,255,0.2); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center;">
+                        →
+                    </div>
+                </button>
             </div>
 
-            <!-- TAB 1: COURSES (ENROLLED SUBJECTS & CURRICULUM) -->
+            <!-- ENROLLED SUBJECTS & CURRICULUM SECTION -->
             <div id="st-tab-section-courses" class="st-tab-section" style="display:block;">
                 <div id="st-courses-container"></div>
-            </div>
-
-            <!-- TAB 2: TESTS (UPCOMING & ASSESSMENTS) -->
-            <div id="st-tab-section-tests" class="st-tab-section" style="display:none;">
-                <div id="st-tests-container"></div>
             </div>
         </section>
 

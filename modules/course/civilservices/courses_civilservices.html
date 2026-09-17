@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Elite Classes — Civil Services Interactive Courses Hub</title>
+    <meta name="apple-mobile-web-app-title" content="Elite Classes">
+    <meta name="application-name" content="Elite Classes">
+    <link rel="icon" type="image/png" href="../../../favicon-32x32.png">
+    <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <style>
+        .hub-hero {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #ffffff;
+            border-radius: var(--radius-sm);
+            padding: 18px 22px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hub-hero h1 {
+            font-size: 18px;
+            font-weight: 800;
+            margin: 0;
+            color: #f8fafc;
+            letter-spacing: -0.2px;
+        }
+
+        .subject-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .subject-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(37,99,235,0.12);
+            transform: translateY(-2px);
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body style="background:var(--bg); padding:16px; max-width:1100px; margin:0 auto; font-family:'Plus Jakarta Sans', sans-serif;">
+
+    <!-- TOP HEADER -->
+    <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <img src="../../../eliteLogo_crest.png" alt="Elite Classes" class="brand-logo-icon" style="width:32px; height:32px;">
+            <div>
+                <div style="font-size:14px; font-weight:800; color:var(--text);">Elite Classes</div>
+                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Civil Services Interactive LMS</div>
+            </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px;">
+            <a href="../../../student_home.html" class="btn btn-outline btn-sm" style="text-decoration:none; font-size:12px; font-weight:700; padding:6px 12px; display:inline-flex; align-items:center; gap:6px;">
+                ← Student Portal
+            </a>
+        </div>
+    </header>
+
+    <!-- 1. HERO BANNER -->
+    <div class="hub-hero">
+        <div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                <span class="badge badge-primary" style="font-size:10.5px; font-weight:800; background:#f59e0b; border-color:#f59e0b; color:#0f172a;">Civil Services LMS</span>
+                <span class="badge badge-success" style="font-size:10.5px; font-weight:700;">🟢 8 Core Disciplines</span>
+            </div>
+            <h1>Civil Services: Interactive Courses Hub</h1>
+            <p style="font-size:12.5px; color:#94a3b8; margin:4px 0 0;">
+                Comprehensive General Studies (GS Papers I, II, III) & CSAT Modules with 70% Mastery Progressive Unlocking
+            </p>
+        </div>
+        <div style="font-size:12px; color:#cbd5e1; display:flex; align-items:center; gap:10px;">
+            <span id="active-student-pill" style="color:#ffffff; font-weight:700; background:rgba(255,255,255,0.15); padding:4px 10px; border-radius:20px;">Civil Services Aspirant</span>
+        </div>
+    </div>
+
+    <!-- 2. SUBJECTS CATALOG -->
+    <div style="margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+            <div style="font-size:15px; font-weight:800; color:var(--text);">General Studies & CSAT Disciplines</div>
+            <div style="font-size:12px; color:var(--text-muted);">Select a discipline to start interactive chapter courses</div>
+        </div>
+        <span class="badge badge-primary">8 Disciplines Active</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; margin-bottom:30px;">
+
+        <!-- SUBJECT 1: POLITY -->
+        <a href="polity/polity_course_hub.html" class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">160 Mini-Modules</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    ⚖️ Indian Polity & Governance
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    Constitutional Framework, Preamble, Fundamental Rights, Directive Principles, Union Executive, Parliament, Judiciary & Federalism.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">⚖️ 8 Chapters</span>
+                    <span class="meta-pill">📚 160 Modules</span>
+                    <span class="meta-pill">🎯 1,600 MCQs</span>
+                    <span class="meta-pill">🔒 70% Mastery</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#4338ca; border-color:#4338ca;">
+                    Open Polity Course →
+                </button>
+            </div>
+        </a>
+
+        <!-- SUBJECT 2: HISTORY -->
+        <a href="history/history_course_hub.html" class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">160 Mini-Modules</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    🏛️ Indian History & National Movement
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    Ancient India (IVC & Vedic Age), Mauryan & Gupta Empires, Medieval Dynasties, Freedom Struggle & Post-Independence Consolidation.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">🏛️ 8 Chapters</span>
+                    <span class="meta-pill">📚 160 Modules</span>
+                    <span class="meta-pill">🎯 1,600 MCQs</span>
+                    <span class="meta-pill">🔒 70% Mastery</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#b45309; border-color:#b45309;">
+                    Open History Course →
+                </button>
+            </div>
+        </a>
+
+        <!-- SUBJECT 3: GEOGRAPHY -->
+        <a href="geography/geography_course_hub.html" class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">160 Mini-Modules</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    🌐 Physical & Indian Geography
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    Geomorphology, Climatology, Oceanography, Indian Physiography, River Drainage Systems, Monsoons, Resources & Biogeography.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">🌐 8 Chapters</span>
+                    <span class="meta-pill">📚 160 Modules</span>
+                    <span class="meta-pill">🎯 1,600 MCQs</span>
+                    <span class="meta-pill">🔒 70% Mastery</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#0284c7; border-color:#0284c7;">
+                    Open Geography Course →
+                </button>
+            </div>
+        </a>
+
+        <!-- SUBJECT 4: ECONOMY -->
+        <a href="economy/economy_course_hub.html" class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">120 Mini-Modules</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    📈 Indian Economy & Development
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    National Income Accounting, Fiscal Policy & Budgeting, RBI Monetary Policy, Banking Sector Reforms, Inflation & Foreign Trade.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">📈 6 Chapters</span>
+                    <span class="meta-pill">📚 120 Modules</span>
+                    <span class="meta-pill">🎯 1,200 MCQs</span>
+                    <span class="meta-pill">🔒 70% Mastery</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#059669; border-color:#059669;">
+                    Open Economy Course →
+                </button>
+            </div>
+        </a>
+
+        <!-- SUBJECT 5: CSAT -->
+        <a href="csat/csat_course_hub.html" class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">120 Mini-Modules</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    📐 CSAT (Paper II)
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    Reading Comprehension Passages, Logical Reasoning, Analytical Ability, Quantitative Aptitude, Number Systems & Data Interpretation.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">📐 6 Chapters</span>
+                    <span class="meta-pill">📚 120 Modules</span>
+                    <span class="meta-pill">🎯 1,200 MCQs</span>
+                    <span class="meta-pill">🔒 70% Mastery</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#7c3aed; border-color:#7c3aed;">
+                    Open CSAT Course →
+                </button>
+            </div>
+        </a>
+
+        <!-- SUBJECT 6: PHYSICS -->
+        <a href="physics/physics_course_hub.html" class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">120 Mini-Modules</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    ⚛️ General Science: Physics
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    Mechanics & Laws of Motion, Thermodynamics, Wave Optics, Electromagnetism, Modern Physics & Emerging Nuclear Technologies.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">⚛️ 6 Chapters</span>
+                    <span class="meta-pill">📚 120 Modules</span>
+                    <span class="meta-pill">🎯 1,200 MCQs</span>
+                    <span class="meta-pill">🔒 70% Mastery</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#2563eb; border-color:#2563eb;">
+                    Open Physics Course →
+                </button>
+            </div>
+        </a>
+
+        <!-- SUBJECT 7: CHEMISTRY -->
+        <a href="chemistry/chemistry_course_hub.html" class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">120 Mini-Modules</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    🧪 General Science: Chemistry
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    Atomic Structure, Periodic Trends, Chemical Bonding, Environmental Chemistry, Polymers, Everyday Chemistry & Green Technology.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">🧪 6 Chapters</span>
+                    <span class="meta-pill">📚 120 Modules</span>
+                    <span class="meta-pill">🎯 1,200 MCQs</span>
+                    <span class="meta-pill">🔒 70% Mastery</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#0891b2; border-color:#0891b2;">
+                    Open Chemistry Course →
+                </button>
+            </div>
+        </a>
+
+        <!-- SUBJECT 8: BIOLOGY -->
+        <a href="biology/biology_course_hub.html" class="subject-card">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">140 Mini-Modules</span>
+                </div>
+                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                    🧬 Life Sciences & Biology
+                </div>
+                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+                    Cell Biology, Human Physiology & Organ Systems, Genetics & Heredity, Immunology & Public Health, Ecology & Biodiversity Conservation.
+                </div>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+                    <span class="meta-pill">🧬 7 Chapters</span>
+                    <span class="meta-pill">📚 140 Modules</span>
+                    <span class="meta-pill">🎯 1,400 MCQs</span>
+                    <span class="meta-pill">🔒 70% Mastery</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#10b981; border-color:#10b981;">
+                    Open Biology Course →
+                </button>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="app-toast">
+        <span id="toast-msg"></span>
+    </div>
+
+    <script>
+        // Synchronize Active Student Info
+        try {
+            const raw = localStorage.getItem('ec_active_student');
+            if (raw) {
+                const s = JSON.parse(raw);
+                if (s && s.name) {
+                    const pill = document.getElementById('active-student-pill');
+                    if (pill) pill.textContent = s.name + ' • ' + (s.cls || 'Civil Services');
+                }
+            }
+        } catch(e) {}
+
+        function showToast(msg, type = 'info') {
+            const t = document.getElementById('app-toast');
+            const tm = document.getElementById('toast-msg');
+            if (!t || !tm) return;
+            tm.textContent = msg;
+            t.className = `toast show ${type}`;
+            setTimeout(() => { t.className = 'toast'; }, 3000);
+        }
+    </script>
+</body>
+
+</html>
