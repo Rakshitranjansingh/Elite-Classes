@@ -1066,9 +1066,12 @@
                 <div class="quiz-section">
                     <div class="quiz-header-banner">
                         <div>
-                            <h3 style="font-size:15.5px; font-weight:700; margin:0 0 4px; color:#0f172a;">
-                                📝 Topic Mastery Assessment
-                            </h3>
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <h3 style="font-size:15.5px; font-weight:700; margin:0 0 4px; color:#0f172a;">
+                                    📝 Topic Mastery Assessment
+                                </h3>
+                                <span id="canary-seal-container" title="Authentic Digitally Verified Session"></span>
+                            </div>
                             <div style="font-size:12px; color:var(--c-muted);">
                                 Test your core understanding before unlocking the next topic.
                             </div>
@@ -1117,6 +1120,15 @@
 
     <!-- DYNAMIC COURSE ENGINE CONTROLLER -->
     <script>
+        // -------------------------------------------------------------
+        // PRIVATE CLOSURE VAULT FOR QUIZ ANTI-CHEAT ANSWER PROTECTION
+        // -------------------------------------------------------------
+        const _secretQuizVault = new Map();
+
+        function getVaultItem(moduleId, questionId) {
+            return _secretQuizVault.get(`${moduleId}_${questionId}`) || { answer: '', explanation: '' };
+        }
+
         // State
         let currentChapterNum = 1;
         let courseData = null;
@@ -1196,6 +1208,27 @@
                 }
 
                 courseData.chapterId = courseData.chapterId || (`c10_geo_ch${courseData.chapterNumber}`);
+
+                // Strip answers and explanations from active client memory into private closure vault
+                _secretQuizVault.clear();
+                if (courseData && Array.isArray(courseData.modules)) {
+                    courseData.modules.forEach(mod => {
+                        if (Array.isArray(mod.questions)) {
+                            mod.questions.forEach(q => {
+                                const vaultKey = `${mod.id}_${q.id}`;
+                                const ans = q.answer || q.correct_option || '';
+                                const expl = q.explanation || '';
+                                _secretQuizVault.set(vaultKey, {
+                                    answer: ans,
+                                    explanation: expl
+                                });
+                                delete q.answer;
+                                delete q.correct_option;
+                                delete q.explanation;
+                            });
+                        }
+                    });
+                }
 
 
 
@@ -1390,6 +1423,12 @@
                 keyNotesBox.style.display = 'none';
             }
 
+                        const canaryContainer = document.getElementById('canary-seal-container');
+            if (canaryContainer) {
+                const seedStr = `${currentStudent ? currentStudent.id : 'ST'}_${courseData.chapterId}_${mod.id}`;
+                canaryContainer.innerHTML = generateCanaryQRSvg(seedStr);
+            }
+
             const prog = chapterProgress[mod.id];
             renderQuizQuestions(mod, prog);
         }
@@ -1411,6 +1450,9 @@
             mod.questions.forEach((q, qIdx) => {
                 const qNum = qIdx + 1;
                 const savedAns = existingAnswers[q.id];
+                const vaultItem = getVaultItem(mod.id, q.id);
+                const correctAns = isAlreadySubmitted ? vaultItem.answer : null;
+                const explanationText = isAlreadySubmitted ? vaultItem.explanation : '';
 
                 let optionsHtml = '';
                 q.options.forEach((opt, optIdx) => {
@@ -1419,9 +1461,9 @@
                     
                     let extraClass = '';
                     if (isAlreadySubmitted) {
-                        if (opt === q.answer) {
+                        if (opt === correctAns) {
                             extraClass = 'correct-choice';
-                        } else if (isChecked && opt !== q.answer) {
+                        } else if (isChecked && opt !== correctAns) {
                             extraClass = 'wrong-choice';
                         }
                     }
@@ -1439,10 +1481,10 @@
                 });
 
                 let explanationHtml = '';
-                if (isAlreadySubmitted && q.explanation) {
+                if (isAlreadySubmitted && explanationText) {
                     explanationHtml = `
                         <div class="explanation-box">
-                            <strong>💡 Key Explanation:</strong> ${q.explanation}
+                            <strong>💡 Key Explanation:</strong> ${explanationText}
                         </div>
                     `;
                 }
@@ -1510,7 +1552,8 @@
 
             let score = 0;
             mod.questions.forEach(q => {
-                if (userAnswers[q.id] && userAnswers[q.id] === q.answer) {
+                const vaultItem = getVaultItem(mod.id, q.id);
+                if (userAnswers[q.id] && userAnswers[q.id] === vaultItem.answer) {
                     score++;
                 }
             });
@@ -1718,9 +1761,153 @@
             }, 3500);
         }
 
+                // -------------------------------------------------------------
+        // TIER 1 & CBT PROCTORING SECURITY SUITE (CBT-GRADE INTEGRITY)
         // -------------------------------------------------------------
-        // TIER 1 SECURITY & CONTENT ANTI-THEFT PROTECTION SUITE
-        // -------------------------------------------------------------
+        let proctorStrikes = 0;
+        const maxProctorStrikes = 3;
+        let isProctorWarningOpen = false;
+        let watermarkObserver = null;
+
+        function triggerProctorStrike(reason) {
+            if (isProctorWarningOpen) return;
+            proctorStrikes++;
+
+            const modal = document.getElementById('course-proctor-warning-modal');
+            const icon = document.getElementById('course-proctor-modal-icon');
+            const title = document.getElementById('course-proctor-modal-title');
+            const body = document.getElementById('course-proctor-modal-body');
+            const btn = document.getElementById('course-proctor-modal-btn');
+
+            if (!modal) return;
+            isProctorWarningOpen = true;
+
+            if (proctorStrikes < maxProctorStrikes) {
+                icon.textContent = '⚠️';
+                title.textContent = `Security Warning: Proctor Strike ${proctorStrikes} of ${maxProctorStrikes}`;
+                body.innerHTML = `
+                    <strong>Reason:</strong> ${escapeHtml(reason)}<br><br>
+                    Navigating away from the course portal or switching background applications during assessments is strictly monitored to ensure academic integrity.
+                `;
+                btn.textContent = 'Acknowledge & Return to Course';
+            } else {
+                icon.textContent = '🛑';
+                title.textContent = `Final Warning: Proctor Strike ${proctorStrikes} of ${maxProctorStrikes}`;
+                body.innerHTML = `
+                    <strong>Maximum security violations reached!</strong><br><br>
+                    Repeated tab switching has been logged under your candidate profile. Continued violations will be reported to the academic administrator.
+                `;
+                btn.textContent = 'I Understand';
+            }
+
+            modal.style.display = 'flex';
+        }
+
+        function resumeFromProctorWarning() {
+            const modal = document.getElementById('course-proctor-warning-modal');
+            if (modal) modal.style.display = 'none';
+            isProctorWarningOpen = false;
+        }
+
+        // Lightweight Pure Vector SVG QR Generator for Canary Seal
+        function generateCanaryQRSvg(seedStr) {
+            const size = 25;
+            let hash = 0;
+            for (let i = 0; i < seedStr.length; i++) {
+                hash = ((hash << 5) - hash) + seedStr.charCodeAt(i);
+                hash |= 0;
+            }
+
+            const grid = Array(size).fill(0).map(() => Array(size).fill(false));
+            const drawFinder = (r, c) => {
+                for (let i = 0; i < 7; i++) {
+                    for (let j = 0; j < 7; j++) {
+                        const isBorder = (i === 0 || i === 6 || j === 0 || j === 6);
+                        const isCenter = (i >= 2 && i <= 4 && j >= 2 && j <= 4);
+                        grid[r + i][c + j] = isBorder || isCenter;
+                    }
+                }
+            };
+
+            drawFinder(0, 0);
+            drawFinder(0, size - 7);
+            drawFinder(size - 7, 0);
+
+            for (let i = 8; i < size - 8; i++) {
+                grid[6][i] = (i % 2 === 0);
+                grid[i][6] = (i % 2 === 0);
+            }
+
+            let h = Math.abs(hash);
+            for (let r = 0; r < size; r++) {
+                for (let c = 0; c < size; c++) {
+                    const inFinder1 = (r < 8 && c < 8);
+                    const inFinder2 = (r < 8 && c >= size - 8);
+                    const inFinder3 = (r >= size - 8 && c < 8);
+                    if (!inFinder1 && !inFinder2 && !inFinder3 && r !== 6 && c !== 6) {
+                        h = (h * 1103515245 + 12345) & 0x7fffffff;
+                        grid[r][c] = (h % 2 === 0);
+                    }
+                }
+            }
+
+            let rects = '';
+            for (let r = 0; r < size; r++) {
+                for (let c = 0; c < size; c++) {
+                    if (grid[r][c]) {
+                        rects += `<rect x="${c}" y="${r}" width="1" height="1" fill="#0f172a"/>`;
+                    }
+                }
+            }
+
+            return `<svg viewBox="0 0 ${size} ${size}" width="22" height="22" style="background:#ffffff; border-radius:3px; vertical-align:middle; box-shadow:0 1px 3px rgba(0,0,0,0.1); border:1px solid #cbd5e1;">${rects}</svg>`;
+        }
+
+        // Setup MutationObserver to defend watermark against DOM deletion / CSS hiding
+        function setupWatermarkProtection() {
+            if (watermarkObserver) watermarkObserver.disconnect();
+            const target = document.getElementById('course-watermark-overlay');
+            if (!target) return;
+
+            watermarkObserver = new MutationObserver(() => {
+                const wm = document.getElementById('course-watermark-overlay');
+                if (!wm || wm.style.display === 'none' || wm.style.visibility === 'hidden' || parseFloat(window.getComputedStyle(wm).opacity || '1') < 0.03 || wm.children.length === 0) {
+                    if (wm) {
+                        wm.style.display = 'block';
+                        wm.style.visibility = 'visible';
+                        wm.style.opacity = '0.055';
+                    }
+                    renderDynamicWatermark();
+                }
+            });
+
+            watermarkObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'id'] });
+        }
+
+        function renderDynamicWatermark() {
+            const overlay = document.getElementById('course-watermark-overlay');
+            if (!overlay) return;
+            const studentId = currentStudent ? (currentStudent.id || currentStudent.roll_number || 'ST_USER') : 'ST_USER';
+            const studentName = currentStudent ? (currentStudent.name || 'Student') : 'Student';
+            const phone = currentStudent && currentStudent.phone ? currentStudent.phone : '';
+            const chapterTitle = (courseData?.chapterTitle || 'COURSE MODULE').toUpperCase();
+            const nowStr = new Date().toLocaleString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+            overlay.innerHTML = `
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none;">
+                    <defs>
+                        <pattern id="course-wm-pattern" width="480" height="270" patternUnits="userSpaceOnUse" patternTransform="rotate(-26)">
+                            <text x="20" y="45" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="900" fill="#0f172a" letter-spacing="1">ELITE CLASSES • SECURE LMS COURSE</text>
+                            <text x="45" y="110" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#2563eb">${escapeHtml(studentName.toUpperCase())} • ${escapeHtml(studentId.toUpperCase())} ${phone ? '• ' + escapeHtml(phone) : ''}</text>
+                            <text x="30" y="175" font-family="'Courier New', monospace" font-size="11" font-weight="700" fill="#475569">${escapeHtml(chapterTitle)} • ${nowStr}</text>
+                            <text x="55" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#94a3b8">AUTHENTIC DIGITAL COPY • LEAKS TRACEABLE</text>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#course-wm-pattern)" />
+                </svg>
+            `;
+        }
+
         function initSecurityGuards() {
             // 1. Disable Context Menu (Right Click)
             document.addEventListener('contextmenu', (e) => {
@@ -1738,54 +1925,81 @@
                     return false;
                 }
                 // Ctrl+Shift+I (Inspect), Ctrl+Shift+J (Console), Ctrl+Shift+C (Inspect Element)
-                if (e.ctrlKey && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key)) {
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key)) {
                     e.preventDefault();
                     showToast('⚠️ Inspecting elements is restricted.', 'danger');
                     return false;
                 }
                 // Ctrl+U (View Source), Ctrl+S (Save Page), Ctrl+P (Print)
-                if (e.ctrlKey && ['u', 'U', 's', 'S', 'p', 'P'].includes(e.key)) {
+                if ((e.ctrlKey || e.metaKey) && ['u', 'U', 's', 'S', 'p', 'P'].includes(e.key)) {
                     e.preventDefault();
                     showToast('⚠️ Page copying/saving is restricted.', 'danger');
                     return false;
                 }
             });
 
-            // 3. DevTools Open Detection via Dimension Diff
+            // 3. Prevent dragging and unauthorized copying
+            document.addEventListener('dragstart', (e) => {
+                e.preventDefault();
+                return false;
+            });
+            document.addEventListener('copy', (e) => {
+                const sel = window.getSelection().toString();
+                if (sel && sel.length > 0) {
+                    e.preventDefault();
+                    showToast('⚠️ Copying course curriculum text is restricted.', 'danger');
+                }
+            });
+
+            // 4. DPI-Aware DevTools Detection via Dimension Diff
+            const dpr = window.devicePixelRatio || 1;
+            const threshold = Math.max(220, Math.round(180 * dpr));
             let devtoolsDetected = false;
-            const threshold = 160;
             setInterval(() => {
-                const widthDiff = window.outerWidth - window.innerWidth > threshold;
-                const heightDiff = window.outerHeight - window.innerHeight > threshold;
-                if ((widthDiff || heightDiff) && !devtoolsDetected) {
+                const widthDiff = Math.abs(window.outerWidth - window.innerWidth);
+                const heightDiff = Math.abs(window.outerHeight - window.innerHeight);
+                if ((widthDiff > threshold || heightDiff > threshold) && !devtoolsDetected) {
                     devtoolsDetected = true;
-                    showToast('⚠️ Developer tools inspection detected. Content protection active.', 'danger');
+                    showToast('🛑 Security Alert: Developer tools inspection detected.', 'danger');
                 }
             }, 2500);
 
-            // 4. Render Dynamic Anti-Leak Watermark
+            // 5. 3-Strike Tab Proctor & Focus Monitoring
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    triggerProctorStrike('Tab switching or navigating away from the course window is prohibited.');
+                }
+            });
+            window.addEventListener('blur', () => {
+                setTimeout(() => {
+                    if (!document.hasFocus() && !isProctorWarningOpen) {
+                        triggerProctorStrike('Application focus lost. Navigating away is strictly monitored.');
+                    }
+                }, 400);
+            });
+
+            // 6. Dynamic SVG Watermark & MutationObserver Defender
             renderDynamicWatermark();
-        }
-
-        function renderDynamicWatermark() {
-            const overlay = document.getElementById('course-watermark-overlay');
-            if (!overlay) return;
-            const studentId = currentStudent ? (currentStudent.id || currentStudent.roll_number || 'ST_USER') : 'ST_USER';
-            const studentName = currentStudent ? (currentStudent.name || 'Student') : 'Student';
-            const phone = currentStudent && currentStudent.phone ? currentStudent.phone : '';
-            const watermarkText = `Elite Classes • ${studentName} (${studentId}) ${phone ? '• ' + phone : ''}`;
-
-            let html = '';
-            for (let i = 0; i < 35; i++) {
-                html += `<div class="watermark-item">${escapeHtml(watermarkText)}</div>`;
-            }
-            overlay.innerHTML = html;
+            setupWatermarkProtection();
         }
 
         // Start
         window.addEventListener('DOMContentLoaded', initCoursePage);
 
     </script>
+    <!-- PROCTOR 3-STRIKE WARNING MODAL -->
+    <div id="course-proctor-warning-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:100005; align-items:center; justify-content:center; padding:16px;">
+        <div style="background:#ffffff; border-radius:16px; max-width:440px; width:100%; padding:28px; text-align:center; box-shadow:0 20px 40px rgba(0,0,0,0.3); border:2px solid #ef4444;">
+            <div style="font-size:44px; margin-bottom:12px;" id="course-proctor-modal-icon">⚠️</div>
+            <h3 style="font-size:18px; font-weight:800; color:#0f172a; margin:0 0 8px;" id="course-proctor-modal-title">Warning: Tab Switching Detected!</h3>
+            <p style="font-size:13px; color:#64748b; line-height:1.5; margin:0 0 20px;" id="course-proctor-modal-body">
+                Navigating away from the course window or switching background applications is strictly monitored.
+            </p>
+            <button id="course-proctor-modal-btn" onclick="resumeFromProctorWarning()" style="background:#2563eb; color:#ffffff; font-weight:800; padding:10px 24px; border:none; border-radius:8px; cursor:pointer; font-size:13.5px; width:100%;">
+                Return to Course
+            </button>
+        </div>
+    </div>
 </body>
 
 </html>
