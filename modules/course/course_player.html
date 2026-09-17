@@ -974,13 +974,13 @@
         <div style="display:flex; align-items:center; gap:8px;">
             <!-- Chapter Selector Dropdown -->
             <select class="chapter-picker-select" id="global-chapter-picker" onchange="onChapterSelectChange(this.value)">
-                <option value="1">Ch 1: Unit & Measurement</option>
-                <option value="2" disabled>Ch 2: Mechanics (Coming Soon)</option>
-                <option value="3" disabled>Ch 3: General Properties of Matter (Coming Soon)</option>
-                <option value="4" disabled>Ch 4: Heat & Thermodynamics (Coming Soon)</option>
-                <option value="5" disabled>Ch 5: Wave Motion & Sound (Coming Soon)</option>
-                <option value="6" disabled>Ch 6: Light (Optics) (Coming Soon)</option>
-                <option value="7" disabled>Ch 7: Electricity & Modern Physics (Coming Soon)</option>
+                <option value="1">Ch 1: Unit, Dimensions & Measurement</option>
+                <option value="2">Ch 2: Mechanics (Motion, Laws & Gravitation)</option>
+                <option value="3">Ch 3: General Properties of Matter</option>
+                <option value="4">Ch 4: Heat & Thermodynamics</option>
+                <option value="5">Ch 5: Wave Motion & Sound</option>
+                <option value="6">Ch 6: Light (Optics, Reflection & Refraction)</option>
+                <option value="7">Ch 7: Electricity, Magnetism & Modern Physics</option>
             </select>
 
             <div class="student-pill">
@@ -1209,14 +1209,26 @@
         // Load specific chapter
         async function loadChapterData(chNum) {
             try {
-                let dataPath = '';
+                const candidatePaths = [];
                 if (currentCourse) {
-                    dataPath = `data/${currentClass}/${currentCourse}/${currentSubject}/chapter${chNum}_course_data.js`;
+                    candidatePaths.push(`${currentClass}/${currentCourse}/${currentSubject}/data/chapter${chNum}_course_data.js`);
+                    candidatePaths.push(`data/${currentClass}/${currentCourse}/${currentSubject}/chapter${chNum}_course_data.js`);
                 } else {
-                    dataPath = `data/${currentClass}/${currentSubject}/chapter${chNum}_course_data.js`;
+                    candidatePaths.push(`${currentClass}/${currentSubject}/data/chapter${chNum}_course_data.js`);
+                    candidatePaths.push(`data/${currentClass}/${currentSubject}/chapter${chNum}_course_data.js`);
                 }
-                await loadScriptAsync(dataPath);
-                courseData = window.COURSE_CHAPTER_DATA;
+
+                let loaded = false;
+                for (const p of candidatePaths) {
+                    try {
+                        await loadScriptAsync(p);
+                        if (window.COURSE_CHAPTER_DATA) {
+                            courseData = window.COURSE_CHAPTER_DATA;
+                            loaded = true;
+                            break;
+                        }
+                    } catch(e) {}
+                }
 
                 // Clean up global window scope to prevent console scraping
                 try {

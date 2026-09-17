@@ -41,31 +41,34 @@ assert(playerHtml.includes('course-back-btn'), 'Player must have dynamic back bu
 assert(playerHtml.includes('loadChapterData'), 'Player must load chapter course data');
 console.log('✔ central course_player.html verified.');
 
-// 3. Test Chapter 1 Course Data
-const dataPath = path.join(__dirname, '../modules/course/data/civilservices/revisionCourse/physics/chapter1_course_data.js');
-assert(fs.existsSync(dataPath), 'chapter1_course_data.js must exist');
-const ch1Data = require(dataPath);
-assert.strictEqual(ch1Data.chapterNumber, 1, 'Chapter number must be 1');
-assert.strictEqual(ch1Data.totalModules, 20, 'totalModules must be 20');
-assert.strictEqual(ch1Data.totalQuestions, 200, 'totalQuestions must be 200');
-assert.strictEqual(ch1Data.modules.length, 20, 'Must have 20 module objects');
+// 4. Test All 7 Chapter Course Data Files in physics/data/
+for (let ch = 1; ch <= 7; ch++) {
+    const dataPath = path.join(__dirname, `../modules/course/civilservices/revisionCourse/physics/data/chapter${ch}_course_data.js`);
+    assert(fs.existsSync(dataPath), `chapter${ch}_course_data.js must exist at ${dataPath}`);
+    const chData = require(dataPath);
+    assert.strictEqual(chData.chapterNumber, ch, `Chapter number must be ${ch}`);
+    assert.strictEqual(chData.totalModules, 20, `Chapter ${ch} totalModules must be 20`);
+    assert.strictEqual(chData.totalQuestions, 200, `Chapter ${ch} totalQuestions must be 200`);
+    assert.strictEqual(chData.modules.length, 20, `Chapter ${ch} must have 20 module objects`);
 
-let qCount = 0;
-ch1Data.modules.forEach((mod, idx) => {
-    assert(mod.title && mod.title.length > 0, `Module ${idx+1} missing title`);
-    assert(mod.theoryHtml && mod.theoryHtml.length > 50, `Module ${idx+1} missing theoryHtml`);
-    assert(Array.isArray(mod.pointsToRemember) && mod.pointsToRemember.length >= 2, `Module ${idx+1} invalid pointsToRemember`);
-    assert(Array.isArray(mod.keyNotes) && mod.keyNotes.length >= 1, `Module ${idx+1} invalid keyNotes`);
-    assert(Array.isArray(mod.questions) && mod.questions.length === 10, `Module ${idx+1} must have 10 questions`);
-    qCount += mod.questions.length;
-    mod.questions.forEach(q => {
-        assert(q.question, 'Question missing question text');
-        assert(Array.isArray(q.options) && q.options.length === 4, 'Question must have 4 options');
-        assert(q.options.includes(q.answer), `Answer "${q.answer}" must be one of options`);
-        assert(q.explanation, 'Question missing explanation');
+    let qCount = 0;
+    chData.modules.forEach((mod, idx) => {
+        assert(mod.title && mod.title.length > 0, `Ch ${ch} Mod ${idx+1} missing title`);
+        assert(mod.theoryHtml && mod.theoryHtml.length > 50, `Ch ${ch} Mod ${idx+1} missing theoryHtml`);
+        assert(Array.isArray(mod.pointsToRemember) && mod.pointsToRemember.length >= 2, `Ch ${ch} Mod ${idx+1} invalid pointsToRemember`);
+        assert(Array.isArray(mod.keyNotes) && mod.keyNotes.length >= 1, `Ch ${ch} Mod ${idx+1} invalid keyNotes`);
+        assert(Array.isArray(mod.questions) && mod.questions.length === 10, `Ch ${ch} Mod ${idx+1} must have 10 questions`);
+        qCount += mod.questions.length;
+        mod.questions.forEach(q => {
+            assert(q.question, `Ch ${ch} Mod ${idx+1} Question missing question text`);
+            assert(Array.isArray(q.options) && q.options.length === 4, `Ch ${ch} Mod ${idx+1} Question must have 4 options`);
+            assert(q.options.includes(q.answer), `Ch ${ch} Mod ${idx+1} Answer "${q.answer}" must be one of options`);
+            assert(q.explanation, `Ch ${ch} Mod ${idx+1} Question missing explanation`);
+        });
     });
-});
-assert.strictEqual(qCount, 200, 'Total questions must be exactly 200');
-console.log('✔ chapter1_course_data.js verified with all 20 modules & 200 questions.');
+    assert.strictEqual(qCount, 200, `Ch ${ch} total questions must be exactly 200`);
+    console.log(`✔ chapter${ch}_course_data.js verified with all 20 modules & 200 questions.`);
+}
 
-console.log('\n🎉 ALL PHYSICS REVISION COURSE TESTS PASSED (100%)!\n');
+console.log('\n🎉 ALL 7 PHYSICS REVISION COURSE CHAPTERS TESTED & PASSED (100%)!\n');
+
