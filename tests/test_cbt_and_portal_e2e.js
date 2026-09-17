@@ -22,7 +22,7 @@ global.localStorage = {
 };
 
 global.document = {
-    getElementById: (id) => null,
+    getElementById: (id) => ({ style: {}, classList: { add: () => {}, remove: () => {} }, setAttribute: () => {}, innerHTML: '', textContent: '' }),
     createElement: (tag) => ({ style: {}, setAttribute: () => {} }),
     body: { appendChild: () => {} }
 };
