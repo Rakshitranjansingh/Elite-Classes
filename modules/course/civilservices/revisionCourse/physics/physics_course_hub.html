@@ -314,8 +314,58 @@
     <script src="../../../../supabase/courseApi.js"></script>
 
     <script>
-        // Physics revision chapters will be added here one by one
-        const CHAPTERS_LIST = [];
+        // Physics revision chapters list derived from syllabus
+        const CHAPTERS_LIST = [
+            {
+                num: 1,
+                id: 'cs_phy_ch1',
+                title: 'Unit, Dimensions and Measurement',
+                icon: '📏',
+                isLive: true
+            },
+            {
+                num: 2,
+                id: 'cs_phy_ch2',
+                title: 'Mechanics (Motion, Laws & Gravitation)',
+                icon: '⚙️',
+                isLive: false
+            },
+            {
+                num: 3,
+                id: 'cs_phy_ch3',
+                title: 'General Properties of Matter (Elasticity & Fluids)',
+                icon: '💧',
+                isLive: false
+            },
+            {
+                num: 4,
+                id: 'cs_phy_ch4',
+                title: 'Heat and Thermodynamics',
+                icon: '🔥',
+                isLive: false
+            },
+            {
+                num: 5,
+                id: 'cs_phy_ch5',
+                title: 'Wave Motion & Sound',
+                icon: '🔊',
+                isLive: false
+            },
+            {
+                num: 6,
+                id: 'cs_phy_ch6',
+                title: 'Light (Optics, Reflection & Refraction)',
+                icon: '💡',
+                isLive: false
+            },
+            {
+                num: 7,
+                id: 'cs_phy_ch7',
+                title: 'Electricity, Magnetism & Modern Physics',
+                icon: '⚡',
+                isLive: false
+            }
+        ];
 
         async function initCourseHub() {
             let activeStudent = null;
@@ -333,7 +383,7 @@
                         <div style="font-size:40px; margin-bottom:12px;">⚛️</div>
                         <h3 style="font-size:17px; font-weight:800; color:#0f172a; margin:0 0 6px 0;">Physics Revision Chapters In Development</h3>
                         <p style="font-size:13px; color:#64748b; line-height:1.5; margin:0 0 18px 0;">
-                            Physics revision course chapters for Civil Services are being prepared. They will appear here one by one as they are published.
+                            Physics revision course chapters for Civil Services are being prepared.
                         </p>
                         <a href="../../courses_civilservices.html" class="btn btn-primary btn-sm" style="font-weight:700; padding:8px 16px; font-size:12px; text-decoration:none; display:inline-block;">
                             ← Return to Civil Services Courses
@@ -344,35 +394,45 @@
             }
 
             let totalPassedAcrossAll = 0;
+            let liveChaptersCount = 0;
             let cardsHtml = '';
 
             for (const ch of CHAPTERS_LIST) {
                 let passedCount = 0;
-                try {
-                    const localKey = `ec_course_prog_${studentId}_${ch.id}`;
-                    const prog = JSON.parse(localStorage.getItem(localKey) || '{}');
-                    for (const mId in prog) {
-                        if (prog[mId] && prog[mId].passed) passedCount++;
+                if (ch.isLive) {
+                    liveChaptersCount++;
+                    try {
+                        const localKey = `ec_course_prog_${studentId}_${ch.id}`;
+                        const prog = JSON.parse(localStorage.getItem(localKey) || '{}');
+                        for (const mId in prog) {
+                            if (prog[mId] && (prog[mId].passed || prog[mId].is_completed || prog[mId].score >= 7)) {
+                                passedCount++;
+                            }
+                        }
+                    } catch(e) {
+                        passedCount = 0;
                     }
-                } catch(e) {
-                    passedCount = 0;
+                    totalPassedAcrossAll += passedCount;
                 }
 
-                totalPassedAcrossAll += passedCount;
-                const pct = Math.round((passedCount / 20) * 100);
+                let statusBadge = '';
+                let linkHref = `course_player.html?chapter=${ch.num}`;
+                let cardStyle = '';
 
-                let statusBadge = '<span class="status-pill not-started">Not Started</span>';
-                let btnText = 'Start →';
-                if (passedCount === 20) {
-                    statusBadge = '<span class="status-pill completed">✓ Mastered</span>';
-                    btnText = 'Review →';
+                if (!ch.isLive) {
+                    statusBadge = '<span class="status-pill not-started" style="background:#f1f5f9; color:#94a3b8;">🔒 Coming Soon</span>';
+                    linkHref = 'javascript:void(0);';
+                    cardStyle = 'opacity:0.75; cursor:not-allowed;';
+                } else if (passedCount === 20) {
+                    statusBadge = '<span class="status-pill completed">✓ Mastered (20/20)</span>';
                 } else if (passedCount > 0) {
                     statusBadge = `<span class="status-pill in-progress">In Progress (${passedCount}/20)</span>`;
-                    btnText = `Resume →`;
+                } else {
+                    statusBadge = '<span class="status-pill not-started">Start Learning →</span>';
                 }
 
                 cardsHtml += `
-                    <a href="course_player.html?chapter=${ch.num}" class="chapter-card">
+                    <a href="${linkHref}" class="chapter-card" style="${cardStyle}" ${!ch.isLive ? 'onclick="alert(\'Chapter ' + ch.num + ' will be unlocked in the next revision cycle.\')"' : ''}>
                         <div>
                             <div class="chapter-card-top">
                                 <span class="chapter-badge">Chapter ${String(ch.num).padStart(2, '0')}</span>
@@ -381,7 +441,7 @@
                             <h3 class="chapter-card-title">${ch.icon || '⚛️'} ${ch.title}</h3>
                             <div class="chapter-card-meta">
                                 <span>📘 Complete Theory</span>
-                                <span>📝 Concept Quizzes</span>
+                                <span>📝 20 Mastery Quizzes</span>
                                 <span>🎯 70% Pass</span>
                             </div>
                         </div>
@@ -390,6 +450,14 @@
             }
 
             container.innerHTML = cardsHtml;
+
+            // Update overall progress bar
+            const totalTarget = liveChaptersCount * 20;
+            const overallPct = totalTarget > 0 ? Math.round((totalPassedAcrossAll / totalTarget) * 100) : 0;
+            const progBar = document.getElementById('total-progress-bar');
+            const progPct = document.getElementById('total-progress-pct');
+            if (progBar) progBar.style.width = `${overallPct}%`;
+            if (progPct) progPct.textContent = `${overallPct}% Completed (${totalPassedAcrossAll}/${totalTarget} Topics)`;
         }
 
         document.addEventListener('DOMContentLoaded', initCourseHub);
