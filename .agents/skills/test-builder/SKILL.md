@@ -140,10 +140,13 @@ The validator guarantees:
    `<script src="../../../cbtPlayer.js"></script>`
 2. **Unified Authentication Session**:
    Every subject portal must inherit `ec_active_student`, `ec_user_role`, and `ec_student_id`. No isolated login prompts!
-3. **Class Hub Subject Card**:
-   Update `modules/testseries/data/class<X>/testseries_class_<X>.html`:
-   - Change the subject card badge from 🟡 `Scheduled / Coming Soon` to 🟢 `Active & Live`.
-   - Update `href` to point directly to `<subject>/<subject>_<X>.html`.
+3. **Mandatory Clickable Header Logo**:
+   Every test series header (Class Hubs `testseries_class_10.html`, `testseries_civilservices.html` and all subject portals `<subject>_<X>.html`) MUST wrap the logo crest and brand title in a clickable anchor (`<a href="...student_home.html" ...>`) enabling 1-click return to the Student Portal.
+4. **Class Hub & Portal Navigation**:
+   - `student_home.html` routes via action button `navigateToStudentTests()` directly to the student's class test series hub (`testseries_class_10.html` or `testseries_civilservices.html`).
+   - In the Class Hub:
+     - Update subject card badge from 🟡 `Scheduled / Coming Soon` to 🟢 `Active & Live`.
+     - Update `href` to point directly to `<subject>/<subject>_<X>.html`.
 
 ### Phase 7: Progressive Activation & Admin Switchboard Setup
 1. **Mandatory Default Deployment Status**:

@@ -152,6 +152,11 @@ The repository enforces autonomous, deterministic agent tooling across 5 core op
    - The root object must define both `"chapterId": "c10_sci_ch<N>"` and `"chapterNumber": <N>`.
    - `keyNotes` must strictly be an array of strings (`Array.isArray(mod.keyNotes) && mod.keyNotes.length >= 1`).
    - Every chapter data file must export both to `window.COURSE_CHAPTER_DATA` and `module.exports`.
+5. **Clean User-Facing Wording**:
+   - In student-facing views (hero banners, subtitles, badges, and card summaries), never display raw technical boilerplate like *"20 Progressive Mini-Modules per Chapter • 10 MCQs/Module"*.
+   - Use clean, student-centric terms: *"Comprehensive Chapter Curriculum • Concept Theory & Interactive Mastery Assessments"*, *"Complete Theory"*, *"Interactive Quizzes"*, *"Mastery Unlocking"*, *"Topic Mastery Assessment"*.
+6. **Mandatory Clickable Header Logo**:
+   - All course and test series pages (Class Hubs, Subject Hubs, Course Players, and Test Portals) MUST wrap the logo and brand in a clickable anchor linking to `student_home.html` for 1-click return to the Student Portal.
 
 
 ---
