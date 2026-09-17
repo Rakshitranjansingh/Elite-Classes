@@ -303,7 +303,7 @@ const COURSE_CLASS_URL_MAP = {
     'class12': 'modules/course/class12/courses_class_12.html'
 };
 
-function onCivilCourseClassChange(clsKey) {
+function onCivilCourseClassChange(clsKey, autoNavigate = false) {
     if (!clsKey) return;
     try {
         localStorage.setItem('ec_civil_selected_course_class', clsKey);
@@ -323,6 +323,9 @@ function onCivilCourseClassChange(clsKey) {
             'class12': 'Class 12 Senior Secondary & GS Pre-Foundation'
         };
         if (titleMap[clsKey]) courseSub.textContent = titleMap[clsKey];
+    }
+    if (autoNavigate) {
+        navigateToStudentCourses(clsKey);
     }
 }
 

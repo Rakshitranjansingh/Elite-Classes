@@ -30,7 +30,7 @@
             </div>
             <div style="display:flex; align-items:center; gap:10px;">
                 <label for="st-civil-class-select" style="font-size:12px; font-weight:700; color:var(--text-muted);">Select Class:</label>
-                <select id="st-civil-class-select" onchange="onCivilCourseClassChange(this.value)" style="padding:8px 14px; border-radius:8px; border:1.5px solid var(--primary); font-weight:700; font-size:13px; color:var(--text); background:#f8fafc; cursor:pointer;">
+                <select id="st-civil-class-select" onchange="onCivilCourseClassChange(this.value, true)" style="padding:8px 14px; border-radius:8px; border:1.5px solid var(--primary); font-weight:700; font-size:13px; color:var(--text); background:#f8fafc; cursor:pointer;">
                     <option value="civilservices">🏛️ Civil Services: Advanced GS & CSAT</option>
                     <option value="class10">📘 Class 10 (35 Chapters Live)</option>
                     <option value="class9">📗 Class 9 Foundation</option>
@@ -40,9 +40,6 @@
                     <option value="class11">🔬 Class 11 Foundation</option>
                     <option value="class12">🎓 Class 12 Foundation</option>
                 </select>
-                <button type="button" class="btn btn-primary btn-sm" onclick="navigateToStudentCourses()" style="font-weight:700; padding:8px 14px;">
-                    Open Class Courses →
-                </button>
             </div>
         </div>
     </div>
