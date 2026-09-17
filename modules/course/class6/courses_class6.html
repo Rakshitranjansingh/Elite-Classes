@@ -66,15 +66,22 @@
     </style>
 </head>
 
-<body style="background:var(--bg); padding:16px; max-width:1100px; margin:0 auto; font-family:'Plus Jakarta Sans', sans-serif;">
+<body style="background:var(--bg); margin:0; padding:0; font-family:'Plus Jakarta Sans', sans-serif;">
 
-    <!-- TOP HEADER -->
-    <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-        <a href="../../../student_home.html" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
-            <img src="../../../eliteLogo_crest.png" alt="Elite Classes" class="brand-logo-icon" style="width:32px; height:32px;">
-            <span style="font-size:16px; font-weight:800; color:var(--text); letter-spacing:-0.2px;">Elite Classes</span>
-        </a>
+        <!-- STICKY FIXED HEADER -->
+    <header class="app-header-sticky">
+        <div class="top-banner">
+            <a href="../../../student_home.html" class="brand-wrapper" style="text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
+                <img src="../../../eliteLogo_crest.png" onerror="this.src='../../../favicon-32x32.png'" alt="Elite Classes" class="brand-logo-icon">
+                <div>
+                    <div class="brand-text">Elite Classes</div>
+                    <div class="brand-sub">Committed to success</div>
+                </div>
+            </a>
+        </div>
     </header>
+
+    <main class="main-content" style="max-width:1100px; margin:0 auto; padding:24px 20px 60px;">
 
     <!-- 2. DYNAMIC CLASS & CURRICULUM SWITCHER -->
     <div class="class-switcher-bar" style="background:#ffffff; border:1px solid var(--border); border-radius:12px; padding:12px 18px; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; box-shadow:0 2px 8px rgba(0,0,0,0.03);">
@@ -129,6 +136,8 @@
     <div id="course-cards-container" style="display:none; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; margin-bottom:30px;">
     </div>
 
+    </main>
+
     <!-- TOAST -->
     <div class="toast" id="app-toast">
         <span id="toast-msg"></span>
@@ -168,7 +177,11 @@
                 const s = JSON.parse(raw);
                 if (s && s.name) {
                     const pill = document.getElementById('active-student-pill');
-                    if (pill) pill.textContent = s.name + ' • ' + (s.cls || 'Class 6');
+                    if (pill) pill.textContent = s.name + ' • ' + (s.cls || 'Class');
+                    const u = document.getElementById('st-header-username');
+                    if (u) u.textContent = s.name;
+                    const a = document.getElementById('st-header-avatar');
+                    if (a) a.textContent = s.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
                 }
             }
         } catch(e) {}

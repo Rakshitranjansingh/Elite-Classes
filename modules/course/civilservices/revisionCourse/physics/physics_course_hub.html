@@ -257,15 +257,15 @@
 
 <body>
 
-    <!-- TOP HEADER (SIMPLE & MINIMAL) -->
-    <header class="hub-header">
-        <a href="../../../../../student_home.html" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
-            <img src="../../../../../eliteLogo_crest.png" onerror="this.src='../../../../../favicon-32x32.png'" alt="Elite Classes" style="height:30px; width:30px; border-radius:6px;">
-            <span style="font-size:15px; font-weight:800; color:#ffffff; letter-spacing:-0.2px;">ELITE CLASSES</span>
-        </a>
-        <div style="display:flex; align-items:center; gap:10px;">
-            <a href="../revision_course_hub.html" class="btn-transparent-nav">
-                ← Revision Courses Hub
+        <!-- STICKY FIXED HEADER -->
+    <header class="app-header-sticky">
+        <div class="top-banner">
+            <a href="../../../../../student_home.html" class="brand-wrapper" style="text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
+                <img src="../../../../../eliteLogo_crest.png" onerror="this.src='../../../../../favicon-32x32.png'" alt="Elite Classes" class="brand-logo-icon">
+                <div>
+                    <div class="brand-text">Elite Classes</div>
+                    <div class="brand-sub">Committed to success</div>
+                </div>
             </a>
         </div>
     </header>
@@ -358,6 +358,12 @@
             } catch(e) {}
 
             const studentId = activeStudent ? activeStudent.id : (localStorage.getItem('ec_student_id') || 'st_guest');
+            if (activeStudent && activeStudent.name) {
+                const u = document.getElementById('st-header-username');
+                if (u) u.textContent = activeStudent.name;
+                const a = document.getElementById('st-header-avatar');
+                if (a) a.textContent = activeStudent.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+            }
             const container = document.getElementById('chapters-grid-container');
 
             if (!CHAPTERS_LIST || CHAPTERS_LIST.length === 0) {
