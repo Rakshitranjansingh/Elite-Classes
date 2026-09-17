@@ -174,7 +174,7 @@ async function loadStudentDashboard() {
     if (courseSub) {
         courseSub.textContent = isCivil 
             ? 'Civil Services GS Papers I-III & CSAT LMS' 
-            : 'Interactive 20-Module Chapter LMS & Notes';
+            : 'Interactive Chapter Curriculum & Notes';
     }
     if (testSub) {
         testSub.textContent = isCivil 
@@ -437,7 +437,7 @@ function renderStudentCourses() {
             icon: '🔬',
             color: '#2563eb',
             desc: studentCls === 'Class 10' 
-                ? '13 Chapters • 260 Mini-Modules • 2,600 Questions • 70% Mastery Gating' 
+                ? '13 Chapters • Comprehensive Theory & Mastery Assessments' 
                 : `${studentCls} Coaching Syllabus & Curriculum Notes`,
             link: studentCls === 'Class 10' ? 'modules/course/class10/science/science_course_hub.html' : null
         },
@@ -445,7 +445,7 @@ function renderStudentCourses() {
             icon: '⚛️',
             color: '#2563eb',
             desc: studentCls === 'Civil Services'
-                ? '6 Chapters • 120 Modules • Mechanics, Optics, Electricity & Modern Physics'
+                ? '6 Chapters • Comprehensive Syllabus & Mechanics, Optics, Electricity & Modern Physics'
                 : (studentCls === 'Class 10' ? 'Part of Class 10 Science • Light, Electricity & Magnetic Effects' : `${studentCls} Physics Curriculum Modules`),
             link: studentCls === 'Civil Services'
                 ? 'modules/course/civilservices/physics/physics_course_hub.html'
@@ -455,7 +455,7 @@ function renderStudentCourses() {
             icon: '🧪',
             color: '#0891b2',
             desc: studentCls === 'Civil Services'
-                ? '6 Chapters • 120 Modules • Periodic Trends, Acids & Bases, Metallurgy & Polymers'
+                ? '6 Chapters • Comprehensive Syllabus & Periodic Trends, Acids & Bases, Metallurgy & Polymers'
                 : (studentCls === 'Class 10' ? 'Part of Class 10 Science • Chemical Reactions, Acids, Metals & Carbon' : `${studentCls} Chemistry Curriculum Modules`),
             link: studentCls === 'Civil Services'
                 ? 'modules/course/civilservices/chemistry/chemistry_course_hub.html'
@@ -465,7 +465,7 @@ function renderStudentCourses() {
             icon: '🧬',
             color: '#10b981',
             desc: studentCls === 'Civil Services'
-                ? '7 Chapters • 140 Modules • Cell Biology, Genetics, Human Physiology & Diseases'
+                ? '7 Chapters • Comprehensive Syllabus & Cell Biology, Genetics, Human Physiology & Diseases'
                 : (studentCls === 'Class 10' ? 'Part of Class 10 Science • Life Processes, Reproduction & Heredity' : `${studentCls} Biology Curriculum Modules`),
             link: studentCls === 'Civil Services'
                 ? 'modules/course/civilservices/biology/biology_course_hub.html'
@@ -497,7 +497,7 @@ function renderStudentCourses() {
             icon: '🌍',
             color: '#0d9488',
             desc: studentCls === 'Class 10' 
-                ? '4 Core Disciplines • 22 Chapters • 440 Mini-Modules • 4,400 Questions' 
+                ? '4 Core Disciplines • 22 Chapters • Comprehensive Theory & Mastery Quizzes' 
                 : `${studentCls} History, Geography, Civics & Economics Notes`,
             subLinks: studentCls === 'Class 10' ? [
                 { title: 'History', icon: '🏛️', chapters: '5 Ch', color: '#b45309', url: 'modules/course/class10/history/history_course_hub.html' },
@@ -511,8 +511,8 @@ function renderStudentCourses() {
             icon: '🏛️',
             color: '#b45309',
             desc: studentCls === 'Civil Services'
-                ? '8 Chapters • 160 Modules • Ancient, Medieval, Modern History & Post-Independence'
-                : (studentCls === 'Class 10' ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' : `${studentCls} History Curriculum Modules`),
+                ? '8 Chapters • Comprehensive Syllabus & Ancient, Medieval, Modern History & Post-Independence'
+                : (studentCls === 'Class 10' ? '5 Chapters • Comprehensive Theory & Concept Quizzes' : `${studentCls} History Curriculum Modules`),
             link: studentCls === 'Civil Services'
                 ? 'modules/course/civilservices/history/history_course_hub.html'
                 : (studentCls === 'Class 10' ? 'modules/course/class10/history/history_course_hub.html' : null)
@@ -521,8 +521,8 @@ function renderStudentCourses() {
             icon: '🌐',
             color: '#0284c7',
             desc: studentCls === 'Civil Services'
-                ? '8 Chapters • 160 Modules • Physical Geography, Indian Physiography & Environment'
-                : (studentCls === 'Class 10' ? '7 Chapters • 140 Mini-Modules • 1,400 Questions • 70% Mastery' : `${studentCls} Geography Curriculum Modules`),
+                ? '8 Chapters • Comprehensive Syllabus & Physical Geography, Indian Physiography & Environment'
+                : (studentCls === 'Class 10' ? '7 Chapters • Comprehensive Theory & Concept Quizzes' : `${studentCls} Geography Curriculum Modules`),
             link: studentCls === 'Civil Services'
                 ? 'modules/course/civilservices/geography/geography_course_hub.html'
                 : (studentCls === 'Class 10' ? 'modules/course/class10/geography/geography_course_hub.html' : null)
@@ -530,20 +530,20 @@ function renderStudentCourses() {
         'Indian Polity': {
             icon: '⚖️',
             color: '#4338ca',
-            desc: '8 Chapters • 160 Modules • Constitutional Framework, Fundamental Rights & Parliament',
+            desc: '8 Chapters • Comprehensive Syllabus & Constitutional Framework, Fundamental Rights & Parliament',
             link: 'modules/course/civilservices/polity/polity_course_hub.html'
         },
         'Polity': {
             icon: '⚖️',
             color: '#4338ca',
-            desc: '8 Chapters • 160 Modules • Constitutional Framework, Fundamental Rights & Parliament',
+            desc: '8 Chapters • Comprehensive Syllabus & Constitutional Framework, Fundamental Rights & Parliament',
             link: 'modules/course/civilservices/polity/polity_course_hub.html'
         },
         'Democratic Politics': {
             icon: '⚖️',
             color: '#4338ca',
             desc: studentCls === 'Class 10' 
-                ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' 
+                ? '5 Chapters • Comprehensive Theory & Concept Quizzes' 
                 : `${studentCls} Civics Curriculum Modules`,
             link: studentCls === 'Class 10' ? 'modules/course/class10/politics/politics_course_hub.html' : null
         },
@@ -551,22 +551,22 @@ function renderStudentCourses() {
             icon: '⚖️',
             color: '#4338ca',
             desc: studentCls === 'Class 10' 
-                ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' 
+                ? '5 Chapters • Comprehensive Theory & Concept Quizzes' 
                 : `${studentCls} Democratic Politics Curriculum Modules`,
             link: studentCls === 'Class 10' ? 'modules/course/class10/politics/politics_course_hub.html' : null
         },
         'Economy': {
             icon: '📈',
             color: '#059669',
-            desc: '6 Chapters • 120 Modules • National Income, Fiscal Policy, Banking & Foreign Trade',
+            desc: '6 Chapters • Comprehensive Syllabus & National Income, Fiscal Policy, Banking & Foreign Trade',
             link: 'modules/course/civilservices/economy/economy_course_hub.html'
         },
         'Economics': {
             icon: '📈',
             color: '#059669',
             desc: studentCls === 'Civil Services'
-                ? '6 Chapters • 120 Modules • National Income, Fiscal Policy, Banking & Foreign Trade'
-                : (studentCls === 'Class 10' ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' : `${studentCls} Economics Curriculum Modules`),
+                ? '6 Chapters • Comprehensive Syllabus & National Income, Fiscal Policy, Banking & Foreign Trade'
+                : (studentCls === 'Class 10' ? '5 Chapters • Comprehensive Theory & Concept Quizzes' : `${studentCls} Economics Curriculum Modules`),
             link: studentCls === 'Civil Services'
                 ? 'modules/course/civilservices/economy/economy_course_hub.html'
                 : (studentCls === 'Class 10' ? 'modules/course/class10/economics/economics_course_hub.html' : null)
@@ -574,7 +574,7 @@ function renderStudentCourses() {
         'CSAT': {
             icon: '📐',
             color: '#7c3aed',
-            desc: '6 Chapters • 120 Modules • Reading Comprehension, Reasoning & Quantitative Aptitude',
+            desc: '6 Chapters • Comprehensive Syllabus & Reading Comprehension, Reasoning & Quantitative Aptitude',
             link: 'modules/course/civilservices/csat/csat_course_hub.html'
         },
         'English': {

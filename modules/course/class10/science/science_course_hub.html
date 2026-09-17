@@ -332,13 +332,13 @@
             <div class="hub-hero-content">
                 <div class="hub-class-tag">Class 10 • Science</div>
                 <h1 class="hub-title-main">Complete test to unlock new modules</h1>
-                <p class="hub-sub-text">13 Chapters • 260 Mini-Modules • 70% Mastery Unlocking</p>
+                <p class="hub-sub-text">13 Chapters • Comprehensive Chapter Curriculum & Mastery Quizzes</p>
                 
                 <!-- SINGLE HORIZONTAL PROGRESS BAR -->
                 <div class="hub-horizontal-progress-box">
                     <div class="hub-progress-labels">
                         <span>Overall Syllabus Progress</span>
-                        <span id="total-progress-pct">0% Completed (0/260 Modules)</span>
+                        <span id="total-progress-pct">0% Completed</span>
                     </div>
                     <div class="hub-progress-track">
                         <div class="hub-progress-fill" id="total-progress-bar" style="width: 0%;"></div>
@@ -434,13 +434,13 @@
                             </div>
                             <h3 class="chapter-card-title">${ch.icon} ${ch.title}</h3>
                             <div class="chapter-card-meta">
-                                <span>📘 20 Modules</span>
-                                <span>📝 200 Questions</span>
+                                <span>📘 Comprehensive Theory</span>
+                                <span>📝 Mastery Quizzes</span>
                                 <span>🎯 70% Pass</span>
                             </div>
                             <div class="chapter-progress-section">
                                 <div class="chapter-progress-header">
-                                    <span>${passedCount} / 20 Modules Passed</span>
+                                    <span>${passedCount} / 20 Topics Mastered</span>
                                     <span>${pct}%</span>
                                 </div>
                                 <div class="chapter-progress-bar">
@@ -462,7 +462,7 @@
             const overallPct = Math.round((totalPassedAcrossAll / totalModulesOverall) * 100);
             const totalProgressEl = document.getElementById('total-progress-pct');
             if (totalProgressEl) {
-                totalProgressEl.textContent = `${overallPct}% Completed (${totalPassedAcrossAll}/260 Modules)`;
+                totalProgressEl.textContent = `${overallPct}% Completed`;
             }
             const barEl = document.getElementById('total-progress-bar');
             if (barEl) {
