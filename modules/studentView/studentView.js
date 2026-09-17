@@ -1,7 +1,7 @@
 /* Elite Classes — Student Portal & Dashboard Core Module */
 
 let currentStudent = null;
-let activeStudentTab = 'today';
+let activeStudentTab = 'courses';
 let studentStats = { testAttempts: {}, courseProgress: {} };
 
 // Gateway Tab Switcher (Student vs Admin)
@@ -238,23 +238,36 @@ function renderStudentProfileCards() {
 function switchStudentTab(tab) {
     activeStudentTab = tab;
 
+    // Support tests/testseries aliases
+    const isTestTab = tab === 'tests' || tab === 'testseries';
+
     // Update active tab buttons
     document.querySelectorAll('#view-student-portal .profile-tab').forEach(t => {
-        t.classList.toggle('active', t.getAttribute('data-sttab') === tab);
+        const tVal = t.getAttribute('data-sttab');
+        const isActive = tVal === tab || (isTestTab && (tVal === 'tests' || tVal === 'testseries'));
+        t.classList.toggle('active', isActive);
     });
 
     // Toggle tab section containers
     document.querySelectorAll('.st-tab-section').forEach(s => {
-        s.style.display = s.id === 'st-tab-section-' + tab ? 'block' : 'none';
+        const isMatch = s.id === 'st-tab-section-' + tab ||
+            (isTestTab && (s.id === 'st-tab-section-tests' || s.id === 'st-tab-section-testseries'));
+        s.style.display = isMatch ? 'block' : 'none';
     });
+
+    // Toggle module containers if present (in moduleLoader architecture)
+    const coursesModule = document.getElementById('module-courses-container');
+    const testsModule = document.getElementById('module-testseries-container');
+    if (coursesModule) coursesModule.style.display = tab === 'courses' ? 'block' : 'none';
+    if (testsModule) testsModule.style.display = isTestTab ? 'block' : 'none';
 
     // Render corresponding section
     if (tab === 'today') renderStudentToday();
     if (tab === 'courses') renderStudentCourses();
-    if (tab === 'tests') renderStudentTests();
+    if (isTestTab) renderStudentTests();
     if (tab === 'attendance') renderStudentAttendance();
     if (tab === 'fees') renderStudentFees();
-    if (tab === 'marks') renderStudentExamResults();
+    if (tab === 'marks' || tab === 'exams') renderStudentExamResults();
 }
 
 // 1. Render Today Tab (Delegates to modular TodayViewManager & class-specific handlers)
@@ -518,7 +531,7 @@ function renderStudentCourses() {
                    Open Course →
                </a>`
             : hasSubLinks
-            ? `<span style="font-size:11.5px; font-weight:700; color:#0d9488;">Select Subject Above ↗</span>`
+            ? `<span style="font-size:11.5px; font-weight:700; color:#0d9488;">Select Subject Below ↘</span>`
             : `<button class="btn btn-outline btn-sm" style="font-weight:600; border-radius:8px; padding:8px 14px;" onclick="showToast('${sub} syllabus materials for ${studentCls} are distributed during classroom lectures.', 'info')">
                    Class Notes
                </button>`;
@@ -565,60 +578,7 @@ function renderStudentCourses() {
         `;
     }).join('');
 
-    const topBannerHtml = isClass10 ? `
-        <div class="card" style="background:linear-gradient(135deg, #0b1329 0%, #1e293b 100%); color:#ffffff; border-radius:14px; padding:18px 22px; margin-bottom:20px; border:1px solid rgba(255,255,255,0.1); box-shadow:0 4px 16px rgba(0,0,0,0.1);">
-            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
-                <div>
-                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-                        <span class="badge badge-primary" style="font-size:10.5px; font-weight:800;">Class 10 LMS</span>
-                        <span class="badge badge-success" style="font-size:10.5px; font-weight:700;">🟢 35 Chapters Live</span>
-                    </div>
-                    <h3 style="font-size:17px; font-weight:800; margin:0; color:#ffffff;">Class 10 Interactive Course Hubs</h3>
-                    <p style="font-size:12px; color:#94a3b8; margin:2px 0 0;">20 Progressive Mini-Modules per Chapter • 10 MCQs/Module • 70% Mastery Unlocking</p>
-                </div>
-            </div>
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:8px;">
-                <a href="modules/course/class10/science/science_course_hub.html" style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:8px 12px; text-decoration:none; color:#ffffff; font-size:12px; font-weight:700; transition:all 0.2s ease;">
-                    <span>🔬</span>
-                    <div>
-                        <div style="color:#60a5fa;">Science</div>
-                        <div style="font-size:10px; color:#94a3b8; font-weight:500;">13 Ch • 260 Mod</div>
-                    </div>
-                </a>
-                <a href="modules/course/class10/geography/geography_course_hub.html" style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:8px 12px; text-decoration:none; color:#ffffff; font-size:12px; font-weight:700; transition:all 0.2s ease;">
-                    <span>🌐</span>
-                    <div>
-                        <div style="color:#38bdf8;">Geography</div>
-                        <div style="font-size:10px; color:#94a3b8; font-weight:500;">7 Ch • 140 Mod</div>
-                    </div>
-                </a>
-                <a href="modules/course/class10/history/history_course_hub.html" style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:8px 12px; text-decoration:none; color:#ffffff; font-size:12px; font-weight:700; transition:all 0.2s ease;">
-                    <span>🏛️</span>
-                    <div>
-                        <div style="color:#fbbf24;">History</div>
-                        <div style="font-size:10px; color:#94a3b8; font-weight:500;">5 Ch • 100 Mod</div>
-                    </div>
-                </a>
-                <a href="modules/course/class10/politics/politics_course_hub.html" style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:8px 12px; text-decoration:none; color:#ffffff; font-size:12px; font-weight:700; transition:all 0.2s ease;">
-                    <span>⚖️</span>
-                    <div>
-                        <div style="color:#a5b4fc;">Politics</div>
-                        <div style="font-size:10px; color:#94a3b8; font-weight:500;">5 Ch • 100 Mod</div>
-                    </div>
-                </a>
-                <a href="modules/course/class10/economics/economics_course_hub.html" style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:8px 12px; text-decoration:none; color:#ffffff; font-size:12px; font-weight:700; transition:all 0.2s ease;">
-                    <span>📈</span>
-                    <div>
-                        <div style="color:#34d399;">Economics</div>
-                        <div style="font-size:10px; color:#94a3b8; font-weight:500;">5 Ch • 100 Mod</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    ` : '';
-
     container.innerHTML = `
-        ${topBannerHtml}
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
             <div>
                 <h3 style="font-size:16px; font-weight:800; margin:0; color:var(--text);">All Enrolled Subjects</h3>

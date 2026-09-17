@@ -19,8 +19,7 @@ const ModuleLoader = {
         // Load studentView main view container
         await this.loadModuleHTML('modules/studentView/studentView.html', 'app-studentview-root');
         
-        // Load sub-modules inside studentView placeholders
-        await this.loadModuleHTML('modules/notices/notices.html', 'module-notices-container');
+        // Load sub-modules inside studentView placeholders (Focused on Courses & Test Series)
         await this.loadModuleHTML('modules/courses/courses.html', 'module-courses-container');
         await this.loadModuleHTML('modules/testseries/testseries.html', 'module-testseries-container');
     }

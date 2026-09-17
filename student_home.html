@@ -69,74 +69,20 @@
         <!-- STUDENT PORTAL DASHBOARD VIEW -->
         <section class="page-view active" id="view-student-portal">
 
-            <!-- RIGHT-TO-LEFT SCROLLING SLIDES NOTICE BOARD (DYNAMIC FROM DATABASE) -->
-            <div class="card" style="margin-bottom:24px; border:none; background:transparent; box-shadow:none;">
-                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-                    <div style="font-weight:800; font-size:15px; color:#0f172a; display:flex; align-items:center; gap:6px;">
-                        📢 Notice Board & Announcements 
-                        <span style="font-size:11px; font-weight:600; color:#64748b; background:#e2e8f0; padding:2px 8px; border-radius:12px;">Live Database Feed</span>
-                    </div>
-                </div>
-                <div class="notice-slider-container">
-                    <div class="notice-slider-track" id="student-notice-slides-track">
-                        <!-- Populated dynamically from Supabase notices table via DBService.fetchNoticeList() -->
-                    </div>
-                </div>
-            </div>
-
             <!-- STUDENT PORTAL TAB NAVIGATION -->
             <div class="profile-switcher" style="margin-bottom:20px;">
-                <div class="profile-tab active" data-sttab="today" onclick="switchStudentTab('today')">📅 Today</div>
-                <div class="profile-tab" data-sttab="courses" onclick="switchStudentTab('courses')">📚 Courses</div>
-                <div class="profile-tab" data-sttab="tests" onclick="switchStudentTab('tests')">📝 Tests</div>
-                <div class="profile-tab" data-sttab="attendance" onclick="switchStudentTab('attendance')">📊 Attendance</div>
-                <div class="profile-tab" data-sttab="fees" onclick="switchStudentTab('fees')">📜 Fees</div>
-                <div class="profile-tab" data-sttab="marks" onclick="switchStudentTab('marks')">🎓 Marks</div>
+                <div class="profile-tab active" data-sttab="courses" onclick="switchStudentTab('courses')">📚 My Courses</div>
+                <div class="profile-tab" data-sttab="tests" onclick="switchStudentTab('tests')">📝 Test Series & Exams</div>
             </div>
 
-            <!-- TAB 1: TODAY (SCHEDULE & DAILY OVERVIEW) -->
-            <div id="st-tab-section-today" class="st-tab-section" style="display:block;">
-                <div id="st-today-container"></div>
-            </div>
-
-            <!-- TAB 2: COURSES (ENROLLED SUBJECTS & CURRICULUM) -->
-            <div id="st-tab-section-courses" class="st-tab-section" style="display:none;">
+            <!-- TAB 1: COURSES (ENROLLED SUBJECTS & CURRICULUM) -->
+            <div id="st-tab-section-courses" class="st-tab-section" style="display:block;">
                 <div id="st-courses-container"></div>
             </div>
 
-            <!-- TAB 3: TESTS (UPCOMING & ASSESSMENTS) -->
+            <!-- TAB 2: TESTS (UPCOMING & ASSESSMENTS) -->
             <div id="st-tab-section-tests" class="st-tab-section" style="display:none;">
                 <div id="st-tests-container"></div>
-            </div>
-
-            <!-- TAB 4: ATTENDANCE SUMMARY -->
-            <div id="st-tab-section-attendance" class="st-tab-section" style="display:none;">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">My Attendance Record</span>
-                    </div>
-                    <div class="card-body" id="st-attendance-summary-container"></div>
-                </div>
-            </div>
-
-            <!-- TAB 5: FEE PAYMENTS & RECEIPTS -->
-            <div id="st-tab-section-fees" class="st-tab-section" style="display:none;">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Fee Payment History & Official Receipts</span>
-                    </div>
-                    <div class="card-body" id="st-fee-ledger-container"></div>
-                </div>
-            </div>
-
-            <!-- TAB 6: EXAM RESULTS & MARKS -->
-            <div id="st-tab-section-marks" class="st-tab-section" style="display:none;">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Exam Marks & Academic Report Cards</span>
-                    </div>
-                    <div class="card-body" id="st-exam-results-container"></div>
-                </div>
             </div>
         </section>
 

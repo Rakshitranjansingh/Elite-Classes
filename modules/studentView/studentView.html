@@ -14,21 +14,14 @@
                 </div>
             </div>
             <div style="display:flex; gap:10px;">
-                <button class="btn btn-outline btn-sm" onclick="openModal('postNoticeModal')" id="st-admin-notice-btn" style="display:none;">+ Post Notice</button>
             </div>
         </div>
     </div>
 
-    <!-- NOTICES MODULE PLACEHOLDER -->
-    <div id="module-notices-container"></div>
-
     <!-- STUDENT PORTAL TAB NAVIGATION -->
     <div class="profile-switcher" style="margin-bottom:20px;">
-        <div class="profile-tab active" data-sttab="courses" onclick="switchStudentTab('courses')">📚 My Courses & Materials</div>
+        <div class="profile-tab active" data-sttab="courses" onclick="switchStudentTab('courses')">📚 My Courses</div>
         <div class="profile-tab" data-sttab="testseries" onclick="switchStudentTab('testseries')">📝 Test Series & Exams</div>
-        <div class="profile-tab" data-sttab="attendance" onclick="switchStudentTab('attendance')">📊 My Attendance</div>
-        <div class="profile-tab" data-sttab="fees" onclick="switchStudentTab('fees')">📜 Fee Receipts & Ledger</div>
-        <div class="profile-tab" data-sttab="exams" onclick="switchStudentTab('exams')">🎓 Exam Results & Marks</div>
     </div>
 
     <!-- COURSES MODULE PLACEHOLDER -->
@@ -36,34 +29,4 @@
 
     <!-- TEST SERIES MODULE PLACEHOLDER -->
     <div id="module-testseries-container"></div>
-
-    <!-- TAB 3: ATTENDANCE SUMMARY -->
-    <div id="st-tab-section-attendance" class="st-tab-section" style="display:none;">
-        <div class="card">
-            <div class="card-header">
-                <span class="card-title">My Attendance Record</span>
-            </div>
-            <div class="card-body" id="st-attendance-summary-container"></div>
-        </div>
-    </div>
-
-    <!-- TAB 4: FEE PAYMENTS & RECEIPTS -->
-    <div id="st-tab-section-fees" class="st-tab-section" style="display:none;">
-        <div class="card">
-            <div class="card-header">
-                <span class="card-title">Fee Payment History & Official Receipts</span>
-            </div>
-            <div class="card-body" id="st-fee-ledger-container"></div>
-        </div>
-    </div>
-
-    <!-- TAB 5: EXAM RESULTS & REPORT CARD -->
-    <div id="st-tab-section-exams" class="st-tab-section" style="display:none;">
-        <div class="card">
-            <div class="card-header">
-                <span class="card-title">Exam Marks & Academic Report Cards</span>
-            </div>
-            <div class="card-body" id="st-exam-results-container"></div>
-        </div>
-    </div>
 </section>
