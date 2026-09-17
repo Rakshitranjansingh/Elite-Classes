@@ -151,11 +151,26 @@ async function loadStudentDashboard() {
     // Render Active Tab Content
     switchStudentTab(activeStudentTab);
 
-    // Update Action Button Subtitles Dynamically Based on Class
-    const courseSub = document.getElementById('st-course-btn-subtitle');
-    const testSub = document.getElementById('st-test-btn-subtitle');
+    // Update Welcome Card Info & Action Button Subtitles Dynamically Based on Class
     const activeCls = getStudentActiveClassName();
     const isCivil = activeCls.toLowerCase().includes('civil') || activeCls.toLowerCase().includes('upsc');
+
+    const welcomeName = document.getElementById('st-welcome-name');
+    const welcomeClass = document.getElementById('st-welcome-class');
+    const homeAvatar = document.getElementById('st-home-avatar');
+    if (welcomeName && currentStudent) {
+        welcomeName.textContent = `Welcome back, ${currentStudent.name}!`;
+    }
+    if (welcomeClass) {
+        welcomeClass.textContent = activeCls;
+    }
+    if (homeAvatar && currentStudent && currentStudent.name) {
+        const initials = currentStudent.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+        homeAvatar.textContent = initials || '🎓';
+    }
+
+    const courseSub = document.getElementById('st-course-btn-subtitle');
+    const testSub = document.getElementById('st-test-btn-subtitle');
     if (courseSub) {
         courseSub.textContent = isCivil 
             ? 'Civil Services GS Papers I-III & CSAT LMS' 
