@@ -5,10 +5,11 @@
    - 10 High-Yield Conceptual MCQs per Module (200 MCQs total)
    - 70% Mastery Progressive Unlocking Threshold
    - Complete Pedagogical Standard Notes & Practical Instrument Guides
+   - Clean Unicode Typographic Symbols (No raw LaTeX delimiters)
    ============================================================================= */
 
 const COURSE_CHAPTER_1_PHYSICS = {
-    "chapterId": "cs_phy_ch1",
+    "chapterId": "csₚhy_ch1",
     "chapterNumber": 1,
     "chapterTitle": "Unit, Dimensions and Measurement",
     "subject": "Physics",
@@ -23,11 +24,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Physical Quantities & The 7 Fundamental Base Quantities",
             "tagline": "Understanding measurable properties of nature and the foundational building blocks of physics.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>In physics, any property of a phenomenon, body, or substance that can be quantified and measured objectively is defined as a <strong>Physical Quantity</strong>. If a property cannot be measured numerically using an instrument or formula (such as emotions, beauty, or happiness), it does not constitute a physical quantity.</p>\n            <p>Every measurement of a physical quantity consists of two essential components: a <strong>numerical value (magnitude $n$)</strong> and a <strong>standard unit ($u$)</strong>, expressed mathematically as:</p>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:12px 0; border-radius:6px; font-weight:600;\">\n                Measurement $Q = n \\times u$ &nbsp;(where $n$ is inversely proportional to unit size $u$: $n_1 u_1 = n_2 u_2$)\n            </div>\n            <p>Physical quantities are classified fundamentally into two broad categories based on their independence:</p>\n            <ol style=\"margin:8px 0 14px 20px; line-height:1.6;\">\n                <li><strong>Fundamental (Base) Physical Quantities:</strong> Quantities that are completely independent of each other and cannot be defined or expressed in terms of any other physical quantities. In the International System of Units (SI), there are exactly <strong>seven fundamental physical quantities</strong>.</li>\n                <li><strong>Derived Physical Quantities:</strong> Quantities that are derived from, or expressed as mathematical combinations of, one or more fundamental quantities (e.g., speed, force, density, pressure).</li>\n            </ol>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:16px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Table: The 7 Fundamental Physical Quantities & Their SI Base Units</h4>\n                <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n                    <thead>\n                        <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n                            <th style=\"padding:6px 10px;\">Fundamental Quantity</th>\n                            <th style=\"padding:6px 10px;\">SI Base Unit</th>\n                            <th style=\"padding:6px 10px;\">Unit Symbol</th>\n                            <th style=\"padding:6px 10px;\">Dimensional Symbol</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">1. Length</td><td style=\"padding:6px 10px;\">Metre</td><td style=\"padding:6px 10px;\">m</td><td style=\"padding:6px 10px;\">[L]</td></tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">2. Mass</td><td style=\"padding:6px 10px;\">Kilogram</td><td style=\"padding:6px 10px;\">kg</td><td style=\"padding:6px 10px;\">[M]</td></tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">3. Time</td><td style=\"padding:6px 10px;\">Second</td><td style=\"padding:6px 10px;\">s</td><td style=\"padding:6px 10px;\">[T]</td></tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">4. Thermodynamic Temperature</td><td style=\"padding:6px 10px;\">Kelvin</td><td style=\"padding:6px 10px;\">K</td><td style=\"padding:6px 10px;\">[K] or [θ]</td></tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">5. Electric Current</td><td style=\"padding:6px 10px;\">Ampere</td><td style=\"padding:6px 10px;\">A</td><td style=\"padding:6px 10px;\">[A] or [I]</td></tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">6. Luminous Intensity</td><td style=\"padding:6px 10px;\">Candela</td><td style=\"padding:6px 10px;\">cd</td><td style=\"padding:6px 10px;\">[cd]</td></tr>\n                        <tr><td style=\"padding:6px 10px;\">7. Amount of Substance</td><td style=\"padding:6px 10px;\">Mole</td><td style=\"padding:6px 10px;\">mol</td><td style=\"padding:6px 10px;\">[mol] or [N]</td></tr>\n                    </tbody>\n                </table>\n            </div>\n            <p>No fundamental quantity can be reduced to simpler components. All other macroscopic and microscopic physical measurements in the universe are synthesized from these seven pillars.</p>\n        ",
+            "theoryHtml": "\n <p>In physics, any property of a phenomenon, body, or substance that can be quantified and measured objectively is defined as a <strong>Physical Quantity</strong>. If a property cannot be measured numerically using an instrument or formula (such as emotions, beauty, or happiness), it does not constitute a physical quantity.</p>\n <p>Every measurement of a physical quantity consists of two essential components: a <strong>numerical value (magnitude n)</strong> and a <strong>standard unit (u)</strong>, expressed mathematically as:</p>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:12px 0; border-radius:6px; font-weight:600;\">\n Measurement Q = n × u &nbsp;(where n is inversely proportional to unit size u: n₁ u₁ = n₂ u₂)\n </div>\n <p>Physical quantities are classified fundamentally into two broad categories based on their independence:</p>\n <ol style=\"margin:8px 0 14px 20px; line-height:1.6;\">\n <li><strong>Fundamental (Base) Physical Quantities:</strong> Quantities that are completely independent of each other and cannot be defined or expressed in terms of any other physical quantities. In the International System of Units (SI), there are exactly <strong>seven fundamental physical quantities</strong>.</li>\n <li><strong>Derived Physical Quantities:</strong> Quantities that are derived from, or expressed as mathematical combinations of, one or more fundamental quantities (e.g., speed, force, density, pressure).</li>\n </ol>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:16px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Table: The 7 Fundamental Physical Quantities & Their SI Base Units</h4>\n <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n <thead>\n <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n <th style=\"padding:6px 10px;\">Fundamental Quantity</th>\n <th style=\"padding:6px 10px;\">SI Base Unit</th>\n <th style=\"padding:6px 10px;\">Unit Symbol</th>\n <th style=\"padding:6px 10px;\">Dimensional Symbol</th>\n </tr>\n </thead>\n <tbody>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">1. Length</td><td style=\"padding:6px 10px;\">Metre</td><td style=\"padding:6px 10px;\">m</td><td style=\"padding:6px 10px;\">[L]</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">2. Mass</td><td style=\"padding:6px 10px;\">Kilogram</td><td style=\"padding:6px 10px;\">kg</td><td style=\"padding:6px 10px;\">[M]</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">3. Time</td><td style=\"padding:6px 10px;\">Second</td><td style=\"padding:6px 10px;\">s</td><td style=\"padding:6px 10px;\">[T]</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">4. Thermodynamic Temperature</td><td style=\"padding:6px 10px;\">Kelvin</td><td style=\"padding:6px 10px;\">K</td><td style=\"padding:6px 10px;\">[K] or [θ]</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">5. Electric Current</td><td style=\"padding:6px 10px;\">Ampere</td><td style=\"padding:6px 10px;\">A</td><td style=\"padding:6px 10px;\">[A] or [I]</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:6px 10px;\">6. Luminous Intensity</td><td style=\"padding:6px 10px;\">Candela</td><td style=\"padding:6px 10px;\">cd</td><td style=\"padding:6px 10px;\">[cd]</td></tr>\n <tr><td style=\"padding:6px 10px;\">7. Amount of Substance</td><td style=\"padding:6px 10px;\">Mole</td><td style=\"padding:6px 10px;\">mol</td><td style=\"padding:6px 10px;\">[mol] or [N]</td></tr>\n </tbody>\n </table>\n </div>\n <p>No fundamental quantity can be reduced to simpler components. All other macroscopic and microscopic physical measurements in the universe are synthesized from these seven pillars.</p>\n ",
             "pointsToRemember": [
-                "A physical quantity must be objectively measurable and expressible as magnitude × unit ($n \\times u$).",
+                "A physical quantity must be objectively measurable and expressible as magnitude × unit (n × u).",
                 "There are exactly 7 base fundamental quantities in the modern SI framework: Length, Mass, Time, Temperature, Electric Current, Luminous Intensity, and Amount of Substance.",
-                "The numerical value of a measurement is inversely proportional to the magnitude of the unit chosen ($n_1 u_1 = n_2 u_2$)."
+                "The numerical value of a measurement is inversely proportional to the magnitude of the unit chosen (n₁ u₁ = n₂ u₂)."
             ],
             "keyNotes": [
                 "Civil Services Core Fact: Electric current is treated as a fundamental base quantity in SI, whereas electric charge (Coulomb = Ampere × second) is a derived quantity."
@@ -67,7 +68,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Electrical Resistance"
                     ],
                     "answer": "Electric Current",
-                    "explanation": "Electric Current (Ampere) is one of the seven base fundamental quantities. Electric Charge is derived ($Q = I \\times t$, Coulomb = Ampere · second)."
+                    "explanation": "Electric Current (Ampere) is one of the seven base fundamental quantities. Electric Charge is derived (Q = I × t, Coulomb = Ampere · second)."
                 },
                 {
                     "id": "m01_q04",
@@ -95,15 +96,15 @@ const COURSE_CHAPTER_1_PHYSICS = {
                 },
                 {
                     "id": "m01_q06",
-                    "question": "If a physical quantity $Q$ is measured in two different units $u_1$ and $u_2$ with corresponding numerical values $n_1$ and $n_2$, what is the fundamental relation between them?",
+                    "question": "If a physical quantity Q is measured in two different units u₁ and u₂ with corresponding numerical values n₁ and n₂, what is the fundamental relation between them?",
                     "options": [
-                        "$n_1 / u_1 = n_2 / u_2$",
-                        "$n_1 \\times u_1 = n_2 \\times u_2$",
-                        "$n_1 + u_1 = n_2 + u_2$",
-                        "$n_1 \\times n_2 = u_1 \\times u_2$"
+                        "n₁ / u₁ = n₂ / u₂",
+                        "n₁ × u₁ = n₂ × u₂",
+                        "n₁ + u₁ = n₂ + u₂",
+                        "n₁ × n₂ = u₁ × u₂"
                     ],
-                    "answer": "$n_1 \\times u_1 = n_2 \\times u_2$",
-                    "explanation": "The actual magnitude of a physical quantity remains constant regardless of the unit system. Thus $Q = n_1 u_1 = n_2 u_2$, meaning numerical value is inversely proportional to unit magnitude."
+                    "answer": "n₁ × u₁ = n₂ × u₂",
+                    "explanation": "The actual magnitude of a physical quantity remains constant regardless of the unit system. Thus Q = n₁ u₁ = n₂ u₂, meaning numerical value is inversely proportional to unit magnitude."
                 },
                 {
                     "id": "m01_q07",
@@ -115,7 +116,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Atomic mass unit (amu)"
                     ],
                     "answer": "Mole (mol)",
-                    "explanation": "The mole (symbol: mol) is the SI base unit for the amount of substance, containing exactly $6.02214076 \\times 10^{23}$ elementary entities."
+                    "explanation": "The mole (symbol: mol) is the SI base unit for the amount of substance, containing exactly 6.02214076 × 10²³ elementary entities."
                 },
                 {
                     "id": "m01_q08",
@@ -143,7 +144,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                 },
                 {
                     "id": "m01_q10",
-                    "question": "In the relation $Q = n \\times u$, what happens to the numerical value $n$ if the chosen unit $u$ is made 100 times larger?",
+                    "question": "In the relation Q = n × u, what happens to the numerical value n if the chosen unit u is made 100 times larger?",
                     "options": [
                         "It increases by 100 times",
                         "It decreases to 1/100th of its original value",
@@ -151,7 +152,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "It becomes zero"
                     ],
                     "answer": "It decreases to 1/100th of its original value",
-                    "explanation": "Since $n \\propto 1/u$, choosing a unit 100 times larger (e.g., measuring 100 metres in hectometres) reduces the numerical value to 1/100th ($100\\text{ m} = 1\\text{ hm}$)."
+                    "explanation": "Since n ∝ 1/u, choosing a unit 100 times larger (e.g., measuring 100 metres in hectometres) reduces the numerical value to 1/100th (100 m = 1 hm)."
                 }
             ]
         },
@@ -161,14 +162,14 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Historical Systems of Units: CGS, MKS, and FPS",
             "tagline": "Evolution of measurement frameworks across scientific history before international standardization.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>Before the universal adoption of the SI system, different regions and scientific communities developed distinct systems of units based on three primary mechanics quantities: <strong>Length</strong>, <strong>Mass</strong>, and <strong>Time</strong>.</p>\n            <p>The three dominant historical systems were:</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n                    <thead>\n                        <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n                            <th style=\"padding:6px 10px;\">System</th>\n                            <th style=\"padding:6px 10px;\">Length Unit</th>\n                            <th style=\"padding:6px 10px;\">Mass Unit</th>\n                            <th style=\"padding:6px 10px;\">Time Unit</th>\n                            <th style=\"padding:6px 10px;\">Force Unit</th>\n                            <th style=\"padding:6px 10px;\">Work/Energy Unit</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>CGS System</strong> (Centimetre-Gram-Second / French Gaussian)</td>\n                            <td style=\"padding:6px 10px;\">Centimetre (cm)</td>\n                            <td style=\"padding:6px 10px;\">Gram (g)</td>\n                            <td style=\"padding:6px 10px;\">Second (s)</td>\n                            <td style=\"padding:6px 10px;\">Dyne ($1\\text{ N} = 10^5\\text{ dyne}$)</td>\n                            <td style=\"padding:6px 10px;\">Erg ($1\\text{ J} = 10^7\\text{ erg}$)</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>MKS System</strong> (Metre-Kilogram-Second)</td>\n                            <td style=\"padding:6px 10px;\">Metre (m)</td>\n                            <td style=\"padding:6px 10px;\">Kilogram (kg)</td>\n                            <td style=\"padding:6px 10px;\">Second (s)</td>\n                            <td style=\"padding:6px 10px;\">Newton (N)</td>\n                            <td style=\"padding:6px 10px;\">Joule (J)</td>\n                        </tr>\n                        <tr>\n                            <td style=\"padding:6px 10px;\"><strong>FPS System</strong> (Foot-Pound-Second / British Imperial)</td>\n                            <td style=\"padding:6px 10px;\">Foot (ft)</td>\n                            <td style=\"padding:6px 10px;\">Pound (lb)</td>\n                            <td style=\"padding:6px 10px;\">Second (s)</td>\n                            <td style=\"padding:6px 10px;\">Poundal (pdl)</td>\n                            <td style=\"padding:6px 10px;\">Foot-pound (ft-lb)</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n            <p>Notice that the unit of <strong>time (Second)</strong> was universally identical across all three historical systems. However, converting between CGS, MKS, and FPS caused significant friction, especially with non-decimal conversions in the British FPS system ($1\\text{ foot} = 12\\text{ inches}$, $1\\text{ pound} = 16\\text{ ounces}$).</p>\n            <p>The MKS system later formed the mechanical core for the comprehensive International System of Units (SI) established in 1960.</p>\n        ",
+            "theoryHtml": "\n <p>Before the universal adoption of the SI system, different regions and scientific communities developed distinct systems of units based on three primary mechanics quantities: <strong>Length</strong>, <strong>Mass</strong>, and <strong>Time</strong>.</p>\n <p>The three dominant historical systems were:</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n <thead>\n <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n <th style=\"padding:6px 10px;\">System</th>\n <th style=\"padding:6px 10px;\">Length Unit</th>\n <th style=\"padding:6px 10px;\">Mass Unit</th>\n <th style=\"padding:6px 10px;\">Time Unit</th>\n <th style=\"padding:6px 10px;\">Force Unit</th>\n <th style=\"padding:6px 10px;\">Work/Energy Unit</th>\n </tr>\n </thead>\n <tbody>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>CGS System</strong> (Centimetre-Gram-Second / French Gaussian)</td>\n <td style=\"padding:6px 10px;\">Centimetre (cm)</td>\n <td style=\"padding:6px 10px;\">Gram (g)</td>\n <td style=\"padding:6px 10px;\">Second (s)</td>\n <td style=\"padding:6px 10px;\">Dyne (1 N = 10⁵ dyne)</td>\n <td style=\"padding:6px 10px;\">Erg (1 J = 10⁷ erg)</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>MKS System</strong> (Metre-Kilogram-Second)</td>\n <td style=\"padding:6px 10px;\">Metre (m)</td>\n <td style=\"padding:6px 10px;\">Kilogram (kg)</td>\n <td style=\"padding:6px 10px;\">Second (s)</td>\n <td style=\"padding:6px 10px;\">Newton (N)</td>\n <td style=\"padding:6px 10px;\">Joule (J)</td>\n </tr>\n <tr>\n <td style=\"padding:6px 10px;\"><strong>FPS System</strong> (Foot-Pound-Second / British Imperial)</td>\n <td style=\"padding:6px 10px;\">Foot (ft)</td>\n <td style=\"padding:6px 10px;\">Pound (lb)</td>\n <td style=\"padding:6px 10px;\">Second (s)</td>\n <td style=\"padding:6px 10px;\">Poundal (pdl)</td>\n <td style=\"padding:6px 10px;\">Foot-pound (ft-lb)</td>\n </tr>\n </tbody>\n </table>\n </div>\n <p>Notice that the unit of <strong>time (Second)</strong> was universally identical across all three historical systems. However, converting between CGS, MKS, and FPS caused significant friction, especially with non-decimal conversions in the British FPS system (1 foot = 12 inches, 1 pound = 16 ounces).</p>\n <p>The MKS system later formed the mechanical core for the comprehensive International System of Units (SI) established in 1960.</p>\n ",
             "pointsToRemember": [
                 "In all three traditional systems (CGS, MKS, FPS), the unit of time was uniformly the Second.",
-                "$1\\text{ Newton} = 10^5\\text{ dynes}$ and $1\\text{ Joule} = 10^7\\text{ ergs}$.",
+                "1 Newton = 10⁵ dynes and 1 Joule = 10⁷ ergs.",
                 "The FPS system is a non-metric British Imperial system, whereas CGS and MKS are decimal metric systems."
             ],
             "keyNotes": [
-                "Conversion Memory Trick: $1\\text{ N} = 10^5\\text{ dynes}$ ($1\\text{ kg} \\times 1\\text{ m/s}^2 = 1000\\text{ g} \\times 100\\text{ cm/s}^2 = 10^5\\text{ g}\\cdot\\text{cm/s}^2$)."
+                "Conversion Memory Trick: 1 N = 10⁵ dynes (1 kg × 1 m/s² = 1000 g × 100 cm/s² = 10⁵ g·cm/s²)."
             ],
             "questions": [
                 {
@@ -193,31 +194,31 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Poundal"
                     ],
                     "answer": "Dyne",
-                    "explanation": "In the CGS system, force is measured in dynes ($1\\text{ dyne} = 1\\text{ g}\\cdot\\text{cm/s}^2$)."
+                    "explanation": "In the CGS system, force is measured in dynes (1 dyne = 1 g·cm/s²)."
                 },
                 {
                     "id": "m02_q03",
                     "question": "How many dynes are equivalent to 1 Newton of force?",
                     "options": [
-                        "$10^3\\text{ dynes}$",
-                        "$10^5\\text{ dynes}$",
-                        "$10^7\\text{ dynes}$",
-                        "$10^9\\text{ dynes}$"
+                        "10³ dynes",
+                        "10⁵ dynes",
+                        "10⁷ dynes",
+                        "10⁹ dynes"
                     ],
-                    "answer": "$10^5\\text{ dynes}$",
-                    "explanation": "$1\\text{ N} = 1\\text{ kg}\\cdot\\text{m/s}^2 = (10^3\\text{ g}) \\times (10^2\\text{ cm/s}^2) = 10^5\\text{ g}\\cdot\\text{cm/s}^2 = 10^5\\text{ dynes}$."
+                    "answer": "10⁵ dynes",
+                    "explanation": "1 N = 1 kg·m/s² = (10³ g) × (10² cm/s²) = 10⁵ g·cm/s² = 10⁵ dynes."
                 },
                 {
                     "id": "m02_q04",
                     "question": "The CGS unit of work and energy is the erg. How many ergs make up 1 Joule?",
                     "options": [
-                        "$10^5\\text{ ergs}$",
-                        "$10^7\\text{ ergs}$",
-                        "$10^9\\text{ ergs}$",
-                        "$10^6\\text{ ergs}$"
+                        "10⁵ ergs",
+                        "10⁷ ergs",
+                        "10⁹ ergs",
+                        "10⁶ ergs"
                     ],
-                    "answer": "$10^7\\text{ ergs}$",
-                    "explanation": "$1\\text{ Joule} = 1\\text{ N}\\cdot\\text{m} = 10^5\\text{ dynes} \\times 10^2\\text{ cm} = 10^7\\text{ dyne}\\cdot\\text{cm} = 10^7\\text{ ergs}$."
+                    "answer": "10⁷ ergs",
+                    "explanation": "1 Joule = 1 N·m = 10⁵ dynes × 10² cm = 10⁷ dyne·cm = 10⁷ ergs."
                 },
                 {
                     "id": "m02_q05",
@@ -281,15 +282,15 @@ const COURSE_CHAPTER_1_PHYSICS = {
                 },
                 {
                     "id": "m02_q10",
-                    "question": "If an object has a mass of $2\\text{ kg}$, what is its mass in the CGS unit system?",
+                    "question": "If an object has a mass of 2 kg, what is its mass in the CGS unit system?",
                     "options": [
-                        "$200\\text{ g}$",
-                        "$2,000\\text{ g}$",
-                        "$20,000\\text{ g}$",
-                        "$20\\text{ g}$"
+                        "200 g",
+                        "2,000 g",
+                        "20,000 g",
+                        "20 g"
                     ],
-                    "answer": "$2,000\\text{ g}$",
-                    "explanation": "In CGS, the unit of mass is the gram. Since $1\\text{ kg} = 1,000\\text{ g}$, $2\\text{ kg} = 2,000\\text{ g}$."
+                    "answer": "2,000 g",
+                    "explanation": "In CGS, the unit of mass is the gram. Since 1 kg = 1,000 g, 2 kg = 2,000 g."
                 }
             ]
         },
@@ -299,11 +300,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "The International System of Units (SI) & Modern Standards",
             "tagline": "The global scientific metric standard adopted in 1960 and redefined by universal constants.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>The <strong>Système International d'Unités (SI)</strong> was formally established in 1960 by the <strong>11th General Conference on Weights and Measures (CGPM)</strong> held in Paris. It resolved centuries of regional discrepancies by providing a coherent, rationalized, and universally reproducible standard for all scientific, industrial, and commercial measurements.</p>\n            <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">Why the SI System is Superior:</h4>\n            <ul style=\"margin:6px 0 14px 20px; line-height:1.6;\">\n                <li><strong>Coherent System:</strong> All derived units are obtained solely by simple multiplication or division of base units without introducing numerical conversion factors (e.g., $1\\text{ N} = 1\\text{ kg}\\cdot\\text{m/s}^2$).</li>\n                <li><strong>Rational System:</strong> It assigns only one single unit to a given physical quantity (e.g., Joule for all forms of energy: mechanical, thermal, electrical), whereas older systems used calorie for heat, erg for mechanical work, and kWh for electrical energy.</li>\n                <li><strong>Metric Decimal System:</strong> Multiples and submultiples are strictly decimal powers of 10 using standardized Greek/Latin prefixes.</li>\n            </ul>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n                <strong>🔬 2019 Historic SI Redefinition:</strong><br>\n                Historically, base units relied on physical artifacts (like the platinum-iridium cylinder for the kilogram in Sèvres, France). In May 2019, the CGPM redefined all 7 base units entirely in terms of <strong>seven fundamental physical constants of nature</strong>:\n                <ul style=\"margin:6px 0 0 16px;\">\n                    <li>Speed of light in vacuum ($c = 299,792,458\\text{ m/s}$) defines the <strong>Metre</strong>.</li>\n                    <li>Planck constant ($h = 6.62607015 \\times 10^{-34}\\text{ J}\\cdot\\text{s}$) defines the <strong>Kilogram</strong>.</li>\n                    <li>Hyperfine transition frequency of Caesium-133 ($\\\\Delta \\\\nu_{Cs} = 9,192,631,770\\text{ Hz}$) defines the <strong>Second</strong>.</li>\n                    <li>Elementary charge ($e = 1.602176634 \\times 10^{-19}\\text{ C}$) defines the <strong>Ampere</strong>.</li>\n                    <li>Boltzmann constant ($k_B = 1.380649 \\times 10^{-23}\\text{ J/K}$) defines the <strong>Kelvin</strong>.</li>\n                    <li>Avogadro constant ($N_A = 6.02214076 \\times 10^{23}\\text{ mol}^{-1}$) defines the <strong>Mole</strong>.</li>\n                    <li>Luminous efficacy ($K_{cd} = 683\\text{ lm/W}$) defines the <strong>Candela</strong>.</li>\n                </ul>\n            </div>\n            <p>Today, any laboratory with standard quantum apparatus can recreate identical primary standards without referencing any physical prototype artifact.</p>\n        ",
+            "theoryHtml": "\n <p>The <strong>Système International d'Unités (SI)</strong> was formally established in 1960 by the <strong>11th General Conference on Weights and Measures (CGPM)</strong> held in Paris. It resolved centuries of regional discrepancies by providing a coherent, rationalized, and universally reproducible standard for all scientific, industrial, and commercial measurements.</p>\n <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">Why the SI System is Superior:</h4>\n <ul style=\"margin:6px 0 14px 20px; line-height:1.6;\">\n <li><strong>Coherent System:</strong> All derived units are obtained solely by simple multiplication or division of base units without introducing numerical conversion factors (e.g., 1 N = 1 kg·m/s²).</li>\n <li><strong>Rational System:</strong> It assigns only one single unit to a given physical quantity (e.g., Joule for all forms of energy: mechanical, thermal, electrical), whereas older systems used calorie for heat, erg for mechanical work, and kWh for electrical energy.</li>\n <li><strong>Metric Decimal System:</strong> Multiples and submultiples are strictly decimal powers of 10 using standardized Greek/Latin prefixes.</li>\n </ul>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n <strong>🔬 2019 Historic SI Redefinition:</strong><br>\n Historically, base units relied on physical artifacts (like the platinum-iridium cylinder for the kilogram in Sèvres, France). In May 2019, the CGPM redefined all 7 base units entirely in terms of <strong>seven fundamental physical constants of nature</strong>:\n <ul style=\"margin:6px 0 0 16px;\">\n <li>Speed of light in vacuum (c = 299,792,458 m/s) defines the <strong>Metre</strong>.</li>\n <li>Planck constant (h = 6.62607015 × 10⁻³⁴ J·s) defines the <strong>Kilogram</strong>.</li>\n <li>Hyperfine transition frequency of Caesium-133 (Δ ν_{Cs} = 9,192,631,770 Hz) defines the <strong>Second</strong>.</li>\n <li>Elementary charge (e = 1.602176634 × 10⁻¹⁹ C) defines the <strong>Ampere</strong>.</li>\n <li>Boltzmann constant (k_B = 1.380649 × 10⁻²³ J/K) defines the <strong>Kelvin</strong>.</li>\n <li>Avogadro constant (N_A = 6.02214076 × 10²³ mol⁻¹) defines the <strong>Mole</strong>.</li>\n <li>Luminous efficacy (K_{cd} = 683 lm/W) defines the <strong>Candela</strong>.</li>\n </ul>\n </div>\n <p>Today, any laboratory with standard quantum apparatus can recreate identical primary standards without referencing any physical prototype artifact.</p>\n ",
             "pointsToRemember": [
                 "The SI system was established in 1960 at the 11th General Conference on Weights and Measures (CGPM).",
                 "SI is a coherent and rational system: exactly one unit per physical quantity (e.g., Joule for both heat and mechanical work).",
-                "Since the 2019 redefinition, no SI base unit depends on a physical prototype artifact; all 7 units are tied to universal fundamental constants ($c, h, e, k_B, N_A, \\Delta\\nu_{Cs}, K_{cd}$)."
+                "Since the 2019 redefinition, no SI base unit depends on a physical prototype artifact; all 7 units are tied to universal fundamental constants (c, h, e, k_B, N_A, Δν_{Cs}, K_{cd})."
             ],
             "keyNotes": [
                 "Exam Distinction: Prior to 2019, the Kilogram was the only SI unit still defined by a physical prototype artifact (the International Prototype of the Kilogram / IPK in Paris)."
@@ -349,37 +350,37 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "id": "m03_q04",
                     "question": "Following the historic May 2019 SI redefinition, the Kilogram is fundamentally defined using which universal physical constant?",
                     "options": [
-                        "Speed of light in vacuum ($c$)",
-                        "Planck constant ($h$)",
-                        "Universal gravitational constant ($G$)",
-                        "Boltzmann constant ($k_B$)"
+                        "Speed of light in vacuum (c)",
+                        "Planck constant (h)",
+                        "Universal gravitational constant (G)",
+                        "Boltzmann constant (k_B)"
                     ],
-                    "answer": "Planck constant ($h$)",
-                    "explanation": "Since May 20, 2019, the kilogram is defined by fixing the numerical value of the Planck constant $h$ to exactly $6.62607015 \\times 10^{-34}\\text{ kg}\\cdot\\text{m}^2\\text{s}^{-1}$ via the Kibble balance."
+                    "answer": "Planck constant (h)",
+                    "explanation": "Since May 20, 2019, the kilogram is defined by fixing the numerical value of the Planck constant h to exactly 6.62607015 × 10⁻³⁴ kg·m²s⁻¹ via the Kibble balance."
                 },
                 {
                     "id": "m03_q05",
                     "question": "The SI base unit of length, the Metre, is officially defined based on which fundamental constant?",
                     "options": [
                         "Radius of the Earth",
-                        "Speed of light in vacuum ($c$)",
+                        "Speed of light in vacuum (c)",
                         "Wavelength of Krypton-86 orange line",
                         "Diameter of a hydrogen atom"
                     ],
-                    "answer": "Speed of light in vacuum ($c$)",
-                    "explanation": "The metre is defined by fixing the speed of light in vacuum $c$ at exactly $299,792,458\\text{ m/s}$, making 1 metre the distance light travels in vacuum in $1/299,792,458$ seconds."
+                    "answer": "Speed of light in vacuum (c)",
+                    "explanation": "The metre is defined by fixing the speed of light in vacuum c at exactly 299,792,458 m/s, making 1 metre the distance light travels in vacuum in 1/299,792,458 seconds."
                 },
                 {
                     "id": "m03_q06",
                     "question": "Which fundamental physical constant is used to define the SI base unit Kelvin?",
                     "options": [
                         "Stefan-Boltzmann constant",
-                        "Boltzmann constant ($k_B$)",
-                        "Universal gas constant ($R$)",
+                        "Boltzmann constant (k_B)",
+                        "Universal gas constant (R)",
                         "Triple point of pure water"
                     ],
-                    "answer": "Boltzmann constant ($k_B$)",
-                    "explanation": "The Kelvin is defined by taking the fixed numerical value of the Boltzmann constant $k_B$ to be $1.380649 \\times 10^{-23}\\text{ J/K}$."
+                    "answer": "Boltzmann constant (k_B)",
+                    "explanation": "The Kelvin is defined by taking the fixed numerical value of the Boltzmann constant k_B to be 1.380649 × 10⁻²³ J/K."
                 },
                 {
                     "id": "m03_q07",
@@ -397,13 +398,13 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "id": "m03_q08",
                     "question": "The SI unit of electric current, the Ampere, is now defined by fixing the exact value of which constant?",
                     "options": [
-                        "Magnetic permeability of vacuum ($\\mu_0$)",
-                        "Elementary electric charge ($e$)",
-                        "Permittivity of free space ($\\varepsilon_0$)",
-                        "Faraday constant ($F$)"
+                        "Magnetic permeability of vacuum (μ₀)",
+                        "Elementary electric charge (e)",
+                        "Permittivity of free space (ε₀)",
+                        "Faraday constant (F)"
                     ],
-                    "answer": "Elementary electric charge ($e$)",
-                    "explanation": "The Ampere is defined by fixing the elementary charge $e = 1.602176634 \\times 10^{-19}\\text{ C}$, meaning $1\\text{ A}$ corresponds to a flow of $1/(1.602176634 \\times 10^{-19})$ elementary charges per second."
+                    "answer": "Elementary electric charge (e)",
+                    "explanation": "The Ampere is defined by fixing the elementary charge e = 1.602176634 × 10⁻¹⁹ C, meaning 1 A corresponds to a flow of 1/(1.602176634 × 10⁻¹⁹) elementary charges per second."
                 },
                 {
                     "id": "m03_q09",
@@ -415,7 +416,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "By the decay rate of Carbon-14 isotopes"
                     ],
                     "answer": "By the oscillation frequency between the two hyperfine levels of the ground state of Caesium-133 atom",
-                    "explanation": "The second is defined by taking the fixed numerical value of the Caesium frequency $\\Delta\\nu_{Cs}$ to be $9,192,631,770\\text{ Hz}$."
+                    "explanation": "The second is defined by taking the fixed numerical value of the Caesium frequency Δν_{Cs} to be 9,192,631,770 Hz."
                 },
                 {
                     "id": "m03_q10",
@@ -437,11 +438,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Supplementary SI Units: Radian & Steradian",
             "tagline": "Pure geometric angular measures bridging 2D circular arcs and 3D solid conical spaces.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>In addition to the seven fundamental base units, the SI system originally classified two purely geometrical units as <strong>Supplementary Units</strong>: the <strong>Radian (rad)</strong> and the <strong>Steradian (sr)</strong>. (In 1995, the CGPM reclassified them as dimensionless derived units, but they remain distinct conceptual standards for angular measurement).</p>\n            <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">1. Radian (rad) — Plane Angle:</h4>\n            <p>The <strong>Radian</strong> measures angles in a two-dimensional plane. By definition:</p>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n                $$\\text{Plane Angle } \\theta = \\frac{\\text{Arc Length }(s)}{\\text{Radius }(r)} \\quad [\\text{unit: radian (rad)}]$$\n            </div>\n            <p>One radian is the angle subtended at the center of a circle by an arc whose length is exactly equal to the radius of the circle ($s = r$).</p>\n            <ul style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n                <li>For a complete circle: Arc length = Circumference = $2\\pi r$.</li>\n                <li>Total plane angle of a circle = $\\frac{2\\pi r}{r} = 2\\pi\\text{ radians} = 360^\\circ$.</li>\n                <li>$1\\text{ radian} = \\frac{180^\\circ}{\\pi} \\approx 57.296^\\circ \\approx 57^\\circ 17' 45''$.</li>\n            </ul>\n            <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">2. Steradian (sr) — Solid Angle:</h4>\n            <p>The <strong>Steradian</strong> measures angles in three-dimensional space, such as the conical beam of light emitted by a spotlight or the solid angle subtended by a sphere.</p>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n                $$\\text{Solid Angle } \\Omega = \\frac{\\text{Intersected Surface Area }(A)}{r^2} \\quad [\\text{unit: steradian (sr)}]$$\n            </div>\n            <p>One steradian is the solid angle subtended at the center of a sphere of radius $r$ by a surface area on the sphere equal to $r^2$.</p>\n            <ul style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n                <li>For a full sphere, total surface area = $4\\pi r^2$.</li>\n                <li>Total solid angle subtended by a complete closed sphere at its center = $\\frac{4\\pi r^2}{r^2} = 4\\pi\\text{ steradians} \\approx 12.57\\text{ sr}$.</li>\n            </ul>\n            <p>Crucially, both Radian and Steradian are ratios of identical physical dimensions ($[L]/[L]$ and $[L^2]/[L^2]$), making them <strong>strictly dimensionless quantities</strong> with dimensional formula $[M^0 L^0 T^0]$.</p>\n        ",
+            "theoryHtml": "\n <p>In addition to the seven fundamental base units, the SI system originally classified two purely geometrical units as <strong>Supplementary Units</strong>: the <strong>Radian (rad)</strong> and the <strong>Steradian (sr)</strong>. (In 1995, the CGPM reclassified them as dimensionless derived units, but they remain distinct conceptual standards for angular measurement).</p>\n <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">1. Radian (rad) — Plane Angle:</h4>\n <p>The <strong>Radian</strong> measures angles in a two-dimensional plane. By definition:</p>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n Plane Angle θ = frac{Arc Length (s)}{Radius (r)} [unit: radian (rad)]\n </div>\n <p>One radian is the angle subtended at the center of a circle by an arc whose length is exactly equal to the radius of the circle (s = r).</p>\n <ul style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n <li>For a complete circle: Arc length = Circumference = 2π r.</li>\n <li>Total plane angle of a circle = (2π r / r) = 2π radians = 360^°.</li>\n <li>1 radian = (180^° / π) ≈ 57.296^° ≈ 57^° 17' 45''.</li>\n </ul>\n <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">2. Steradian (sr) — Solid Angle:</h4>\n <p>The <strong>Steradian</strong> measures angles in three-dimensional space, such as the conical beam of light emitted by a spotlight or the solid angle subtended by a sphere.</p>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n Solid Angle Ω = frac{Intersected Surface Area (A)}{r²} [unit: steradian (sr)]\n </div>\n <p>One steradian is the solid angle subtended at the center of a sphere of radius r by a surface area on the sphere equal to r².</p>\n <ul style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n <li>For a full sphere, total surface area = 4π r².</li>\n <li>Total solid angle subtended by a complete closed sphere at its center = (4π r² / r²) = 4π steradians ≈ 12.57 sr.</li>\n </ul>\n <p>Crucially, both Radian and Steradian are ratios of identical physical dimensions ([L]/[L] and [L²]/[L²]), making them <strong>strictly dimensionless quantities</strong> with dimensional formula [M⁰ L⁰ T⁰].</p>\n ",
             "pointsToRemember": [
-                "Radian (rad) measures 2D plane angles: $\\theta = s/r$; total angle of a circle is $2\\pi\\text{ rad} = 360^\\circ$.",
-                "Steradian (sr) measures 3D solid angles: $\\Omega = A/r^2$; total solid angle of a complete sphere is $4\\pi\\text{ sr}$.",
-                "Both Radian and Steradian have units but possess NO physical dimensions ($[M^0 L^0 T^0]$)."
+                "Radian (rad) measures 2D plane angles: θ = s/r; total angle of a circle is 2π rad = 360^°.",
+                "Steradian (sr) measures 3D solid angles: Ω = A/r²; total solid angle of a complete sphere is 4π sr.",
+                "Both Radian and Steradian have units but possess NO physical dimensions ([M⁰ L⁰ T⁰])."
             ],
             "keyNotes": [
                 "High-Yield Civil Services MCQ: A quantity can possess a unit without having dimensions! Radian and Steradian are classic examples of unit-bearing yet dimensionless quantities."
@@ -463,25 +464,25 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "id": "m04_q02",
                     "question": "What is the total plane angle subtended by a full circular circumference at its center?",
                     "options": [
-                        "$\\pi\\text{ radians}$",
-                        "$2\\pi\\text{ radians}$",
-                        "$4\\pi\\text{ radians}$",
-                        "$\\pi/2\\text{ radians}$"
+                        "π radians",
+                        "2π radians",
+                        "4π radians",
+                        "π/2 radians"
                     ],
-                    "answer": "$2\\pi\\text{ radians}$",
-                    "explanation": "Circumference is $2\\pi r$. Thus $\\theta = (2\\pi r)/r = 2\\pi\\text{ radians}$, which corresponds to $360^\\circ$."
+                    "answer": "2π radians",
+                    "explanation": "Circumference is 2π r. Thus θ = (2π r)/r = 2π radians, which corresponds to 360^°."
                 },
                 {
                     "id": "m04_q03",
                     "question": "One radian is approximately equal to how many degrees?",
                     "options": [
-                        "$45.0^\\circ$",
-                        "$57.3^\\circ$",
-                        "$60.0^\\circ$",
-                        "$90.0^\\circ$"
+                        "45.0^°",
+                        "57.3^°",
+                        "60.0^°",
+                        "90.0^°"
                     ],
-                    "answer": "$57.3^\\circ$",
-                    "explanation": "$1\\text{ rad} = 180^\\circ / \\pi \\approx 57.2958^\\circ \\approx 57.3^\\circ$ (or $57^\\circ 17' 45''$)."
+                    "answer": "57.3^°",
+                    "explanation": "1 rad = 180^° / π ≈ 57.2958^° ≈ 57.3^° (or 57^° 17' 45'')."
                 },
                 {
                     "id": "m04_q04",
@@ -499,25 +500,25 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "id": "m04_q05",
                     "question": "What is the total solid angle subtended by an entire closed spherical surface at its center?",
                     "options": [
-                        "$2\\pi\\text{ steradians}$",
-                        "$4\\pi\\text{ steradians}$",
-                        "$\\pi\\text{ steradians}$",
-                        "$8\\pi\\text{ steradians}$"
+                        "2π steradians",
+                        "4π steradians",
+                        "π steradians",
+                        "8π steradians"
                     ],
-                    "answer": "$4\\pi\\text{ steradians}$",
-                    "explanation": "Total surface area of a sphere is $4\\pi r^2$. Thus $\\Omega = (4\\pi r^2)/r^2 = 4\\pi\\text{ steradians} \\approx 12.57\\text{ sr}$."
+                    "answer": "4π steradians",
+                    "explanation": "Total surface area of a sphere is 4π r². Thus Ω = (4π r²)/r² = 4π steradians ≈ 12.57 sr."
                 },
                 {
                     "id": "m04_q06",
                     "question": "What are the physical dimensions of the Radian and Steradian?",
                     "options": [
-                        "$[M^0 L^1 T^0]$",
-                        "$[M^0 L^0 T^0]$ (Dimensionless)",
-                        "$[M^1 L^0 T^{-1}]$",
-                        "$[M^0 L^2 T^0]$"
+                        "[M⁰ L¹ T⁰]",
+                        "[M⁰ L⁰ T⁰] (Dimensionless)",
+                        "[M¹ L⁰ T⁻¹]",
+                        "[M⁰ L² T⁰]"
                     ],
-                    "answer": "$[M^0 L^0 T^0]$ (Dimensionless)",
-                    "explanation": "Radian is length/length ($[L]/[L] = 1$) and Steradian is area/radius$^2$ ($[L^2]/[L^2] = 1$). Both are completely dimensionless ($[M^0 L^0 T^0]$)."
+                    "answer": "[M⁰ L⁰ T⁰] (Dimensionless)",
+                    "explanation": "Radian is length/length ([L]/[L] = 1) and Steradian is area/radius² ([L²]/[L²] = 1). Both are completely dimensionless ([M⁰ L⁰ T⁰])."
                 },
                 {
                     "id": "m04_q07",
@@ -529,31 +530,31 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Dimensions can exist without any physical quantity"
                     ],
                     "answer": "A quantity can have a unit while having no dimensions",
-                    "explanation": "Plane angle (radian) and solid angle (steradian) have well-defined units despite having zero physical dimensions ($[M^0 L^0 T^0]$)."
+                    "explanation": "Plane angle (radian) and solid angle (steradian) have well-defined units despite having zero physical dimensions ([M⁰ L⁰ T⁰])."
                 },
                 {
                     "id": "m04_q08",
-                    "question": "An arc of length $10\\text{ cm}$ on a circle of radius $5\\text{ cm}$ subtends what angle at the center?",
+                    "question": "An arc of length 10 cm on a circle of radius 5 cm subtends what angle at the center?",
                     "options": [
-                        "$0.5\\text{ radians}$",
-                        "$2.0\\text{ radians}$",
-                        "$50\\text{ radians}$",
-                        "$2\\pi\\text{ radians}$"
+                        "0.5 radians",
+                        "2.0 radians",
+                        "50 radians",
+                        "2π radians"
                     ],
-                    "answer": "$2.0\\text{ radians}$",
-                    "explanation": "$\\theta = s / r = 10\\text{ cm} / 5\\text{ cm} = 2.0\\text{ radians}$."
+                    "answer": "2.0 radians",
+                    "explanation": "θ = s / r = 10 cm / 5 cm = 2.0 radians."
                 },
                 {
                     "id": "m04_q09",
-                    "question": "What solid angle is subtended at the center of a sphere of radius $2\\text{ m}$ by a spherical cap surface area of $8\\text{ m}^2$?",
+                    "question": "What solid angle is subtended at the center of a sphere of radius 2 m by a spherical cap surface area of 8 m²?",
                     "options": [
-                        "$4\\text{ steradians}$",
-                        "$2\\text{ steradians}$",
-                        "$16\\text{ steradians}$",
-                        "$0.5\\text{ steradians}$"
+                        "4 steradians",
+                        "2 steradians",
+                        "16 steradians",
+                        "0.5 steradians"
                     ],
-                    "answer": "$2\\text{ steradians}$",
-                    "explanation": "$\\Omega = A / r^2 = 8\\text{ m}^2 / (2\\text{ m})^2 = 8 / 4 = 2\\text{ steradians}$."
+                    "answer": "2 steradians",
+                    "explanation": "Ω = A / r² = 8 m² / (2 m)² = 8 / 4 = 2 steradians."
                 },
                 {
                     "id": "m04_q10",
@@ -575,67 +576,67 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Derived Physical Quantities & Formula Formulations",
             "tagline": "How base quantities combine mathematically to govern the mechanics of the universe.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>A <strong>Derived Physical Quantity</strong> is any quantity whose measurement depends on, and can be calculated from, algebraic combinations (multiplication, division, or powers) of the seven fundamental base quantities.</p>\n            <p>Every derived physical quantity has an associated <strong>governing formula</strong> that directly dictates its derived SI unit.</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Formulations of Key Derived Physical Quantities</h4>\n                <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n                    <thead>\n                        <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n                            <th style=\"padding:6px 10px;\">Derived Quantity</th>\n                            <th style=\"padding:6px 10px;\">Defining Formula</th>\n                            <th style=\"padding:6px 10px;\">Derivation from Base Units</th>\n                            <th style=\"padding:6px 10px;\">SI Derived Unit & Special Name</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Speed / Velocity</strong></td>\n                            <td style=\"padding:6px 10px;\">$v = \\text{Distance} / \\text{Time}$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{m} / \\text{s}$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{m}\\cdot\\text{s}^{-1}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Acceleration</strong></td>\n                            <td style=\"padding:6px 10px;\">$a = \\Delta v / \\Delta t$</td>\n                            <td style=\"padding:6px 10px;\">$(\\text{m/s}) / \\text{s}$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{m}\\cdot\\text{s}^{-2}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Linear Momentum</strong></td>\n                            <td style=\"padding:6px 10px;\">$p = m \\times v$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{kg} \\times (\\text{m/s})$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-1}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Force</strong></td>\n                            <td style=\"padding:6px 10px;\">$F = m \\times a$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{kg} \\times (\\text{m/s}^2)$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-2} = \\mathbf{Newton (N)}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Work & Energy</strong></td>\n                            <td style=\"padding:6px 10px;\">$W = F \\times d$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{N} \\times \\text{m} = \\text{kg}\\cdot\\text{m}^2/\\text{s}^2$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2} = \\mathbf{Joule (J)}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Power</strong></td>\n                            <td style=\"padding:6px 10px;\">$P = W / t$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{J} / \\text{s} = \\text{kg}\\cdot\\text{m}^2/\\text{s}^3$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{J}\\cdot\\text{s}^{-1} = \\mathbf{Watt (W)}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Pressure & Stress</strong></td>\n                            <td style=\"padding:6px 10px;\">$P = F / A$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{N} / \\text{m}^2 = \\text{kg}/(\\text{m}\\cdot\\text{s}^2)$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{N}\\cdot\\text{m}^{-2} = \\mathbf{Pascal (Pa)}$</td>\n                        </tr>\n                        <tr>\n                            <td style=\"padding:6px 10px;\"><strong>Density</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\rho = m / V$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{kg} / \\text{m}^3$</td>\n                            <td style=\"padding:6px 10px;\">$\\text{kg}\\cdot\\text{m}^{-3}$</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n            <p>Notice how special names honoring pioneering physicists (Newton, Joule, Watt, Pascal) are adopted for convenience, but every one of them can be decomposed into the elementary SI base units.</p>\n        ",
+            "theoryHtml": "\n <p>A <strong>Derived Physical Quantity</strong> is any quantity whose measurement depends on, and can be calculated from, algebraic combinations (multiplication, division, or powers) of the seven fundamental base quantities.</p>\n <p>Every derived physical quantity has an associated <strong>governing formula</strong> that directly dictates its derived SI unit.</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Formulations of Key Derived Physical Quantities</h4>\n <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n <thead>\n <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n <th style=\"padding:6px 10px;\">Derived Quantity</th>\n <th style=\"padding:6px 10px;\">Defining Formula</th>\n <th style=\"padding:6px 10px;\">Derivation from Base Units</th>\n <th style=\"padding:6px 10px;\">SI Derived Unit & Special Name</th>\n </tr>\n </thead>\n <tbody>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Speed / Velocity</strong></td>\n <td style=\"padding:6px 10px;\">v = Distance / Time</td>\n <td style=\"padding:6px 10px;\">m / s</td>\n <td style=\"padding:6px 10px;\">m·s⁻¹</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Acceleration</strong></td>\n <td style=\"padding:6px 10px;\">a = Δ v / Δ t</td>\n <td style=\"padding:6px 10px;\">(m/s) / s</td>\n <td style=\"padding:6px 10px;\">m·s⁻²</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Linear Momentum</strong></td>\n <td style=\"padding:6px 10px;\">p = m × v</td>\n <td style=\"padding:6px 10px;\">kg × (m/s)</td>\n <td style=\"padding:6px 10px;\">kg·m·s⁻¹</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Force</strong></td>\n <td style=\"padding:6px 10px;\">F = m × a</td>\n <td style=\"padding:6px 10px;\">kg × (m/s²)</td>\n <td style=\"padding:6px 10px;\">kg·m·s⁻² = Newton (N)</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Work & Energy</strong></td>\n <td style=\"padding:6px 10px;\">W = F × d</td>\n <td style=\"padding:6px 10px;\">N × m = kg·m²/s²</td>\n <td style=\"padding:6px 10px;\">kg·m²·s⁻² = Joule (J)</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Power</strong></td>\n <td style=\"padding:6px 10px;\">P = W / t</td>\n <td style=\"padding:6px 10px;\">J / s = kg·m²/s³</td>\n <td style=\"padding:6px 10px;\">J·s⁻¹ = Watt (W)</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Pressure & Stress</strong></td>\n <td style=\"padding:6px 10px;\">P = F / A</td>\n <td style=\"padding:6px 10px;\">N / m² = kg/(m·s²)</td>\n <td style=\"padding:6px 10px;\">N·m⁻² = Pascal (Pa)</td>\n </tr>\n <tr>\n <td style=\"padding:6px 10px;\"><strong>Density</strong></td>\n <td style=\"padding:6px 10px;\">ρ = m / V</td>\n <td style=\"padding:6px 10px;\">kg / m³</td>\n <td style=\"padding:6px 10px;\">kg·m⁻³</td>\n </tr>\n </tbody>\n </table>\n </div>\n <p>Notice how special names honoring pioneering physicists (Newton, Joule, Watt, Pascal) are adopted for convenience, but every one of them can be decomposed into the elementary SI base units.</p>\n ",
             "pointsToRemember": [
                 "Derived quantities are mathematical combinations of fundamental quantities.",
-                "Special SI unit names decompose cleanly into base units: $1\\text{ N} = 1\\text{ kg}\\cdot\\text{m/s}^2$, $1\\text{ J} = 1\\text{ N}\\cdot\\text{m} = 1\\text{ kg}\\cdot\\text{m}^2/\\text{s}^2$, $1\\text{ W} = 1\\text{ J/s} = 1\\text{ kg}\\cdot\\text{m}^2/\\text{s}^3$.",
-                "Pressure is force per unit area: $1\\text{ Pascal (Pa)} = 1\\text{ N/m}^2 = 1\\text{ kg}/(\\text{m}\\cdot\\text{s}^2)$."
+                "Special SI unit names decompose cleanly into base units: 1 N = 1 kg·m/s², 1 J = 1 N·m = 1 kg·m²/s², 1 W = 1 J/s = 1 kg·m²/s³.",
+                "Pressure is force per unit area: 1 Pascal (Pa) = 1 N/m² = 1 kg/(m·s²)."
             ],
             "keyNotes": [
-                "Civil Services Derivation Trick: If you forget a dimensional formula or unit, write out the most basic formula (e.g., $F = ma \\rightarrow \\text{kg}\\cdot\\text{m/s}^2$) to instantly reconstruct the base units."
+                "Civil Services Derivation Trick: If you forget a dimensional formula or unit, write out the most basic formula (e.g., F = ma → kg·m/s²) to instantly reconstruct the base units."
             ],
             "questions": [
                 {
                     "id": "m05_q01",
                     "question": "Which of the following is the correct expression of the derived unit 'Newton (N)' in terms of SI base units?",
                     "options": [
-                        "$\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-1}$",
-                        "$\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-2}$",
-                        "$\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2}$",
-                        "$\\text{kg}\\cdot\\text{s}^{-2}$"
+                        "kg·m·s⁻¹",
+                        "kg·m·s⁻²",
+                        "kg·m²·s⁻²",
+                        "kg·s⁻²"
                     ],
-                    "answer": "$\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-2}$",
-                    "explanation": "From Newton's second law, $F = m \\times a$. Mass is in $\\text{kg}$ and acceleration is in $\\text{m/s}^2$, giving $\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-2}$."
+                    "answer": "kg·m·s⁻²",
+                    "explanation": "From Newton's second law, F = m × a. Mass is in kg and acceleration is in m/s², giving kg·m·s⁻²."
                 },
                 {
                     "id": "m05_q02",
                     "question": "The derived SI unit of Work and Energy is the Joule (J). In terms of base units, 1 Joule equals:",
                     "options": [
-                        "$1\\text{ kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2}$",
-                        "$1\\text{ kg}\\cdot\\text{m}\\cdot\\text{s}^{-2}$",
-                        "$1\\text{ kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-3}$",
-                        "$1\\text{ kg}\\cdot\\text{m}^{-1}\\cdot\\text{s}^{-2}$"
+                        "1 kg·m²·s⁻²",
+                        "1 kg·m·s⁻²",
+                        "1 kg·m²·s⁻³",
+                        "1 kg·m⁻¹·s⁻²"
                     ],
-                    "answer": "$1\\text{ kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2}$",
-                    "explanation": "$\\text{Work} = \\text{Force} \\times \\text{Displacement} = (\\text{kg}\\cdot\\text{m/s}^2) \\times \\text{m} = \\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2}$."
+                    "answer": "1 kg·m²·s⁻²",
+                    "explanation": "Work = Force × Displacement = (kg·m/s²) × m = kg·m²·s⁻²."
                 },
                 {
                     "id": "m05_q03",
                     "question": "What is the SI unit of Power expressed in base units?",
                     "options": [
-                        "$\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-1}$",
-                        "$\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2}$",
-                        "$\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-3}$",
-                        "$\\text{kg}\\cdot\\text{m}^{-2}\\cdot\\text{s}^{-3}$"
+                        "kg·m²·s⁻¹",
+                        "kg·m²·s⁻²",
+                        "kg·m²·s⁻³",
+                        "kg·m⁻²·s⁻³"
                     ],
-                    "answer": "$\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-3}$",
-                    "explanation": "$\\text{Power} = \\text{Work} / \\text{Time} = (\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2}) / \\text{s} = \\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-3} = \\text{Watt (W)}$."
+                    "answer": "kg·m²·s⁻³",
+                    "explanation": "Power = Work / Time = (kg·m²·s⁻²) / s = kg·m²·s⁻³ = Watt (W)."
                 },
                 {
                     "id": "m05_q04",
-                    "question": "The Pascal (Pa) is the derived SI unit for Pressure. $1\\text{ Pa}$ is equivalent to:",
+                    "question": "The Pascal (Pa) is the derived SI unit for Pressure. 1 Pa is equivalent to:",
                     "options": [
-                        "$1\\text{ N}\\cdot\\text{m}$",
-                        "$1\\text{ N}\\cdot\\text{m}^{-2}$",
-                        "$1\\text{ N}\\cdot\\text{m}^2$",
-                        "$1\\text{ J}\\cdot\\text{s}$"
+                        "1 N·m",
+                        "1 N·m⁻²",
+                        "1 N·m²",
+                        "1 J·s"
                     ],
-                    "answer": "$1\\text{ N}\\cdot\\text{m}^{-2}$",
-                    "explanation": "Pressure is defined as Force divided by Area ($P = F/A$), so its unit is $\\text{N/m}^2$, termed Pascal."
+                    "answer": "1 N·m⁻²",
+                    "explanation": "Pressure is defined as Force divided by Area (P = F/A), so its unit is N/m², termed Pascal."
                 },
                 {
                     "id": "m05_q05",
-                    "question": "Which derived physical quantity has the SI base unit $\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-1}$?",
+                    "question": "Which derived physical quantity has the SI base unit kg·m·s⁻¹?",
                     "options": [
                         "Force",
                         "Linear Momentum",
@@ -643,19 +644,19 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Acceleration"
                     ],
                     "answer": "Linear Momentum",
-                    "explanation": "Linear momentum $p = m \\times v = \\text{kg} \\times (\\text{m/s}) = \\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-1}$ (also equal to Impulse: $\\text{N}\\cdot\\text{s}$)."
+                    "explanation": "Linear momentum p = m × v = kg × (m/s) = kg·m·s⁻¹ (also equal to Impulse: N·s)."
                 },
                 {
                     "id": "m05_q06",
                     "question": "What is the SI unit of volumetric mass density?",
                     "options": [
-                        "$\\text{kg}/\\text{m}^2$",
-                        "$\\text{kg}/\\text{m}^3$",
-                        "$\\text{g}/\\text{cm}^2$",
-                        "$\\text{kg}\\cdot\\text{m}^3$"
+                        "kg/m²",
+                        "kg/m³",
+                        "g/cm²",
+                        "kg·m³"
                     ],
-                    "answer": "$\\text{kg}/\\text{m}^3$",
-                    "explanation": "Density is mass divided by volume ($\\rho = m/V$), so its SI unit is kilogram per cubic metre ($\\text{kg}/\\text{m}^3$)."
+                    "answer": "kg/m³",
+                    "explanation": "Density is mass divided by volume (ρ = m/V), so its SI unit is kilogram per cubic metre (kg/m³)."
                 },
                 {
                     "id": "m05_q07",
@@ -667,31 +668,31 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Jerk"
                     ],
                     "answer": "Acceleration",
-                    "explanation": "Acceleration is defined as $a = \\Delta v / \\Delta t$ and has the derived unit $\\text{m/s}^2$."
+                    "explanation": "Acceleration is defined as a = Δ v / Δ t and has the derived unit m/s²."
                 },
                 {
                     "id": "m05_q08",
                     "question": "What is the derived unit of Electric Charge in terms of fundamental SI base units?",
                     "options": [
-                        "$\\text{Ampere}\\cdot\\text{second}$",
-                        "$\\text{Ampere}/\\text{second}$",
-                        "$\\text{Volt}\\cdot\\text{metre}$",
-                        "$\\text{Joule}/\\text{second}$"
+                        "Ampere·second",
+                        "Ampere/second",
+                        "Volt·metre",
+                        "Joule/second"
                     ],
-                    "answer": "$\\text{Ampere}\\cdot\\text{second}$",
-                    "explanation": "$Q = I \\times t$, so the Coulomb is equal to Ampere · second ($\\text{A}\\cdot\\text{s}$)."
+                    "answer": "Ampere·second",
+                    "explanation": "Q = I × t, so the Coulomb is equal to Ampere · second (A·s)."
                 },
                 {
                     "id": "m05_q09",
                     "question": "The derived quantity 'Frequency' measures the number of oscillations per second. Its SI unit Hertz (Hz) is equivalent to:",
                     "options": [
-                        "$\\text{s}$",
-                        "$\\text{s}^{-1}$",
-                        "$\\text{s}^{-2}$",
-                        "$\\text{m}\\cdot\\text{s}^{-1}$"
+                        "s",
+                        "s⁻¹",
+                        "s⁻²",
+                        "m·s⁻¹"
                     ],
-                    "answer": "$\\text{s}^{-1}$",
-                    "explanation": "Frequency $f = 1 / T$, so $1\\text{ Hz} = 1 / \\text{second} = \\text{s}^{-1}$."
+                    "answer": "s⁻¹",
+                    "explanation": "Frequency f = 1 / T, so 1 Hz = 1 / second = s⁻¹."
                 },
                 {
                     "id": "m05_q10",
@@ -703,7 +704,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Power"
                     ],
                     "answer": "Power",
-                    "explanation": "Work, Heat, and Torque all share the base unit $\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2}$. Power is rate of energy transfer and has the base unit $\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-3}$."
+                    "explanation": "Work, Heat, and Torque all share the base unit kg·m²·s⁻². Power is rate of energy transfer and has the base unit kg·m²·s⁻³."
                 }
             ]
         },
@@ -713,7 +714,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Comprehensive Catalog of Scalar Quantities",
             "tagline": "Quantities defined purely by magnitude and adhering to ordinary algebraic laws.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>Physical quantities are classified based on directional properties into <strong>Scalars</strong> and <strong>Vectors</strong>. A <strong>Scalar Quantity</strong> is completely described and determined by its <strong>magnitude (numerical value and appropriate unit) alone</strong>. It possesses no spatial direction whatsoever.</p>\n            <p>Scalars obey the standard laws of <strong>ordinary algebra</strong> (addition, subtraction, multiplication, and division). For example, adding $5\\text{ kg}$ of sugar to $3\\text{ kg}$ of sugar always equals $8\\text{ kg}$, regardless of spatial orientation.</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Catalog of Scalar Physical Quantities</h4>\n                <div style=\"display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:8px; font-size:13px;\">\n                    <div>• <strong>Distance</strong></div>\n                    <div>• <strong>Speed</strong></div>\n                    <div>• <strong>Mass</strong></div>\n                    <div>• <strong>Time</strong></div>\n                    <div>• <strong>Density</strong></div>\n                    <div>• <strong>Volume</strong> & Area</div>\n                    <div>• <strong>Pressure</strong> (acts uniformly)</div>\n                    <div>• <strong>Temperature</strong></div>\n                    <div>• <strong>Work & Energy</strong></div>\n                    <div>• <strong>Power</strong></div>\n                    <div>• <strong>Electric Charge</strong></div>\n                    <div>• <strong>Electric Current</strong></div>\n                    <div>• <strong>Voltage / Potential</strong></div>\n                    <div>• <strong>Electrical Resistance</strong></div>\n                    <div>• <strong>Capacitance</strong></div>\n                    <div>• <strong>Inductance</strong></div>\n                    <div>• <strong>Specific Heat Capacity</strong></div>\n                    <div>• <strong>Latent Heat</strong></div>\n                    <div>• <strong>Entropy</strong></div>\n                    <div>• <strong>Viscosity</strong></div>\n                    <div>• <strong>Refractive Index</strong></div>\n                    <div>• <strong>Frequency</strong> & Wavelength</div>\n                    <div>• <strong>Radioactive Half-life</strong></div>\n                    <div>• <strong>Permittivity & Permeability</strong></div>\n                </div>\n            </div>\n            <div style=\"background:#fffbeb; border-left:4px solid #f59e0b; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n                <strong>⚠️ Civil Services Classic Conceptual Pitfalls:</strong>\n                <ul style=\"margin:6px 0 0 16px; line-height:1.6;\">\n                    <li><strong>Electric Current:</strong> Although electric current has a specified direction of flow in a circuit (from positive to negative terminal), it is a <strong>SCALAR quantity</strong> because it does NOT obey the vector law of addition (e.g., currents of $3\\text{ A}$ and $4\\text{ A}$ meeting at a perpendicular junction always sum algebraically to $7\\text{ A}$, not $\\sqrt{3^2+4^2} = 5\\text{ A}$).</li>\n                    <li><strong>Pressure:</strong> Although defined as Force / Area, fluid pressure exerts force perpendicular to any submerged surface in every direction uniformly; it has no fixed spatial vector direction, making pressure a <strong>scalar quantity</strong>.</li>\n                </ul>\n            </div>\n        ",
+            "theoryHtml": "\n <p>Physical quantities are classified based on directional properties into <strong>Scalars</strong> and <strong>Vectors</strong>. A <strong>Scalar Quantity</strong> is completely described and determined by its <strong>magnitude (numerical value and appropriate unit) alone</strong>. It possesses no spatial direction whatsoever.</p>\n <p>Scalars obey the standard laws of <strong>ordinary algebra</strong> (addition, subtraction, multiplication, and division). For example, adding 5 kg of sugar to 3 kg of sugar always equals 8 kg, regardless of spatial orientation.</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Catalog of Scalar Physical Quantities</h4>\n <div style=\"display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:8px; font-size:13px;\">\n <div>• <strong>Distance</strong></div>\n <div>• <strong>Speed</strong></div>\n <div>• <strong>Mass</strong></div>\n <div>• <strong>Time</strong></div>\n <div>• <strong>Density</strong></div>\n <div>• <strong>Volume</strong> & Area</div>\n <div>• <strong>Pressure</strong> (acts uniformly)</div>\n <div>• <strong>Temperature</strong></div>\n <div>• <strong>Work & Energy</strong></div>\n <div>• <strong>Power</strong></div>\n <div>• <strong>Electric Charge</strong></div>\n <div>• <strong>Electric Current</strong></div>\n <div>• <strong>Voltage / Potential</strong></div>\n <div>• <strong>Electrical Resistance</strong></div>\n <div>• <strong>Capacitance</strong></div>\n <div>• <strong>Inductance</strong></div>\n <div>• <strong>Specific Heat Capacity</strong></div>\n <div>• <strong>Latent Heat</strong></div>\n <div>• <strong>Entropy</strong></div>\n <div>• <strong>Viscosity</strong></div>\n <div>• <strong>Refractive Index</strong></div>\n <div>• <strong>Frequency</strong> & Wavelength</div>\n <div>• <strong>Radioactive Half-life</strong></div>\n <div>• <strong>Permittivity & Permeability</strong></div>\n </div>\n </div>\n <div style=\"background:#fffbeb; border-left:4px solid #f59e0b; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n <strong>⚠️ Civil Services Classic Conceptual Pitfalls:</strong>\n <ul style=\"margin:6px 0 0 16px; line-height:1.6;\">\n <li><strong>Electric Current:</strong> Although electric current has a specified direction of flow in a circuit (from positive to negative terminal), it is a <strong>SCALAR quantity</strong> because it does NOT obey the vector law of addition (e.g., currents of 3 A and 4 A meeting at a perpendicular junction always sum algebraically to 7 A, not √(3²+4²) = 5 A).</li>\n <li><strong>Pressure:</strong> Although defined as Force / Area, fluid pressure exerts force perpendicular to any submerged surface in every direction uniformly; it has no fixed spatial vector direction, making pressure a <strong>scalar quantity</strong>.</li>\n </ul>\n </div>\n ",
             "pointsToRemember": [
                 "Scalar quantities require only magnitude and unit; they obey ordinary laws of scalar algebra.",
                 "Electric current possesses direction yet remains a SCALAR because it does NOT follow vector addition laws.",
@@ -745,7 +746,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Because current can only flow through solid metals"
                     ],
                     "answer": "Because it does not follow the vector law of addition (triangle / parallelogram law)",
-                    "explanation": "A quantity is only a vector if it obeys the laws of vector addition. Electric currents simply add algebraically ($I_1 + I_2$), so current is a scalar."
+                    "explanation": "A quantity is only a vector if it obeys the laws of vector addition. Electric currents simply add algebraically (I₁ + I₂), so current is a scalar."
                 },
                 {
                     "id": "m06_q03",
@@ -773,15 +774,15 @@ const COURSE_CHAPTER_1_PHYSICS = {
                 },
                 {
                     "id": "m06_q05",
-                    "question": "Two currents of $3\\text{ A}$ and $4\\text{ A}$ meet at a junction wire oriented at an angle of $90^\\circ$. What is the total resultant current leaving the junction?",
+                    "question": "Two currents of 3 A and 4 A meet at a junction wire oriented at an angle of 90^°. What is the total resultant current leaving the junction?",
                     "options": [
-                        "$5\\text{ A}$",
-                        "$7\\text{ A}$",
-                        "$1\\text{ A}$",
-                        "$12\\text{ A}$"
+                        "5 A",
+                        "7 A",
+                        "1 A",
+                        "12 A"
                     ],
-                    "answer": "$7\\text{ A}$",
-                    "explanation": "Because current is a scalar obeying Kirchhoff's Current Law and ordinary arithmetic, $I = 3\\text{ A} + 4\\text{ A} = 7\\text{ A}$, irrespective of junction angle."
+                    "answer": "7 A",
+                    "explanation": "Because current is a scalar obeying Kirchhoff's Current Law and ordinary arithmetic, I = 3 A + 4 A = 7 A, irrespective of junction angle."
                 },
                 {
                     "id": "m06_q06",
@@ -793,7 +794,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Neither scalar nor vector"
                     ],
                     "answer": "Scalar, because it is the dot (scalar) product of two vectors: Force and Displacement",
-                    "explanation": "$W = \\vec{F} \\cdot \\vec{d} = F d \\cos\\theta$. The dot product of two vectors always yields a pure scalar."
+                    "explanation": "W = F · d = F d cosθ. The dot product of two vectors always yields a pure scalar."
                 },
                 {
                     "id": "m06_q07",
@@ -811,13 +812,13 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "id": "m06_q08",
                     "question": "Refractive index of an optical medium is an example of:",
                     "options": [
-                        "A vector quantity with unit $\\text{m/s}$",
+                        "A vector quantity with unit m/s",
                         "A dimensionless scalar quantity",
                         "A fundamental base quantity",
                         "A pseudo-vector"
                     ],
                     "answer": "A dimensionless scalar quantity",
-                    "explanation": "Refractive index $\\mu = c / v$ is a ratio of speeds, making it a pure dimensionless scalar."
+                    "explanation": "Refractive index μ = c / v is a ratio of speeds, making it a pure dimensionless scalar."
                 },
                 {
                     "id": "m06_q09",
@@ -829,7 +830,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Electrical Resistance"
                     ],
                     "answer": "Electric Field Intensity",
-                    "explanation": "Electric Field Intensity ($\\vec{E} = \\vec{F}/q$) has both magnitude and direction (away from positive charges, toward negative charges). Potential, charge, and resistance are scalars."
+                    "explanation": "Electric Field Intensity (E = F/q) has both magnitude and direction (away from positive charges, toward negative charges). Potential, charge, and resistance are scalars."
                 },
                 {
                     "id": "m06_q10",
@@ -851,14 +852,14 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Comprehensive Catalog of Vector Quantities",
             "tagline": "Physical quantities requiring both magnitude and directional orientation to be fully realized.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>A <strong>Vector Quantity</strong> is a physical quantity that possesses both a <strong>magnitude</strong> and a definite <strong>direction</strong> in space, and critically, obeys the laws of <strong>vector addition</strong> (such as the Triangle Law or Parallelogram Law of Vectors).</p>\n            <p>If a quantity possesses direction but does not obey vector addition laws, it is NOT a vector (as demonstrated by electric current).</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Catalog of Vector Physical Quantities</h4>\n                <div style=\"display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:8px; font-size:13px;\">\n                    <div>• <strong>Displacement</strong></div>\n                    <div>• <strong>Velocity</strong></div>\n                    <div>• <strong>Acceleration</strong></div>\n                    <div>• <strong>Linear Momentum</strong></div>\n                    <div>• <strong>Force</strong> (all forms)</div>\n                    <div>• <strong>Weight</strong> (gravitational force)</div>\n                    <div>• <strong>Thrust & Tension</strong></div>\n                    <div>• <strong>Impulse</strong> ($\\vec{J} = \\vec{F}\\Delta t$)</div>\n                    <div>• <strong>Torque</strong> ($\\vec{\\tau} = \\vec{r} \\times \\vec{F}$)</div>\n                    <div>• <strong>Angular Velocity</strong> ($\\vec{\\omega}$)</div>\n                    <div>• <strong>Angular Acceleration</strong> ($\\vec{\\alpha}$)</div>\n                    <div>• <strong>Angular Momentum</strong> ($\\vec{L}$)</div>\n                    <div>• <strong>Electric Field Intensity</strong> ($\\vec{E}$)</div>\n                    <div>• <strong>Magnetic Field / Flux Density</strong> ($\\vec{B}$)</div>\n                    <div>• <strong>Gravitational Field</strong> ($\\vec{g}$)</div>\n                    <div>• <strong>Electric Dipole Moment</strong> ($\\vec{p}$)</div>\n                    <div>• <strong>Magnetic Dipole Moment</strong> ($\\vec{M}$)</div>\n                    <div>• <strong>Current Density</strong> ($\\vec{J} = I / A$)</div>\n                    <div>• <strong>Drag Force & Lift Force</strong></div>\n                    <div>• <strong>Restoring Force</strong> (Spring)</div>\n                </div>\n            </div>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n                <strong>💡 Polar Vectors vs Axial Vectors (Pseudo-vectors):</strong>\n                <ul style=\"margin:6px 0 0 16px; line-height:1.6;\">\n                    <li><strong>Polar Vectors:</strong> Have a clear linear point of application and act in the direction of motion (e.g., Displacement, Velocity, Force, Momentum).</li>\n                    <li><strong>Axial Vectors:</strong> Represent rotational effects and act along the axis of rotation in accordance with the Right-Hand Screw Rule (e.g., Angular Velocity $\\vec{\\omega}$, Torque $\\vec{\\tau}$, Angular Momentum $\\vec{L}$).</li>\n                </ul>\n            </div>\n        ",
+            "theoryHtml": "\n <p>A <strong>Vector Quantity</strong> is a physical quantity that possesses both a <strong>magnitude</strong> and a definite <strong>direction</strong> in space, and critically, obeys the laws of <strong>vector addition</strong> (such as the Triangle Law or Parallelogram Law of Vectors).</p>\n <p>If a quantity possesses direction but does not obey vector addition laws, it is NOT a vector (as demonstrated by electric current).</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Catalog of Vector Physical Quantities</h4>\n <div style=\"display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:8px; font-size:13px;\">\n <div>• <strong>Displacement</strong></div>\n <div>• <strong>Velocity</strong></div>\n <div>• <strong>Acceleration</strong></div>\n <div>• <strong>Linear Momentum</strong></div>\n <div>• <strong>Force</strong> (all forms)</div>\n <div>• <strong>Weight</strong> (gravitational force)</div>\n <div>• <strong>Thrust & Tension</strong></div>\n <div>• <strong>Impulse</strong> (J = FΔ t)</div>\n <div>• <strong>Torque</strong> (vec{τ} = r × F)</div>\n <div>• <strong>Angular Velocity</strong> (vec{ω})</div>\n <div>• <strong>Angular Acceleration</strong> (vec{α})</div>\n <div>• <strong>Angular Momentum</strong> (L)</div>\n <div>• <strong>Electric Field Intensity</strong> (E)</div>\n <div>• <strong>Magnetic Field / Flux Density</strong> (B)</div>\n <div>• <strong>Gravitational Field</strong> (g)</div>\n <div>• <strong>Electric Dipole Moment</strong> (p)</div>\n <div>• <strong>Magnetic Dipole Moment</strong> (M)</div>\n <div>• <strong>Current Density</strong> (J = I / A)</div>\n <div>• <strong>Drag Force & Lift Force</strong></div>\n <div>• <strong>Restoring Force</strong> (Spring)</div>\n </div>\n </div>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n <strong>💡 Polar Vectors vs Axial Vectors (Pseudo-vectors):</strong>\n <ul style=\"margin:6px 0 0 16px; line-height:1.6;\">\n <li><strong>Polar Vectors:</strong> Have a clear linear point of application and act in the direction of motion (e.g., Displacement, Velocity, Force, Momentum).</li>\n <li><strong>Axial Vectors:</strong> Represent rotational effects and act along the axis of rotation in accordance with the Right-Hand Screw Rule (e.g., Angular Velocity vec{ω}, Torque vec{τ}, Angular Momentum L).</li>\n </ul>\n </div>\n ",
             "pointsToRemember": [
                 "Vector quantities require magnitude, spatial direction, and strict adherence to vector addition laws.",
-                "Weight is a VECTOR because it is the gravitational force directed downward toward Earth's center ($W = mg$).",
-                "Current Density ($\\vec{J}$) is a VECTOR, even though Electric Current ($I$) is a scalar."
+                "Weight is a VECTOR because it is the gravitational force directed downward toward Earth's center (W = mg).",
+                "Current Density (J) is a VECTOR, even though Electric Current (I) is a scalar."
             ],
             "keyNotes": [
-                "Crucial Distinction: Current ($I$) is a Scalar; Current Density ($\\vec{J} = I/A$) is a Vector with direction parallel to positive charge drift."
+                "Crucial Distinction: Current (I) is a Scalar; Current Density (J = I/A) is a Vector with direction parallel to positive charge drift."
             ],
             "questions": [
                 {
@@ -907,19 +908,19 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Displacement"
                     ],
                     "answer": "Torque",
-                    "explanation": "Torque ($\\vec{\\tau} = \\vec{r} \\times \\vec{F}$) is an axial vector pointing along the axis of rotation perpendicular to both radius and force."
+                    "explanation": "Torque (vec{τ} = r × F) is an axial vector pointing along the axis of rotation perpendicular to both radius and force."
                 },
                 {
                     "id": "m07_q05",
                     "question": "While electric current is a scalar, which related electrical quantity is a true vector?",
                     "options": [
                         "Electric Potential",
-                        "Current Density ($\\vec{J}$)",
+                        "Current Density (J)",
                         "Electrical Resistance",
                         "Capacitance"
                     ],
-                    "answer": "Current Density ($\\vec{J}$)",
-                    "explanation": "Current Density $\\vec{J} = I/A$ is a vector whose direction at any point is the direction of flow of positive charge."
+                    "answer": "Current Density (J)",
+                    "explanation": "Current Density J = I/A is a vector whose direction at any point is the direction of flow of positive charge."
                 },
                 {
                     "id": "m07_q06",
@@ -931,19 +932,19 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Force"
                     ],
                     "answer": "Linear Momentum",
-                    "explanation": "Impulse $\\vec{J} = \\vec{F} \\Delta t = \\Delta \\vec{p}$ (change in linear momentum). Both are vectors sharing the unit $\\text{N}\\cdot\\text{s} = \\text{kg}\\cdot\\text{m/s}$."
+                    "explanation": "Impulse J = F Δ t = Δ p (change in linear momentum). Both are vectors sharing the unit N·s = kg·m/s."
                 },
                 {
                     "id": "m07_q07",
-                    "question": "What is the magnitude of the resultant when two equal orthogonal forces of $10\\text{ N}$ act at a $90^\\circ$ angle?",
+                    "question": "What is the magnitude of the resultant when two equal orthogonal forces of 10 N act at a 90^° angle?",
                     "options": [
-                        "$20\\text{ N}$",
-                        "$10\\sqrt{2}\\text{ N} \\approx 14.14\\text{ N}$",
-                        "$0\\text{ N}$",
-                        "$10\\text{ N}$"
+                        "20 N",
+                        "10√(2) N ≈ 14.14 N",
+                        "0 N",
+                        "10 N"
                     ],
-                    "answer": "$10\\sqrt{2}\\text{ N} \\approx 14.14\\text{ N}$",
-                    "explanation": "For two perpendicular vectors: $R = \\sqrt{A^2 + B^2} = \\sqrt{10^2 + 10^2} = \\sqrt{200} = 10\\sqrt{2}\\text{ N}$."
+                    "answer": "10√(2) N ≈ 14.14 N",
+                    "explanation": "For two perpendicular vectors: R = √(A² + B²) = √(10² + 10²) = √(200) = 10√(2) N."
                 },
                 {
                     "id": "m07_q08",
@@ -967,19 +968,19 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Because it has no unit"
                     ],
                     "answer": "Because it is the gravitational force acting on a mass directed toward the center of the Earth",
-                    "explanation": "Weight is a force ($W = mg$) with a specific downward direction toward the planetary center of mass."
+                    "explanation": "Weight is a force (W = mg) with a specific downward direction toward the planetary center of mass."
                 },
                 {
                     "id": "m07_q10",
-                    "question": "A particle moves along a circular track of radius $R$ and completes half a revolution. What is the magnitude of its displacement?",
+                    "question": "A particle moves along a circular track of radius R and completes half a revolution. What is the magnitude of its displacement?",
                     "options": [
-                        "$\\pi R$",
-                        "$2R$",
-                        "$0$",
-                        "$R / 2$"
+                        "π R",
+                        "2R",
+                        "0",
+                        "R / 2"
                     ],
-                    "answer": "$2R$",
-                    "explanation": "Distance traveled is $\\pi R$, but displacement is the shortest straight-line distance between initial and diametrically opposite final point, which is the diameter $2R$."
+                    "answer": "2R",
+                    "explanation": "Distance traveled is π R, but displacement is the shortest straight-line distance between initial and diametrically opposite final point, which is the diameter 2R."
                 }
             ]
         },
@@ -989,14 +990,14 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Astronomical Length Scales: The Astronomical Unit (AU)",
             "tagline": "Standardizing planetary distances across our solar system based on Earth's orbit.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>Ordinary metric units like the metre or kilometre are completely inadequate for measuring astronomical distances. In planetary astronomy, the primary reference unit is the <strong>Astronomical Unit (AU)</strong>.</p>\n            <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">Definition of Astronomical Unit (AU):</h4>\n            <p>The <strong>Astronomical Unit (AU)</strong> is defined as the <strong>mean (average) distance between the center of the Earth and the center of the Sun</strong>.</p>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px; font-size:15px; font-weight:700;\">\n                $$1\\text{ AU} = 1.496 \\times 10^{11}\\text{ metres} \\approx 1.5 \\times 10^8\\text{ km} \\quad (149.6\\text{ million kilometres})$$\n            </div>\n            <p>Because Earth moves around the Sun in an elliptical orbit (Kepler's First Law), the distance varies throughout the year:</p>\n            <ul style=\"margin:6px 0 14px 20px; line-height:1.6;\">\n                <li><strong>Perihelion (Closest Approach, ~Jan 3):</strong> $\\approx 147.1\\text{ million km} \\approx 0.983\\text{ AU}$.</li>\n                <li><strong>Aphelion (Furthest Distance, ~July 4):</strong> $\\approx 152.1\\text{ million km} \\approx 1.017\\text{ AU}$.</li>\n                <li>The Astronomical Unit represents the semi-major axis of Earth's orbit, rigorously standardized in 2012 by the International Astronomical Union (IAU) as exactly $149,597,870,700\\text{ m}$.</li>\n            </ul>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 8px 0; color:#1e3a8a; font-size:13px;\">Planetary Distances from the Sun in AU:</h4>\n                <ul style=\"margin:4px 0 0 16px; font-size:13px; line-height:1.6;\">\n                    <li>Mercury: $\\approx 0.39\\text{ AU}$ &nbsp;|&nbsp; Venus: $\\approx 0.72\\text{ AU}$ &nbsp;|&nbsp; Earth: $\\mathbf{1.00\\text{ AU}}$</li>\n                    <li>Mars: $\\approx 1.52\\text{ AU}$ &nbsp;|&nbsp; Jupiter: $\\approx 5.20\\text{ AU}$ &nbsp;|&nbsp; Saturn: $\\approx 9.58\\text{ AU}$</li>\n                    <li>Neptune: $\\approx 30.07\\text{ AU}$ &nbsp;|&nbsp; Kuiper Belt: $\\approx 30\\text{ to } 50\\text{ AU}$</li>\n                </ul>\n            </div>\n            <p>AU is primarily suitable for measuring distances <strong>within our Solar System</strong>, whereas interstellar distances between stars require much larger units (Light Year and Parsec).</p>\n        ",
+            "theoryHtml": "\n <p>Ordinary metric units like the metre or kilometre are completely inadequate for measuring astronomical distances. In planetary astronomy, the primary reference unit is the <strong>Astronomical Unit (AU)</strong>.</p>\n <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">Definition of Astronomical Unit (AU):</h4>\n <p>The <strong>Astronomical Unit (AU)</strong> is defined as the <strong>mean (average) distance between the center of the Earth and the center of the Sun</strong>.</p>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px; font-size:15px; font-weight:700;\">\n 1 AU = 1.496 × 10¹¹ metres ≈ 1.5 × 10⁸ km (149.6 million kilometres)\n </div>\n <p>Because Earth moves around the Sun in an elliptical orbit (Kepler's First Law), the distance varies throughout the year:</p>\n <ul style=\"margin:6px 0 14px 20px; line-height:1.6;\">\n <li><strong>Perihelion (Closest Approach, ~Jan 3):</strong> ≈ 147.1 million km ≈ 0.983 AU.</li>\n <li><strong>Aphelion (Furthest Distance, ~July 4):</strong> ≈ 152.1 million km ≈ 1.017 AU.</li>\n <li>The Astronomical Unit represents the semi-major axis of Earth's orbit, rigorously standardized in 2012 by the International Astronomical Union (IAU) as exactly 149,597,870,700 m.</li>\n </ul>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px; margin:14px 0;\">\n <h4 style=\"margin:0 0 8px 0; color:#1e3a8a; font-size:13px;\">Planetary Distances from the Sun in AU:</h4>\n <ul style=\"margin:4px 0 0 16px; font-size:13px; line-height:1.6;\">\n <li>Mercury: ≈ 0.39 AU &nbsp;|&nbsp; Venus: ≈ 0.72 AU &nbsp;|&nbsp; Earth: 1.00 AU</li>\n <li>Mars: ≈ 1.52 AU &nbsp;|&nbsp; Jupiter: ≈ 5.20 AU &nbsp;|&nbsp; Saturn: ≈ 9.58 AU</li>\n <li>Neptune: ≈ 30.07 AU &nbsp;|&nbsp; Kuiper Belt: ≈ 30 to 50 AU</li>\n </ul>\n </div>\n <p>AU is primarily suitable for measuring distances <strong>within our Solar System</strong>, whereas interstellar distances between stars require much larger units (Light Year and Parsec).</p>\n ",
             "pointsToRemember": [
-                "$1\\text{ AU} = 1.496 \\times 10^{11}\\text{ m} \\approx 1.5 \\times 10^8\\text{ km}$ (average distance between Earth and Sun).",
+                "1 AU = 1.496 × 10¹¹ m ≈ 1.5 × 10⁸ km (average distance between Earth and Sun).",
                 "AU is the standard yardstick for interplanetary distances within the solar system.",
                 "Earth is closest to the Sun at Perihelion (~Jan 3) and furthest at Aphelion (~July 4)."
             ],
             "keyNotes": [
-                "Memory Landmark: Light takes approximately 8 minutes and 20 seconds (500 seconds) to travel 1 AU from Sun to Earth ($3 \\times 10^8\\text{ m/s} \\times 500\\text{ s} = 1.5 \\times 10^{11}\\text{ m}$)."
+                "Memory Landmark: Light takes approximately 8 minutes and 20 seconds (500 seconds) to travel 1 AU from Sun to Earth (3 × 10⁸ m/s × 500 s = 1.5 × 10¹¹ m)."
             ],
             "questions": [
                 {
@@ -1015,13 +1016,13 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "id": "m08_q02",
                     "question": "What is the numerical value of 1 Astronomical Unit in metres?",
                     "options": [
-                        "$9.46 \\times 10^{15}\\text{ m}$",
-                        "$1.496 \\times 10^{11}\\text{ m}$",
-                        "$3.086 \\times 10^{16}\\text{ m}$",
-                        "$1.5 \\times 10^6\\text{ m}$"
+                        "9.46 × 10¹⁵ m",
+                        "1.496 × 10¹¹ m",
+                        "3.086 × 10¹⁶ m",
+                        "1.5 × 10⁶ m"
                     ],
-                    "answer": "$1.496 \\times 10^{11}\\text{ m}$",
-                    "explanation": "$1\\text{ AU} = 1.496 \\times 10^{11}\\text{ metres} \\approx 1.5 \\times 10^8\\text{ kilometres}$."
+                    "answer": "1.496 × 10¹¹ m",
+                    "explanation": "1 AU = 1.496 × 10¹¹ metres ≈ 1.5 × 10⁸ kilometres."
                 },
                 {
                     "id": "m08_q03",
@@ -1033,19 +1034,19 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "24 hours"
                     ],
                     "answer": "8 minutes and 20 seconds",
-                    "explanation": "$t = d / c = (1.496 \\times 10^{11}\\text{ m}) / (3 \\times 10^8\\text{ m/s}) \\approx 499\\text{ s} \\approx 8\\text{ min } 20\\text{ s}$."
+                    "explanation": "t = d / c = (1.496 × 10¹¹ m) / (3 × 10⁸ m/s) ≈ 499 s ≈ 8 min 20 s."
                 },
                 {
                     "id": "m08_q04",
                     "question": "What is the average orbital distance of Mars from the Sun expressed in AU?",
                     "options": [
-                        "$0.52\\text{ AU}$",
-                        "$1.00\\text{ AU}$",
-                        "$1.52\\text{ AU}$",
-                        "$5.20\\text{ AU}$"
+                        "0.52 AU",
+                        "1.00 AU",
+                        "1.52 AU",
+                        "5.20 AU"
                     ],
-                    "answer": "$1.52\\text{ AU}$",
-                    "explanation": "Mars orbits at an average distance of approximately $1.52\\text{ AU}$ (about 228 million km) from the Sun."
+                    "answer": "1.52 AU",
+                    "explanation": "Mars orbits at an average distance of approximately 1.52 AU (about 228 million km) from the Sun."
                 },
                 {
                     "id": "m08_q05",
@@ -1087,37 +1088,37 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "id": "m08_q08",
                     "question": "Jupiter is approximately how many Astronomical Units away from the Sun?",
                     "options": [
-                        "$1.5\\text{ AU}$",
-                        "$5.2\\text{ AU}$",
-                        "$9.6\\text{ AU}$",
-                        "$30.1\\text{ AU}$"
+                        "1.5 AU",
+                        "5.2 AU",
+                        "9.6 AU",
+                        "30.1 AU"
                     ],
-                    "answer": "$5.2\\text{ AU}$",
-                    "explanation": "Jupiter orbits at an average distance of about $5.2\\text{ AU}$ (approximately 778 million km) from the Sun."
+                    "answer": "5.2 AU",
+                    "explanation": "Jupiter orbits at an average distance of about 5.2 AU (approximately 778 million km) from the Sun."
                 },
                 {
                     "id": "m08_q09",
                     "question": "In 2012, the International Astronomical Union redefined the Astronomical Unit as:",
                     "options": [
                         "A variable quantity tied to solar mass loss",
-                        "An exact constant value of $149,597,870,700\\text{ metres}$",
+                        "An exact constant value of 149,597,870,700 metres",
                         "The distance to Mars divided by 2",
                         "The distance traveled by sound in space"
                     ],
-                    "answer": "An exact constant value of $149,597,870,700\\text{ metres}$",
-                    "explanation": "In 2012, the IAU fixed 1 AU to the exact conventional value of $149,597,870,700\\text{ m}$."
+                    "answer": "An exact constant value of 149,597,870,700 metres",
+                    "explanation": "In 2012, the IAU fixed 1 AU to the exact conventional value of 149,597,870,700 m."
                 },
                 {
                     "id": "m08_q10",
-                    "question": "Convert $3 \\times 10^{11}\\text{ metres}$ into Astronomical Units approximately:",
+                    "question": "Convert 3 × 10¹¹ metres into Astronomical Units approximately:",
                     "options": [
-                        "$0.5\\text{ AU}$",
-                        "$1.0\\text{ AU}$",
-                        "$2.0\\text{ AU}$",
-                        "$4.0\\text{ AU}$"
+                        "0.5 AU",
+                        "1.0 AU",
+                        "2.0 AU",
+                        "4.0 AU"
                     ],
-                    "answer": "$2.0\\text{ AU}$",
-                    "explanation": "Since $1\\text{ AU} \\approx 1.5 \\times 10^{11}\\text{ m}$, $(3.0 \\times 10^{11}) / (1.5 \\times 10^{11}) = 2.0\\text{ AU}$."
+                    "answer": "2.0 AU",
+                    "explanation": "Since 1 AU ≈ 1.5 × 10¹¹ m, (3.0 × 10¹¹) / (1.5 × 10¹¹) = 2.0 AU."
                 }
             ]
         },
@@ -1127,11 +1128,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Interstellar Distance Units: Light Year & Parsec",
             "tagline": "Navigating deep cosmic voids between stars and galaxies with Light Years and Parsecs.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>For interstellar and intergalactic scales, even the Astronomical Unit is too small. Astronomers use two premier units: the <strong>Light Year (ly)</strong> and the <strong>Parsec (pc)</strong>.</p>\n            <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">1. Light Year (ly):</h4>\n            <p>A <strong>Light Year</strong> is defined as the <strong>total distance traveled by light in vacuum in one Julian year</strong> ($365.25\\text{ days}$):</p>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n                $$1\\text{ ly} = c \\times t = (2.9979 \\times 10^8\\text{ m/s}) \\times (365.25 \\times 24 \\times 3600\\text{ s}) = \\mathbf{9.461 \\times 10^{15}\\text{ metres}} \\approx 9.46 \\times 10^{12}\\text{ km}$$\n            </div>\n            <p><em>Crucial Note:</em> Despite the word 'year' in its name, a Light Year is strictly a <strong>unit of distance/length</strong>, NEVER of time.</p>\n            <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">2. Parsec (Parallax Second - pc):</h4>\n            <p>The <strong>Parsec</strong> is the <strong>largest practical unit of length</strong> in astronomy. It is defined based on stellar parallax:</p>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n                One <strong>Parsec</strong> is the distance at which an arc of length $1\\text{ AU}$ subtends an angle of exactly <strong>one second of arc ($1''$)</strong>.\n                $$r = \\frac{s}{\\theta} = \\frac{1\\text{ AU}}{1''\\text{ in radians}} = \\frac{1.496 \\times 10^{11}\\text{ m}}{(1/3600) \\times (\\pi/180)} = \\mathbf{3.0857 \\times 10^{16}\\text{ metres}}$$\n            </div>\n            <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">Master Astronomical Conversions & Ascending Order:</h4>\n            <ul style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n                <li>$1\\text{ Parsec} \\approx \\mathbf{3.26\\text{ Light Years}}$</li>\n                <li>$1\\text{ Parsec} \\approx \\mathbf{206,265\\text{ AU}}$</li>\n                <li>$1\\text{ Light Year} \\approx \\mathbf{63,241\\text{ AU}}$</li>\n            </ul>\n            <div style=\"background:#f1f5f9; border:1px solid #cbd5e1; border-radius:8px; padding:10px 14px; font-weight:700; text-align:center;\">\n                Ascending Order of Length: $\\text{Astronomical Unit (AU)} < \\text{Light Year (ly)} < \\text{Parsec (pc)}$\n            </div>\n            <p>The nearest star system to our Sun, <em>Proxima Centauri</em>, is located approximately $4.24\\text{ light years}$ (about $1.3\\text{ parsecs}$) away.</p>\n        ",
+            "theoryHtml": "\n <p>For interstellar and intergalactic scales, even the Astronomical Unit is too small. Astronomers use two premier units: the <strong>Light Year (ly)</strong> and the <strong>Parsec (pc)</strong>.</p>\n <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">1. Light Year (ly):</h4>\n <p>A <strong>Light Year</strong> is defined as the <strong>total distance traveled by light in vacuum in one Julian year</strong> (365.25 days):</p>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n 1 ly = c × t = (2.9979 × 10⁸ m/s) × (365.25 × 24 × 3600 s) = mathbf{9.461 × 10¹⁵ metres} ≈ 9.46 × 10¹² km\n </div>\n <p><em>Crucial Note:</em> Despite the word 'year' in its name, a Light Year is strictly a <strong>unit of distance/length</strong>, NEVER of time.</p>\n <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">2. Parsec (Parallax Second - pc):</h4>\n <p>The <strong>Parsec</strong> is the <strong>largest practical unit of length</strong> in astronomy. It is defined based on stellar parallax:</p>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n One <strong>Parsec</strong> is the distance at which an arc of length 1 AU subtends an angle of exactly <strong>one second of arc (1'')</strong>.\n r = (s / θ) = frac{1 AU}{1'' in radians} = frac{1.496 × 10¹¹ m}{(1/3600) × (π/180)} = mathbf{3.0857 × 10¹⁶ metres}\n </div>\n <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">Master Astronomical Conversions & Ascending Order:</h4>\n <ul style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n <li>1 Parsec ≈ 3.26 Light Years</li>\n <li>1 Parsec ≈ 206,265 AU</li>\n <li>1 Light Year ≈ 63,241 AU</li>\n </ul>\n <div style=\"background:#f1f5f9; border:1px solid #cbd5e1; border-radius:8px; padding:10px 14px; font-weight:700; text-align:center;\">\n Ascending Order of Length: Astronomical Unit (AU) < Light Year (ly) < Parsec (pc)\n </div>\n <p>The nearest star system to our Sun, <em>Proxima Centauri</em>, is located approximately 4.24 light years (about 1.3 parsecs) away.</p>\n ",
             "pointsToRemember": [
-                "A Light Year is a unit of DISTANCE (not time): $1\\text{ ly} = 9.461 \\times 10^{15}\\text{ m}$.",
-                "Parsec (parallax second) is the largest astronomical unit of distance: $1\\text{ pc} = 3.086 \\times 10^{16}\\text{ m} \\approx 3.26\\text{ ly} \\approx 206,265\\text{ AU}$.",
-                "Ascending order of astronomical distances: $\\text{AU} < \\text{Light Year} < \\text{Parsec}$."
+                "A Light Year is a unit of DISTANCE (not time): 1 ly = 9.461 × 10¹⁵ m.",
+                "Parsec (parallax second) is the largest astronomical unit of distance: 1 pc = 3.086 × 10¹⁶ m ≈ 3.26 ly ≈ 206,265 AU.",
+                "Ascending order of astronomical distances: AU < Light Year < Parsec."
             ],
             "keyNotes": [
                 "Civil Services Favorite Trap: 'Light Year' is frequently tested in exams to trick students into answering 'time'. It is unequivocally a unit of DISTANCE."
@@ -1147,19 +1148,19 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Intensity of sunlight"
                     ],
                     "answer": "Distance (Length)",
-                    "explanation": "A light year is the distance light travels in vacuum in one Julian year ($9.46 \\times 10^{15}\\text{ m}$); it is strictly a unit of distance."
+                    "explanation": "A light year is the distance light travels in vacuum in one Julian year (9.46 × 10¹⁵ m); it is strictly a unit of distance."
                 },
                 {
                     "id": "m09_q02",
                     "question": "What is the exact numerical value of 1 Light Year in metres?",
                     "options": [
-                        "$1.496 \\times 10^{11}\\text{ m}$",
-                        "$9.461 \\times 10^{15}\\text{ m}$",
-                        "$3.086 \\times 10^{16}\\text{ m}$",
-                        "$6.023 \\times 10^{23}\\text{ m}$"
+                        "1.496 × 10¹¹ m",
+                        "9.461 × 10¹⁵ m",
+                        "3.086 × 10¹⁶ m",
+                        "6.023 × 10²³ m"
                     ],
-                    "answer": "$9.461 \\times 10^{15}\\text{ m}$",
-                    "explanation": "$1\\text{ ly} = c \\times 1\\text{ year} \\approx (3 \\times 10^8\\text{ m/s}) \\times (3.1536 \\times 10^7\\text{ s}) \\approx 9.461 \\times 10^{15}\\text{ metres}$."
+                    "answer": "9.461 × 10¹⁵ m",
+                    "explanation": "1 ly = c × 1 year ≈ (3 × 10⁸ m/s) × (3.1536 × 10⁷ s) ≈ 9.461 × 10¹⁵ metres."
                 },
                 {
                     "id": "m09_q03",
@@ -1171,19 +1172,19 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Kilometre"
                     ],
                     "answer": "Parsec",
-                    "explanation": "Parsec ($3.086 \\times 10^{16}\\text{ m}$) is larger than both the Light Year and Astronomical Unit, making it the largest practical astronomical distance unit."
+                    "explanation": "Parsec (3.086 × 10¹⁶ m) is larger than both the Light Year and Astronomical Unit, making it the largest practical astronomical distance unit."
                 },
                 {
                     "id": "m09_q04",
                     "question": "One Parsec is approximately equal to how many Light Years?",
                     "options": [
-                        "$1.44\\text{ ly}$",
-                        "$3.26\\text{ ly}$",
-                        "$9.46\\text{ ly}$",
-                        "$206,265\\text{ ly}$"
+                        "1.44 ly",
+                        "3.26 ly",
+                        "9.46 ly",
+                        "206,265 ly"
                     ],
-                    "answer": "$3.26\\text{ ly}$",
-                    "explanation": "$1\\text{ pc} = (3.086 \\times 10^{16}\\text{ m}) / (9.461 \\times 10^{15}\\text{ m}) \\approx 3.2616\\text{ light years}$."
+                    "answer": "3.26 ly",
+                    "explanation": "1 pc = (3.086 × 10¹⁶ m) / (9.461 × 10¹⁵ m) ≈ 3.2616 light years."
                 },
                 {
                     "id": "m09_q05",
@@ -1201,49 +1202,49 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "id": "m09_q06",
                     "question": "Which of the following correctly displays astronomical distance units in strictly ASCENDING order?",
                     "options": [
-                        "$\\text{Parsec} < \\text{Light Year} < \\text{Astronomical Unit}$",
-                        "$\\text{Astronomical Unit} < \\text{Light Year} < \\text{Parsec}$",
-                        "$\\text{Light Year} < \\text{Astronomical Unit} < \\text{Parsec}$",
-                        "$\\text{Astronomical Unit} < \\text{Parsec} < \\text{Light Year}$"
+                        "Parsec < Light Year < Astronomical Unit",
+                        "Astronomical Unit < Light Year < Parsec",
+                        "Light Year < Astronomical Unit < Parsec",
+                        "Astronomical Unit < Parsec < Light Year"
                     ],
-                    "answer": "$\\text{Astronomical Unit} < \\text{Light Year} < \\text{Parsec}$",
-                    "explanation": "$1\\text{ AU} (1.5 \\times 10^{11}\\text{ m}) < 1\\text{ ly} (9.46 \\times 10^{15}\\text{ m}) < 1\\text{ pc} (3.09 \\times 10^{16}\\text{ m})$."
+                    "answer": "Astronomical Unit < Light Year < Parsec",
+                    "explanation": "1 AU (1.5 × 10¹¹ m) < 1 ly (9.46 × 10¹⁵ m) < 1 pc (3.09 × 10¹⁶ m)."
                 },
                 {
                     "id": "m09_q07",
                     "question": "Approximately how many Astronomical Units are contained within one Parsec?",
                     "options": [
-                        "$3,600\\text{ AU}$",
-                        "$63,241\\text{ AU}$",
-                        "$206,265\\text{ AU}$",
-                        "$1,000,000\\text{ AU}$"
+                        "3,600 AU",
+                        "63,241 AU",
+                        "206,265 AU",
+                        "1,000,000 AU"
                     ],
-                    "answer": "$206,265\\text{ AU}$",
-                    "explanation": "Because $1\\text{ radian} = 206,265\\text{ arcseconds}$, an arc of 1 AU subtending 1 arcsecond yields a distance of $206,265\\text{ AU}$."
+                    "answer": "206,265 AU",
+                    "explanation": "Because 1 radian = 206,265 arcseconds, an arc of 1 AU subtending 1 arcsecond yields a distance of 206,265 AU."
                 },
                 {
                     "id": "m09_q08",
                     "question": "Proxima Centauri, the nearest known star to our solar system, is located at what approximate distance?",
                     "options": [
-                        "$1.3\\text{ AU}$",
-                        "$4.24\\text{ light years}$",
-                        "$500\\text{ light seconds}$",
-                        "$300\\text{ parsecs}$"
+                        "1.3 AU",
+                        "4.24 light years",
+                        "500 light seconds",
+                        "300 parsecs"
                     ],
-                    "answer": "$4.24\\text{ light years}$",
-                    "explanation": "Proxima Centauri is located $\\approx 4.24\\text{ ly} \\approx 1.3\\text{ pc}$ from our Sun."
+                    "answer": "4.24 light years",
+                    "explanation": "Proxima Centauri is located ≈ 4.24 ly ≈ 1.3 pc from our Sun."
                 },
                 {
                     "id": "m09_q09",
-                    "question": "If a star shows a parallax angle of $0.5$ arcseconds when observed from opposite sides of Earth's orbit, what is its distance in parsecs?",
+                    "question": "If a star shows a parallax angle of 0.5 arcseconds when observed from opposite sides of Earth's orbit, what is its distance in parsecs?",
                     "options": [
-                        "$0.5\\text{ parsecs}$",
-                        "$1.0\\text{ parsec}$",
-                        "$2.0\\text{ parsecs}$",
-                        "$4.0\\text{ parsecs}$"
+                        "0.5 parsecs",
+                        "1.0 parsec",
+                        "2.0 parsecs",
+                        "4.0 parsecs"
                     ],
-                    "answer": "$2.0\\text{ parsecs}$",
-                    "explanation": "Stellar distance $d (\\text{in pc}) = 1 / p (\\text{in arcseconds}) = 1 / 0.5 = 2.0\\text{ parsecs}$."
+                    "answer": "2.0 parsecs",
+                    "explanation": "Stellar distance d (in pc) = 1 / p (in arcseconds) = 1 / 0.5 = 2.0 parsecs."
                 },
                 {
                     "id": "m09_q10",
@@ -1255,7 +1256,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Earth stops orbiting the Sun"
                     ],
                     "answer": "The parallax angle becomes imperceptibly tiny, far smaller than resolving limits of instruments",
-                    "explanation": "Parallax angle decreases inversely with distance ($p \\propto 1/d$). Beyond thousands of light years, the angle becomes unmeasurably small, requiring standard candles (Cepheids/Type Ia supernovae)."
+                    "explanation": "Parallax angle decreases inversely with distance (p ∝ 1/d). Beyond thousands of light years, the angle becomes unmeasurably small, requiring standard candles (Cepheids/Type Ia supernovae)."
                 }
             ]
         },
@@ -1265,39 +1266,39 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Microscopic & Subatomic Length Scales",
             "tagline": "From cellular biology down to atomic radii and the nuclear realm: Microns, Angstroms, and Fermis.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>Just as interstellar astronomy requires massive units like Parsecs, atomic and nuclear physics requires specialized miniature units to express dimensions of cells, molecules, atoms, and atomic nuclei.</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Table of Microscopic & Subatomic Units of Length</h4>\n                <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n                    <thead>\n                        <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n                            <th style=\"padding:6px 10px;\">Unit Name</th>\n                            <th style=\"padding:6px 10px;\">Symbol</th>\n                            <th style=\"padding:6px 10px;\">Value in Metres</th>\n                            <th style=\"padding:6px 10px;\">Typical Physical Realm / Application</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Micron (Micrometre)</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\mu\\text{m}$</td>\n                            <td style=\"padding:6px 10px;\">$10^{-6}\\text{ m} = 10^{-4}\\text{ cm}$</td>\n                            <td style=\"padding:6px 10px;\">Biological cells (bacteria, RBCs $\\approx 7\\mu\\text{m}$, human hair $\\approx 50\\mu\\text{m}$)</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Nanometre</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{nm}$</td>\n                            <td style=\"padding:6px 10px;\">$10^{-9}\\text{ m} = 10^{-7}\\text{ cm}$</td>\n                            <td style=\"padding:6px 10px;\">Visible light wavelengths ($380\\text{--}700\\text{ nm}$), viruses, DNA helix diameter ($2\\text{ nm}$)</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Angstrom</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{\\AA}$</td>\n                            <td style=\"padding:6px 10px;\">$10^{-10}\\text{ m} = 10^{-8}\\text{ cm} = 0.1\\text{ nm}$</td>\n                            <td style=\"padding:6px 10px;\">Atomic sizes, interatomic bond lengths, X-ray wavelengths (Bohr radius $a_0 \\approx 0.529\\text{ \\AA}$)</td>\n                        </tr>\n                        <tr>\n                            <td style=\"padding:6px 10px;\"><strong>Fermi (Femtometre)</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{fm}$</td>\n                            <td style=\"padding:6px 10px;\">$10^{-15}\\text{ m} = 10^{-13}\\text{ cm}$</td>\n                            <td style=\"padding:6px 10px;\">Nuclear diameters, proton size ($r_p \\approx 0.84\\text{ fm}$), range of strong nuclear force</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n                <strong>🔬 Comparison of Atomic vs Nuclear Sizes:</strong>\n                <p style=\"margin:4px 0 0 0; line-height:1.6;\">\n                    An atom has a typical diameter of $\\approx 1\\text{ \\AA} = 10^{-10}\\text{ m}$, whereas its central nucleus has a diameter of $\\approx 1\\text{ to } 10\\text{ Fermi} = 10^{-15}\\text{ to } 10^{-14}\\text{ m}$.\n                    This means the atom is roughly <strong>$100,000$ times larger</strong> than its nucleus ($10^{-10} / 10^{-15} = 10^5$), showing that matter is overwhelmingly empty space!\n                </p>\n            </div>\n        ",
+            "theoryHtml": "\n <p>Just as interstellar astronomy requires massive units like Parsecs, atomic and nuclear physics requires specialized miniature units to express dimensions of cells, molecules, atoms, and atomic nuclei.</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Table of Microscopic & Subatomic Units of Length</h4>\n <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n <thead>\n <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n <th style=\"padding:6px 10px;\">Unit Name</th>\n <th style=\"padding:6px 10px;\">Symbol</th>\n <th style=\"padding:6px 10px;\">Value in Metres</th>\n <th style=\"padding:6px 10px;\">Typical Physical Realm / Application</th>\n </tr>\n </thead>\n <tbody>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Micron (Micrometre)</strong></td>\n <td style=\"padding:6px 10px;\">μm</td>\n <td style=\"padding:6px 10px;\">10⁻⁶ m = 10⁻⁴ cm</td>\n <td style=\"padding:6px 10px;\">Biological cells (bacteria, RBCs ≈ 7μm, human hair ≈ 50μm)</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Nanometre</strong></td>\n <td style=\"padding:6px 10px;\">nm</td>\n <td style=\"padding:6px 10px;\">10⁻⁹ m = 10⁻⁷ cm</td>\n <td style=\"padding:6px 10px;\">Visible light wavelengths (380--700 nm), viruses, DNA helix diameter (2 nm)</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Angstrom</strong></td>\n <td style=\"padding:6px 10px;\">Å</td>\n <td style=\"padding:6px 10px;\">10⁻¹⁰ m = 10⁻⁸ cm = 0.1 nm</td>\n <td style=\"padding:6px 10px;\">Atomic sizes, interatomic bond lengths, X-ray wavelengths (Bohr radius a₀ ≈ 0.529 Å)</td>\n </tr>\n <tr>\n <td style=\"padding:6px 10px;\"><strong>Fermi (Femtometre)</strong></td>\n <td style=\"padding:6px 10px;\">fm</td>\n <td style=\"padding:6px 10px;\">10⁻¹⁵ m = 10⁻¹³ cm</td>\n <td style=\"padding:6px 10px;\">Nuclear diameters, proton size (rₚ ≈ 0.84 fm), range of strong nuclear force</td>\n </tr>\n </tbody>\n </table>\n </div>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n <strong>🔬 Comparison of Atomic vs Nuclear Sizes:</strong>\n <p style=\"margin:4px 0 0 0; line-height:1.6;\">\n An atom has a typical diameter of ≈ 1 Å = 10⁻¹⁰ m, whereas its central nucleus has a diameter of ≈ 1 to 10 Fermi = 10⁻¹⁵ to 10⁻¹⁴ m.\n This means the atom is roughly <strong>100,000 times larger</strong> than its nucleus (10⁻¹⁰ / 10⁻¹⁵ = 10⁵), showing that matter is overwhelmingly empty space!\n </p>\n </div>\n ",
             "pointsToRemember": [
-                "Micron: $1\\mu\\text{m} = 10^{-6}\\text{ m}$; used for cellular biology.",
-                "Angstrom: $1\\text{ \\AA} = 10^{-10}\\text{ m} = 0.1\\text{ nm} = 10^{-8}\\text{ cm}$; used for atomic radii and chemical bond lengths.",
-                "Fermi (femtometre): $1\\text{ fm} = 10^{-15}\\text{ m}$; used for atomic nuclei ($1\\text{ fm} = 10^{-5}\\text{ \\AA}$)."
+                "Micron: 1μm = 10⁻⁶ m; used for cellular biology.",
+                "Angstrom: 1 Å = 10⁻¹⁰ m = 0.1 nm = 10⁻⁸ cm; used for atomic radii and chemical bond lengths.",
+                "Fermi (femtometre): 1 fm = 10⁻¹⁵ m; used for atomic nuclei (1 fm = 10⁻⁵ Å)."
             ],
             "keyNotes": [
-                "Exam Ratio: The ratio of atomic diameter to nuclear diameter is approximately $10^5$ ($1\\text{ \\AA} / 1\\text{ fm} = 10^{-10}\\text{ m} / 10^{-15}\\text{ m} = 100,000$)."
+                "Exam Ratio: The ratio of atomic diameter to nuclear diameter is approximately 10⁵ (1 Å / 1 fm = 10⁻¹⁰ m / 10⁻¹⁵ m = 100,000)."
             ],
             "questions": [
                 {
                     "id": "m10_q01",
-                    "question": "What is the equivalent value of 1 Angstrom ($\\text{\\AA}$) in metres?",
+                    "question": "What is the equivalent value of 1 Angstrom (Å) in metres?",
                     "options": [
-                        "$10^{-6}\\text{ m}$",
-                        "$10^{-8}\\text{ m}$",
-                        "$10^{-10}\\text{ m}$",
-                        "$10^{-15}\\text{ m}$"
+                        "10⁻⁶ m",
+                        "10⁻⁸ m",
+                        "10⁻¹⁰ m",
+                        "10⁻¹⁵ m"
                     ],
-                    "answer": "$10^{-10}\\text{ m}$",
-                    "explanation": "$1\\text{ Angstrom (\\AA)} = 10^{-10}\\text{ metres} = 10^{-8}\\text{ cm} = 0.1\\text{ nanometre}$."
+                    "answer": "10⁻¹⁰ m",
+                    "explanation": "1 Angstrom (Å) = 10⁻¹⁰ metres = 10⁻⁸ cm = 0.1 nanometre."
                 },
                 {
                     "id": "m10_q02",
                     "question": "One Fermi (or femtometre) is equal to:",
                     "options": [
-                        "$10^{-9}\\text{ m}$",
-                        "$10^{-12}\\text{ m}$",
-                        "$10^{-15}\\text{ m}$",
-                        "$10^{-18}\\text{ m}$"
+                        "10⁻⁹ m",
+                        "10⁻¹² m",
+                        "10⁻¹⁵ m",
+                        "10⁻¹⁸ m"
                     ],
-                    "answer": "$10^{-15}\\text{ m}$",
-                    "explanation": "$1\\text{ Fermi} = 1\\text{ femtometre (fm)} = 10^{-15}\\text{ metres}$."
+                    "answer": "10⁻¹⁵ m",
+                    "explanation": "1 Fermi = 1 femtometre (fm) = 10⁻¹⁵ metres."
                 },
                 {
                     "id": "m10_q03",
@@ -1309,67 +1310,67 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Astronomical unit"
                     ],
                     "answer": "Fermi",
-                    "explanation": "Nuclear radii are of the order of $10^{-15}\\text{ m}$, making the Fermi the dedicated unit for nuclear physics."
+                    "explanation": "Nuclear radii are of the order of 10⁻¹⁵ m, making the Fermi the dedicated unit for nuclear physics."
                 },
                 {
                     "id": "m10_q04",
                     "question": "How many Angstroms are equal to 1 nanometre (nm)?",
                     "options": [
-                        "$0.1\\text{ \\AA}$",
-                        "$1\\text{ \\AA}$",
-                        "$10\\text{ \\AA}$",
-                        "$100\\text{ \\AA}$"
+                        "0.1 Å",
+                        "1 Å",
+                        "10 Å",
+                        "100 Å"
                     ],
-                    "answer": "$10\\text{ \\AA}$",
-                    "explanation": "$1\\text{ nm} = 10^{-9}\\text{ m} = 10 \\times 10^{-10}\\text{ m} = 10\\text{ \\AA}$."
+                    "answer": "10 Å",
+                    "explanation": "1 nm = 10⁻⁹ m = 10 × 10⁻¹⁰ m = 10 Å."
                 },
                 {
                     "id": "m10_q05",
                     "question": "What is the approximate ratio of the diameter of an atom to the diameter of its nucleus?",
                     "options": [
-                        "$10^1$",
-                        "$10^3$",
-                        "$10^5$",
-                        "$10^{10}$"
+                        "10¹",
+                        "10³",
+                        "10⁵",
+                        "10¹⁰"
                     ],
-                    "answer": "$10^5$",
-                    "explanation": "Atomic diameter $\\approx 10^{-10}\\text{ m}$ and nuclear diameter $\\approx 10^{-15}\\text{ m}$. Ratio $= 10^{-10} / 10^{-15} = 10^5$ ($100,000$ times larger)."
+                    "answer": "10⁵",
+                    "explanation": "Atomic diameter ≈ 10⁻¹⁰ m and nuclear diameter ≈ 10⁻¹⁵ m. Ratio = 10⁻¹⁰ / 10⁻¹⁵ = 10⁵ (100,000 times larger)."
                 },
                 {
                     "id": "m10_q06",
-                    "question": "The diameter of a human red blood cell is approximately $7\\mu\\text{m}$. What is this in metres?",
+                    "question": "The diameter of a human red blood cell is approximately 7μm. What is this in metres?",
                     "options": [
-                        "$7 \\times 10^{-3}\\text{ m}$",
-                        "$7 \\times 10^{-6}\\text{ m}$",
-                        "$7 \\times 10^{-9}\\text{ m}$",
-                        "$7 \\times 10^{-12}\\text{ m}$"
+                        "7 × 10⁻³ m",
+                        "7 × 10⁻⁶ m",
+                        "7 × 10⁻⁹ m",
+                        "7 × 10⁻¹² m"
                     ],
-                    "answer": "$7 \\times 10^{-6}\\text{ m}$",
-                    "explanation": "Since $1\\mu\\text{m} = 10^{-6}\\text{ m}$, $7\\mu\\text{m} = 7 \\times 10^{-6}\\text{ m}$."
+                    "answer": "7 × 10⁻⁶ m",
+                    "explanation": "Since 1μm = 10⁻⁶ m, 7μm = 7 × 10⁻⁶ m."
                 },
                 {
                     "id": "m10_q07",
-                    "question": "The Bohr radius of a ground-state hydrogen atom ($a_0$) is approximately:",
+                    "question": "The Bohr radius of a ground-state hydrogen atom (a₀) is approximately:",
                     "options": [
-                        "$0.529\\text{ \\AA}$",
-                        "$5.29\\text{ \\AA}$",
-                        "$0.0529\\text{ nm}$",
+                        "0.529 Å",
+                        "5.29 Å",
+                        "0.0529 nm",
                         "Both A and C"
                     ],
                     "answer": "Both A and C",
-                    "explanation": "$a_0 = 0.529 \\times 10^{-10}\\text{ m} = 0.529\\text{ \\AA} = 0.0529\\text{ nm}$. Both A and C are mathematically identical and correct."
+                    "explanation": "a₀ = 0.529 × 10⁻¹⁰ m = 0.529 Å = 0.0529 nm. Both A and C are mathematically identical and correct."
                 },
                 {
                     "id": "m10_q08",
                     "question": "How many Fermis are there in 1 Angstrom?",
                     "options": [
-                        "$10^3\\text{ fm}$",
-                        "$10^5\\text{ fm}$",
-                        "$10^7\\text{ fm}$",
-                        "$10^{-5}\\text{ fm}$"
+                        "10³ fm",
+                        "10⁵ fm",
+                        "10⁷ fm",
+                        "10⁻⁵ fm"
                     ],
-                    "answer": "$10^5\\text{ fm}$",
-                    "explanation": "$1\\text{ \\AA} / 1\\text{ fm} = 10^{-10}\\text{ m} / 10^{-15}\\text{ m} = 10^5\\text{ fm}$."
+                    "answer": "10⁵ fm",
+                    "explanation": "1 Å / 1 fm = 10⁻¹⁰ m / 10⁻¹⁵ m = 10⁵ fm."
                 },
                 {
                     "id": "m10_q09",
@@ -1385,15 +1386,15 @@ const COURSE_CHAPTER_1_PHYSICS = {
                 },
                 {
                     "id": "m10_q10",
-                    "question": "Wavelengths of visible light range approximately from $4000\\text{ \\AA}$ to $7000\\text{ \\AA}$. Expressed in nanometres, this corresponds to:",
+                    "question": "Wavelengths of visible light range approximately from 4000 Å to 7000 Å. Expressed in nanometres, this corresponds to:",
                     "options": [
-                        "$40\\text{ to } 70\\text{ nm}$",
-                        "$400\\text{ to } 700\\text{ nm}$",
-                        "$0.4\\text{ to } 0.7\\text{ nm}$",
-                        "$4000\\text{ to } 7000\\text{ nm}$"
+                        "40 to 70 nm",
+                        "400 to 700 nm",
+                        "0.4 to 0.7 nm",
+                        "4000 to 7000 nm"
                     ],
-                    "answer": "$400\\text{ to } 700\\text{ nm}$",
-                    "explanation": "Since $1\\text{ nm} = 10\\text{ \\AA}$, $4000\\text{ \\AA} = 400\\text{ nm}$ and $7000\\text{ \\AA} = 700\\text{ nm}$."
+                    "answer": "400 to 700 nm",
+                    "explanation": "Since 1 nm = 10 Å, 4000 Å = 400 nm and 7000 Å = 700 nm."
                 }
             ]
         },
@@ -1403,11 +1404,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Units of Mass & Practical Measurement Conversions",
             "tagline": "Practical mass scales from commercial gemstones to agricultural metric tonnes.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>Mass is a measure of the amount of matter in a body and the fundamental measure of its inertia. The SI base unit of mass is the <strong>Kilogram (kg)</strong>. In commerce, industry, agriculture, and jewelry, various practical units are utilized.</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Conversion Table for Units of Mass</h4>\n                <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n                    <thead>\n                        <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n                            <th style=\"padding:6px 10px;\">Unit Name</th>\n                            <th style=\"padding:6px 10px;\">Relation to Kilogram (kg)</th>\n                            <th style=\"padding:6px 10px;\">Value in Grams (g)</th>\n                            <th style=\"padding:6px 10px;\">Primary Application / Notes</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Kilogram</strong></td>\n                            <td style=\"padding:6px 10px;\">$1\\text{ kg}$</td>\n                            <td style=\"padding:6px 10px;\">$1,000\\text{ g}$</td>\n                            <td style=\"padding:6px 10px;\">SI base unit</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Gram</strong></td>\n                            <td style=\"padding:6px 10px;\">$10^{-3}\\text{ kg}$</td>\n                            <td style=\"padding:6px 10px;\">$1\\text{ g}$</td>\n                            <td style=\"padding:6px 10px;\">CGS base unit, chemistry laboratories</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Quintal</strong></td>\n                            <td style=\"padding:6px 10px;\">$100\\text{ kg}$</td>\n                            <td style=\"padding:6px 10px;\">$100,000\\text{ g} = 10^5\\text{ g}$</td>\n                            <td style=\"padding:6px 10px;\">Agricultural produce and wholesale grain markets</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Metric Tonne (T)</strong></td>\n                            <td style=\"padding:6px 10px;\">$1,000\\text{ kg} = 10\\text{ quintals}$</td>\n                            <td style=\"padding:6px 10px;\">$10^6\\text{ g}$</td>\n                            <td style=\"padding:6px 10px;\">Heavy industrial freight, coal, steel, and shipping</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Pound (lb)</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\approx 0.4536\\text{ kg}$</td>\n                            <td style=\"padding:6px 10px;\">$453.592\\text{ g}$</td>\n                            <td style=\"padding:6px 10px;\">FPS / US customary & British avoirdupois weight</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Ounce (oz)</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\approx 0.02835\\text{ kg}$</td>\n                            <td style=\"padding:6px 10px;\">$28.3495\\text{ g}$</td>\n                            <td style=\"padding:6px 10px;\">$1/16\\text{th}$ of an avoirdupois pound</td>\n                        </tr>\n                        <tr>\n                            <td style=\"padding:6px 10px;\"><strong>Carat</strong></td>\n                            <td style=\"padding:6px 10px;\">$0.0002\\text{ kg} = 2 \\times 10^{-4}\\text{ kg}$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{0.2\\text{ g} = 200\\text{ mg}}$</td>\n                            <td style=\"padding:6px 10px;\">Precious gemstones, diamonds, and natural pearls</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n                <strong>💎 Crucial Civil Services Distinction: Carat (Mass) vs Karat (Purity):</strong>\n                <ul style=\"margin:6px 0 0 16px; line-height:1.6;\">\n                    <li><strong>Carat (ct):</strong> A unit of <strong>mass</strong> equal to exactly $200\\text{ mg} = 0.2\\text{ g}$ for gemstones. (A 5-carat diamond weighs exactly $1.0\\text{ gram}$).</li>\n                    <li><strong>Karat (K):</strong> A measure of <strong>purity of gold</strong> on a 24-part scale. 24 Karat = $100\\%$ pure gold ($24/24$); 22 Karat = $22/24 \\approx 91.6\\%$ pure gold (916 Hallmark). Karat is NOT a unit of weight!</li>\n                </ul>\n            </div>\n        ",
+            "theoryHtml": "\n <p>Mass is a measure of the amount of matter in a body and the fundamental measure of its inertia. The SI base unit of mass is the <strong>Kilogram (kg)</strong>. In commerce, industry, agriculture, and jewelry, various practical units are utilized.</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Conversion Table for Units of Mass</h4>\n <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n <thead>\n <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n <th style=\"padding:6px 10px;\">Unit Name</th>\n <th style=\"padding:6px 10px;\">Relation to Kilogram (kg)</th>\n <th style=\"padding:6px 10px;\">Value in Grams (g)</th>\n <th style=\"padding:6px 10px;\">Primary Application / Notes</th>\n </tr>\n </thead>\n <tbody>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Kilogram</strong></td>\n <td style=\"padding:6px 10px;\">1 kg</td>\n <td style=\"padding:6px 10px;\">1,000 g</td>\n <td style=\"padding:6px 10px;\">SI base unit</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Gram</strong></td>\n <td style=\"padding:6px 10px;\">10⁻³ kg</td>\n <td style=\"padding:6px 10px;\">1 g</td>\n <td style=\"padding:6px 10px;\">CGS base unit, chemistry laboratories</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Quintal</strong></td>\n <td style=\"padding:6px 10px;\">100 kg</td>\n <td style=\"padding:6px 10px;\">100,000 g = 10⁵ g</td>\n <td style=\"padding:6px 10px;\">Agricultural produce and wholesale grain markets</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Metric Tonne (T)</strong></td>\n <td style=\"padding:6px 10px;\">1,000 kg = 10 quintals</td>\n <td style=\"padding:6px 10px;\">10⁶ g</td>\n <td style=\"padding:6px 10px;\">Heavy industrial freight, coal, steel, and shipping</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Pound (lb)</strong></td>\n <td style=\"padding:6px 10px;\">≈ 0.4536 kg</td>\n <td style=\"padding:6px 10px;\">453.592 g</td>\n <td style=\"padding:6px 10px;\">FPS / US customary & British avoirdupois weight</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Ounce (oz)</strong></td>\n <td style=\"padding:6px 10px;\">≈ 0.02835 kg</td>\n <td style=\"padding:6px 10px;\">28.3495 g</td>\n <td style=\"padding:6px 10px;\">1/16th of an avoirdupois pound</td>\n </tr>\n <tr>\n <td style=\"padding:6px 10px;\"><strong>Carat</strong></td>\n <td style=\"padding:6px 10px;\">0.0002 kg = 2 × 10⁻⁴ kg</td>\n <td style=\"padding:6px 10px;\">0.2 g = 200 mg</td>\n <td style=\"padding:6px 10px;\">Precious gemstones, diamonds, and natural pearls</td>\n </tr>\n </tbody>\n </table>\n </div>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n <strong>💎 Crucial Civil Services Distinction: Carat (Mass) vs Karat (Purity):</strong>\n <ul style=\"margin:6px 0 0 16px; line-height:1.6;\">\n <li><strong>Carat (ct):</strong> A unit of <strong>mass</strong> equal to exactly 200 mg = 0.2 g for gemstones. (A 5-carat diamond weighs exactly 1.0 gram).</li>\n <li><strong>Karat (K):</strong> A measure of <strong>purity of gold</strong> on a 24-part scale. 24 Karat = 100% pure gold (24/24); 22 Karat = 22/24 ≈ 91.6% pure gold (916 Hallmark). Karat is NOT a unit of weight!</li>\n </ul>\n </div>\n ",
             "pointsToRemember": [
-                "$1\\text{ Quintal} = 100\\text{ kg}$; $1\\text{ Metric Tonne} = 1,000\\text{ kg} = 10\\text{ quintals}$.",
-                "$1\\text{ Pound (lb)} \\approx 0.4536\\text{ kg} = 453.59\\text{ g}$; $1\\text{ Ounce} = 1/16\\text{ lb} \\approx 28.35\\text{ g}$.",
-                "$1\\text{ Carat} = 200\\text{ milligrams} = 0.2\\text{ grams}$; Karat measures gold purity, whereas Carat measures gemstone mass."
+                "1 Quintal = 100 kg; 1 Metric Tonne = 1,000 kg = 10 quintals.",
+                "1 Pound (lb) ≈ 0.4536 kg = 453.59 g; 1 Ounce = 1/16 lb ≈ 28.35 g.",
+                "1 Carat = 200 milligrams = 0.2 grams; Karat measures gold purity, whereas Carat measures gemstone mass."
             ],
             "keyNotes": [
                 "Frequent Civil Services Question: 1 Carat of diamond equals exactly 200 mg (0.2 g). Never confuse with 24K gold purity!"
@@ -1417,109 +1418,109 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "id": "m11_q01",
                     "question": "What is the exact mass equivalent of 1 Carat used for diamonds and gemstones?",
                     "options": [
-                        "$20\\text{ mg}$",
-                        "$100\\text{ mg}$",
-                        "$200\\text{ mg}$",
-                        "$500\\text{ mg}$"
+                        "20 mg",
+                        "100 mg",
+                        "200 mg",
+                        "500 mg"
                     ],
-                    "answer": "$200\\text{ mg}$",
-                    "explanation": "One metric carat is defined as exactly $200\\text{ milligrams} = 0.2\\text{ grams}$."
+                    "answer": "200 mg",
+                    "explanation": "One metric carat is defined as exactly 200 milligrams = 0.2 grams."
                 },
                 {
                     "id": "m11_q02",
                     "question": "How many kilograms are there in 1 Quintal?",
                     "options": [
-                        "$10\\text{ kg}$",
-                        "$50\\text{ kg}$",
-                        "$100\\text{ kg}$",
-                        "$1,000\\text{ kg}$"
+                        "10 kg",
+                        "50 kg",
+                        "100 kg",
+                        "1,000 kg"
                     ],
-                    "answer": "$100\\text{ kg}$",
-                    "explanation": "A quintal is standardly defined as $100\\text{ kilograms}$."
+                    "answer": "100 kg",
+                    "explanation": "A quintal is standardly defined as 100 kilograms."
                 },
                 {
                     "id": "m11_q03",
                     "question": "How many quintals constitute 1 Metric Tonne?",
                     "options": [
-                        "$5\\text{ quintals}$",
-                        "$10\\text{ quintals}$",
-                        "$20\\text{ quintals}$",
-                        "$100\\text{ quintals}$"
+                        "5 quintals",
+                        "10 quintals",
+                        "20 quintals",
+                        "100 quintals"
                     ],
-                    "answer": "$10\\text{ quintals}$",
-                    "explanation": "$1\\text{ Metric Tonne} = 1,000\\text{ kg} = 10 \\times 100\\text{ kg} = 10\\text{ quintals}$."
+                    "answer": "10 quintals",
+                    "explanation": "1 Metric Tonne = 1,000 kg = 10 × 100 kg = 10 quintals."
                 },
                 {
                     "id": "m11_q04",
                     "question": "What is the mass of 1 avoirdupois pound in grams?",
                     "options": [
-                        "$350.2\\text{ g}$",
-                        "$453.59\\text{ g}$",
-                        "$500.00\\text{ g}$",
-                        "$1,000.0\\text{ g}$"
+                        "350.2 g",
+                        "453.59 g",
+                        "500.00 g",
+                        "1,000.0 g"
                     ],
-                    "answer": "$453.59\\text{ g}$",
-                    "explanation": "$1\\text{ lb} = 0.45359237\\text{ kg} \\approx 453.59\\text{ grams}$."
+                    "answer": "453.59 g",
+                    "explanation": "1 lb = 0.45359237 kg ≈ 453.59 grams."
                 },
                 {
                     "id": "m11_q05",
                     "question": "How many ounces (oz) are there in one pound (lb)?",
                     "options": [
-                        "$10\\text{ oz}$",
-                        "$12\\text{ oz}$",
-                        "$16\\text{ oz}$",
-                        "$20\\text{ oz}$"
+                        "10 oz",
+                        "12 oz",
+                        "16 oz",
+                        "20 oz"
                     ],
-                    "answer": "$16\\text{ oz}$",
-                    "explanation": "In the standard avoirdupois system, $1\\text{ pound} = 16\\text{ ounces}$ ($1\\text{ oz} \\approx 28.35\\text{ g}$)."
+                    "answer": "16 oz",
+                    "explanation": "In the standard avoirdupois system, 1 pound = 16 ounces (1 oz ≈ 28.35 g)."
                 },
                 {
                     "id": "m11_q06",
                     "question": "What is the fundamental difference between 'Carat' and 'Karat'?",
                     "options": [
-                        "Carat is a unit of mass ($200\\text{ mg}$); Karat is a measure of gold purity (out of 24 parts)",
+                        "Carat is a unit of mass (200 mg); Karat is a measure of gold purity (out of 24 parts)",
                         "Carat measures volume; Karat measures density",
                         "Carat is British; Karat is French",
                         "There is no difference; they are alternate spellings"
                     ],
-                    "answer": "Carat is a unit of mass ($200\\text{ mg}$); Karat is a measure of gold purity (out of 24 parts)",
-                    "explanation": "Carat is a weight unit ($0.2\\text{ g}$) for gemstones, whereas Karat measures purity of gold ($24\\text{K} = 100\\%$ gold)."
+                    "answer": "Carat is a unit of mass (200 mg); Karat is a measure of gold purity (out of 24 parts)",
+                    "explanation": "Carat is a weight unit (0.2 g) for gemstones, whereas Karat measures purity of gold (24K = 100% gold)."
                 },
                 {
                     "id": "m11_q07",
                     "question": "If an ornament is hallmarked as 18 Karat gold, what percentage of pure gold does it contain?",
                     "options": [
-                        "$50\\%$",
-                        "$75\\%$",
-                        "$91.6\\%$",
-                        "$100\\%$"
+                        "50%",
+                        "75%",
+                        "91.6%",
+                        "100%"
                     ],
-                    "answer": "$75\\%$",
-                    "explanation": "Gold purity percentage $= (18 / 24) \\times 100 = 0.75 \\times 100 = 75\\%$ (the remaining $25\\%$ consists of copper or silver alloys)."
+                    "answer": "75%",
+                    "explanation": "Gold purity percentage = (18 / 24) × 100 = 0.75 × 100 = 75% (the remaining 25% consists of copper or silver alloys)."
                 },
                 {
                     "id": "m11_q08",
-                    "question": "A diamond weighs exactly $1.0\\text{ gram}$. What is its weight in carats?",
+                    "question": "A diamond weighs exactly 1.0 gram. What is its weight in carats?",
                     "options": [
-                        "$2\\text{ carats}$",
-                        "$5\\text{ carats}$",
-                        "$10\\text{ carats}$",
-                        "$0.2\\text{ carats}$"
+                        "2 carats",
+                        "5 carats",
+                        "10 carats",
+                        "0.2 carats"
                     ],
-                    "answer": "$5\\text{ carats}$",
-                    "explanation": "Since $1\\text{ carat} = 0.2\\text{ g}$, a $1.0\\text{ g}$ diamond weighs $1.0 / 0.2 = 5\\text{ carats}$."
+                    "answer": "5 carats",
+                    "explanation": "Since 1 carat = 0.2 g, a 1.0 g diamond weighs 1.0 / 0.2 = 5 carats."
                 },
                 {
                     "id": "m11_q09",
                     "question": "In rural wholesale markets, a farmer sells 25 quintals of wheat. What is this quantity in metric tonnes?",
                     "options": [
-                        "$0.25\\text{ tonnes}$",
-                        "$2.5\\text{ tonnes}$",
-                        "$25\\text{ tonnes}$",
-                        "$250\\text{ tonnes}$"
+                        "0.25 tonnes",
+                        "2.5 tonnes",
+                        "25 tonnes",
+                        "250 tonnes"
                     ],
-                    "answer": "$2.5\\text{ tonnes}$",
-                    "explanation": "$25\\text{ quintals} = 25 \\times 100\\text{ kg} = 2,500\\text{ kg} = 2.5\\text{ metric tonnes}$."
+                    "answer": "2.5 tonnes",
+                    "explanation": "25 quintals = 25 × 100 kg = 2,500 kg = 2.5 metric tonnes."
                 },
                 {
                     "id": "m11_q10",
@@ -1531,7 +1532,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "One Pound"
                     ],
                     "answer": "One Metric Tonne",
-                    "explanation": "One Metric Tonne ($1000\\text{ kg}$) is greater than 1 Quintal ($100\\text{ kg}$), 1 Kilogram ($1\\text{ kg}$), and 1 Pound ($0.454\\text{ kg}$)."
+                    "explanation": "One Metric Tonne (1000 kg) is greater than 1 Quintal (100 kg), 1 Kilogram (1 kg), and 1 Pound (0.454 kg)."
                 }
             ]
         },
@@ -1541,11 +1542,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Microscopic Mass & The Chandrasekhar Limit",
             "tagline": "From atomic mass units to the astrophysical threshold determining stellar death.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>At the extreme microscopic and macroscopic limits of mass, physics relies on two profound benchmarks: the <strong>Atomic Mass Unit</strong> and the <strong>Chandrasekhar Limit</strong>.</p>\n            <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">1. Atomic Mass Unit (amu or u):</h4>\n            <p>The standard kilogram is far too colossal for measuring individual atoms and subatomic particles. The <strong>unified atomic mass unit (u)</strong> is defined as <strong>exactly $1/12\\text{th}$ of the mass of one unbound neutral Carbon-12 ($^{12}\\text{C}$) atom at rest</strong>:</p>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n                $$1\\text{ amu} = 1\\text{ u} = \\frac{1}{12} \\times \\frac{0.012\\text{ kg}}{6.02214 \\times 10^{23}} = \\mathbf{1.66054 \\times 10^{-27}\\text{ kg}} = 1.66054 \\times 10^{-24}\\text{ g}$$\n                $$\\text{Mass of Proton } m_p \\approx 1.00727\\text{ u}, \\quad \\text{Mass of Neutron } m_n \\approx 1.00866\\text{ u}, \\quad \\text{Mass of Electron } m_e \\approx 0.00055\\text{ u}$$\n            </div>\n            <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">2. The Chandrasekhar Limit ($1.44 M_\\odot$):</h4>\n            <p>Formulated by the illustrious Indian-American astrophysicist <strong>Subrahmanyan Chandrasekhar</strong> (who won the <strong>Nobel Prize in Physics in 1983</strong>), the <strong>Chandrasekhar Limit</strong> represents the <strong>maximum theoretical mass that a stable white dwarf star can possess</strong> without succumbing to gravitational collapse.</p>\n            <div style=\"background:#f1f5f9; border:1px solid #cbd5e1; border-radius:8px; padding:12px 16px; margin:12px 0;\">\n                $$\\text{Chandrasekhar Limit } M_{ch} \\approx 1.44 M_\\odot \\approx 1.44 \\times (1.989 \\times 10^{30}\\text{ kg}) \\approx \\mathbf{2.8 \\times 10^{30}\\text{ kg}}$$\n                (where $M_\\odot$ denotes the mass of our Sun).\n            </div>\n            <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">Astrophysical Fate of Dying Stars:</h4>\n            <ul style=\"margin:6px 0 14px 20px; line-height:1.6;\">\n                <li><strong>Core Mass $< 1.44 M_\\odot$:</strong> Electron degeneracy pressure counterbalances gravity. The dying star settles peacefully into a stable <strong>White Dwarf</strong> (the eventual fate of our Sun).</li>\n                <li><strong>Core Mass $> 1.44 M_\\odot$:</strong> Gravity overwhelms electron degeneracy pressure. The star undergoes a catastrophic supernova explosion.\n                    <ul style=\"margin:4px 0 0 16px;\">\n                        <li>If the remnant core is between $1.44 M_\\odot$ and $\\approx 3 M_\\odot$ (Tolman-Oppenheimer-Volkoff limit), it forms an ultra-dense <strong>Neutron Star</strong> (supported by neutron degeneracy pressure).</li>\n                        <li>If the remnant core exceeds $\\approx 3 M_\\odot$, complete gravitational collapse occurs, creating a <strong>Black Hole</strong>.</li>\n                    </ul>\n                </li>\n            </ul>\n        ",
+            "theoryHtml": "\n <p>At the extreme microscopic and macroscopic limits of mass, physics relies on two profound benchmarks: the <strong>Atomic Mass Unit</strong> and the <strong>Chandrasekhar Limit</strong>.</p>\n <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">1. Atomic Mass Unit (amu or u):</h4>\n <p>The standard kilogram is far too colossal for measuring individual atoms and subatomic particles. The <strong>unified atomic mass unit (u)</strong> is defined as <strong>exactly 1/12th of the mass of one unbound neutral Carbon-12 (¹²C) atom at rest</strong>:</p>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n 1 amu = 1 u = (1 / 12) × frac{0.012 kg}{6.02214 × 10²³} = mathbf{1.66054 × 10⁻²⁷ kg} = 1.66054 × 10⁻²⁴ g\n Mass of Proton mₚ ≈ 1.00727 u, Mass of Neutron mₙ ≈ 1.00866 u, Mass of Electron mₑ ≈ 0.00055 u\n </div>\n <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">2. The Chandrasekhar Limit (1.44 M☉):</h4>\n <p>Formulated by the illustrious Indian-American astrophysicist <strong>Subrahmanyan Chandrasekhar</strong> (who won the <strong>Nobel Prize in Physics in 1983</strong>), the <strong>Chandrasekhar Limit</strong> represents the <strong>maximum theoretical mass that a stable white dwarf star can possess</strong> without succumbing to gravitational collapse.</p>\n <div style=\"background:#f1f5f9; border:1px solid #cbd5e1; border-radius:8px; padding:12px 16px; margin:12px 0;\">\n Chandrasekhar Limit M_{ch} ≈ 1.44 M☉ ≈ 1.44 × (1.989 × 10³⁰ kg) ≈ mathbf{2.8 × 10³⁰ kg}\n (where M☉ denotes the mass of our Sun).\n </div>\n <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">Astrophysical Fate of Dying Stars:</h4>\n <ul style=\"margin:6px 0 14px 20px; line-height:1.6;\">\n <li><strong>Core Mass < 1.44 M☉:</strong> Electron degeneracy pressure counterbalances gravity. The dying star settles peacefully into a stable <strong>White Dwarf</strong> (the eventual fate of our Sun).</li>\n <li><strong>Core Mass > 1.44 M☉:</strong> Gravity overwhelms electron degeneracy pressure. The star undergoes a catastrophic supernova explosion.\n <ul style=\"margin:4px 0 0 16px;\">\n <li>If the remnant core is between 1.44 M☉ and ≈ 3 M☉ (Tolman-Oppenheimer-Volkoff limit), it forms an ultra-dense <strong>Neutron Star</strong> (supported by neutron degeneracy pressure).</li>\n <li>If the remnant core exceeds ≈ 3 M☉, complete gravitational collapse occurs, creating a <strong>Black Hole</strong>.</li>\n </ul>\n </li>\n </ul>\n ",
             "pointsToRemember": [
-                "$1\\text{ amu} = 1.6605 \\times 10^{-27}\\text{ kg} = 1.6605 \\times 10^{-24}\\text{ g}$ (defined as $1/12\\text{th}$ of Carbon-12 atom).",
-                "Chandrasekhar Limit is $1.44\\text{ Solar Masses } (\\approx 2.8 \\times 10^{30}\\text{ kg})$; discovered by S. Chandrasekhar (Nobel Prize 1983).",
-                "Stars with core mass $< 1.44 M_\\odot$ become White Dwarfs; those $> 1.44 M_\\odot$ collapse into Neutron Stars or Black Holes."
+                "1 amu = 1.6605 × 10⁻²⁷ kg = 1.6605 × 10⁻²⁴ g (defined as 1/12th of Carbon-12 atom).",
+                "Chandrasekhar Limit is 1.44 Solar Masses (≈ 2.8 × 10³⁰ kg); discovered by S. Chandrasekhar (Nobel Prize 1983).",
+                "Stars with core mass < 1.44 M☉ become White Dwarfs; those > 1.44 M☉ collapse into Neutron Stars or Black Holes."
             ],
             "keyNotes": [
                 "Civil Services Milestone: S. Chandrasekhar shared the 1983 Nobel Prize in Physics with William A. Fowler for theoretical studies of the physical processes important to the structure and evolution of stars."
@@ -1553,15 +1554,15 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "questions": [
                 {
                     "id": "m12_q01",
-                    "question": "What is the numerical value of the Chandrasekhar Limit in terms of solar masses ($M_\\odot$)?",
+                    "question": "What is the numerical value of the Chandrasekhar Limit in terms of solar masses (M☉)?",
                     "options": [
-                        "$1.0\\text{ Solar Mass}$",
-                        "$1.44\\text{ Solar Masses}$",
-                        "$2.5\\text{ Solar Masses}$",
-                        "$3.0\\text{ Solar Masses}$"
+                        "1.0 Solar Mass",
+                        "1.44 Solar Masses",
+                        "2.5 Solar Masses",
+                        "3.0 Solar Masses"
                     ],
-                    "answer": "$1.44\\text{ Solar Masses}$",
-                    "explanation": "The Chandrasekhar Limit is approximately $1.44$ times the mass of the Sun ($1.44 M_\\odot \\approx 2.8 \\times 10^{30}\\text{ kg}$)."
+                    "answer": "1.44 Solar Masses",
+                    "explanation": "The Chandrasekhar Limit is approximately 1.44 times the mass of the Sun (1.44 M☉ ≈ 2.8 × 10³⁰ kg)."
                 },
                 {
                     "id": "m12_q02",
@@ -1589,7 +1590,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                 },
                 {
                     "id": "m12_q04",
-                    "question": "What will be the ultimate evolutionary fate of a star whose dying core mass is LESS than $1.44 M_\\odot$?",
+                    "question": "What will be the ultimate evolutionary fate of a star whose dying core mass is LESS than 1.44 M☉?",
                     "options": [
                         "White Dwarf",
                         "Neutron Star",
@@ -1597,7 +1598,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Supernova with complete annihilation"
                     ],
                     "answer": "White Dwarf",
-                    "explanation": "Stars with core masses below $1.44 M_\\odot$ (including our Sun) cool stably into White Dwarfs."
+                    "explanation": "Stars with core masses below 1.44 M☉ (including our Sun) cool stably into White Dwarfs."
                 },
                 {
                     "id": "m12_q05",
@@ -1609,7 +1610,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Main-sequence star"
                     ],
                     "answer": "Neutron Star or Black Hole",
-                    "explanation": "Beyond $1.44 M_\\odot$, electron degeneracy pressure fails, collapsing the core into either a Neutron Star or a Black Hole."
+                    "explanation": "Beyond 1.44 M☉, electron degeneracy pressure fails, collapsing the core into either a Neutron Star or a Black Hole."
                 },
                 {
                     "id": "m12_q06",
@@ -1617,23 +1618,23 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "options": [
                         "Mass of a hydrogen atom",
                         "Mass of an oxygen-16 atom",
-                        "$1/12\\text{th}$ the mass of a single unbound Carbon-12 atom",
-                        "$1/14\\text{th}$ the mass of a Nitrogen-14 atom"
+                        "1/12th the mass of a single unbound Carbon-12 atom",
+                        "1/14th the mass of a Nitrogen-14 atom"
                     ],
-                    "answer": "$1/12\\text{th}$ the mass of a single unbound Carbon-12 atom",
-                    "explanation": "1 amu is standardly defined as exactly $1/12\\text{th}$ the mass of an isolated Carbon-12 atom."
+                    "answer": "1/12th the mass of a single unbound Carbon-12 atom",
+                    "explanation": "1 amu is standardly defined as exactly 1/12th the mass of an isolated Carbon-12 atom."
                 },
                 {
                     "id": "m12_q07",
                     "question": "What is the value of 1 atomic mass unit (amu) in kilograms?",
                     "options": [
-                        "$9.11 \\times 10^{-31}\\text{ kg}$",
-                        "$1.6605 \\times 10^{-27}\\text{ kg}$",
-                        "$1.6605 \\times 10^{-24}\\text{ kg}$",
-                        "$6.022 \\times 10^{-23}\\text{ kg}$"
+                        "9.11 × 10⁻³¹ kg",
+                        "1.6605 × 10⁻²⁷ kg",
+                        "1.6605 × 10⁻²⁴ kg",
+                        "6.022 × 10⁻²³ kg"
                     ],
-                    "answer": "$1.6605 \\times 10^{-27}\\text{ kg}$",
-                    "explanation": "$1\\text{ amu} = 1.66054 \\times 10^{-27}\\text{ kg} = 1.66054 \\times 10^{-24}\\text{ g}$."
+                    "answer": "1.6605 × 10⁻²⁷ kg",
+                    "explanation": "1 amu = 1.66054 × 10⁻²⁷ kg = 1.66054 × 10⁻²⁴ g."
                 },
                 {
                     "id": "m12_q08",
@@ -1649,15 +1650,15 @@ const COURSE_CHAPTER_1_PHYSICS = {
                 },
                 {
                     "id": "m12_q09",
-                    "question": "Approximately what is the total mass of the Sun ($1 M_\\odot$)?",
+                    "question": "Approximately what is the total mass of the Sun (1 M☉)?",
                     "options": [
-                        "$5.97 \\times 10^{24}\\text{ kg}$",
-                        "$1.989 \\times 10^{30}\\text{ kg}$",
-                        "$2.8 \\times 10^{35}\\text{ kg}$",
-                        "$1.5 \\times 10^{11}\\text{ kg}$"
+                        "5.97 × 10²⁴ kg",
+                        "1.989 × 10³⁰ kg",
+                        "2.8 × 10³⁵ kg",
+                        "1.5 × 10¹¹ kg"
                     ],
-                    "answer": "$1.989 \\times 10^{30}\\text{ kg}$",
-                    "explanation": "The mass of the Sun is approximately $1.989 \\times 10^{30}\\text{ kg}$ (about $333,000$ times Earth's mass)."
+                    "answer": "1.989 × 10³⁰ kg",
+                    "explanation": "The mass of the Sun is approximately 1.989 × 10³⁰ kg (about 333,000 times Earth's mass)."
                 },
                 {
                     "id": "m12_q10",
@@ -1669,7 +1670,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "It will turn into a neutron star directly"
                     ],
                     "answer": "It will collapse into a stable White Dwarf because its mass is well below the Chandrasekhar Limit",
-                    "explanation": "With a mass of $1.0 M_\\odot$ (below $1.44 M_\\odot$), the Sun will shed its outer envelope as a planetary nebula and leave a white dwarf."
+                    "explanation": "With a mass of 1.0 M☉ (below 1.44 M☉), the Sun will shed its outer envelope as a planetary nebula and leave a white dwarf."
                 }
             ]
         },
@@ -1679,28 +1680,28 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Time Standards & Chronometry",
             "tagline": "Defining the flow of time from atomic oscillations to solar and sidereal days.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>Time is the interval between two successive events or the continuous progression of existence. In the SI system, the fundamental unit of time is the <strong>Second (s)</strong>.</p>\n            <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">Atomic Definition of the Second:</h4>\n            <p>Solar time varies slightly due to Earth's elliptical orbit and axial tilt. Therefore, since 1967, the <strong>Second</strong> is defined with absolute quantum precision using the <strong>Caesium-133 atomic clock</strong>:</p>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n                One <strong>Second</strong> is the duration of exactly <strong>$9,192,631,770$ periods</strong> of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the Caesium-133 atom.\n            </div>\n            <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">Astronomical & Practical Time Units:</h4>\n            <ul style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n                <li><strong>Mean Solar Day:</strong> Average time taken by Earth to rotate once on its axis relative to the Sun:\n                    $$1\\text{ Mean Solar Day} = 24\\text{ hours} = 1,440\\text{ minutes} = \\mathbf{86,400\\text{ seconds}}$$\n                </li>\n                <li><strong>Sidereal Day:</strong> Time taken by Earth to complete one true $360^\\circ$ rotation relative to distant fixed stars:\n                    $$1\\text{ Sidereal Day} = 23\\text{ hours, } 56\\text{ minutes, } 4.09\\text{ seconds} \\approx 86,164.1\\text{ s}$$\n                    <em>(A sidereal day is about 4 minutes shorter than a solar day because Earth advances in its orbit while spinning).</em>\n                </li>\n                <li><strong>Solar Year:</strong> Time taken by Earth to complete one revolution around the Sun $= 365.2422\\text{ mean solar days} \\approx 365\\text{ days, } 5\\text{ hours, } 48\\text{ minutes, } 46\\text{ seconds}$.</li>\n                <li><strong>Julian Year:</strong> Standardized astronomical year $= 365.25\\text{ days} = 31,557,600\\text{ seconds}$.</li>\n                <li><strong>Shake (Nuclear Physics):</strong> An informal unit of time used in nuclear reaction cross-sections and nuclear bomb explosions:\n                    $$1\\text{ Shake} = 10^{-8}\\text{ seconds} = 10\\text{ nanoseconds}$$\n                </li>\n            </ul>\n        ",
+            "theoryHtml": "\n <p>Time is the interval between two successive events or the continuous progression of existence. In the SI system, the fundamental unit of time is the <strong>Second (s)</strong>.</p>\n <h4 style=\"color:#1e3a8a; margin:12px 0 6px 0;\">Atomic Definition of the Second:</h4>\n <p>Solar time varies slightly due to Earth's elliptical orbit and axial tilt. Therefore, since 1967, the <strong>Second</strong> is defined with absolute quantum precision using the <strong>Caesium-133 atomic clock</strong>:</p>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px;\">\n One <strong>Second</strong> is the duration of exactly <strong>9,192,631,770 periods</strong> of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the Caesium-133 atom.\n </div>\n <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">Astronomical & Practical Time Units:</h4>\n <ul style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n <li><strong>Mean Solar Day:</strong> Average time taken by Earth to rotate once on its axis relative to the Sun:\n 1 Mean Solar Day = 24 hours = 1,440 minutes = 86,400 seconds\n </li>\n <li><strong>Sidereal Day:</strong> Time taken by Earth to complete one true 360^° rotation relative to distant fixed stars:\n 1 Sidereal Day = 23 hours, 56 minutes, 4.09 seconds ≈ 86,164.1 s\n <em>(A sidereal day is about 4 minutes shorter than a solar day because Earth advances in its orbit while spinning).</em>\n </li>\n <li><strong>Solar Year:</strong> Time taken by Earth to complete one revolution around the Sun = 365.2422 mean solar days ≈ 365 days, 5 hours, 48 minutes, 46 seconds.</li>\n <li><strong>Julian Year:</strong> Standardized astronomical year = 365.25 days = 31,557,600 seconds.</li>\n <li><strong>Shake (Nuclear Physics):</strong> An informal unit of time used in nuclear reaction cross-sections and nuclear bomb explosions:\n 1 Shake = 10⁻⁸ seconds = 10 nanoseconds\n </li>\n </ul>\n ",
             "pointsToRemember": [
-                "1 Second = $9,192,631,770$ oscillations of Caesium-133 ground state hyperfine radiation.",
-                "1 Mean Solar Day = $86,400\\text{ seconds}$ (24 hours).",
-                "A Sidereal Day is $\\approx 23\\text{h } 56\\text{m } 4\\text{s}$ (about 4 minutes shorter than a solar day).",
-                "1 Shake = $10^{-8}\\text{ s} = 10\\text{ ns}$ (used in nuclear physics)."
+                "1 Second = 9,192,631,770 oscillations of Caesium-133 ground state hyperfine radiation.",
+                "1 Mean Solar Day = 86,400 seconds (24 hours).",
+                "A Sidereal Day is ≈ 23h 56m 4s (about 4 minutes shorter than a solar day).",
+                "1 Shake = 10⁻⁸ s = 10 ns (used in nuclear physics)."
             ],
             "keyNotes": [
-                "Civil Services Exam Fact: Why is a sidereal day 4 minutes shorter than a solar day? Because Earth rotates $360^\\circ$ on its axis in 23h 56m, but must rotate an extra $\\approx 1^\\circ$ (taking ~4 mins) to realign with the Sun."
+                "Civil Services Exam Fact: Why is a sidereal day 4 minutes shorter than a solar day? Because Earth rotates 360^° on its axis in 23h 56m, but must rotate an extra ≈ 1^° (taking ~4 mins) to realign with the Sun."
             ],
             "questions": [
                 {
                     "id": "m13_q01",
                     "question": "How many seconds are there in one full Mean Solar Day (24 hours)?",
                     "options": [
-                        "$3,600\\text{ s}$",
-                        "$43,200\\text{ s}$",
-                        "$86,400\\text{ s}$",
-                        "$100,000\\text{ s}$"
+                        "3,600 s",
+                        "43,200 s",
+                        "86,400 s",
+                        "100,000 s"
                     ],
-                    "answer": "$86,400\\text{ s}$",
-                    "explanation": "$1\\text{ day} = 24 \\times 60 \\times 60 = 86,400\\text{ seconds}$."
+                    "answer": "86,400 s",
+                    "explanation": "1 day = 24 × 60 × 60 = 86,400 seconds."
                 },
                 {
                     "id": "m13_q02",
@@ -1712,7 +1713,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Carbon-12"
                     ],
                     "answer": "Caesium-133",
-                    "explanation": "The SI second is officially defined by $9,192,631,770$ radiation periods of the Caesium-133 ground state hyperfine transition."
+                    "explanation": "The SI second is officially defined by 9,192,631,770 radiation periods of the Caesium-133 ground state hyperfine transition."
                 },
                 {
                     "id": "m13_q03",
@@ -1724,7 +1725,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "23 hours 30 minutes 00 seconds"
                     ],
                     "answer": "23 hours 56 minutes 4 seconds",
-                    "explanation": "A sidereal day is the time for a true $360^\\circ$ axial rotation relative to fixed distant stars, taking $23\\text{h } 56\\text{m } 4.1\\text{s}$."
+                    "explanation": "A sidereal day is the time for a true 360^° axial rotation relative to fixed distant stars, taking 23h 56m 4.1s."
                 },
                 {
                     "id": "m13_q04",
@@ -1736,31 +1737,31 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Because solar clocks use daylight saving offsets"
                     ],
                     "answer": "Because while Earth rotates, it also moves forward in its orbit around the Sun, requiring an additional rotation of ~1° to face the Sun again",
-                    "explanation": "Earth travels $\\approx 360^\\circ / 365.25 \\approx 1^\\circ$ along its orbit each day. Earth must rotate $\\approx 361^\\circ$ relative to the Sun, which takes an extra $4\\text{ minutes}$."
+                    "explanation": "Earth travels ≈ 360^° / 365.25 ≈ 1^° along its orbit each day. Earth must rotate ≈ 361^° relative to the Sun, which takes an extra 4 minutes."
                 },
                 {
                     "id": "m13_q05",
                     "question": "In nuclear physics, what is a 'Shake' equivalent to?",
                     "options": [
-                        "$10^{-3}\\text{ s}$",
-                        "$10^{-6}\\text{ s}$",
-                        "$10^{-8}\\text{ s}$",
-                        "$10^{-12}\\text{ s}$"
+                        "10⁻³ s",
+                        "10⁻⁶ s",
+                        "10⁻⁸ s",
+                        "10⁻¹² s"
                     ],
-                    "answer": "$10^{-8}\\text{ s}$",
-                    "explanation": "1 Shake is a specialized nuclear time unit equal to $10^{-8}\\text{ seconds} = 10\\text{ nanoseconds}$."
+                    "answer": "10⁻⁸ s",
+                    "explanation": "1 Shake is a specialized nuclear time unit equal to 10⁻⁸ seconds = 10 nanoseconds."
                 },
                 {
                     "id": "m13_q06",
                     "question": "How many seconds are contained in an ordinary tropical calendar year (non-leap year of 365 days)?",
                     "options": [
-                        "$3.1536 \\times 10^7\\text{ s}$",
-                        "$8.64 \\times 10^4\\text{ s}$",
-                        "$5.256 \\times 10^5\\text{ s}$",
-                        "$3.65 \\times 10^6\\text{ s}$"
+                        "3.1536 × 10⁷ s",
+                        "8.64 × 10⁴ s",
+                        "5.256 × 10⁵ s",
+                        "3.65 × 10⁶ s"
                     ],
-                    "answer": "$3.1536 \\times 10^7\\text{ s}$",
-                    "explanation": "$365 \\times 86,400\\text{ s} = 31,536,000\\text{ s} = 3.1536 \\times 10^7\\text{ seconds}$."
+                    "answer": "3.1536 × 10⁷ s",
+                    "explanation": "365 × 86,400 s = 31,536,000 s = 3.1536 × 10⁷ seconds."
                 },
                 {
                     "id": "m13_q07",
@@ -1790,25 +1791,25 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "id": "m13_q09",
                     "question": "What is the frequency of the radiation that defines the SI second?",
                     "options": [
-                        "$1,000,000\\text{ Hz}$",
-                        "$9,192,631,770\\text{ Hz}$",
-                        "$3 \\times 10^8\\text{ Hz}$",
-                        "$6.626 \\times 10^{-34}\\text{ Hz}$"
+                        "1,000,000 Hz",
+                        "9,192,631,770 Hz",
+                        "3 × 10⁸ Hz",
+                        "6.626 × 10⁻³⁴ Hz"
                     ],
-                    "answer": "$9,192,631,770\\text{ Hz}$",
-                    "explanation": "The exact defining transition frequency $\\Delta\\nu_{Cs}$ is $9,192,631,770\\text{ Hz}$."
+                    "answer": "9,192,631,770 Hz",
+                    "explanation": "The exact defining transition frequency Δν_{Cs} is 9,192,631,770 Hz."
                 },
                 {
                     "id": "m13_q10",
                     "question": "How many milliseconds are there in one second?",
                     "options": [
-                        "$100\\text{ ms}$",
-                        "$1,000\\text{ ms}$",
-                        "$10,000\\text{ ms}$",
-                        "$1,000,000\\text{ ms}$"
+                        "100 ms",
+                        "1,000 ms",
+                        "10,000 ms",
+                        "1,000,000 ms"
                     ],
-                    "answer": "$1,000\\text{ ms}$",
-                    "explanation": "$1\\text{ second} = 10^3\\text{ milliseconds (ms)} = 1,000\\text{ ms}$."
+                    "answer": "1,000 ms",
+                    "explanation": "1 second = 10³ milliseconds (ms) = 1,000 ms."
                 }
             ]
         },
@@ -1818,19 +1819,19 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "SI Metric Prefixes: From Micro to Quetta",
             "tagline": "Standard powers of ten spanning 60 orders of magnitude across physical scales.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>To eliminate extremely cumbersome strings of zeros when expressing macroscopic astronomical dimensions or microscopic subatomic scales, the SI system utilizes standardized <strong>Metric Prefixes</strong>. Each prefix denotes a specific power of 10.</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Table of SI Prefixes (Positive & Negative Powers of 10)</h4>\n                <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:16px;\">\n                    <div>\n                        <h5 style=\"color:#059669; margin:0 0 6px 0;\">Multiples (Positive Powers $\\ge 10^1$)</h5>\n                        <table style=\"width:100%; border-collapse:collapse; font-size:12px;\">\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^1$</td><td style=\"padding:3px 6px;\"><strong>Deka (da)</strong></td><td style=\"padding:3px 6px;\">$10$</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^2$</td><td style=\"padding:3px 6px;\"><strong>Hecto (h)</strong></td><td style=\"padding:3px 6px;\">$100$</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^3$</td><td style=\"padding:3px 6px;\"><strong>Kilo (k)</strong></td><td style=\"padding:3px 6px;\">$1,000$ (Thousand)</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^6$</td><td style=\"padding:3px 6px;\"><strong>Mega (M)</strong></td><td style=\"padding:3px 6px;\">Million</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^9$</td><td style=\"padding:3px 6px;\"><strong>Giga (G)</strong></td><td style=\"padding:3px 6px;\">Billion</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{12}$</td><td style=\"padding:3px 6px;\"><strong>Tera (T)</strong></td><td style=\"padding:3px 6px;\">Trillion</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{15}$</td><td style=\"padding:3px 6px;\"><strong>Peta (P)</strong></td><td style=\"padding:3px 6px;\">Quadrillion</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{18}$</td><td style=\"padding:3px 6px;\"><strong>Exa (E)</strong></td><td style=\"padding:3px 6px;\">Quintillion</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{21}$</td><td style=\"padding:3px 6px;\"><strong>Zetta (Z)</strong></td><td style=\"padding:3px 6px;\">Sextillion</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{24}$</td><td style=\"padding:3px 6px;\"><strong>Yotta (Y)</strong></td><td style=\"padding:3px 6px;\">Septillion</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{27}$</td><td style=\"padding:3px 6px;\"><strong>Ronna (R)*</strong></td><td style=\"padding:3px 6px;\">Octillion (2022)</td></tr>\n                            <tr><td style=\"padding:3px 6px;\">$10^{30}$</td><td style=\"padding:3px 6px;\"><strong>Quetta (Q)*</strong></td><td style=\"padding:3px 6px;\">Nonillion (2022)</td></tr>\n                        </table>\n                    </div>\n                    <div>\n                        <h5 style=\"color:#dc2626; margin:0 0 6px 0;\">Submultiples (Negative Powers $\\le 10^{-1}$)</h5>\n                        <table style=\"width:100%; border-collapse:collapse; font-size:12px;\">\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{-1}$</td><td style=\"padding:3px 6px;\"><strong>Deci (d)</strong></td><td style=\"padding:3px 6px;\">$0.1$</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{-2}$</td><td style=\"padding:3px 6px;\"><strong>Centi (c)</strong></td><td style=\"padding:3px 6px;\">$0.01$</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{-3}$</td><td style=\"padding:3px 6px;\"><strong>Milli (m)</strong></td><td style=\"padding:3px 6px;\">Thousandth</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{-6}$</td><td style=\"padding:3px 6px;\"><strong>Micro ($\\mu$)</strong></td><td style=\"padding:3px 6px;\">Millionth</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{-9}$</td><td style=\"padding:3px 6px;\"><strong>Nano (n)</strong></td><td style=\"padding:3px 6px;\">Billionth</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{-12}$</td><td style=\"padding:3px 6px;\"><strong>Pico (p)</strong></td><td style=\"padding:3px 6px;\">Trillionth</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{-15}$</td><td style=\"padding:3px 6px;\"><strong>Femto (f)</strong></td><td style=\"padding:3px 6px;\">Quadrillionth</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{-18}$</td><td style=\"padding:3px 6px;\"><strong>Atto (a)</strong></td><td style=\"padding:3px 6px;\">Quintillionth</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{-21}$</td><td style=\"padding:3px 6px;\"><strong>Zepto (z)</strong></td><td style=\"padding:3px 6px;\">Sextillionth</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{-24}$</td><td style=\"padding:3px 6px;\"><strong>Yocto (y)</strong></td><td style=\"padding:3px 6px;\">Septillionth</td></tr>\n                            <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">$10^{-27}$</td><td style=\"padding:3px 6px;\"><strong>Ronto (r)*</strong></td><td style=\"padding:3px 6px;\">Octillionth (2022)</td></tr>\n                            <tr><td style=\"padding:3px 6px;\">$10^{-30}$</td><td style=\"padding:3px 6px;\"><strong>Quecto (q)*</strong></td><td style=\"padding:3px 6px;\">Nonillionth (2022)</td></tr>\n                        </table>\n                    </div>\n                </div>\n            </div>\n            <p><em>*Note on 2022 Additions:</em> In November 2022, the 27th CGPM introduced four new prefixes to meet growing data and astrophysics scales: <strong>Ronna ($10^{27}$)</strong>, <strong>Quetta ($10^{30}$)</strong>, <strong>Ronto ($10^{-27}$)</strong>, and <strong>Quecto ($10^{-30}$)</strong>.</p>\n        ",
+            "theoryHtml": "\n <p>To eliminate extremely cumbersome strings of zeros when expressing macroscopic astronomical dimensions or microscopic subatomic scales, the SI system utilizes standardized <strong>Metric Prefixes</strong>. Each prefix denotes a specific power of 10.</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Table of SI Prefixes (Positive & Negative Powers of 10)</h4>\n <div style=\"display:grid; grid-template-columns: 1fr 1fr; gap:16px;\">\n <div>\n <h5 style=\"color:#059669; margin:0 0 6px 0;\">Multiples (Positive Powers ≥ 10¹)</h5>\n <table style=\"width:100%; border-collapse:collapse; font-size:12px;\">\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10¹</td><td style=\"padding:3px 6px;\"><strong>Deka (da)</strong></td><td style=\"padding:3px 6px;\">10</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10²</td><td style=\"padding:3px 6px;\"><strong>Hecto (h)</strong></td><td style=\"padding:3px 6px;\">100</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10³</td><td style=\"padding:3px 6px;\"><strong>Kilo (k)</strong></td><td style=\"padding:3px 6px;\">1,000 (Thousand)</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁶</td><td style=\"padding:3px 6px;\"><strong>Mega (M)</strong></td><td style=\"padding:3px 6px;\">Million</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁹</td><td style=\"padding:3px 6px;\"><strong>Giga (G)</strong></td><td style=\"padding:3px 6px;\">Billion</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10¹²</td><td style=\"padding:3px 6px;\"><strong>Tera (T)</strong></td><td style=\"padding:3px 6px;\">Trillion</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10¹⁵</td><td style=\"padding:3px 6px;\"><strong>Peta (P)</strong></td><td style=\"padding:3px 6px;\">Quadrillion</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10¹⁸</td><td style=\"padding:3px 6px;\"><strong>Exa (E)</strong></td><td style=\"padding:3px 6px;\">Quintillion</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10²¹</td><td style=\"padding:3px 6px;\"><strong>Zetta (Z)</strong></td><td style=\"padding:3px 6px;\">Sextillion</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10²⁴</td><td style=\"padding:3px 6px;\"><strong>Yotta (Y)</strong></td><td style=\"padding:3px 6px;\">Septillion</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10²⁷</td><td style=\"padding:3px 6px;\"><strong>Ronna (R)*</strong></td><td style=\"padding:3px 6px;\">Octillion (2022)</td></tr>\n <tr><td style=\"padding:3px 6px;\">10³⁰</td><td style=\"padding:3px 6px;\"><strong>Quetta (Q)*</strong></td><td style=\"padding:3px 6px;\">Nonillion (2022)</td></tr>\n </table>\n </div>\n <div>\n <h5 style=\"color:#dc2626; margin:0 0 6px 0;\">Submultiples (Negative Powers ≤ 10⁻¹)</h5>\n <table style=\"width:100%; border-collapse:collapse; font-size:12px;\">\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁻¹</td><td style=\"padding:3px 6px;\"><strong>Deci (d)</strong></td><td style=\"padding:3px 6px;\">0.1</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁻²</td><td style=\"padding:3px 6px;\"><strong>Centi (c)</strong></td><td style=\"padding:3px 6px;\">0.01</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁻³</td><td style=\"padding:3px 6px;\"><strong>Milli (m)</strong></td><td style=\"padding:3px 6px;\">Thousandth</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁻⁶</td><td style=\"padding:3px 6px;\"><strong>Micro (μ)</strong></td><td style=\"padding:3px 6px;\">Millionth</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁻⁹</td><td style=\"padding:3px 6px;\"><strong>Nano (n)</strong></td><td style=\"padding:3px 6px;\">Billionth</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁻¹²</td><td style=\"padding:3px 6px;\"><strong>Pico (p)</strong></td><td style=\"padding:3px 6px;\">Trillionth</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁻¹⁵</td><td style=\"padding:3px 6px;\"><strong>Femto (f)</strong></td><td style=\"padding:3px 6px;\">Quadrillionth</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁻¹⁸</td><td style=\"padding:3px 6px;\"><strong>Atto (a)</strong></td><td style=\"padding:3px 6px;\">Quintillionth</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁻²¹</td><td style=\"padding:3px 6px;\"><strong>Zepto (z)</strong></td><td style=\"padding:3px 6px;\">Sextillionth</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁻²⁴</td><td style=\"padding:3px 6px;\"><strong>Yocto (y)</strong></td><td style=\"padding:3px 6px;\">Septillionth</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:3px 6px;\">10⁻²⁷</td><td style=\"padding:3px 6px;\"><strong>Ronto (r)*</strong></td><td style=\"padding:3px 6px;\">Octillionth (2022)</td></tr>\n <tr><td style=\"padding:3px 6px;\">10⁻³⁰</td><td style=\"padding:3px 6px;\"><strong>Quecto (q)*</strong></td><td style=\"padding:3px 6px;\">Nonillionth (2022)</td></tr>\n </table>\n </div>\n </div>\n </div>\n <p><em>*Note on 2022 Additions:</em> In November 2022, the 27th CGPM introduced four new prefixes to meet growing data and astrophysics scales: <strong>Ronna (10²⁷)</strong>, <strong>Quetta (10³⁰)</strong>, <strong>Ronto (10⁻²⁷)</strong>, and <strong>Quecto (10⁻³⁰)</strong>.</p>\n ",
             "pointsToRemember": [
-                "Positive multiples: Kilo ($10^3$), Mega ($10^6$), Giga ($10^9$), Tera ($10^{12}$), Peta ($10^{15}$), Exa ($10^{18}$), Zetta ($10^{21}$), Yotta ($10^{24}$), Ronna ($10^{27}$), Quetta ($10^{30}$).",
-                "Negative submultiples: Milli ($10^{-3}$), Micro ($10^{-6}$), Nano ($10^{-9}$), Pico ($10^{-12}$), Femto ($10^{-15}$), Atto ($10^{-18}$), Zepto ($10^{-21}$), Yocto ($10^{-24}$), Ronto ($10^{-27}$), Quecto ($10^{-30}$).",
+                "Positive multiples: Kilo (10³), Mega (10⁶), Giga (10⁹), Tera (10¹²), Peta (10¹⁵), Exa (10¹⁸), Zetta (10²¹), Yotta (10²⁴), Ronna (10²⁷), Quetta (10³⁰).",
+                "Negative submultiples: Milli (10⁻³), Micro (10⁻⁶), Nano (10⁻⁹), Pico (10⁻¹²), Femto (10⁻¹⁵), Atto (10⁻¹⁸), Zepto (10⁻²¹), Yocto (10⁻²⁴), Ronto (10⁻²⁷), Quecto (10⁻³⁰).",
                 "Ronna/Quetta and Ronto/Quecto were officially adopted at the 27th CGPM in November 2022."
             ],
             "keyNotes": [
-                "High-Yield Prefix Pairs: Femto ($10^{-15}$) vs Peta ($10^{15}$); Nano ($10^{-9}$) vs Giga ($10^9$); Pico ($10^{-12}$) vs Tera ($10^{12}$)."
+                "High-Yield Prefix Pairs: Femto (10⁻¹⁵) vs Peta (10¹⁵); Nano (10⁻⁹) vs Giga (10⁹); Pico (10⁻¹²) vs Tera (10¹²)."
             ],
             "questions": [
                 {
                     "id": "m14_q01",
-                    "question": "Which prefix represents a factor of $10^9$ (one billion) in the SI system?",
+                    "question": "Which prefix represents a factor of 10⁹ (one billion) in the SI system?",
                     "options": [
                         "Mega",
                         "Giga",
@@ -1838,23 +1839,23 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Peta"
                     ],
                     "answer": "Giga",
-                    "explanation": "Giga (symbol: G) represents $10^9$ (e.g., Gigahertz, Gigabyte)."
+                    "explanation": "Giga (symbol: G) represents 10⁹ (e.g., Gigahertz, Gigabyte)."
                 },
                 {
                     "id": "m14_q02",
                     "question": "What power of 10 corresponds to the prefix 'Femto'?",
                     "options": [
-                        "$10^{-9}$",
-                        "$10^{-12}$",
-                        "$10^{-15}$",
-                        "$10^{-18}$"
+                        "10⁻⁹",
+                        "10⁻¹²",
+                        "10⁻¹⁵",
+                        "10⁻¹⁸"
                     ],
-                    "answer": "$10^{-15}$",
-                    "explanation": "Femto (symbol: f) represents $10^{-15}$ (e.g., femtosecond, femtometre/Fermi)."
+                    "answer": "10⁻¹⁵",
+                    "explanation": "Femto (symbol: f) represents 10⁻¹⁵ (e.g., femtosecond, femtometre/Fermi)."
                 },
                 {
                     "id": "m14_q03",
-                    "question": "What is the SI prefix for $10^{-12}$?",
+                    "question": "What is the SI prefix for 10⁻¹²?",
                     "options": [
                         "Nano",
                         "Pico",
@@ -1862,11 +1863,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Atto"
                     ],
                     "answer": "Pico",
-                    "explanation": "Pico (symbol: p) represents $10^{-12}$ (e.g., picofarad, picosecond)."
+                    "explanation": "Pico (symbol: p) represents 10⁻¹² (e.g., picofarad, picosecond)."
                 },
                 {
                     "id": "m14_q04",
-                    "question": "Which prefix denotes a factor of $10^{15}$?",
+                    "question": "Which prefix denotes a factor of 10¹⁵?",
                     "options": [
                         "Tera",
                         "Peta",
@@ -1874,23 +1875,23 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Zetta"
                     ],
                     "answer": "Peta",
-                    "explanation": "Peta (symbol: P) represents $10^{15}$ (e.g., Petabyte, Petaflops)."
+                    "explanation": "Peta (symbol: P) represents 10¹⁵ (e.g., Petabyte, Petaflops)."
                 },
                 {
                     "id": "m14_q05",
                     "question": "In November 2022, the 27th CGPM added 'Quetta' as an official SI prefix. What power of 10 does Quetta represent?",
                     "options": [
-                        "$10^{24}$",
-                        "$10^{27}$",
-                        "$10^{30}$",
-                        "$10^{32}$"
+                        "10²⁴",
+                        "10²⁷",
+                        "10³⁰",
+                        "10³²"
                     ],
-                    "answer": "$10^{30}$",
-                    "explanation": "Quetta (symbol: Q) represents $10^{30}$, making it the largest approved SI prefix."
+                    "answer": "10³⁰",
+                    "explanation": "Quetta (symbol: Q) represents 10³⁰, making it the largest approved SI prefix."
                 },
                 {
                     "id": "m14_q06",
-                    "question": "What is the smallest official SI submultiple prefix representing $10^{-30}$ adopted in 2022?",
+                    "question": "What is the smallest official SI submultiple prefix representing 10⁻³⁰ adopted in 2022?",
                     "options": [
                         "Yocto",
                         "Ronto",
@@ -1898,55 +1899,55 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Zepto"
                     ],
                     "answer": "Quecto",
-                    "explanation": "Quecto (symbol: q) represents $10^{-30}$, the smallest approved SI prefix."
+                    "explanation": "Quecto (symbol: q) represents 10⁻³⁰, the smallest approved SI prefix."
                 },
                 {
                     "id": "m14_q07",
-                    "question": "A supercomputer achieves a processing speed of $1\\text{ Exaflop}$. How many floating-point operations per second is this?",
+                    "question": "A supercomputer achieves a processing speed of 1 Exaflop. How many floating-point operations per second is this?",
                     "options": [
-                        "$10^{12}$",
-                        "$10^{15}$",
-                        "$10^{18}$",
-                        "$10^{21}$"
+                        "10¹²",
+                        "10¹⁵",
+                        "10¹⁸",
+                        "10²¹"
                     ],
-                    "answer": "$10^{18}$",
-                    "explanation": "Exa (E) represents $10^{18}$ operations per second."
+                    "answer": "10¹⁸",
+                    "explanation": "Exa (E) represents 10¹⁸ operations per second."
                 },
                 {
                     "id": "m14_q08",
                     "question": "How many micrometres (microns) are there in one millimetre?",
                     "options": [
-                        "$10$",
-                        "$100$",
-                        "$1,000$",
-                        "$10,000$"
+                        "10",
+                        "100",
+                        "1,000",
+                        "10,000"
                     ],
-                    "answer": "$1,000$",
-                    "explanation": "$1\\text{ mm} = 10^{-3}\\text{ m}$; $1\\mu\\text{m} = 10^{-6}\\text{ m}$. Ratio $= 10^{-3} / 10^{-6} = 10^3 = 1,000\\mu\\text{m}$."
+                    "answer": "1,000",
+                    "explanation": "1 mm = 10⁻³ m; 1μm = 10⁻⁶ m. Ratio = 10⁻³ / 10⁻⁶ = 10³ = 1,000μm."
                 },
                 {
                     "id": "m14_q09",
                     "question": "Which of the following correctly pairs a prefix with its exact numerical exponent?",
                     "options": [
-                        "Mega : $10^5$",
-                        "Tera : $10^{12}$",
-                        "Micro : $10^{-5}$",
-                        "Deci : $10^{-3}$"
+                        "Mega : 10⁵",
+                        "Tera : 10¹²",
+                        "Micro : 10⁻⁵",
+                        "Deci : 10⁻³"
                     ],
-                    "answer": "Tera : $10^{12}$",
-                    "explanation": "Tera is $10^{12}$. Mega is $10^6$, Micro is $10^{-6}$, and Deci is $10^{-1}$."
+                    "answer": "Tera : 10¹²",
+                    "explanation": "Tera is 10¹². Mega is 10⁶, Micro is 10⁻⁶, and Deci is 10⁻¹."
                 },
                 {
                     "id": "m14_q10",
-                    "question": "Express $50\\text{ nanoseconds}$ in seconds:",
+                    "question": "Express 50 nanoseconds in seconds:",
                     "options": [
-                        "$5 \\times 10^{-7}\\text{ s}$",
-                        "$5 \\times 10^{-8}\\text{ s}$",
-                        "$5 \\times 10^{-9}\\text{ s}$",
-                        "$50 \\times 10^{-6}\\text{ s}$"
+                        "5 × 10⁻⁷ s",
+                        "5 × 10⁻⁸ s",
+                        "5 × 10⁻⁹ s",
+                        "50 × 10⁻⁶ s"
                     ],
-                    "answer": "$5 \\times 10^{-8}\\text{ s}$",
-                    "explanation": "$50\\text{ ns} = 50 \\times 10^{-9}\\text{ s} = 5.0 \\times 10^{-8}\\text{ seconds}$."
+                    "answer": "5 × 10⁻⁸ s",
+                    "explanation": "50 ns = 50 × 10⁻⁹ s = 5.0 × 10⁻⁸ seconds."
                 }
             ]
         },
@@ -1956,12 +1957,12 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Fundamentals of Dimensional Analysis & Principle of Homogeneity",
             "tagline": "The algebraic powers of base quantities that unlock consistency checks in physical laws.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>The <strong>Dimensions</strong> of a physical quantity are the powers (or exponents) to which the fundamental base quantities must be raised to represent that quantity. A mathematical expression displaying these powers enclosed in square brackets is called the <strong>Dimensional Formula</strong>.</p>\n            <p>Using the primary base dimensions: $[M]$ for Mass, $[L]$ for Length, $[T]$ for Time, $[I]$ or $[A]$ for Electric Current, $[K]$ or $[\\theta]$ for Temperature, $[cd]$ for Luminous Intensity, and $[mol]$ for Amount of Substance, any physical quantity $Q$ is expressed as:</p>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px; font-weight:700;\">\n                $$[Q] = [M^a L^b T^c I^d K^e \\dots]$$\n            </div>\n            <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">The Principle of Homogeneity of Dimensions:</h4>\n            <p>This fundamental theorem states that: <strong>A physical equation is dimensionally valid if and only if every single term on both sides of the equation possesses identical dimensions.</strong></p>\n            <p>In accordance with the Principle of Homogeneity:</p>\n            <ul style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n                <li>You can only add or subtract physical quantities having the <strong>same dimensional formula</strong> (e.g., you cannot add $5\\text{ metres}$ of length to $3\\text{ kilograms}$ of mass).</li>\n                <li>In any valid equation $A = B + C - D$, the dimensions must satisfy: $[A] = [B] = [C] = [D]$.</li>\n                <li>Arguments of transcendental functions (trigonometric $\\sin\\theta$, exponential $e^x$, logarithmic $\\ln x$) must be completely <strong>dimensionless</strong> ($[M^0 L^0 T^0]$).</li>\n            </ul>\n            <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">Core Applications of Dimensional Analysis:</h4>\n            <ol style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n                <li><strong>Testing Correctness of Equations:</strong> Checking whether a newly proposed formula is dimensionally consistent.</li>\n                <li><strong>Deriving Physical Relationships:</strong> Deducing dependencies between physical variables (e.g., finding the formula for the time period of a pendulum $T = 2\\pi \\sqrt{l/g}$).</li>\n                <li><strong>Unit Conversion:</strong> Transforming numerical values across different unit systems using $n_1 [u_1] = n_2 [u_2]$.</li>\n            </ol>\n        ",
+            "theoryHtml": "\n <p>The <strong>Dimensions</strong> of a physical quantity are the powers (or exponents) to which the fundamental base quantities must be raised to represent that quantity. A mathematical expression displaying these powers enclosed in square brackets is called the <strong>Dimensional Formula</strong>.</p>\n <p>Using the primary base dimensions: [M] for Mass, [L] for Length, [T] for Time, [I] or [A] for Electric Current, [K] or [θ] for Temperature, [cd] for Luminous Intensity, and [mol] for Amount of Substance, any physical quantity Q is expressed as:</p>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:10px 14px; margin:10px 0; border-radius:6px; font-weight:700;\">\n [Q] = [M^a L^b T^c I^d K^e ...]\n </div>\n <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">The Principle of Homogeneity of Dimensions:</h4>\n <p>This fundamental theorem states that: <strong>A physical equation is dimensionally valid if and only if every single term on both sides of the equation possesses identical dimensions.</strong></p>\n <p>In accordance with the Principle of Homogeneity:</p>\n <ul style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n <li>You can only add or subtract physical quantities having the <strong>same dimensional formula</strong> (e.g., you cannot add 5 metres of length to 3 kilograms of mass).</li>\n <li>In any valid equation A = B + C - D, the dimensions must satisfy: [A] = [B] = [C] = [D].</li>\n <li>Arguments of transcendental functions (trigonometric sinθ, exponential e^x, logarithmic ln x) must be completely <strong>dimensionless</strong> ([M⁰ L⁰ T⁰]).</li>\n </ul>\n <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">Core Applications of Dimensional Analysis:</h4>\n <ol style=\"margin:6px 0 12px 20px; line-height:1.6;\">\n <li><strong>Testing Correctness of Equations:</strong> Checking whether a newly proposed formula is dimensionally consistent.</li>\n <li><strong>Deriving Physical Relationships:</strong> Deducing dependencies between physical variables (e.g., finding the formula for the time period of a pendulum T = 2π √(l/g)).</li>\n <li><strong>Unit Conversion:</strong> Transforming numerical values across different unit systems using n₁ [u₁] = n₂ [u₂].</li>\n </ol>\n ",
             "pointsToRemember": [
                 "Dimensions are the exponents to which fundamental base quantities are raised.",
-                "Principle of Homogeneity: Only physical quantities with identical dimensions can be added, subtracted, or equated ($[A] = [B] = [C]$ in $A = B + C$).",
+                "Principle of Homogeneity: Only physical quantities with identical dimensions can be added, subtracted, or equated ([A] = [B] = [C] in A = B + C).",
                 "Trigonometric, logarithmic, and exponential functions are always dimensionless.",
-                "A dimensionally correct equation is not necessarily physically correct (due to dimensionless constants like $2\\pi$ or $1/2$), but a dimensionally incorrect equation is ALWAYS false."
+                "A dimensionally correct equation is not necessarily physically correct (due to dimensionless constants like 2π or 1/2), but a dimensionally incorrect equation is ALWAYS false."
             ],
             "keyNotes": [
                 "Golden Rule for Exams: If an equation is dimensionally inconsistent, it is definitively WRONG. If it is dimensionally consistent, it may be right, but dimensionless constants cannot be checked by dimensional analysis."
@@ -1981,57 +1982,57 @@ const COURSE_CHAPTER_1_PHYSICS = {
                 },
                 {
                     "id": "m15_q02",
-                    "question": "In the kinematic equation $s = ut + \\frac{1}{2}at^2$, what are the dimensions of the term $\\frac{1}{2}at^2$?",
+                    "question": "In the kinematic equation s = ut + (1 / 2)at², what are the dimensions of the term (1 / 2)at²?",
                     "options": [
-                        "$[L T^{-1}]$",
-                        "$[L T^{-2}]$",
-                        "$[L]$",
-                        "$[M^0 L^0 T^0]$"
+                        "[L T⁻¹]",
+                        "[L T⁻²]",
+                        "[L]",
+                        "[M⁰ L⁰ T⁰]"
                     ],
-                    "answer": "$[L]$",
-                    "explanation": "$[a] = [L T^{-2}]$ and $[t^2] = [T^2]$. Multiplying yields $[L T^{-2}][T^2] = [L]$, which matches the displacement $[s]$ on the LHS."
+                    "answer": "[L]",
+                    "explanation": "[a] = [L T⁻²] and [t²] = [T²]. Multiplying yields [L T⁻²][T²] = [L], which matches the displacement [s] on the LHS."
                 },
                 {
                     "id": "m15_q03",
                     "question": "Which of the following operations is physically meaningful according to dimensional analysis?",
                     "options": [
-                        "Adding $5\\text{ Newtons}$ to $10\\text{ Joules}$",
-                        "Subtracting $2\\text{ metres}$ from $8\\text{ seconds}$",
-                        "Dividing $20\\text{ Joules}$ of work by $4\\text{ seconds}$ of time",
-                        "Adding $3\\text{ kilograms}$ to $5\\text{ Pascals}$"
+                        "Adding 5 Newtons to 10 Joules",
+                        "Subtracting 2 metres from 8 seconds",
+                        "Dividing 20 Joules of work by 4 seconds of time",
+                        "Adding 3 kilograms to 5 Pascals"
                     ],
-                    "answer": "Dividing $20\\text{ Joules}$ of work by $4\\text{ seconds}$ of time",
-                    "explanation": "Quantities with different dimensions cannot be added or subtracted, but they CAN be multiplied or divided to yield new derived quantities (here, Work / Time = Power = $5\\text{ W}$)."
+                    "answer": "Dividing 20 Joules of work by 4 seconds of time",
+                    "explanation": "Quantities with different dimensions cannot be added or subtracted, but they CAN be multiplied or divided to yield new derived quantities (here, Work / Time = Power = 5 W)."
                 },
                 {
                     "id": "m15_q04",
-                    "question": "In the equation $v = at + b$, if $v$ is velocity and $t$ is time, what must be the dimension of constant $b$?",
+                    "question": "In the equation v = at + b, if v is velocity and t is time, what must be the dimension of constant b?",
                     "options": [
-                        "$[L T^{-2}]$",
-                        "$[L T^{-1}]$",
-                        "$[L]$",
-                        "$[T]$"
+                        "[L T⁻²]",
+                        "[L T⁻¹]",
+                        "[L]",
+                        "[T]"
                     ],
-                    "answer": "$[L T^{-1}]$",
-                    "explanation": "By the Principle of Homogeneity, each term being added must share the dimensions of the LHS. Since $[v] = [L T^{-1}]$, $[b]$ must also be $[L T^{-1}]$."
+                    "answer": "[L T⁻¹]",
+                    "explanation": "By the Principle of Homogeneity, each term being added must share the dimensions of the LHS. Since [v] = [L T⁻¹], [b] must also be [L T⁻¹]."
                 },
                 {
                     "id": "m15_q05",
-                    "question": "If $y = A \\sin(kx - \\omega t)$, what is the dimensional formula of the argument $(kx - \\omega t)$?",
+                    "question": "If y = A sin(kx - ω t), what is the dimensional formula of the argument (kx - ω t)?",
                     "options": [
-                        "$[L]$",
-                        "$[T^{-1}]$",
-                        "$[M^0 L^0 T^0]$ (Dimensionless)",
-                        "$[L T^{-1}]$"
+                        "[L]",
+                        "[T⁻¹]",
+                        "[M⁰ L⁰ T⁰] (Dimensionless)",
+                        "[L T⁻¹]"
                     ],
-                    "answer": "$[M^0 L^0 T^0]$ (Dimensionless)",
-                    "explanation": "The argument of any trigonometric function represents an angle (in radians), which is strictly dimensionless ($[M^0 L^0 T^0]$)."
+                    "answer": "[M⁰ L⁰ T⁰] (Dimensionless)",
+                    "explanation": "The argument of any trigonometric function represents an angle (in radians), which is strictly dimensionless ([M⁰ L⁰ T⁰])."
                 },
                 {
                     "id": "m15_q06",
                     "question": "Which of the following is a fundamental limitation of dimensional analysis?",
                     "options": [
-                        "It cannot determine dimensionless proportionality constants (such as $1/2$, $2\\pi$)",
+                        "It cannot determine dimensionless proportionality constants (such as 1/2, 2π)",
                         "It fails if a physical quantity depends on more than three mechanical variables",
                         "It cannot handle equations involving trigonometric or exponential terms",
                         "All of the above are fundamental limitations"
@@ -2049,7 +2050,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Yes, but only for scalar quantities"
                     ],
                     "answer": "No, it might still have incorrect dimensionless constants or missing additive terms",
-                    "explanation": "An equation like $s = at^2$ is dimensionally consistent ($[L] = [L]$) but physically incorrect (missing the factor $1/2$ and initial velocity $ut$)."
+                    "explanation": "An equation like s = at² is dimensionally consistent ([L] = [L]) but physically incorrect (missing the factor 1/2 and initial velocity ut)."
                 },
                 {
                     "id": "m15_q08",
@@ -2058,34 +2059,34 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "It might still be true in relativistic physics",
                         "It is definitely and unconditionally incorrect",
                         "It is correct only in the CGS system",
-                        "It can be corrected by multiplying by $c$"
+                        "It can be corrected by multiplying by c"
                     ],
                     "answer": "It is definitely and unconditionally incorrect",
                     "explanation": "Any equation violating the Principle of Homogeneity cannot represent a valid physical law under any circumstances."
                 },
                 {
                     "id": "m15_q09",
-                    "question": "In the relation $P = \\frac{a - t^2}{b x}$, where $P$ is pressure, $x$ is distance, and $t$ is time, what is the dimension of $a$?",
+                    "question": "In the relation P = (a - t² / b x), where P is pressure, x is distance, and t is time, what is the dimension of a?",
                     "options": [
-                        "$[T^2]$",
-                        "$[T^{-2}]$",
-                        "$[L^2]$",
-                        "$[M^1 L^{-1} T^{-2}]$"
+                        "[T²]",
+                        "[T⁻²]",
+                        "[L²]",
+                        "[M¹ L⁻¹ T⁻²]"
                     ],
-                    "answer": "$[T^2]$",
-                    "explanation": "In the numerator $(a - t^2)$, $a$ is subtracted from $t^2$. By homogeneity, $[a] = [t^2] = [T^2]$."
+                    "answer": "[T²]",
+                    "explanation": "In the numerator (a - t²), a is subtracted from t². By homogeneity, [a] = [t²] = [T²]."
                 },
                 {
                     "id": "m15_q10",
-                    "question": "The time period of a simple pendulum depends on mass $m$, length $l$, and gravitational acceleration $g$. Dimensional analysis reveals that period $T$ is independent of:",
+                    "question": "The time period of a simple pendulum depends on mass m, length l, and gravitational acceleration g. Dimensional analysis reveals that period T is independent of:",
                     "options": [
-                        "Length of pendulum $l$",
-                        "Acceleration due to gravity $g$",
-                        "Mass of the bob $m$",
+                        "Length of pendulum l",
+                        "Acceleration due to gravity g",
+                        "Mass of the bob m",
                         "Both length and gravity"
                     ],
-                    "answer": "Mass of the bob $m$",
-                    "explanation": "$T = 2\\pi \\sqrt{l/g}$. Mass $m$ has exponent 0 ($[T] = [M^0 L^0 T^1]$), proving the period is independent of bob mass."
+                    "answer": "Mass of the bob m",
+                    "explanation": "T = 2π √(l/g). Mass m has exponent 0 ([T] = [M⁰ L⁰ T¹]), proving the period is independent of bob mass."
                 }
             ]
         },
@@ -2095,31 +2096,31 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Dimensional Formulas in Mechanics",
             "tagline": "Systematic derivations of standard mechanical quantities from fundamental base powers.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>Mechanics forms the bedrock of classical physics. In mechanics, all physical quantities can be expressed solely using the three fundamental dimensions: <strong>Mass $[M]$</strong>, <strong>Length $[L]$</strong>, and <strong>Time $[T]$</strong>.</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Derivations of Fundamental Mechanics Quantities</h4>\n                <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n                    <thead>\n                        <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n                            <th style=\"padding:6px 10px;\">Physical Quantity</th>\n                            <th style=\"padding:6px 10px;\">Defining Relation</th>\n                            <th style=\"padding:6px 10px;\">Step-by-Step Derivation</th>\n                            <th style=\"padding:6px 10px;\">Standard Dimensional Formula</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Area</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{Length} \\times \\text{Breadth}$</td>\n                            <td style=\"padding:6px 10px;\">$[L] \\times [L]$</td>\n                            <td style=\"padding:6px 10px;\">$[M^0 L^2 T^0]$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Volume</strong></td>\n                            <td style=\"padding:6px 10px;\">$L \\times B \\times H$</td>\n                            <td style=\"padding:6px 10px;\">$[L] \\times [L] \\times [L]$</td>\n                            <td style=\"padding:6px 10px;\">$[M^0 L^3 T^0]$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Density</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{Mass} / \\text{Volume}$</td>\n                            <td style=\"padding:6px 10px;\">$[M] / [L^3]$</td>\n                            <td style=\"padding:6px 10px;\">$[M^1 L^{-3} T^0]$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Speed / Velocity</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{Distance} / \\text{Time}$</td>\n                            <td style=\"padding:6px 10px;\">$[L] / [T]$</td>\n                            <td style=\"padding:6px 10px;\">$[M^0 L^1 T^{-1}]$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Acceleration</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{Velocity} / \\text{Time}$</td>\n                            <td style=\"padding:6px 10px;\">$[L T^{-1}] / [T]$</td>\n                            <td style=\"padding:6px 10px;\">$[M^0 L^1 T^{-2}]$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Force</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{Mass} \\times \\text{Acceleration}$</td>\n                            <td style=\"padding:6px 10px;\">$[M] \\times [L T^{-2}]$</td>\n                            <td style=\"padding:6px 10px;\">$[M^1 L^1 T^{-2}]$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Linear Momentum</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{Mass} \\times \\text{Velocity}$</td>\n                            <td style=\"padding:6px 10px;\">$[M] \\times [L T^{-1}]$</td>\n                            <td style=\"padding:6px 10px;\">$[M^1 L^1 T^{-1}]$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Impulse</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{Force} \\times \\text{Time}$</td>\n                            <td style=\"padding:6px 10px;\">$[M L T^{-2}] \\times [T]$</td>\n                            <td style=\"padding:6px 10px;\">$[M^1 L^1 T^{-1}]$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Work / Energy</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{Force} \\times \\text{Distance}$</td>\n                            <td style=\"padding:6px 10px;\">$[M L T^{-2}] \\times [L]$</td>\n                            <td style=\"padding:6px 10px;\">$[M^1 L^2 T^{-2}]$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Power</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{Work} / \\text{Time}$</td>\n                            <td style=\"padding:6px 10px;\">$[M L^2 T^{-2}] / [T]$</td>\n                            <td style=\"padding:6px 10px;\">$[M^1 L^2 T^{-3}]$</td>\n                        </tr>\n                        <tr>\n                            <td style=\"padding:6px 10px;\"><strong>Pressure / Stress</strong></td>\n                            <td style=\"padding:6px 10px;\">$\\text{Force} / \\text{Area}$</td>\n                            <td style=\"padding:6px 10px;\">$[M L T^{-2}] / [L^2]$</td>\n                            <td style=\"padding:6px 10px;\">$[M^1 L^{-1} T^{-2}]$</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n            <p>Mastering these foundational formulas allows you to derive almost any complex formula instantly during examinations.</p>\n        ",
+            "theoryHtml": "\n <p>Mechanics forms the bedrock of classical physics. In mechanics, all physical quantities can be expressed solely using the three fundamental dimensions: <strong>Mass [M]</strong>, <strong>Length [L]</strong>, and <strong>Time [T]</strong>.</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Derivations of Fundamental Mechanics Quantities</h4>\n <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n <thead>\n <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n <th style=\"padding:6px 10px;\">Physical Quantity</th>\n <th style=\"padding:6px 10px;\">Defining Relation</th>\n <th style=\"padding:6px 10px;\">Step-by-Step Derivation</th>\n <th style=\"padding:6px 10px;\">Standard Dimensional Formula</th>\n </tr>\n </thead>\n <tbody>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Area</strong></td>\n <td style=\"padding:6px 10px;\">Length × Breadth</td>\n <td style=\"padding:6px 10px;\">[L] × [L]</td>\n <td style=\"padding:6px 10px;\">[M⁰ L² T⁰]</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Volume</strong></td>\n <td style=\"padding:6px 10px;\">L × B × H</td>\n <td style=\"padding:6px 10px;\">[L] × [L] × [L]</td>\n <td style=\"padding:6px 10px;\">[M⁰ L³ T⁰]</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Density</strong></td>\n <td style=\"padding:6px 10px;\">Mass / Volume</td>\n <td style=\"padding:6px 10px;\">[M] / [L³]</td>\n <td style=\"padding:6px 10px;\">[M¹ L⁻³ T⁰]</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Speed / Velocity</strong></td>\n <td style=\"padding:6px 10px;\">Distance / Time</td>\n <td style=\"padding:6px 10px;\">[L] / [T]</td>\n <td style=\"padding:6px 10px;\">[M⁰ L¹ T⁻¹]</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Acceleration</strong></td>\n <td style=\"padding:6px 10px;\">Velocity / Time</td>\n <td style=\"padding:6px 10px;\">[L T⁻¹] / [T]</td>\n <td style=\"padding:6px 10px;\">[M⁰ L¹ T⁻²]</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Force</strong></td>\n <td style=\"padding:6px 10px;\">Mass × Acceleration</td>\n <td style=\"padding:6px 10px;\">[M] × [L T⁻²]</td>\n <td style=\"padding:6px 10px;\">[M¹ L¹ T⁻²]</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Linear Momentum</strong></td>\n <td style=\"padding:6px 10px;\">Mass × Velocity</td>\n <td style=\"padding:6px 10px;\">[M] × [L T⁻¹]</td>\n <td style=\"padding:6px 10px;\">[M¹ L¹ T⁻¹]</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Impulse</strong></td>\n <td style=\"padding:6px 10px;\">Force × Time</td>\n <td style=\"padding:6px 10px;\">[M L T⁻²] × [T]</td>\n <td style=\"padding:6px 10px;\">[M¹ L¹ T⁻¹]</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Work / Energy</strong></td>\n <td style=\"padding:6px 10px;\">Force × Distance</td>\n <td style=\"padding:6px 10px;\">[M L T⁻²] × [L]</td>\n <td style=\"padding:6px 10px;\">[M¹ L² T⁻²]</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Power</strong></td>\n <td style=\"padding:6px 10px;\">Work / Time</td>\n <td style=\"padding:6px 10px;\">[M L² T⁻²] / [T]</td>\n <td style=\"padding:6px 10px;\">[M¹ L² T⁻³]</td>\n </tr>\n <tr>\n <td style=\"padding:6px 10px;\"><strong>Pressure / Stress</strong></td>\n <td style=\"padding:6px 10px;\">Force / Area</td>\n <td style=\"padding:6px 10px;\">[M L T⁻²] / [L²]</td>\n <td style=\"padding:6px 10px;\">[M¹ L⁻¹ T⁻²]</td>\n </tr>\n </tbody>\n </table>\n </div>\n <p>Mastering these foundational formulas allows you to derive almost any complex formula instantly during examinations.</p>\n ",
             "pointsToRemember": [
-                "Force is $[M^1 L^1 T^{-2}]$; Linear Momentum and Impulse are both $[M^1 L^1 T^{-1}]$.",
-                "Work and Energy (Kinetic, Potential, Mechanical) are all $[M^1 L^2 T^{-2}]$.",
-                "Power is rate of work: $[M^1 L^2 T^{-3}]$; Pressure is force per area: $[M^1 L^{-1} T^{-2}]$."
+                "Force is [M¹ L¹ T⁻²]; Linear Momentum and Impulse are both [M¹ L¹ T⁻¹].",
+                "Work and Energy (Kinetic, Potential, Mechanical) are all [M¹ L² T⁻²].",
+                "Power is rate of work: [M¹ L² T⁻³]; Pressure is force per area: [M¹ L⁻¹ T⁻²]."
             ],
             "keyNotes": [
-                "Civil Services Memory Anchor: Remember the 'Big Three' powers for Force ($[M L T^{-2}]$), Work/Energy ($[M L^2 T^{-2}]$), and Power ($[M L^2 T^{-3}]$)."
+                "Civil Services Memory Anchor: Remember the 'Big Three' powers for Force ([M L T⁻²]), Work/Energy ([M L² T⁻²]), and Power ([M L² T⁻³])."
             ],
             "questions": [
                 {
                     "id": "m16_q01",
                     "question": "What is the dimensional formula of Force?",
                     "options": [
-                        "$[M^1 L^1 T^{-1}]$",
-                        "$[M^1 L^1 T^{-2}]$",
-                        "$[M^1 L^2 T^{-2}]$",
-                        "$[M^1 L^{-1} T^{-2}]$"
+                        "[M¹ L¹ T⁻¹]",
+                        "[M¹ L¹ T⁻²]",
+                        "[M¹ L² T⁻²]",
+                        "[M¹ L⁻¹ T⁻²]"
                     ],
-                    "answer": "$[M^1 L^1 T^{-2}]$",
-                    "explanation": "Force = Mass × Acceleration = $[M] \\times [L T^{-2}] = [M^1 L^1 T^{-2}]$."
+                    "answer": "[M¹ L¹ T⁻²]",
+                    "explanation": "Force = Mass × Acceleration = [M] × [L T⁻²] = [M¹ L¹ T⁻²]."
                 },
                 {
                     "id": "m16_q02",
-                    "question": "The dimensional formula $[M^1 L^2 T^{-2}]$ corresponds to which physical quantity?",
+                    "question": "The dimensional formula [M¹ L² T⁻²] corresponds to which physical quantity?",
                     "options": [
                         "Force",
                         "Power",
@@ -2127,35 +2128,35 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Pressure"
                     ],
                     "answer": "Work and Kinetic Energy",
-                    "explanation": "Work = Force × Displacement = $[M L T^{-2}] \\times [L] = [M^1 L^2 T^{-2}]$. All forms of energy have this exact dimension."
+                    "explanation": "Work = Force × Displacement = [M L T⁻²] × [L] = [M¹ L² T⁻²]. All forms of energy have this exact dimension."
                 },
                 {
                     "id": "m16_q03",
                     "question": "What is the dimensional formula of Power?",
                     "options": [
-                        "$[M^1 L^2 T^{-2}]$",
-                        "$[M^1 L^2 T^{-3}]$",
-                        "$[M^1 L^1 T^{-3}]$",
-                        "$[M^0 L^2 T^{-2}]$"
+                        "[M¹ L² T⁻²]",
+                        "[M¹ L² T⁻³]",
+                        "[M¹ L¹ T⁻³]",
+                        "[M⁰ L² T⁻²]"
                     ],
-                    "answer": "$[M^1 L^2 T^{-3}]$",
-                    "explanation": "Power = Work / Time = $[M L^2 T^{-2}] / [T] = [M^1 L^2 T^{-3}]$."
+                    "answer": "[M¹ L² T⁻³]",
+                    "explanation": "Power = Work / Time = [M L² T⁻²] / [T] = [M¹ L² T⁻³]."
                 },
                 {
                     "id": "m16_q04",
                     "question": "What is the dimensional formula of Pressure and Mechanical Stress?",
                     "options": [
-                        "$[M^1 L^{-1} T^{-2}]$",
-                        "$[M^1 L^{-2} T^{-2}]$",
-                        "$[M^1 L^1 T^{-2}]$",
-                        "$[M^0 L^{-1} T^{-2}]$"
+                        "[M¹ L⁻¹ T⁻²]",
+                        "[M¹ L⁻² T⁻²]",
+                        "[M¹ L¹ T⁻²]",
+                        "[M⁰ L⁻¹ T⁻²]"
                     ],
-                    "answer": "$[M^1 L^{-1} T^{-2}]$",
-                    "explanation": "Pressure = Force / Area = $[M L T^{-2}] / [L^2] = [M^1 L^{-1} T^{-2}]$."
+                    "answer": "[M¹ L⁻¹ T⁻²]",
+                    "explanation": "Pressure = Force / Area = [M L T⁻²] / [L²] = [M¹ L⁻¹ T⁻²]."
                 },
                 {
                     "id": "m16_q05",
-                    "question": "Which pair of physical quantities share the identical dimensional formula $[M^1 L^1 T^{-1}]$?",
+                    "question": "Which pair of physical quantities share the identical dimensional formula [M¹ L¹ T⁻¹]?",
                     "options": [
                         "Force and Torque",
                         "Linear Momentum and Impulse",
@@ -2163,59 +2164,59 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Pressure and Power"
                     ],
                     "answer": "Linear Momentum and Impulse",
-                    "explanation": "Linear momentum $p = mv = [M L T^{-1}]$; Impulse $J = F \\Delta t = [M L T^{-2}][T] = [M L T^{-1}]$."
+                    "explanation": "Linear momentum p = mv = [M L T⁻¹]; Impulse J = F Δ t = [M L T⁻²][T] = [M L T⁻¹]."
                 },
                 {
                     "id": "m16_q06",
                     "question": "What is the dimensional formula of volumetric mass density?",
                     "options": [
-                        "$[M^1 L^{-2} T^0]$",
-                        "$[M^1 L^{-3} T^0]$",
-                        "$[M^0 L^{-3} T^0]$",
-                        "$[M^1 L^3 T^0]$"
+                        "[M¹ L⁻² T⁰]",
+                        "[M¹ L⁻³ T⁰]",
+                        "[M⁰ L⁻³ T⁰]",
+                        "[M¹ L³ T⁰]"
                     ],
-                    "answer": "$[M^1 L^{-3} T^0]$",
-                    "explanation": "Density = Mass / Volume = $[M] / [L^3] = [M^1 L^{-3} T^0]$."
+                    "answer": "[M¹ L⁻³ T⁰]",
+                    "explanation": "Density = Mass / Volume = [M] / [L³] = [M¹ L⁻³ T⁰]."
                 },
                 {
                     "id": "m16_q07",
                     "question": "What are the dimensions of linear acceleration?",
                     "options": [
-                        "$[M^0 L^1 T^{-1}]$",
-                        "$[M^0 L^1 T^{-2}]$",
-                        "$[M^0 L^2 T^{-2}]$",
-                        "$[M^1 L^1 T^{-2}]$"
+                        "[M⁰ L¹ T⁻¹]",
+                        "[M⁰ L¹ T⁻²]",
+                        "[M⁰ L² T⁻²]",
+                        "[M¹ L¹ T⁻²]"
                     ],
-                    "answer": "$[M^0 L^1 T^{-2}]$",
-                    "explanation": "Acceleration = Velocity / Time = $[L T^{-1}] / [T] = [M^0 L^1 T^{-2}]$."
+                    "answer": "[M⁰ L¹ T⁻²]",
+                    "explanation": "Acceleration = Velocity / Time = [L T⁻¹] / [T] = [M⁰ L¹ T⁻²]."
                 },
                 {
                     "id": "m16_q08",
                     "question": "Surface mass density is defined as mass per unit area. Its dimensional formula is:",
                     "options": [
-                        "$[M^1 L^{-1} T^0]$",
-                        "$[M^1 L^{-2} T^0]$",
-                        "$[M^1 L^{-3} T^0]$",
-                        "$[M^0 L^{-2} T^0]$"
+                        "[M¹ L⁻¹ T⁰]",
+                        "[M¹ L⁻² T⁰]",
+                        "[M¹ L⁻³ T⁰]",
+                        "[M⁰ L⁻² T⁰]"
                     ],
-                    "answer": "$[M^1 L^{-2} T^0]$",
-                    "explanation": "Surface density $\\sigma = m / A = [M] / [L^2] = [M^1 L^{-2} T^0]$."
+                    "answer": "[M¹ L⁻² T⁰]",
+                    "explanation": "Surface density σ = m / A = [M] / [L²] = [M¹ L⁻² T⁰]."
                 },
                 {
                     "id": "m16_q09",
                     "question": "Rate of change of acceleration with time is termed 'Jerk'. What is the dimensional formula of Jerk?",
                     "options": [
-                        "$[M^0 L^1 T^{-2}]$",
-                        "$[M^0 L^1 T^{-3}]$",
-                        "$[M^0 L^1 T^{-4}]$",
-                        "$[M^1 L^1 T^{-3}]$"
+                        "[M⁰ L¹ T⁻²]",
+                        "[M⁰ L¹ T⁻³]",
+                        "[M⁰ L¹ T⁻⁴]",
+                        "[M¹ L¹ T⁻³]"
                     ],
-                    "answer": "$[M^0 L^1 T^{-3}]$",
-                    "explanation": "$\\text{Jerk} = \\Delta a / \\Delta t = [L T^{-2}] / [T] = [M^0 L^1 T^{-3}]$."
+                    "answer": "[M⁰ L¹ T⁻³]",
+                    "explanation": "Jerk = Δ a / Δ t = [L T⁻²] / [T] = [M⁰ L¹ T⁻³]."
                 },
                 {
                     "id": "m16_q10",
-                    "question": "Which of the following physical quantities has NO mass dimension ($M^0$)?",
+                    "question": "Which of the following physical quantities has NO mass dimension (M⁰)?",
                     "options": [
                         "Velocity",
                         "Acceleration",
@@ -2223,7 +2224,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "All of the above"
                     ],
                     "answer": "All of the above",
-                    "explanation": "Velocity ($[L T^{-1}]$), Acceleration ($[L T^{-2}]$), and Frequency ($[T^{-1}]$) are all kinematic/temporal quantities with zero mass dimension ($M^0$)."
+                    "explanation": "Velocity ([L T⁻¹]), Acceleration ([L T⁻²]), and Frequency ([T⁻¹]) are all kinematic/temporal quantities with zero mass dimension (M⁰)."
                 }
             ]
         },
@@ -2233,32 +2234,32 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Advanced Dimensional Formulas in Classical Dynamics",
             "tagline": "Deriving universal constants: Gravitation G, Viscosity η, Surface Tension, and Planck's h.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>In classical dynamics and astrophysics, several critical physical constants govern interactions across planetary systems, fluids, and quantum physics.</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Derivations of Advanced Physical Constants & Properties</h4>\n                <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n                    <thead>\n                        <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n                            <th style=\"padding:6px 10px;\">Quantity / Constant</th>\n                            <th style=\"padding:6px 10px;\">Governing Formula</th>\n                            <th style=\"padding:6px 10px;\">Dimensional Derivation</th>\n                            <th style=\"padding:6px 10px;\">Standard Dimensional Formula</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Universal Gravitational Constant ($G$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$F = \\frac{G m_1 m_2}{r^2} \\implies G = \\frac{F r^2}{m_1 m_2}$</td>\n                            <td style=\"padding:6px 10px;\">$\\frac{[M L T^{-2}] [L^2]}{[M][M]} = [M^{-1} L^3 T^{-2}]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^{-1} L^3 T^{-2}]}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Surface Tension ($T$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$T = \\text{Force} / \\text{Length}$</td>\n                            <td style=\"padding:6px 10px;\">$\\frac{[M L T^{-2}]}{[L]} = [M L^0 T^{-2}]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^1 L^0 T^{-2}]}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Spring Constant ($k$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$F = k x \\implies k = F / x$</td>\n                            <td style=\"padding:6px 10px;\">$\\frac{[M L T^{-2}]}{[L]} = [M L^0 T^{-2}]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^1 L^0 T^{-2}]}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Coefficient of Viscosity ($\\\\eta$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$F = \\eta A \\frac{\\Delta v}{\\Delta x} \\implies \\eta = \\frac{F \\Delta x}{A \\Delta v}$</td>\n                            <td style=\"padding:6px 10px;\">$\\frac{[M L T^{-2}][L]}{[L^2][L T^{-1}]} = [M L^{-1} T^{-1}]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^1 L^{-1} T^{-1}]}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Planck's Constant ($h$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$E = h \\nu \\implies h = E / \\nu$</td>\n                            <td style=\"padding:6px 10px;\">$\\frac{[M L^2 T^{-2}]}{[T^{-1}]} = [M L^2 T^{-1}]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^1 L^2 T^{-1}]}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Angular Momentum ($L$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$L = m v r$</td>\n                            <td style=\"padding:6px 10px;\">$[M] \\times [L T^{-1}] \\times [L] = [M L^2 T^{-1}]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^1 L^2 T^{-1}]}$</td>\n                        </tr>\n                        <tr>\n                            <td style=\"padding:6px 10px;\"><strong>Moment of Inertia ($I$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$I = m r^2$</td>\n                            <td style=\"padding:6px 10px;\">$[M] \\times [L^2]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^1 L^2 T^0]}$</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n            <p>Notice that <strong>Planck's Constant ($h$)</strong> and <strong>Angular Momentum ($L$)</strong> share the exact same dimensional formula: $[M^1 L^2 T^{-1}]$! This profound connection underpins Niels Bohr's quantum postulate that atomic angular momentum is quantized in integer multiples of $h / 2\\pi$.</p>\n        ",
+            "theoryHtml": "\n <p>In classical dynamics and astrophysics, several critical physical constants govern interactions across planetary systems, fluids, and quantum physics.</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Derivations of Advanced Physical Constants & Properties</h4>\n <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n <thead>\n <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n <th style=\"padding:6px 10px;\">Quantity / Constant</th>\n <th style=\"padding:6px 10px;\">Governing Formula</th>\n <th style=\"padding:6px 10px;\">Dimensional Derivation</th>\n <th style=\"padding:6px 10px;\">Standard Dimensional Formula</th>\n </tr>\n </thead>\n <tbody>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Universal Gravitational Constant (G)</strong></td>\n <td style=\"padding:6px 10px;\">F = (G m₁ m₂ / r²) ⟹ G = (F r² / m₁ m₂)</td>\n <td style=\"padding:6px 10px;\">frac{[M L T⁻²] [L²]}{[M][M]} = [M⁻¹ L³ T⁻²]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M⁻¹ L³ T⁻²]}</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Surface Tension (T)</strong></td>\n <td style=\"padding:6px 10px;\">T = Force / Length</td>\n <td style=\"padding:6px 10px;\">frac{[M L T⁻²]}{[L]} = [M L⁰ T⁻²]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M¹ L⁰ T⁻²]}</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Spring Constant (k)</strong></td>\n <td style=\"padding:6px 10px;\">F = k x ⟹ k = F / x</td>\n <td style=\"padding:6px 10px;\">frac{[M L T⁻²]}{[L]} = [M L⁰ T⁻²]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M¹ L⁰ T⁻²]}</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Coefficient of Viscosity (η)</strong></td>\n <td style=\"padding:6px 10px;\">F = η A (Δ v / Δ x) ⟹ η = (F Δ x / A Δ v)</td>\n <td style=\"padding:6px 10px;\">frac{[M L T⁻²][L]}{[L²][L T⁻¹]} = [M L⁻¹ T⁻¹]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M¹ L⁻¹ T⁻¹]}</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Planck's Constant (h)</strong></td>\n <td style=\"padding:6px 10px;\">E = h ν ⟹ h = E / ν</td>\n <td style=\"padding:6px 10px;\">frac{[M L² T⁻²]}{[T⁻¹]} = [M L² T⁻¹]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M¹ L² T⁻¹]}</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Angular Momentum (L)</strong></td>\n <td style=\"padding:6px 10px;\">L = m v r</td>\n <td style=\"padding:6px 10px;\">[M] × [L T⁻¹] × [L] = [M L² T⁻¹]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M¹ L² T⁻¹]}</td>\n </tr>\n <tr>\n <td style=\"padding:6px 10px;\"><strong>Moment of Inertia (I)</strong></td>\n <td style=\"padding:6px 10px;\">I = m r²</td>\n <td style=\"padding:6px 10px;\">[M] × [L²]</td>\n <td style=\"padding:6px 10px;\">[M¹ L² T⁰]</td>\n </tr>\n </tbody>\n </table>\n </div>\n <p>Notice that <strong>Planck's Constant (h)</strong> and <strong>Angular Momentum (L)</strong> share the exact same dimensional formula: [M¹ L² T⁻¹]! This profound connection underpins Niels Bohr's quantum postulate that atomic angular momentum is quantized in integer multiples of h / 2π.</p>\n ",
             "pointsToRemember": [
-                "Gravitational constant $G$ is $[M^{-1} L^3 T^{-2}]$; SI unit is $\\text{N}\\cdot\\text{m}^2/\\text{kg}^2$.",
-                "Surface Tension and Spring Constant both share $[M^1 L^0 T^{-2}]$.",
-                "Coefficient of Viscosity $\\eta$ is $[M^1 L^{-1} T^{-1}]$; SI unit is $\\text{Pa}\\cdot\\text{s}$ or Poiseuille.",
-                "Planck's constant $h$ and Angular Momentum $L$ share the exact same dimension: $[M^1 L^2 T^{-1}]$."
+                "Gravitational constant G is [M⁻¹ L³ T⁻²]; SI unit is N·m²/kg².",
+                "Surface Tension and Spring Constant both share [M¹ L⁰ T⁻²].",
+                "Coefficient of Viscosity η is [M¹ L⁻¹ T⁻¹]; SI unit is Pa·s or Poiseuille.",
+                "Planck's constant h and Angular Momentum L share the exact same dimension: [M¹ L² T⁻¹]."
             ],
             "keyNotes": [
-                "Civil Services Hall-of-Fame MCQ: Which two quantities have identical dimensions? (A) Planck's constant and Angular momentum ($[M L^2 T^{-1}]$); (B) Surface tension and Spring constant ($[M L^0 T^{-2}]$)."
+                "Civil Services Hall-of-Fame MCQ: Which two quantities have identical dimensions? (A) Planck's constant and Angular momentum ([M L² T⁻¹]); (B) Surface tension and Spring constant ([M L⁰ T⁻²])."
             ],
             "questions": [
                 {
                     "id": "m17_q01",
-                    "question": "What is the dimensional formula of the Universal Gravitational Constant ($G$)?",
+                    "question": "What is the dimensional formula of the Universal Gravitational Constant (G)?",
                     "options": [
-                        "$[M^{-1} L^3 T^{-2}]$",
-                        "$[M^1 L^3 T^{-2}]$",
-                        "$[M^{-1} L^2 T^{-2}]$",
-                        "$[M^1 L^2 T^{-1}]$"
+                        "[M⁻¹ L³ T⁻²]",
+                        "[M¹ L³ T⁻²]",
+                        "[M⁻¹ L² T⁻²]",
+                        "[M¹ L² T⁻¹]"
                     ],
-                    "answer": "$[M^{-1} L^3 T^{-2}]$",
-                    "explanation": "From Newton's law: $G = F r^2 / m^2 = ([M L T^{-2}][L^2]) / [M^2] = [M^{-1} L^3 T^{-2}]$."
+                    "answer": "[M⁻¹ L³ T⁻²]",
+                    "explanation": "From Newton's law: G = F r² / m² = ([M L T⁻²][L²]) / [M²] = [M⁻¹ L³ T⁻²]."
                 },
                 {
                     "id": "m17_q02",
-                    "question": "Planck's Constant ($h$) has the exact same dimensional formula as which physical quantity?",
+                    "question": "Planck's Constant (h) has the exact same dimensional formula as which physical quantity?",
                     "options": [
                         "Linear Momentum",
                         "Angular Momentum",
@@ -2266,23 +2267,23 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Power"
                     ],
                     "answer": "Angular Momentum",
-                    "explanation": "Planck's constant $h = E / \\nu = [M L^2 T^{-2}] / [T^{-1}] = [M L^2 T^{-1}]$, which is identical to angular momentum $L = mvr = [M L^2 T^{-1}]$."
+                    "explanation": "Planck's constant h = E / ν = [M L² T⁻²] / [T⁻¹] = [M L² T⁻¹], which is identical to angular momentum L = mvr = [M L² T⁻¹]."
                 },
                 {
                     "id": "m17_q03",
-                    "question": "What is the dimensional formula for the Coefficient of Viscosity ($\\eta$)?",
+                    "question": "What is the dimensional formula for the Coefficient of Viscosity (η)?",
                     "options": [
-                        "$[M^1 L^1 T^{-1}]$",
-                        "$[M^1 L^{-1} T^{-1}]$",
-                        "$[M^1 L^{-1} T^{-2}]$",
-                        "$[M^1 L^0 T^{-2}]$"
+                        "[M¹ L¹ T⁻¹]",
+                        "[M¹ L⁻¹ T⁻¹]",
+                        "[M¹ L⁻¹ T⁻²]",
+                        "[M¹ L⁰ T⁻²]"
                     ],
-                    "answer": "$[M^1 L^{-1} T^{-1}]$",
-                    "explanation": "From Newton's viscous force law: $\\eta = (F \\cdot dx) / (A \\cdot dv) = ([M L T^{-2}][L]) / ([L^2][L T^{-1}]) = [M^1 L^{-1} T^{-1}]$."
+                    "answer": "[M¹ L⁻¹ T⁻¹]",
+                    "explanation": "From Newton's viscous force law: η = (F · dx) / (A · dv) = ([M L T⁻²][L]) / ([L²][L T⁻¹]) = [M¹ L⁻¹ T⁻¹]."
                 },
                 {
                     "id": "m17_q04",
-                    "question": "Which of the following quantities has the dimensional formula $[M^1 L^0 T^{-2}]$?",
+                    "question": "Which of the following quantities has the dimensional formula [M¹ L⁰ T⁻²]?",
                     "options": [
                         "Surface Tension",
                         "Spring Constant (Force Constant)",
@@ -2290,35 +2291,35 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "All of the above"
                     ],
                     "answer": "All of the above",
-                    "explanation": "Surface Tension ($F/L$), Spring Constant ($F/x$), and Surface Energy ($E/A$) all reduce to $[M^1 L^0 T^{-2}]$."
+                    "explanation": "Surface Tension (F/L), Spring Constant (F/x), and Surface Energy (E/A) all reduce to [M¹ L⁰ T⁻²]."
                 },
                 {
                     "id": "m17_q05",
                     "question": "What is the SI unit of the Coefficient of Viscosity?",
                     "options": [
                         "Pascal",
-                        "Pascal-second ($\\text{Pa}\\cdot\\text{s}$)",
+                        "Pascal-second (Pa·s)",
                         "Newton per metre",
                         "Joule per second"
                     ],
-                    "answer": "Pascal-second ($\\text{Pa}\\cdot\\text{s}$)",
-                    "explanation": "The SI unit is $\\text{Pa}\\cdot\\text{s}$ (or Poiseuille). Note: $1\\text{ Pa}\\cdot\\text{s} = 10\\text{ poise}$ (CGS unit)."
+                    "answer": "Pascal-second (Pa·s)",
+                    "explanation": "The SI unit is Pa·s (or Poiseuille). Note: 1 Pa·s = 10 poise (CGS unit)."
                 },
                 {
                     "id": "m17_q06",
                     "question": "What is the dimensional formula of Moment of Inertia?",
                     "options": [
-                        "$[M^1 L^1 T^0]$",
-                        "$[M^1 L^2 T^0]$",
-                        "$[M^1 L^2 T^{-1}]$",
-                        "$[M^1 L^0 T^2]$"
+                        "[M¹ L¹ T⁰]",
+                        "[M¹ L² T⁰]",
+                        "[M¹ L² T⁻¹]",
+                        "[M¹ L⁰ T²]"
                     ],
-                    "answer": "$[M^1 L^2 T^0]$",
-                    "explanation": "Moment of inertia $I = m r^2 = [M][L^2] = [M^1 L^2 T^0]$."
+                    "answer": "[M¹ L² T⁰]",
+                    "explanation": "Moment of inertia I = m r² = [M][L²] = [M¹ L² T⁰]."
                 },
                 {
                     "id": "m17_q07",
-                    "question": "Torque has the dimensional formula $[M^1 L^2 T^{-2}]$. Which other quantity shares this dimension but is a SCALAR?",
+                    "question": "Torque has the dimensional formula [M¹ L² T⁻²]. Which other quantity shares this dimension but is a SCALAR?",
                     "options": [
                         "Work / Energy",
                         "Linear Momentum",
@@ -2326,43 +2327,43 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Angular Momentum"
                     ],
                     "answer": "Work / Energy",
-                    "explanation": "Both Torque and Work have dimensions $[M L^2 T^{-2}]$, but Torque is an axial vector whereas Work/Energy is a scalar."
+                    "explanation": "Both Torque and Work have dimensions [M L² T⁻²], but Torque is an axial vector whereas Work/Energy is a scalar."
                 },
                 {
                     "id": "m17_q08",
-                    "question": "What is the numerical value of Planck's Constant ($h$) in SI units?",
+                    "question": "What is the numerical value of Planck's Constant (h) in SI units?",
                     "options": [
-                        "$6.626 \\times 10^{-34}\\text{ J}\\cdot\\text{s}$",
-                        "$6.674 \\times 10^{-11}\\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$",
-                        "$1.602 \\times 10^{-19}\\text{ C}$",
-                        "$1.381 \\times 10^{-23}\\text{ J/K}$"
+                        "6.626 × 10⁻³⁴ J·s",
+                        "6.674 × 10⁻¹¹ N·m²/kg²",
+                        "1.602 × 10⁻¹⁹ C",
+                        "1.381 × 10⁻²³ J/K"
                     ],
-                    "answer": "$6.626 \\times 10^{-34}\\text{ J}\\cdot\\text{s}$",
-                    "explanation": "$h = 6.62607015 \\times 10^{-34}\\text{ J}\\cdot\\text{s}$."
+                    "answer": "6.626 × 10⁻³⁴ J·s",
+                    "explanation": "h = 6.62607015 × 10⁻³⁴ J·s."
                 },
                 {
                     "id": "m17_q09",
-                    "question": "What is the numerical value and unit of the Universal Gravitational Constant ($G$)?",
+                    "question": "What is the numerical value and unit of the Universal Gravitational Constant (G)?",
                     "options": [
-                        "$9.8\\text{ m/s}^2$",
-                        "$6.674 \\times 10^{-11}\\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$",
-                        "$3.0 \\times 10^8\\text{ m/s}$",
-                        "$6.023 \\times 10^{23}\\text{ mol}^{-1}$"
+                        "9.8 m/s²",
+                        "6.674 × 10⁻¹¹ N·m²/kg²",
+                        "3.0 × 10⁸ m/s",
+                        "6.023 × 10²³ mol⁻¹"
                     ],
-                    "answer": "$6.674 \\times 10^{-11}\\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$",
-                    "explanation": "First measured by Henry Cavendish, $G \\approx 6.674 \\times 10^{-11}\\text{ N}\\cdot\\text{m}^2/\\text{kg}^2$."
+                    "answer": "6.674 × 10⁻¹¹ N·m²/kg²",
+                    "explanation": "First measured by Henry Cavendish, G ≈ 6.674 × 10⁻¹¹ N·m²/kg²."
                 },
                 {
                     "id": "m17_q10",
-                    "question": "Modulus of Rigidity (Shear Modulus $\\eta$) has the dimensional formula:",
+                    "question": "Modulus of Rigidity (Shear Modulus η) has the dimensional formula:",
                     "options": [
-                        "$[M^1 L^{-1} T^{-2}]$",
-                        "$[M^1 L^0 T^{-2}]$",
-                        "$[M^1 L^1 T^{-2}]$",
-                        "$[M^0 L^0 T^0]$"
+                        "[M¹ L⁻¹ T⁻²]",
+                        "[M¹ L⁰ T⁻²]",
+                        "[M¹ L¹ T⁻²]",
+                        "[M⁰ L⁰ T⁰]"
                     ],
-                    "answer": "$[M^1 L^{-1} T^{-2}]$",
-                    "explanation": "All elastic moduli (Young's, Bulk, Shear) are Stress / Strain = $[M L^{-1} T^{-2}] / 1 = [M^1 L^{-1} T^{-2}]$."
+                    "answer": "[M¹ L⁻¹ T⁻²]",
+                    "explanation": "All elastic moduli (Young's, Bulk, Shear) are Stress / Strain = [M L⁻¹ T⁻²] / 1 = [M¹ L⁻¹ T⁻²]."
                 }
             ]
         },
@@ -2372,44 +2373,44 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Dimensional Formulas in Thermal Physics & Electromagnetism",
             "tagline": "Extending base dimensions to include Temperature [K] and Electric Current [A].",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>When analyzing heat, thermodynamics, and electrical circuits, we introduce two additional base dimensions: <strong>Temperature $[K]$</strong> (or $[\\theta]$) and <strong>Electric Current $[A]$</strong> (or $[I]$).</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Thermal & Electromagnetism Dimensional Formulas</h4>\n                <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n                    <thead>\n                        <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n                            <th style=\"padding:6px 10px;\">Physical Quantity</th>\n                            <th style=\"padding:6px 10px;\">Defining Formula</th>\n                            <th style=\"padding:6px 10px;\">Dimensional Derivation</th>\n                            <th style=\"padding:6px 10px;\">Dimensional Formula</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Specific Heat Capacity ($s$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$Q = m s \\Delta T \\implies s = \\frac{Q}{m \\Delta T}$</td>\n                            <td style=\"padding:6px 10px;\">$\\frac{[M L^2 T^{-2}]}{[M][K]} = [L^2 T^{-2} K^{-1}]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^0 L^2 T^{-2} K^{-1}]}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Latent Heat ($L$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$Q = m L \\implies L = Q / m$</td>\n                            <td style=\"padding:6px 10px;\">$\\frac{[M L^2 T^{-2}]}{[M]} = [L^2 T^{-2}]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^0 L^2 T^{-2}]}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Universal Gas Constant ($R$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$P V = n R T \\implies R = \\frac{P V}{n T}$</td>\n                            <td style=\"padding:6px 10px;\">$\\frac{[M L^{-1} T^{-2}][L^3]}{[mol][K]} = [M L^2 T^{-2} K^{-1} mol^{-1}]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^1 L^2 T^{-2} K^{-1} mol^{-1}]}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Electric Charge ($Q$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$Q = I \\times t$</td>\n                            <td style=\"padding:6px 10px;\">$[A] \\times [T]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^0 L^0 T^1 A^1]}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Electric Potential ($V$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$V = \\text{Work} / \\text{Charge} = W / Q$</td>\n                            <td style=\"padding:6px 10px;\">$\\frac{[M L^2 T^{-2}]}{[A T]} = [M L^2 T^{-3} A^{-1}]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^1 L^2 T^{-3} A^{-1}]}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Electrical Resistance ($R$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$R = V / I$ (Ohm's Law)</td>\n                            <td style=\"padding:6px 10px;\">$\\frac{[M L^2 T^{-3} A^{-1}]}{[A]} = [M L^2 T^{-3} A^{-2}]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^1 L^2 T^{-3} A^{-2}]}$</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>Capacitance ($C$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$C = Q / V$</td>\n                            <td style=\"padding:6px 10px;\">$\\frac{[A T]}{[M L^2 T^{-3} A^{-1}]} = [M^{-1} L^{-2} T^4 A^2]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^{-1} L^{-2} T^4 A^2]}$</td>\n                        </tr>\n                        <tr>\n                            <td style=\"padding:6px 10px;\"><strong>Magnetic Flux ($\\Phi$)</strong></td>\n                            <td style=\"padding:6px 10px;\">$e = -\\frac{d\\Phi}{dt} \\implies \\Phi = V \\times t$</td>\n                            <td style=\"padding:6px 10px;\">$[M L^2 T^{-3} A^{-1}] \\times [T]$</td>\n                            <td style=\"padding:6px 10px;\">$\\mathbf{[M^1 L^2 T^{-2} A^{-1}]}$</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n            <p>Notice how Faraday's Law of Induction ($e = -d\\Phi/dt$) reveals that Magnetic Flux is simply <strong>Voltage $\\times$ Time</strong> ($[M L^2 T^{-2} A^{-1}]$), yielding the Weber ($\\text{Wb} = \\text{V}\\cdot\\text{s}$).</p>\n        ",
+            "theoryHtml": "\n <p>When analyzing heat, thermodynamics, and electrical circuits, we introduce two additional base dimensions: <strong>Temperature [K]</strong> (or [θ]) and <strong>Electric Current [A]</strong> (or [I]).</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Thermal & Electromagnetism Dimensional Formulas</h4>\n <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n <thead>\n <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n <th style=\"padding:6px 10px;\">Physical Quantity</th>\n <th style=\"padding:6px 10px;\">Defining Formula</th>\n <th style=\"padding:6px 10px;\">Dimensional Derivation</th>\n <th style=\"padding:6px 10px;\">Dimensional Formula</th>\n </tr>\n </thead>\n <tbody>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Specific Heat Capacity (s)</strong></td>\n <td style=\"padding:6px 10px;\">Q = m s Δ T ⟹ s = (Q / m Δ T)</td>\n <td style=\"padding:6px 10px;\">frac{[M L² T⁻²]}{[M][K]} = [L² T⁻² K⁻¹]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M⁰ L² T⁻² K⁻¹]}</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Latent Heat (L)</strong></td>\n <td style=\"padding:6px 10px;\">Q = m L ⟹ L = Q / m</td>\n <td style=\"padding:6px 10px;\">frac{[M L² T⁻²]}{[M]} = [L² T⁻²]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M⁰ L² T⁻²]}</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Universal Gas Constant (R)</strong></td>\n <td style=\"padding:6px 10px;\">P V = n R T ⟹ R = (P V / n T)</td>\n <td style=\"padding:6px 10px;\">frac{[M L⁻¹ T⁻²][L³]}{[mol][K]} = [M L² T⁻² K⁻¹ mol⁻¹]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M¹ L² T⁻² K⁻¹ mol⁻¹]}</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Electric Charge (Q)</strong></td>\n <td style=\"padding:6px 10px;\">Q = I × t</td>\n <td style=\"padding:6px 10px;\">[A] × [T]</td>\n <td style=\"padding:6px 10px;\">[M⁰ L⁰ T¹ A¹]</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Electric Potential (V)</strong></td>\n <td style=\"padding:6px 10px;\">V = Work / Charge = W / Q</td>\n <td style=\"padding:6px 10px;\">frac{[M L² T⁻²]}{[A T]} = [M L² T⁻³ A⁻¹]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M¹ L² T⁻³ A⁻¹]}</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Electrical Resistance (R)</strong></td>\n <td style=\"padding:6px 10px;\">R = V / I (Ohm's Law)</td>\n <td style=\"padding:6px 10px;\">frac{[M L² T⁻³ A⁻¹]}{[A]} = [M L² T⁻³ A⁻²]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M¹ L² T⁻³ A⁻²]}</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>Capacitance (C)</strong></td>\n <td style=\"padding:6px 10px;\">C = Q / V</td>\n <td style=\"padding:6px 10px;\">frac{[A T]}{[M L² T⁻³ A⁻¹]} = [M⁻¹ L⁻² T⁴ A²]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M⁻¹ L⁻² T⁴ A²]}</td>\n </tr>\n <tr>\n <td style=\"padding:6px 10px;\"><strong>Magnetic Flux (Φ)</strong></td>\n <td style=\"padding:6px 10px;\">e = -(dΦ / dt) ⟹ Φ = V × t</td>\n <td style=\"padding:6px 10px;\">[M L² T⁻³ A⁻¹] × [T]</td>\n <td style=\"padding:6px 10px;\">mathbf{[M¹ L² T⁻² A⁻¹]}</td>\n </tr>\n </tbody>\n </table>\n </div>\n <p>Notice how Faraday's Law of Induction (e = -dΦ/dt) reveals that Magnetic Flux is simply <strong>Voltage × Time</strong> ([M L² T⁻² A⁻¹]), yielding the Weber (Wb = V·s).</p>\n ",
             "pointsToRemember": [
-                "Electric Charge $Q = I t$ has dimensions $[A^1 T^1]$; Electric Potential $V = W/Q$ is $[M^1 L^2 T^{-3} A^{-1}]$.",
-                "Electrical Resistance $R = V/I$ is $[M^1 L^2 T^{-3} A^{-2}]$.",
-                "Specific Heat Capacity is $[M^0 L^2 T^{-2} K^{-1}]$, whereas Latent Heat is $[M^0 L^2 T^{-2}]$ (no temperature dimension).",
-                "Magnetic Flux $\\Phi = V \\times t$ is $[M^1 L^2 T^{-2} A^{-1}]$ (Weber)."
+                "Electric Charge Q = I t has dimensions [A¹ T¹]; Electric Potential V = W/Q is [M¹ L² T⁻³ A⁻¹].",
+                "Electrical Resistance R = V/I is [M¹ L² T⁻³ A⁻²].",
+                "Specific Heat Capacity is [M⁰ L² T⁻² K⁻¹], whereas Latent Heat is [M⁰ L² T⁻²] (no temperature dimension).",
+                "Magnetic Flux Φ = V × t is [M¹ L² T⁻² A⁻¹] (Weber)."
             ],
             "keyNotes": [
-                "Quick Rule: Latent heat has NO temperature dimension ($[L^2 T^{-2}]$) because phase change occurs at constant temperature!"
+                "Quick Rule: Latent heat has NO temperature dimension ([L² T⁻²]) because phase change occurs at constant temperature!"
             ],
             "questions": [
                 {
                     "id": "m18_q01",
                     "question": "What is the dimensional formula of Electric Potential (Voltage)?",
                     "options": [
-                        "$[M^1 L^2 T^{-3} A^{-1}]$",
-                        "$[M^1 L^2 T^{-2} A^{-1}]$",
-                        "$[M^1 L^1 T^{-3} A^{-1}]$",
-                        "$[M^1 L^2 T^{-3} A^{-2}]$"
+                        "[M¹ L² T⁻³ A⁻¹]",
+                        "[M¹ L² T⁻² A⁻¹]",
+                        "[M¹ L¹ T⁻³ A⁻¹]",
+                        "[M¹ L² T⁻³ A⁻²]"
                     ],
-                    "answer": "$[M^1 L^2 T^{-3} A^{-1}]$",
-                    "explanation": "Potential $V = \\text{Work} / \\text{Charge} = [M L^2 T^{-2}] / [A T] = [M^1 L^2 T^{-3} A^{-1}]$."
+                    "answer": "[M¹ L² T⁻³ A⁻¹]",
+                    "explanation": "Potential V = Work / Charge = [M L² T⁻²] / [A T] = [M¹ L² T⁻³ A⁻¹]."
                 },
                 {
                     "id": "m18_q02",
-                    "question": "What is the dimensional formula of Electrical Resistance ($R$)?",
+                    "question": "What is the dimensional formula of Electrical Resistance (R)?",
                     "options": [
-                        "$[M^1 L^2 T^{-3} A^{-1}]$",
-                        "$[M^1 L^2 T^{-3} A^{-2}]$",
-                        "$[M^1 L^1 T^{-2} A^{-2}]$",
-                        "$[M^{-1} L^{-2} T^3 A^2]$"
+                        "[M¹ L² T⁻³ A⁻¹]",
+                        "[M¹ L² T⁻³ A⁻²]",
+                        "[M¹ L¹ T⁻² A⁻²]",
+                        "[M⁻¹ L⁻² T³ A²]"
                     ],
-                    "answer": "$[M^1 L^2 T^{-3} A^{-2}]$",
-                    "explanation": "From Ohm's law: $R = V / I = [M L^2 T^{-3} A^{-1}] / [A] = [M^1 L^2 T^{-3} A^{-2}]$."
+                    "answer": "[M¹ L² T⁻³ A⁻²]",
+                    "explanation": "From Ohm's law: R = V / I = [M L² T⁻³ A⁻¹] / [A] = [M¹ L² T⁻³ A⁻²]."
                 },
                 {
                     "id": "m18_q03",
-                    "question": "Why does the dimensional formula of Latent Heat contain no temperature term ($[K^0]$)?",
+                    "question": "Why does the dimensional formula of Latent Heat contain no temperature term ([K⁰])?",
                     "options": [
                         "Because latent heat cannot be measured with thermometers",
                         "Because phase transitions (melting/boiling) occur at a constant temperature without temperature change",
@@ -2417,91 +2418,91 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Because latent heat only occurs in liquids"
                     ],
                     "answer": "Because phase transitions (melting/boiling) occur at a constant temperature without temperature change",
-                    "explanation": "Latent heat $L = Q / m$ involves no $\\Delta T$. Its dimension is strictly Energy / Mass = $[L^2 T^{-2}]$."
+                    "explanation": "Latent heat L = Q / m involves no Δ T. Its dimension is strictly Energy / Mass = [L² T⁻²]."
                 },
                 {
                     "id": "m18_q04",
                     "question": "What is the dimensional formula of Specific Heat Capacity?",
                     "options": [
-                        "$[M^0 L^2 T^{-2} K^{-1}]$",
-                        "$[M^1 L^2 T^{-2} K^{-1}]$",
-                        "$[M^0 L^1 T^{-2} K^{-1}]$",
-                        "$[M^0 L^2 T^{-1} K^{-1}]$"
+                        "[M⁰ L² T⁻² K⁻¹]",
+                        "[M¹ L² T⁻² K⁻¹]",
+                        "[M⁰ L¹ T⁻² K⁻¹]",
+                        "[M⁰ L² T⁻¹ K⁻¹]"
                     ],
-                    "answer": "$[M^0 L^2 T^{-2} K^{-1}]$",
-                    "explanation": "$s = Q / (m \\Delta T) = [M L^2 T^{-2}] / ([M][K]) = [M^0 L^2 T^{-2} K^{-1}]$."
+                    "answer": "[M⁰ L² T⁻² K⁻¹]",
+                    "explanation": "s = Q / (m Δ T) = [M L² T⁻²] / ([M][K]) = [M⁰ L² T⁻² K⁻¹]."
                 },
                 {
                     "id": "m18_q05",
-                    "question": "What is the dimensional formula of Capacitance ($C = Q / V$)?",
+                    "question": "What is the dimensional formula of Capacitance (C = Q / V)?",
                     "options": [
-                        "$[M^{-1} L^{-2} T^4 A^2]$",
-                        "$[M^1 L^2 T^{-4} A^{-2}]$",
-                        "$[M^{-1} L^{-2} T^2 A^1]$",
-                        "$[M^0 L^0 T^1 A^1]$"
+                        "[M⁻¹ L⁻² T⁴ A²]",
+                        "[M¹ L² T⁻⁴ A⁻²]",
+                        "[M⁻¹ L⁻² T² A¹]",
+                        "[M⁰ L⁰ T¹ A¹]"
                     ],
-                    "answer": "$[M^{-1} L^{-2} T^4 A^2]$",
-                    "explanation": "$C = Q / V = [A T] / [M L^2 T^{-3} A^{-1}] = [M^{-1} L^{-2} T^4 A^2]$."
+                    "answer": "[M⁻¹ L⁻² T⁴ A²]",
+                    "explanation": "C = Q / V = [A T] / [M L² T⁻³ A⁻¹] = [M⁻¹ L⁻² T⁴ A²]."
                 },
                 {
                     "id": "m18_q06",
-                    "question": "The Weber is the SI unit of Magnetic Flux ($\\Phi$). Its dimensional formula is:",
+                    "question": "The Weber is the SI unit of Magnetic Flux (Φ). Its dimensional formula is:",
                     "options": [
-                        "$[M^1 L^2 T^{-2} A^{-1}]$",
-                        "$[M^1 L^1 T^{-2} A^{-1}]$",
-                        "$[M^1 L^2 T^{-3} A^{-1}]$",
-                        "$[M^0 L^2 T^{-2} A^{-1}]$"
+                        "[M¹ L² T⁻² A⁻¹]",
+                        "[M¹ L¹ T⁻² A⁻¹]",
+                        "[M¹ L² T⁻³ A⁻¹]",
+                        "[M⁰ L² T⁻² A⁻¹]"
                     ],
-                    "answer": "$[M^1 L^2 T^{-2} A^{-1}]$",
-                    "explanation": "From Faraday's law, $\\Phi = \\text{Voltage} \\times \\text{Time} = [M L^2 T^{-3} A^{-1}][T] = [M^1 L^2 T^{-2} A^{-1}]$."
+                    "answer": "[M¹ L² T⁻² A⁻¹]",
+                    "explanation": "From Faraday's law, Φ = Voltage × Time = [M L² T⁻³ A⁻¹][T] = [M¹ L² T⁻² A⁻¹]."
                 },
                 {
                     "id": "m18_q07",
-                    "question": "What is the dimensional formula of the Universal Gas Constant ($R$)?",
+                    "question": "What is the dimensional formula of the Universal Gas Constant (R)?",
                     "options": [
-                        "$[M^1 L^2 T^{-2} K^{-1} mol^{-1}]$",
-                        "$[M^1 L^1 T^{-2} K^{-1} mol^{-1}]$",
-                        "$[M^0 L^2 T^{-2} K^{-1}]$",
-                        "$[M^1 L^2 T^{-3} K^{-1}]$"
+                        "[M¹ L² T⁻² K⁻¹ mol⁻¹]",
+                        "[M¹ L¹ T⁻² K⁻¹ mol⁻¹]",
+                        "[M⁰ L² T⁻² K⁻¹]",
+                        "[M¹ L² T⁻³ K⁻¹]"
                     ],
-                    "answer": "$[M^1 L^2 T^{-2} K^{-1} mol^{-1}]$",
-                    "explanation": "From $P V = n R T$: $R = (PV) / (nT) = \\text{Work} / (\\text{moles} \\times \\text{temp}) = [M^1 L^2 T^{-2} K^{-1} mol^{-1}]$."
+                    "answer": "[M¹ L² T⁻² K⁻¹ mol⁻¹]",
+                    "explanation": "From P V = n R T: R = (PV) / (nT) = Work / (moles × temp) = [M¹ L² T⁻² K⁻¹ mol⁻¹]."
                 },
                 {
                     "id": "m18_q08",
-                    "question": "What is the dimensional formula of Electric Charge ($Q$)?",
+                    "question": "What is the dimensional formula of Electric Charge (Q)?",
                     "options": [
-                        "$[A^1 T^1]$",
-                        "$[A^1 T^{-1}]$",
-                        "$[M^1 A^1 T^1]$",
-                        "$[A^1 T^2]$"
+                        "[A¹ T¹]",
+                        "[A¹ T⁻¹]",
+                        "[M¹ A¹ T¹]",
+                        "[A¹ T²]"
                     ],
-                    "answer": "$[A^1 T^1]$",
-                    "explanation": "Charge = Current × Time = $[A T]$ (or $[I T]$)."
+                    "answer": "[A¹ T¹]",
+                    "explanation": "Charge = Current × Time = [A T] (or [I T])."
                 },
                 {
                     "id": "m18_q09",
-                    "question": "Electrical Conductance ($G$) is the reciprocal of electrical resistance ($G = 1/R$). Its unit Siemens has dimensions:",
+                    "question": "Electrical Conductance (G) is the reciprocal of electrical resistance (G = 1/R). Its unit Siemens has dimensions:",
                     "options": [
-                        "$[M^{-1} L^{-2} T^3 A^2]$",
-                        "$[M^1 L^2 T^{-3} A^{-2}]$",
-                        "$[M^{-1} L^{-1} T^2 A^1]$",
-                        "$[M^0 L^0 T^0 A^1]$"
+                        "[M⁻¹ L⁻² T³ A²]",
+                        "[M¹ L² T⁻³ A⁻²]",
+                        "[M⁻¹ L⁻¹ T² A¹]",
+                        "[M⁰ L⁰ T⁰ A¹]"
                     ],
-                    "answer": "$[M^{-1} L^{-2} T^3 A^2]$",
-                    "explanation": "Inverting the dimensions of resistance $[M^1 L^2 T^{-3} A^{-2}]$ gives $[M^{-1} L^{-2} T^3 A^2]$."
+                    "answer": "[M⁻¹ L⁻² T³ A²]",
+                    "explanation": "Inverting the dimensions of resistance [M¹ L² T⁻³ A⁻²] gives [M⁻¹ L⁻² T³ A²]."
                 },
                 {
                     "id": "m18_q10",
-                    "question": "What are the dimensions of Boltzmann's Constant ($k_B = R / N_A$)?",
+                    "question": "What are the dimensions of Boltzmann's Constant (k_B = R / N_A)?",
                     "options": [
-                        "$[M^1 L^2 T^{-2} K^{-1}]$",
-                        "$[M^0 L^2 T^{-2} K^{-1}]$",
-                        "$[M^1 L^1 T^{-2} K^{-1}]$",
-                        "$[M^1 L^2 T^{-1} K^{-1}]$"
+                        "[M¹ L² T⁻² K⁻¹]",
+                        "[M⁰ L² T⁻² K⁻¹]",
+                        "[M¹ L¹ T⁻² K⁻¹]",
+                        "[M¹ L² T⁻¹ K⁻¹]"
                     ],
-                    "answer": "$[M^1 L^2 T^{-2} K^{-1}]$",
-                    "explanation": "Energy $E = k_B T \\implies k_B = E / T = [M L^2 T^{-2}] / [K] = [M^1 L^2 T^{-2} K^{-1}]$."
+                    "answer": "[M¹ L² T⁻² K⁻¹]",
+                    "explanation": "Energy E = k_B T ⟹ k_B = E / T = [M L² T⁻²] / [K] = [M¹ L² T⁻² K⁻¹]."
                 }
             ]
         },
@@ -2511,15 +2512,15 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Physical Quantities Sharing Identical Dimensions",
             "tagline": "Mastering high-yield exam clusters of quantities with identical dimensional formulas.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>A recurring topic in Civil Services preliminary examinations is identifying pairs of physical quantities that share identical dimensional formulas despite having completely different physical meanings or vector natures.</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Taxonomy of Quantities Having Identical Dimensions</h4>\n                <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n                    <thead>\n                        <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n                            <th style=\"padding:6px 10px;\">Shared Dimensional Formula</th>\n                            <th style=\"padding:6px 10px;\">Physical Quantities in this Cluster</th>\n                            <th style=\"padding:6px 10px;\">Key Physical Nuances</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>$[M^0 L^1 T^{-1}]$</strong></td>\n                            <td style=\"padding:6px 10px;\">Speed, Velocity</td>\n                            <td style=\"padding:6px 10px;\">Speed is scalar; Velocity is vector</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>$[M^1 L^1 T^{-2}]$</strong></td>\n                            <td style=\"padding:6px 10px;\">Force, Weight, Thrust, Tension, Frictional Force, Restoring Force, Centripetal Force</td>\n                            <td style=\"padding:6px 10px;\">All representations of mechanical and field forces</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>$[M^1 L^2 T^{-2}]$</strong></td>\n                            <td style=\"padding:6px 10px;\">Work, Kinetic Energy, Potential Energy, Heat, Torque (Moment of Force), Internal Energy</td>\n                            <td style=\"padding:6px 10px;\">Torque is an axial vector; Work, Heat, and Energy are scalars!</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>$[M^1 L^{-1} T^{-2}]$</strong></td>\n                            <td style=\"padding:6px 10px;\">Pressure, Mechanical Stress, Young's Modulus, Bulk Modulus, Shear Modulus, Energy Density</td>\n                            <td style=\"padding:6px 10px;\">Energy density = Energy/Volume = $[M L^2 T^{-2}]/[L^3] = [M L^{-1} T^{-2}]$ (identical to Pressure)</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>$[M^1 L^1 T^{-1}]$</strong></td>\n                            <td style=\"padding:6px 10px;\">Linear Momentum, Impulse</td>\n                            <td style=\"padding:6px 10px;\">Impulse is the integral of force over time ($\\Delta p$)</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>$[M^1 L^0 T^{-2}]$</strong></td>\n                            <td style=\"padding:6px 10px;\">Surface Tension, Spring Constant (Force Constant), Surface Energy per unit area</td>\n                            <td style=\"padding:6px 10px;\">Force per length or Energy per area</td>\n                        </tr>\n                        <tr style=\"border-bottom:1px solid #e2e8f0;\">\n                            <td style=\"padding:6px 10px;\"><strong>$[M^1 L^2 T^{-1}]$</strong></td>\n                            <td style=\"padding:6px 10px;\">Angular Momentum, Planck's Constant ($h$)</td>\n                            <td style=\"padding:6px 10px;\">Quantum angular momentum is quantized as $n(h/2\\pi)$</td>\n                        </tr>\n                        <tr>\n                            <td style=\"padding:6px 10px;\"><strong>$[M^0 L^0 T^{-1}]$</strong></td>\n                            <td style=\"padding:6px 10px;\">Frequency, Angular Frequency ($\\omega$), Angular Velocity, Radioactive Decay Constant ($\\lambda$)</td>\n                            <td style=\"padding:6px 10px;\">All represent inverse time periods ($1/T$)</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n            <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n                <strong>💡 Surprising Identity — Pressure vs Energy Density:</strong>\n                <p style=\"margin:4px 0 0 0; line-height:1.6;\">\n                    $$\\text{Energy Density} = \\frac{\\text{Energy}}{\\text{Volume}} = \\frac{[M L^2 T^{-2}]}{[L^3]} = [M L^{-1} T^{-2}]$$\n                    Notice that Energy Density has the exact same dimensions as <strong>Pressure</strong>! In fluid mechanics and relativistic cosmology, pressure literally acts as an energy density.\n                </p>\n            </div>\n        ",
+            "theoryHtml": "\n <p>A recurring topic in Civil Services preliminary examinations is identifying pairs of physical quantities that share identical dimensional formulas despite having completely different physical meanings or vector natures.</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Taxonomy of Quantities Having Identical Dimensions</h4>\n <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n <thead>\n <tr style=\"background:#f1f5f9; border-bottom:2px solid #cbd5e1;\">\n <th style=\"padding:6px 10px;\">Shared Dimensional Formula</th>\n <th style=\"padding:6px 10px;\">Physical Quantities in this Cluster</th>\n <th style=\"padding:6px 10px;\">Key Physical Nuances</th>\n </tr>\n </thead>\n <tbody>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>[M⁰ L¹ T⁻¹]</strong></td>\n <td style=\"padding:6px 10px;\">Speed, Velocity</td>\n <td style=\"padding:6px 10px;\">Speed is scalar; Velocity is vector</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>[M¹ L¹ T⁻²]</strong></td>\n <td style=\"padding:6px 10px;\">Force, Weight, Thrust, Tension, Frictional Force, Restoring Force, Centripetal Force</td>\n <td style=\"padding:6px 10px;\">All representations of mechanical and field forces</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>[M¹ L² T⁻²]</strong></td>\n <td style=\"padding:6px 10px;\">Work, Kinetic Energy, Potential Energy, Heat, Torque (Moment of Force), Internal Energy</td>\n <td style=\"padding:6px 10px;\">Torque is an axial vector; Work, Heat, and Energy are scalars!</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>[M¹ L⁻¹ T⁻²]</strong></td>\n <td style=\"padding:6px 10px;\">Pressure, Mechanical Stress, Young's Modulus, Bulk Modulus, Shear Modulus, Energy Density</td>\n <td style=\"padding:6px 10px;\">Energy density = Energy/Volume = [M L² T⁻²]/[L³] = [M L⁻¹ T⁻²] (identical to Pressure)</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>[M¹ L¹ T⁻¹]</strong></td>\n <td style=\"padding:6px 10px;\">Linear Momentum, Impulse</td>\n <td style=\"padding:6px 10px;\">Impulse is the integral of force over time (Δ p)</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>[M¹ L⁰ T⁻²]</strong></td>\n <td style=\"padding:6px 10px;\">Surface Tension, Spring Constant (Force Constant), Surface Energy per unit area</td>\n <td style=\"padding:6px 10px;\">Force per length or Energy per area</td>\n </tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\">\n <td style=\"padding:6px 10px;\"><strong>[M¹ L² T⁻¹]</strong></td>\n <td style=\"padding:6px 10px;\">Angular Momentum, Planck's Constant (h)</td>\n <td style=\"padding:6px 10px;\">Quantum angular momentum is quantized as n(h/2π)</td>\n </tr>\n <tr>\n <td style=\"padding:6px 10px;\"><strong>[M⁰ L⁰ T⁻¹]</strong></td>\n <td style=\"padding:6px 10px;\">Frequency, Angular Frequency (ω), Angular Velocity, Radioactive Decay Constant (λ)</td>\n <td style=\"padding:6px 10px;\">All represent inverse time periods (1/T)</td>\n </tr>\n </tbody>\n </table>\n </div>\n <div style=\"background:#eff6ff; border-left:4px solid #2563eb; padding:12px 16px; margin:14px 0; border-radius:6px;\">\n <strong>💡 Surprising Identity — Pressure vs Energy Density:</strong>\n <p style=\"margin:4px 0 0 0; line-height:1.6;\">\n Energy Density = frac{Energy}{Volume} = frac{[M L² T⁻²]}{[L³]} = [M L⁻¹ T⁻²]\n Notice that Energy Density has the exact same dimensions as <strong>Pressure</strong>! In fluid mechanics and relativistic cosmology, pressure literally acts as an energy density.\n </p>\n </div>\n ",
             "pointsToRemember": [
-                "Torque, Work, and Energy share $[M^1 L^2 T^{-2}]$ (Torque is vector; Work/Energy are scalars).",
-                "Pressure, Stress, and all Moduli of Elasticity share $[M^1 L^{-1} T^{-2}]$; Energy Density also has this exact formula!",
-                "Planck's Constant and Angular Momentum share $[M^1 L^2 T^{-1}]$.",
-                "Surface Tension and Spring Constant share $[M^1 L^0 T^{-2}]$."
+                "Torque, Work, and Energy share [M¹ L² T⁻²] (Torque is vector; Work/Energy are scalars).",
+                "Pressure, Stress, and all Moduli of Elasticity share [M¹ L⁻¹ T⁻²]; Energy Density also has this exact formula!",
+                "Planck's Constant and Angular Momentum share [M¹ L² T⁻¹].",
+                "Surface Tension and Spring Constant share [M¹ L⁰ T⁻²]."
             ],
             "keyNotes": [
-                "Civil Services Hall-of-Fame Match: Frequency, Angular Velocity, and Radioactive Decay Constant all share $[T^{-1}]$."
+                "Civil Services Hall-of-Fame Match: Frequency, Angular Velocity, and Radioactive Decay Constant all share [T⁻¹]."
             ],
             "questions": [
                 {
@@ -2532,7 +2533,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Force and Surface Tension"
                     ],
                     "answer": "Force and Surface Tension",
-                    "explanation": "Force is $[M L T^{-2}]$, whereas Surface Tension is Force / Length = $[M L^0 T^{-2}]$. They do not match."
+                    "explanation": "Force is [M L T⁻²], whereas Surface Tension is Force / Length = [M L⁰ T⁻²]. They do not match."
                 },
                 {
                     "id": "m19_q02",
@@ -2544,11 +2545,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Acceleration"
                     ],
                     "answer": "Pressure",
-                    "explanation": "Energy Density = $[M L^2 T^{-2}] / [L^3] = [M L^{-1} T^{-2}]$, which is identical to Pressure ($F/A = [M L^{-1} T^{-2}]$)."
+                    "explanation": "Energy Density = [M L² T⁻²] / [L³] = [M L⁻¹ T⁻²], which is identical to Pressure (F/A = [M L⁻¹ T⁻²])."
                 },
                 {
                     "id": "m19_q03",
-                    "question": "Which physical quantity has the same dimensions as Planck's constant ($h$)?",
+                    "question": "Which physical quantity has the same dimensions as Planck's constant (h)?",
                     "options": [
                         "Linear momentum",
                         "Angular momentum",
@@ -2556,11 +2557,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Energy"
                     ],
                     "answer": "Angular momentum",
-                    "explanation": "Both Planck's constant and angular momentum share $[M^1 L^2 T^{-1}]$."
+                    "explanation": "Both Planck's constant and angular momentum share [M¹ L² T⁻¹]."
                 },
                 {
                     "id": "m19_q04",
-                    "question": "The Spring Constant $k$ has identical dimensions to which property of liquids?",
+                    "question": "The Spring Constant k has identical dimensions to which property of liquids?",
                     "options": [
                         "Viscosity",
                         "Surface Tension",
@@ -2568,11 +2569,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Pressure"
                     ],
                     "answer": "Surface Tension",
-                    "explanation": "Spring constant $k = F/x = [M L^0 T^{-2}]$; Surface tension $T = F/L = [M L^0 T^{-2}]$."
+                    "explanation": "Spring constant k = F/x = [M L⁰ T⁻²]; Surface tension T = F/L = [M L⁰ T⁻²]."
                 },
                 {
                     "id": "m19_q05",
-                    "question": "Which group of quantities all share the dimensional formula $[T^{-1}]$?",
+                    "question": "Which group of quantities all share the dimensional formula [T⁻¹]?",
                     "options": [
                         "Frequency, Angular Velocity, Radioactive Decay Constant",
                         "Time Period, Wavelength, Speed",
@@ -2580,23 +2581,23 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Half-life, Mean Life, Period"
                     ],
                     "answer": "Frequency, Angular Velocity, Radioactive Decay Constant",
-                    "explanation": "Frequency ($1/T$), Angular velocity ($\\text{rad}/s$), and Decay constant (activity equation $dN/dt = -\\lambda N$) all share $[T^{-1}]$."
+                    "explanation": "Frequency (1/T), Angular velocity (rad/s), and Decay constant (activity equation dN/dt = -λ N) all share [T⁻¹]."
                 },
                 {
                     "id": "m19_q06",
                     "question": "What is the common dimensional formula for Young's Modulus, Bulk Modulus, and Shear Modulus?",
                     "options": [
-                        "$[M^1 L^1 T^{-2}]$",
-                        "$[M^1 L^{-1} T^{-2}]$",
-                        "$[M^1 L^2 T^{-2}]$",
-                        "$[M^0 L^0 T^0]$"
+                        "[M¹ L¹ T⁻²]",
+                        "[M¹ L⁻¹ T⁻²]",
+                        "[M¹ L² T⁻²]",
+                        "[M⁰ L⁰ T⁰]"
                     ],
-                    "answer": "$[M^1 L^{-1} T^{-2}]$",
-                    "explanation": "Modulus = Stress / Strain. Since strain is dimensionless, modulus has the dimensions of Stress/Pressure: $[M^1 L^{-1} T^{-2}]$."
+                    "answer": "[M¹ L⁻¹ T⁻²]",
+                    "explanation": "Modulus = Stress / Strain. Since strain is dimensionless, modulus has the dimensions of Stress/Pressure: [M¹ L⁻¹ T⁻²]."
                 },
                 {
                     "id": "m19_q07",
-                    "question": "Although Torque and Mechanical Work have identical dimensions ($[M L^2 T^{-2}]$), what is the fundamental difference between them?",
+                    "question": "Although Torque and Mechanical Work have identical dimensions ([M L² T⁻²]), what is the fundamental difference between them?",
                     "options": [
                         "Work is a scalar, whereas Torque is an axial vector",
                         "Work is in Watts, Torque is in Joules",
@@ -2604,11 +2605,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Work can never be negative"
                     ],
                     "answer": "Work is a scalar, whereas Torque is an axial vector",
-                    "explanation": "Work is a scalar ($W = \\vec{F} \\cdot \\vec{d}$ in Joules); Torque is a rotational vector ($\\vec{\\tau} = \\vec{r} \\times \\vec{F}$ in $\\text{N}\\cdot\\text{m}$)."
+                    "explanation": "Work is a scalar (W = F · d in Joules); Torque is a rotational vector (vec{τ} = r × F in N·m)."
                 },
                 {
                     "id": "m19_q08",
-                    "question": "Which of the following does NOT belong to the Force cluster ($[M L T^{-2}]$)?",
+                    "question": "Which of the following does NOT belong to the Force cluster ([M L T⁻²])?",
                     "options": [
                         "Thrust",
                         "Weight",
@@ -2616,11 +2617,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Tension in a string"
                     ],
                     "answer": "Surface Tension",
-                    "explanation": "Surface tension is Force / Length ($[M L^0 T^{-2}]$). Thrust, Weight, and Tension are all true forces ($[M L T^{-2}]$)."
+                    "explanation": "Surface tension is Force / Length ([M L⁰ T⁻²]). Thrust, Weight, and Tension are all true forces ([M L T⁻²])."
                 },
                 {
                     "id": "m19_q09",
-                    "question": "The quantity $\\sqrt{L / g}$ (where $L$ is length and $g$ is gravitational acceleration) has the dimensions of:",
+                    "question": "The quantity √(L / g) (where L is length and g is gravitational acceleration) has the dimensions of:",
                     "options": [
                         "Velocity",
                         "Acceleration",
@@ -2628,19 +2629,19 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Frequency"
                     ],
                     "answer": "Time",
-                    "explanation": "$\\sqrt{[L] / [L T^{-2}]} = \\sqrt{[T^2]} = [T]$ (Time period of pendulum $T = 2\\pi \\sqrt{L/g}$)."
+                    "explanation": "sqrt{[L] / [L T⁻²]} = √([T²]) = [T] (Time period of pendulum T = 2π √(L/g))."
                 },
                 {
                     "id": "m19_q10",
-                    "question": "What are the dimensions of the product of Resistance and Capacitance ($R \\times C$)?",
+                    "question": "What are the dimensions of the product of Resistance and Capacitance (R × C)?",
                     "options": [
-                        "$[M^1 L^2 T^{-1}]$",
-                        "$[T]$ (Time)",
-                        "$[T^{-1}]$ (Frequency)",
-                        "$[A^1 T^1]$ (Charge)"
+                        "[M¹ L² T⁻¹]",
+                        "[T] (Time)",
+                        "[T⁻¹] (Frequency)",
+                        "[A¹ T¹] (Charge)"
                     ],
-                    "answer": "$[T]$ (Time)",
-                    "explanation": "$RC$ is the time constant of a capacitive circuit. $[R][C] = [M L^2 T^{-3} A^{-2}] \\times [M^{-1} L^{-2} T^4 A^2] = [T]$."
+                    "answer": "[T] (Time)",
+                    "explanation": "RC is the time constant of a capacitive circuit. [R][C] = [M L² T⁻³ A⁻²] × [M⁻¹ L⁻² T⁴ A²] = [T]."
                 }
             ]
         },
@@ -2650,19 +2651,19 @@ const COURSE_CHAPTER_1_PHYSICS = {
             "title": "Dimensionless Quantities & Precision Measuring Instruments",
             "tagline": "Pure numerical ratios in nature and the classical instruments used to measure them.",
             "readingTimeMins": 5,
-            "theoryHtml": "\n            <p>A <strong>Dimensionless Physical Quantity</strong> is one whose dimensional formula has all base powers equal to zero: <strong>$[M^0 L^0 T^0]$</strong>. These quantities represent pure numerical ratios where units of identical physical nature cancel out.</p>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n                <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Catalog of Dimensionless Quantities in Physics</h4>\n                <ul style=\"margin:6px 0 12px 20px; line-height:1.6; font-size:13px;\">\n                    <li><strong>Plane Angle & Solid Angle:</strong> Radians and Steradians (have units, but $[M^0 L^0 T^0]$).</li>\n                    <li><strong>Mechanical Strain:</strong> $\\Delta L / L$ (Linear), $\\Delta V / V$ (Volumetric), $\\Delta x / L$ (Shear).</li>\n                    <li><strong>Poisson's Ratio ($\\sigma$):</strong> Ratio of lateral strain to longitudinal strain.</li>\n                    <li><strong>Relative Density / Specific Gravity:</strong> $\\text{Density of substance} / \\text{Density of pure water at 4°C}$.</li>\n                    <li><strong>Refractive Index ($n$ or $\\mu$):</strong> Ratio of speed of light in vacuum to speed in medium ($c / v$).</li>\n                    <li><strong>Relative Permittivity (Dielectric Constant $\\kappa$) & Relative Permeability ($\\mu_r$).</strong></li>\n                    <li><strong>Mach Number:</strong> $\\text{Speed of object} / \\text{Speed of sound in medium}$ ($>1$ Supersonic, $>5$ Hypersonic).</li>\n                    <li><strong>Reynolds Number ($Re$):</strong> Ratio of inertial forces to viscous forces in fluid flow ($Re = \\rho v D / \\eta$).</li>\n                    <li><strong>Coefficient of Friction ($\\mu$):</strong> Frictional Force / Normal Reaction ($F_f / N$).</li>\n                    <li><strong>Relative Humidity:</strong> Partial water vapor pressure / Saturation vapor pressure.</li>\n                </ul>\n            </div>\n            <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">Precision Scientific Instruments in General Physics:</h4>\n            <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px; margin:10px 0;\">\n                <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n                    <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Vernier Caliper</strong></td><td style=\"padding:5px 8px;\">Measures internal/external diameters & depths down to $0.1\\text{ mm} = 0.01\\text{ cm}$.</td></tr>\n                    <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Micrometer Screw Gauge</strong></td><td style=\"padding:5px 8px;\">Measures thin wires and sheet thickness down to $0.01\\text{ mm} = 0.001\\text{ cm} = 10\\mu\\text{m}$.</td></tr>\n                    <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Spherometer</strong></td><td style=\"padding:5px 8px;\">Measures radius of curvature of spherical optical surfaces (lenses/mirrors).</td></tr>\n                    <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Barometer</strong></td><td style=\"padding:5px 8px;\">Measures atmospheric air pressure (Torricelli mercury barometer).</td></tr>\n                    <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Pyrometer</strong></td><td style=\"padding:5px 8px;\">Measures extremely high temperatures remotely via radiation (e.g., surface of the Sun).</td></tr>\n                    <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Lactometer</strong></td><td style=\"padding:5px 8px;\">Measures purity and specific gravity of milk based on Archimedes' principle.</td></tr>\n                    <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Anemometer</strong></td><td style=\"padding:5px 8px;\">Measures wind speed and aerodynamic velocity.</td></tr>\n                    <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Hygrometer</strong></td><td style=\"padding:5px 8px;\">Measures relative humidity and moisture content in the atmosphere.</td></tr>\n                    <tr><td style=\"padding:5px 8px;\"><strong>Fathometer</strong></td><td style=\"padding:5px 8px;\">Measures oceanic depth using acoustic echo sounding.</td></tr>\n                </table>\n            </div>\n        ",
+            "theoryHtml": "\n <p>A <strong>Dimensionless Physical Quantity</strong> is one whose dimensional formula has all base powers equal to zero: <strong>[M⁰ L⁰ T⁰]</strong>. These quantities represent pure numerical ratios where units of identical physical nature cancel out.</p>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; margin:14px 0;\">\n <h4 style=\"margin:0 0 10px 0; color:#1e3a8a; font-size:14px;\">Master Catalog of Dimensionless Quantities in Physics</h4>\n <ul style=\"margin:6px 0 12px 20px; line-height:1.6; font-size:13px;\">\n <li><strong>Plane Angle & Solid Angle:</strong> Radians and Steradians (have units, but [M⁰ L⁰ T⁰]).</li>\n <li><strong>Mechanical Strain:</strong> Δ L / L (Linear), Δ V / V (Volumetric), Δ x / L (Shear).</li>\n <li><strong>Poisson's Ratio (σ):</strong> Ratio of lateral strain to longitudinal strain.</li>\n <li><strong>Relative Density / Specific Gravity:</strong> Density of substance / Density of pure water at 4°C.</li>\n <li><strong>Refractive Index (n or μ):</strong> Ratio of speed of light in vacuum to speed in medium (c / v).</li>\n <li><strong>Relative Permittivity (Dielectric Constant κ) & Relative Permeability (μ_r).</strong></li>\n <li><strong>Mach Number:</strong> Speed of object / Speed of sound in medium (>1 Supersonic, >5 Hypersonic).</li>\n <li><strong>Reynolds Number (Re):</strong> Ratio of inertial forces to viscous forces in fluid flow (Re = ρ v D / η).</li>\n <li><strong>Coefficient of Friction (μ):</strong> Frictional Force / Normal Reaction (F_f / N).</li>\n <li><strong>Relative Humidity:</strong> Partial water vapor pressure / Saturation vapor pressure.</li>\n </ul>\n </div>\n <h4 style=\"color:#1e3a8a; margin:14px 0 6px 0;\">Precision Scientific Instruments in General Physics:</h4>\n <div style=\"background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px; margin:10px 0;\">\n <table style=\"width:100%; border-collapse:collapse; font-size:13px; text-align:left;\">\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Vernier Caliper</strong></td><td style=\"padding:5px 8px;\">Measures internal/external diameters & depths down to 0.1 mm = 0.01 cm.</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Micrometer Screw Gauge</strong></td><td style=\"padding:5px 8px;\">Measures thin wires and sheet thickness down to 0.01 mm = 0.001 cm = 10μm.</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Spherometer</strong></td><td style=\"padding:5px 8px;\">Measures radius of curvature of spherical optical surfaces (lenses/mirrors).</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Barometer</strong></td><td style=\"padding:5px 8px;\">Measures atmospheric air pressure (Torricelli mercury barometer).</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Pyrometer</strong></td><td style=\"padding:5px 8px;\">Measures extremely high temperatures remotely via radiation (e.g., surface of the Sun).</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Lactometer</strong></td><td style=\"padding:5px 8px;\">Measures purity and specific gravity of milk based on Archimedes' principle.</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Anemometer</strong></td><td style=\"padding:5px 8px;\">Measures wind speed and aerodynamic velocity.</td></tr>\n <tr style=\"border-bottom:1px solid #e2e8f0;\"><td style=\"padding:5px 8px;\"><strong>Hygrometer</strong></td><td style=\"padding:5px 8px;\">Measures relative humidity and moisture content in the atmosphere.</td></tr>\n <tr><td style=\"padding:5px 8px;\"><strong>Fathometer</strong></td><td style=\"padding:5px 8px;\">Measures oceanic depth using acoustic echo sounding.</td></tr>\n </table>\n </div>\n ",
             "pointsToRemember": [
-                "Dimensionless quantities have formula $[M^0 L^0 T^0]$; they represent pure ratios (Strain, Poisson's ratio, Refractive index, Relative density, Mach number, Reynolds number).",
-                "Vernier caliper least count is typically $0.1\\text{ mm}$; Screw gauge least count is $0.01\\text{ mm}$.",
+                "Dimensionless quantities have formula [M⁰ L⁰ T⁰]; they represent pure ratios (Strain, Poisson's ratio, Refractive index, Relative density, Mach number, Reynolds number).",
+                "Vernier caliper least count is typically 0.1 mm; Screw gauge least count is 0.01 mm.",
                 "Pyrometer measures extremely high temperatures without contact via Stefan-Boltzmann radiation law; Barometer measures atmospheric pressure."
             ],
             "keyNotes": [
-                "Civil Services Rapid-Fire Pairings: Lactometer $\\rightarrow$ Milk purity/density; Hygrometer $\\rightarrow$ Humidity; Pyrometer $\\rightarrow$ High temperatures ($>800^\\circ\\text{C}$); Fathometer $\\rightarrow$ Ocean depth."
+                "Civil Services Rapid-Fire Pairings: Lactometer → Milk purity/density; Hygrometer → Humidity; Pyrometer → High temperatures (>800^°C); Fathometer → Ocean depth."
             ],
             "questions": [
                 {
                     "id": "m20_q01",
-                    "question": "Which of the following physical quantities is completely dimensionless ($[M^0 L^0 T^0]$)?",
+                    "question": "Which of the following physical quantities is completely dimensionless ([M⁰ L⁰ T⁰])?",
                     "options": [
                         "Mechanical Strain",
                         "Refractive Index",
@@ -2670,11 +2671,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "All of the above"
                     ],
                     "answer": "All of the above",
-                    "explanation": "Strain ($\\Delta L / L$), Refractive Index ($c/v$), and Relative Density ($\\rho / \\rho_{water}$) are all pure numerical ratios with no physical dimensions."
+                    "explanation": "Strain (Δ L / L), Refractive Index (c/v), and Relative Density (ρ / ρ_{water}) are all pure numerical ratios with no physical dimensions."
                 },
                 {
                     "id": "m20_q02",
-                    "question": "Which scientific instrument is specifically designed to measure extremely high temperatures (above $800^\\circ\\text{C}$) without physical contact?",
+                    "question": "Which scientific instrument is specifically designed to measure extremely high temperatures (above 800^°C) without physical contact?",
                     "options": [
                         "Clinical thermometer",
                         "Optical Pyrometer",
@@ -2688,25 +2689,25 @@ const COURSE_CHAPTER_1_PHYSICS = {
                     "id": "m20_q03",
                     "question": "What is the typical Least Count of a standard laboratory Vernier Caliper?",
                     "options": [
-                        "$1.0\\text{ mm}$",
-                        "$0.1\\text{ mm} (0.01\\text{ cm})$",
-                        "$0.01\\text{ mm} (0.001\\text{ cm})$",
-                        "$0.001\\text{ mm}$"
+                        "1.0 mm",
+                        "0.1 mm (0.01 cm)",
+                        "0.01 mm (0.001 cm)",
+                        "0.001 mm"
                     ],
-                    "answer": "$0.1\\text{ mm} (0.01\\text{ cm})$",
-                    "explanation": "Least Count $= 1\\text{ MSD} - 1\\text{ VSD} = 1\\text{ mm} - 0.9\\text{ mm} = 0.1\\text{ mm} = 0.01\\text{ cm}$."
+                    "answer": "0.1 mm (0.01 cm)",
+                    "explanation": "Least Count = 1 MSD - 1 VSD = 1 mm - 0.9 mm = 0.1 mm = 0.01 cm."
                 },
                 {
                     "id": "m20_q04",
                     "question": "What is the typical Least Count of a standard Micrometer Screw Gauge?",
                     "options": [
-                        "$0.1\\text{ mm}$",
-                        "$0.01\\text{ mm} (10\\mu\\text{m})$",
-                        "$0.001\\text{ mm}$",
-                        "$1.0\\text{ cm}$"
+                        "0.1 mm",
+                        "0.01 mm (10μm)",
+                        "0.001 mm",
+                        "1.0 cm"
                     ],
-                    "answer": "$0.01\\text{ mm} (10\\mu\\text{m})$",
-                    "explanation": "Least count of a screw gauge $= \\text{Pitch} / \\text{Total head divisions} = 1\\text{ mm} / 100 = 0.01\\text{ mm} = 10\\mu\\text{m}$."
+                    "answer": "0.01 mm (10μm)",
+                    "explanation": "Least count of a screw gauge = Pitch / Total head divisions = 1 mm / 100 = 0.01 mm = 10μm."
                 },
                 {
                     "id": "m20_q05",
@@ -2742,11 +2743,11 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Turbulence intensity"
                     ],
                     "answer": "Speed of an aircraft relative to the speed of sound",
-                    "explanation": "Mach Number is the ratio of object speed to the speed of sound ($v / v_{sound}$). $\\text{Mach} > 1$ denotes supersonic flight."
+                    "explanation": "Mach Number is the ratio of object speed to the speed of sound (v / v_{sound}). Mach > 1 denotes supersonic flight."
                 },
                 {
                     "id": "m20_q08",
-                    "question": "In fluid dynamics, the Reynolds Number ($Re$) predicts:",
+                    "question": "In fluid dynamics, the Reynolds Number (Re) predicts:",
                     "options": [
                         "Whether fluid flow will be smooth laminar or chaotic turbulent",
                         "The boiling temperature of water",
@@ -2754,7 +2755,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "The magnetic permeability of liquid oxygen"
                     ],
                     "answer": "Whether fluid flow will be smooth laminar or chaotic turbulent",
-                    "explanation": "Reynolds number compares inertial to viscous forces; low $Re (<2000)$ signifies laminar flow, while high $Re (>4000)$ signifies turbulent flow."
+                    "explanation": "Reynolds number compares inertial to viscous forces; low Re (<2000) signifies laminar flow, while high Re (>4000) signifies turbulent flow."
                 },
                 {
                     "id": "m20_q09",
@@ -2766,7 +2767,7 @@ const COURSE_CHAPTER_1_PHYSICS = {
                         "Galvanometer"
                     ],
                     "answer": "Fathometer",
-                    "explanation": "A Fathometer uses sound pulses (echo sounding) to measure ocean depth ($1\\text{ fathom} = 6\\text{ feet} = 1.8288\\text{ m}$)."
+                    "explanation": "A Fathometer uses sound pulses (echo sounding) to measure ocean depth (1 fathom = 6 feet = 1.8288 m)."
                 },
                 {
                     "id": "m20_q10",
