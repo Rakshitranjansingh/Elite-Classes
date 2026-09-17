@@ -90,7 +90,7 @@
         <div>
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
                 <span class="badge badge-primary" style="font-size:10.5px; font-weight:800; background:#4338ca; border-color:#4338ca; color:#ffffff;">Middle School Foundation</span>
-                <span class="badge badge-success" style="font-size:10.5px; font-weight:700;">🟢 6 Subjects Available</span>
+                <span class="badge" style="font-size:10.5px; font-weight:700; background:rgba(255,255,255,0.18); color:#ffffff;">0 Courses Published</span>
             </div>
             <h1>Class 8: Interactive Courses Hub</h1>
             <p style="font-size:12.5px; color:#94a3b8; margin:4px 0 0;">
@@ -128,176 +128,31 @@
     <!-- 3. SUBJECTS CATALOG -->
     <div style="margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
         <div>
-            <div style="font-size:15px; font-weight:800; color:var(--text);">Class 8 Curriculum Subjects</div>
-            <div style="font-size:12px; color:var(--text-muted);">Select a subject to explore chapter notes and concept assessments</div>
+            <div style="font-size:15px; font-weight:800; color:var(--text);">Class 8 Curriculum Courses</div>
+            <div style="font-size:12px; color:var(--text-muted);">Interactive chapter notes and concept assessments</div>
         </div>
-        <span class="badge badge-primary">6 Subjects</span>
+        <span class="badge" style="background:#f1f5f9; color:#64748b; font-weight:700; font-size:11px;">0 Courses Published</span>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; margin-bottom:30px;">
-        
-        <!-- SUBJECT: Science -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#2563eb; border-color:#2563eb;">18 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🔬 Science
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Crop Production, Microorganisms, Synthetic Fibres, Metals & Non-Metals, Coal & Petroleum, Combustion, Cell Structure, Reproduction, Force & Pressure, Friction, Sound, Light.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🔬 18 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#2563eb; border-color:#2563eb;" onclick="showToast('Science modules for Class 8 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore Science →
-                </button>
-            </div>
+    <!-- EMPTY COURSES STATE (NO DUMMY COURSES) -->
+    <div id="course-empty-state" style="background:#ffffff; border:1.5px dashed var(--border); border-radius:16px; padding:50px 24px; text-align:center; margin-bottom:30px; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+        <div style="font-size:42px; margin-bottom:12px;">📚</div>
+        <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px;">No Courses Published Yet for Class 8</div>
+        <div style="font-size:13px; color:var(--text-muted); max-width:480px; margin:0 auto 18px; line-height:1.5;">
+            Courses for Class 8 will appear here as they are created and published one by one.
         </div>
-        
-        <!-- SUBJECT: History (Our Pasts - III) -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#b45309; border-color:#b45309;">10 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🏛️ History (Our Pasts - III)
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    How, When and Where, From Trade to Territory, Ruling the Countryside, Tribals, Dikus & the Vision of a Golden Age, When People Rebel 1857, Civilising the Native, Women, Caste and Reform, Making of National Movement.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🏛️ 10 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#b45309; border-color:#b45309;" onclick="showToast('History (Our Pasts - III) modules for Class 8 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore History (Our Pasts - III) →
-                </button>
-            </div>
+        <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-outline btn-sm" onclick="switchCourseClass('class10')" style="font-weight:700; padding:8px 16px; font-size:12px;">
+                📘 Explore Live Class 10 Courses →
+            </button>
+            <a href="../../../student_home.html" class="btn btn-primary btn-sm" style="font-weight:700; padding:8px 16px; font-size:12px; text-decoration:none;">
+                ← Student Portal
+            </a>
         </div>
-        
-        <!-- SUBJECT: Geography (Resources & Development) -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#0284c7; border-color:#0284c7;">6 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🌐 Geography (Resources & Development)
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Resources, Land, Soil, Water, Natural Vegetation & Wildlife Resources, Mineral & Power Resources, Agriculture, Industries, Human Resources.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🌐 6 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#0284c7; border-color:#0284c7;" onclick="showToast('Geography (Resources & Development) modules for Class 8 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore Geography (Resources & Development) →
-                </button>
-            </div>
-        </div>
-        
-        <!-- SUBJECT: Civics (Social and Political Life - III) -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#4338ca; border-color:#4338ca;">10 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    ⚖️ Civics (Social and Political Life - III)
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    The Indian Constitution, Understanding Secularism, Why Do We Need a Parliament?, Understanding Laws, Judiciary, Understanding Our Criminal Justice System, Understanding Marginalisation.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">⚖️ 10 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#4338ca; border-color:#4338ca;" onclick="showToast('Civics (Social and Political Life - III) modules for Class 8 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore Civics (Social and Political Life - III) →
-                </button>
-            </div>
-        </div>
-        
-        <!-- SUBJECT: Mathematics -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#7c3aed; border-color:#7c3aed;">16 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    📐 Mathematics
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Rational Numbers, Linear Equations, Understanding Quadrilaterals, Practical Geometry, Data Handling, Squares & Square Roots, Cubes, Comparing Quantities, Algebraic Expressions, Mensuration, Exponents.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">📐 16 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#7c3aed; border-color:#7c3aed;" onclick="showToast('Mathematics modules for Class 8 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore Mathematics →
-                </button>
-            </div>
-        </div>
-        
-        <!-- SUBJECT: English -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#d97706; border-color:#d97706;">10 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    📖 English
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Honeydew & It So Happened. Prose Analysis, Thematic Essay Writing, Advanced Grammatical Constructs & Reading Comprehension.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">📖 10 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#d97706; border-color:#d97706;" onclick="showToast('English modules for Class 8 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore English →
-                </button>
-            </div>
-        </div>
-        
+    </div>
+
+    <!-- DYNAMIC CONTAINER FOR COURSES ADDED ONE BY ONE -->
+    <div id="course-cards-container" style="display:none; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; margin-bottom:30px;">
     </div>
 
     <!-- TOAST -->

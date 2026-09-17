@@ -90,7 +90,7 @@
         <div>
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
                 <span class="badge badge-primary" style="font-size:10.5px; font-weight:800; background:#be123c; border-color:#be123c; color:#ffffff;">Senior Secondary & UPSC Pre-Foundation</span>
-                <span class="badge badge-success" style="font-size:10.5px; font-weight:700;">🟢 6 Subjects Available</span>
+                <span class="badge" style="font-size:10.5px; font-weight:700; background:rgba(255,255,255,0.18); color:#ffffff;">0 Courses Published</span>
             </div>
             <h1>Class 12: Interactive Courses Hub</h1>
             <p style="font-size:12.5px; color:#94a3b8; margin:4px 0 0;">
@@ -128,176 +128,31 @@
     <!-- 3. SUBJECTS CATALOG -->
     <div style="margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
         <div>
-            <div style="font-size:15px; font-weight:800; color:var(--text);">Class 12 Curriculum Subjects</div>
-            <div style="font-size:12px; color:var(--text-muted);">Select a subject to explore chapter notes and concept assessments</div>
+            <div style="font-size:15px; font-weight:800; color:var(--text);">Class 12 Curriculum Courses</div>
+            <div style="font-size:12px; color:var(--text-muted);">Interactive chapter notes and concept assessments</div>
         </div>
-        <span class="badge badge-primary">6 Subjects</span>
+        <span class="badge" style="background:#f1f5f9; color:#64748b; font-weight:700; font-size:11px;">0 Courses Published</span>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; margin-bottom:30px;">
-        
-        <!-- SUBJECT: Contemporary World Politics & Politics in India -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#4338ca; border-color:#4338ca;">18 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    ⚖️ Contemporary World Politics & Politics in India
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Cold War Era & Bipolarity, US Hegemony, Alternative Centres of Power, South Asia, International Organisations, Challenges of Nation-Building, Planned Development, India's External Relations.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">⚖️ 18 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#4338ca; border-color:#4338ca;" onclick="showToast('Contemporary World Politics & Politics in India modules for Class 12 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore Contemporary World Politics & Politics in India →
-                </button>
-            </div>
+    <!-- EMPTY COURSES STATE (NO DUMMY COURSES) -->
+    <div id="course-empty-state" style="background:#ffffff; border:1.5px dashed var(--border); border-radius:16px; padding:50px 24px; text-align:center; margin-bottom:30px; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+        <div style="font-size:42px; margin-bottom:12px;">📚</div>
+        <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px;">No Courses Published Yet for Class 12</div>
+        <div style="font-size:13px; color:var(--text-muted); max-width:480px; margin:0 auto 18px; line-height:1.5;">
+            Courses for Class 12 will appear here as they are created and published one by one.
         </div>
-        
-        <!-- SUBJECT: Fundamentals of Human Geography & India People -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#0284c7; border-color:#0284c7;">18 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🌐 Fundamentals of Human Geography & India People
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Human Geography Nature & Scope, World Population Distribution, Human Development, Primary, Secondary & Tertiary Activities, Transport & Communication, International Trade.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🌐 18 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#0284c7; border-color:#0284c7;" onclick="showToast('Fundamentals of Human Geography & India People modules for Class 12 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore Fundamentals of Human Geography & India People →
-                </button>
-            </div>
+        <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-outline btn-sm" onclick="switchCourseClass('class10')" style="font-weight:700; padding:8px 16px; font-size:12px;">
+                📘 Explore Live Class 10 Courses →
+            </button>
+            <a href="../../../student_home.html" class="btn btn-primary btn-sm" style="font-weight:700; padding:8px 16px; font-size:12px; text-decoration:none;">
+                ← Student Portal
+            </a>
         </div>
-        
-        <!-- SUBJECT: Themes in Indian History (Parts I, II & III) -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#b45309; border-color:#b45309;">12 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🏛️ Themes in Indian History (Parts I, II & III)
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Harappan Archaeology, Early States & Economies, Kinship, Caste & Class, Thinkers, Beliefs & Buildings, Agrarian Relations, Mughal Court, Vijayanagara Empire, Colonialism & 1857.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🏛️ 12 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#b45309; border-color:#b45309;" onclick="showToast('Themes in Indian History (Parts I, II & III) modules for Class 12 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore Themes in Indian History (Parts I, II & III) →
-                </button>
-            </div>
-        </div>
-        
-        <!-- SUBJECT: Macroeconomics & Microeconomics -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#059669; border-color:#059669;">12 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    📈 Macroeconomics & Microeconomics
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    National Income Accounting, Money and Banking, Determination of Income and Employment, Government Budget and the Economy, Open Economy Macroeconomics.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">📈 12 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#059669; border-color:#059669;" onclick="showToast('Macroeconomics & Microeconomics modules for Class 12 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore Macroeconomics & Microeconomics →
-                </button>
-            </div>
-        </div>
-        
-        <!-- SUBJECT: Physics -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#2563eb; border-color:#2563eb;">14 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    ⚛️ Physics
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Electrostatics, Current Electricity, Magnetic Effects of Current & Magnetism, Electromagnetic Induction & AC, Optics (Ray & Wave), Dual Nature of Radiation, Atoms & Nuclei, Semiconductors.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">⚛️ 14 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#2563eb; border-color:#2563eb;" onclick="showToast('Physics modules for Class 12 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore Physics →
-                </button>
-            </div>
-        </div>
-        
-        <!-- SUBJECT: Chemistry -->
-        <div class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Foundation Active</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#0891b2; border-color:#0891b2;">14 Ch</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🧪 Chemistry
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Solutions, Electrochemistry, Chemical Kinetics, d and f Block Elements, Coordination Compounds, Haloalkanes, Alcohols, Phenols & Ethers, Aldehydes & Ketones, Biomolecules.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🧪 14 Ch</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Concept Quizzes</span>
-                    <span class="meta-pill">🔒 Progressive Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; background:#0891b2; border-color:#0891b2;" onclick="showToast('Chemistry modules for Class 12 are available. Class 10 full CBT assessments and interactive notes are currently 100% live!', 'info')">
-                    Explore Chemistry →
-                </button>
-            </div>
-        </div>
-        
+    </div>
+
+    <!-- DYNAMIC CONTAINER FOR COURSES ADDED ONE BY ONE -->
+    <div id="course-cards-container" style="display:none; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; margin-bottom:30px;">
     </div>
 
     <!-- TOAST -->
