@@ -73,7 +73,7 @@ function renderStudentsTable() {
     if (filterContainer) {
         filterContainer.innerHTML = `<button class="btn btn-sm ${classFilter === '' ? 'btn-primary' : 'btn-outline'}" onclick="setStudentClassFilter('')">All</button>` +
             CLASS_OPTIONS.map(c => {
-                const label = (c === 'LKG' || c === 'UKG') ? c : c.replace('Class ', '');
+                const label = (c === 'LKG' || c === 'UKG' || c === 'Civil Services') ? c : c.replace('Class ', '');
                 const isActive = activeStudentClassFilter === c || activeStudentClassFilter === label;
                 return `<button class="btn btn-sm ${isActive ? 'btn-primary' : 'btn-outline'}" onclick="setStudentClassFilter('${c}')">${label}</button>`;
             }).join('');

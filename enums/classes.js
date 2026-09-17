@@ -12,7 +12,8 @@ const CLASS_ENUM = Object.freeze({
     CLASS_7: 'Class 7',
     CLASS_8: 'Class 8',
     CLASS_9: 'Class 9',
-    CLASS_10: 'Class 10'
+    CLASS_10: 'Class 10',
+    CIVIL_SERVICES: 'Civil Services'
 });
 
 let CLASS_OPTIONS = Object.values(CLASS_ENUM);

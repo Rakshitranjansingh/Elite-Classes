@@ -879,10 +879,18 @@ const DBService = {
         const name = (formData.name || '').trim();
         const cls = formData.cls || 'Class 10';
         const courseType = formData.program || formData.courseType || 'regular';
-        const pin = (formData.pin || '1234').trim();
+        const course = (formData.course || formData.course_interest || (courseType === 'testseries' ? 'Test Series Pass Only' : 'Regular Classroom Coaching')).trim();
+        const pin = (formData.pin || '123456').trim();
+        const parentName = (formData.parentName || formData.parent_name || formData.parent || '').trim();
+        const parentPhone = (formData.parentPhone || formData.parent_phone || '').replace(/\D/g, '');
+        const school = (formData.school || formData.school_name || '').trim();
 
         if (!name || !cleanEmail || !cleanPhone) {
-            return { success: false, message: 'Name, email, and WhatsApp number are required.' };
+            return { success: false, message: 'Student name, email, and WhatsApp number are required.' };
+        }
+
+        if (!parentName) {
+            return { success: false, message: 'Parent / Guardian name is required for student admission.' };
         }
 
         // Strict Uniqueness check
@@ -905,17 +913,35 @@ const DBService = {
             class: cls,
             program: courseType,
             courseType: courseType,
-            course: isTs ? 'Test Series Pass Only' : 'Regular Classroom Coaching',
-            parent: formData.parentName || '',
-            parent_name: formData.parentName || '',
-            parent_phone: formData.parentPhone || '',
-            school: formData.school || '',
-            school_name: formData.school || '',
+            course: course,
+            parent: parentName,
+            parent_name: parentName,
+            parent_phone: parentPhone,
+            school: school,
+            school_name: school,
             pin: pin,
             status: 'pending',
             tracking_code: trackingCode,
             date_of_admission: new Date().toISOString().split('T')[0],
             created_at: new Date().toISOString()
+        };
+
+        const regEntry = {
+            id: 'reg_' + studentId,
+            name: name,
+            phone: cleanPhone,
+            email: cleanEmail,
+            pin: pin,
+            cls: cls,
+            parent_name: parentName,
+            parent_phone: parentPhone,
+            school_name: school,
+            course_interest: course,
+            status: 'pending_approval',
+            rejection_reason: null,
+            created_at: new Date().toISOString(),
+            approved_at: null,
+            approved_by: null
         };
 
         if (isSupabaseConnected()) {
@@ -937,6 +963,12 @@ const DBService = {
                 console.warn('[DBService] Supabase student registration insert:', err);
             }
 
+            try {
+                await supabaseClient.from('student_registrations').upsert([regEntry], { onConflict: 'phone' });
+            } catch (regErr) {
+                console.warn('[DBService] Supabase student_registrations insert:', regErr);
+            }
+
             if (courseType === 'testseries') {
                 try {
                     await supabaseClient.from('testseries_subscribers').insert({
@@ -956,10 +988,20 @@ const DBService = {
             }
         }
 
-        // Save locally
+        // Save student locally
         const localStudents = JSON.parse(localStorage.getItem('ec_students') || '[]');
         localStudents.push(newStudent);
         localStorage.setItem('ec_students', JSON.stringify(localStudents));
+
+        // Save registration locally for admin approval roster
+        const regList = JSON.parse(localStorage.getItem('ec_student_registrations') || '[]');
+        const existIdx = regList.findIndex(r => r.phone === cleanPhone);
+        if (existIdx >= 0) {
+            regList[existIdx] = { ...regList[existIdx], ...regEntry };
+        } else {
+            regList.unshift(regEntry);
+        }
+        localStorage.setItem('ec_student_registrations', JSON.stringify(regList));
 
         // Record registration activity in login logs
         await this.recordUserDailyLogin(studentId, 'student', cleanEmail, 'google_oauth_registered');
@@ -1946,7 +1988,7 @@ const DBService = {
     // 13. CLASSES CRUD
     // ---------------------------------------------------------
     async fetchClasses() {
-        const defaultClasses = ['LKG', 'UKG', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10'].map((c, i) => ({
+        const defaultClasses = ['LKG', 'UKG', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Civil Services'].map((c, i) => ({
             id: 'c_' + i, name: c, display_order: i + 1, is_active: true
         }));
 

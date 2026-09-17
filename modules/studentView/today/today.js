@@ -29,6 +29,7 @@
     function normalizeClassKey(cls) {
         if (!cls) return 'default';
         const clean = cls.toString().trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+        if (clean.includes('civil')) return 'civilservices';
         if (clean.includes('10')) return 'class10';
         if (clean.includes('9')) return 'class9';
         if (clean.includes('8')) return 'class8';

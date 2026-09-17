@@ -1266,6 +1266,25 @@
             <div class="custom-modal-body" id="reg-form-container">
                 <div id="reg-alert-box" style="display:none; padding:10px 14px; border-radius:10px; font-size:12.5px; font-weight:600; margin-bottom:16px;"></div>
 
+                <!-- GOOGLE SIGN-UP / INSTANT ONBOARDING -->
+                <div style="margin-bottom:18px;">
+                    <button type="button" id="btn-google-signup" onclick="handleGoogleSignIn()" style="width:100%; display:flex; align-items:center; justify-content:center; gap:10px; padding:12px; background:#ffffff; color:#1e293b; border:1.5px solid #cbd5e1; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.06); transition:all 0.2s ease;">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.27 21.36 7.35 24 12 24z"/>
+                            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
+                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.27 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                        </svg>
+                        <span>Sign Up with Google</span>
+                    </button>
+                </div>
+
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+                    <div style="flex:1; height:1px; background:#e2e8f0;"></div>
+                    <span style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:0.5px;">Or fill manual application</span>
+                    <div style="flex:1; height:1px; background:#e2e8f0;"></div>
+                </div>
+
                 <form id="student-reg-form" onsubmit="event.preventDefault(); handleStudentRegistrationSubmit();">
                     <div class="form-grid">
                         <div class="form-group full">
@@ -1293,6 +1312,7 @@
                                 <option value="Class 1">Class 1</option>
                                 <option value="LKG">LKG</option>
                                 <option value="UKG">UKG</option>
+                                <option value="Civil Services">Civil Services</option>
                             </select>
                         </div>
 
@@ -1691,17 +1711,24 @@
                 </div>
 
                 <form id="google-onboarding-form" onsubmit="event.preventDefault(); handleGoogleOnboardingSubmit();">
+                    <!-- Student Full Name (Pre-filled from Google) -->
                     <div style="margin-bottom:14px;">
-                        <label class="input-label" for="g-onboard-phone" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
-                            WhatsApp Mobile Number *
+                        <label class="input-label" for="g-onboard-name-input" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                            Student Full Name *
                         </label>
-                        <input type="tel" id="g-onboard-phone" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="10-digit WhatsApp number" maxlength="15" required>
+                        <input type="text" id="g-onboard-name-input" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="Official student name" required>
                     </div>
 
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px;">
                         <div>
+                            <label class="input-label" for="g-onboard-phone" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                                WhatsApp Number (Login ID) *
+                            </label>
+                            <input type="tel" id="g-onboard-phone" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="10-digit WhatsApp number" maxlength="15" required>
+                        </div>
+                        <div>
                             <label class="input-label" for="g-onboard-class" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
-                                Academic Class *
+                                Target Class *
                             </label>
                             <select id="g-onboard-class" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" required>
                                 <option value="Class 10" selected>Class 10</option>
@@ -1709,21 +1736,60 @@
                                 <option value="Class 8">Class 8</option>
                                 <option value="Class 7">Class 7</option>
                                 <option value="Class 6">Class 6</option>
+                                <option value="Class 5">Class 5</option>
+                                <option value="Class 4">Class 4</option>
+                                <option value="Class 3">Class 3</option>
+                                <option value="Class 2">Class 2</option>
+                                <option value="Class 1">Class 1</option>
+                                <option value="LKG">LKG</option>
+                                <option value="UKG">UKG</option>
+                                <option value="Civil Services">Civil Services</option>
                             </select>
-                        </div>
-                        <div>
-                            <label class="input-label" for="g-onboard-pin" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
-                                Secret 4-Digit PIN
-                            </label>
-                            <input type="password" id="g-onboard-pin" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="e.g. 1234" maxlength="6">
                         </div>
                     </div>
 
-                    <div style="margin-bottom:18px;">
-                        <label class="input-label" for="g-onboard-school" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
-                            School Name (Optional)
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px;">
+                        <div>
+                            <label class="input-label" for="g-onboard-parent" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                                Parent / Guardian Name *
+                            </label>
+                            <input type="text" id="g-onboard-parent" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="e.g. Rajesh Sharma" required>
+                        </div>
+                        <div>
+                            <label class="input-label" for="g-onboard-parent-phone" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                                Parent Phone / WhatsApp
+                            </label>
+                            <input type="tel" id="g-onboard-parent-phone" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="e.g. 9876543211">
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:14px;">
+                        <label class="input-label" for="g-onboard-course" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                            Desired Course / Program Interest
                         </label>
-                        <input type="text" id="g-onboard-school" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="e.g. DPS / KV / St. Xavier">
+                        <input type="text" id="g-onboard-course" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="e.g. CBSE Class 10 Board Excellence, Foundation JEE/NEET">
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:18px;">
+                        <div>
+                            <label class="input-label" for="g-onboard-school" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                                School Name
+                            </label>
+                            <input type="text" id="g-onboard-school" class="gateway-input" style="width:100%; padding:10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="e.g. DPS / KV / St. Xavier">
+                        </div>
+                        <div>
+                            <label class="input-label" for="g-onboard-pin" style="font-size:11.5px; font-weight:700; color:#475569; display:block; margin-bottom:6px; text-transform:uppercase;">
+                                Secret PIN (4–6 digits) *
+                            </label>
+                            <div style="position:relative;">
+                                <input type="password" id="g-onboard-pin" class="gateway-input" style="width:100%; padding:10px 58px 10px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:14px; box-sizing:border-box;" placeholder="e.g. 123456" maxlength="20" required>
+                                <button type="button" class="pin-toggle-btn" onclick="toggleGooglePinVisibility()" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; font-size:11.5px; color:#64748b; font-weight:600;">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background:#f8fafc; border:1px dashed #cbd5e1; border-radius:10px; padding:10px 12px; margin-bottom:16px; font-size:11px; color:#64748b; line-height:1.4;">
+                        ℹ️ <strong>Admission Policy:</strong> Accounts registered here are submitted for Institute Admin verification. You can log in via Google or WhatsApp & PIN once approved.
                     </div>
 
                     <button type="submit" id="g-onboard-submit-btn" style="width:100%; padding:14px; background:linear-gradient(135deg, #2563eb, #1d4ed8); color:#ffffff; font-size:14.5px; font-weight:700; border:none; border-radius:12px; cursor:pointer; box-shadow:0 10px 20px -5px rgba(37,99,235,0.4);">
@@ -2377,23 +2443,50 @@
         // -------------------------------------------------------------
         let currentGoogleUser = null;
 
+        function toggleGooglePinVisibility() {
+            const input = document.getElementById('g-onboard-pin');
+            if (input) input.type = input.type === 'password' ? 'text' : 'password';
+        }
+
         async function handleGoogleSignIn() {
-            const btn = document.getElementById('btn-google-signin');
-            if (btn) {
-                btn.disabled = true;
-                btn.innerHTML = '<span>Connecting to Google...</span>';
-            }
-            const res = await DBService.signInWithGoogle();
-            if (!res.success) {
+            const btnSignin = document.getElementById('btn-google-signin');
+            const btnSignup = document.getElementById('btn-google-signup');
+
+            const setBtnLoading = (btn, text) => {
+                if (btn) {
+                    btn.disabled = true;
+                    btn.innerHTML = `<span>${text}</span>`;
+                }
+            };
+            const resetBtn = (btn, defaultText) => {
                 if (btn) {
                     btn.disabled = false;
-                    btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.27 21.36 7.35 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.27 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg><span>Continue with Google</span>`;
+                    btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.27 21.36 7.35 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.27 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg><span>${defaultText}</span>`;
                 }
+            };
+
+            setBtnLoading(btnSignin, 'Connecting to Google...');
+            setBtnLoading(btnSignup, 'Connecting to Google...');
+
+            const res = await DBService.signInWithGoogle();
+            if (!res.success) {
+                resetBtn(btnSignin, 'Continue with Google');
+                resetBtn(btnSignup, 'Sign Up with Google');
+
                 const errEl = document.getElementById('portal-error');
                 if (errEl) {
                     errEl.textContent = res.message || 'Could not connect to Google sign-in.';
                     errEl.style.display = 'block';
                 }
+                const regAlert = document.getElementById('reg-alert-box');
+                if (regAlert) {
+                    regAlert.textContent = res.message || 'Could not connect to Google sign-in.';
+                    regAlert.style.background = '#fef2f2';
+                    regAlert.style.color = '#ef4444';
+                    regAlert.style.display = 'block';
+                }
+            } else if (res.data?.url) {
+                window.location.href = res.data.url;
             }
         }
 
@@ -2410,6 +2503,7 @@
                         establishUserSession(authResult, 'google');
                     } else if (authResult.isPending) {
                         closeModal('portalLoginModal');
+                        closeModal('studentRegistrationModal');
                         openPendingApprovalModal(authResult.student || {
                             name: session.user.user_metadata?.full_name || 'Student',
                             class: 'Class 10',
@@ -2418,6 +2512,7 @@
                         });
                     } else if (authResult.isUnregistered) {
                         closeModal('portalLoginModal');
+                        closeModal('studentRegistrationModal');
                         currentGoogleUser = authResult.googleUser;
                         openGoogleOnboardingModal(authResult.googleUser);
                     } else {
@@ -2433,9 +2528,23 @@
             currentGoogleUser = gUser;
             document.getElementById('g-onboard-name').textContent = gUser.name || 'New Student';
             document.getElementById('g-onboard-email').textContent = gUser.email;
+            const nameInput = document.getElementById('g-onboard-name-input');
+            if (nameInput) nameInput.value = gUser.name || '';
             if (gUser.avatar) {
                 document.getElementById('g-onboard-avatar').src = gUser.avatar;
             }
+            const alertBox = document.getElementById('google-onboard-alert');
+            if (alertBox) alertBox.style.display = 'none';
+
+            // Populate all academic classes dynamically if CLASS_OPTIONS available
+            const classSelect = document.getElementById('g-onboard-class');
+            if (classSelect && typeof CLASS_OPTIONS !== 'undefined' && CLASS_OPTIONS.length > 0) {
+                const curVal = classSelect.value || 'Class 10';
+                classSelect.innerHTML = CLASS_OPTIONS.map(c => 
+                    `<option value="${c}" ${c === curVal ? 'selected' : ''}>${c}</option>`
+                ).join('');
+            }
+
             openModal('googleOnboardingModal');
         }
 
@@ -2457,8 +2566,12 @@
 
         async function handleGoogleOnboardingSubmit() {
             if (!currentGoogleUser) return;
+            const name = (document.getElementById('g-onboard-name-input')?.value || '').trim() || currentGoogleUser.name || 'New Student';
             const phone = document.getElementById('g-onboard-phone').value.trim();
             const cls = document.getElementById('g-onboard-class').value;
+            const parentName = (document.getElementById('g-onboard-parent')?.value || '').trim();
+            const parentPhone = (document.getElementById('g-onboard-parent-phone')?.value || '').trim();
+            const course = (document.getElementById('g-onboard-course')?.value || '').trim();
             const pin = document.getElementById('g-onboard-pin').value.trim();
             const school = document.getElementById('g-onboard-school').value.trim();
             const courseType = document.querySelector('input[name="g_course_type"]:checked')?.value || 'regular';
@@ -2468,6 +2581,14 @@
 
             alertBox.style.display = 'none';
 
+            if (!name) {
+                alertBox.textContent = 'Please enter the student\'s full name.';
+                alertBox.style.background = '#fef2f2';
+                alertBox.style.color = '#ef4444';
+                alertBox.style.display = 'block';
+                return;
+            }
+
             if (!phone || phone.replace(/\D/g, '').length < 10) {
                 alertBox.textContent = 'Please enter a valid 10-digit WhatsApp phone number.';
                 alertBox.style.background = '#fef2f2';
@@ -2476,18 +2597,37 @@
                 return;
             }
 
+            if (!parentName) {
+                alertBox.textContent = 'Please enter the Parent or Guardian\'s name.';
+                alertBox.style.background = '#fef2f2';
+                alertBox.style.color = '#ef4444';
+                alertBox.style.display = 'block';
+                return;
+            }
+
+            if (!pin || pin.length < 4) {
+                alertBox.textContent = 'Please create a secret PIN of at least 4 digits for your account.';
+                alertBox.style.background = '#fef2f2';
+                alertBox.style.color = '#ef4444';
+                alertBox.style.display = 'block';
+                return;
+            }
+
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Recording Admission...';
+            submitBtn.textContent = 'Submitting Admission Application...';
 
             try {
                 const res = await DBService.registerGoogleStudent({
-                    name: currentGoogleUser.name || 'New Student',
+                    name: name,
                     email: currentGoogleUser.email,
                     phone: phone,
                     cls: cls,
                     courseType: courseType,
+                    course: course,
+                    parentName: parentName,
+                    parentPhone: parentPhone,
                     school: school,
-                    pin: pin || '1234'
+                    pin: pin
                 });
 
                 if (!res.success) {

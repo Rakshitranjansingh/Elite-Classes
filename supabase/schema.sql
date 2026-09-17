@@ -484,7 +484,8 @@ VALUES
 ('c_7', 'Class 7', 9, true),
 ('c_8', 'Class 8', 10, true),
 ('c_9', 'Class 9', 11, true),
-('c_10', 'Class 10', 12, true)
+('c_10', 'Class 10', 12, true),
+('c_civil', 'Civil Services', 13, true)
 ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, display_order = EXCLUDED.display_order;
 
 -- SEED SUBJECTS

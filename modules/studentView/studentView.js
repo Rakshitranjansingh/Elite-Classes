@@ -313,15 +313,26 @@ function renderStudentCourses() {
     if (!container || !currentStudent) return;
 
     const rawCls = (currentStudent.cls || currentStudent.class || 'Class 10').toString().trim();
-    const isClass10 = (rawCls === 'Class 10' || rawCls === '10' || rawCls.toLowerCase().includes('10'));
-    const studentCls = isClass10 ? 'Class 10' : rawCls;
+    const isCivilServices = rawCls.toLowerCase().includes('civil');
+    const isClass10 = !isCivilServices && (rawCls === 'Class 10' || rawCls === '10' || rawCls.toLowerCase().includes('10'));
+    const studentCls = isCivilServices ? 'Civil Services' : (isClass10 ? 'Class 10' : rawCls);
 
-    // Normalise enrolled subjects for Class 10
+    // Normalise enrolled subjects
     let enrolledSubs = currentStudent.subjects 
         ? currentStudent.subjects.split(',').map(s => s.trim()).filter(Boolean)
-        : ['Science', 'Social Science', 'Mathematics', 'English'];
+        : (isCivilServices ? ['General Studies', 'Indian Polity', 'History', 'Geography', 'Economy', 'CSAT', 'Physics', 'Chemistry', 'Biology'] : ['Science', 'Social Science', 'Mathematics', 'English']);
 
-    if (isClass10) {
+    if (isCivilServices) {
+        if (!enrolledSubs.includes('General Studies')) enrolledSubs.unshift('General Studies');
+        if (!enrolledSubs.includes('Indian Polity')) enrolledSubs.push('Indian Polity');
+        if (!enrolledSubs.includes('History')) enrolledSubs.push('History');
+        if (!enrolledSubs.includes('Geography')) enrolledSubs.push('Geography');
+        if (!enrolledSubs.includes('Economy')) enrolledSubs.push('Economy');
+        if (!enrolledSubs.includes('CSAT')) enrolledSubs.push('CSAT');
+        if (!enrolledSubs.includes('Physics')) enrolledSubs.push('Physics');
+        if (!enrolledSubs.includes('Chemistry')) enrolledSubs.push('Chemistry');
+        if (!enrolledSubs.includes('Biology')) enrolledSubs.push('Biology');
+    } else if (isClass10) {
         // Guarantee Science and Social Science presence for every Class 10 student
         if (!enrolledSubs.includes('Science')) {
             enrolledSubs.unshift('Science');
@@ -350,31 +361,53 @@ function renderStudentCourses() {
         'Physics': {
             icon: '⚛️',
             color: '#2563eb',
-            desc: studentCls === 'Class 10'
-                ? 'Part of Class 10 Science • Light, Electricity & Magnetic Effects'
-                : `${studentCls} Physics Curriculum Modules`,
-            link: studentCls === 'Class 10' ? 'modules/course/class10/science/science_course_hub.html' : null
+            desc: studentCls === 'Civil Services'
+                ? '6 Chapters • 120 Modules • Mechanics, Optics, Electricity & Modern Physics'
+                : (studentCls === 'Class 10' ? 'Part of Class 10 Science • Light, Electricity & Magnetic Effects' : `${studentCls} Physics Curriculum Modules`),
+            link: studentCls === 'Civil Services'
+                ? 'modules/course/civilservices/physics/physics_course_hub.html'
+                : (studentCls === 'Class 10' ? 'modules/course/class10/science/science_course_hub.html' : null)
         },
         'Chemistry': {
             icon: '🧪',
-            color: '#2563eb',
-            desc: studentCls === 'Class 10'
-                ? 'Part of Class 10 Science • Chemical Reactions, Acids, Metals & Carbon'
-                : `${studentCls} Chemistry Curriculum Modules`,
-            link: studentCls === 'Class 10' ? 'modules/course/class10/science/science_course_hub.html' : null
+            color: '#0891b2',
+            desc: studentCls === 'Civil Services'
+                ? '6 Chapters • 120 Modules • Periodic Trends, Acids & Bases, Metallurgy & Polymers'
+                : (studentCls === 'Class 10' ? 'Part of Class 10 Science • Chemical Reactions, Acids, Metals & Carbon' : `${studentCls} Chemistry Curriculum Modules`),
+            link: studentCls === 'Civil Services'
+                ? 'modules/course/civilservices/chemistry/chemistry_course_hub.html'
+                : (studentCls === 'Class 10' ? 'modules/course/class10/science/science_course_hub.html' : null)
         },
         'Biology': {
             icon: '🧬',
-            color: '#2563eb',
-            desc: studentCls === 'Class 10'
-                ? 'Part of Class 10 Science • Life Processes, Reproduction & Heredity'
-                : `${studentCls} Biology Curriculum Modules`,
-            link: studentCls === 'Class 10' ? 'modules/course/class10/science/science_course_hub.html' : null
+            color: '#10b981',
+            desc: studentCls === 'Civil Services'
+                ? '7 Chapters • 140 Modules • Cell Biology, Genetics, Human Physiology & Diseases'
+                : (studentCls === 'Class 10' ? 'Part of Class 10 Science • Life Processes, Reproduction & Heredity' : `${studentCls} Biology Curriculum Modules`),
+            link: studentCls === 'Civil Services'
+                ? 'modules/course/civilservices/biology/biology_course_hub.html'
+                : (studentCls === 'Class 10' ? 'modules/course/class10/science/science_course_hub.html' : null)
         },
         'Mathematics': {
             icon: '📐',
             color: '#8b5cf6',
             desc: `${studentCls} Core Mathematics Syllabus & Problem Sets`,
+            link: null
+        },
+        'General Studies': {
+            icon: '🏛️',
+            color: '#0f172a',
+            desc: '8 Core Civil Services Disciplines • GS Papers I, II, III & CSAT Modules',
+            subLinks: [
+                { title: 'Polity', icon: '⚖️', chapters: '8 Ch', color: '#4338ca', url: 'modules/course/civilservices/polity/polity_course_hub.html' },
+                { title: 'History', icon: '🏛️', chapters: '8 Ch', color: '#b45309', url: 'modules/course/civilservices/history/history_course_hub.html' },
+                { title: 'Geography', icon: '🌐', chapters: '8 Ch', color: '#0284c7', url: 'modules/course/civilservices/geography/geography_course_hub.html' },
+                { title: 'Economy', icon: '📈', chapters: '6 Ch', color: '#059669', url: 'modules/course/civilservices/economy/economy_course_hub.html' },
+                { title: 'CSAT', icon: '📐', chapters: '6 Ch', color: '#7c3aed', url: 'modules/course/civilservices/csat/csat_course_hub.html' },
+                { title: 'Physics', icon: '⚛️', chapters: '6 Ch', color: '#2563eb', url: 'modules/course/civilservices/physics/physics_course_hub.html' },
+                { title: 'Chemistry', icon: '🧪', chapters: '6 Ch', color: '#0891b2', url: 'modules/course/civilservices/chemistry/chemistry_course_hub.html' },
+                { title: 'Biology', icon: '🧬', chapters: '7 Ch', color: '#10b981', url: 'modules/course/civilservices/biology/biology_course_hub.html' }
+            ],
             link: null
         },
         'Social Science': {
@@ -394,18 +427,34 @@ function renderStudentCourses() {
         'History': {
             icon: '🏛️',
             color: '#b45309',
-            desc: studentCls === 'Class 10' 
-                ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' 
-                : `${studentCls} History Curriculum Modules`,
-            link: studentCls === 'Class 10' ? 'modules/course/class10/history/history_course_hub.html' : null
+            desc: studentCls === 'Civil Services'
+                ? '8 Chapters • 160 Modules • Ancient, Medieval, Modern History & Post-Independence'
+                : (studentCls === 'Class 10' ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' : `${studentCls} History Curriculum Modules`),
+            link: studentCls === 'Civil Services'
+                ? 'modules/course/civilservices/history/history_course_hub.html'
+                : (studentCls === 'Class 10' ? 'modules/course/class10/history/history_course_hub.html' : null)
         },
         'Geography': {
             icon: '🌐',
             color: '#0284c7',
-            desc: studentCls === 'Class 10' 
-                ? '7 Chapters • 140 Mini-Modules • 1,400 Questions • 70% Mastery' 
-                : `${studentCls} Geography Curriculum Modules`,
-            link: studentCls === 'Class 10' ? 'modules/course/class10/geography/geography_course_hub.html' : null
+            desc: studentCls === 'Civil Services'
+                ? '8 Chapters • 160 Modules • Physical Geography, Indian Physiography & Environment'
+                : (studentCls === 'Class 10' ? '7 Chapters • 140 Mini-Modules • 1,400 Questions • 70% Mastery' : `${studentCls} Geography Curriculum Modules`),
+            link: studentCls === 'Civil Services'
+                ? 'modules/course/civilservices/geography/geography_course_hub.html'
+                : (studentCls === 'Class 10' ? 'modules/course/class10/geography/geography_course_hub.html' : null)
+        },
+        'Indian Polity': {
+            icon: '⚖️',
+            color: '#4338ca',
+            desc: '8 Chapters • 160 Modules • Constitutional Framework, Fundamental Rights & Parliament',
+            link: 'modules/course/civilservices/polity/polity_course_hub.html'
+        },
+        'Polity': {
+            icon: '⚖️',
+            color: '#4338ca',
+            desc: '8 Chapters • 160 Modules • Constitutional Framework, Fundamental Rights & Parliament',
+            link: 'modules/course/civilservices/polity/polity_course_hub.html'
         },
         'Democratic Politics': {
             icon: '⚖️',
@@ -423,13 +472,27 @@ function renderStudentCourses() {
                 : `${studentCls} Democratic Politics Curriculum Modules`,
             link: studentCls === 'Class 10' ? 'modules/course/class10/politics/politics_course_hub.html' : null
         },
+        'Economy': {
+            icon: '📈',
+            color: '#059669',
+            desc: '6 Chapters • 120 Modules • National Income, Fiscal Policy, Banking & Foreign Trade',
+            link: 'modules/course/civilservices/economy/economy_course_hub.html'
+        },
         'Economics': {
             icon: '📈',
             color: '#059669',
-            desc: studentCls === 'Class 10' 
-                ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' 
-                : `${studentCls} Economics Curriculum Modules`,
-            link: studentCls === 'Class 10' ? 'modules/course/class10/economics/economics_course_hub.html' : null
+            desc: studentCls === 'Civil Services'
+                ? '6 Chapters • 120 Modules • National Income, Fiscal Policy, Banking & Foreign Trade'
+                : (studentCls === 'Class 10' ? '5 Chapters • 100 Mini-Modules • 1,000 Questions • 70% Mastery' : `${studentCls} Economics Curriculum Modules`),
+            link: studentCls === 'Civil Services'
+                ? 'modules/course/civilservices/economy/economy_course_hub.html'
+                : (studentCls === 'Class 10' ? 'modules/course/class10/economics/economics_course_hub.html' : null)
+        },
+        'CSAT': {
+            icon: '📐',
+            color: '#7c3aed',
+            desc: '6 Chapters • 120 Modules • Reading Comprehension, Reasoning & Quantitative Aptitude',
+            link: 'modules/course/civilservices/csat/csat_course_hub.html'
         },
         'English': {
             icon: '📖',
@@ -447,8 +510,8 @@ function renderStudentCourses() {
             link: null
         };
 
-        const hasInteractiveCourse = (studentCls === 'Class 10' && meta.link);
-        const hasSubLinks = (studentCls === 'Class 10' && Array.isArray(meta.subLinks));
+        const hasInteractiveCourse = Boolean(meta.link);
+        const hasSubLinks = Array.isArray(meta.subLinks) && meta.subLinks.length > 0;
 
         const actionHtml = hasInteractiveCourse
             ? `<a href="${meta.link}" class="btn btn-primary btn-sm" style="font-weight:700; border-radius:8px; padding:8px 16px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; background:${meta.color}; border-color:${meta.color}; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
@@ -463,12 +526,12 @@ function renderStudentCourses() {
         const subLinksHtml = hasSubLinks
             ? `<div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px;">
                 ${meta.subLinks.map(sl => `
-                    <a href="${sl.url}" style="display:flex; align-items:center; gap:8px; padding:8px 10px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; text-decoration:none; color:#0f172a; font-size:12px; font-weight:700; transition:all 0.2s ease;">
-                        <span style="font-size:16px;">${sl.icon}</span>
-                        <div style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-                            <div style="color:${sl.color};">${sl.title}</div>
-                            <div style="font-size:10.5px; font-weight:500; color:#64748b;">${sl.chapters} • Course</div>
-                        </div>
+                    <a href="${sl.url}" style="display:flex; align-items:center; justify-content:space-between; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:7px 10px; text-decoration:none; color:#0f172a; font-size:12px; font-weight:700; transition:all 0.2s ease;">
+                        <span style="display:flex; align-items:center; gap:6px;">
+                            <span>${sl.icon}</span>
+                            <span>${sl.title}</span>
+                        </span>
+                        <span class="badge" style="background:${sl.color}; color:#ffffff; font-size:10px; padding:2px 6px;">${sl.chapters}</span>
                     </a>
                 `).join('')}
                </div>`
@@ -579,15 +642,22 @@ function renderStudentTests() {
     const container = document.getElementById('st-tests-container');
     if (!container || !currentStudent) return;
 
+    const isCivil = (studentCls === 'Civil Services');
+    const hubUrl = isCivil 
+        ? 'modules/testseries/data/civilservices/testseries_civilservices.html' 
+        : 'modules/testseries/data/class10/testseries_class_10.html';
+    const hubTitle = isCivil ? 'Civil Services Assessment Hub' : 'Class 10 Assessment Hub';
+    const hubBtnText = isCivil ? 'Open Civil Services Test Hub →' : 'Open Class 10 Test Hub →';
+
     container.innerHTML = `
         <div class="card" style="padding:40px; text-align:center;">
-            <div style="font-size:36px; margin-bottom:12px;">📚</div>
-            <h3 style="font-size:16px; font-weight:700; color:var(--text); margin-bottom:6px;">Class 10 Assessment Hub</h3>
+            <div style="font-size:36px; margin-bottom:12px;">🏛️</div>
+            <h3 style="font-size:16px; font-weight:700; color:var(--text); margin-bottom:6px;">${hubTitle}</h3>
             <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
-                Access all chapterwise test series and mock exams.
+                Access all subjectwise test series and full-length CBT mock exams.
             </p>
-            <a href="modules/testseries/data/class10/testseries_class_10.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700;">
-                Open Class 10 Test Hub →
+            <a href="${hubUrl}" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700;">
+                ${hubBtnText}
             </a>
         </div>
     `;
