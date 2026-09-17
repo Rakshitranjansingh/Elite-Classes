@@ -7,13 +7,29 @@ console.log('================================================================');
 console.log('🧪 TESTING CIVIL SERVICES PHYSICS REVISION COURSE');
 console.log('================================================================\n');
 
-// 1. Test Hub
+// 1. Test Master Civil Services Courses Hub
+const csCoursesPath = path.join(__dirname, '../modules/course/civilservices/courses_civilservices.html');
+assert(fs.existsSync(csCoursesPath), 'courses_civilservices.html must exist');
+const csCoursesHtml = fs.readFileSync(csCoursesPath, 'utf8');
+assert(csCoursesHtml.includes('revisionCourse/revision_course_hub.html'), 'Civil services courses must link to revisionCourse/revision_course_hub.html');
+console.log('✔ courses_civilservices.html shows Revision Course.');
+
+// 2. Test Revision Course Hub
+const revHubPath = path.join(__dirname, '../modules/course/civilservices/revisionCourse/revision_course_hub.html');
+assert(fs.existsSync(revHubPath), 'revision_course_hub.html must exist');
+const revHubHtml = fs.readFileSync(revHubPath, 'utf8');
+assert(revHubHtml.includes('student_home.html'), 'Revision hub must link to student_home.html');
+assert(revHubHtml.includes('physics/physics_course_hub.html'), 'Revision hub must link to physics/physics_course_hub.html');
+console.log('✔ revision_course_hub.html verified with physics link.');
+
+// 3. Test Physics Hub
 const hubPath = path.join(__dirname, '../modules/course/civilservices/revisionCourse/physics/physics_course_hub.html');
 assert(fs.existsSync(hubPath), 'physics_course_hub.html must exist');
 const hubHtml = fs.readFileSync(hubPath, 'utf8');
 assert(hubHtml.includes('student_home.html'), 'Hub must have link to student_home.html');
 assert(hubHtml.includes('cs_phy_ch1'), 'Hub must register cs_phy_ch1');
 assert(hubHtml.includes('CHAPTERS_LIST'), 'Hub must contain CHAPTERS_LIST');
+assert(hubHtml.includes('eliteLogo_crest.png'), 'Hub must contain eliteLogo_crest.png');
 console.log('✔ physics_course_hub.html verified.');
 
 // 2. Test Player
