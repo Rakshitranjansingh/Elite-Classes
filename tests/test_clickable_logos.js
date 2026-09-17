@@ -18,14 +18,6 @@ const filesToCheck = [
     'modules/course/class10/economics/economics_course_hub.html',
     'modules/course/class10/history/history_course_hub.html',
     'modules/course/class10/politics/politics_course_hub.html',
-    'modules/course/civilservices/polity/polity_course_hub.html',
-    'modules/course/civilservices/physics/physics_course_hub.html',
-    'modules/course/civilservices/history/history_course_hub.html',
-    'modules/course/civilservices/geography/geography_course_hub.html',
-    'modules/course/civilservices/economy/economy_course_hub.html',
-    'modules/course/civilservices/csat/csat_course_hub.html',
-    'modules/course/civilservices/chemistry/chemistry_course_hub.html',
-    'modules/course/civilservices/biology/biology_course_hub.html',
 
     // Course players
     'modules/course/class10/science/course_player.html',
@@ -33,14 +25,6 @@ const filesToCheck = [
     'modules/course/class10/economics/course_player.html',
     'modules/course/class10/history/course_player.html',
     'modules/course/class10/politics/course_player.html',
-    'modules/course/civilservices/polity/course_player.html',
-    'modules/course/civilservices/physics/course_player.html',
-    'modules/course/civilservices/history/course_player.html',
-    'modules/course/civilservices/geography/course_player.html',
-    'modules/course/civilservices/economy/course_player.html',
-    'modules/course/civilservices/csat/course_player.html',
-    'modules/course/civilservices/chemistry/course_player.html',
-    'modules/course/civilservices/biology/course_player.html',
 
     // Test series class hubs
     'modules/testseries/data/class10/testseries_class_10.html',

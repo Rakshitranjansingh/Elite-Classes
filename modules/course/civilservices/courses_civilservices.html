@@ -77,6 +77,7 @@
                 <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Civil Services Interactive LMS</div>
             </div>
         </div>
+        </a>
 
         <div style="display:flex; align-items:center; gap:8px;">
             <a href="../../../student_home.html" class="btn btn-outline btn-sm" style="text-decoration:none; font-size:12px; font-weight:700; padding:6px 12px; display:inline-flex; align-items:center; gap:6px;">
@@ -90,7 +91,7 @@
         <div>
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
                 <span class="badge badge-primary" style="font-size:10.5px; font-weight:800; background:#f59e0b; border-color:#f59e0b; color:#0f172a;">Civil Services LMS</span>
-                <span class="badge badge-success" style="font-size:10.5px; font-weight:700;">🟢 8 Core Disciplines</span>
+                <span class="badge" style="font-size:10.5px; font-weight:700; background:rgba(255,255,255,0.18); color:#ffffff;">0 Courses Published</span>
             </div>
             <h1>Civil Services: Interactive Courses Hub</h1>
             <p style="font-size:12.5px; color:#94a3b8; margin:4px 0 0;">
@@ -128,230 +129,31 @@
     <!-- 3. SUBJECTS CATALOG -->
     <div style="margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
         <div>
-            <div style="font-size:15px; font-weight:800; color:var(--text);">General Studies & CSAT Disciplines</div>
-            <div style="font-size:12px; color:var(--text-muted);">Select a discipline to start interactive chapter courses</div>
+            <div style="font-size:15px; font-weight:800; color:var(--text);">Civil Services Curriculum Courses</div>
+            <div style="font-size:12px; color:var(--text-muted);">General Studies (GS Papers I-IV) & CSAT interactive modules</div>
         </div>
-        <span class="badge badge-primary">8 Disciplines Active</span>
+        <span class="badge" style="background:#f1f5f9; color:#64748b; font-weight:700; font-size:11px;">0 Courses Published</span>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; margin-bottom:30px;">
+    <!-- EMPTY COURSES STATE (NO DUMMY COURSES) -->
+    <div id="course-empty-state" style="background:#ffffff; border:1.5px dashed var(--border); border-radius:16px; padding:50px 24px; text-align:center; margin-bottom:30px; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+        <div style="font-size:42px; margin-bottom:12px;">🏛️</div>
+        <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px;">No Courses Published Yet for Civil Services</div>
+        <div style="font-size:13px; color:var(--text-muted); max-width:480px; margin:0 auto 18px; line-height:1.5;">
+            Civil Services curriculum courses (General Studies & CSAT) will appear here as they are created and published one by one.
+        </div>
+        <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-outline btn-sm" onclick="switchCourseClass('class10')" style="font-weight:700; padding:8px 16px; font-size:12px;">
+                📘 Explore Live Class 10 Courses →
+            </button>
+            <a href="../../../student_home.html" class="btn btn-primary btn-sm" style="font-weight:700; padding:8px 16px; font-size:12px; text-decoration:none;">
+                ← Student Portal
+            </a>
+        </div>
+    </div>
 
-        <!-- SUBJECT 1: POLITY -->
-        <a href="polity/polity_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">8 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    ⚖️ Indian Polity & Governance
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Constitutional Framework, Preamble, Fundamental Rights, Directive Principles, Union Executive, Parliament, Judiciary & Federalism.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">⚖️ 8 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#4338ca; border-color:#4338ca;">
-                    Open Polity Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 2: HISTORY -->
-        <a href="history/history_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">8 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🏛️ Indian History & National Movement
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Ancient India (IVC & Vedic Age), Mauryan & Gupta Empires, Medieval Dynasties, Freedom Struggle & Post-Independence Consolidation.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🏛️ 8 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#b45309; border-color:#b45309;">
-                    Open History Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 3: GEOGRAPHY -->
-        <a href="geography/geography_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">8 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🌐 Physical & Indian Geography
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Geomorphology, Climatology, Oceanography, Indian Physiography, River Drainage Systems, Monsoons, Resources & Biogeography.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🌐 8 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#0284c7; border-color:#0284c7;">
-                    Open Geography Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 4: ECONOMY -->
-        <a href="economy/economy_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">6 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    📈 Indian Economy & Development
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    National Income Accounting, Fiscal Policy & Budgeting, RBI Monetary Policy, Banking Sector Reforms, Inflation & Foreign Trade.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">📈 6 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#059669; border-color:#059669;">
-                    Open Economy Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 5: CSAT -->
-        <a href="csat/csat_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">6 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    📐 CSAT (Paper II)
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Reading Comprehension Passages, Logical Reasoning, Analytical Ability, Quantitative Aptitude, Number Systems & Data Interpretation.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">📐 6 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#7c3aed; border-color:#7c3aed;">
-                    Open CSAT Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 6: PHYSICS -->
-        <a href="physics/physics_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">6 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    ⚛️ General Science: Physics
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Mechanics & Laws of Motion, Thermodynamics, Wave Optics, Electromagnetism, Modern Physics & Emerging Nuclear Technologies.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">⚛️ 6 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#2563eb; border-color:#2563eb;">
-                    Open Physics Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 7: CHEMISTRY -->
-        <a href="chemistry/chemistry_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">6 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🧪 General Science: Chemistry
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Atomic Structure, Periodic Trends, Chemical Bonding, Environmental Chemistry, Polymers, Everyday Chemistry & Green Technology.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🧪 6 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#0891b2; border-color:#0891b2;">
-                    Open Chemistry Course →
-                </button>
-            </div>
-        </a>
-
-        <!-- SUBJECT 8: BIOLOGY -->
-        <a href="biology/biology_course_hub.html" class="subject-card">
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">7 Chapters</span>
-                </div>
-                <div style="font-size:17px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
-                    🧬 Life Sciences & Biology
-                </div>
-                <div style="font-size:12.5px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-                    Cell Biology, Human Physiology & Organ Systems, Genetics & Heredity, Immunology & Public Health, Ecology & Biodiversity Conservation.
-                </div>
-                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
-                    <span class="meta-pill">🧬 7 Chapters</span>
-                    <span class="meta-pill">📚 Complete Theory</span>
-                    <span class="meta-pill">🎯 Interactive Quizzes</span>
-                    <span class="meta-pill">🔒 Mastery Unlocking</span>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-primary btn-sm" style="width:100%; font-weight:700; padding:9px; pointer-events:none; background:#10b981; border-color:#10b981;">
-                    Open Biology Course →
-                </button>
-            </div>
-        </a>
-
+    <!-- DYNAMIC CONTAINER FOR COURSES ADDED ONE BY ONE -->
+    <div id="course-cards-container" style="display:none; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; margin-bottom:30px;">
     </div>
 
     <!-- TOAST -->
