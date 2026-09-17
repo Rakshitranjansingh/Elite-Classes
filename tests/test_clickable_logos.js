@@ -18,6 +18,7 @@ const filesToCheck = [
     'modules/course/class10/economics/economics_course_hub.html',
     'modules/course/class10/history/history_course_hub.html',
     'modules/course/class10/politics/politics_course_hub.html',
+    'modules/course/civilservices/revisionCourse/physics/physics_course_hub.html',
 
     // Course players
     'modules/course/class10/science/course_player.html',
