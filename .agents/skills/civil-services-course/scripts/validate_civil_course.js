@@ -65,6 +65,25 @@ for (let ch = 1; ch <= 7; ch++) {
 }
 console.log('✔ BPSC 72 History Chapters validated (7 Chapters, 140 modules & 1,400 MCQs total).');
 
+// 5. Validate BPSC 72 Geography Course Hub & Subject Data
+const geogHubPath = path.join(rootDir, 'modules/course/civilservices/BPSC_72/geography/geography_course_hub.html');
+assert(fs.existsSync(geogHubPath), 'geography_course_hub.html must exist');
+const geogHubHtml = fs.readFileSync(geogHubPath, 'utf8');
+assert(geogHubHtml.includes('student_home.html'), 'geography_course_hub.html must link to student_home.html');
+assert(geogHubHtml.includes('bpsc_72_hub.html'), 'geography_course_hub.html must link back to bpsc_72_hub.html');
+assert(geogHubHtml.includes('course_player.html'), 'geography_course_hub.html must launch course_player.html');
+
+for (let ch = 1; ch <= 7; ch++) {
+    const dataPath = path.join(rootDir, `modules/course/civilservices/BPSC_72/geography/data/chapter${ch}_course_data.js`);
+    assert(fs.existsSync(dataPath), `BPSC 72 Geography Chapter ${ch} data must exist at ${dataPath}`);
+    const chData = require(dataPath);
+    assert.strictEqual(chData.chapterNumber, ch, `Chapter number must be ${ch}`);
+    assert.strictEqual(chData.totalModules, 20, `Chapter ${ch} must have 20 modules`);
+    assert.strictEqual(chData.totalQuestions, 200, `Chapter ${ch} must have 200 questions`);
+    assert.strictEqual(chData.passingPercentage || chData.passThreshold, 70, `Chapter ${ch} pass threshold must be 70%`);
+}
+console.log('✔ BPSC 72 Geography Chapters validated (7 Chapters, 140 modules & 1,400 MCQs total).');
+
 console.log('\n================================================================');
 console.log('🎉 CIVIL SERVICES COURSES ECOSYSTEM VALIDATION PASSED (100%)!');
 console.log('================================================================');

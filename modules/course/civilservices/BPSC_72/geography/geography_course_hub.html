@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BPSC 72 Geography Course — Elite Classes</title>
+
+    <meta name="application-name" content="Elite Classes">
+    <meta name="apple-mobile-web-app-title" content="Elite Classes">
+    <link rel="icon" type="image/png" href="../../../../../favicon-32x32.png">
+    <link rel="stylesheet" href="../../../../../css/styles.css">
+
+    <style>
+        :root {
+            --hub-bg: #064e3b;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --primary-emerald: #059669;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top Header */
+        .hub-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+        }
+
+        .btn-transparent-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12.5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-transparent-nav:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Container */
+        .hub-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px 60px;
+        }
+
+        /* Hero Section */
+        .hub-hero-clean {
+            position: relative;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 36px 28px 28px;
+            margin-bottom: 28px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hub-gradient-aura {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 520px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(5, 150, 105, 0.22) 0%, rgba(14, 165, 233, 0.12) 45%, rgba(16, 185, 129, 0.03) 70%, transparent 100%);
+            filter: blur(36px);
+            pointer-events: none;
+        }
+
+        .hub-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        .hub-class-tag {
+            display: inline-block;
+            font-size: 11.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #059669;
+            background: rgba(5, 150, 105, 0.1);
+            border: 1px solid rgba(5, 150, 105, 0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .hub-title-main {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0 0 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .hub-sub-text {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin: 0 0 20px;
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        .hub-stats-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .hub-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hub-stat-val {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .hub-stat-label {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* Chapters Grid */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 18px;
+        }
+
+        .chapter-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-3px);
+            border-color: #059669;
+            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.12);
+        }
+
+        .chapter-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .chapter-badge {
+            font-size: 11px;
+            font-weight: 700;
+            background: #ecfdf5;
+            color: #065f46;
+            padding: 3px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        .status-pill {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-pill.completed {
+            background: #ecfdf5;
+            color: #059669;
+        }
+
+        .status-pill.in-progress {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .status-pill.not-started {
+            background: #f8fafc;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+        }
+
+        .chapter-title {
+            font-size: 15.5px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0 0 8px;
+            line-height: 1.4;
+        }
+
+        .chapter-desc {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0 0 16px;
+        }
+
+        .chapter-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .meta-pill {
+            font-size: 11px;
+            font-weight: 600;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .chapter-progress-box {
+            padding-top: 14px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .chapter-progress-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .chapter-progress-bar {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .chapter-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #059669, #10b981);
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hub-container {
+                padding: 16px 12px 40px;
+            }
+            .hub-hero-clean {
+                padding: 24px 16px 20px;
+            }
+            .chapters-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP HEADER WITH CLICKABLE LOGO -->
+    <header class="hub-header">
+        <div style="display:flex; align-items:center; gap:12px;">
+            <a href="../../../../../student_home.html" style="display:flex; align-items:center; text-decoration:none; gap:8px;" title="Return to Student Portal">
+                <img src="../../../../../eliteLogo_crest.png" onerror="this.src='../../../../../favicon-32x32.png'" alt="Elite Classes" style="height:32px; width:32px; border-radius:8px;">
+                <span style="font-size:15px; font-weight:800; color:#ffffff; letter-spacing:-0.3px;">Elite Classes</span>
+            </a>
+            <span style="color:rgba(255,255,255,0.3); font-size:16px;">/</span>
+            <span style="font-size:13px; font-weight:600; color:#a7f3d0;">BPSC 72nd CCE</span>
+            <span style="color:rgba(255,255,255,0.3); font-size:16px;">/</span>
+            <span style="font-size:13px; font-weight:700; color:#34d399;">Geography of India & Bihar</span>
+        </div>
+
+        <div>
+            <a href="../bpsc_72_hub.html" class="btn-transparent-nav">
+                ← BPSC 72 Hub
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="hub-container">
+
+        <!-- HERO SECTION -->
+        <div class="hub-hero-clean">
+            <div class="hub-gradient-aura"></div>
+            <div class="hub-hero-content">
+                <div class="hub-class-tag">BPSC 72ND CCE • BIHAR GEOGRAPHY</div>
+                <h1 class="hub-title-main">Geography of India & Bihar Special Mastery Modules</h1>
+                <p class="hub-sub-text">
+                    Comprehensive, high-yield curriculum covering Bihar's boundaries, administrative framework, geological stratigraphy, Shivalik range, mountain passes, drainage systems, monsoons, agro-climatic zones, soils, forests, and mineral wealth.
+                </p>
+                <div class="hub-stats-row">
+                    <div class="hub-stat-item">
+                        <span class="hub-stat-val">7 Chapters</span>
+                        <span class="hub-stat-label">Syllabus Scope</span>
+                    </div>
+                    <div class="hub-stat-item">
+                        <span class="hub-stat-val">140 Modules</span>
+                        <span class="hub-stat-label">Concept Theory</span>
+                    </div>
+                    <div class="hub-stat-item">
+                        <span class="hub-stat-val">1,400 MCQs</span>
+                        <span class="hub-stat-label">Practice Questions</span>
+                    </div>
+                    <div class="hub-stat-item">
+                        <span class="hub-stat-val">70% Pass</span>
+                        <span class="hub-stat-label">Mastery Unlock</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OVERALL PROGRESS BAR -->
+        <div class="hub-horizontal-progress-box" style="margin-bottom: 24px; background:#ffffff; border:1px solid #e2e8f0; border-radius:14px; padding:16px 20px; box-shadow:0 2px 8px rgba(15,23,42,0.03);">
+            <div class="hub-progress-labels" style="display:flex; justify-content:space-between; font-size:12.5px; font-weight:700; color:var(--text-dark); margin-bottom:8px;">
+                <span>Overall Syllabus Progress</span>
+                <span id="total-progress-pct">0% Completed</span>
+            </div>
+            <div class="hub-progress-track" style="background:#e2e8f0; height:8px; border-radius:10px; overflow:hidden;">
+                <div class="hub-progress-fill" id="total-progress-bar" style="width: 0%; height:100%; border-radius:10px; background:linear-gradient(90deg, #059669, #10b981); transition:width 0.6s ease;"></div>
+            </div>
+        </div>
+
+        <!-- CHAPTERS GRID -->
+        <div id="chapters-grid-container" class="chapters-grid">
+            <!-- Dynamically populated -->
+        </div>
+
+    </div>
+
+    <!-- SUPABASE SDK & SERVICES -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../../supabase/config.js"></script>
+    <script src="../../../../../supabase/api.js"></script>
+    <script src="../../../../../supabase/courseApi.js"></script>
+
+    <script>
+        // Geography chapters list derived from bpsc_geography.pdf & BPSC 72 syllabus
+        const CHAPTERS_LIST = [
+            {
+                num: 1,
+                id: 'bpsc_geog_ch1',
+                title: 'Geographical Identity, Coordinates, Boundaries & Administrative Framework of Bihar',
+                desc: 'Geographical coordinates, 94,163 sq km area, Nepal international border, UP, Jharkhand & West Bengal borders, 9 divisions, 38 districts, and legislative setup.',
+                icon: '🗺️',
+                isLive: true
+            },
+            {
+                num: 2,
+                id: 'bpsc_geog_ch2',
+                title: 'Geological Formations, Rock Systems & Stratigraphy of Bihar',
+                desc: 'Archean basement complex, Dharwad rocks in Munger & Jamui, Vindhyan sandstone & limestone in Kaimur/Rohtas, Tertiary Shivaliks, and Quaternary alluvium.',
+                icon: '🪨',
+                isLive: true
+            },
+            {
+                num: 3,
+                id: 'bpsc_geog_ch3',
+                title: 'Physiography, Relief, Shivalik Range & Mountain Passes of Bihar',
+                desc: 'Someshwar Range (880 m), Ramnagar Dun (Santpur 240 m), Someshwar Pass (TuriPani River), Bhikhna Thori Pass, Terai-Bhabar belt, and Southern isolated hills.',
+                icon: '⛰️',
+                isLive: true
+            },
+            {
+                num: 4,
+                id: 'bpsc_geog_ch4',
+                title: 'Drainage System, River Basins & Water Resources of Bihar',
+                desc: 'Course of River Ganga through 12 districts, North Bihar Himalayan rivers (Gandak, Burhi Gandak, Kosi), South Bihar rivers (Sone, Punpun, Falgu), waterfalls & hot springs.',
+                icon: '🌊',
+                isLive: true
+            },
+            {
+                num: 5,
+                id: 'bpsc_geog_ch5',
+                title: 'Climate, Monsoons, Agro-Climatic Zones & Soil Systems of Bihar',
+                desc: 'Köppen Cwg classification, Nor’westers, South-West Monsoon, 4 Agro-Climatic Zones, Piedmont swamp, Terai, Bangar, Khadar, Balther, and Tal soil backwaters.',
+                icon: '🌦️',
+                isLive: true
+            },
+            {
+                num: 6,
+                id: 'bpsc_geog_ch6',
+                title: 'Forest Cover, Wildlife Conservation & Natural Ecosystems of Bihar',
+                desc: 'Tropical dry & moist deciduous forests, ISFR forest cover data, Valmiki Tiger Reserve, Kaimur WLS, Kanwar Lake Ramsar wetland, and Vikramshila Dolphin Sanctuary.',
+                icon: '🐅',
+                isLive: true
+            },
+            {
+                num: 7,
+                id: 'bpsc_geog_ch7',
+                title: 'Mineral Resources, Energy, Agriculture & Economic Geography of Bihar',
+                desc: 'Amjhore pyrites, Rohtas limestone, Sono gold reserves, major canal projects (Sone, Gandak, Kosi), crop productivity, GI tagged agro-produce, and power projects.',
+                icon: '⛏️',
+                isLive: true
+            }
+        ];
+
+        async function initCourseHub() {
+            let activeStudent = null;
+            try {
+                activeStudent = JSON.parse(localStorage.getItem('ec_active_student'));
+            } catch(e) {}
+
+            const studentId = activeStudent ? activeStudent.id : (localStorage.getItem('ec_student_id') || 'st_guest');
+            const container = document.getElementById('chapters-grid-container');
+
+            let totalPassedAcrossAll = 0;
+            let liveChaptersCount = 0;
+            let cardsHtml = '';
+
+            for (const ch of CHAPTERS_LIST) {
+                let passedCount = 0;
+                if (ch.isLive) {
+                    liveChaptersCount++;
+                    try {
+                        const localKey = `ec_course_prog_${studentId}_${ch.id}`;
+                        const prog = JSON.parse(localStorage.getItem(localKey) || '{}');
+                        for (const mId in prog) {
+                            if (prog[mId] && (prog[mId].passed || prog[mId].is_completed || prog[mId].score >= 7)) {
+                                passedCount++;
+                            }
+                        }
+                    } catch(e) {
+                        passedCount = 0;
+                    }
+                    totalPassedAcrossAll += passedCount;
+                }
+
+                let statusBadge = '';
+                let linkHref = `../../../course_player.html?class=civilservices&course=BPSC_72&subject=geography&chapter=${ch.num}`;
+                let cardStyle = '';
+
+                if (!ch.isLive) {
+                    statusBadge = '<span class="status-pill not-started" style="background:#f1f5f9; color:#94a3b8;">🔒 Coming Soon</span>';
+                    linkHref = 'javascript:void(0);';
+                    cardStyle = 'opacity:0.75; cursor:not-allowed;';
+                } else if (passedCount === 20) {
+                    statusBadge = '<span class="status-pill completed">✓ Mastered (20/20)</span>';
+                } else if (passedCount > 0) {
+                    statusBadge = `<span class="status-pill in-progress">In Progress (${passedCount}/20)</span>`;
+                } else {
+                    statusBadge = '<span class="status-pill not-started">Start Learning →</span>';
+                }
+
+                cardsHtml += `
+                    <a href="${linkHref}" class="chapter-card" style="${cardStyle}">
+                        <div>
+                            <div class="chapter-card-top">
+                                <span class="chapter-badge">Chapter ${String(ch.num).padStart(2, '0')}</span>
+                                ${statusBadge}
+                            </div>
+                            <h3 class="chapter-title">${ch.icon} ${ch.title}</h3>
+                            <p class="chapter-desc">${ch.desc}</p>
+                            <div class="chapter-meta">
+                                <span class="meta-pill">📘 20 Modules</span>
+                                <span class="meta-pill">📝 200 Questions</span>
+                                <span class="meta-pill">🎯 70% Mastery</span>
+                            </div>
+                        </div>
+                        <div class="chapter-progress-box">
+                            <div class="chapter-progress-labels">
+                                <span>Mastery Progress</span>
+                                <span>${passedCount} / 20</span>
+                            </div>
+                            <div class="chapter-progress-bar">
+                                <div class="chapter-progress-fill" style="width: ${(passedCount / 20) * 100}%;"></div>
+                            </div>
+                        </div>
+                    </a>
+                `;
+            }
+
+            container.innerHTML = cardsHtml;
+
+            // Overall progress calculation
+            const maxPossible = liveChaptersCount * 20;
+            const totalPct = maxPossible > 0 ? Math.round((totalPassedAcrossAll / maxPossible) * 100) : 0;
+            const pctEl = document.getElementById('total-progress-pct');
+            const barEl = document.getElementById('total-progress-bar');
+            if (pctEl) pctEl.textContent = `${totalPct}% Completed (${totalPassedAcrossAll}/${maxPossible} Modules)`;
+            if (barEl) barEl.style.width = `${totalPct}%`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initCourseHub();
+        });
+    </script>
+</body>
+
+</html>

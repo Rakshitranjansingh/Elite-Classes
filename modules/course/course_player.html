@@ -1293,7 +1293,22 @@
                 const topTitle = document.getElementById('top-nav-chapter-title');
                 if (topTitle) topTitle.textContent = `Ch ${courseData.chapterNumber}: ${courseData.chapterTitle}`;
                 const topSub = document.getElementById('top-nav-sub-title');
-                if (topSub) topSub.textContent = `Civil Services Physics • Revision Course`;
+                if (topSub) {
+                    const courseLabel = (courseData.course || currentCourse || '').replace(/_/g, ' ');
+                    const subjLabel = courseData.subject || (currentSubject ? currentSubject.charAt(0).toUpperCase() + currentSubject.slice(1) : '');
+                    const clsLabel = courseData.cls || (currentClass ? currentClass.charAt(0).toUpperCase() + currentClass.slice(1) : '');
+                    if (courseLabel) {
+                        topSub.textContent = `${clsLabel} • ${courseLabel} • ${subjLabel}`;
+                    } else {
+                        topSub.textContent = `${clsLabel} • ${subjLabel}`;
+                    }
+                }
+
+                // Sync picker text for current chapter
+                const picker = document.getElementById('global-chapter-picker');
+                if (picker && picker.selectedIndex >= 0 && courseData.chapterTitle) {
+                    picker.options[picker.selectedIndex].text = `Ch ${courseData.chapterNumber}: ${courseData.chapterTitle}`;
+                }
 
                 // Fetch Student Progress
                 await loadStudentChapterProgress();

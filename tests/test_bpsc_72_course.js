@@ -84,7 +84,64 @@ for (let ch = 1; ch <= 7; ch++) {
     console.log(`✔ Ch ${ch}: ${chData.chapterTitle} verified (20 modules, 200 MCQs, 0 NCERT mentions).`);
 }
 
+// 6. Verify BPSC 72 Geography Course Hub
+const geogHubPath = path.join(__dirname, '../modules/course/civilservices/BPSC_72/geography/geography_course_hub.html');
+assert(fs.existsSync(geogHubPath), 'geography_course_hub.html must exist');
+const geogHubHtml = fs.readFileSync(geogHubPath, 'utf8');
+assert(geogHubHtml.includes('student_home.html'), 'geography_course_hub.html must have clickable logo linking to student_home.html');
+assert(geogHubHtml.includes('bpsc_72_hub.html'), 'geography_course_hub.html must link back to bpsc_72_hub.html');
+assert(geogHubHtml.includes('course_player.html'), 'geography_course_hub.html must launch course_player.html');
+assert(geogHubHtml.includes('total-progress-bar'), 'geography_course_hub.html must have progress tracker');
+console.log('✔ geography_course_hub.html verified with navigation, progress tracker, and 7 chapters.');
+
+// 7. Verify all 7 Geography Chapter Data Files
+const geogDataDir = path.join(__dirname, '../modules/course/civilservices/BPSC_72/geography/data');
+assert(fs.existsSync(geogDataDir), 'geography/data directory must exist');
+
+for (let ch = 1; ch <= 7; ch++) {
+    const chFile = path.join(geogDataDir, `chapter${ch}_course_data.js`);
+    assert(fs.existsSync(chFile), `Geography Chapter ${ch} data file must exist: ${chFile}`);
+
+    // Require chapter data
+    delete require.cache[require.resolve(chFile)];
+    const chData = require(chFile);
+
+    assert.strictEqual(chData.chapterNumber, ch, `Geo Ch ${ch}: chapterNumber must match`);
+    assert(chData.chapterTitle && chData.chapterTitle.length > 0, `Geo Ch ${ch}: chapterTitle must be present`);
+    assert.strictEqual(chData.totalModules, 20, `Geo Ch ${ch}: totalModules must be 20`);
+    assert.strictEqual(chData.totalQuestions, 200, `Geo Ch ${ch}: totalQuestions must be 200`);
+    assert.strictEqual(chData.passingPercentage || chData.passThreshold, 70, `Geo Ch ${ch}: passingPercentage must be 70%`);
+    assert(Array.isArray(chData.modules) && chData.modules.length === 20, `Geo Ch ${ch}: modules array must have length 20`);
+
+    let totalQuestions = 0;
+    chData.modules.forEach((mod, idx) => {
+        assert.strictEqual(mod.moduleNumber, idx + 1, `Geo Ch ${ch} Mod ${idx + 1}: invalid moduleNumber`);
+        assert(mod.title && mod.title.length > 0, `Geo Ch ${ch} Mod ${idx + 1}: title missing`);
+        assert(mod.theoryHtml && mod.theoryHtml.length > 50, `Geo Ch ${ch} Mod ${idx + 1}: theoryHtml too short`);
+        assert(Array.isArray(mod.pointsToRemember) && mod.pointsToRemember.length >= 2, `Geo Ch ${ch} Mod ${idx + 1}: pointsToRemember missing`);
+        assert(Array.isArray(mod.keyNotes) && mod.keyNotes.length >= 1, `Geo Ch ${ch} Mod ${idx + 1}: keyNotes missing`);
+        assert(Array.isArray(mod.questions) && mod.questions.length === 10, `Geo Ch ${ch} Mod ${idx + 1}: questions count must be 10`);
+
+        mod.questions.forEach((q, qIdx) => {
+            assert(q.question && q.question.length > 5, `Geo Ch ${ch} Mod ${idx + 1} Q${qIdx + 1}: question text missing`);
+            assert(Array.isArray(q.options) && q.options.length === 4, `Geo Ch ${ch} Mod ${idx + 1} Q${qIdx + 1}: options must be 4`);
+            assert(q.options.includes(q.answer), `Geo Ch ${ch} Mod ${idx + 1} Q${qIdx + 1}: answer '${q.answer}' must be in options`);
+            assert(q.explanation && q.explanation.length > 5, `Geo Ch ${ch} Mod ${idx + 1} Q${qIdx + 1}: explanation missing`);
+        });
+
+        totalQuestions += mod.questions.length;
+    });
+
+    assert.strictEqual(totalQuestions, 200, `Geo Ch ${ch}: totalQuestions must be 200`);
+
+    // Verify anti-boilerplate & zero publisher mentions ("NCERT")
+    const rawContent = fs.readFileSync(chFile, 'utf8');
+    assert(!rawContent.toLowerCase().includes('ncert'), `Geo Ch ${ch} must NOT mention NCERT anywhere`);
+
+    console.log(`✔ Geo Ch ${ch}: ${chData.chapterTitle} verified (20 modules, 200 MCQs, 0 NCERT mentions).`);
+}
+
 console.log('\n================================================================');
-console.log('🎉 ALL BPSC 72 COURSE & HISTORY 7-CHAPTER CHECKS PASSED!');
+console.log('🎉 ALL BPSC 72 COURSE (HISTORY + GEOGRAPHY, 14 CH, 2,800 MCQs) CHECKS PASSED!');
 console.log('================================================================');
 
