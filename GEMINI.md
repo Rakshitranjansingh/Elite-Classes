@@ -138,6 +138,8 @@ The repository enforces autonomous, deterministic agent tooling across 5 core op
    - Automated verification tool (`audit_security.js`) checking anti-leak watermarks, proctor strikes, memory answer key stripping, and API privacy boundaries.
 6. **`course-builder`** (`.agents/skills/course-builder/SKILL.md`):
    - Automated 20-module curriculum decomposition, anti-boilerplate verification, points to remember, and 70% threshold mastery validation (`validate_course.js`) for interactive chapter courses.
+7. **`civil-services-course`** (`.agents/skills/civil-services-course/SKILL.md`):
+   - Scaffolding, verification (`validate_civil_course.js`), and management of UPSC & State PCS (BPSC 72nd CCE, UPPCS) course hubs, Bihar Special curricula, and modular assessments.
 
 ### G. Interactive Course & LMS Content Standards
 1. **Zero External Publisher Mentions**:

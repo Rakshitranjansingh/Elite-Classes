@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BPSC 72 Course Hub — Elite Classes</title>
+
+    <meta name="application-name" content="Elite Classes">
+    <meta name="apple-mobile-web-app-title" content="Elite Classes">
+    <link rel="icon" type="image/png" href="../../../../favicon-32x32.png">
+    <link rel="stylesheet" href="../../../../css/styles.css">
+
+    <style>
+        :root {
+            --hub-bg: #0b1329;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --primary-emerald: #059669;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top Header */
+        .hub-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+        }
+
+        .btn-transparent-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12.5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-transparent-nav:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Container */
+        .hub-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px 60px;
+        }
+
+        /* Hero Section */
+        .hub-hero-clean {
+            position: relative;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 36px 28px 28px;
+            margin-bottom: 28px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hub-gradient-aura {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 520px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(5, 150, 105, 0.2) 0%, rgba(37, 99, 235, 0.12) 45%, rgba(16, 185, 129, 0.03) 70%, transparent 100%);
+            filter: blur(36px);
+            pointer-events: none;
+        }
+
+        .hub-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .hub-class-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #059669;
+            background: rgba(5, 150, 105, 0.1);
+            border: 1px solid rgba(5, 150, 105, 0.25);
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .hub-title-main {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0 0 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .hub-sub-text {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin: 0 0 20px;
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        /* Subjects Grid */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+
+        .subject-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .subject-card:hover:not(.disabled-card) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(5, 150, 105, 0.12);
+            border-color: #6ee7b7;
+        }
+
+        .subject-card.disabled-card {
+            opacity: 0.72;
+            cursor: not-allowed;
+            background: #f8fafc;
+        }
+
+        .subject-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .subject-badge {
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .subject-badge.live {
+            background: #ecfdf5;
+            color: #065f46;
+        }
+
+        .subject-card-title {
+            font-size: 17.5px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .subject-card-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin: 0 0 16px;
+        }
+
+        .subject-card-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 11.5px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .meta-pill {
+            background: #f1f5f9;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .btn-card-action {
+            width: 100%;
+            text-align: center;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-card-action.primary {
+            background: #059669;
+            color: #ffffff;
+        }
+
+        .btn-card-action.primary:hover {
+            background: #047857;
+        }
+
+        .btn-card-action.locked {
+            background: #e2e8f0;
+            color: #94a3b8;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- STICKY FIXED HEADER -->
+    <header class="app-header-sticky">
+        <div class="top-banner">
+            <a href="../../../../student_home.html" class="brand-wrapper" style="text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
+                <img src="../../../../eliteLogo_crest.png" onerror="this.src='../../../../favicon-32x32.png'" alt="Elite Classes" class="brand-logo-icon">
+                <div>
+                    <div class="brand-text">Elite Classes</div>
+                    <div class="brand-sub">Committed to success</div>
+                </div>
+            </a>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <a href="../courses_civilservices.html" class="btn-transparent-nav">
+                    ← Civil Services Courses
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="hub-container">
+
+        <!-- HERO SECTION -->
+        <div class="hub-hero-clean">
+            <div class="hub-gradient-aura"></div>
+            <div class="hub-hero-content">
+                <div class="hub-class-tag">🏛️ BPSC 72ND CCE (PRELIMS & MAINS)</div>
+                <h1 class="hub-title-main">BPSC 72: Integrated Foundation & Revision Course</h1>
+                <p class="hub-sub-text">
+                    Targeted preparation curriculum for the 72nd Bihar Public Service Commission Combined Competitive Examination. Features comprehensive General Studies concept notes, Bihar Special modules, and 70% threshold mastery assessments.
+                </p>
+                <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+                    <span class="meta-pill" style="background:#ecfdf5; color:#065f46; font-weight:700;">🎯 70% Mastery Standard</span>
+                    <span class="meta-pill" style="background:#eff6ff; color:#1d4ed8; font-weight:700;">📘 20 Mini-Modules / Chapter</span>
+                    <span class="meta-pill" style="background:#fef3c7; color:#92400e; font-weight:700;">🦁 Bihar Special Core</span>
+                    <span class="meta-pill" style="background:#f5f3ff; color:#6d28d9; font-weight:700;">📝 200 Questions / Chapter</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBJECTS CATALOG -->
+        <div style="margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+                <div style="font-size:16px; font-weight:800; color:var(--text-dark);">BPSC 72 Curriculum Subjects</div>
+                <div style="font-size:12px; color:var(--text-muted);">Subject curriculum is being configured. Custom subjects and chapters can be added below.</div>
+            </div>
+            <span class="badge" style="background:#ecfdf5; color:#065f46; font-weight:700; padding:4px 10px; border-radius:8px; font-size:12px;">1 Subject Live</span>
+        </div>
+
+        <div class="subjects-grid">
+
+            <!-- 1. GENERAL SCIENCE (COMING SOON) -->
+            <div class="subject-card disabled-card">
+                <div>
+                    <div class="subject-card-top">
+                        <span class="subject-badge" style="background:#f1f5f9; color:#94a3b8;">🔒 Coming Soon</span>
+                        <span style="font-size:11px; font-weight:600; color:#94a3b8;">General Studies</span>
+                    </div>
+                    <h3 class="subject-card-title" style="color:#64748b;">⚛️ General Science (Physics, Chem, Bio)</h3>
+                    <p class="subject-card-desc">
+                        Everyday science concepts, physical sciences, chemical processes, biology, environmental sciences, and technology applications for BPSC Prelims.
+                    </p>
+                    <div class="subject-card-meta">
+                        <span class="meta-pill">Physics & Chemistry</span>
+                        <span class="meta-pill">Life Sciences</span>
+                        <span class="meta-pill">Technology</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn-card-action locked" disabled>
+                        Ready to Add
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. HISTORY OF INDIA & BIHAR (ACTIVE & LIVE) -->
+            <a href="history/history_course_hub.html" class="subject-card">
+                <div>
+                    <div class="subject-card-top">
+                        <span class="subject-badge live">🟢 Active & Live</span>
+                        <span style="font-size:11px; font-weight:700; color:#059669;">7 Chapters Ready</span>
+                    </div>
+                    <h3 class="subject-card-title">🏰 History of India & Bihar Special</h3>
+                    <p class="subject-card-desc">
+                        Ancient Magadha, Buddhism & Jainism, Mauryan Empire, Gupta & Medieval dynasties, 1857 Revolt in Bihar (Veer Kunwar Singh), Champaran Satyagraha, and the Indian National Movement.
+                    </p>
+                    <div class="subject-card-meta">
+                        <span class="meta-pill">Ancient & Medieval</span>
+                        <span class="meta-pill">Freedom Struggle</span>
+                        <span class="meta-pill">Bihar Special</span>
+                        <span class="meta-pill">📘 20 Modules/Ch</span>
+                        <span class="meta-pill">📝 200 MCQs/Ch</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn-card-action primary">
+                        Open History Course →
+                    </button>
+                </div>
+            </a>
+
+            <!-- 3. INDIAN POLITY & BIHAR ADMINISTRATION -->
+            <div class="subject-card disabled-card">
+                <div>
+                    <div class="subject-card-top">
+                        <span class="subject-badge" style="background:#f1f5f9; color:#94a3b8;">🔒 Coming Soon</span>
+                        <span style="font-size:11px; font-weight:600; color:#94a3b8;">GS Paper II</span>
+                    </div>
+                    <h3 class="subject-card-title" style="color:#64748b;">⚖️ Indian Polity & Bihar Governance</h3>
+                    <p class="subject-card-desc">
+                        Indian Constitution, Preamble, Fundamental Rights, Directive Principles, Parliamentary system, Bihar Legislative Assembly, and Bihar Panchayati Raj Act.
+                    </p>
+                    <div class="subject-card-meta">
+                        <span class="meta-pill">Constitution</span>
+                        <span class="meta-pill">State Executive</span>
+                        <span class="meta-pill">Panchayati Raj</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn-card-action locked" disabled>
+                        Coming Soon
+                    </button>
+                </div>
+            </div>
+
+            <!-- 4. GEOGRAPHY OF INDIA & BIHAR -->
+            <div class="subject-card disabled-card">
+                <div>
+                    <div class="subject-card-top">
+                        <span class="subject-badge" style="background:#f1f5f9; color:#94a3b8;">🔒 Coming Soon</span>
+                        <span style="font-size:11px; font-weight:600; color:#94a3b8;">GS Paper II</span>
+                    </div>
+                    <h3 class="subject-card-title" style="color:#64748b;">🗺️ Geography of India & Bihar</h3>
+                    <p class="subject-card-desc">
+                        Physical geography, Gangetic plain topography, Bihar river systems (Ganga, Son, Gandak, Kosi), agro-climatic zones, soils, forests, and mineral resources.
+                    </p>
+                    <div class="subject-card-meta">
+                        <span class="meta-pill">Physical Geography</span>
+                        <span class="meta-pill">River Drainage</span>
+                        <span class="meta-pill">Agro Zones</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn-card-action locked" disabled>
+                        Coming Soon
+                    </button>
+                </div>
+            </div>
+
+            <!-- 5. INDIAN ECONOMY & BIHAR DEVELOPMENT -->
+            <div class="subject-card disabled-card">
+                <div>
+                    <div class="subject-card-top">
+                        <span class="subject-badge" style="background:#f1f5f9; color:#94a3b8;">🔒 Coming Soon</span>
+                        <span style="font-size:11px; font-weight:600; color:#94a3b8;">GS Paper II</span>
+                    </div>
+                    <h3 class="subject-card-title" style="color:#64748b;">📈 Indian Economy & Bihar Survey</h3>
+                    <p class="subject-card-desc">
+                        Indian macroeconomic framework, public finance, banking, agriculture reforms, Bihar Economic Survey analysis, State Budget, and Saat Nischay-2 welfare roadmap.
+                    </p>
+                    <div class="subject-card-meta">
+                        <span class="meta-pill">Economic Survey</span>
+                        <span class="meta-pill">Bihar Budget</span>
+                        <span class="meta-pill">Saat Nischay-2</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn-card-action locked" disabled>
+                        Coming Soon
+                    </button>
+                </div>
+            </div>
+
+            <!-- 6. BIHAR SPECIAL: HERITAGE, CULTURE & CENSUS -->
+            <div class="subject-card disabled-card">
+                <div>
+                    <div class="subject-card-top">
+                        <span class="subject-badge" style="background:#f1f5f9; color:#94a3b8;">🔒 Coming Soon</span>
+                        <span style="font-size:11px; font-weight:600; color:#94a3b8;">State Core</span>
+                    </div>
+                    <h3 class="subject-card-title" style="color:#64748b;">🦁 Bihar Special: Art, Culture & Census</h3>
+                    <p class="subject-card-desc">
+                        Patna Kalam, Mauryan pillar art, Madhubani painting, Manjusha art, Bihar Census demographics, Caste-based survey data, folk literature, and festivals.
+                    </p>
+                    <div class="subject-card-meta">
+                        <span class="meta-pill">Art & Painting</span>
+                        <span class="meta-pill">Demographics</span>
+                        <span class="meta-pill">Folk Traditions</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn-card-action locked" disabled>
+                        Coming Soon
+                    </button>
+                </div>
+            </div>
+
+            <!-- 7. GENERAL MENTAL ABILITY & CSAT -->
+            <div class="subject-card disabled-card">
+                <div>
+                    <div class="subject-card-top">
+                        <span class="subject-badge" style="background:#f1f5f9; color:#94a3b8;">🔒 Coming Soon</span>
+                        <span style="font-size:11px; font-weight:600; color:#94a3b8;">Prelims Aptitude</span>
+                    </div>
+                    <h3 class="subject-card-title" style="color:#64748b;">📊 General Mental Ability & Reasoning</h3>
+                    <p class="subject-card-desc">
+                        Quantitative aptitude, number series, coding-decoding, syllogisms, blood relations, data interpretation, and analytical reasoning for BPSC Prelims.
+                    </p>
+                    <div class="subject-card-meta">
+                        <span class="meta-pill">Arithmetic</span>
+                        <span class="meta-pill">Logical Reasoning</span>
+                        <span class="meta-pill">Data Interpretation</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn-card-action locked" disabled>
+                        Coming Soon
+                    </button>
+                </div>
+            </div>
+
+            <!-- 8. CURRENT AFFAIRS -->
+            <div class="subject-card disabled-card">
+                <div>
+                    <div class="subject-card-top">
+                        <span class="subject-badge" style="background:#f1f5f9; color:#94a3b8;">🔒 Coming Soon</span>
+                        <span style="font-size:11px; font-weight:600; color:#94a3b8;">National & State</span>
+                    </div>
+                    <h3 class="subject-card-title" style="color:#64748b;">📰 Current Affairs & Contemporary Issues</h3>
+                    <p class="subject-card-desc">
+                        Comprehensive coverage of the last 12 months national events, international summits, Bihar state government schemes, sports honors, and scientific achievements.
+                    </p>
+                    <div class="subject-card-meta">
+                        <span class="meta-pill">Last 12 Months</span>
+                        <span class="meta-pill">Bihar Schemes</span>
+                        <span class="meta-pill">National & Global</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn-card-action locked" disabled>
+                        Coming Soon
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SUPABASE SDK & SERVICES -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../supabase/config.js"></script>
+    <script src="../../../../supabase/api.js"></script>
+    <script src="../../../../supabase/courseApi.js"></script>
+</body>
+
+</html>

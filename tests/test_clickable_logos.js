@@ -20,6 +20,8 @@ const filesToCheck = [
     'modules/course/class10/politics/politics_course_hub.html',
     'modules/course/civilservices/revisionCourse/revision_course_hub.html',
     'modules/course/civilservices/revisionCourse/physics/physics_course_hub.html',
+    'modules/course/civilservices/BPSC_72/bpsc_72_hub.html',
+    'modules/course/civilservices/BPSC_72/history/history_course_hub.html',
 
     // Course players
     'modules/course/class10/science/course_player.html',

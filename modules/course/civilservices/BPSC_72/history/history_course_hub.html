@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BPSC 72 History Course — Elite Classes</title>
+
+    <meta name="application-name" content="Elite Classes">
+    <meta name="apple-mobile-web-app-title" content="Elite Classes">
+    <link rel="icon" type="image/png" href="../../../../../favicon-32x32.png">
+    <link rel="stylesheet" href="../../../../../css/styles.css">
+
+    <style>
+        :root {
+            --hub-bg: #0b1329;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --primary-emerald: #059669;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top Header */
+        .hub-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+        }
+
+        .btn-transparent-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12.5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-transparent-nav:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Container */
+        .hub-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px 60px;
+        }
+
+        /* Hero Section */
+        .hub-hero-clean {
+            position: relative;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 36px 28px 28px;
+            margin-bottom: 28px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hub-gradient-aura {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 520px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.18) 0%, rgba(5, 150, 105, 0.12) 45%, rgba(37, 99, 235, 0.03) 70%, transparent 100%);
+            filter: blur(36px);
+            pointer-events: none;
+        }
+
+        .hub-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        .hub-class-tag {
+            display: inline-block;
+            font-size: 11.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #d97706;
+            background: rgba(217, 119, 6, 0.1);
+            border: 1px solid rgba(217, 119, 6, 0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .hub-title-main {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0 0 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .hub-sub-text {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin: 0 0 20px;
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        .hub-stats-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .hub-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hub-stat-val {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .hub-stat-label {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Chapters Grid */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+
+        .chapter-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(217, 119, 6, 0.12);
+            border-color: #fcd34d;
+        }
+
+        .chapter-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .chapter-badge {
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .chapter-title {
+            font-size: 15.5px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 10px;
+            line-height: 1.45;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chapter-desc {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0 0 14px;
+        }
+
+        .chapter-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .meta-pill {
+            background: #f1f5f9;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .chapter-progress-box {
+            margin-top: auto;
+        }
+
+        .chapter-progress-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11.5px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .chapter-progress-bar {
+            background: #e2e8f0;
+            height: 6px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .chapter-progress-fill {
+            background: linear-gradient(90deg, #d97706, #059669);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.4s ease;
+        }
+
+        .status-pill {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .status-pill.not-started {
+            background: #f8fafc;
+            color: #64748b;
+        }
+
+        .status-pill.in-progress {
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+
+        .status-pill.completed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- STICKY FIXED HEADER -->
+    <header class="app-header-sticky">
+        <div class="top-banner">
+            <a href="../../../../../student_home.html" class="brand-wrapper" style="text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
+                <img src="../../../../../eliteLogo_crest.png" onerror="this.src='../../../../../favicon-32x32.png'" alt="Elite Classes" class="brand-logo-icon">
+                <div>
+                    <div class="brand-text">Elite Classes</div>
+                    <div class="brand-sub">Committed to success</div>
+                </div>
+            </a>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <a href="../bpsc_72_hub.html" class="btn-transparent-nav">
+                    ← BPSC 72 Hub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN HUB CONTAINER -->
+    <div class="hub-container">
+
+        <!-- HERO SECTION -->
+        <div class="hub-hero-clean">
+            <div class="hub-gradient-aura"></div>
+            <div class="hub-hero-content">
+                <div class="hub-class-tag">BPSC 72ND CCE • BIHAR HISTORY</div>
+                <h1 class="hub-title-main">History of India & Bihar Special Mastery Modules</h1>
+                <p class="hub-sub-text">
+                    Comprehensive, high-yield curriculum covering Ancient Magadha, Buddhism & Jainism, the Mauryan Empire, Gupta & Medieval dynasties, the 1857 Revolt in Bihar, Champaran Satyagraha, and the path to Indian Independence.
+                </p>
+                <div class="hub-stats-row">
+                    <div class="hub-stat-item">
+                        <span class="hub-stat-val">7 Chapters</span>
+                        <span class="hub-stat-label">Syllabus Scope</span>
+                    </div>
+                    <div class="hub-stat-item">
+                        <span class="hub-stat-val">140 Modules</span>
+                        <span class="hub-stat-label">Concept Theory</span>
+                    </div>
+                    <div class="hub-stat-item">
+                        <span class="hub-stat-val">1,400 MCQs</span>
+                        <span class="hub-stat-label">Practice Questions</span>
+                    </div>
+                    <div class="hub-stat-item">
+                        <span class="hub-stat-val">70% Pass</span>
+                        <span class="hub-stat-label">Mastery Unlock</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OVERALL PROGRESS BAR -->
+        <div class="hub-horizontal-progress-box" style="margin-bottom: 24px; background:#ffffff; border:1px solid #e2e8f0; border-radius:14px; padding:16px 20px; box-shadow:0 2px 8px rgba(15,23,42,0.03);">
+            <div class="hub-progress-labels" style="display:flex; justify-content:space-between; font-size:12.5px; font-weight:700; color:var(--text-dark); margin-bottom:8px;">
+                <span>Overall Syllabus Progress</span>
+                <span id="total-progress-pct">0% Completed</span>
+            </div>
+            <div class="hub-progress-track" style="background:#e2e8f0; height:8px; border-radius:10px; overflow:hidden;">
+                <div class="hub-progress-fill" id="total-progress-bar" style="width: 0%; height:100%; border-radius:10px; background:linear-gradient(90deg, #d97706, #059669); transition:width 0.6s ease;"></div>
+            </div>
+        </div>
+
+        <!-- CHAPTERS GRID -->
+        <div id="chapters-grid-container" class="chapters-grid">
+            <!-- Dynamically populated -->
+        </div>
+
+    </div>
+
+    <!-- SUPABASE SDK & SERVICES -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../../../../supabase/config.js"></script>
+    <script src="../../../../../supabase/api.js"></script>
+    <script src="../../../../../supabase/courseApi.js"></script>
+
+    <script>
+        // History chapters list derived from bpsc_history.pdf
+        const CHAPTERS_LIST = [
+            {
+                num: 1,
+                id: 'bpsc_hist_ch1',
+                title: 'Ancient Bihar: Sources, Prehistory, Mahajanapadas & Rise of Magadha',
+                desc: 'Archaeological and literary sources, Ashokan pillar edicts in Champaran, Neolithic sites, Anga, Vajji Republic, and Haryanka, Shishunaga & Nanda dynasties.',
+                icon: '🏛️',
+                isLive: true
+            },
+            {
+                num: 2,
+                id: 'bpsc_hist_ch2',
+                title: 'Religious Movements in Bihar: Buddhism & Jainism',
+                desc: 'Gautama Buddha at Bodh Gaya, 4 Buddhist Councils, Hinayana/Mahayana, Vardhamana Mahavira, 24 Tirthankaras, Pavapuri, Syadvada, and Jain Councils in Pataliputra.',
+                icon: '☸️',
+                isLive: true
+            },
+            {
+                num: 3,
+                id: 'bpsc_hist_ch3',
+                title: 'Mauryan & Post-Mauryan Eras in Bihar',
+                desc: 'Chandragupta Maurya, Arthashastra, Megasthenes’ Indika, Ashokan Dhamma, 18 Tirthas, Pataliputra municipal administration, Shunga, Kanva, and Kushan rule.',
+                icon: '👑',
+                isLive: true
+            },
+            {
+                num: 4,
+                id: 'bpsc_hist_ch4',
+                title: 'Gupta Age, Post-Gupta & Medieval Bihar',
+                desc: 'Gupta golden age in Magadha, Nalanda University, Pala art and Vikramshila, Bakhtiyar Khilji, Tughlaq rule, Oinwar & Chero dynasties, Sher Shah Suri, and Mughals.',
+                icon: '🏰',
+                isLive: true
+            },
+            {
+                num: 5,
+                id: 'bpsc_hist_ch5',
+                title: 'Early British Expansion, Tribal Uprisings & The Revolt of 1857 in Bihar',
+                desc: 'European factories, Battles of Plassey and Buxar, Diwani grant, Kol & Santhal rebellions, Birsa Munda Ulgulan, and Babu Veer Kunwar Singh’s heroic 1857 campaign.',
+                icon: '⚔️',
+                isLive: true
+            },
+            {
+                num: 6,
+                id: 'bpsc_hist_ch6',
+                title: 'National Movements, Revolutionary Resistance & Satyagraha in Bihar',
+                desc: 'Wahabi trials, revolutionary societies, formation of Bihar in 1912, Champaran Satyagraha of 1917, Mazharul Haq, Sadaqat Ashram, and Non-Cooperation movement.',
+                icon: '✊',
+                isLive: true
+            },
+            {
+                num: 7,
+                id: 'bpsc_hist_ch7',
+                title: 'Mass Movements, Peasant Struggles & Path to Independence',
+                desc: 'Simon Commission boycott, Swami Sahajanand and Kisan Sabha, Salt Satyagraha, 1937 Sri Krishna Sinha ministry, Quit India 7 Martyrs, Azad Dasta, and state leaders.',
+                icon: '🇮🇳',
+                isLive: true
+            }
+        ];
+
+        async function initCourseHub() {
+            let activeStudent = null;
+            try {
+                activeStudent = JSON.parse(localStorage.getItem('ec_active_student'));
+            } catch(e) {}
+
+            const studentId = activeStudent ? activeStudent.id : (localStorage.getItem('ec_student_id') || 'st_guest');
+            const container = document.getElementById('chapters-grid-container');
+
+            let totalPassedAcrossAll = 0;
+            let liveChaptersCount = 0;
+            let cardsHtml = '';
+
+            for (const ch of CHAPTERS_LIST) {
+                let passedCount = 0;
+                if (ch.isLive) {
+                    liveChaptersCount++;
+                    try {
+                        const localKey = `ec_course_prog_${studentId}_${ch.id}`;
+                        const prog = JSON.parse(localStorage.getItem(localKey) || '{}');
+                        for (const mId in prog) {
+                            if (prog[mId] && (prog[mId].passed || prog[mId].is_completed || prog[mId].score >= 7)) {
+                                passedCount++;
+                            }
+                        }
+                    } catch(e) {
+                        passedCount = 0;
+                    }
+                    totalPassedAcrossAll += passedCount;
+                }
+
+                let statusBadge = '';
+                let linkHref = `../../../course_player.html?class=civilservices&course=BPSC_72&subject=history&chapter=${ch.num}`;
+                let cardStyle = '';
+
+                if (!ch.isLive) {
+                    statusBadge = '<span class="status-pill not-started" style="background:#f1f5f9; color:#94a3b8;">🔒 Coming Soon</span>';
+                    linkHref = 'javascript:void(0);';
+                    cardStyle = 'opacity:0.75; cursor:not-allowed;';
+                } else if (passedCount === 20) {
+                    statusBadge = '<span class="status-pill completed">✓ Mastered (20/20)</span>';
+                } else if (passedCount > 0) {
+                    statusBadge = `<span class="status-pill in-progress">In Progress (${passedCount}/20)</span>`;
+                } else {
+                    statusBadge = '<span class="status-pill not-started">Start Learning →</span>';
+                }
+
+                cardsHtml += `
+                    <a href="${linkHref}" class="chapter-card" style="${cardStyle}">
+                        <div>
+                            <div class="chapter-card-top">
+                                <span class="chapter-badge">Chapter ${String(ch.num).padStart(2, '0')}</span>
+                                ${statusBadge}
+                            </div>
+                            <h3 class="chapter-title">${ch.icon} ${ch.title}</h3>
+                            <p class="chapter-desc">${ch.desc}</p>
+                            <div class="chapter-meta">
+                                <span class="meta-pill">📘 20 Modules</span>
+                                <span class="meta-pill">📝 200 Questions</span>
+                                <span class="meta-pill">🎯 70% Mastery</span>
+                            </div>
+                        </div>
+                        <div class="chapter-progress-box">
+                            <div class="chapter-progress-labels">
+                                <span>Mastery Progress</span>
+                                <span>${passedCount} / 20</span>
+                            </div>
+                            <div class="chapter-progress-bar">
+                                <div class="chapter-progress-fill" style="width: ${(passedCount / 20) * 100}%;"></div>
+                            </div>
+                        </div>
+                    </a>
+                `;
+            }
+
+            container.innerHTML = cardsHtml;
+
+            // Overall progress calculation
+            const maxPossible = liveChaptersCount * 20;
+            const totalPct = maxPossible > 0 ? Math.round((totalPassedAcrossAll / maxPossible) * 100) : 0;
+            const pctEl = document.getElementById('total-progress-pct');
+            const barEl = document.getElementById('total-progress-bar');
+            if (pctEl) pctEl.textContent = `${totalPct}% Completed (${totalPassedAcrossAll}/${maxPossible} Modules)`;
+            if (barEl) barEl.style.width = `${totalPct}%`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initCourseHub();
+        });
+    </script>
+</body>
+
+</html>
