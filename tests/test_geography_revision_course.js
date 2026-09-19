@@ -1,10 +1,10 @@
-// tests/test_biology_revision_course.js
+// tests/test_geography_revision_course.js
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 
 console.log('================================================================');
-console.log('🧬 TESTING CIVIL SERVICES BIOLOGY REVISION COURSE');
+console.log('🌍 TESTING CIVIL SERVICES GEOGRAPHY REVISION COURSE');
 console.log('================================================================\n');
 
 // 1. Test Master Civil Services Courses Hub
@@ -19,24 +19,24 @@ const revHubPath = path.join(__dirname, '../modules/course/civilservices/revisio
 assert(fs.existsSync(revHubPath), 'revision_course_hub.html must exist');
 const revHubHtml = fs.readFileSync(revHubPath, 'utf8');
 assert(revHubHtml.includes('student_home.html'), 'Revision hub must link to student_home.html');
-assert(revHubHtml.includes('biology/biology_course_hub.html'), 'Revision hub must link to biology/biology_course_hub.html');
+assert(revHubHtml.includes('geography/geography_course_hub.html'), 'Revision hub must link to geography/geography_course_hub.html');
 assert(revHubHtml.includes('4 Subjects Live'), 'Revision hub must show 4 Subjects Live');
-console.log('✔ revision_course_hub.html verified with biology link and 4 Subjects Live counter.');
+console.log('✔ revision_course_hub.html verified with geography link and 4 Subjects Live counter.');
 
-// 3. Test Biology Hub
-const hubPath = path.join(__dirname, '../modules/course/civilservices/revisionCourse/biology/biology_course_hub.html');
-assert(fs.existsSync(hubPath), 'biology_course_hub.html must exist');
+// 3. Test Geography Hub
+const hubPath = path.join(__dirname, '../modules/course/civilservices/revisionCourse/geography/geography_course_hub.html');
+assert(fs.existsSync(hubPath), 'geography_course_hub.html must exist');
 const hubHtml = fs.readFileSync(hubPath, 'utf8');
 assert(hubHtml.includes('student_home.html'), 'Hub must have link to student_home.html');
 assert(hubHtml.includes('title="Return to Student Portal"'), 'Logo must have title "Return to Student Portal"');
-assert(hubHtml.includes('cs_bio_ch1'), 'Hub must register cs_bio_ch1');
-assert(hubHtml.includes('BIOLOGY_CHAPTERS'), 'Hub must contain BIOLOGY_CHAPTERS');
+assert(hubHtml.includes('cs_geo_ch1'), 'Hub must register cs_geo_ch1');
+assert(hubHtml.includes('GEOGRAPHY_CHAPTERS'), 'Hub must contain GEOGRAPHY_CHAPTERS');
 assert(hubHtml.includes('../../../course_player.html'), 'Hub must link to central course_player.html');
-console.log('✔ biology_course_hub.html verified with central player link and clickable logo.');
+console.log('✔ geography_course_hub.html verified with central player link and clickable logo.');
 
-// 4. Test All 7 Chapter Course Data Files in biology/data/
+// 4. Test All 7 Chapter Course Data Files in geography/data/
 for (let ch = 1; ch <= 7; ch++) {
-    const dataPath = path.join(__dirname, `../modules/course/civilservices/revisionCourse/biology/data/chapter${ch}_course_data.js`);
+    const dataPath = path.join(__dirname, `../modules/course/civilservices/revisionCourse/geography/data/chapter${ch}_course_data.js`);
     assert(fs.existsSync(dataPath), `chapter${ch}_course_data.js must exist at ${dataPath}`);
     const chData = require(dataPath);
     assert.strictEqual(chData.chapterNumber, ch, `Chapter number must be ${ch}`);
@@ -75,4 +75,4 @@ for (let ch = 1; ch <= 7; ch++) {
     console.log(`✔ Chapter ${ch} (${chData.chapterTitle}): 20 Modules, 200 MCQs validated.`);
 }
 
-console.log('\n✨ ALL TESTS PASSED! Civil Services Biology Revision Course (140 Modules, 1,400 MCQs) is 100% verified.');
+console.log('\n✨ ALL TESTS PASSED! Civil Services Geography Revision Course (140 Modules, 1,400 MCQs) is 100% verified.');

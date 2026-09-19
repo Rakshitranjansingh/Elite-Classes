@@ -22,6 +22,7 @@ const filesToCheck = [
     'modules/course/civilservices/revisionCourse/physics/physics_course_hub.html',
     'modules/course/civilservices/revisionCourse/chemistry/chemistry_course_hub.html',
     'modules/course/civilservices/revisionCourse/biology/biology_course_hub.html',
+    'modules/course/civilservices/revisionCourse/geography/geography_course_hub.html',
     'modules/course/civilservices/BPSC_72/bpsc_72_hub.html',
     'modules/course/civilservices/BPSC_72/history/history_course_hub.html',
     'modules/course/civilservices/BPSC_72/geography/geography_course_hub.html',
