@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Civil Services Medieval Indian History Revision Course — Elite Classes</title>
+
+    <meta name="application-name" content="Elite Classes">
+    <meta name="apple-mobile-web-app-title" content="Elite Classes">
+    <link rel="icon" type="image/png" href="../../../../../favicon-32x32.png">
+    <link rel="stylesheet" href="../../../../../css/styles.css">
+
+    <style>
+        :root {
+            --hub-bg: #0b1329;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --primary-amber: #b45309;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top Header */
+        .hub-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+        }
+
+        .btn-transparent-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: transparent;
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12.5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-transparent-nav:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Container */
+        .hub-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px 60px;
+        }
+
+        /* Hero Section */
+        .hub-hero-clean {
+            position: relative;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 36px 28px 28px;
+            margin-bottom: 28px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hub-gradient-aura {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 480px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(180, 83, 9, 0.18) 0%, rgba(217, 119, 6, 0.10) 45%, rgba(245, 158, 11, 0.03) 70%, transparent 100%);
+            filter: blur(36px);
+            pointer-events: none;
+        }
+
+        .hub-hero-title {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #0f172a;
+            margin: 0 0 10px;
+        }
+
+        .hub-hero-subtitle {
+            font-size: 14.5px;
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+
+        .hub-meta-pills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .pill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid #e2e8f0;
+        }
+
+        .pill-badge.active {
+            background: #fffbeb;
+            color: #b45309;
+            border-color: #fde68a;
+        }
+
+        .pill-badge.success {
+            background: #f0fdf4;
+            color: #15803d;
+            border-color: #bbf7d0;
+        }
+
+        /* Progress Card */
+        .overall-progress-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 14px 20px;
+            max-width: 540px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12.5px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar-bg {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #d97706, #b45309);
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        /* Chapter Cards Grid */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .chapter-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(180, 83, 9, 0.15);
+            border-color: #fde68a;
+        }
+
+        .chapter-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .chapter-badge {
+            background: #fffbeb;
+            color: #b45309;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .chapter-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 8px;
+            line-height: 1.35;
+        }
+
+        .chapter-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 11.5px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+
+        .status-pill.not-started {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+        .status-pill.in-progress {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-pill.completed {
+            background: #dcfce7;
+            color: #15803d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header with Clickable Logo returning to student_home.html -->
+    <header class="hub-header">
+        <a href="../../../../../student_home.html" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
+            <img src="../../../../../eliteLogo_crest.png" onerror="this.src='../../../../../favicon-32x32.png'" alt="Elite Classes" style="width:28px; height:28px; border-radius:8px; object-fit:contain;">
+            <span style="font-weight:800; font-size:16px; letter-spacing:-0.4px;">Elite Classes</span>
+        </a>
+        <a href="../revision_course_hub.html" class="btn-transparent-nav">
+            ← Revision Course Hub
+        </a>
+    </header>
+
+    <div class="hub-container">
+
+        <!-- Hero Section -->
+        <section class="hub-hero-clean">
+            <div class="hub-gradient-aura"></div>
+            <h1 class="hub-hero-title">🏰 Medieval Indian History Revision Course</h1>
+            <p class="hub-hero-subtitle">
+                Master General Studies Medieval Indian History through 7 comprehensive chapters. In-depth dynastic histories, Sultanate & Mughal administration, agrarian systems, architecture, literature, Bhakti-Sufi movements, Maratha Swarajya, and progressive mastery assessments.
+            </p>
+
+            <div class="hub-meta-pills">
+                <span class="pill-badge active">🏛️ Civil Services Revision</span>
+                <span class="pill-badge success">⚡ 7 Chapters Live</span>
+                <span class="pill-badge">📘 140 Mini-Modules</span>
+                <span class="pill-badge">📝 1,400 Concept MCQs</span>
+                <span class="pill-badge">🎯 70% Mastery Threshold</span>
+            </div>
+
+            <div class="overall-progress-card">
+                <div class="progress-header">
+                    <span style="color:#0f172a;">Course Completion Progress</span>
+                    <span id="total-progress-pct" style="color:#b45309;">0% Completed</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="total-progress-bar" style="width: 0%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter Grid Header -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <h2 style="font-size:18px; font-weight:800; color:#0f172a; margin:0;">Course Curriculum</h2>
+            <span style="font-size:12px; font-weight:700; color:var(--text-muted);">7 Chapters Available</span>
+        </div>
+
+        <!-- Chapters List -->
+        <div class="chapters-grid" id="chapters-container">
+            <!-- Rendered by JavaScript -->
+        </div>
+
+    </div>
+
+    <script>
+        const MEDIEVAL_CHAPTERS = [
+            {
+                num: 1,
+                id: 'cs_med_ch1',
+                title: 'Early Medieval India, Tripartite Struggle, Imperial Cholas & Early Invasions (750–1206 AD)',
+                icon: '⚔️',
+                isLive: true
+            },
+            {
+                num: 2,
+                id: 'cs_med_ch2',
+                title: 'The Delhi Sultanate: Foundations, Mamluks, Balban & Khalji Imperialism (1206–1320 AD)',
+                icon: '👑',
+                isLive: true
+            },
+            {
+                num: 3,
+                id: 'cs_med_ch3',
+                title: 'The Tughlaqs, Sayyids, Lodis & Sultanate Administration, Society & Art (1320–1526 AD)',
+                icon: '🏛️',
+                isLive: true
+            },
+            {
+                num: 4,
+                id: 'cs_med_ch4',
+                title: 'The Southern Dynasties: Vijayanagara Empire, Bahmani Kingdom & Deccan Sultanates (1336–1672 AD)',
+                icon: '🏰',
+                isLive: true
+            },
+            {
+                num: 5,
+                id: 'cs_med_ch5',
+                title: 'The Mughal Ascendancy: Babur, Humayun, Sur Interlude & Akbar the Great (1526–1605 AD)',
+                icon: '🛡️',
+                isLive: true
+            },
+            {
+                num: 6,
+                id: 'cs_med_ch6',
+                title: 'Later Mughals, Art, Administration & The Rise of the Maratha Empire (1605–1761 AD)',
+                icon: '🚩',
+                isLive: true
+            },
+            {
+                num: 7,
+                id: 'cs_med_ch7',
+                title: 'Religious Movements, Medieval Literature, Historiography & Cultural Syncretism',
+                icon: '📜',
+                isLive: true
+            }
+        ];
+
+        async function initCourseHub() {
+            let activeStudent = null;
+            try {
+                activeStudent = JSON.parse(localStorage.getItem('ec_active_student'));
+            } catch(e) {}
+
+            const studentId = activeStudent ? activeStudent.id : (localStorage.getItem('ec_student_id') || 'st_guest');
+            const container = document.getElementById('chapters-container');
+            let cardsHtml = '';
+            let totalPassedAcrossAll = 0;
+            const liveChaptersCount = MEDIEVAL_CHAPTERS.filter(c => c.isLive).length;
+
+            for (const ch of MEDIEVAL_CHAPTERS) {
+                let passedCount = 0;
+                if (ch.isLive) {
+                    try {
+                        const localKey = `ec_course_prog_${studentId}_${ch.id}`;
+                        const savedProg = JSON.parse(localStorage.getItem(localKey) || '{}');
+                        for (let i = 1; i <= 20; i++) {
+                            const modKey = `m${String(i).padStart(2, '0')}`;
+                            if (savedProg[modKey] && (savedProg[modKey].passed || savedProg[modKey].is_completed)) {
+                                passedCount++;
+                            }
+                        }
+                    } catch(e) {
+                        passedCount = 0;
+                    }
+                    totalPassedAcrossAll += passedCount;
+                }
+
+                let statusBadge = '';
+                let linkHref = `../../../course_player.html?class=civilservices&course=revisionCourse&subject=medievalindia&chapter=${ch.num}`;
+                let cardStyle = '';
+
+                if (!ch.isLive) {
+                    statusBadge = '<span class="status-pill not-started" style="background:#f1f5f9; color:#94a3b8;">🔒 Coming Soon</span>';
+                    linkHref = 'javascript:void(0);';
+                    cardStyle = 'opacity:0.75; cursor:not-allowed;';
+                } else if (passedCount === 20) {
+                    statusBadge = '<span class="status-pill completed">✓ Mastered (20/20)</span>';
+                } else if (passedCount > 0) {
+                    statusBadge = `<span class="status-pill in-progress">In Progress (${passedCount}/20)</span>`;
+                } else {
+                    statusBadge = '<span class="status-pill not-started">Start Learning →</span>';
+                }
+
+                cardsHtml += `
+                    <a href="${linkHref}" class="chapter-card" style="${cardStyle}">
+                        <div>
+                            <div class="chapter-card-top">
+                                <span class="chapter-badge">Chapter ${String(ch.num).padStart(2, '0')}</span>
+                                ${statusBadge}
+                            </div>
+                            <h3 class="chapter-card-title">${ch.icon || '🏰'} ${ch.title}</h3>
+                            <div class="chapter-card-meta">
+                                <span>📘 Complete Theory</span>
+                                <span>📝 20 Mastery Quizzes</span>
+                                <span>🎯 70% Pass</span>
+                            </div>
+                        </div>
+                    </a>
+                `;
+            }
+
+            container.innerHTML = cardsHtml;
+
+            // Update overall progress bar
+            const totalTarget = liveChaptersCount * 20;
+            const overallPct = totalTarget > 0 ? Math.round((totalPassedAcrossAll / totalTarget) * 100) : 0;
+            const progBar = document.getElementById('total-progress-bar');
+            const progPct = document.getElementById('total-progress-pct');
+            if (progBar) progBar.style.width = `${overallPct}%`;
+            if (progPct) progPct.textContent = `${overallPct}% Completed (${totalPassedAcrossAll}/${totalTarget} Topics)`;
+        }
+
+        document.addEventListener('DOMContentLoaded', initCourseHub);
+    </script>
+</body>
+
+</html>

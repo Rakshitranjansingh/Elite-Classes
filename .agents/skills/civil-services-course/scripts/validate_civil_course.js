@@ -139,10 +139,28 @@ for (let ch = 1; ch <= 7; ch++) {
     assert.strictEqual(chData.modules.reduce((acc, m) => acc + m.questions.length, 0), 200, `Chapter ${ch} must have 200 questions`);
     assert.strictEqual(chData.passPercentage || chData.passingPercentage || chData.passThreshold, 70, `Chapter ${ch} pass threshold must be 70%`);
 }
-console.log('✔ Revision Course Geography Chapters validated (7 Chapters, 140 modules & 1,400 MCQs total).');
+// 9. Validate Revision Course Medieval Indian History Course Hub & Subject Data
+const medHubPath = path.join(rootDir, 'modules/course/civilservices/revisionCourse/medievalindia/medievalindia_course_hub.html');
+assert(fs.existsSync(medHubPath), 'medievalindia_course_hub.html must exist');
+const medHubHtml = fs.readFileSync(medHubPath, 'utf8');
+assert(medHubHtml.includes('student_home.html'), 'medievalindia_course_hub.html must link to student_home.html');
+assert(medHubHtml.includes('revision_course_hub.html'), 'medievalindia_course_hub.html must link back to revision_course_hub.html');
+assert(medHubHtml.includes('course_player.html'), 'medievalindia_course_hub.html must launch course_player.html');
+
+for (let ch = 1; ch <= 7; ch++) {
+    const dataPath = path.join(rootDir, `modules/course/civilservices/revisionCourse/medievalindia/data/chapter${ch}_course_data.js`);
+    assert(fs.existsSync(dataPath), `Medieval History Chapter ${ch} data must exist at ${dataPath}`);
+    const chData = require(dataPath);
+    assert.strictEqual(chData.chapterNumber, ch, `Chapter number must be ${ch}`);
+    assert.strictEqual(chData.modules.length, 20, `Chapter ${ch} must have 20 modules`);
+    assert.strictEqual(chData.modules.reduce((acc, m) => acc + m.questions.length, 0), 200, `Chapter ${ch} must have 200 questions`);
+    assert.strictEqual(chData.passPercentage || chData.passingPercentage || chData.passThreshold, 70, `Chapter ${ch} pass threshold must be 70%`);
+}
+console.log('✔ Revision Course Medieval Indian History Chapters validated (7 Chapters, 140 modules & 1,400 MCQs total).');
 
 console.log('\n================================================================');
 console.log('🎉 CIVIL SERVICES COURSES ECOSYSTEM VALIDATION PASSED (100%)!');
 console.log('================================================================');
+
 
 

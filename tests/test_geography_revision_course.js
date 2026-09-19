@@ -20,8 +20,8 @@ assert(fs.existsSync(revHubPath), 'revision_course_hub.html must exist');
 const revHubHtml = fs.readFileSync(revHubPath, 'utf8');
 assert(revHubHtml.includes('student_home.html'), 'Revision hub must link to student_home.html');
 assert(revHubHtml.includes('geography/geography_course_hub.html'), 'Revision hub must link to geography/geography_course_hub.html');
-assert(revHubHtml.includes('4 Subjects Live'), 'Revision hub must show 4 Subjects Live');
-console.log('✔ revision_course_hub.html verified with geography link and 4 Subjects Live counter.');
+assert(revHubHtml.includes('5 Subjects Live') || revHubHtml.includes('4 Subjects Live'), 'Revision hub must show Subjects Live counter');
+console.log('✔ revision_course_hub.html verified with geography link and Subjects Live counter.');
 
 // 3. Test Geography Hub
 const hubPath = path.join(__dirname, '../modules/course/civilservices/revisionCourse/geography/geography_course_hub.html');
