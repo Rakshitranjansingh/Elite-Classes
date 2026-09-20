@@ -37,10 +37,20 @@ async function runTests() {
     assert.ok(indexHtml.includes('Public Service Commissions GS & Test Pass'), 'Index must contain Civil Services card title');
     assert.ok(indexHtml.includes('₹14,000'), 'Index must contain ₹14,000 strikethrough price');
     assert.ok(indexHtml.includes('₹299'), 'Index must contain ₹299 offer price');
-    assert.ok(indexHtml.includes('ELITE30'), 'Index must mention coupon code ELITE30');
     assert.ok(indexHtml.includes('id="contact"'), 'Index must have id="contact" on footer');
     assert.ok(indexHtml.includes('id="cbt-test-series"'), 'Index must have id="cbt-test-series"');
-    console.log('  ✔ Verified index.html offering card, pricing (<s>₹14,000</s> ₹299) and anchor targets');
+
+    // Verify ribbons are removed
+    assert.ok(!indexHtml.includes('Flagship Program'), 'Flagship Program ribbon must be removed');
+    assert.ok(!indexHtml.includes('Self-Paced CBT Pass'), 'Self-Paced CBT Pass ribbon must be removed');
+    assert.ok(!indexHtml.includes('UPSC • BPSC • UPPCS'), 'UPSC BPSC UPPCS ribbon must be removed');
+
+    // Verify CBT keyword removed from Card 2 title
+    assert.ok(indexHtml.includes('<h3 class="course-name">Annual Test Series Pass</h3>'), 'Annual Test Series Pass must not have CBT in title');
+
+    // Verify secret code is not leaked on the card
+    assert.ok(!indexHtml.includes('Use coupon code "ELITE30"'), 'Secret coupon code ELITE30 must not be displayed publicly on card');
+    console.log('  ✔ Verified index.html offering card, pricing (<s>₹14,000</s> ₹299), ribbons removed, CBT keyword removed, and secret coupon confidential');
 
     // -------------------------------------------------------------
     // Test 2: Test createSubscriberRegistration with coupon ELITE30
