@@ -30,6 +30,7 @@ const CBTPlayer = {
     proctorStrikes: 0,
     maxProctorStrikes: 3,
     isProctorWarningOpen: false,
+    isRedirecting: false,
     watermarkObserver: null,
     isSubmitted: false,
     _onVisibilityChange: null,
@@ -624,8 +625,8 @@ const CBTPlayer = {
         }
     },
 
-    triggerProctorStrike(reason) {
-        if (this.isSubmitted || this.isProctorWarningOpen) return;
+    async triggerProctorStrike(reason) {
+        if (this.isSubmitted || this.isProctorWarningOpen || this.isRedirecting) return;
         this.proctorStrikes++;
         this.updateProctorBadge();
 
@@ -642,8 +643,18 @@ const CBTPlayer = {
         }
 
         if (this.proctorStrikes >= this.maxProctorStrikes) {
-            alert(`🛑 Assessment Terminated & Auto-Submitted!\n\nViolation Limit Exceeded (3/3 Strikes).\nReason: ${reason}\n\nYour attempt has been finalized and recorded.`);
-            this.finishAndSubmit();
+            this.isRedirecting = true;
+            if (typeof alert === 'function') {
+                try {
+                    alert(`🛑 Assessment Terminated & Auto-Submitted!\n\nViolation Limit Exceeded (3/3 Strikes).\nReason: ${reason}\n\nYour attempt has been finalized and recorded. Redirecting to your homepage...`);
+                } catch (e) {}
+            }
+            try {
+                await this.finishAndSubmit(true);
+            } catch (err) {
+                console.warn('[CBTPlayer] Auto-submit on proctor termination error:', err);
+            }
+            this.redirectToRespectiveHomepage();
         } else {
             this.showProctorWarningModal(reason);
         }
@@ -698,6 +709,61 @@ const CBTPlayer = {
         this.isProctorWarningOpen = false;
         const modal = document.getElementById('cbt-proctor-warning-modal');
         if (modal) modal.style.display = 'none';
+    },
+
+    getRespectiveHomepageUrl() {
+        const role = (typeof localStorage !== 'undefined' ? localStorage.getItem('ec_user_role') : '') || '';
+        let targetFile = 'student_home.html';
+        if (role === 'admin') {
+            targetFile = 'admin_home.html';
+        } else if (role === 'staff') {
+            targetFile = 'staff_home.html';
+        } else if (role === 'testseries_subscriber') {
+            targetFile = 'testseries_user_home.html';
+        } else if (role === 'student') {
+            targetFile = 'student_home.html';
+        } else if (typeof localStorage !== 'undefined' && localStorage.getItem('ec_admin_id')) {
+            targetFile = 'admin_home.html';
+        } else if (typeof localStorage !== 'undefined' && localStorage.getItem('ec_staff_id')) {
+            targetFile = 'staff_home.html';
+        } else if (typeof localStorage !== 'undefined' && localStorage.getItem('ec_subscriber_id')) {
+            targetFile = 'testseries_user_home.html';
+        } else if (typeof localStorage !== 'undefined' && (localStorage.getItem('ec_student_id') || localStorage.getItem('ec_active_student'))) {
+            targetFile = 'student_home.html';
+        } else {
+            targetFile = 'index.html';
+        }
+
+        // 1. Check if there is an explicit brand link to student_home.html on the page
+        if (typeof document !== 'undefined') {
+            const brandLink = document.querySelector('a[href*="student_home.html"]');
+            if (brandLink) {
+                const href = brandLink.getAttribute('href');
+                const prefix = href.substring(0, href.lastIndexOf('student_home.html'));
+                return prefix + targetFile;
+            }
+        }
+
+        // 2. Derive relative depth from pathname (modules/...)
+        if (typeof window !== 'undefined' && window.location && window.location.pathname) {
+            const pathname = window.location.pathname.replace(/\\/g, '/');
+            const modulesIdx = pathname.lastIndexOf('/modules/');
+            if (modulesIdx !== -1) {
+                const subPath = pathname.substring(modulesIdx + 1);
+                const segments = subPath.split('/');
+                const depth = segments.length - 1;
+                return '../'.repeat(depth) + targetFile;
+            }
+        }
+
+        return targetFile;
+    },
+
+    redirectToRespectiveHomepage() {
+        const targetUrl = this.getRespectiveHomepageUrl();
+        if (typeof window !== 'undefined' && window.location) {
+            window.location.href = targetUrl;
+        }
     },
 
     showProctorNotice(msg) {
@@ -1033,7 +1099,8 @@ const CBTPlayer = {
         }
     },
 
-    async finishAndSubmit() {
+    async finishAndSubmit(isProctorViolation = false) {
+        this.isSubmitted = true;
         if (this.timerInterval) clearInterval(this.timerInterval);
 
         let correctCount = 0;
@@ -1147,6 +1214,14 @@ const CBTPlayer = {
 
         // 3. Close the Exam modal cleanly
         this.closeModal();
+
+        if (isProctorViolation) {
+            // Proctor violation: skip completion modal review since candidate is redirected to respective homepage
+            if (this.onCompleteCallback) {
+                this.onCompleteCallback(submissionObj);
+            }
+            return;
+        }
 
         // 4. Show Instant Completion Scorecard with prominent Review button
         this.showCompletionModal(this.activeTest, this.student, localData.attempts[this.activeTest.id], submissionObj);

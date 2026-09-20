@@ -1539,7 +1539,7 @@
         }
 
         // Submit and Grade Current Module Quiz
-        async function submitCurrentQuiz() {
+        async function submitCurrentQuiz(isAutoSubmit = false) {
             const mod = courseData.modules[activeModuleIndex];
             if (!mod) return;
 
@@ -1554,7 +1554,7 @@
                 }
             });
 
-            if (answeredCount < mod.questions.length) {
+            if (!isAutoSubmit && answeredCount < mod.questions.length) {
                 if (!confirm(`You have answered ${answeredCount} of ${mod.questions.length} questions. Submit anyway?`)) {
                     return;
                 }
@@ -1632,10 +1632,12 @@
             renderResultBanner(score, total, passed);
             renderSidebarModules();
 
-            if (passed) {
-                showToast(`🎉 Outstanding! Module passed with ${pct}%. Next topic unlocked!`, 'success');
-            } else {
-                showToast(`⚠️ You scored ${pct}%. 70% required to unlock next module. Review notes and retry!`, 'danger');
+            if (!isAutoSubmit) {
+                if (passed) {
+                    showToast(`🎉 Outstanding! Module passed with ${pct}%. Next topic unlocked!`, 'success');
+                } else {
+                    showToast(`⚠️ You scored ${pct}%. 70% required to unlock next module. Review notes and retry!`, 'danger');
+                }
             }
         }
 
@@ -1777,11 +1779,73 @@
         let proctorStrikes = 0;
         const maxProctorStrikes = 3;
         let isProctorWarningOpen = false;
+        let isRedirecting = false;
         let watermarkObserver = null;
 
-        function triggerProctorStrike(reason) {
-            if (isProctorWarningOpen) return;
+        function getCourseRespectiveHomepageUrl() {
+            const role = (typeof localStorage !== 'undefined' ? localStorage.getItem('ec_user_role') : '') || '';
+            let targetFile = 'student_home.html';
+            if (role === 'admin') {
+                targetFile = 'admin_home.html';
+            } else if (role === 'staff') {
+                targetFile = 'staff_home.html';
+            } else if (role === 'testseries_subscriber') {
+                targetFile = 'testseries_user_home.html';
+            } else if (role === 'student') {
+                targetFile = 'student_home.html';
+            } else if (typeof localStorage !== 'undefined' && localStorage.getItem('ec_admin_id')) {
+                targetFile = 'admin_home.html';
+            } else if (typeof localStorage !== 'undefined' && localStorage.getItem('ec_staff_id')) {
+                targetFile = 'staff_home.html';
+            } else if (typeof localStorage !== 'undefined' && localStorage.getItem('ec_subscriber_id')) {
+                targetFile = 'testseries_user_home.html';
+            } else if (typeof localStorage !== 'undefined' && (localStorage.getItem('ec_student_id') || localStorage.getItem('ec_active_student'))) {
+                targetFile = 'student_home.html';
+            } else {
+                targetFile = 'index.html';
+            }
+
+            // 1. Check brand link in header
+            const brandLink = document.querySelector('a[href*="student_home.html"]');
+            if (brandLink) {
+                const href = brandLink.getAttribute('href');
+                const prefix = href.substring(0, href.lastIndexOf('student_home.html'));
+                return prefix + targetFile;
+            }
+
+            // 2. Derive relative depth from pathname (modules/...)
+            const pathname = (window.location.pathname || '').replace(/\\/g, '/');
+            const modulesIdx = pathname.lastIndexOf('/modules/');
+            if (modulesIdx !== -1) {
+                const subPath = pathname.substring(modulesIdx + 1);
+                const segments = subPath.split('/');
+                const depth = segments.length - 1;
+                return '../'.repeat(depth) + targetFile;
+            }
+
+            return targetFile;
+        }
+
+        async function triggerProctorStrike(reason) {
+            if (isProctorWarningOpen || isRedirecting) return;
             proctorStrikes++;
+
+            // On 3rd strike: auto-submit current quiz and redirect to respective homepage
+            if (proctorStrikes >= maxProctorStrikes) {
+                isRedirecting = true;
+                if (typeof alert === 'function') {
+                    try {
+                        alert(`🛑 Course Assessment Terminated & Auto-Submitted!\n\nProctor Violation Limit Exceeded (3/3 Strikes).\nReason: ${reason}\n\nYour current module attempt has been finalized. Redirecting to your homepage...`);
+                    } catch (e) {}
+                }
+                try {
+                    await submitCurrentQuiz(true);
+                } catch (err) {
+                    console.warn('[Course] Auto-submit on strike error:', err);
+                }
+                window.location.href = getCourseRespectiveHomepageUrl();
+                return;
+            }
 
             const modal = document.getElementById('course-proctor-warning-modal');
             const icon = document.getElementById('course-proctor-modal-icon');
@@ -1792,23 +1856,14 @@
             if (!modal) return;
             isProctorWarningOpen = true;
 
-            if (proctorStrikes < maxProctorStrikes) {
-                icon.textContent = '⚠️';
-                title.textContent = `Security Warning: Proctor Strike ${proctorStrikes} of ${maxProctorStrikes}`;
-                body.innerHTML = `
-                    <strong>Reason:</strong> ${escapeHtml(reason)}<br><br>
-                    Navigating away from the course portal or switching background applications during assessments is strictly monitored to ensure academic integrity.
-                `;
-                btn.textContent = 'Acknowledge & Return to Course';
-            } else {
-                icon.textContent = '🛑';
-                title.textContent = `Final Warning: Proctor Strike ${proctorStrikes} of ${maxProctorStrikes}`;
-                body.innerHTML = `
-                    <strong>Maximum security violations reached!</strong><br><br>
-                    Repeated tab switching has been logged under your candidate profile. Continued violations will be reported to the academic administrator.
-                `;
-                btn.textContent = 'I Understand';
-            }
+            icon.textContent = '⚠️';
+            title.textContent = `Security Warning: Proctor Strike ${proctorStrikes} of ${maxProctorStrikes}`;
+            body.innerHTML = `
+                <strong>Reason:</strong> ${escapeHtml(reason)}<br><br>
+                Navigating away from the course portal or switching background applications during assessments is strictly monitored to ensure academic integrity.<br><br>
+                <span style="color:#ef4444; font-weight:700;">${maxProctorStrikes - proctorStrikes} more violation will permanently terminate and auto-submit your session.</span>
+            `;
+            btn.textContent = 'Acknowledge & Return to Course';
 
             modal.style.display = 'flex';
         }

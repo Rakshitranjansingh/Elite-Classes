@@ -78,7 +78,7 @@ const mockLocalStorage = {
 };
 global.localStorage = mockLocalStorage;
 const appFn = new Function('window', 'document', 'localStorage', appCode + '; return window.escapeHtml;');
-const mockWin = { localStorage: mockLocalStorage };
+const mockWin = { localStorage: mockLocalStorage, addEventListener: () => {} };
 const escapeHtml = appFn(mockWin, { addEventListener: () => {} }, mockLocalStorage);
 
 const dangerousXss = '<script>alert("pwned")</script>&"\'';
