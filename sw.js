@@ -3,7 +3,7 @@
    Provides instant offline asset caching and seamless network resilience
    ============================================================================= */
 
-const CACHE_NAME = 'elite-classes-v1.0.0';
+const CACHE_NAME = 'elite-classes-v1.0.1';
 
 // Core assets to pre-cache for 100% offline app loading
 const PRECACHE_ASSETS = [

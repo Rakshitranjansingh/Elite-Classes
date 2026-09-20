@@ -289,10 +289,27 @@ function initInactivityListeners() {
 }
 
 // Unified Gateway Logout Action
-function logoutToGateway(toastMsg = 'Logged out successfully') {
+async function logoutToGateway(toastMsg = 'Logged out successfully') {
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+
+    // 1. Call DBService.signOut if available to revoke Supabase cloud session
+    if (typeof DBService !== 'undefined' && typeof DBService.signOut === 'function') {
+        try {
+            await DBService.signOut();
+        } catch (e) {
+            console.warn('[Logout] DBService.signOut notice:', e);
+        }
+    } else if (typeof supabaseClient !== 'undefined' && supabaseClient && supabaseClient.auth) {
+        try {
+            await supabaseClient.auth.signOut().catch(() => {});
+        } catch (e) {}
+    }
+
+    // 2. Clear all role & portal session keys from localStorage
     const sessionKeys = [
         'ec_user_role',
         'ec_authenticated_key',
+        'ec_auth_provider',
         'ec_student_id',
         'ec_student_name',
         'ec_student_class',
@@ -302,17 +319,36 @@ function logoutToGateway(toastMsg = 'Logged out successfully') {
         'ec_active_admin',
         'ec_staff_id',
         'ec_staff_name',
+        'ec_staff_user',
         'ec_active_staff',
         'ec_subscriber_id',
         'ec_subscriber_name',
         'ec_active_subscriber',
         'ec_last_activity'
     ];
-    sessionKeys.forEach(k => localStorage.removeItem(k));
+    sessionKeys.forEach(k => {
+        try { localStorage.removeItem(k); } catch (e) {}
+    });
 
-    if (inactivityTimer) clearTimeout(inactivityTimer);
+    // 3. Clear any Supabase auth session tokens from localStorage
+    try {
+        const sbKeys = [];
+        for (let i = 0; i < localStorage.length; i++) {
+            const k = localStorage.key(i);
+            if (k && (k.startsWith('sb-') || k.startsWith('supabase.auth'))) {
+                sbKeys.push(k);
+            }
+        }
+        sbKeys.forEach(k => localStorage.removeItem(k));
+    } catch (e) {}
 
-    window.location.href = 'index.html';
+    // 4. Mark intentional logout flag in sessionStorage to block auto-login on gateway
+    try {
+        sessionStorage.clear();
+        sessionStorage.setItem('ec_just_logged_out', '1');
+    } catch (e) {}
+
+    window.location.href = 'index.html?logged_out=1';
 }
 
 // Auth Guard for Admin Home Page (admin_home.html)
@@ -403,6 +439,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (typeof isSupabaseConnected === 'function' && isSupabaseConnected()) {
             syncDataFromSupabase();
         }
+    }
+});
+
+// Guard against Back-Forward Browser Cache (bfcache)
+window.addEventListener('pageshow', async (event) => {
+    if (event.persisted && (window.location.pathname.includes('admin_home.html') || document.getElementById('view-dashboard'))) {
+        await checkAdminAuthGuard();
     }
 });
 

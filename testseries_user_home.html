@@ -467,14 +467,45 @@
         }
         ['click', 'keydown', 'scroll'].forEach(evt => window.addEventListener(evt, updateActivity));
 
-        function logoutSubscriber() {
-            localStorage.removeItem('ec_user_role');
-            localStorage.removeItem('ec_subscriber_id');
-            localStorage.removeItem('ec_subscriber_name');
-            localStorage.removeItem('ec_active_subscriber');
-            localStorage.removeItem('ec_active_student');
-            localStorage.removeItem('ec_last_activity');
-            window.location.href = 'index.html';
+        async function logoutSubscriber() {
+            currentSubscriber = null;
+            if (typeof DBService !== 'undefined' && typeof DBService.signOut === 'function') {
+                try { await DBService.signOut(); } catch (e) {}
+            } else if (typeof supabaseClient !== 'undefined' && supabaseClient && supabaseClient.auth) {
+                try { await supabaseClient.auth.signOut().catch(() => {}); } catch (e) {}
+            }
+
+            const sessionKeys = [
+                'ec_user_role',
+                'ec_authenticated_key',
+                'ec_auth_provider',
+                'ec_subscriber_id',
+                'ec_subscriber_name',
+                'ec_active_subscriber',
+                'ec_active_student',
+                'ec_last_activity'
+            ];
+            sessionKeys.forEach(k => {
+                try { localStorage.removeItem(k); } catch (e) {}
+            });
+
+            try {
+                const sbKeys = [];
+                for (let i = 0; i < localStorage.length; i++) {
+                    const k = localStorage.key(i);
+                    if (k && (k.startsWith('sb-') || k.startsWith('supabase.auth'))) {
+                        sbKeys.push(k);
+                    }
+                }
+                sbKeys.forEach(k => localStorage.removeItem(k));
+            } catch (e) {}
+
+            try {
+                sessionStorage.clear();
+                sessionStorage.setItem('ec_just_logged_out', '1');
+            } catch (e) {}
+
+            window.location.href = 'index.html?logged_out=1';
         }
 
         function showToast(msg, type = 'success') {
@@ -879,19 +910,12 @@
             tbody.innerHTML = html;
         }
 
-        // Logout Subscriber & Return to Gateway
-        function logoutSubscriber() {
-            const sessionKeys = [
-                'ec_user_role',
-                'ec_subscriber_id',
-                'ec_subscriber_name',
-                'ec_active_subscriber',
-                'ec_active_student',
-                'ec_last_activity'
-            ];
-            sessionKeys.forEach(k => localStorage.removeItem(k));
-            window.location.href = 'index.html';
-        }
+        // Guard against Back-Forward Browser Cache (bfcache)
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                checkSubscriberAuth();
+            }
+        });
     </script>
 </body>
 

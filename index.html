@@ -2488,6 +2488,61 @@
         }
 
         async function checkGoogleAuthRedirect() {
+            // 1. Check if user just logged out
+            const urlParams = new URLSearchParams(window.location.search);
+            const isJustLoggedOut = urlParams.has('logged_out') || sessionStorage.getItem('ec_just_logged_out') === '1';
+
+            if (isJustLoggedOut) {
+                // Ensure Supabase cloud session is completely terminated
+                try {
+                    if (typeof DBService !== 'undefined' && typeof DBService.signOut === 'function') {
+                        await DBService.signOut();
+                    } else if (typeof supabaseClient !== 'undefined' && supabaseClient && supabaseClient.auth) {
+                        await supabaseClient.auth.signOut().catch(() => {});
+                    }
+                } catch(e) {}
+
+                // Clean all residual session tokens from localStorage
+                try {
+                    const sbKeys = [];
+                    for (let i = 0; i < localStorage.length; i++) {
+                        const k = localStorage.key(i);
+                        if (k && (k.startsWith('sb-') || k.startsWith('supabase.auth') || k.startsWith('ec_active_') || k === 'ec_user_role' || k === 'ec_student_id' || k === 'ec_admin_id' || k === 'ec_staff_id' || k === 'ec_subscriber_id')) {
+                            sbKeys.push(k);
+                        }
+                    }
+                    sbKeys.forEach(k => localStorage.removeItem(k));
+                } catch(e) {}
+
+                try {
+                    sessionStorage.removeItem('ec_just_logged_out');
+                } catch(e) {}
+
+                // Strip query parameter cleanly from URL without reloading
+                if (window.history && window.history.replaceState) {
+                    const cleanUrl = window.location.pathname + (window.location.hash || '');
+                    window.history.replaceState({}, document.title, cleanUrl);
+                }
+
+                showToast('You have been logged out successfully.', 'success');
+                updatePublicNavAuth();
+                return;
+            }
+
+            // 2. Only process Google OAuth if URL actually contains OAuth redirect parameters (hash or search)
+            const hash = window.location.hash || '';
+            const search = window.location.search || '';
+            const hasOAuthRedirect = hash.includes('access_token=') || 
+                                    hash.includes('error=') || 
+                                    search.includes('code=') || 
+                                    search.includes('error=');
+
+            if (!hasOAuthRedirect) {
+                // Normal page load, do not auto-login or redirect away from public gateway
+                updatePublicNavAuth();
+                return;
+            }
+
             if (typeof isSupabaseConnected === 'function' && !isSupabaseConnected()) return;
             try {
                 if (typeof supabaseClient === 'undefined' || !supabaseClient.auth) return;
@@ -2497,6 +2552,10 @@
                     const authResult = await DBService.handleGoogleAuthSession(session.user);
                     if (authResult.success) {
                         showToast(`Welcome back, ${authResult.user.name || 'User'}!`, 'success');
+                        // Clean OAuth hash/query from URL
+                        if (window.history && window.history.replaceState) {
+                            window.history.replaceState({}, document.title, window.location.pathname);
+                        }
                         establishUserSession(authResult, 'google');
                     } else if (authResult.isPending) {
                         closeModal('portalLoginModal');
@@ -2520,6 +2579,42 @@
                 console.warn('[Auth] Google OAuth check:', err);
             }
         }
+
+        // Dynamically update public navigation buttons based on current login status
+        function updatePublicNavAuth() {
+            const role = localStorage.getItem('ec_user_role');
+            const signinBtn = document.getElementById('nav-btn-signin');
+            const signupBtn = document.getElementById('nav-btn-signup');
+            if (!signinBtn) return;
+
+            if (role === 'student' && localStorage.getItem('ec_student_id')) {
+                const studentName = localStorage.getItem('ec_student_name') || 'Student';
+                const firstName = studentName.split(' ')[0];
+                signinBtn.innerHTML = `<span>🎓 ${firstName} (Portal) →</span>`;
+                signinBtn.onclick = () => { window.location.href = 'student_home.html'; };
+                if (signupBtn) signupBtn.style.display = 'none';
+            } else if (role === 'admin' && localStorage.getItem('ec_admin_id')) {
+                signinBtn.innerHTML = `<span>👑 Admin Portal →</span>`;
+                signinBtn.onclick = () => { window.location.href = 'admin_home.html'; };
+                if (signupBtn) signupBtn.style.display = 'none';
+            } else if (role === 'staff' && localStorage.getItem('ec_staff_id')) {
+                signinBtn.innerHTML = `<span>👨‍🏫 Faculty Portal →</span>`;
+                signinBtn.onclick = () => { window.location.href = 'staff_home.html'; };
+                if (signupBtn) signupBtn.style.display = 'none';
+            } else if (role === 'testseries_subscriber' && localStorage.getItem('ec_subscriber_id')) {
+                signinBtn.innerHTML = `<span>📝 Test Portal →</span>`;
+                signinBtn.onclick = () => { window.location.href = 'testseries_user_home.html'; };
+                if (signupBtn) signupBtn.style.display = 'none';
+            } else {
+                signinBtn.innerHTML = `<span>Sign In</span>`;
+                signinBtn.onclick = openPortalLoginModal;
+                if (signupBtn) signupBtn.style.display = 'inline-flex';
+            }
+        }
+
+        window.addEventListener('pageshow', () => {
+            updatePublicNavAuth();
+        });
 
         function openGoogleOnboardingModal(gUser) {
             currentGoogleUser = gUser;

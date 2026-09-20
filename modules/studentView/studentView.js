@@ -85,17 +85,48 @@ async function verifyStudentLogin() {
 }
 
 // Logout & Return to Gateway Screen
-function logoutStudent() {
+async function logoutStudent() {
     currentStudent = null;
-    localStorage.removeItem('ec_user_role');
-    localStorage.removeItem('ec_student_id');
-    localStorage.removeItem('ec_student_name');
-    localStorage.removeItem('ec_active_student');
-    localStorage.removeItem('ec_last_activity');
     if (typeof logoutToGateway === 'function') {
-        logoutToGateway('Logged out of Student Portal');
+        await logoutToGateway('Logged out of Student Portal');
     } else {
-        window.location.href = 'index.html';
+        if (typeof DBService !== 'undefined' && typeof DBService.signOut === 'function') {
+            try { await DBService.signOut(); } catch (e) {}
+        } else if (typeof supabaseClient !== 'undefined' && supabaseClient && supabaseClient.auth) {
+            try { await supabaseClient.auth.signOut().catch(() => {}); } catch (e) {}
+        }
+
+        const sessionKeys = [
+            'ec_user_role',
+            'ec_authenticated_key',
+            'ec_auth_provider',
+            'ec_student_id',
+            'ec_student_name',
+            'ec_student_class',
+            'ec_active_student',
+            'ec_last_activity'
+        ];
+        sessionKeys.forEach(k => {
+            try { localStorage.removeItem(k); } catch (e) {}
+        });
+
+        try {
+            const sbKeys = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const k = localStorage.key(i);
+                if (k && (k.startsWith('sb-') || k.startsWith('supabase.auth'))) {
+                    sbKeys.push(k);
+                }
+            }
+            sbKeys.forEach(k => localStorage.removeItem(k));
+        } catch (e) {}
+
+        try {
+            sessionStorage.clear();
+            sessionStorage.setItem('ec_just_logged_out', '1');
+        } catch (e) {}
+
+        window.location.href = 'index.html?logged_out=1';
     }
 }
 
@@ -1107,6 +1138,13 @@ async function initStudentHome() {
 
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes('student_home.html') || document.getElementById('view-student-portal')) {
+        initStudentHome();
+    }
+});
+
+// Guard against Back-Forward Browser Cache (bfcache)
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted && (window.location.pathname.includes('student_home.html') || document.getElementById('view-student-portal'))) {
         initStudentHome();
     }
 });

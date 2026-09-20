@@ -1355,3 +1355,10 @@ document.addEventListener('DOMContentLoaded', () => {
         initStaffPortal();
     }
 });
+
+// Guard against Back-Forward Browser Cache (bfcache)
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted && (window.location.pathname.includes('staff_home.html') || document.getElementById('view-staff-portal'))) {
+        initStaffPortal();
+    }
+});

@@ -591,6 +591,62 @@ const DBService = {
         }
     },
 
+    async signOut() {
+        try {
+            if (isSupabaseConnected() && typeof supabaseClient !== 'undefined' && supabaseClient && supabaseClient.auth) {
+                await supabaseClient.auth.signOut().catch((e) => {
+                    console.warn('[DBService] Non-fatal Supabase signOut notice:', e);
+                });
+            }
+        } catch (e) {
+            console.warn('[DBService] Supabase signOut error:', e);
+        }
+
+        // Clean all session & user-specific auth items from localStorage
+        const authKeys = [
+            'ec_user_role',
+            'ec_authenticated_key',
+            'ec_auth_provider',
+            'ec_student_id',
+            'ec_student_name',
+            'ec_student_class',
+            'ec_active_student',
+            'ec_admin_id',
+            'ec_admin_name',
+            'ec_active_admin',
+            'ec_staff_id',
+            'ec_staff_name',
+            'ec_staff_user',
+            'ec_active_staff',
+            'ec_subscriber_id',
+            'ec_subscriber_name',
+            'ec_active_subscriber',
+            'ec_last_activity'
+        ];
+        authKeys.forEach(k => {
+            try { localStorage.removeItem(k); } catch(e) {}
+        });
+
+        // Clean any Supabase auth tokens (e.g. sb-<ref>-auth-token, supabase.auth.token)
+        try {
+            const sbKeys = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const k = localStorage.key(i);
+                if (k && (k.startsWith('sb-') || k.startsWith('supabase.auth'))) {
+                    sbKeys.push(k);
+                }
+            }
+            sbKeys.forEach(k => localStorage.removeItem(k));
+        } catch(e) {}
+
+        try {
+            sessionStorage.clear();
+            sessionStorage.setItem('ec_just_logged_out', '1');
+        } catch(e) {}
+
+        return { success: true };
+    },
+
     async checkEmailUniqueness(emailToCheck, excludeUserId = null) {
         const clean = (emailToCheck || '').toLowerCase().trim();
         if (!clean) return { isUnique: true };
