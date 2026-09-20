@@ -1111,7 +1111,7 @@
             </div>
 
             <!-- CARD 2: ANNUAL CBT TEST SERIES PASS -->
-            <div class="course-card highlight" style="border-color:#10b981; background:linear-gradient(to bottom, #ffffff, #f0fdf4);">
+            <div class="course-card highlight" id="cbt-test-series" style="border-color:#10b981; background:linear-gradient(to bottom, #ffffff, #f0fdf4);">
                 <span class="card-ribbon" style="background:linear-gradient(135deg, #10b981, #059669);">⚡ Self-Paced CBT Pass</span>
                 <div>
                     <div class="course-target" style="color:#059669;">CBSE & Foundation (Class 6–10)</div>
@@ -1142,9 +1142,51 @@
                         <span class="course-price-period">/ year</span>
                         <span class="course-discount-tag" style="background:#dcfce7; color:#15803d;">Instant UPI Pass</span>
                     </div>
-                    <button type="button" class="btn-course-enroll" style="background:linear-gradient(135deg, #10b981, #059669); box-shadow:0 10px 20px -5px rgba(16,185,129,0.4);" onclick="openTestSeriesSubscribeModal()">
+                    <button type="button" class="btn-course-enroll" style="background:linear-gradient(135deg, #10b981, #059669); box-shadow:0 10px 20px -5px rgba(16,185,129,0.4);" onclick="openTestSeriesSubscribeModal('Class 10')">
                         Get Annual Pass (₹499) →
                     </button>
+                </div>
+            </div>
+
+            <!-- CARD 3: PUBLIC SERVICE COMMISSIONS (CIVIL SERVICES & STATE PCS) -->
+            <div class="course-card highlight" id="civil-services-course" style="border-color:#d97706; background:linear-gradient(to bottom, #ffffff, #fffbeb); position:relative;">
+                <span class="card-ribbon" style="background:linear-gradient(135deg, #d97706, #b45309);">🏛️ UPSC • BPSC • UPPCS</span>
+                <div>
+                    <div class="course-target" style="color:#b45309; font-weight:700;">Civil Services & State PCS</div>
+                    <h3 class="course-name" style="color:#0f172a;">Public Service Commissions GS & Test Pass</h3>
+                    <p class="course-desc">Comprehensive General Studies (History, Geography, Polity, Economy, Science) & CSAT preparation tailored for UPSC Prelims and State PCS (BPSC 72nd CCE, UPPCS, JPSC) with 1,400+ topic-wise MCQs and instant CBT mock tests.</p>
+                    <ul class="course-perks">
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
+                            Complete GS Subject Tests (Polity, History, Geo, Economy, Science)
+                        </li>
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
+                            State PCS (BPSC 72nd CCE, UPPCS) & UPSC Prelims Focus
+                        </li>
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
+                            Authentic CBT Interface with Negative Marking (-0.33)
+                        </li>
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
+                            Exhaustive Explanatory Solutions & Topic-Wise Analytics
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="course-pricing" style="align-items:baseline;">
+                        <span class="course-price-strike" style="text-decoration:line-through; color:#94a3b8; font-size:16px; font-weight:700; margin-right:8px;">₹14,000</span>
+                        <span class="course-price-val" style="color:#b45309; font-size:28px; font-weight:800;">₹299</span>
+                        <span class="course-price-period">/ year</span>
+                        <span class="course-discount-tag" style="background:#fef3c7; color:#92400e; font-weight:700;">Special Offer: 98% Off</span>
+                    </div>
+                    <button type="button" class="btn-course-enroll" style="background:linear-gradient(135deg, #d97706, #b45309); box-shadow:0 10px 20px -5px rgba(217, 119, 6, 0.4);" onclick="openTestSeriesSubscribeModal('Civil Services', 'ELITE30')">
+                        Get Civil Services Pass (₹299) →
+                    </button>
+                    <div style="font-size:11.5px; text-align:center; color:#64748b; margin-top:8px;">
+                        💡 Use coupon code <strong style="color:#b45309; letter-spacing:0.5px;">"ELITE30"</strong> for 30 days direct free test access!
+                    </div>
                 </div>
             </div>
         </div>
@@ -1199,7 +1241,7 @@
     </section>
 
     <!-- 7. PUBLIC FOOTER -->
-    <footer class="pub-footer">
+    <footer class="pub-footer" id="contact">
         <div class="footer-container">
             <div class="footer-brand">
                 <a href="index.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; margin-bottom:8px;">
@@ -1401,8 +1443,8 @@
             <div class="custom-modal-header" style="background:linear-gradient(135deg, #065f46, #047857); color:#ffffff;">
                 <div>
                     <div style="display:flex; align-items:center; gap:8px;">
-                        <span style="background:rgba(255,255,255,0.2); padding:2px 8px; border-radius:6px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">⚡ Annual CBT Pass</span>
-                        <span style="font-size:12px; font-weight:700; background:#fef08a; color:#854d0e; padding:2px 8px; border-radius:6px;">₹499 / Year</span>
+                        <span style="background:rgba(255,255,255,0.2); padding:2px 8px; border-radius:6px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">⚡ CBT Test Series Pass</span>
+                        <span style="font-size:12px; font-weight:700; background:#fef08a; color:#854d0e; padding:2px 8px; border-radius:6px;" id="ts-header-price-badge">₹499 / Year</span>
                     </div>
                     <h3 class="custom-modal-title" style="color:#ffffff; margin-top:6px; font-size:18px;">Test Series Pass Registration</h3>
                 </div>
@@ -1412,7 +1454,7 @@
             <!-- STEP 1: CANDIDATE INFO -->
             <div class="custom-modal-body" id="ts-step-info">
                 <p style="font-size:13px; color:#475569; margin:0 0 16px; line-height:1.5;">
-                    Gain full 365-day access to chapter-wise CBT assessments, instant scorecards, and negative marking analysis.
+                    Gain full access to chapter-wise CBT assessments, instant scorecards, and negative marking analysis.
                 </p>
 
                 <div id="ts-alert-box" style="display:none; padding:10px 14px; border-radius:10px; font-size:12.5px; font-weight:600; margin-bottom:16px;"></div>
@@ -1430,8 +1472,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Target Class *</label>
-                            <select id="ts-class" required>
+                            <label>Target Class / Curriculum *</label>
+                            <select id="ts-class" onchange="onTsClassChange()" required>
+                                <option value="Civil Services">Civil Services (UPSC & State PCS)</option>
                                 <option value="Class 10" selected>Class 10</option>
                                 <option value="Class 9">Class 9</option>
                                 <option value="Class 8">Class 8</option>
@@ -1450,16 +1493,29 @@
                                 You will use this PIN and your WhatsApp number to sign in anytime.
                             </div>
                         </div>
+
+                        <div class="form-group full" style="margin-top:2px;">
+                            <label style="display:flex; justify-content:space-between; align-items:center;">
+                                <span>Have a Coupon Code?</span>
+                                <span style="font-size:11px; font-weight:700; color:#b45309;">Use "ELITE30" for 30-Day Free Pass</span>
+                            </label>
+                            <div style="display:flex; gap:8px;">
+                                <input type="text" id="ts-coupon-input" placeholder="Enter coupon code (e.g. ELITE30)" style="text-transform:uppercase; font-weight:700; letter-spacing:1px;" maxlength="20">
+                                <button type="button" class="btn btn-outline" id="ts-coupon-apply-btn" onclick="applyTsCoupon()" style="padding:0 18px; font-weight:700; font-size:12px; white-space:nowrap;">Apply</button>
+                            </div>
+                            <div id="ts-coupon-status" style="font-size:12px; font-weight:600; margin-top:6px; display:none;"></div>
+                        </div>
                     </div>
 
-                    <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:12px 14px; margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
+                    <div id="ts-fee-box" style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:12px 14px; margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
                         <div>
-                            <div style="font-size:11.5px; font-weight:700; color:#15803d; text-transform:uppercase;">Subscription Fee</div>
-                            <div style="font-size:12px; color:#334155;">1-Year Unlimited CBT Chapter Tests</div>
+                            <div id="ts-fee-title" style="font-size:11.5px; font-weight:700; color:#15803d; text-transform:uppercase;">Subscription Fee</div>
+                            <div id="ts-fee-desc" style="font-size:12px; color:#334155;">1-Year Unlimited CBT Chapter Tests</div>
                         </div>
                         <div style="text-align:right;">
-                            <div style="font-size:18px; font-weight:800; color:#15803d;">₹499</div>
-                            <div style="font-size:11px; color:#64748b;">All-inclusive</div>
+                            <div id="ts-fee-strike" style="font-size:12px; color:#94a3b8; text-decoration:line-through; font-weight:700; display:none;">₹14,000</div>
+                            <div id="ts-fee-amount" style="font-size:18px; font-weight:800; color:#15803d;">₹499</div>
+                            <div id="ts-fee-period" style="font-size:11px; color:#64748b;">All-inclusive</div>
                         </div>
                     </div>
 
@@ -2133,9 +2189,141 @@
         // TEST SERIES SUBSCRIBER SELF-REGISTRATION & UPI PAYMENT (€499)
         // =====================================================================
         let currentSubscriberRegData = null;
+        let appliedTsCoupon = '';
 
-        function openTestSeriesSubscribeModal(presetClass = 'Class 10') {
+        function onTsClassChange() {
+            updateTsPricingDisplay();
+        }
+
+        function updateTsPricingDisplay() {
+            const clsSelect = document.getElementById('ts-class');
+            const cls = clsSelect ? clsSelect.value : 'Class 10';
+            const isCivil = (cls === 'Civil Services' || (cls && cls.toLowerCase().includes('civil')));
+            const headerBadge = document.getElementById('ts-header-price-badge');
+            const feeStrike = document.getElementById('ts-fee-strike');
+            const feeAmount = document.getElementById('ts-fee-amount');
+            const feeTitle = document.getElementById('ts-fee-title');
+            const feeDesc = document.getElementById('ts-fee-desc');
+            const feeBox = document.getElementById('ts-fee-box');
+            const submitBtn = document.getElementById('ts-step1-btn');
+            const couponStatus = document.getElementById('ts-coupon-status');
+
+            if (appliedTsCoupon === 'ELITE30' || appliedTsCoupon === 'WELCOME') {
+                if (headerBadge) {
+                    headerBadge.textContent = 'Free 30-Day Pass';
+                    headerBadge.style.background = '#fef08a';
+                    headerBadge.style.color = '#854d0e';
+                }
+                if (feeStrike) {
+                    feeStrike.textContent = isCivil ? '₹14,000' : '₹499';
+                    feeStrike.style.display = 'block';
+                }
+                if (feeAmount) {
+                    feeAmount.textContent = '₹0';
+                    feeAmount.style.color = '#15803d';
+                }
+                if (feeTitle) feeTitle.textContent = 'Special 30-Day Test User Pass';
+                if (feeDesc) feeDesc.textContent = 'Coupon ' + appliedTsCoupon + ' Applied • Direct Instant Access Pass';
+                if (feeBox) {
+                    feeBox.style.background = '#f0fdf4';
+                    feeBox.style.borderColor = '#86efac';
+                }
+                if (submitBtn) {
+                    submitBtn.textContent = '🚀 Activate 30-Day Free Pass Instantly →';
+                    submitBtn.style.background = 'linear-gradient(135deg, #d97706, #b45309)';
+                }
+                if (couponStatus) {
+                    couponStatus.style.display = 'block';
+                    couponStatus.style.color = '#15803d';
+                    couponStatus.innerHTML = '🎉 Coupon <strong>' + appliedTsCoupon + '</strong> Applied! 30-Day direct test user access unlocked (₹0 fee).';
+                }
+            } else if (isCivil) {
+                if (headerBadge) {
+                    headerBadge.textContent = '₹299 / Year';
+                    headerBadge.style.background = '#fef3c7';
+                    headerBadge.style.color = '#92400e';
+                }
+                if (feeStrike) {
+                    feeStrike.textContent = '₹14,000';
+                    feeStrike.style.display = 'block';
+                }
+                if (feeAmount) {
+                    feeAmount.textContent = '₹299';
+                    feeAmount.style.color = '#b45309';
+                }
+                if (feeTitle) feeTitle.textContent = 'Civil Services Annual Pass';
+                if (feeDesc) feeDesc.textContent = '1-Year Unlimited GS & CSAT CBT Mock Tests (Special 98% Off)';
+                if (feeBox) {
+                    feeBox.style.background = '#fffbeb';
+                    feeBox.style.borderColor = '#fde68a';
+                }
+                if (submitBtn) {
+                    submitBtn.textContent = 'Proceed to UPI Payment (₹299) →';
+                    submitBtn.style.background = 'linear-gradient(135deg, #d97706, #b45309)';
+                }
+                if (couponStatus) {
+                    couponStatus.style.display = 'none';
+                }
+            } else {
+                if (headerBadge) {
+                    headerBadge.textContent = '₹499 / Year';
+                    headerBadge.style.background = '#fef08a';
+                    headerBadge.style.color = '#854d0e';
+                }
+                if (feeStrike) {
+                    feeStrike.style.display = 'none';
+                }
+                if (feeAmount) {
+                    feeAmount.textContent = '₹499';
+                    feeAmount.style.color = '#15803d';
+                }
+                if (feeTitle) feeTitle.textContent = 'Subscription Fee';
+                if (feeDesc) feeDesc.textContent = '1-Year Unlimited CBT Chapter Tests';
+                if (feeBox) {
+                    feeBox.style.background = '#f0fdf4';
+                    feeBox.style.borderColor = '#bbf7d0';
+                }
+                if (submitBtn) {
+                    submitBtn.textContent = 'Proceed to UPI Payment (₹499) →';
+                    submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                }
+                if (couponStatus) {
+                    couponStatus.style.display = 'none';
+                }
+            }
+        }
+
+        function applyTsCoupon() {
+            const input = document.getElementById('ts-coupon-input');
+            const statusEl = document.getElementById('ts-coupon-status');
+            const code = (input ? input.value : '').trim().toUpperCase();
+
+            if (!code) {
+                appliedTsCoupon = '';
+                if (statusEl) statusEl.style.display = 'none';
+                updateTsPricingDisplay();
+                return;
+            }
+
+            if (code === 'ELITE30' || code === 'WELCOME') {
+                appliedTsCoupon = code;
+                const clsSelect = document.getElementById('ts-class');
+                if (clsSelect) clsSelect.value = 'Civil Services';
+                updateTsPricingDisplay();
+            } else {
+                appliedTsCoupon = '';
+                updateTsPricingDisplay();
+                if (statusEl) {
+                    statusEl.style.display = 'block';
+                    statusEl.style.color = '#ef4444';
+                    statusEl.textContent = '❌ Invalid coupon code. Enter "ELITE30" for 30-day free access to Civil Services.';
+                }
+            }
+        }
+
+        function openTestSeriesSubscribeModal(presetClass = 'Class 10', presetCoupon = '') {
             currentSubscriberRegData = null;
+            appliedTsCoupon = '';
             document.getElementById('ts-step-info').style.display = 'block';
             document.getElementById('ts-step-payment').style.display = 'none';
             document.getElementById('ts-step-success').style.display = 'none';
@@ -2145,6 +2333,15 @@
 
             const clsSelect = document.getElementById('ts-class');
             if (clsSelect && presetClass) clsSelect.value = presetClass;
+
+            const couponInput = document.getElementById('ts-coupon-input');
+            if (couponInput) couponInput.value = presetCoupon || '';
+
+            if (presetCoupon) {
+                applyTsCoupon();
+            } else {
+                updateTsPricingDisplay();
+            }
 
             openModal('testSeriesSubscribeModal');
         }
@@ -2188,14 +2385,22 @@
                 return;
             }
 
+            const isCouponFree = (appliedTsCoupon === 'ELITE30' || appliedTsCoupon === 'WELCOME');
+            const isCivil = (cls === 'Civil Services' || (cls && cls.toLowerCase().includes('civil')));
+            const planAmount = isCouponFree ? 0 : (isCivil ? 299.00 : 499.00);
+            const planName = isCivil
+                ? (isCouponFree ? 'Civil Services 30-Day Test User Pass (ELITE30 Offer)' : 'Civil Services Annual CBT Test Series Pass')
+                : 'Annual CBT Test Series Pass';
+
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Processing...';
+            submitBtn.textContent = isCouponFree ? 'Activating 30-Day Free Pass...' : 'Processing...';
 
             try {
-                // Generate tracking code: EC-TS<ClassNum>-<PhoneLast4>
-                const classNum = cls.replace(/\D/g, '') || '10';
+                // Generate tracking code: e.g. EC-TS-CIVIL-9237 or EC-TS10-9237
+                const classCode = isCivil ? 'CIVIL' : (cls.replace(/\D/g, '') || '10');
                 const last4 = cleanPhone.slice(-4);
-                const trackingCode = `EC-TS${classNum}-${last4}`;
+                const trackingCode = `EC-TS${classCode}-${last4}`;
+                const thirtyDaysLater = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
                 const regPayload = {
                     name,
@@ -2203,9 +2408,13 @@
                     cls,
                     pin,
                     tracking_code: trackingCode,
-                    plan_name: 'Annual CBT Test Series Pass',
-                    plan_amount: 499.00,
-                    status: 'pending_verification'
+                    plan_name: planName,
+                    plan_amount: planAmount,
+                    coupon_code: isCouponFree ? appliedTsCoupon : '',
+                    payment_method: isCouponFree ? ('COUPON_' + appliedTsCoupon) : 'UPI',
+                    payment_ref: isCouponFree ? ('DIRECT_' + appliedTsCoupon) : '',
+                    status: isCouponFree ? 'active' : 'pending_verification',
+                    valid_until: isCouponFree ? thirtyDaysLater : null
                 };
 
                 const res = await DBService.createSubscriberRegistration(regPayload);
@@ -2213,15 +2422,77 @@
                 if (res && res.success) {
                     currentSubscriberRegData = res.subscriber || { ...regPayload, id: res.id || 'ts_sub_' + Date.now() };
 
-                    // Setup Step 2 Payment Screen
+                    if (isCouponFree) {
+                        // ZERO ADMIN CONFIRMATION: INSTANT ACTIVATION & SESSION SETUP
+                        const activeSub = currentSubscriberRegData;
+                        localStorage.setItem('ec_user_role', 'testseries_subscriber');
+                        localStorage.setItem('ec_subscriber_id', activeSub.id);
+                        localStorage.setItem('ec_subscriber_name', activeSub.name);
+                        localStorage.setItem('ec_active_subscriber', JSON.stringify(activeSub));
+                        localStorage.setItem('ec_active_student', JSON.stringify({
+                            id: activeSub.id,
+                            name: activeSub.name,
+                            cls: 'Civil Services',
+                            phone: activeSub.phone,
+                            is_subscriber: true,
+                            valid_until: activeSub.valid_until || thirtyDaysLater
+                        }));
+                        localStorage.setItem('ec_last_activity', Date.now().toString());
+
+                        showToast(`🎉 30-Day Civil Services Pass activated! Welcome, ${activeSub.name}!`, 'success');
+
+                        // Show Celebration Success Screen
+                        document.getElementById('ts-step-info').style.display = 'none';
+                        document.getElementById('ts-step-payment').style.display = 'none';
+                        const succEl = document.getElementById('ts-step-success');
+                        succEl.style.display = 'block';
+                        succEl.innerHTML = `
+                            <div style="width:64px; height:64px; border-radius:50%; background:#fef3c7; color:#b45309; font-size:32px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; box-shadow:0 4px 14px rgba(217,119,6,0.25);">
+                                🎉
+                            </div>
+                            <h3 style="font-size:20px; font-weight:800; color:#0f172a; margin:0 0 6px;">30-Day Direct Access Activated!</h3>
+                            <p style="font-size:13px; color:#475569; line-height:1.5; margin:0 0 16px;">
+                                Welcome, <strong style="color:#0f172a;">${activeSub.name}</strong>! Your Civil Services Test User Pass is active immediately with <strong>no admin confirmation needed</strong>.
+                            </p>
+                            <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:12px; padding:14px; text-align:left; font-size:12.5px; margin-bottom:18px;">
+                                <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                                    <span style="color:#78350f;">Offer Pass:</span>
+                                    <strong style="color:#b45309;">${appliedTsCoupon} (30 Days Free)</strong>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                                    <span style="color:#78350f;">Valid Until:</span>
+                                    <strong style="color:#0f172a;">${activeSub.valid_until || thirtyDaysLater}</strong>
+                                </div>
+                                <div style="display:flex; justify-content:space-between;">
+                                    <span style="color:#78350f;">Status:</span>
+                                    <span class="badge" style="background:#dcfce7; color:#15803d; font-weight:800; padding:3px 8px; border-radius:6px;">🟢 ACTIVE (Instant Access)</span>
+                                </div>
+                            </div>
+                            <a href="modules/testseries/data/civilservices/testseries_civilservices.html" class="btn btn-primary" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; font-size:14px; font-weight:800; padding:12px; border-radius:10px; text-decoration:none; background:linear-gradient(135deg, #d97706, #b45309); box-shadow:0 8px 16px -4px rgba(217,119,6,0.4);">
+                                🏛️ Enter Civil Services CBT Test Hub Now →
+                            </a>
+                        `;
+
+                        setTimeout(() => {
+                            window.location.href = 'modules/testseries/data/civilservices/testseries_civilservices.html';
+                        }, 1800);
+                        return;
+                    }
+
+                    // Setup Step 2 Payment Screen for paid pass
                     document.getElementById('ts-pay-code-display').textContent = trackingCode;
                     
-                    const upiUri = `upi://pay?pa=9911519237@upi&pn=Elite%20Classes&am=499&cu=INR&tn=${encodeURIComponent(trackingCode)}`;
+                    const payAmount = isCivil ? 299 : 499;
+                    const upiUri = `upi://pay?pa=9911519237@upi&pn=Elite%20Classes&am=${payAmount}&cu=INR&tn=${encodeURIComponent(trackingCode)}`;
                     const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiUri)}`;
 
                     document.getElementById('ts-upi-qr-img').src = qrUrl;
                     document.getElementById('ts-upi-intent-link').href = upiUri;
+                    document.getElementById('ts-upi-intent-link').innerHTML = `📱 Open UPI App to Pay ₹${payAmount}`;
                     document.getElementById('ts-utr-input').value = '';
+
+                    const step2Header = document.querySelector('#ts-step-payment h4');
+                    if (step2Header) step2Header.textContent = `Pay ₹${payAmount} via Any UPI App`;
 
                     document.getElementById('ts-step-info').style.display = 'none';
                     document.getElementById('ts-step-payment').style.display = 'block';
@@ -2247,7 +2518,11 @@
                 alertBox.style.display = 'block';
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Proceed to UPI Payment (₹499) →';
+                const isCivilCurrent = (cls === 'Civil Services' || (cls && cls.toLowerCase().includes('civil')));
+                const finalAmt = isCivilCurrent ? 299 : 499;
+                if (!isCouponFree) {
+                    submitBtn.textContent = `Proceed to UPI Payment (₹${finalAmt}) →`;
+                }
             }
         }
 
@@ -2852,14 +3127,20 @@
                 localStorage.setItem('ec_user_role', 'testseries_subscriber');
                 localStorage.setItem('ec_subscriber_id', authResult.user.id);
                 localStorage.setItem('ec_subscriber_name', authResult.user.name);
+                localStorage.setItem('ec_active_subscriber', JSON.stringify(authResult.user));
+                const isCivil = (authResult.user.cls === 'Civil Services' || (authResult.user.cls && authResult.user.cls.toLowerCase().includes('civil')));
                 localStorage.setItem('ec_active_student', JSON.stringify({
                     id: authResult.user.id,
                     name: authResult.user.name || 'Subscriber',
-                    cls: authResult.user.cls || 'Class 10',
+                    cls: isCivil ? 'Civil Services' : (authResult.user.cls || 'Class 10'),
                     phone: authResult.user.phone,
-                    is_subscriber: true
+                    is_subscriber: true,
+                    valid_until: authResult.user.valid_until || ''
                 }));
-                setTimeout(() => { window.location.href = 'testseries_user_home.html'; }, 400);
+                const targetUrl = isCivil
+                    ? 'modules/testseries/data/civilservices/testseries_civilservices.html'
+                    : (authResult.redirectUrl || 'testseries_user_home.html');
+                setTimeout(() => { window.location.href = targetUrl; }, 400);
             } else {
                 window.location.href = authResult.redirectUrl || 'index.html';
             }

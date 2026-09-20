@@ -406,7 +406,9 @@ const DBService = {
                         tracking_code: sub.tracking_code || '',
                         valid_until: sub.valid_until || ''
                     },
-                    redirectUrl: 'testseries_user_home.html'
+                    redirectUrl: (sub.cls === 'Civil Services' || (sub.cls && sub.cls.toLowerCase().includes('civil')))
+                        ? 'modules/testseries/data/civilservices/testseries_civilservices.html'
+                        : 'testseries_user_home.html'
                 };
             } else if (sub.status === 'pending_verification') {
                 return {
@@ -2902,15 +2904,18 @@ const DBService = {
             existingSub = localSubs.find(s => (s.phone || '').replace(/\D/g, '') === cleanPhone);
         }
 
+        const isCouponInstant = (regData.status === 'active') ||
+            ['ELITE30', 'WELCOME'].includes((regData.coupon_code || '').trim().toUpperCase());
+
         if (existingSub) {
-            if (existingSub.status === 'active') {
+            if (existingSub.status === 'active' && !isCouponInstant) {
                 return {
                     success: false,
                     alreadyActive: true,
                     subscriber: existingSub,
                     message: `An active Test Series Pass already exists for WhatsApp ${cleanPhone}. Please Sign In using your PIN.`
                 };
-            } else if (existingSub.status === 'pending_verification') {
+            } else if (existingSub.status === 'pending_verification' && !isCouponInstant) {
                 return {
                     success: true,
                     isPending: true,
@@ -2920,10 +2925,20 @@ const DBService = {
             }
         }
 
-        // Generate clean tracking code: e.g. EC-TS10-9237
-        const clsDigits = (regData.cls || '10').replace(/\D/g, '') || '10';
+        // Generate clean tracking code: e.g. EC-TS10-9237 or EC-TS-CIVIL-9237
+        const clsClean = (regData.cls || '10').replace(/\s+/g, '');
+        const clsDigits = (regData.cls || '10').replace(/\D/g, '') || (clsClean.toLowerCase().includes('civil') ? 'CIVIL' : '10');
         const phoneLast4 = cleanPhone.slice(-4);
         const trackingCode = `EC-TS${clsDigits}-${phoneLast4}`;
+
+        const isCivil = (regData.cls === 'Civil Services' || (regData.cls && regData.cls.toLowerCase().includes('civil')));
+        const thirtyDaysLater = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+
+        const defaultPlanName = isCivil
+            ? (isCouponInstant ? 'Civil Services 30-Day Test User Pass (ELITE30 Offer)' : 'Civil Services Annual CBT Test Series Pass')
+            : 'Annual CBT Test Series Pass';
+
+        const defaultPlanAmount = isCouponInstant ? 0.00 : (isCivil ? 299.00 : 499.00);
 
         const newSubscriber = {
             id: existingSub ? existingSub.id : ('ts_sub_' + Date.now()),
@@ -2933,16 +2948,16 @@ const DBService = {
             cls: regData.cls || 'Class 10',
             email: (regData.email || '').trim(),
             tracking_code: trackingCode,
-            plan_name: 'Annual CBT Test Series Pass',
-            plan_amount: 499.00,
-            payment_method: 'UPI',
-            payment_ref: (regData.payment_ref || '').trim(),
-            status: 'pending_verification',
-            valid_until: null,
-            activated_at: null,
-            activated_by: null,
+            plan_name: regData.plan_name || defaultPlanName,
+            plan_amount: regData.plan_amount !== undefined ? regData.plan_amount : defaultPlanAmount,
+            payment_method: isCouponInstant ? 'COUPON_ELITE30' : (regData.payment_method || 'UPI'),
+            payment_ref: isCouponInstant ? 'DIRECT_COUPON_ELITE30' : ((regData.payment_ref || '').trim()),
+            status: isCouponInstant ? 'active' : (regData.status || 'pending_verification'),
+            valid_until: isCouponInstant ? (regData.valid_until || thirtyDaysLater) : (regData.valid_until || null),
+            activated_at: isCouponInstant ? new Date().toISOString() : (regData.activated_at || null),
+            activated_by: isCouponInstant ? 'COUPON_ELITE30' : (regData.activated_by || null),
             converted_at: null,
-            created_at: new Date().toISOString()
+            created_at: existingSub && existingSub.created_at ? existingSub.created_at : new Date().toISOString()
         };
 
         // Save locally
