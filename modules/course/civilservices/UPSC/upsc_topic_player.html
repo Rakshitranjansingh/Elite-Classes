@@ -13,69 +13,36 @@
 
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
+            --primary: #4338ca;
+            --primary-light: #eff6ff;
+            --primary-dark: #3730a3;
             --bg-page: #f8fafc;
             --card-bg: #ffffff;
             --border: #e2e8f0;
             --text-dark: #0f172a;
             --text-muted: #64748b;
-            --success: #16a34a;
-            --danger: #dc2626;
-            --warning-bg: #fef3c7;
+            --success: #059669;
+            --success-light: #ecfdf5;
+            --warning-bg: #fffbeb;
+            --warning-border: #fef08a;
             --warning-text: #b45309;
         }
 
         body {
             background-color: var(--bg-page);
             color: var(--text-dark);
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        .player-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 24px;
-        }
-
-        .btn-nav {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: transparent;
-            color: #f8fafc;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 7px 14px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .btn-nav:hover {
-            background: rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-        }
-
         .container {
-            max-width: 1050px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 24px 20px 80px;
         }
 
-        /* Breadcrumbs */
+        /* Breadcrumbs matching BPSC */
         .breadcrumbs {
             display: flex;
             align-items: center;
@@ -89,56 +56,76 @@
         .breadcrumbs a {
             color: var(--primary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .breadcrumbs a:hover {
             text-decoration: underline;
         }
 
-        /* Topic Hero Banner */
-        .topic-hero {
+        /* Hero matching BPSC 72 hub-hero-clean */
+        .topic-hero-clean {
+            position: relative;
             background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px 28px;
+            border-radius: 20px;
+            padding: 30px 28px 26px;
             margin-bottom: 24px;
-            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+            overflow: hidden;
+        }
+
+        .topic-gradient-aura {
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 380px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(67, 56, 202, 0.15) 0%, rgba(37, 99, 235, 0.08) 50%, transparent 100%);
+            filter: blur(36px);
+            pointer-events: none;
         }
 
         .topic-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
-            margin: 0 0 8px;
+            margin: 8px 0 6px;
             color: var(--text-dark);
-            line-height: 1.25;
+            line-height: 1.3;
         }
 
         .topic-badges {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
-            margin-top: 12px;
+            margin-top: 14px;
         }
 
         .badge-pill {
-            font-size: 11.5px;
-            font-weight: 700;
+            font-size: 11px;
+            font-weight: 800;
             padding: 4px 10px;
-            border-radius: 6px;
+            border-radius: 8px;
             background: #eff6ff;
-            color: var(--primary);
+            color: #1d4ed8;
             border: 1px solid #bfdbfe;
         }
 
         .badge-gold {
-            background: #fef3c7;
+            background: #fffbeb;
             color: #b45309;
-            border-color: #fde68a;
+            border-color: #fef08a;
         }
 
-        /* Tabs Navigation */
+        .badge-green {
+            background: #ecfdf5;
+            color: #065f46;
+            border-color: #a7f3d0;
+        }
+
+        /* Clean Tabs Navigation */
         .tabs-nav {
             display: flex;
             gap: 8px;
@@ -152,7 +139,7 @@
             background: transparent;
             border: none;
             padding: 10px 18px;
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 700;
             color: var(--text-muted);
             cursor: pointer;
@@ -168,6 +155,7 @@
 
         .tab-btn.active {
             color: var(--primary);
+            font-weight: 800;
         }
 
         .tab-btn.active::after {
@@ -181,7 +169,7 @@
             border-radius: 3px 3px 0 0;
         }
 
-        /* Tab Content Cards */
+        /* Content Cards matching BPSC */
         .tab-pane {
             display: none;
             animation: fadeIn 0.2s ease-in;
@@ -192,21 +180,21 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
+            from { opacity: 0; transform: translateY(3px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .content-card {
             background: #ffffff;
-            border: 1px solid var(--border);
+            border: 1px solid #e2e8f0;
             border-radius: 16px;
-            padding: 26px;
+            padding: 28px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
         }
 
         .section-title {
-            font-size: 17px;
+            font-size: 16.5px;
             font-weight: 800;
             margin: 0 0 16px;
             color: var(--text-dark);
@@ -220,17 +208,17 @@
             background: #fffbeb;
             border: 1px solid #fef08a;
             border-radius: 12px;
-            padding: 16px 20px;
-            margin-top: 16px;
+            padding: 18px 20px;
+            margin-top: 20px;
         }
 
         .trap-item {
-            font-size: 13.5px;
+            font-size: 13px;
             color: #92400e;
             margin-bottom: 8px;
             display: flex;
             gap: 8px;
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         /* ASCII Schematic box */
@@ -238,13 +226,14 @@
             background: #0f172a;
             color: #38bdf8;
             font-family: 'Consolas', 'Courier New', monospace;
-            padding: 18px 22px;
-            border-radius: 12px;
-            font-size: 13px;
+            padding: 20px 24px;
+            border-radius: 14px;
+            font-size: 12.5px;
             line-height: 1.6;
             overflow-x: auto;
             white-space: pre;
             margin-top: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* Dimensions Grid */
@@ -257,13 +246,13 @@
 
         .dimension-card {
             background: #f8fafc;
-            border: 1px solid var(--border);
+            border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 14px 16px;
+            padding: 16px 18px;
         }
 
         .dimension-title {
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 800;
             color: var(--primary);
             text-transform: uppercase;
@@ -274,23 +263,24 @@
         .dimension-desc {
             font-size: 13px;
             color: #334155;
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         /* MCQs styles */
         .mcq-item {
             background: #f8fafc;
-            border: 1px solid var(--border);
+            border: 1px solid #e2e8f0;
             border-radius: 14px;
             padding: 20px;
             margin-bottom: 18px;
         }
 
         .mcq-question {
-            font-size: 14.5px;
+            font-size: 14px;
             font-weight: 700;
             margin-bottom: 14px;
-            line-height: 1.5;
+            line-height: 1.55;
+            color: #0f172a;
         }
 
         .mcq-options {
@@ -301,10 +291,10 @@
 
         .mcq-option {
             background: #ffffff;
-            border: 1.5px solid var(--border);
+            border: 1.5px solid #e2e8f0;
             border-radius: 8px;
             padding: 10px 14px;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s ease;
@@ -316,15 +306,15 @@
         }
 
         .mcq-option.correct {
-            background: #dcfce7 !important;
-            border-color: #22c55e !important;
-            color: #15803d !important;
+            background: #ecfdf5 !important;
+            border-color: #10b981 !important;
+            color: #065f46 !important;
         }
 
         .mcq-option.wrong {
-            background: #fee2e2 !important;
+            background: #fef2f2 !important;
             border-color: #ef4444 !important;
-            color: #b91c1c !important;
+            color: #991b1b !important;
         }
 
         .mcq-explanation {
@@ -334,31 +324,33 @@
             background: #ecfdf5;
             border-left: 4px solid #10b981;
             border-radius: 4px;
-            font-size: 13px;
+            font-size: 12.5px;
             color: #065f46;
-            line-height: 1.5;
+            line-height: 1.55;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- STICKY HEADER -->
-    <header class="player-header">
-        <a href="../../../../student_home.html" style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:10px;" title="Return to Student Portal">
-            <img src="../../../../eliteLogo_crest.png" onerror="this.onerror=null; this.src='../../../../favicon-32x32.png';" alt="Elite Classes" style="height:36px; width:auto; border-radius:6px;">
-            <div>
-                <div style="font-weight:800; font-size:14.5px;">Elite Classes</div>
-                <div style="font-size:11px; opacity:0.8;">Civil Services Study Engine</div>
+    <!-- STICKY FIXED HEADER matching BPSC 72 -->
+    <header class="app-header-sticky">
+        <div class="top-banner">
+            <a href="../../../../student_home.html" class="brand-wrapper" style="text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
+                <img src="../../../../eliteLogo_crest.png" onerror="this.onerror=null; this.src='../../../../favicon-32x32.png';" alt="Elite Classes" class="brand-logo-icon">
+                <div>
+                    <div class="brand-text">Elite Classes</div>
+                    <div class="brand-sub">Committed to success</div>
+                </div>
+            </a>
+            <div style="display:flex; align-items:center; gap:8px;">
+                <a href="upsc_course_hub.html" class="btn btn-outline btn-sm" style="font-size:12px; font-weight:700;">
+                    ← UPSC Hub
+                </a>
+                <a href="../../../../student_home.html" class="btn btn-primary btn-sm" style="font-size:12px; font-weight:700; background:#4338ca; border-color:#4338ca;">
+                    Student Portal
+                </a>
             </div>
-        </a>
-        <div style="display:flex; align-items:center; gap:10px;">
-            <a href="upsc_course_hub.html" class="btn-nav">
-                ← Return to Hub
-            </a>
-            <a href="../../../../student_home.html" class="btn-nav">
-                Portal Home
-            </a>
         </div>
     </header>
 
@@ -370,27 +362,33 @@
             <span>&rsaquo;</span>
             <a href="upsc_course_hub.html">UPSC Hub</a>
             <span>&rsaquo;</span>
-            <span id="crumbSubject">Subject</span>
+            <span id="crumbSubject" style="color:#64748b;">Subject</span>
             <span>&rsaquo;</span>
-            <span id="crumbTopic">Topic</span>
+            <span id="crumbTopic" style="color:#64748b;">Topic</span>
             <span>&rsaquo;</span>
             <strong id="crumbSubtopic" style="color:var(--text-dark);">Sub-Topic</strong>
         </div>
 
-        <!-- TOPIC HERO -->
-        <div class="topic-hero">
-            <h1 class="topic-title" id="pageSubtopicTitle">Loading Micro-Topic...</h1>
-            <div style="font-size:13.5px; color:var(--text-muted);" id="pageParentMeta">
-                Subject &bull; Topic &bull; Estimated Duration
-            </div>
-            <div class="topic-badges" id="pageBadges">
-                <span class="badge-pill" id="badgePrelims">GS Prelims Paper-I</span>
-                <span class="badge-pill badge-gold" id="badgeMains">GS Mains</span>
-                <span class="badge-pill" id="badgeLectures">Lecture Hours</span>
+        <!-- HERO SECTION matching BPSC 72 -->
+        <div class="topic-hero-clean">
+            <div class="topic-gradient-aura"></div>
+            <div style="position:relative; z-index:2;">
+                <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#4338ca; margin-bottom:4px;" id="pageSubjectBadge">
+                    CIVIL SERVICES &bull; UPSC GS
+                </div>
+                <h1 class="topic-title" id="pageSubtopicTitle">Loading Micro-Topic Module...</h1>
+                <div style="font-size:13px; color:var(--text-muted); font-weight:500;" id="pageParentMeta">
+                    Subject &bull; Topic &bull; Estimated Duration
+                </div>
+                <div class="topic-badges" id="pageBadges">
+                    <span class="badge-pill" id="badgePrelims">GS Prelims Paper-I</span>
+                    <span class="badge-pill badge-gold" id="badgeMains">GS Mains</span>
+                    <span class="badge-pill badge-green" id="badgeLectures">Lecture Hours</span>
+                </div>
             </div>
         </div>
 
-        <!-- TABS BAR -->
+        <!-- TABS BAR matching BPSC -->
         <div class="tabs-nav">
             <button class="tab-btn active" onclick="switchTab('tab-prelims')">📌 Prelims Capsule</button>
             <button class="tab-btn" onclick="switchTab('tab-mains')">📑 Mains Analytical Framework</button>
@@ -403,18 +401,18 @@
         <div class="tab-pane active" id="tab-prelims">
             <div class="content-card">
                 <div class="section-title">🔍 Core Concept Summary</div>
-                <p id="prelimsSummary" style="font-size:14.5px; line-height:1.6; color:#334155; margin:0 0 16px;"></p>
+                <p id="prelimsSummary" style="font-size:14px; line-height:1.65; color:#334155; margin:0 0 18px;"></p>
 
-                <div class="section-title" style="margin-top:20px;">⚡ High-Yield Prelims Facts &amp; Pointers</div>
-                <ul id="prelimsFacts" style="font-size:14px; line-height:1.7; color:#334155; padding-left:20px; margin:0 0 20px;"></ul>
+                <div class="section-title" style="margin-top:24px;">⚡ High-Yield Prelims Facts &amp; Pointers</div>
+                <ul id="prelimsFacts" style="font-size:13.5px; line-height:1.75; color:#334155; padding-left:20px; margin:0 0 20px;"></ul>
 
                 <div class="trap-box">
-                    <div style="font-weight:800; font-size:13.5px; color:#b45309; margin-bottom:8px;">⚠️ UPSC Traps &amp; Common Examiner Distractors:</div>
+                    <div style="font-weight:800; font-size:13px; color:#b45309; margin-bottom:8px;">⚠️ UPSC Traps &amp; Common Examiner Distractors:</div>
                     <div id="prelimsTraps"></div>
                 </div>
 
-                <div style="margin-top:20px; padding:14px 18px; background:#f1f5f9; border-radius:10px;">
-                    <strong style="font-size:13px; color:#475569;">Key Constitutional Articles / Statutes:</strong>
+                <div style="margin-top:20px; padding:14px 18px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px;">
+                    <strong style="font-size:12px; color:#64748b; text-transform:uppercase; letter-spacing:0.5px;">Key Constitutional Articles / Statutes:</strong>
                     <div id="prelimsArticles" style="font-size:13.5px; color:#0f172a; margin-top:4px; font-weight:700;"></div>
                 </div>
             </div>
@@ -424,15 +422,15 @@
         <div class="tab-pane" id="tab-mains">
             <div class="content-card">
                 <div class="section-title">📖 Comprehensive Analytical Theory</div>
-                <div id="mainsTheoryHtml" style="font-size:14.5px; line-height:1.7; color:#334155;"></div>
+                <div id="mainsTheoryHtml" style="font-size:14px; line-height:1.75; color:#334155;"></div>
 
-                <div class="section-title" style="margin-top:26px;">🌐 Multi-Dimensional Perspectives</div>
+                <div class="section-title" style="margin-top:28px;">🌐 Multi-Dimensional Perspectives</div>
                 <div class="dimensions-grid" id="mainsDimensions"></div>
 
-                <div class="section-title" style="margin-top:26px;">⚖️ Landmark Judgments &amp; Committee Recommendations</div>
-                <ul id="mainsReports" style="font-size:14px; line-height:1.7; color:#334155; padding-left:20px; margin:0;"></ul>
+                <div class="section-title" style="margin-top:28px;">⚖️ Landmark Judgments &amp; Committee Recommendations</div>
+                <ul id="mainsReports" style="font-size:13.5px; line-height:1.75; color:#334155; padding-left:20px; margin:0;"></ul>
 
-                <div class="section-title" style="margin-top:26px;">📊 Schematic Diagram / Flowchart for Answer Writing</div>
+                <div class="section-title" style="margin-top:28px;">📊 Schematic Diagram / Flowchart for Answer Writing</div>
                 <div class="schematic-box" id="mainsSchematic"></div>
             </div>
         </div>
@@ -443,7 +441,7 @@
                 <div class="section-title">🎯 UPSC Prelims Previous Years Questions</div>
                 <div id="pyqPrelimsList"></div>
 
-                <div class="section-title" style="margin-top:30px;">📝 UPSC Mains Previous Years Questions</div>
+                <div class="section-title" style="margin-top:32px;">📝 UPSC Mains Previous Years Questions</div>
                 <div id="pyqMainsList"></div>
             </div>
         </div>
@@ -452,15 +450,15 @@
         <div class="tab-pane" id="tab-modelqa">
             <div class="content-card">
                 <div class="section-title">💡 Model UPSC Mains Question</div>
-                <div id="modelQuestion" style="background:#eff6ff; border:1.5px solid #bfdbfe; border-radius:12px; padding:16px 20px; font-size:15px; font-weight:700; color:#1e40af; line-height:1.5;"></div>
+                <div id="modelQuestion" style="background:#eff6ff; border:1.5px solid #bfdbfe; border-radius:12px; padding:16px 20px; font-size:14.5px; font-weight:700; color:#1e40af; line-height:1.55;"></div>
 
-                <div style="background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:16px 20px; margin:20px 0;">
-                    <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px;">📐 Structural Approach Blueprint:</div>
-                    <div id="modelApproach" style="font-size:13.5px; line-height:1.6; color:#475569;"></div>
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px 20px; margin:20px 0;">
+                    <div style="font-size:12px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.5px;">📐 Structural Approach Blueprint:</div>
+                    <div id="modelApproach" style="font-size:13px; line-height:1.65; color:#475569;"></div>
                 </div>
 
                 <div class="section-title">✍️ High-Scoring Model Answer</div>
-                <div id="modelAnswerHtml" style="font-size:14.5px; line-height:1.7; color:#334155;"></div>
+                <div id="modelAnswerHtml" style="font-size:14px; line-height:1.75; color:#334155;"></div>
             </div>
         </div>
 
@@ -483,10 +481,6 @@
                 topic: p.get('topic') || 'polity_basic_concept',
                 subtopic: p.get('subtopic') || 'polity_basic_concept_concept_of_freedom'
             };
-        }
-
-        function slugify(text) {
-            return text.toLowerCase().trim().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
         }
 
         async function loadTopicData() {
@@ -518,8 +512,8 @@
             }
 
             if (!data) {
-                document.getElementById('pageSubtopicTitle').innerText = 'Micro-Topic Module in Generation Queue';
-                document.getElementById('prelimsSummary').innerText = 'This micro-topic module is currently queued for synthesis in the autonomous generator pipeline. Please check back shortly or select another topic from the UPSC Hub.';
+                document.getElementById('pageSubtopicTitle').innerText = 'Micro-Topic Module Ready';
+                document.getElementById('prelimsSummary').innerText = 'Please select a specific topic from the UPSC Master Hub to view its comprehensive Prelims and Mains study module.';
                 return;
             }
 
@@ -531,6 +525,7 @@
             document.getElementById('crumbTopic').innerText = d.topicTitle;
             document.getElementById('crumbSubtopic').innerText = d.subTopicTitle;
 
+            document.getElementById('pageSubjectBadge').innerText = d.subjectTitle.toUpperCase();
             document.getElementById('pageSubtopicTitle').innerText = d.subTopicTitle;
             document.getElementById('pageParentMeta').innerText = `${d.subjectTitle} • ${d.topicTitle}`;
 
@@ -602,7 +597,7 @@
                         <span class="badge-pill badge-gold">${m.paper || 'GS-II'} (${m.year || ''})</span>
                         <span class="badge-pill">${m.marks || 10} Marks</span>
                     </div>
-                    <div style="font-size:14px; font-weight:700; color:#0f172a; line-height:1.5;">${m.question}</div>
+                    <div style="font-size:13.5px; font-weight:700; color:#0f172a; line-height:1.55;">${m.question}</div>
                 </div>
             `).join('') || '<p style="color:#64748b;">No direct Mains PYQ recorded for this specific micro-unit.</p>';
 
