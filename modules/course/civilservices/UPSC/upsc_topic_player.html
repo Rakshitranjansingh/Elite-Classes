@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" href="../../../../favicon-32x32.png">
     <link rel="stylesheet" href="../../../../css/styles.css">
     <script src="js/upscProgress.js"></script>
+    <script src="js/upscSecurity.js"></script>
 
     <style>
         :root {
@@ -762,6 +763,12 @@
                 padding: 16px 14px 60px;
             }
         }
+
+        @media print {
+            body {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -1403,8 +1410,14 @@
 
             document.getElementById('mainsSchematic').innerText = mf.structuredDiagramAscii || 'No schematic diagram available.';
 
-            // 3. PYQs Section
+            // 3. PYQs Section with Private Answer Vault
             const pyq = d.previousYearsQuestions || {};
+            (pyq.prelims || []).forEach((q, idx) => {
+                if (typeof UPSCSecurity !== 'undefined') {
+                    UPSCSecurity.registerVaultItem(`pyq_${idx}`, q.answer, q.explanation);
+                }
+            });
+
             const pyqPrelims = document.getElementById('pyqPrelimsList');
             pyqPrelims.innerHTML = (pyq.prelims || []).map((q, idx) => `
                 <div class="mcq-item">
@@ -1414,12 +1427,10 @@
                     <div class="mcq-question">${q.question}</div>
                     <div class="mcq-options">
                         ${(q.options || []).map(opt => `
-                            <div class="mcq-option" onclick="checkPyqAnswer(this, '${opt.replace(/'/g, "\\'")}', '${q.answer.replace(/'/g, "\\'")}', 'pyq-exp-${idx}')">${opt}</div>
+                            <div class="mcq-option" onclick="checkVaultAnswer(this, 'pyq_${idx}', '${opt.replace(/'/g, "\\'")}', 'pyq-exp-${idx}')">${opt}</div>
                         `).join('')}
                     </div>
-                    <div class="mcq-explanation" id="pyq-exp-${idx}">
-                        <strong>Explanation:</strong> ${q.explanation}
-                    </div>
+                    <div class="mcq-explanation" id="pyq-exp-${idx}"></div>
                 </div>
             `).join('') || '<p style="color:#64748b;">No direct Prelims PYQ recorded for this specific micro-unit.</p>';
 
@@ -1446,38 +1457,74 @@
             `;
             document.getElementById('modelAnswerHtml').innerHTML = mq.modelAnswerHtml || '';
 
-            // 5. Practice MCQs Section
+            // 5. Practice MCQs Section with Private Answer Vault
+            (d.practiceMCQs || []).forEach((q, idx) => {
+                if (typeof UPSCSecurity !== 'undefined') {
+                    UPSCSecurity.registerVaultItem(`prac_${idx}`, q.answer, q.explanation);
+                }
+            });
+
             const practiceDiv = document.getElementById('practiceMcqList');
             practiceDiv.innerHTML = (d.practiceMCQs || []).map((q, idx) => `
                 <div class="mcq-item">
                     <div class="mcq-question">Q${idx + 1}. ${q.question}</div>
                     <div class="mcq-options">
                         ${(q.options || []).map(opt => `
-                            <div class="mcq-option" onclick="checkPyqAnswer(this, '${opt.replace(/'/g, "\\'")}', '${q.answer.replace(/'/g, "\\'")}', 'prac-exp-${idx}')">${opt}</div>
+                            <div class="mcq-option" onclick="checkVaultAnswer(this, 'prac_${idx}', '${opt.replace(/'/g, "\\'")}', 'prac-exp-${idx}')">${opt}</div>
                         `).join('')}
                     </div>
-                    <div class="mcq-explanation" id="prac-exp-${idx}">
-                        <strong>Answer &amp; Explanation:</strong> ${q.explanation}
-                    </div>
+                    <div class="mcq-explanation" id="prac-exp-${idx}"></div>
                 </div>
             `).join('') || '<p style="color:#64748b;">Practice questions will be loaded soon.</p>';
+
+            // Memory Answer Key & Explanation Stripping Active
+            (pyq.prelims || []).forEach(q => {
+                delete q.answer;
+                delete q.explanation;
+            });
+            (d.practiceMCQs || []).forEach(q => {
+                delete q.answer;
+                delete q.explanation;
+            });
+
+            // Initialize Forensic Watermark & Security Guards
+            if (typeof UPSCSecurity !== 'undefined') {
+                UPSCSecurity.init({ label: d.subTopicTitle || 'UPSC Civil Services' });
+            }
         }
 
-        function checkPyqAnswer(el, selected, correct, expId) {
+        // Vault-Based Answer Evaluation
+        function checkVaultAnswer(el, qId, selectedOption, expId) {
             const parent = el.closest('.mcq-options');
             parent.querySelectorAll('.mcq-option').forEach(o => o.onclick = null);
 
-            if (selected === correct) {
+            let isCorrect = false;
+            let correctAnswer = '';
+            let explanation = '';
+
+            if (typeof UPSCSecurity !== 'undefined') {
+                const res = UPSCSecurity.verifyVaultAnswer(qId, selectedOption);
+                isCorrect = res.isCorrect;
+                correctAnswer = res.correctAnswer;
+                explanation = res.explanation;
+            } else {
+                isCorrect = true;
+            }
+
+            if (isCorrect) {
                 el.classList.add('correct');
             } else {
                 el.classList.add('wrong');
                 parent.querySelectorAll('.mcq-option').forEach(o => {
-                    if (o.innerText.trim() === correct.trim()) o.classList.add('correct');
+                    if (o.innerText.trim() === correctAnswer.trim()) o.classList.add('correct');
                 });
             }
 
             const exp = document.getElementById(expId);
-            if (exp) exp.style.display = 'block';
+            if (exp) {
+                exp.innerHTML = `<strong>Answer &amp; Explanation:</strong> ${explanation}`;
+                exp.style.display = 'block';
+            }
         }
 
         // Completion & Navigation Handlers
