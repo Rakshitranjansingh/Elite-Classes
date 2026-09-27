@@ -26,6 +26,8 @@
             --warning-bg: #fffbeb;
             --warning-border: #fef08a;
             --warning-text: #b45309;
+            --sidebar-width: 340px;
+            --header-h: 56px;
         }
 
         body {
@@ -37,13 +39,213 @@
             scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 24px 20px 80px;
+        /* Fixed Navigation Header */
+        .app-header-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            height: var(--header-h);
+            display: flex;
+            align-items: center;
         }
 
-        /* Breadcrumbs matching BPSC */
+        .top-banner {
+            width: 100%;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* 2-Pane Split-Screen Layout */
+        .player-split-layout {
+            display: flex;
+            min-height: calc(100vh - var(--header-h));
+            position: relative;
+        }
+
+        /* LEFT PANE: Topics & Subtopics Sidebar */
+        .player-sidebar {
+            width: var(--sidebar-width);
+            min-width: var(--sidebar-width);
+            max-width: var(--sidebar-width);
+            background: #ffffff;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - var(--header-h));
+            position: sticky;
+            top: var(--header-h);
+            z-index: 30;
+            box-shadow: 2px 0 8px rgba(15, 23, 42, 0.02);
+        }
+
+        .sidebar-header {
+            padding: 16px 18px 12px;
+            border-bottom: 1px solid var(--border);
+            background: #ffffff;
+        }
+
+        .sidebar-subject-title {
+            font-size: 13.5px;
+            font-weight: 800;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-search-box {
+            position: relative;
+            margin-top: 6px;
+        }
+
+        .sidebar-search-box input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px 12px 8px 30px;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--text-dark);
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+
+        .sidebar-search-box input:focus {
+            border-color: var(--primary);
+            background: #ffffff;
+        }
+
+        .sidebar-search-box span {
+            position: absolute;
+            left: 9px;
+            top: 8px;
+            font-size: 12px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .sidebar-tree-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px 10px 40px;
+        }
+
+        /* Topic Module Accordion in Sidebar */
+        .topic-group-item {
+            margin-bottom: 8px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #ffffff;
+            transition: border-color 0.18s ease;
+        }
+
+        .topic-group-item.active-module {
+            border-color: #c7d2fe;
+        }
+
+        .topic-group-header {
+            padding: 10px 12px;
+            background: #f8fafc;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #1e293b;
+            user-select: none;
+            transition: background 0.15s ease;
+        }
+
+        .topic-group-header:hover {
+            background: #f1f5f9;
+        }
+
+        .topic-group-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            line-height: 1.35;
+        }
+
+        .topic-arrow {
+            font-size: 10px;
+            color: #94a3b8;
+            transition: transform 0.2s ease;
+        }
+
+        .topic-group-item.expanded .topic-arrow {
+            transform: rotate(90deg);
+        }
+
+        .subtopics-list {
+            display: none;
+            padding: 4px 0;
+            background: #ffffff;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .topic-group-item.expanded .subtopics-list {
+            display: block;
+        }
+
+        .subtopic-nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 7px 12px 7px 18px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            transition: all 0.15s ease;
+            line-height: 1.35;
+        }
+
+        .subtopic-nav-link:hover {
+            background: #eff6ff;
+            color: var(--primary);
+        }
+
+        .subtopic-nav-link.active {
+            background: #eff6ff;
+            color: var(--primary);
+            border-left-color: var(--primary);
+            font-weight: 700;
+        }
+
+        .subtopic-active-badge {
+            font-size: 10px;
+            background: var(--primary);
+            color: #ffffff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+            white-space: nowrap;
+            margin-left: 6px;
+        }
+
+        /* RIGHT PANE: Study Content */
+        .player-content {
+            flex: 1;
+            min-width: 0;
+            padding: 24px 32px 80px;
+            max-width: 1020px;
+            margin: 0 auto;
+        }
+
+        /* Breadcrumbs */
         .breadcrumbs {
             display: flex;
             align-items: center;
@@ -64,7 +266,7 @@
             text-decoration: underline;
         }
 
-        /* Hero matching BPSC 72 hub-hero-clean */
+        /* Hero */
         .topic-hero-clean {
             position: relative;
             background: #ffffff;
@@ -129,9 +331,9 @@
         /* Sticky Quick Jump Bar */
         .quick-jump-bar {
             position: sticky;
-            top: 56px;
-            z-index: 40;
-            background: rgba(255, 255, 255, 0.94);
+            top: var(--header-h);
+            z-index: 25;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid var(--border);
@@ -167,7 +369,7 @@
             border-color: #bfdbfe;
         }
 
-        /* Sequential Content Cards matching BPSC */
+        /* Sequential Content Cards */
         .scroll-section {
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -175,7 +377,7 @@
             padding: 30px;
             margin-bottom: 24px;
             box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
-            scroll-margin-top: 120px;
+            scroll-margin-top: 125px;
         }
 
         .section-header {
@@ -331,12 +533,58 @@
             color: #065f46;
             line-height: 1.55;
         }
+
+        /* Mobile Responsive */
+        .mobile-sidebar-toggle {
+            display: none;
+        }
+
+        .sidebar-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.5);
+            z-index: 998;
+        }
+
+        @media (max-width: 960px) {
+            .mobile-sidebar-toggle {
+                display: inline-flex;
+            }
+
+            .player-sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                height: 100vh;
+                z-index: 1000;
+                transform: translateX(-100%);
+                transition: transform 0.28s ease;
+                box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
+            }
+
+            .player-sidebar.open {
+                transform: translateX(0);
+            }
+
+            .sidebar-backdrop.active {
+                display: block;
+            }
+
+            .player-content {
+                padding: 16px 14px 60px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- STICKY FIXED HEADER matching BPSC 72 -->
+    <!-- STICKY FIXED HEADER -->
     <header class="app-header-sticky">
         <div class="top-banner">
             <a href="../../../../student_home.html" class="brand-wrapper" style="text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
@@ -347,6 +595,9 @@
                 </div>
             </a>
             <div style="display:flex; align-items:center; gap:8px;">
+                <button class="btn btn-outline btn-sm mobile-sidebar-toggle" onclick="toggleSidebar(true)" style="font-size:12px; font-weight:700;">
+                    ☰ Modules
+                </button>
                 <a href="upsc_course_hub.html" class="btn btn-outline btn-sm" style="font-size:12px; font-weight:700;">
                     ← UPSC Hub
                 </a>
@@ -357,177 +608,348 @@
         </div>
     </header>
 
-    <div class="container">
+    <!-- 2-PANE SPLIT-SCREEN LAYOUT -->
+    <div class="player-split-layout">
 
-        <!-- BREADCRUMBS -->
-        <div class="breadcrumbs">
-            <a href="../courses_civilservices.html">Civil Services</a>
-            <span>&rsaquo;</span>
-            <a href="upsc_course_hub.html">UPSC Hub</a>
-            <span>&rsaquo;</span>
-            <span id="crumbSubject" style="color:#64748b;">Subject</span>
-            <span>&rsaquo;</span>
-            <span id="crumbTopic" style="color:#64748b;">Topic</span>
-            <span>&rsaquo;</span>
-            <strong id="crumbSubtopic" style="color:var(--text-dark);">Sub-Topic</strong>
-        </div>
-
-        <!-- HERO SECTION matching BPSC 72 -->
-        <div class="topic-hero-clean">
-            <div class="topic-gradient-aura"></div>
-            <div style="position:relative; z-index:2;">
-                <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#4338ca; margin-bottom:4px;" id="pageSubjectBadge">
-                    CIVIL SERVICES &bull; UPSC GS
+        <!-- ======================================================== -->
+        <!-- LEFT PANE: TOPICS & SUBTOPICS SIDEBAR                   -->
+        <!-- ======================================================== -->
+        <aside class="player-sidebar" id="playerSidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-subject-title">
+                    <span id="sidebarSubjectName">🏛️ Subject Modules</span>
+                    <button class="btn btn-outline btn-sm mobile-sidebar-toggle" onclick="toggleSidebar(false)" style="padding:2px 8px; font-size:11px;">✕</button>
                 </div>
-                <h1 class="topic-title" id="pageSubtopicTitle">Loading Micro-Topic Module...</h1>
-                <div style="font-size:13px; color:var(--text-muted); font-weight:500;" id="pageParentMeta">
-                    Subject &bull; Topic &bull; Estimated Duration
-                </div>
-                <div class="topic-badges" id="pageBadges">
-                    <span class="badge-pill" id="badgePrelims">GS Prelims Paper-I</span>
-                    <span class="badge-pill badge-gold" id="badgeMains">GS Mains</span>
-                    <span class="badge-pill badge-green" id="badgeLectures">Lecture Hours</span>
+                <div class="sidebar-search-box">
+                    <span>🔍</span>
+                    <input type="text" id="sidebarSearch" placeholder="Filter micro-topics..." oninput="handleSidebarSearch(this.value)">
                 </div>
             </div>
-        </div>
+            <div class="sidebar-tree-container" id="sidebarTree">
+                <div style="text-align:center; padding:20px; color:#94a3b8; font-size:12px;">Loading syllabus modules...</div>
+            </div>
+        </aside>
 
-        <!-- STICKY QUICK-JUMP NAVIGATION BAR (In-Page Navigation) -->
-        <div class="quick-jump-bar">
-            <span style="font-size:11.5px; font-weight:800; color:#64748b; text-transform:uppercase; margin-right:4px;">Jump to:</span>
-            <a href="#sec-prelims" class="jump-pill">📌 Prelims Capsule</a>
-            <a href="#sec-mains" class="jump-pill">📑 Mains Framework</a>
-            <a href="#sec-pyqs" class="jump-pill">🎯 UPSC PYQs Bank</a>
-            <a href="#sec-modelqa" class="jump-pill">✍️ Model Mains Q&amp;A</a>
-            <a href="#sec-practice" class="jump-pill">⏱️ Practice MCQs</a>
-        </div>
+        <!-- Backdrop for mobile drawer -->
+        <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
 
         <!-- ======================================================== -->
-        <!-- 1. PRELIMS FOCUS CAPSULE (SCROLL SECTION 1)              -->
+        <!-- RIGHT PANE: STUDY CONTENT                               -->
         <!-- ======================================================== -->
-        <section class="scroll-section" id="sec-prelims">
-            <div class="section-header">
-                <h2 class="section-title">📌 UPSC Prelims Focus Capsule</h2>
-                <span class="section-tag" style="background:#eff6ff; color:#1d4ed8;">Prelims Specific</span>
+        <main class="player-content">
+
+            <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                <a href="../courses_civilservices.html">Civil Services</a>
+                <span>&rsaquo;</span>
+                <a href="upsc_course_hub.html">UPSC Hub</a>
+                <span>&rsaquo;</span>
+                <span id="crumbSubject" style="color:#64748b;">Subject</span>
+                <span>&rsaquo;</span>
+                <span id="crumbTopic" style="color:#64748b;">Topic</span>
+                <span>&rsaquo;</span>
+                <strong id="crumbSubtopic" style="color:var(--text-dark);">Sub-Topic</strong>
             </div>
 
-            <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.5px;">Core Concept Definition</div>
-            <p id="prelimsSummary" style="font-size:14px; line-height:1.7; color:#334155; margin:0 0 20px;"></p>
-
-            <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:10px; letter-spacing:0.5px;">⚡ High-Yield Pointers &amp; Data Points</div>
-            <ul id="prelimsFacts" style="font-size:13.5px; line-height:1.75; color:#334155; padding-left:20px; margin:0 0 20px;"></ul>
-
-            <div class="trap-box">
-                <div style="font-weight:800; font-size:13px; color:#b45309; margin-bottom:8px;">⚠️ UPSC Traps &amp; Common Examiner Distractors:</div>
-                <div id="prelimsTraps"></div>
+            <!-- HERO SECTION -->
+            <div class="topic-hero-clean">
+                <div class="topic-gradient-aura"></div>
+                <div style="position:relative; z-index:2;">
+                    <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#4338ca; margin-bottom:4px;" id="pageSubjectBadge">
+                        CIVIL SERVICES &bull; UPSC GS
+                    </div>
+                    <h1 class="topic-title" id="pageSubtopicTitle">Loading Micro-Topic Module...</h1>
+                    <div style="font-size:13px; color:var(--text-muted); font-weight:500;" id="pageParentMeta">
+                        Subject &bull; Topic &bull; Estimated Duration
+                    </div>
+                    <div class="topic-badges" id="pageBadges">
+                        <span class="badge-pill" id="badgePrelims">GS Prelims Paper-I</span>
+                        <span class="badge-pill badge-gold" id="badgeMains">GS Mains</span>
+                        <span class="badge-pill badge-green" id="badgeLectures">Lecture Hours</span>
+                    </div>
+                </div>
             </div>
 
-            <div style="margin-top:20px; padding:14px 18px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px;">
-                <strong style="font-size:11.5px; color:#64748b; text-transform:uppercase; letter-spacing:0.5px;">Key Constitutional Articles / Statutory Provisions:</strong>
-                <div id="prelimsArticles" style="font-size:13.5px; color:#0f172a; margin-top:4px; font-weight:700;"></div>
-            </div>
-        </section>
-
-        <!-- ======================================================== -->
-        <!-- 2. MAINS ANALYTICAL FRAMEWORK (SCROLL SECTION 2)         -->
-        <!-- ======================================================== -->
-        <section class="scroll-section" id="sec-mains">
-            <div class="section-header">
-                <h2 class="section-title">📑 UPSC Mains Analytical Framework</h2>
-                <span class="section-tag" style="background:#fffbeb; color:#b45309;">Mains Specific</span>
+            <!-- STICKY QUICK-JUMP NAVIGATION BAR -->
+            <div class="quick-jump-bar">
+                <span style="font-size:11.5px; font-weight:800; color:#64748b; text-transform:uppercase; margin-right:4px;">Jump to:</span>
+                <a href="#sec-prelims" class="jump-pill">📌 Prelims Capsule</a>
+                <a href="#sec-mains" class="jump-pill">📑 Mains Framework</a>
+                <a href="#sec-pyqs" class="jump-pill">🎯 UPSC PYQs Bank</a>
+                <a href="#sec-modelqa" class="jump-pill">✍️ Model Mains Q&amp;A</a>
+                <a href="#sec-practice" class="jump-pill">⏱️ Practice MCQs</a>
             </div>
 
-            <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:10px; letter-spacing:0.5px;">📖 Comprehensive Theoretical Analysis</div>
-            <div id="mainsTheoryHtml" style="font-size:14px; line-height:1.75; color:#334155;"></div>
+            <!-- 1. PRELIMS FOCUS CAPSULE -->
+            <section class="scroll-section" id="sec-prelims">
+                <div class="section-header">
+                    <h2 class="section-title">📌 UPSC Prelims Focus Capsule</h2>
+                    <span class="section-tag" style="background:#eff6ff; color:#1d4ed8;">Prelims Specific</span>
+                </div>
 
-            <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin:28px 0 10px; letter-spacing:0.5px;">🌐 Multi-Dimensional Perspectives (GS Paper Integration)</div>
-            <div class="dimensions-grid" id="mainsDimensions"></div>
+                <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.5px;">Core Concept Definition</div>
+                <p id="prelimsSummary" style="font-size:14px; line-height:1.7; color:#334155; margin:0 0 20px;"></p>
 
-            <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin:28px 0 10px; letter-spacing:0.5px;">⚖️ Landmark Judgments &amp; Committee Recommendations</div>
-            <ul id="mainsReports" style="font-size:13.5px; line-height:1.75; color:#334155; padding-left:20px; margin:0;"></ul>
+                <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:10px; letter-spacing:0.5px;">⚡ High-Yield Pointers &amp; Data Points</div>
+                <ul id="prelimsFacts" style="font-size:13.5px; line-height:1.75; color:#334155; padding-left:20px; margin:0 0 20px;"></ul>
 
-            <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin:28px 0 10px; letter-spacing:0.5px;">📊 Schematic Diagram / Flowchart for Answer Writing</div>
-            <div class="schematic-box" id="mainsSchematic"></div>
-        </section>
+                <div class="trap-box">
+                    <div style="font-weight:800; font-size:13px; color:#b45309; margin-bottom:8px;">⚠️ UPSC Traps &amp; Common Examiner Distractors:</div>
+                    <div id="prelimsTraps"></div>
+                </div>
 
-        <!-- ======================================================== -->
-        <!-- 3. UPSC PREVIOUS YEARS QUESTIONS (SCROLL SECTION 3)      -->
-        <!-- ======================================================== -->
-        <section class="scroll-section" id="sec-pyqs">
-            <div class="section-header">
-                <h2 class="section-title">🎯 UPSC Previous Years Questions (PYQs Bank)</h2>
-                <span class="section-tag" style="background:#ecfdf5; color:#065f46;">Official PYQs</span>
-            </div>
+                <div style="margin-top:20px; padding:14px 18px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px;">
+                    <strong style="font-size:11.5px; color:#64748b; text-transform:uppercase; letter-spacing:0.5px;">Key Constitutional Articles / Statutory Provisions:</strong>
+                    <div id="prelimsArticles" style="font-size:13.5px; color:#0f172a; margin-top:4px; font-weight:700;"></div>
+                </div>
+            </section>
 
-            <div style="font-size:13.5px; font-weight:800; color:var(--text-dark); margin-bottom:14px;">A. UPSC Prelims Previous Years Questions:</div>
-            <div id="pyqPrelimsList"></div>
+            <!-- 2. MAINS ANALYTICAL FRAMEWORK -->
+            <section class="scroll-section" id="sec-mains">
+                <div class="section-header">
+                    <h2 class="section-title">📑 UPSC Mains Analytical Framework</h2>
+                    <span class="section-tag" style="background:#fffbeb; color:#b45309;">Mains Specific</span>
+                </div>
 
-            <div style="font-size:13.5px; font-weight:800; color:var(--text-dark); margin:32px 0 14px;">B. UPSC Mains Previous Years Questions:</div>
-            <div id="pyqMainsList"></div>
-        </section>
+                <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:10px; letter-spacing:0.5px;">📖 Comprehensive Theoretical Analysis</div>
+                <div id="mainsTheoryHtml" style="font-size:14px; line-height:1.75; color:#334155;"></div>
 
-        <!-- ======================================================== -->
-        <!-- 4. MODEL MAINS QUESTION & ANSWER (SCROLL SECTION 4)      -->
-        <!-- ======================================================== -->
-        <section class="scroll-section" id="sec-modelqa">
-            <div class="section-header">
-                <h2 class="section-title">✍️ Model Mains Question &amp; Structured Answer</h2>
-                <span class="section-tag" style="background:#eff6ff; color:#1d4ed8;">Answer Writing Practice</span>
-            </div>
+                <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin:28px 0 10px; letter-spacing:0.5px;">🌐 Multi-Dimensional Perspectives (GS Paper Integration)</div>
+                <div class="dimensions-grid" id="mainsDimensions"></div>
 
-            <div style="font-size:12px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.5px;">Model Mains Question:</div>
-            <div id="modelQuestion" style="background:#eff6ff; border:1.5px solid #bfdbfe; border-radius:12px; padding:18px 22px; font-size:14.5px; font-weight:700; color:#1e40af; line-height:1.55;"></div>
+                <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin:28px 0 10px; letter-spacing:0.5px;">⚖️ Landmark Judgments &amp; Committee Recommendations</div>
+                <ul id="mainsReports" style="font-size:13.5px; line-height:1.75; color:#334155; padding-left:20px; margin:0;"></ul>
 
-            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px 20px; margin:20px 0;">
-                <div style="font-size:12px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.5px;">📐 Structural Approach Blueprint:</div>
-                <div id="modelApproach" style="font-size:13px; line-height:1.65; color:#475569;"></div>
-            </div>
+                <div style="font-size:13px; font-weight:800; color:var(--primary); text-transform:uppercase; margin:28px 0 10px; letter-spacing:0.5px;">📊 Schematic Diagram / Flowchart for Answer Writing</div>
+                <div class="schematic-box" id="mainsSchematic"></div>
+            </section>
 
-            <div style="font-size:12px; font-weight:800; color:var(--primary); text-transform:uppercase; margin:20px 0 10px; letter-spacing:0.5px;">High-Scoring Model Answer:</div>
-            <div id="modelAnswerHtml" style="font-size:14px; line-height:1.75; color:#334155;"></div>
-        </section>
+            <!-- 3. UPSC PREVIOUS YEARS QUESTIONS -->
+            <section class="scroll-section" id="sec-pyqs">
+                <div class="section-header">
+                    <h2 class="section-title">🎯 UPSC Previous Years Questions (PYQs Bank)</h2>
+                    <span class="section-tag" style="background:#ecfdf5; color:#065f46;">Official PYQs</span>
+                </div>
 
-        <!-- ======================================================== -->
-        <!-- 5. PRELIMS MASTERY ASSESSMENT (SCROLL SECTION 5)         -->
-        <!-- ======================================================== -->
-        <section class="scroll-section" id="sec-practice">
-            <div class="section-header">
-                <h2 class="section-title">⏱️ Prelims Mastery Assessment (Practice MCQs)</h2>
-                <span class="section-tag" style="background:#fef2f2; color:#b91c1c;">Timed Drill</span>
-            </div>
+                <div style="font-size:13.5px; font-weight:800; color:var(--text-dark); margin-bottom:14px;">A. UPSC Prelims Previous Years Questions:</div>
+                <div id="pyqPrelimsList"></div>
 
-            <p style="font-size:13px; color:var(--text-muted); margin:0 0 18px;">
-                Test your conceptual clarity with authentic UPSC standard practice questions (1/3 negative marking format).
-            </p>
-            <div id="practiceMcqList"></div>
-        </section>
+                <div style="font-size:13.5px; font-weight:800; color:var(--text-dark); margin:32px 0 14px;">B. UPSC Mains Previous Years Questions:</div>
+                <div id="pyqMainsList"></div>
+            </section>
 
+            <!-- 4. MODEL MAINS QUESTION & ANSWER -->
+            <section class="scroll-section" id="sec-modelqa">
+                <div class="section-header">
+                    <h2 class="section-title">✍️ Model Mains Question &amp; Structured Answer</h2>
+                    <span class="section-tag" style="background:#eff6ff; color:#1d4ed8;">Answer Writing Practice</span>
+                </div>
+
+                <div style="font-size:12px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.5px;">Model Mains Question:</div>
+                <div id="modelQuestion" style="background:#eff6ff; border:1.5px solid #bfdbfe; border-radius:12px; padding:18px 22px; font-size:14.5px; font-weight:700; color:#1e40af; line-height:1.55;"></div>
+
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px 20px; margin:20px 0;">
+                    <div style="font-size:12px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.5px;">📐 Structural Approach Blueprint:</div>
+                    <div id="modelApproach" style="font-size:13px; line-height:1.65; color:#475569;"></div>
+                </div>
+
+                <div style="font-size:12px; font-weight:800; color:var(--primary); text-transform:uppercase; margin:20px 0 10px; letter-spacing:0.5px;">High-Scoring Model Answer:</div>
+                <div id="modelAnswerHtml" style="font-size:14px; line-height:1.75; color:#334155;"></div>
+            </section>
+
+            <!-- 5. PRELIMS MASTERY ASSESSMENT -->
+            <section class="scroll-section" id="sec-practice">
+                <div class="section-header">
+                    <h2 class="section-title">⏱️ Prelims Mastery Assessment (Practice MCQs)</h2>
+                    <span class="section-tag" style="background:#fef2f2; color:#b91c1c;">Timed Drill</span>
+                </div>
+
+                <p style="font-size:13px; color:var(--text-muted); margin:0 0 18px;">
+                    Test your conceptual clarity with authentic UPSC standard practice questions (1/3 negative marking format).
+                </p>
+                <div id="practiceMcqList"></div>
+            </section>
+
+        </main>
     </div>
 
     <script>
+        let CATALOG = null;
+        let CURRENT_SUBJECT = null;
+        let CURRENT_SUBTOPIC_ID = null;
+
         function getQueryParams() {
             const p = new URLSearchParams(window.location.search);
             return {
                 file: p.get('file'),
                 subject: p.get('subject') || 'polity',
-                topic: p.get('topic') || 'polity_basic_concept',
-                subtopic: p.get('subtopic') || 'polity_basic_concept_concept_of_freedom'
+                topic: p.get('topic') || '',
+                subtopic: p.get('subtopic') || ''
             };
         }
 
-        async function loadTopicData() {
+        async function initPlayer() {
             const params = getQueryParams();
+            CURRENT_SUBTOPIC_ID = params.subtopic || '';
+
+            // Load catalog to populate left pane sidebar
+            try {
+                const res = await fetch('catalog/upsc_curriculum_catalog.json');
+                CATALOG = await res.json();
+                
+                // Find subject
+                CURRENT_SUBJECT = CATALOG.subjects.find(s => s.subjectId === params.subject) || CATALOG.subjects[0];
+                renderSidebar(CURRENT_SUBJECT, params.topic, CURRENT_SUBTOPIC_ID);
+            } catch (e) {
+                console.warn('Catalog load error:', e);
+            }
+
+            // Load the study content for the active micro-topic
+            await loadTopicData(params);
+        }
+
+        // Render the left sidebar with topic modules & sub-topics
+        function renderSidebar(subject, activeTopicId, activeSubtopicId) {
+            if (!subject) return;
+
+            document.getElementById('sidebarSubjectName').innerText = `🏛️ ${subject.subjectTitle}`;
+            const container = document.getElementById('sidebarTree');
+            container.innerHTML = '';
+
+            subject.topics.forEach((top, idx) => {
+                const group = document.createElement('div');
+                const isCurrentTopic = activeTopicId === top.topicId || (top.subtopics && top.subtopics.some(st => st.subTopicId === activeSubtopicId));
+                
+                group.className = `topic-group-item ${isCurrentTopic ? 'expanded active-module' : ''}`;
+                group.id = `group-${top.topicId}`;
+
+                const subCount = top.subtopics ? top.subtopics.length : 0;
+
+                group.innerHTML = `
+                    <div class="topic-group-header" onclick="toggleTopicAccordion('${top.topicId}')">
+                        <div class="topic-group-title">
+                            <span class="topic-arrow">▶</span>
+                            <span>${idx + 1}. ${top.topicTitle}</span>
+                        </div>
+                        <span style="font-size:10.5px; color:#94a3b8; font-weight:700;">${subCount}</span>
+                    </div>
+                    <div class="subtopics-list">
+                        ${(top.subtopics || []).map(st => {
+                            const isActive = st.subTopicId === activeSubtopicId;
+                            return `
+                                <a href="javascript:void(0)" 
+                                   onclick="switchSubtopic('${encodeURIComponent(st.dataPath || '')}', '${subject.subjectId}', '${top.topicId}', '${st.subTopicId}')" 
+                                   class="subtopic-nav-link ${isActive ? 'active' : ''}" 
+                                   id="sublink-${st.subTopicId}">
+                                    <span>&bull; ${st.subTopicTitle}</span>
+                                    ${isActive ? '<span class="subtopic-active-badge">Reading</span>' : ''}
+                                </a>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+                container.appendChild(group);
+            });
+        }
+
+        function toggleTopicAccordion(topicId) {
+            const el = document.getElementById(`group-${topicId}`);
+            if (el) {
+                el.classList.toggle('expanded');
+            }
+        }
+
+        function toggleSidebar(open) {
+            const sidebar = document.getElementById('playerSidebar');
+            const backdrop = document.getElementById('sidebarBackdrop');
+            if (open) {
+                sidebar.classList.add('open');
+                backdrop.classList.add('active');
+            } else {
+                sidebar.classList.remove('open');
+                backdrop.classList.remove('active');
+            }
+        }
+
+        function handleSidebarSearch(query) {
+            const q = query.trim().toLowerCase();
+            const groups = document.querySelectorAll('.topic-group-item');
+
+            groups.forEach(g => {
+                const links = g.querySelectorAll('.subtopic-nav-link');
+                let hasMatch = false;
+
+                links.forEach(l => {
+                    const text = l.innerText.toLowerCase();
+                    if (!q || text.includes(q)) {
+                        l.style.display = 'flex';
+                        hasMatch = true;
+                    } else {
+                        l.style.display = 'none';
+                    }
+                });
+
+                if (!q) {
+                    g.style.display = 'block';
+                } else if (hasMatch) {
+                    g.style.display = 'block';
+                    g.classList.add('expanded');
+                } else {
+                    g.style.display = 'none';
+                }
+            });
+        }
+
+        // Switch micro-topic seamlessly without full reload
+        async function switchSubtopic(dataPath, subjectId, topicId, subTopicId) {
+            CURRENT_SUBTOPIC_ID = subTopicId;
+
+            // Update URL in browser
+            const newUrl = `upsc_topic_player.html?file=${dataPath}&subject=${subjectId}&topic=${topicId}&subtopic=${subTopicId}`;
+            window.history.pushState({ file: dataPath, subject: subjectId, topic: topicId, subtopic: subTopicId }, '', newUrl);
+
+            // Update sidebar highlight
+            document.querySelectorAll('.subtopic-nav-link').forEach(l => {
+                l.classList.remove('active');
+                const b = l.querySelector('.subtopic-active-badge');
+                if (b) b.remove();
+            });
+
+            const activeLink = document.getElementById(`sublink-${subTopicId}`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+                activeLink.innerHTML += '<span class="subtopic-active-badge">Reading</span>';
+            }
+
+            // Close mobile drawer if open
+            toggleSidebar(false);
+
+            // Fetch and render data
+            await loadTopicData({ file: decodeURIComponent(dataPath), subject: subjectId, topic: topicId, subtopic: subTopicId });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('popstate', (e) => {
+            const params = getQueryParams();
+            loadTopicData(params);
+        });
+
+        async function loadTopicData(params) {
+            params = params || getQueryParams();
             
             const candidateUrls = [];
             if (params.file) {
                 candidateUrls.push(params.file);
             }
 
-            let topicFolder = params.topic.replace(`${params.subject}_`, '');
-            let subtopicFile = params.subtopic.replace(`${params.topic}_`, '');
+            if (params.subject && params.topic && params.subtopic) {
+                let topicFolder = params.topic.replace(`${params.subject}_`, '');
+                let subtopicFile = params.subtopic.replace(`${params.topic}_`, '');
+                candidateUrls.push(`subjects/${params.subject}/topics/${topicFolder}/${subtopicFile}.json`);
+                candidateUrls.push(`subjects/${params.subject}/topics/${topicFolder}/${subtopicFile.slice(0, 40)}.json`);
+            }
             
-            candidateUrls.push(`subjects/${params.subject}/topics/${topicFolder}/${subtopicFile}.json`);
-            candidateUrls.push(`subjects/${params.subject}/topics/${topicFolder}/${subtopicFile.slice(0, 40)}.json`);
-            candidateUrls.push(`subjects/polity/topics/basic_concept/concept_of_freedom.json`);
+            candidateUrls.push(`subjects/polity/topics/basic_concept/concepts_of_equality.json`);
 
             let data = null;
             for (let url of candidateUrls) {
@@ -544,7 +966,7 @@
 
             if (!data) {
                 document.getElementById('pageSubtopicTitle').innerText = 'Micro-Topic Module Ready';
-                document.getElementById('prelimsSummary').innerText = 'Please select a specific topic from the UPSC Master Hub to view its comprehensive Prelims and Mains study module.';
+                document.getElementById('prelimsSummary').innerText = 'Please select a specific topic from the syllabus tree in the left pane to begin studying.';
                 return;
             }
 
@@ -552,13 +974,13 @@
         }
 
         function renderData(d) {
-            document.getElementById('crumbSubject').innerText = d.subjectTitle;
-            document.getElementById('crumbTopic').innerText = d.topicTitle;
-            document.getElementById('crumbSubtopic').innerText = d.subTopicTitle;
+            document.getElementById('crumbSubject').innerText = d.subjectTitle || 'Subject';
+            document.getElementById('crumbTopic').innerText = d.topicTitle || 'Topic';
+            document.getElementById('crumbSubtopic').innerText = d.subTopicTitle || 'Sub-Topic';
 
-            document.getElementById('pageSubjectBadge').innerText = d.subjectTitle.toUpperCase();
-            document.getElementById('pageSubtopicTitle').innerText = d.subTopicTitle;
-            document.getElementById('pageParentMeta').innerText = `${d.subjectTitle} • ${d.topicTitle}`;
+            document.getElementById('pageSubjectBadge').innerText = (d.subjectTitle || 'CIVIL SERVICES').toUpperCase();
+            document.getElementById('pageSubtopicTitle').innerText = d.subTopicTitle || '';
+            document.getElementById('pageParentMeta').innerText = `${d.subjectTitle || ''} • ${d.topicTitle || ''}`;
 
             if (d.syllabusMapping) {
                 document.getElementById('badgePrelims').innerText = d.syllabusMapping.prelims || 'GS Prelims';
@@ -678,7 +1100,7 @@
             if (exp) exp.style.display = 'block';
         }
 
-        document.addEventListener('DOMContentLoaded', loadTopicData);
+        document.addEventListener('DOMContentLoaded', initPlayer);
     </script>
 </body>
 
