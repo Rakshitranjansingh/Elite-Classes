@@ -898,6 +898,405 @@
             gap: 10px;
         }
 
+        /* ========================================================
+           UPSC CIVIL SERVICES MEGA SHOWCASE STYLES
+           ======================================================== */
+        .pub-section-upsc {
+            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0b1329 55%, #050b18 100%);
+            color: #ffffff;
+            padding: 80px 24px 90px;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .upsc-ambient-glow {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 70%);
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .upsc-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .upsc-header-block {
+            text-align: center;
+            max-width: 840px;
+            margin: 0 auto 40px;
+        }
+
+        .upsc-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            color: #fbbf24;
+            font-size: 11.5px;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.15);
+        }
+
+        .upsc-main-title {
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.8px;
+            margin: 0 0 16px;
+            color: #ffffff;
+        }
+
+        .upsc-main-title span {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .upsc-main-sub {
+            font-size: 16px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Metrics Ribbon */
+        .upsc-metrics-ribbon {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 48px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .upsc-metric-item {
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0 12px;
+        }
+
+        .upsc-metric-item:last-child {
+            border-right: none;
+        }
+
+        .upsc-metric-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fbbf24;
+            letter-spacing: -0.5px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .upsc-metric-lbl {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Subject Cards Grid */
+        .upsc-subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .upsc-subject-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 22px 20px;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .upsc-subject-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4);
+        }
+
+        .upsc-subj-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .upsc-subj-title {
+            font-size: 16.5px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 8px;
+            line-height: 1.3;
+        }
+
+        .upsc-subj-meta {
+            font-size: 12px;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .upsc-subj-desc {
+            font-size: 12.5px;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin: 0 0 16px;
+            flex-grow: 1;
+        }
+
+        .upsc-subj-link-btn {
+            font-size: 12px;
+            font-weight: 700;
+            color: #38bdf8;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.15s ease;
+        }
+
+        .upsc-subject-card:hover .upsc-subj-link-btn {
+            color: #fbbf24;
+        }
+
+        /* 5-Pillar Architecture Section */
+        .upsc-pillars-box {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 36px 30px;
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .upsc-pillars-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 8px;
+        }
+
+        .upsc-pillars-sub {
+            text-align: center;
+            font-size: 13.5px;
+            color: #94a3b8;
+            margin: 0 0 28px;
+        }
+
+        .upsc-pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .upsc-pillar-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .upsc-pillar-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .upsc-pillar-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .upsc-pillar-name {
+            font-size: 13px;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 6px;
+        }
+
+        .upsc-pillar-detail {
+            font-size: 11.5px;
+            color: #94a3b8;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* VIP Subscription Promotion Banner */
+        .upsc-vip-cta-banner {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.25) 0%, rgba(30, 27, 75, 0.9) 60%, rgba(15, 23, 42, 0.95) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            border-radius: 20px;
+            padding: 36px 36px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 32px;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(245, 158, 11, 0.15);
+        }
+
+        .upsc-vip-info h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 10px;
+        }
+
+        .upsc-vip-info p {
+            font-size: 14px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin: 0 0 16px;
+        }
+
+        .upsc-vip-perks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .upsc-vip-perk-tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fef3c7;
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .upsc-vip-action-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .upsc-price-box {
+            margin-bottom: 16px;
+        }
+
+        .upsc-strike-price {
+            text-decoration: line-through;
+            color: #94a3b8;
+            font-size: 15px;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .upsc-active-price {
+            font-size: 32px;
+            font-weight: 900;
+            color: #fbbf24;
+        }
+
+        .upsc-price-period {
+            font-size: 13px;
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+
+        .btn-upsc-subscribe-now {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 800;
+            padding: 13px 24px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.5);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .btn-upsc-subscribe-now:hover {
+            background: linear-gradient(135deg, #fbbf24, #d97706);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px -4px rgba(245, 158, 11, 0.6);
+        }
+
+        .btn-upsc-preview-hub {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 10px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-upsc-preview-hub:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 1024px) {
+            .upsc-subjects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .upsc-pillars-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .upsc-vip-cta-banner {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
         @media (max-width: 860px) {
             .hero-container {
                 grid-template-columns: 1fr;
@@ -915,6 +1314,25 @@
         }
 
         @media (max-width: 640px) {
+            .upsc-main-title {
+                font-size: 26px;
+            }
+            .upsc-metrics-ribbon {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .upsc-metric-item:nth-child(2) {
+                border-right: none;
+            }
+            .upsc-subjects-grid {
+                grid-template-columns: 1fr;
+            }
+            .upsc-pillars-grid {
+                grid-template-columns: 1fr;
+            }
+            .upsc-vip-cta-banner {
+                padding: 24px 20px;
+            }
             .pub-navbar {
                 padding: 10px 14px;
                 gap: 8px;
@@ -964,7 +1382,8 @@
         </a>
 
         <nav class="pub-nav-links">
-            <a href="#courses" class="pub-nav-link">Courses & Batches</a>
+            <a href="#courses" class="pub-nav-link">Courses &amp; Batches</a>
+            <a href="#upsc-civil-services" class="pub-nav-link" style="color:#fbbf24; font-weight:700;">🏛️ UPSC CSE Hub</a>
             <a href="#why-us" class="pub-nav-link">Why Elite Classes</a>
             <a href="#admissions" class="pub-nav-link">Admissions</a>
             <a href="#contact" class="pub-nav-link">Contact</a>
@@ -985,7 +1404,7 @@
         <span class="pub-ticker-tag">📢 Live Notice</span>
         <div class="pub-ticker-track">
             <div class="pub-ticker-content" id="pub-ticker-text">
-                📢 Academic Admissions Open for 2026-27 Session &bull; Class 10 Science CBT Test Series Assessments Live &bull; Early Bird 20% Scholarship for Board Excellence Master Batch &bull; Direct Parent WhatsApp Academic Updates & Fee Receipts
+                🏛️ UPSC Civil Services Integrated Course Hub Live &bull; 16 General Studies Subjects &bull; 1,478 Micro-Topics Synthesized &bull; Prelims Capsules, Mains Frameworks, PYQ Banks &amp; Secure CBT Mocks &bull; Special Civil Services Pass Available at ₹299/yr &bull; Academic Admissions Open 2026-27 Session &bull; Class 10 Science CBT Test Series Live
             </div>
         </div>
     </div>
@@ -1001,13 +1420,16 @@
                     Empowering Minds, <span>Inspiring an elite</span>
                 </h1>
                 <p class="hero-desc">
-                    Premier coaching for CBSE Class 6–10 and Foundation JEE/NEET.
+                    Premier coaching for CBSE Class 6–10, Foundation JEE/NEET, and UPSC Civil Services &amp; State PCS Examinations.
                 </p>
 
                 <div class="hero-buttons">
                     <button type="button" class="hero-btn-primary" id="hero-btn-apply" onclick="openStudentRegistrationModal()">
                         <span>Sign Up / Apply Now →</span>
                     </button>
+                    <a href="#upsc-civil-services" class="hero-btn-secondary" style="background:rgba(245,158,11,0.15); border-color:rgba(245,158,11,0.4); color:#fbbf24; font-weight:700;">
+                        <span>🏛️ UPSC CSE Hub →</span>
+                    </a>
                     <button type="button" class="hero-btn-secondary" id="hero-btn-signin" onclick="openPortalLoginModal()">
                         <span>Sign In</span>
                     </button>
@@ -1019,12 +1441,12 @@
                         <div class="stat-box-lbl">CBSE Board Pass Rate</div>
                     </div>
                     <div>
-                        <div class="stat-box-num">CBT</div>
-                        <div class="stat-box-lbl">Test Series Engine</div>
+                        <div class="stat-box-num">1,478+</div>
+                        <div class="stat-box-lbl">UPSC Micro-Topics</div>
                     </div>
                     <div>
-                        <div class="stat-box-num">15 : 1</div>
-                        <div class="stat-box-lbl">Student-Mentor Ratio</div>
+                        <div class="stat-box-num">CBT</div>
+                        <div class="stat-box-lbl">Test Series Engine</div>
                     </div>
                 </div>
             </div>
@@ -1058,6 +1480,211 @@
                             <p>Mentors track strengths, behavioral feedback, and exam progress individually.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3.5 UPSC CIVIL SERVICES MEGA SHOWCASE & SUBSCRIPTION PROMOTION -->
+    <section class="pub-section-upsc" id="upsc-civil-services">
+        <div class="upsc-ambient-glow"></div>
+        <div class="upsc-container">
+            <div class="upsc-header-block">
+                <div class="upsc-badge-pill">
+                    <span>👑 Elite Civil Services Academy • UPSC CSE &amp; State PCS</span>
+                </div>
+                <h2 class="upsc-main-title">
+                    Master the General Studies Syllabus with <span>Topic-Wise Analytical Depth</span>
+                </h2>
+                <p class="upsc-main-sub">
+                    Authoritative, exam-oriented learning engineered for the UPSC Civil Services Examination (Prelims &amp; Mains) and State PCS (BPSC 72nd CCE, UPPCS). 16 Core Disciplines, 237 Master Modules, and 1,478 Micro-Topics ready for instant study.
+                </p>
+            </div>
+
+            <!-- Key Metrics Ribbon -->
+            <div class="upsc-metrics-ribbon">
+                <div class="upsc-metric-item">
+                    <div class="upsc-metric-val">16</div>
+                    <div class="upsc-metric-lbl">Core GS Disciplines</div>
+                </div>
+                <div class="upsc-metric-item">
+                    <div class="upsc-metric-val">237</div>
+                    <div class="upsc-metric-lbl">Master Modules</div>
+                </div>
+                <div class="upsc-metric-item">
+                    <div class="upsc-metric-val">1,478</div>
+                    <div class="upsc-metric-lbl">Micro-Topics Ready</div>
+                </div>
+                <div class="upsc-metric-item">
+                    <div class="upsc-metric-val">100%</div>
+                    <div class="upsc-metric-lbl">Syllabus Coverage</div>
+                </div>
+                <div class="upsc-metric-item">
+                    <div class="upsc-metric-val">₹299<span style="font-size:16px; font-weight:600; color:#cbd5e1;">/yr</span></div>
+                    <div class="upsc-metric-lbl">Inaugural Pass Offer</div>
+                </div>
+            </div>
+
+            <!-- 8 Key UPSC Subjects Highlights Grid -->
+            <div class="upsc-subjects-grid">
+                <!-- 1. Polity -->
+                <a href="modules/course/civilservices/UPSC/upsc_course_hub.html?subject=polity" class="upsc-subject-card">
+                    <div>
+                        <span class="upsc-subj-icon">⚖️</span>
+                        <h4 class="upsc-subj-title">Indian Polity &amp; Governance</h4>
+                        <div class="upsc-subj-meta">52 Modules &bull; 191 Micro-Topics</div>
+                        <p class="upsc-subj-desc">Constitutional design, fundamental rights, parliament, supreme court, RPA 1951, federal relations &amp; statutory commissions.</p>
+                    </div>
+                    <span class="upsc-subj-link-btn">Explore Modules &rarr;</span>
+                </a>
+
+                <!-- 2. Economy -->
+                <a href="modules/course/civilservices/UPSC/upsc_course_hub.html?subject=economy" class="upsc-subject-card">
+                    <div>
+                        <span class="upsc-subj-icon">📈</span>
+                        <h4 class="upsc-subj-title">Indian Economy</h4>
+                        <div class="upsc-subj-meta">32 Modules &bull; 146 Micro-Topics</div>
+                        <p class="upsc-subj-desc">Macroeconomic trends, RBI monetary policy, fiscal architecture, banking sector reforms, budget analysis &amp; external trade.</p>
+                    </div>
+                    <span class="upsc-subj-link-btn">Explore Modules &rarr;</span>
+                </a>
+
+                <!-- 3. Geography -->
+                <a href="modules/course/civilservices/UPSC/upsc_course_hub.html?subject=geography" class="upsc-subject-card">
+                    <div>
+                        <span class="upsc-subj-icon">🌍</span>
+                        <h4 class="upsc-subj-title">Geography (Physical &amp; Indian)</h4>
+                        <div class="upsc-subj-meta">64 Modules &bull; 218 Micro-Topics</div>
+                        <p class="upsc-subj-desc">Geomorphology, climatology, ocean currents, Indian river basins, monsoon dynamics, mineral resources &amp; human demography.</p>
+                    </div>
+                    <span class="upsc-subj-link-btn">Explore Modules &rarr;</span>
+                </a>
+
+                <!-- 4. Environment -->
+                <a href="modules/course/civilservices/UPSC/upsc_course_hub.html?subject=environment" class="upsc-subject-card">
+                    <div>
+                        <span class="upsc-subj-icon">🌿</span>
+                        <h4 class="upsc-subj-title">Environment &amp; Ecology</h4>
+                        <div class="upsc-subj-meta">29 Modules &bull; 120 Micro-Topics</div>
+                        <p class="upsc-subj-desc">Ecosystem dynamics, biodiversity hotspots, climate treaties (UNFCCC), national parks, pollution abatement &amp; EIA guidelines.</p>
+                    </div>
+                    <span class="upsc-subj-link-btn">Explore Modules &rarr;</span>
+                </a>
+
+                <!-- 5. History & Culture -->
+                <a href="modules/course/civilservices/UPSC/upsc_course_hub.html?subject=modern_history" class="upsc-subject-card">
+                    <div>
+                        <span class="upsc-subj-icon">🏛️</span>
+                        <h4 class="upsc-subj-title">History &amp; Art &amp; Culture</h4>
+                        <div class="upsc-subj-meta">73 Modules &bull; 384 Micro-Topics</div>
+                        <p class="upsc-subj-desc">Ancient &amp; Medieval epochs, modern national freedom movement, temple architectures, classical dances, paintings &amp; heritage.</p>
+                    </div>
+                    <span class="upsc-subj-link-btn">Explore Modules &rarr;</span>
+                </a>
+
+                <!-- 6. International Relations -->
+                <a href="modules/course/civilservices/UPSC/upsc_course_hub.html?subject=ir" class="upsc-subject-card">
+                    <div>
+                        <span class="upsc-subj-icon">🌐</span>
+                        <h4 class="upsc-subj-title">International Relations</h4>
+                        <div class="upsc-subj-meta">39 Modules &bull; 152 Micro-Topics</div>
+                        <p class="upsc-subj-desc">Neighborhood First diplomacy, major global alliances, multilateral organizations (Quad, BRICS, SCO, UN), and geopolitical alignments.</p>
+                    </div>
+                    <span class="upsc-subj-link-btn">Explore Modules &rarr;</span>
+                </a>
+
+                <!-- 7. Security & Disaster -->
+                <a href="modules/course/civilservices/UPSC/upsc_course_hub.html?subject=internal_security" class="upsc-subject-card">
+                    <div>
+                        <span class="upsc-subj-icon">🛡️</span>
+                        <h4 class="upsc-subj-title">Security &amp; Disaster Mgmt</h4>
+                        <div class="upsc-subj-meta">16 Modules &bull; 75 Micro-Topics</div>
+                        <p class="upsc-subj-desc">Border management, cyber warfare, counter-terrorism, police reforms, Sendai framework, and disaster risk resilience planning.</p>
+                    </div>
+                    <span class="upsc-subj-link-btn">Explore Modules &rarr;</span>
+                </a>
+
+                <!-- 8. Society & Ethics -->
+                <a href="modules/course/civilservices/UPSC/upsc_course_hub.html?subject=governance_ethics" class="upsc-subject-card">
+                    <div>
+                        <span class="upsc-subj-icon">👥</span>
+                        <h4 class="upsc-subj-title">Society, Governance &amp; Ethics</h4>
+                        <div class="upsc-subj-meta">18 Modules &bull; 117 Micro-Topics</div>
+                        <p class="upsc-subj-desc">Salient features of Indian society, women's movements, Good Governance, Citizen Charters, public service values &amp; integrity.</p>
+                    </div>
+                    <span class="upsc-subj-link-btn">Explore Modules &rarr;</span>
+                </a>
+            </div>
+
+            <!-- 5-Pillar Sequential Analytical Framework -->
+            <div class="upsc-pillars-box">
+                <h3 class="upsc-pillars-title">The 5-Pillar UPSC Learning Architecture</h3>
+                <p class="upsc-pillars-sub">Every single one of the 1,478 micro-topics contains 5 structured study dimensions:</p>
+                <div class="upsc-pillars-grid">
+                    <div class="upsc-pillar-item">
+                        <div class="upsc-pillar-icon">📌</div>
+                        <div class="upsc-pillar-name">Prelims Capsule</div>
+                        <p class="upsc-pillar-detail">High-yield statutory facts, article references, timelines &amp; examiner trap elimination.</p>
+                    </div>
+                    <div class="upsc-pillar-item">
+                        <div class="upsc-pillar-icon">📑</div>
+                        <div class="upsc-pillar-name">Mains Framework</div>
+                        <p class="upsc-pillar-detail">In-depth 400–600 word master analytical essays covering constitutional &amp; governance angles.</p>
+                    </div>
+                    <div class="upsc-pillar-item">
+                        <div class="upsc-pillar-icon">🎯</div>
+                        <div class="upsc-pillar-name">UPSC PYQs Bank</div>
+                        <p class="upsc-pillar-detail">Real Prelims &amp; Mains questions (2013–2024) with step-by-step distractor elimination.</p>
+                    </div>
+                    <div class="upsc-pillar-item">
+                        <div class="upsc-pillar-icon">✍️</div>
+                        <div class="upsc-pillar-name">Model Mains Q&amp;A</div>
+                        <p class="upsc-pillar-detail">Standard 10 &amp; 15 Mark questions with Intro-Body-Conclusion and model answers.</p>
+                    </div>
+                    <div class="upsc-pillar-item">
+                        <div class="upsc-pillar-icon">⏱️</div>
+                        <div class="upsc-pillar-name">CBT Practice MCQs</div>
+                        <p class="upsc-pillar-detail">Interactive assessment drills with negative marking (-0.33) &amp; instant explanations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIP Subscription Promotion Callout -->
+            <div class="upsc-vip-cta-banner">
+                <div class="upsc-vip-info">
+                    <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(245,158,11,0.25); border:1px solid rgba(245,158,11,0.5); color:#fbbf24; font-size:11px; font-weight:800; padding:4px 12px; border-radius:999px; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:12px;">
+                        🔥 Limited Inaugural Offer &bull; 98% Discount
+                    </div>
+                    <h3>Unlock the Complete Civil Services Annual Pass</h3>
+                    <p>
+                        Get unrestricted 365-day access to the entire 16-subject UPSC Civil Services Hub, State PCS (BPSC 72nd CCE &amp; UPPCS) curriculum, complete model answers, and authentic CBT mock tests.
+                    </p>
+                    <div class="upsc-vip-perks">
+                        <div class="upsc-vip-perk-tag">✓ 1,478 Micro-Topic Engines</div>
+                        <div class="upsc-vip-perk-tag">✓ UPSC PYQs Bank (2013–2024)</div>
+                        <div class="upsc-vip-perk-tag">✓ Model Mains Answers</div>
+                        <div class="upsc-vip-perk-tag">✓ BPSC 72nd CCE Hub Included</div>
+                        <div class="upsc-vip-perk-tag">✓ Anti-Leak Forensic Security</div>
+                    </div>
+                </div>
+                <div class="upsc-vip-action-box">
+                    <div class="upsc-price-box">
+                        <span class="upsc-strike-price">₹14,000</span>
+                        <span class="upsc-active-price">₹299</span>
+                        <span class="upsc-price-period">/ year</span>
+                        <div style="font-size:11.5px; color:#34d399; font-weight:700; margin-top:4px;">
+                            ⚡ Instant Direct UPI Activation
+                        </div>
+                    </div>
+                    <button type="button" class="btn-upsc-subscribe-now" onclick="openTestSeriesSubscribeModal('Civil Services')">
+                        <span>🚀 Subscribe for ₹299/year &rarr;</span>
+                    </button>
+                    <button type="button" class="btn-upsc-preview-hub" style="background:rgba(245,158,11,0.15); border-color:rgba(245,158,11,0.4); color:#fbbf24; margin-bottom:8px;" onclick="openTestSeriesSubscribeModal('Civil Services', 'ELITE30')">
+                        <span>🎁 Claim 30-Day Free Pass (Code: ELITE30)</span>
+                    </button>
+                    <a href="modules/course/civilservices/UPSC/upsc_course_hub.html" class="btn-upsc-preview-hub">
+                        <span>📖 Explore Free UPSC Course Hub &rarr;</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1146,28 +1773,31 @@
                 </div>
             </div>
 
-            <!-- CARD 3: PUBLIC SERVICE COMMISSIONS (CIVIL SERVICES & STATE PCS) -->
+            <!-- CARD 3: PUBLIC SERVICE COMMISSIONS (UPSC CIVIL SERVICES & STATE PCS) -->
             <div class="course-card highlight" id="civil-services-course" style="border-color:#d97706; background:linear-gradient(to bottom, #ffffff, #fffbeb); position:relative;">
+                <div style="position:absolute; top:-12px; right:20px; background:linear-gradient(135deg, #f59e0b, #d97706); color:#ffffff; font-size:10.5px; font-weight:800; padding:4px 12px; border-radius:999px; text-transform:uppercase; letter-spacing:0.5px; box-shadow:0 4px 10px rgba(217,119,6,0.3);">
+                    🔥 Top Rated UPSC &amp; PCS
+                </div>
                 <div>
-                    <div class="course-target" style="color:#b45309; font-weight:700;">Civil Services & State PCS</div>
-                    <h3 class="course-name" style="color:#0f172a;">Public Service Commissions GS & Test Pass</h3>
-                    <p class="course-desc">Comprehensive General Studies (History, Geography, Polity, Economy, Science) & CSAT preparation tailored for UPSC Prelims and State PCS (BPSC 72nd CCE, UPPCS, JPSC) with 1,400+ topic-wise MCQs and instant mock tests.</p>
+                    <div class="course-target" style="color:#b45309; font-weight:700;">UPSC Civil Services &amp; State PCS</div>
+                    <h3 class="course-name" style="color:#0f172a;">Civil Services All-Inclusive GS &amp; Test Pass</h3>
+                    <p class="course-desc">Full 365-day access to 16 UPSC General Studies Subjects, 1,478 micro-topic study modules (Prelims capsules, Mains frameworks &amp; model answers), BPSC 72nd CCE Bihar Special hub, and authentic CBT mock tests.</p>
                     <ul class="course-perks">
                         <li>
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            Complete GS Subject Tests (Polity, History, Geo, Economy, Science)
+                            16 Core UPSC GS Subjects (Polity, Economy, Geo, Env, History, IR, Ethics)
                         </li>
                         <li>
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            State PCS (BPSC 72nd CCE, UPPCS) & UPSC Prelims Focus
+                            1,478 Synthesized Micro-Topics with Prelims &amp; Mains Frameworks
                         </li>
                         <li>
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            Authentic Test Interface with Negative Marking (-0.33)
+                            UPSC PYQs Bank (2013–2024) &amp; Authentic CBT Mocks (-0.33 Marking)
                         </li>
                         <li>
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2.5"/></svg>
-                            Exhaustive Explanatory Solutions & Topic-Wise Analytics
+                            State PCS Focus (BPSC 72nd CCE &amp; UPPCS) Included
                         </li>
                     </ul>
                 </div>
@@ -1181,6 +1811,9 @@
                     <button type="button" class="btn-course-enroll" style="background:linear-gradient(135deg, #d97706, #b45309); box-shadow:0 10px 20px -5px rgba(217, 119, 6, 0.4);" onclick="openTestSeriesSubscribeModal('Civil Services')">
                         Get Civil Services Pass (₹299) →
                     </button>
+                    <a href="modules/course/civilservices/UPSC/upsc_course_hub.html" style="display:inline-flex; align-items:center; justify-content:center; gap:6px; width:100%; margin-top:10px; font-size:13px; font-weight:700; color:#b45309; text-decoration:none; padding:8px; border-radius:8px; background:rgba(217,119,6,0.08); transition:all 0.15s;">
+                        📖 Preview UPSC 16-Subject Hub Demo →
+                    </a>
                 </div>
             </div>
         </div>
@@ -2459,14 +3092,19 @@
                                     <span class="badge" style="background:#dcfce7; color:#15803d; font-weight:800; padding:3px 8px; border-radius:6px;">🟢 ACTIVE (Instant Access)</span>
                                 </div>
                             </div>
-                            <a href="modules/testseries/data/civilservices/testseries_civilservices.html" class="btn btn-primary" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; font-size:14px; font-weight:800; padding:12px; border-radius:10px; text-decoration:none; background:linear-gradient(135deg, #d97706, #b45309); box-shadow:0 8px 16px -4px rgba(217,119,6,0.4);">
-                                🏛️ Enter Civil Services CBT Test Hub Now →
-                            </a>
+                            <div style="display:flex; flex-direction:column; gap:10px;">
+                                <a href="modules/course/civilservices/UPSC/upsc_course_hub.html" class="btn btn-primary" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; font-size:14px; font-weight:800; padding:12px; border-radius:10px; text-decoration:none; background:linear-gradient(135deg, #d97706, #b45309); box-shadow:0 8px 16px -4px rgba(217,119,6,0.4);">
+                                    🏛️ Enter UPSC Course &amp; Notes Hub →
+                                </a>
+                                <a href="modules/testseries/data/civilservices/testseries_civilservices.html" class="btn btn-outline" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; font-size:13px; font-weight:700; padding:10px; border-radius:10px; text-decoration:none; border:1px solid #d97706; color:#b45309;">
+                                    📝 Enter Civil Services CBT Test Hub →
+                                </a>
+                            </div>
                         `;
 
                         setTimeout(() => {
-                            window.location.href = 'modules/testseries/data/civilservices/testseries_civilservices.html';
-                        }, 1800);
+                            window.location.href = 'modules/course/civilservices/UPSC/upsc_course_hub.html';
+                        }, 2200);
                         return;
                     }
 
