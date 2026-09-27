@@ -35,7 +35,7 @@
         .hub-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 24px 20px 70px;
+            padding: 24px 20px 80px;
         }
 
         /* Hero Section matching BPSC 72 */
@@ -164,7 +164,7 @@
             transition: width 0.6s ease;
         }
 
-        /* Search Bar matching BPSC clean style */
+        /* Search Bar */
         .search-filter-bar {
             background: #ffffff;
             border: 1px solid var(--border-color);
@@ -305,103 +305,101 @@
             background: #3730a3;
         }
 
-        /* Modal Drawer for Topic List */
-        .drawer-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 100;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .drawer-modal {
+        /* FULL SCREEN SUBJECT HUB VIEW matching BPSC chapter hubs */
+        .chapter-card {
             background: #ffffff;
-            border-radius: 18px;
-            width: 100%;
-            max-width: 820px;
-            max-height: 85vh;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 22px;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
-            overflow: hidden;
-            animation: popIn 0.22s ease-out;
-        }
-
-        @keyframes popIn {
-            from { transform: scale(0.97); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .drawer-header {
-            padding: 18px 24px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
             justify-content: space-between;
-            background: #f8fafc;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+            transition: all 0.2s ease;
+            margin-bottom: 20px;
         }
 
-        .drawer-body {
-            padding: 20px 24px;
-            overflow-y: auto;
-            flex: 1;
+        .chapter-card:hover {
+            box-shadow: 0 8px 24px rgba(67, 56, 202, 0.08);
+            border-color: #cbd5e1;
         }
 
-        .topic-accordion {
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            margin-bottom: 12px;
-            overflow: hidden;
-            background: #ffffff;
-        }
-
-        .topic-accordion-title {
-            padding: 14px 18px;
-            font-weight: 700;
-            font-size: 13.5px;
-            cursor: pointer;
-            background: #f8fafc;
+        .chapter-card-top {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            user-select: none;
-            color: #0f172a;
+            align-items: flex-start;
+            margin-bottom: 10px;
         }
 
-        .topic-accordion-title:hover {
-            background: #f1f5f9;
-        }
-
-        .subtopic-list {
-            padding: 10px 18px;
-            border-top: 1px solid var(--border-color);
-            background: #ffffff;
-        }
-
-        .subtopic-item {
-            padding: 9px 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 13px;
-            color: #334155;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-            text-decoration: none;
-        }
-
-        .subtopic-item:hover {
+        .chapter-badge {
             background: #eff6ff;
-            color: var(--primary-indigo);
+            color: #1d4ed8;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .chapter-title {
+            font-size: 16.5px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chapter-desc {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0 0 14px;
+        }
+
+        /* Micro-topics pill list in full-screen mode */
+        .microtopic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .microtopic-card-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 10px 14px;
+            text-decoration: none;
+            color: #334155;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.18s ease;
+        }
+
+        .microtopic-card-link:hover {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            color: #4338ca;
+            transform: translateX(2px);
+        }
+
+        .microtopic-study-tag {
+            font-size: 11px;
             font-weight: 700;
-            padding-left: 16px;
+            color: #4338ca;
+            background: #ffffff;
+            border: 1px solid #c7d2fe;
+            padding: 3px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+            margin-left: 8px;
         }
     </style>
 </head>
@@ -419,8 +417,11 @@
                 </div>
             </a>
             <div style="display:flex; align-items:center; gap:8px;">
+                <button id="btn-back-subjects" onclick="showAllSubjectsView()" class="btn btn-outline btn-sm" style="font-size:12px; font-weight:700; display:none;">
+                    ← All UPSC Subjects
+                </button>
                 <a href="../courses_civilservices.html" class="btn btn-outline btn-sm" style="font-size:12px; font-weight:700;">
-                    ← Civil Services Programs
+                    ← Civil Services Hub
                 </a>
                 <a href="../../../../student_home.html" class="btn btn-primary btn-sm" style="font-size:12px; font-weight:700; background:#4338ca; border-color:#4338ca;">
                     Student Portal
@@ -431,83 +432,122 @@
 
     <div class="hub-container">
 
-        <!-- HERO SECTION matching BPSC 72 -->
-        <div class="hub-hero-clean">
-            <div class="hub-gradient-aura"></div>
-            <div class="hub-hero-content">
-                <div class="hub-class-tag">🏛️ UPSC Civil Services Examination (IAS / IPS / IFS)</div>
-                <h1 class="hub-title-main">Integrated GS Prelims &amp; Mains Syllabus Master Hub</h1>
-                <p class="hub-sub-text">
-                    Comprehensive topic-wise micro-curriculum covering 16 core disciplines. Every sub-topic delivers targeted Prelims fact capsules, in-depth Mains analytical frameworks, landmark Supreme Court judgments, authentic PYQs (2013–2024), and structured Model Mains Q&amp;A.
-                </p>
-                <div class="hub-stats-row">
-                    <div class="hub-stat-item">
-                        <span class="hub-stat-val" id="stat-subjects">16</span>
-                        <span class="hub-stat-label">Core Subjects</span>
-                    </div>
-                    <div class="hub-stat-item">
-                        <span class="hub-stat-val" id="stat-topics">329</span>
-                        <span class="hub-stat-label">Curricular Modules</span>
-                    </div>
-                    <div class="hub-stat-item">
-                        <span class="hub-stat-val" id="stat-subtopics">1,436</span>
-                        <span class="hub-stat-label">Micro-Topics Live</span>
-                    </div>
-                    <div class="hub-stat-item">
-                        <span class="hub-stat-val">100%</span>
-                        <span class="hub-stat-label">Prelims &amp; Mains Mapped</span>
+        <!-- ========================================== -->
+        <!-- VIEW 1: MASTER 16-SUBJECTS CATALOG VIEW    -->
+        <!-- ========================================== -->
+        <div id="view-master-subjects">
+            <!-- HERO SECTION matching BPSC 72 -->
+            <div class="hub-hero-clean">
+                <div class="hub-gradient-aura"></div>
+                <div class="hub-hero-content">
+                    <div class="hub-class-tag">🏛️ UPSC Civil Services Examination (IAS / IPS / IFS)</div>
+                    <h1 class="hub-title-main">Integrated GS Prelims &amp; Mains Syllabus Master Hub</h1>
+                    <p class="hub-sub-text">
+                        Comprehensive topic-wise micro-curriculum covering 16 core disciplines. Every sub-topic delivers targeted Prelims fact capsules, in-depth Mains analytical frameworks, landmark Supreme Court judgments, authentic PYQs (2013–2024), and structured Model Mains Q&amp;A.
+                    </p>
+                    <div class="hub-stats-row">
+                        <div class="hub-stat-item">
+                            <span class="hub-stat-val" id="stat-subjects">16</span>
+                            <span class="hub-stat-label">Core Subjects</span>
+                        </div>
+                        <div class="hub-stat-item">
+                            <span class="hub-stat-val" id="stat-topics">329</span>
+                            <span class="hub-stat-label">Curricular Modules</span>
+                        </div>
+                        <div class="hub-stat-item">
+                            <span class="hub-stat-val" id="stat-subtopics">1,436</span>
+                            <span class="hub-stat-label">Micro-Topics Live</span>
+                        </div>
+                        <div class="hub-stat-item">
+                            <span class="hub-stat-val">100%</span>
+                            <span class="hub-stat-label">Prelims &amp; Mains Mapped</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- OVERALL PROGRESS BAR matching BPSC 72 -->
-        <div class="hub-horizontal-progress-box">
-            <div class="hub-progress-labels">
-                <span>Curriculum Coverage &amp; Modules Ready</span>
-                <span id="total-progress-pct">1,436 / 1,436 Modules Synthesized (100%)</span>
-            </div>
-            <div class="hub-progress-track">
-                <div class="hub-progress-fill" id="total-progress-bar" style="width: 100%;"></div>
-            </div>
-        </div>
-
-        <!-- SEARCH & FILTER BAR -->
-        <div class="search-filter-bar">
-            <div class="search-input-box">
-                <span>🔍</span>
-                <input type="text" id="topicSearch" placeholder="Search across 1,436 micro-topics (e.g. Regulating Act, Money Multiplier, Ramsar, Preamble)..." oninput="handleSearch(this.value)">
-            </div>
-            <div style="font-size:12.5px; font-weight:700; color:var(--text-muted);" id="results-count">
-                Showing all 16 subjects
-            </div>
-        </div>
-
-        <!-- SUBJECTS GRID matching BPSC 72 -->
-        <div class="subjects-grid" id="subjects-container">
-            <!-- Dynamically Rendered via JS -->
-        </div>
-
-    </div>
-
-    <!-- DRAWER MODAL FOR TOPIC EXPLORATION -->
-    <div class="drawer-overlay" id="drawerModal" onclick="closeDrawer(event)">
-        <div class="drawer-modal" onclick="event.stopPropagation()">
-            <div class="drawer-header">
-                <div>
-                    <h3 id="modalSubjectTitle" style="margin:0; font-size:17px; font-weight:800; color:var(--text-dark);">Subject Topics</h3>
-                    <div id="modalSubjectMeta" style="font-size:12px; color:var(--text-muted); margin-top:2px;">Topics and Sub-Topics</div>
+            <!-- OVERALL PROGRESS BAR matching BPSC 72 -->
+            <div class="hub-horizontal-progress-box">
+                <div class="hub-progress-labels">
+                    <span>Curriculum Coverage &amp; Modules Ready</span>
+                    <span id="total-progress-pct">1,436 / 1,436 Modules Synthesized (100%)</span>
                 </div>
-                <button onclick="closeDrawer(null)" style="background:transparent; border:none; font-size:24px; cursor:pointer; color:var(--text-muted); line-height:1;">&times;</button>
+                <div class="hub-progress-track">
+                    <div class="hub-progress-fill" id="total-progress-bar" style="width: 100%;"></div>
+                </div>
             </div>
-            <div class="drawer-body" id="modalDrawerBody">
-                <!-- Topics list populated here -->
+
+            <!-- SEARCH BAR -->
+            <div class="search-filter-bar">
+                <div class="search-input-box">
+                    <span>🔍</span>
+                    <input type="text" id="topicSearch" placeholder="Search across subjects or topics (e.g. Polity, Economy, Geography, Environment)..." oninput="handleSearch(this.value)">
+                </div>
+                <div style="font-size:12.5px; font-weight:700; color:var(--text-muted);" id="results-count">
+                    Showing all 16 subjects
+                </div>
             </div>
+
+            <!-- SUBJECTS GRID matching BPSC 72 -->
+            <div class="subjects-grid" id="subjects-container"></div>
         </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: FULL-SCREEN SUBJECT MODULES VIEW   -->
+        <!-- (No popup! Full screen just like BPSC)     -->
+        <!-- ========================================== -->
+        <div id="view-subject-detail" style="display:none;">
+            <!-- Breadcrumbs -->
+            <div style="display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--text-muted); margin-bottom:16px;">
+                <a href="javascript:void(0)" onclick="showAllSubjectsView()" style="color:#4338ca; text-decoration:none; font-weight:700;">UPSC Hub</a>
+                <span>&rsaquo;</span>
+                <strong id="fs-crumb-subject" style="color:var(--text-dark);">Subject</strong>
+            </div>
+
+            <!-- Full-Screen Subject Hero -->
+            <div class="hub-hero-clean">
+                <div class="hub-gradient-aura"></div>
+                <div class="hub-hero-content">
+                    <div class="hub-class-tag" id="fs-subject-tag">UPSC GS CURRICULUM</div>
+                    <h1 class="hub-title-main" id="fs-subject-title">Subject Title</h1>
+                    <p class="hub-sub-text" id="fs-subject-desc">Comprehensive syllabus modules and micro-topics.</p>
+                    <div class="hub-stats-row">
+                        <div class="hub-stat-item">
+                            <span class="hub-stat-val" id="fs-stat-modules">0</span>
+                            <span class="hub-stat-label">Modules / Topics</span>
+                        </div>
+                        <div class="hub-stat-item">
+                            <span class="hub-stat-val" id="fs-stat-subtopics">0</span>
+                            <span class="hub-stat-label">Micro-Topics Ready</span>
+                        </div>
+                        <div class="hub-stat-item">
+                            <span class="hub-stat-val">100%</span>
+                            <span class="hub-stat-label">Full Coverage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search inside subject -->
+            <div class="search-filter-bar">
+                <div class="search-input-box">
+                    <span>🔍</span>
+                    <input type="text" id="subjectFilterInput" placeholder="Filter micro-topics inside this subject..." oninput="filterSubjectModules(this.value)">
+                </div>
+                <div style="font-size:12.5px; font-weight:700; color:var(--text-muted);" id="fs-modules-count">
+                    Modules List
+                </div>
+            </div>
+
+            <!-- Full Screen Modules List Container -->
+            <div id="fs-modules-container"></div>
+        </div>
+
     </div>
 
     <script>
         let CATALOG = null;
+        let CURRENT_SUBJECT = null;
 
         const SUBJECT_ICONS = {
             'polity': '⚖️',
@@ -554,12 +594,20 @@
                 document.getElementById('stat-topics').innerText = CATALOG.metadata.totalTopics;
                 document.getElementById('stat-subtopics').innerText = CATALOG.metadata.totalSubtopics.toLocaleString();
 
-                renderSubjects(CATALOG.subjects);
+                // Check URL params for deep link to subject
+                const p = new URLSearchParams(window.location.search);
+                const subjParam = p.get('subject');
+                if (subjParam) {
+                    openSubjectFullScreen(subjParam, false);
+                } else {
+                    renderSubjects(CATALOG.subjects);
+                }
             } catch (e) {
                 console.error('Error loading UPSC catalog:', e);
             }
         }
 
+        // Render View 1: 16 Subjects Catalog
         function renderSubjects(subjects) {
             const container = document.getElementById('subjects-container');
             container.innerHTML = '';
@@ -571,7 +619,7 @@
 
                 const card = document.createElement('div');
                 card.className = 'subject-card';
-                card.onclick = () => openSubjectDrawer(subj.subjectId);
+                card.onclick = () => openSubjectFullScreen(subj.subjectId, true);
 
                 card.innerHTML = `
                     <div>
@@ -597,53 +645,123 @@
             });
         }
 
-        function openSubjectDrawer(subjectId) {
+        // Full Screen Mode for Subject (Zero popup modal!)
+        function openSubjectFullScreen(subjectId, pushState = true) {
             const subj = CATALOG.subjects.find(s => s.subjectId === subjectId);
             if (!subj) return;
 
-            document.getElementById('modalSubjectTitle').innerText = subj.subjectTitle;
-            document.getElementById('modalSubjectMeta').innerText = `${subj.topics.length} Topics • ${subj.topics.reduce((acc, t) => acc + t.subtopics.length, 0)} Micro-Topics`;
+            CURRENT_SUBJECT = subj;
 
-            const body = document.getElementById('modalDrawerBody');
-            body.innerHTML = '';
+            if (pushState) {
+                const newUrl = window.location.pathname + '?subject=' + encodeURIComponent(subjectId);
+                window.history.pushState({ subject: subjectId }, '', newUrl);
+            }
 
-            subj.topics.forEach((topic, idx) => {
-                const acc = document.createElement('div');
-                acc.className = 'topic-accordion';
-                acc.innerHTML = `
-                    <div class="topic-accordion-title" onclick="toggleAccordion('acc-${idx}')">
-                        <span><strong>${idx + 1}. ${topic.topicTitle}</strong> <span style="font-size:11.5px; color:#64748b; font-weight:600;">(${topic.subtopics.length} subtopics)</span></span>
-                        <span>▼</span>
+            document.getElementById('view-master-subjects').style.display = 'none';
+            document.getElementById('view-subject-detail').style.display = 'block';
+            document.getElementById('btn-back-subjects').style.display = 'inline-block';
+
+            // Populate Hero
+            const icon = SUBJECT_ICONS[subj.subjectId] || '🏛️';
+            document.getElementById('fs-crumb-subject').innerText = subj.subjectTitle;
+            document.getElementById('fs-subject-tag').innerText = `🏛️ UPSC CIVIL SERVICES • ${subj.subjectTitle.toUpperCase()}`;
+            document.getElementById('fs-subject-title').innerText = `${icon} ${subj.subjectTitle}`;
+            document.getElementById('fs-subject-desc').innerText = SUBJECT_DESCRIPTIONS[subj.subjectId] || 'Comprehensive subject syllabus breakdown with topic-wise notes, Prelims capsules, Mains frameworks, and Model answers.';
+
+            const totalSub = subj.topics.reduce((acc, t) => acc + (t.subtopics ? t.subtopics.length : 0), 0);
+            document.getElementById('fs-stat-modules').innerText = subj.topics.length;
+            document.getElementById('fs-stat-subtopics').innerText = totalSub;
+            document.getElementById('fs-modules-count').innerText = `${subj.topics.length} Modules (${totalSub} Micro-Topics)`;
+
+            renderSubjectModules(subj.topics);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderSubjectModules(topics) {
+            const container = document.getElementById('fs-modules-container');
+            container.innerHTML = '';
+
+            topics.forEach((topic, idx) => {
+                const card = document.createElement('div');
+                card.className = 'chapter-card';
+
+                const subCount = topic.subtopics ? topic.subtopics.length : 0;
+                const remarksText = topic.remarks ? `<p class="chapter-desc" style="margin-bottom:12px;"><strong>Strategy / Notes:</strong> ${topic.remarks}</p>` : '';
+                const lecturesText = topic.lectures ? `<span class="meta-pill">⏱️ ${topic.lectures}</span>` : '';
+
+                card.innerHTML = `
+                    <div>
+                        <div class="chapter-card-top">
+                            <span class="chapter-badge">Module ${String(idx + 1).padStart(2, '0')}</span>
+                            <span class="meta-pill" style="font-size:11px; background:#eff6ff; color:#1d4ed8; font-weight:700;">
+                                ${subCount} Micro-Topics Ready
+                            </span>
+                        </div>
+                        <h3 class="chapter-title">${idx + 1}. ${topic.topicTitle}</h3>
+                        ${remarksText}
+                        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px;">
+                            ${lecturesText}
+                            <span class="meta-pill">🎯 Prelims Capsule</span>
+                            <span class="meta-pill">📑 Mains Framework</span>
+                            <span class="meta-pill">✍️ Model Mains Q&amp;A</span>
+                        </div>
                     </div>
-                    <div class="subtopic-list" id="acc-${idx}" style="display:${idx === 0 ? 'block' : 'none'};">
+                    <div class="microtopic-grid">
                         ${topic.subtopics.map(st => `
-                            <a href="upsc_topic_player.html?file=${encodeURIComponent(st.dataPath || '')}&subject=${subj.subjectId}&topic=${topic.topicId}&subtopic=${st.subTopicId}" class="subtopic-item">
+                            <a href="upsc_topic_player.html?file=${encodeURIComponent(st.dataPath || '')}&subject=${CURRENT_SUBJECT.subjectId}&topic=${topic.topicId}&subtopic=${st.subTopicId}" class="microtopic-card-link">
                                 <span>&bull; ${st.subTopicTitle}</span>
-                                <span style="font-size:11px; color:#4338ca; font-weight:700;">Study &rarr;</span>
+                                <span class="microtopic-study-tag">Study &rarr;</span>
                             </a>
                         `).join('')}
                     </div>
                 `;
-                body.appendChild(acc);
+                container.appendChild(card);
+            });
+        }
+
+        function filterSubjectModules(query) {
+            if (!CURRENT_SUBJECT) return;
+            const q = query.trim().toLowerCase();
+            if (!q) {
+                renderSubjectModules(CURRENT_SUBJECT.topics);
+                return;
+            }
+
+            const filtered = [];
+            CURRENT_SUBJECT.topics.forEach(t => {
+                if (t.topicTitle.toLowerCase().includes(q)) {
+                    filtered.push(t);
+                } else {
+                    const matchedSub = t.subtopics.filter(st => st.subTopicTitle.toLowerCase().includes(q));
+                    if (matchedSub.length > 0) {
+                        filtered.push({
+                            ...t,
+                            subtopics: matchedSub
+                        });
+                    }
+                }
             });
 
-            document.getElementById('drawerModal').style.display = 'flex';
+            renderSubjectModules(filtered);
         }
 
-        function toggleAccordion(id) {
-            const el = document.getElementById(id);
-            if (el.style.display === 'none' || el.style.display === '') {
-                el.style.display = 'block';
+        function showAllSubjectsView() {
+            CURRENT_SUBJECT = null;
+            window.history.pushState({}, '', window.location.pathname);
+            document.getElementById('view-subject-detail').style.display = 'none';
+            document.getElementById('view-master-subjects').style.display = 'block';
+            document.getElementById('btn-back-subjects').style.display = 'none';
+            renderSubjects(CATALOG.subjects);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('popstate', (e) => {
+            if (e.state && e.state.subject) {
+                openSubjectFullScreen(e.state.subject, false);
             } else {
-                el.style.display = 'none';
+                showAllSubjectsView();
             }
-        }
-
-        function closeDrawer(event) {
-            if (!event || event.target.id === 'drawerModal') {
-                document.getElementById('drawerModal').style.display = 'none';
-            }
-        }
+        });
 
         function handleSearch(query) {
             if (!CATALOG) return;
