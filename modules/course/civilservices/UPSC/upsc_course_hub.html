@@ -487,11 +487,11 @@
             <!-- OVERALL PROGRESS BAR matching BPSC 72 -->
             <div class="hub-horizontal-progress-box">
                 <div class="hub-progress-labels">
-                    <span>Curriculum Coverage &amp; Modules Ready</span>
-                    <span id="total-progress-pct">1,436 / 1,436 Modules Synthesized (100%)</span>
+                    <span>Your Overall Syllabus Coverage</span>
+                    <span id="total-progress-pct">0 / 1,436 Micro-Topics Completed (0%)</span>
                 </div>
                 <div class="hub-progress-track">
-                    <div class="hub-progress-fill" id="total-progress-bar" style="width: 100%;"></div>
+                    <div class="hub-progress-fill" id="total-progress-bar" style="width: 0%;"></div>
                 </div>
             </div>
 
@@ -543,6 +543,17 @@
                             <span class="hub-stat-label">Your Completed</span>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Subject Syllabus Progress Bar -->
+            <div class="hub-horizontal-progress-box" style="margin-bottom: 24px;">
+                <div class="hub-progress-labels">
+                    <span>Subject Syllabus Coverage</span>
+                    <span id="fs-subject-progress-pct">0 / 0 (0%)</span>
+                </div>
+                <div class="hub-progress-track">
+                    <div class="hub-progress-fill" id="fs-subject-progress-bar" style="width: 0%;"></div>
                 </div>
             </div>
 
@@ -618,12 +629,10 @@
                     const pctEl = document.getElementById('total-progress-pct');
                     const barEl = document.getElementById('total-progress-bar');
                     if (pctEl) {
-                        pctEl.innerText = overall.completed > 0
-                            ? `Your Syllabus Progress: ${overall.completed} / ${overall.total} Micro-Topics Completed (${overall.pct}%)`
-                            : `1,436 / 1,436 Modules Synthesized (100% Syllabus Coverage)`;
+                        pctEl.innerText = `${overall.completed} / ${overall.total} Micro-Topics Completed (${overall.pct}%)`;
                     }
                     if (barEl) {
-                        barEl.style.width = overall.completed > 0 ? `${overall.pct}%` : '100%';
+                        barEl.style.width = `${overall.pct}%`;
                     }
                 }
 
@@ -734,6 +743,10 @@
             if (compEl) {
                 compEl.innerText = `${subStats.completed} / ${totalSub} (${subStats.pct}%)`;
             }
+            const fsBar = document.getElementById('fs-subject-progress-bar');
+            const fsPct = document.getElementById('fs-subject-progress-pct');
+            if (fsBar) fsBar.style.width = `${subStats.pct}%`;
+            if (fsPct) fsPct.innerText = `${subStats.completed} / ${totalSub} Micro-Topics Completed (${subStats.pct}%)`;
 
             document.getElementById('fs-modules-count').innerText = `${subj.topics.length} Modules (${subStats.completed}/${totalSub} Completed)`;
 
@@ -829,6 +842,20 @@
             document.getElementById('view-subject-detail').style.display = 'none';
             document.getElementById('view-master-subjects').style.display = 'block';
             document.getElementById('btn-back-subjects').style.display = 'none';
+
+            // Re-calculate learner progress on return to master view
+            if (typeof UPSCProgressService !== 'undefined' && CATALOG) {
+                const overall = UPSCProgressService.getOverallStats(CATALOG);
+                const pctEl = document.getElementById('total-progress-pct');
+                const barEl = document.getElementById('total-progress-bar');
+                if (pctEl) {
+                    pctEl.innerText = `${overall.completed} / ${overall.total} Micro-Topics Completed (${overall.pct}%)`;
+                }
+                if (barEl) {
+                    barEl.style.width = `${overall.pct}%`;
+                }
+            }
+
             renderSubjects(CATALOG.subjects);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
