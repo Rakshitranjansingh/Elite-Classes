@@ -4,7 +4,7 @@
     "extractedAt": "2026-09-27T12:54:15Z",
     "totalSubjects": 16,
     "totalTopics": 329,
-    "totalSubtopics": 1436,
+    "totalSubtopics": 1478,
     "modelsUsed": [
       "gemini-3.5-flash-lite",
       "gemini-3.1-flash-lite"
@@ -920,7 +920,32 @@
           "topicTitle": "Cabinet Committee's and Parliamentary Committee",
           "remarks": "-do-",
           "lectures": "Lecture 20",
-          "subtopics": [],
+          "subtopics": [
+            {
+              "subTopicId": "polity_cabinet_committee_s_and_parliamentary_committee_cabinet_committees_features_composition_functions_role_of_ccs_and_acc",
+              "subTopicTitle": "Cabinet Committees: Features, Composition, Functions & Role of CCS and ACC",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/cabinet_committee_s_and_parliamentary_committee/cabinet_committees_features_composition_functions_role_of_ccs_and_acc.json"
+            },
+            {
+              "subTopicId": "polity_cabinet_committee_s_and_parliamentary_committee_departmentally_related_standing_committees_drscs_scrutiny_of_demands_for_grants_bills",
+              "subTopicTitle": "Departmentally Related Standing Committees (DRSCs): Scrutiny of Demands for Grants & Bills",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/cabinet_committee_s_and_parliamentary_committee/departmentally_related_standing_committees_drscs_scrutiny_of_demands_for_grants_bills.json"
+            },
+            {
+              "subTopicId": "polity_cabinet_committee_s_and_parliamentary_committee_financial_committees_of_parliament_public_accounts_committee_pac_estimates_committee_copu",
+              "subTopicTitle": "Financial Committees of Parliament: Public Accounts Committee (PAC), Estimates Committee & COPU",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/cabinet_committee_s_and_parliamentary_committee/financial_committees_of_parliament_public_accounts_committee_pac_estimates_committee_copu.json"
+            },
+            {
+              "subTopicId": "polity_cabinet_committee_s_and_parliamentary_committee_ad_hoc_committees_joint_parliamentary_committees_jpc_select_committees_in_parliamentary_oversight",
+              "subTopicTitle": "Ad Hoc Committees, Joint Parliamentary Committees (JPC) & Select Committees in Parliamentary Oversight",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/cabinet_committee_s_and_parliamentary_committee/ad_hoc_committees_joint_parliamentary_committees_jpc_select_committees_in_parliamentary_oversight.json"
+            }
+          ],
           "dataPath_folder": null
         },
         {
@@ -1195,7 +1220,32 @@
           "topicTitle": "Subordinate Courts; District Courts, Gram Nyayalayas, ADRs, NALSA etc.",
           "remarks": "-do-",
           "lectures": "Lecture 30&31",
-          "subtopics": [],
+          "subtopics": [
+            {
+              "subTopicId": "polity_subordinate_courts_district_courts_gram_nyayalayas_adrs_nalsa_etc_hierarchy_of_subordinate_judiciary_district_courts_sessions_courts_appointment_of_judges_articles_233_237",
+              "subTopicTitle": "Hierarchy of Subordinate Judiciary: District Courts, Sessions Courts & Appointment of Judges (Articles 233-237)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/subordinate_courts_district_courts_gram_nyayalayas_adrs_nalsa_etc/hierarchy_of_subordinate_judiciary_district_courts_sessions_courts_appointment_of_judges_articles_233_237.json"
+            },
+            {
+              "subTopicId": "polity_subordinate_courts_district_courts_gram_nyayalayas_adrs_nalsa_etc_gram_nyayalayas_act_2008_grassroots_justice_delivery_jurisdiction_operational_challenges",
+              "subTopicTitle": "Gram Nyayalayas Act 2008: Grassroots Justice Delivery, Jurisdiction & Operational Challenges",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/subordinate_courts_district_courts_gram_nyayalayas_adrs_nalsa_etc/gram_nyayalayas_act_2008_grassroots_justice_delivery_jurisdiction_operational_challenges.json"
+            },
+            {
+              "subTopicId": "polity_subordinate_courts_district_courts_gram_nyayalayas_adrs_nalsa_etc_alternative_dispute_resolution_adr_mediation_act_2023_arbitration_lok_adalats",
+              "subTopicTitle": "Alternative Dispute Resolution (ADR): Mediation Act 2023, Arbitration & Lok Adalats",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/subordinate_courts_district_courts_gram_nyayalayas_adrs_nalsa_etc/alternative_dispute_resolution_adr_mediation_act_2023_arbitration_lok_adalats.json"
+            },
+            {
+              "subTopicId": "polity_subordinate_courts_district_courts_gram_nyayalayas_adrs_nalsa_etc_legal_services_authorities_act_1987_nalsa_free_legal_aid_article_39a_access_to_justice",
+              "subTopicTitle": "Legal Services Authorities Act 1987 & NALSA: Free Legal Aid (Article 39A) & Access to Justice",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/subordinate_courts_district_courts_gram_nyayalayas_adrs_nalsa_etc/legal_services_authorities_act_1987_nalsa_free_legal_aid_article_39a_access_to_justice.json"
+            }
+          ],
           "dataPath_folder": null
         },
         {
@@ -1533,7 +1583,32 @@
           "topicTitle": "Cooperative societies",
           "remarks": "-do-",
           "lectures": "Lecture 41",
-          "subtopics": [],
+          "subtopics": [
+            {
+              "subTopicId": "polity_cooperative_societies_constitutional_framework_97th_caa_2011_article_19_1_c_article_43b_and_part_ix_b",
+              "subTopicTitle": "Constitutional Framework: 97th CAA 2011, Article 19(1)(c), Article 43B, and Part IX-B",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/cooperative_societies/constitutional_framework_97th_caa_2011_article_19_1_c_article_43b_and_part_ix_b.json"
+            },
+            {
+              "subTopicId": "polity_cooperative_societies_judicial_scrutiny_supreme_court_verdict_in_union_of_india_v_rajendra_n_shah_2021",
+              "subTopicTitle": "Judicial Scrutiny: Supreme Court Verdict in Union of India v. Rajendra N. Shah (2021)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/cooperative_societies/judicial_scrutiny_supreme_court_verdict_in_union_of_india_v_rajendra_n_shah_2021.json"
+            },
+            {
+              "subTopicId": "polity_cooperative_societies_multi_state_cooperative_societies_amendment_act_2023_electoral_reforms_in_cooperatives",
+              "subTopicTitle": "Multi-State Cooperative Societies (Amendment) Act 2023 & Electoral Reforms in Cooperatives",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/cooperative_societies/multi_state_cooperative_societies_amendment_act_2023_electoral_reforms_in_cooperatives.json"
+            },
+            {
+              "subTopicId": "polity_cooperative_societies_ministry_of_cooperation_computerization_of_pacs_three_tier_rural_cooperative_credit",
+              "subTopicTitle": "Ministry of Cooperation, Computerization of PACS & Three-Tier Rural Cooperative Credit",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/cooperative_societies/ministry_of_cooperation_computerization_of_pacs_three_tier_rural_cooperative_credit.json"
+            }
+          ],
           "dataPath_folder": null
         },
         {
@@ -1541,7 +1616,32 @@
           "topicTitle": "Languages and related provisions",
           "remarks": "-do-",
           "lectures": "Lecture 42",
-          "subtopics": [],
+          "subtopics": [
+            {
+              "subTopicId": "polity_languages_and_related_provisions_official_language_of_the_union_regional_languages_articles_343_to_347",
+              "subTopicTitle": "Official Language of the Union & Regional Languages (Articles 343 to 347)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/languages_and_related_provisions/official_language_of_the_union_regional_languages_articles_343_to_347.json"
+            },
+            {
+              "subTopicId": "polity_languages_and_related_provisions_language_of_the_supreme_court_high_courts_authoritative_legal_texts_articles_348_to_349",
+              "subTopicTitle": "Language of the Supreme Court, High Courts & Authoritative Legal Texts (Articles 348 to 349)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/languages_and_related_provisions/language_of_the_supreme_court_high_courts_authoritative_legal_texts_articles_348_to_349.json"
+            },
+            {
+              "subTopicId": "polity_languages_and_related_provisions_special_directives_linguistic_minorities_articles_350_350a_350b_development_of_hindi_article_351",
+              "subTopicTitle": "Special Directives: Linguistic Minorities (Articles 350, 350A, 350B) & Development of Hindi (Article 351)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/languages_and_related_provisions/special_directives_linguistic_minorities_articles_350_350a_350b_development_of_hindi_article_351.json"
+            },
+            {
+              "subTopicId": "polity_languages_and_related_provisions_eighth_schedule_languages_classical_language_status_criteria_official_languages_act_1963",
+              "subTopicTitle": "Eighth Schedule Languages, Classical Language Status Criteria & Official Languages Act 1963",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/languages_and_related_provisions/eighth_schedule_languages_classical_language_status_criteria_official_languages_act_1963.json"
+            }
+          ],
           "dataPath_folder": null
         },
         {
@@ -1549,7 +1649,32 @@
           "topicTitle": "Other Constitutional Dimensions; Rights and Liabilities of the government",
           "remarks": "-do-",
           "lectures": "Lecture 43",
-          "subtopics": [],
+          "subtopics": [
+            {
+              "subTopicId": "polity_other_constitutional_dimensions_rights_and_liabilities_of_the_government_suits_and_proceedings_by_or_against_the_union_and_the_states_article_300",
+              "subTopicTitle": "Suits and Proceedings by or against the Union and the States (Article 300)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/other_constitutional_dimensions_rights_and_liabilities_of_the_government/suits_and_proceedings_by_or_against_the_union_and_the_states_article_300.json"
+            },
+            {
+              "subTopicId": "polity_other_constitutional_dimensions_rights_and_liabilities_of_the_government_government_contracts_property_and_obligations_articles_298_to_299",
+              "subTopicTitle": "Government Contracts, Property, and Obligations (Articles 298 to 299)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/other_constitutional_dimensions_rights_and_liabilities_of_the_government/government_contracts_property_and_obligations_articles_298_to_299.json"
+            },
+            {
+              "subTopicId": "polity_other_constitutional_dimensions_rights_and_liabilities_of_the_government_evolution_of_sovereign_immunity_vs_state_tortious_liability_kasturi_lal_to_rudul_sah",
+              "subTopicTitle": "Evolution of Sovereign Immunity vs State Tortious Liability (Kasturi Lal to Rudul Sah)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/other_constitutional_dimensions_rights_and_liabilities_of_the_government/evolution_of_sovereign_immunity_vs_state_tortious_liability_kasturi_lal_to_rudul_sah.json"
+            },
+            {
+              "subTopicId": "polity_other_constitutional_dimensions_rights_and_liabilities_of_the_government_epistolary_jurisdiction_public_interest_litigation_pil_unwritten_constitutional_conventions",
+              "subTopicTitle": "Epistolary Jurisdiction, Public Interest Litigation (PIL) & Unwritten Constitutional Conventions",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/other_constitutional_dimensions_rights_and_liabilities_of_the_government/epistolary_jurisdiction_public_interest_litigation_pil_unwritten_constitutional_conventions.json"
+            }
+          ],
           "dataPath_folder": null
         },
         {
@@ -1557,7 +1682,32 @@
           "topicTitle": "Special Provisions Relating to Certain classes",
           "remarks": "",
           "lectures": "",
-          "subtopics": [],
+          "subtopics": [
+            {
+              "subTopicId": "polity_special_provisions_relating_to_certain_classes_political_reservations_in_lok_sabha_and_legislative_assemblies_articles_330_332_334_104th_caa_2019",
+              "subTopicTitle": "Political Reservations in Lok Sabha and Legislative Assemblies (Articles 330, 332, 334 & 104th CAA 2019)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/special_provisions_relating_to_certain_classes/political_reservations_in_lok_sabha_and_legislative_assemblies_articles_330_332_334_104th_caa_2019.json"
+            },
+            {
+              "subTopicId": "polity_special_provisions_relating_to_certain_classes_claims_of_scs_and_sts_to_public_services_and_scope_of_article_335",
+              "subTopicTitle": "Claims of SCs and STs to Public Services and Scope of Article 335",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/special_provisions_relating_to_certain_classes/claims_of_scs_and_sts_to_public_services_and_scope_of_article_335.json"
+            },
+            {
+              "subTopicId": "polity_special_provisions_relating_to_certain_classes_identification_and_notification_of_socially_and_educationally_backward_classes_102nd_105th_caa",
+              "subTopicTitle": "Identification and Notification of Socially and Educationally Backward Classes: 102nd & 105th CAA",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/special_provisions_relating_to_certain_classes/identification_and_notification_of_socially_and_educationally_backward_classes_102nd_105th_caa.json"
+            },
+            {
+              "subTopicId": "polity_special_provisions_relating_to_certain_classes_constitutional_jurisprudence_on_sub_classification_within_reserved_categories_creamy_layer",
+              "subTopicTitle": "Constitutional Jurisprudence on Sub-classification within Reserved Categories & Creamy Layer",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/special_provisions_relating_to_certain_classes/constitutional_jurisprudence_on_sub_classification_within_reserved_categories_creamy_layer.json"
+            }
+          ],
           "dataPath_folder": null
         },
         {
@@ -1565,7 +1715,44 @@
           "topicTitle": "Elections and political parties, Electoral Funding, Voting, Recent Development, Electoral polities, Representation of People's Act and working of the political system since Independence.",
           "remarks": "Will be covered in detail with Current Judgements",
           "lectures": "Lecture 44",
-          "subtopics": [],
+          "subtopics": [
+            {
+              "subTopicId": "polity_elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence_election_commission_of_india_mandate_independence_chief_election_commissioner_act_2023",
+              "subTopicTitle": "Election Commission of India: Mandate, Independence & Chief Election Commissioner Act 2023",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence/election_commission_of_india_mandate_independence_chief_election_commissioner_act_2023.json"
+            },
+            {
+              "subTopicId": "polity_elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence_representation_of_the_people_act_1950_delimitation_voter_registration_electoral_rolls",
+              "subTopicTitle": "Representation of the People Act 1950: Delimitation, Voter Registration & Electoral Rolls",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence/representation_of_the_people_act_1950_delimitation_voter_registration_electoral_rolls.json"
+            },
+            {
+              "subTopicId": "polity_elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence_representation_of_the_people_act_1951_candidate_qualifications_disqualifications_corrupt_practices_election_petitions",
+              "subTopicTitle": "Representation of the People Act 1951: Candidate Qualifications, Disqualifications, Corrupt Practices & Election Petitions",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence/representation_of_the_people_act_1951_candidate_qualifications_disqualifications_corrupt_practices_election_petitions.json"
+            },
+            {
+              "subTopicId": "polity_elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence_electoral_funding_reforms_electoral_bonds_judgment_electoral_trusts_transparency",
+              "subTopicTitle": "Electoral Funding Reforms: Electoral Bonds Judgment, Electoral Trusts & Transparency",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence/electoral_funding_reforms_electoral_bonds_judgment_electoral_trusts_transparency.json"
+            },
+            {
+              "subTopicId": "polity_elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence_criminalization_of_politics_section_8_of_rpa_1951_political_accountability",
+              "subTopicTitle": "Criminalization of Politics, Section 8 of RPA 1951 & Political Accountability",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence/criminalization_of_politics_section_8_of_rpa_1951_political_accountability.json"
+            },
+            {
+              "subTopicId": "polity_elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence_simultaneous_elections_one_nation_one_election_evm_vvpat_integrity_model_code_of_conduct",
+              "subTopicTitle": "Simultaneous Elections (One Nation One Election), EVM-VVPAT Integrity & Model Code of Conduct",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/elections_and_political_parties_electoral_funding_voting_recent_development_electoral_polities_representation_of_people_s_act_and_working_of_the_political_system_since_independence/simultaneous_elections_one_nation_one_election_evm_vvpat_integrity_model_code_of_conduct.json"
+            }
+          ],
           "dataPath_folder": null
         },
         {
@@ -1573,7 +1760,32 @@
           "topicTitle": "Anti-defection law",
           "remarks": "-do-",
           "lectures": "Lecture 45",
-          "subtopics": [],
+          "subtopics": [
+            {
+              "subTopicId": "polity_anti_defection_law_tenth_schedule_architecture_52nd_caa_1985_91st_caa_2003_disqualification_grounds",
+              "subTopicTitle": "Tenth Schedule Architecture: 52nd CAA 1985, 91st CAA 2003 & Disqualification Grounds",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/anti_defection_law/tenth_schedule_architecture_52nd_caa_1985_91st_caa_2003_disqualification_grounds.json"
+            },
+            {
+              "subTopicId": "polity_anti_defection_law_role_and_discretionary_powers_of_the_presiding_officer_kihoto_hollohan_1992_keisham_meghachandra_2020",
+              "subTopicTitle": "Role and Discretionary Powers of the Presiding Officer: Kihoto Hollohan (1992) & Keisham Meghachandra (2020)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/anti_defection_law/role_and_discretionary_powers_of_the_presiding_officer_kihoto_hollohan_1992_keisham_meghachandra_2020.json"
+            },
+            {
+              "subTopicId": "polity_anti_defection_law_mergers_splits_and_legal_loopholes_analysis_of_recent_political_crises_maharashtra_verdict_2023",
+              "subTopicTitle": "Mergers, Splits, and Legal Loopholes: Analysis of Recent Political Crises & Maharashtra Verdict (2023)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/anti_defection_law/mergers_splits_and_legal_loopholes_analysis_of_recent_political_crises_maharashtra_verdict_2023.json"
+            },
+            {
+              "subTopicId": "polity_anti_defection_law_institutional_recommendations_for_anti_defection_reforms_dinesh_goswami_ncrwc_law_commission",
+              "subTopicTitle": "Institutional Recommendations for Anti-Defection Reforms: Dinesh Goswami, NCRWC & Law Commission",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/anti_defection_law/institutional_recommendations_for_anti_defection_reforms_dinesh_goswami_ncrwc_law_commission.json"
+            }
+          ],
           "dataPath_folder": null
         },
         {
@@ -1581,7 +1793,32 @@
           "topicTitle": "Public Services & Posts like Cabinet Secretary, Chief Secretary etc.",
           "remarks": "-do-",
           "lectures": "Lecture 46",
-          "subtopics": [],
+          "subtopics": [
+            {
+              "subTopicId": "polity_public_services_posts_like_cabinet_secretary_chief_secretary_etc_constitutional_status_of_civil_services_articles_308_to_314_doctrine_of_pleasure_article_311_safeguards",
+              "subTopicTitle": "Constitutional Status of Civil Services: Articles 308 to 314, Doctrine of Pleasure & Article 311 Safeguards",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/public_services_posts_like_cabinet_secretary_chief_secretary_etc/constitutional_status_of_civil_services_articles_308_to_314_doctrine_of_pleasure_article_311_safeguards.json"
+            },
+            {
+              "subTopicId": "polity_public_services_posts_like_cabinet_secretary_chief_secretary_etc_cabinet_secretary_role_mandate_cabinet_secretariat_coordination_of_union_administration",
+              "subTopicTitle": "Cabinet Secretary: Role, Mandate, Cabinet Secretariat & Coordination of Union Administration",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/public_services_posts_like_cabinet_secretary_chief_secretary_etc/cabinet_secretary_role_mandate_cabinet_secretariat_coordination_of_union_administration.json"
+            },
+            {
+              "subTopicId": "polity_public_services_posts_like_cabinet_secretary_chief_secretary_etc_chief_secretary_pivot_of_state_administration_relations_with_chief_minister_crisis_management",
+              "subTopicTitle": "Chief Secretary: Pivot of State Administration, Relations with Chief Minister & Crisis Management",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/public_services_posts_like_cabinet_secretary_chief_secretary_etc/chief_secretary_pivot_of_state_administration_relations_with_chief_minister_crisis_management.json"
+            },
+            {
+              "subTopicId": "polity_public_services_posts_like_cabinet_secretary_chief_secretary_etc_civil_services_reforms_2nd_arc_recommendations_mission_karmayogi_the_lateral_entry_paradigm",
+              "subTopicTitle": "Civil Services Reforms: 2nd ARC Recommendations, Mission Karmayogi & The Lateral Entry Paradigm",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/public_services_posts_like_cabinet_secretary_chief_secretary_etc/civil_services_reforms_2nd_arc_recommendations_mission_karmayogi_the_lateral_entry_paradigm.json"
+            }
+          ],
           "dataPath_folder": null
         },
         {
@@ -1589,7 +1826,32 @@
           "topicTitle": "Current Affairs",
           "remarks": "-do-",
           "lectures": "Lecture 47",
-          "subtopics": [],
+          "subtopics": [
+            {
+              "subTopicId": "polity_current_affairs_landmark_constitution_bench_verdicts_article_370_abrogation_federalism_dynamics",
+              "subTopicTitle": "Landmark Constitution Bench Verdicts: Article 370 Abrogation & Federalism Dynamics",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/current_affairs/landmark_constitution_bench_verdicts_article_370_abrogation_federalism_dynamics.json"
+            },
+            {
+              "subTopicId": "polity_current_affairs_evolving_federal_jurisprudence_governor_s_assent_to_bills_article_200_federal_relations",
+              "subTopicTitle": "Evolving Federal Jurisprudence: Governor's Assent to Bills (Article 200) & Federal Relations",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/current_affairs/evolving_federal_jurisprudence_governor_s_assent_to_bills_article_200_federal_relations.json"
+            },
+            {
+              "subTopicId": "polity_current_affairs_digital_rights_privacy_jurisprudence_interplay_with_rti_digital_personal_data_protection_act_2023",
+              "subTopicTitle": "Digital Rights, Privacy Jurisprudence & Interplay with RTI (Digital Personal Data Protection Act 2023)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/current_affairs/digital_rights_privacy_jurisprudence_interplay_with_rti_digital_personal_data_protection_act_2023.json"
+            },
+            {
+              "subTopicId": "polity_current_affairs_gender_parity_political_empowerment_nari_shakti_vandan_adhiniyam_106th_caa_2023",
+              "subTopicTitle": "Gender Parity & Political Empowerment: Nari Shakti Vandan Adhiniyam (106th CAA 2023)",
+              "sourcePage": 12,
+              "dataPath": "subjects/polity/topics/current_affairs/gender_parity_political_empowerment_nari_shakti_vandan_adhiniyam_106th_caa_2023.json"
+            }
+          ],
           "dataPath_folder": null
         },
         {
