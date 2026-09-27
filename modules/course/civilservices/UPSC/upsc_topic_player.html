@@ -249,21 +249,119 @@
         .breadcrumbs {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             font-size: 12.5px;
             color: var(--text-muted);
-            margin-bottom: 16px;
+            margin-bottom: 18px;
             flex-wrap: wrap;
+            position: relative;
         }
 
-        .breadcrumbs a {
+        .breadcrumb-link {
             color: var(--primary);
             text-decoration: none;
             font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: transparent;
+            transition: all 0.15s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
         }
 
-        .breadcrumbs a:hover {
-            text-decoration: underline;
+        .breadcrumb-link:hover {
+            background: #eff6ff;
+            color: var(--primary-dark);
+            border-color: #bfdbfe;
+        }
+
+        .breadcrumb-link.active-crumb {
+            color: var(--text-dark);
+            font-weight: 800;
+            background: #f1f5f9;
+            border-color: #e2e8f0;
+        }
+
+        .crumb-separator {
+            color: #94a3b8;
+            font-size: 13px;
+            user-select: none;
+        }
+
+        .crumb-chevron {
+            font-size: 10px;
+            color: var(--text-muted);
+            transition: transform 0.15s ease;
+        }
+
+        .breadcrumb-dropdown-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .crumb-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            z-index: 100;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+            min-width: 280px;
+            max-width: 360px;
+            max-height: 380px;
+            overflow-y: auto;
+            padding: 6px;
+            display: none;
+        }
+
+        .crumb-dropdown-menu.show {
+            display: block;
+        }
+
+        .crumb-dropdown-header {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 8px 12px 6px;
+            border-bottom: 1px solid #f1f5f9;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .crumb-dropdown-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.12s ease;
+            cursor: pointer;
+            line-height: 1.35;
+        }
+
+        .crumb-dropdown-item:hover {
+            background: #eff6ff;
+            color: var(--primary);
+        }
+
+        .crumb-dropdown-item.active {
+            background: #eff6ff;
+            color: var(--primary);
+            font-weight: 700;
         }
 
         /* Hero */
@@ -640,15 +738,33 @@
 
             <!-- BREADCRUMBS -->
             <div class="breadcrumbs">
-                <a href="../courses_civilservices.html">Civil Services</a>
-                <span>&rsaquo;</span>
-                <a href="upsc_course_hub.html">UPSC Hub</a>
-                <span>&rsaquo;</span>
-                <span id="crumbSubject" style="color:#64748b;">Subject</span>
-                <span>&rsaquo;</span>
-                <span id="crumbTopic" style="color:#64748b;">Topic</span>
-                <span>&rsaquo;</span>
-                <strong id="crumbSubtopic" style="color:var(--text-dark);">Sub-Topic</strong>
+                <a href="../courses_civilservices.html" class="breadcrumb-link">Civil Services</a>
+                <span class="crumb-separator">&rsaquo;</span>
+                <a href="upsc_course_hub.html" class="breadcrumb-link">UPSC Hub</a>
+                <span class="crumb-separator">&rsaquo;</span>
+                
+                <!-- Clickable Subject Link -->
+                <a id="crumbSubject" href="upsc_course_hub.html" class="breadcrumb-link" title="Open Subject Hub">Subject</a>
+                <span class="crumb-separator">&rsaquo;</span>
+
+                <!-- Clickable Topic Dropdown -->
+                <div class="breadcrumb-dropdown-wrapper">
+                    <a href="javascript:void(0)" class="breadcrumb-link" id="crumbTopic" onclick="toggleTopicDropdown(event)" title="Click to view all topics in this subject">
+                        <span id="crumbTopicText">Topic</span>
+                        <span class="crumb-chevron">▾</span>
+                    </a>
+                    <div id="crumbTopicDropdown" class="crumb-dropdown-menu"></div>
+                </div>
+                <span class="crumb-separator">&rsaquo;</span>
+
+                <!-- Clickable Sub-Topic Dropdown -->
+                <div class="breadcrumb-dropdown-wrapper">
+                    <a href="javascript:void(0)" class="breadcrumb-link active-crumb" id="crumbSubtopic" onclick="toggleSubtopicDropdown(event)" title="Click to switch sub-topics in this module">
+                        <span id="crumbSubtopicText">Sub-Topic</span>
+                        <span class="crumb-chevron">▾</span>
+                    </a>
+                    <div id="crumbSubtopicsDropdown" class="crumb-dropdown-menu"></div>
+                </div>
             </div>
 
             <!-- HERO SECTION -->
@@ -973,10 +1089,129 @@
             renderData(data);
         }
 
+        let CURRENT_DATA = null;
+        let CURRENT_TOPIC_ID = '';
+
+        function toggleTopicDropdown(e) {
+            e.stopPropagation();
+            const dropdown = document.getElementById('crumbTopicDropdown');
+            const subDropdown = document.getElementById('crumbSubtopicsDropdown');
+            if (subDropdown) subDropdown.classList.remove('show');
+
+            if (dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+                return;
+            }
+
+            if (!CURRENT_SUBJECT || !CURRENT_SUBJECT.topics) return;
+
+            dropdown.innerHTML = `
+                <div class="crumb-dropdown-header">
+                    <span>${CURRENT_SUBJECT.subjectTitle} • Topics</span>
+                    <a href="upsc_course_hub.html?subject=${encodeURIComponent(CURRENT_SUBJECT.subjectId)}" style="color:var(--primary); font-size:11px; text-decoration:none; font-weight:700;">View in Hub &rarr;</a>
+                </div>
+                ${CURRENT_SUBJECT.topics.map((t, idx) => {
+                    const isCurrent = (CURRENT_TOPIC_ID && CURRENT_TOPIC_ID === t.topicId) || (CURRENT_DATA && CURRENT_DATA.topicTitle === t.topicTitle);
+                    const firstSub = t.subtopics && t.subtopics[0];
+                    const dataPath = firstSub ? encodeURIComponent(firstSub.dataPath || '') : '';
+                    const subId = firstSub ? firstSub.subTopicId : '';
+                    return `
+                        <div class="crumb-dropdown-item ${isCurrent ? 'active' : ''}" onclick="selectTopicFromBreadcrumb('${dataPath}', '${CURRENT_SUBJECT.subjectId}', '${t.topicId}', '${subId}')">
+                            <span>${idx + 1}. ${t.topicTitle}</span>
+                            <span style="font-size:10.5px; color:#94a3b8; font-weight:700;">${t.subtopics ? t.subtopics.length : 0}</span>
+                        </div>
+                    `;
+                }).join('')}
+            `;
+
+            dropdown.classList.add('show');
+        }
+
+        function selectTopicFromBreadcrumb(dataPath, subjectId, topicId, subTopicId) {
+            document.getElementById('crumbTopicDropdown').classList.remove('show');
+            toggleTopicAccordion(topicId);
+            if (dataPath && subTopicId) {
+                switchSubtopic(dataPath, subjectId, topicId, subTopicId);
+            }
+        }
+
+        function toggleSubtopicDropdown(e) {
+            e.stopPropagation();
+            const dropdown = document.getElementById('crumbSubtopicsDropdown');
+            const topicDropdown = document.getElementById('crumbTopicDropdown');
+            if (topicDropdown) topicDropdown.classList.remove('show');
+
+            if (dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+                return;
+            }
+
+            if (!CURRENT_SUBJECT || !CURRENT_SUBJECT.topics) return;
+
+            // Find current topic
+            const topic = CURRENT_SUBJECT.topics.find(t => 
+                t.topicId === CURRENT_TOPIC_ID || 
+                (CURRENT_DATA && t.topicTitle === CURRENT_DATA.topicTitle) ||
+                (t.subtopics && t.subtopics.some(st => st.subTopicId === CURRENT_SUBTOPIC_ID))
+            ) || CURRENT_SUBJECT.topics[0];
+
+            if (!topic || !topic.subtopics) return;
+
+            dropdown.innerHTML = `
+                <div class="crumb-dropdown-header">
+                    <span>${topic.topicTitle} • Micro-Topics</span>
+                    <span style="font-size:10.5px; color:#94a3b8; font-weight:700;">${topic.subtopics.length} Total</span>
+                </div>
+                ${topic.subtopics.map((st, idx) => {
+                    const isCurrent = CURRENT_SUBTOPIC_ID === st.subTopicId || (CURRENT_DATA && CURRENT_DATA.subTopicTitle === st.subTopicTitle);
+                    return `
+                        <div class="crumb-dropdown-item ${isCurrent ? 'active' : ''}" onclick="selectSubtopicFromBreadcrumb('${encodeURIComponent(st.dataPath || '')}', '${CURRENT_SUBJECT.subjectId}', '${topic.topicId}', '${st.subTopicId}')">
+                            <span>&bull; ${st.subTopicTitle}</span>
+                            ${isCurrent ? '<span style="font-size:10px; color:var(--primary); font-weight:800;">✓ Active</span>' : ''}
+                        </div>
+                    `;
+                }).join('')}
+            `;
+
+            dropdown.classList.add('show');
+        }
+
+        function selectSubtopicFromBreadcrumb(dataPath, subjectId, topicId, subTopicId) {
+            document.getElementById('crumbSubtopicsDropdown').classList.remove('show');
+            switchSubtopic(dataPath, subjectId, topicId, subTopicId);
+        }
+
+        // Close dropdowns on outside click
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.breadcrumb-dropdown-wrapper')) {
+                const d1 = document.getElementById('crumbTopicDropdown');
+                const d2 = document.getElementById('crumbSubtopicsDropdown');
+                if (d1) d1.classList.remove('show');
+                if (d2) d2.classList.remove('show');
+            }
+        });
+
         function renderData(d) {
-            document.getElementById('crumbSubject').innerText = d.subjectTitle || 'Subject';
-            document.getElementById('crumbTopic').innerText = d.topicTitle || 'Topic';
-            document.getElementById('crumbSubtopic').innerText = d.subTopicTitle || 'Sub-Topic';
+            CURRENT_DATA = d;
+            const params = getQueryParams();
+            const subjectId = params.subject || (CURRENT_SUBJECT ? CURRENT_SUBJECT.subjectId : 'polity');
+            if (params.topic) CURRENT_TOPIC_ID = params.topic;
+
+            const crumbSubj = document.getElementById('crumbSubject');
+            if (crumbSubj) {
+                crumbSubj.innerText = d.subjectTitle || (CURRENT_SUBJECT ? CURRENT_SUBJECT.subjectTitle : 'Subject');
+                crumbSubj.href = `upsc_course_hub.html?subject=${encodeURIComponent(subjectId)}`;
+            }
+
+            const crumbTop = document.getElementById('crumbTopicText');
+            if (crumbTop) {
+                crumbTop.innerText = d.topicTitle || 'Topic';
+            }
+
+            const crumbSub = document.getElementById('crumbSubtopicText');
+            if (crumbSub) {
+                crumbSub.innerText = d.subTopicTitle || 'Sub-Topic';
+            }
 
             document.getElementById('pageSubjectBadge').innerText = (d.subjectTitle || 'CIVIL SERVICES').toUpperCase();
             document.getElementById('pageSubtopicTitle').innerText = d.subTopicTitle || '';
