@@ -1,0 +1,106 @@
+{
+  "microTopicId": "science_tech_s_t_current_affairs_genetics_dna_and_rna_etc",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_s_t_current_affairs",
+  "topicTitle": "S&T Current Affairs",
+  "subTopicTitle": "Genetics – DNA AND RNA etc.",
+  "syllabusMapping": {
+    "prelims": "General Science, Developments in Science and Technology and their applications and effects in everyday life (DNA, RNA, Gene Editing, mRNA technologies, Epigenetics).",
+    "mains": "GS Paper III - Science and Technology- awareness in the fields of IT, Space, Computers, robotics, nano-technology, bio-technology and issues relating to intellectual property rights."
+  },
+  "lectureHoursEstimate": "Lecture 10, 11 & 12",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Recent advancements in genetics encompass mRNA vaccine platforms, CRISPR-Cas9/Cas12 gene-editing modalities, RNA interference (RNAi), and comprehensive genomic sequencing initiatives like the Earth BioGenome Project and IndiGen. These technologies leverage the manipulation of nucleic acids (DNA and RNA) for precision therapeutics, synthetic biology, and molecular diagnostics.",
+    "highYieldFacts": [
+      "Fact 1: mRNA (messenger RNA) vaccines utilize lipid nanoparticles (LNPs) to deliver synthetic transcripts coding for specific antigens without integrating into the host nuclear genome.",
+      "Fact 2: The IndiGen Programme, coordinated by CSIR-IGIB, completed whole-genome sequencing of 1,029 young Indians to establish a baseline indigenous genetic variant database for precision medicine.",
+      "Fact 3: CRISPR-Cas systems are derived from adaptive bacterial immune systems, utilizing guide RNA (gRNA) to direct Cas endonuclease to precise genomic loci for cleavage or base editing.",
+      "Fact 4: The Biotechnology Industry Research Assistance Council (BIRAC) under the Department of Biotechnology (DBT) funds translational research in advanced genetic therapeutics and diagnostics.",
+      "Fact 5: The National Guidelines for Stem Cell Research (2017) and Ethical Guidelines for Biomedical Research on Human Participants regulate gene therapy trials in India under ICMR and CDSCO frameworks."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing DNA modification with mRNA vaccination—mRNA does not alter host nuclear DNA or cause insertional mutagenesis as it degrades naturally in the cytoplasm.",
+      "Trap 2: Assuming CRISPR-Cas9 is restricted to human genome editing; its applications span agriculture (CRISPR-edited crops), industrial microbiology, and anti-microbial vectors."
+    ],
+    "keyArticlesOrStatutes": [
+      "National Biotechnology Development Strategy",
+      "Drugs and Cosmetics Act, 1940 (and New Drugs and Clinical Trials Rules, 2019)",
+      "Biological Diversity Act, 2002"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution of Genetics: From Central Dogma to Synthetic Biology</h3><p>The contemporary landscape of genetics and molecular biology has transcended classical Mendelian inheritance and the traditional Crick Central Dogma (DNA to RNA to Protein). With the advent of high-throughput Next-Generation Sequencing (NGS), CRISPR-based gene editing, and stable messenger RNA (mRNA) delivery platforms, genetic engineering has shifted from observational science to programmable molecular engineering.</p><h3>Technological Paradigms: DNA, RNA, and Epigenetics</h3><p><strong>1. DNA-level Interventions:</strong> Genome editing tools such as CRISPR-Cas9, base editors, and prime editors allow precise modification of single-nucleotide polymorphisms (SNPs) implicated in monogenic disorders like sickle cell anemia and thalassemia. The therapeutic validation of Cas9 has opened pathways for curative somatic gene therapies.</p><p><strong>2. RNA-level Interventions:</strong> RNA technologies, catalyzed by the success of lipid nanoparticle-encapsulated mRNA vaccines, allow transient protein expression without permanent genomic changes. Furthermore, Small Interfering RNA (siRNA) and Antisense Oligonucleotides (ASOs) exploit RNA interference pathways to silence pathological gene expressions at the post-transcriptional level.</p><p><strong>3. Epigenetic Modifications:</strong> Beyond nucleic acid sequences, epigenetics studies heritable changes in gene expression without altering the underlying DNA sequence—principally DNA methylation and histone modification. Epigenetic clocks and therapies are now emerging as targets for aging and oncological interventions.</p><h3>Strategic and Governance Imperatives for India</h3><p>India holds a critical stake in the global genetics revolution. Programs like <strong>Genomics India Initiative (UGI)</strong> aiming to sequence 10,000 Indian genomes provide the necessary population-specific genomic database essential for pharmacogenomics. However, challenges persist: ethical dilemmas surrounding germline editing (heritable genetic modifications), data privacy concerns regarding bio-banks, equitable access to exorbitant gene therapies (such as CAR-T cell therapy and CRISPR treatments), and biosafety regulations regarding genetically modified organisms (GMOs).</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Intersection with Article 21 (Right to Life and Health), data privacy under Puttaswamy judgment regarding genomic data, and ethical boundaries of germline editing under international conventions.",
+      "socio_economic": "Out-of-pocket expenditure for ultra-rare disease treatments; risk of genetic discrimination in insurance and employment; widening global health equity gaps between North and South.",
+      "administrative_governance": "Dual regulatory oversight by the Genetic Engineering Appraisal Committee (GEAC) under MoEFCC and the Central Drugs Standard Control Organization (CDSCO) under MoHFW, requiring streamlined single-window clearance.",
+      "international_or_comparative": "WHO Global Guidance Framework for the Governance of Clinical Evaluation of Human Genome Editing; Oviedo Bioethics Convention norms."
+    },
+    "landmarkJudgmentsOrReports": [
+      "K.S. Puttaswamy v. Union of India (2017) – Right to Privacy and Genomic Data Protection",
+      "Parliamentary Standing Committee on Science and Technology Reports on Genome Editing",
+      "ICMR Ethical Guidelines for Biomedical Research Involving Human Participants"
+    ],
+    "structuredDiagramAscii": "[Genomic Data Acquisition] --> [Bioinformatics & AI Analysis (IndiGen/UGI)]\n                                      |\n         +----------------------------+----------------------------+\n         |                                                         |\n[Somatic Gene Therapy (CRISPR)]                   [RNA Therapeutics (mRNA/siRNA)]\n         |                                                         |\n[Clinical Trial Phase (CDSCO/ICMR)]               [Industrial Biomanufacturing (BIRAC)]\n         |                                                         |\n         +----------------------------+----------------------------+\n                                      |\n                         [Ethical, Legal & Social Implications (ELSI)]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "With reference to the recent developments regarding 'Recombinant Vector Vaccines', consider the following statements: 1. The genetic material for the pathogen is introduced into the cells of the organism using a modified virus. 2. Infusion of these vaccines leads to genetic mutation in the host DNA. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "1 only",
+        "explanation": "Statement 1 is correct: Recombinant vector vaccines use a modified, harmless virus (vector) to deliver genetic material encoding specific antigens. Statement 2 is incorrect because the introduced genetic material does not integrate into the host nuclear DNA or cause genetic mutations; it remains in the cytoplasm to direct antigen synthesis."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "What is genome sequencing and what are its uses? How has it helped in the understanding of infections and diseases in recent times?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the transformative potential of modern genetic technologies such as CRISPR-Cas9 and mRNA platforms in healthcare and agriculture. What are the key ethical, regulatory, and security challenges associated with their deployment in India? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define modern genetics (gene editing, mRNA platforms) and highlight India's proactive steps (Genomics India Initiative, IndiGen).",
+      "body": "Discuss applications in healthcare (rare disease therapy, oncology) and agriculture (climate-resilient crops). Detail challenges: ethical concerns of germline editing, regulatory overlap (GEAC vs CDSCO), data security, and high costs. Provide mitigation strategies.",
+      "conclusion": "Conclude with a balanced perspective emphasizing responsible innovation, robust ethical frameworks, and affordable access aligned with SDG 3 (Good Health and Well-being)."
+    },
+    "modelAnswerHtml": "<p>Recent breakthroughs in molecular biology, particularly <strong>CRISPR-Cas9 gene editing</strong> and <strong>mRNA technology</strong>, have revolutionized medicine and agriculture by enabling programmable modifications of DNA and RNA. India, through initiatives like the <strong>IndiGen Programme</strong> and the <strong>Genomics India Initiative (UGI)</strong>, is laying the groundwork for precision healthcare.</p><h3>Transformative Potential of Genetic Technologies</h3><ul><li><strong>Healthcare & Therapeutics:</strong> Somatic cell gene editing offers curative potential for monogenic disorders such as sickle cell anemia and beta-thalassemia. mRNA platforms enable rapid vaccine development against infectious pathogens and personalized cancer immunotherapies (CAR-T cell therapy).</li><li><strong>Agriculture & Food Security:</strong> Precision genome editing (SDN-1 and SDN-2) allows the development of climate-resilient, pest-resistant, and bio-fortified crop varieties without introducing foreign genes, boosting agricultural productivity.</li></ul><h3>Key Challenges in Deployment</h3><ul><li><strong>Ethical and Safety Dilemmas:</strong> Germline (embryo) editing carries risks of off-target mutations and heritable unintended consequences, raising severe bioethical concerns regarding 'designer babies'.</li><li><strong>Regulatory Complexity:</strong> Governance is currently fragmented across multiple bodies such as the Genetic Engineering Appraisal Committee (GEAC), Department of Biotechnology (DBT), and CDSCO, leading to clearance bottlenecks.</li><li><strong>Data Privacy and Biosecurity:</strong> Large-scale genomic sequencing generates sensitive biometric data vulnerable to commercial exploitation, genetic discrimination, and potential biosecurity risks.</li><li><strong>Equity and Affordability:</strong> Advanced genetic therapies are prohibitively expensive, risking a healthcare divide where life-saving innovations remain inaccessible to vulnerable socio-economic strata.</li></ul><h3>Way Forward</h3><p>India requires a unified <strong>National Gene Editing and Genomics Regulatory Authority</strong> to provide single-window clearances adhering to strict ethical protocols. Furthermore, fostering indigenous biotech manufacturing through public-private partnerships via BIRAC will reduce costs, ensuring that the fruits of genetic revolutions translate into equitable public health and agricultural outcomes.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding mRNA vaccine technology: 1. mRNA vaccines enter the cell nucleus to alter the DNA sequence for long-term immunity. 2. Lipid nanoparticles (LNPs) are utilized to protect fragile mRNA molecules and facilitate cellular uptake. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect: mRNA does not enter the cell nucleus or integrate into host DNA; it operates entirely within the cytoplasm. Statement 2 is correct: Lipid nanoparticles protect the mRNA from enzymatic degradation and assist its transport across the cell membrane."
+    },
+    {
+      "id": "mcq_02",
+      "question": "In the context of modern biotechnology, what does the term 'CRISPR-Cas9' refer to?",
+      "options": [
+        "A novel high-throughput sequencing method for whole genomes.",
+        "A molecular tool derived from bacterial immune systems used for targeted gene editing.",
+        "A synthetic artificial chromosome used in biomanufacturing insulin.",
+        "An RNA interference technique used exclusively for silencing viral RNA."
+      ],
+      "answer": "A molecular tool derived from bacterial immune systems used for targeted gene editing.",
+      "explanation": "CRISPR (Clustered Regularly Interspaced Short Palindromic Repeats) and Cas9 (CRISPR-associated protein 9) constitute an adaptive immune system in bacteria adapted by scientists as a precise molecular scissors for genome editing."
+    }
+  ]
+}

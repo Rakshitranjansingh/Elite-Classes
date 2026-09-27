@@ -1,0 +1,107 @@
+{
+  "microTopicId": "polity_elections_in_india_electoral_bonds",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_elections_in_india",
+  "topicTitle": "Elections in India",
+  "subTopicTitle": "Electoral Bonds",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc. (Focus on Electoral Reforms and Political Funding)",
+    "mains": "GS Paper II - Salient features of the Representation of People's Act, Appointment to various Constitutional posts, Powers, Functions and Responsibilities of various Constitutional Bodies"
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Electoral Bonds were introduced as interest-free financial instruments designed to clean up political funding in India by replacing opaque cash donations with banking channels while maintaining donor anonymity. However, the Supreme Court of India struck down the scheme in February 2024, declaring it unconstitutional for violating the voter's right to information under Article 19(1)(a).",
+    "highYieldFacts": [
+      "Fact 1: Introduced via the Finance Act, 2017, which amended the Representation of the People Act, 1951, the Income Tax Act, 1961, and the Companies Act, 2013.",
+      "Fact 2: Issued exclusively by the State Bank of India (SBI) in denominations ranging from Rs. 1,000 to Rs. 1 crore.",
+      "Fact 3: Eligible recipient parties had to be registered under Section 29A of the RPA, 1951, and secure not less than 1% of votes polled in the last Lok Sabha or State Legislative Assembly elections.",
+      "Fact 4: The Finance Act, 2017 removed the 7% cap on net profits of companies for political donations and eliminated the mandatory disclosure of donor names in profit and loss statements.",
+      "Fact 5: In Association for Democratic Reforms (ADR) v. Union of India (February 2024), a 5-judge Constitution Bench unanimously declared the scheme unconstitutional."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming electoral bonds could be purchased by any individual or entity globally—actually, only Indian citizens or entities incorporated/established in India could purchase them.",
+      "Trap 2: Believing the Election Commission of India (ECI) maintained the central database of bond purchasers—the data was held exclusively by the SBI and kept confidential from the ECI."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 19(1)(a) of the Constitution of India (Freedom of Speech and Expression encompassing Right to Information)",
+      "Section 29C of the Representation of the People Act, 1951",
+      "Section 182 of the Companies Act, 2013",
+      "Finance Act, 2017"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Architecture of Electoral Bonds</h3><p>Political funding in India has historically been plagued by opacity, with a heavy reliance on unaccounted cash ('black money'). To address this, the Union Budget 2017 introduced the Electoral Bonds Scheme, operationalized through amendments enacted via the Finance Act, 2017. These bonds functioned as promissory notes that any citizen or corporate entity could purchase from authorized SBI branches. The core premise was to incentivize donors to move away from cash by offering complete anonymity from the public and political opponents, thereby shielding them from victimization, while ensuring that the transaction still routed through the formal banking system via KYC-compliant accounts.</p><h3>Controversies and Structural Critiques</h3><p>Despite the stated objective of cleansing political finance, the scheme invited severe multi-dimensional criticism from civil society organizations, the Election Commission, and the Reserve Bank of India (RBI). Critics argued that the anonymity clause fundamentally subverted participatory democracy by violating citizens' Right to Know—a derivative of Freedom of Speech under Article 19(1)(a). Furthermore, the removal of the corporate donation cap (which previously restricted donations to 7.5% of a company's three-year average net profit) and the abolition of the requirement for companies to disclose the names of political parties they funded in their profit and loss accounts opened floodgates for corporate lobbying, shell companies, and quid pro quo arrangements. The RBI had explicitly warned that the scheme could be misused for money laundering and the creation of shell corporations.</p><h3>The Landmark Judicial Intervention (2024)</h3><p>In the landmark verdict of <em>Association for Democratic Reforms (ADR) v. Union of India</em> (February 2024), the Supreme Court struck down the Electoral Bonds Scheme and corresponding legal amendments. The apex court ruled that informational asymmetry in political funding disproportionately favors the ruling party and violates free and fair elections, which form part of the basic structure of the Constitution. The Court directed the SBI to stop issuing bonds immediately and disclose all historical purchase and redemption data to the Election Commission, which subsequently published the information in the public domain.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Violation of Article 19(1)(a) (Right to Information regarding political funding), infringement of the principle of free and fair elections, and bypassing of the Money Bill route for legislative amendments.",
+      "socio_economic": "Deepened economic inequality in the political sphere by facilitating unhindered corporate funding, potential crony capitalism, and the erosion of level playing fields for smaller regional parties.",
+      "administrative_governance": "Concentration of data with a single commercial bank (SBI) rather than the statutory election regulator (ECI), weakening institutional checks and balances.",
+      "international_or_comparative": "Contrasted with global best practices in mature democracies (such as the US, UK, and Germany) where stringent disclosure norms, public funding, or strict contribution ceilings maintain transparency."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Association for Democratic Reforms (ADR) v. Union of India (2024)",
+      "Common Cause v. Union of India (1996) on transparency in political funding",
+      "2nd Administrative Reforms Commission (ARC) Report on Ethics in Governance",
+      "Law Commission of India Report No. 255 on Electoral Reforms"
+    ],
+    "structuredDiagramAscii": "Donor (Citizen/Corporate) --[KYC Compliant]--> State Bank of India (SBI) --[Interest-free Bearer Bond]--> Political Party --[Encashment within 15 days via designated account]--> Electoral Funding Cycle (Now Strikingly Voided by SC 2024)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2019,
+        "question": "What is/are the purpose/purposes of 'Government Electoral Bonds' that were recently issued in the country?",
+        "options": [
+          "1. To bring about transparency in political funding of political parties.",
+          "2. To replace cash donations with banking channels for transparency.",
+          "3. To ensure total anonymity of donors from public disclosure."
+        ],
+        "answer": "1, 2 and 3",
+        "explanation": "Electoral bonds were designed to channel white money into political funding through banking channels while keeping donor identities confidential from the public."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2017,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Transparent elections are the bedrock of democracy. In this context, evaluate the impact of electoral funding reforms on the democratic polity of India."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Analyze the constitutional validity and governance implications of the Electoral Bonds Scheme in light of the recent Supreme Court judgment. Discuss alternative models for transparent political funding in India. (250 words, 15 marks)",
+    "approach": {
+      "intro": "Define electoral bonds briefly and state the context of the 2024 Supreme Court verdict striking them down.",
+      "body": "Examine constitutional grounds for rejection (Article 19(1)(a), transparency), evaluate governance implications (crony capitalism, informational asymmetry), and suggest alternative reforms (state funding, national election fund, strict disclosure).",
+      "conclusion": "Conclude with an emphasis on clean money, democratic integrity, and the necessity of robust institutional oversight."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The Electoral Bonds Scheme, introduced via the Finance Act, 2017, aimed to clean political financing by replacing cash with banking instruments. However, in <em>Association for Democratic Reforms v. Union of India (2024)</em>, a 5-judge Constitution Bench struck down the scheme as unconstitutional, setting a watershed moment for Indian electoral jurisprudence.</p><h3>Constitutional Validity and Governance Implications</h3><ul><li><strong>Infringement of Article 19(1)(a):</strong> The Supreme Court held that the right to information includes financial contributions to political parties, as voters need this data to make informed electoral choices. Complete anonymity violated this fundamental right.</li><li><strong>Crony Capitalism and Quid Pro Quo:</strong> The removal of the 7% corporate profit cap and elimination of donor disclosure requirements under the Companies Act opened avenues for unchecked corporate lobbying and shell companies funneling funds.</li><li><strong>Level Playing Field:</strong> Unmonitored, massive funding tilted the electoral balance heavily in favor of ruling parties, subverting the principle of free and fair elections—a pillar of the basic structure.</li><li><strong>Institutional Bypass:</strong> Routing bonds exclusively through the SBI without oversight or data sharing with the Election Commission of India (ECI) weakened multi-agency democratic governance.</li></ul><h3>Alternative Pathways for Transparent Political Funding</h3><ul><li><strong>State Funding of Elections:</strong> Implementing recommendations of the Indrajit Gupta Committee and Law Commission (Report No. 255) regarding partial state funding in kind (e.g., fuel, airtime, electoral rolls) to curb black money.</li><li><strong>National Election Fund:</strong> Establishing a transparent, centralized pool where corporate and individual donors contribute, with funds distributed to parties based on vote-share formulas by the ECI.</li><li><strong>Strict Disclosure and Cap Enforcement:</strong> Restoring corporate donation ceilings and enforcing mandatory, real-time digital disclosures of all contributions exceeding nominal thresholds.</li></ul><h3>Conclusion</h3><p>Electoral integrity requires a delicate balance between donor privacy and citizen transparency. Dismantling the electoral bonds scheme vindicated constitutional morality; the way forward demands comprehensive legislative reform anchored in transparency, accountability, and a level political playing field.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to Electoral Bonds in India, consider the following statements:\n1. Electoral bonds were issued by the Reserve Bank of India on behalf of the Central Government.\n2. Any political party registered under Section 29A of the Representation of the People Act, 1951, was eligible to receive electoral bonds regardless of vote share.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Neither 1 nor 2",
+      "explanation": "Statement 1 is incorrect because Electoral Bonds were issued exclusively by the State Bank of India (SBI), not the RBI. Statement 2 is incorrect because only parties registered under Section 29A that secured at least 1% of the votes polled in the last Lok Sabha or State Assembly elections were eligible to receive electoral bonds."
+    },
+    {
+      "id": "mcq_02",
+      "question": "In the landmark February 2024 judgment on Electoral Bonds, the Supreme Court of India struck down the scheme primarily on the grounds of violating which of the following constitutional provisions?",
+      "options": [
+        "Article 14 (Right to Equality)",
+        "Article 19(1)(a) (Freedom of Speech and Expression encompassing Right to Information)",
+        "Article 21 (Protection of Life and Personal Liberty)",
+        "Article 324 (Powers of the Election Commission)"
+      ],
+      "answer": "Article 19(1)(a) (Freedom of Speech and Expression encompassing Right to Information)",
+      "explanation": "The Supreme Court held that the anonymous nature of electoral bonds infringes upon the voter's right to information under Article 19(1)(a), which is vital for effective political participation and electoral choices."
+    }
+  ]
+}

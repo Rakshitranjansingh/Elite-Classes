@@ -1,0 +1,105 @@
+{
+  "microTopicId": "science_tech_s_t_current_affairs_principles_of_inheritance_and_",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_s_t_current_affairs",
+  "topicTitle": "S&T Current Affairs",
+  "subTopicTitle": "Principles of Inheritance and variation",
+  "syllabusMapping": {
+    "prelims": "General Science: Biology, Genetics, Human Health, Biotechnology applications, and related current affairs.",
+    "mains": "GS Paper III - Awareness in the fields of IT, Space, Computers, robotics, Nano-technology, Bio-technology and issues relating to Intellectual Property Rights."
+  },
+  "lectureHoursEstimate": "Lecture 10,11&12",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Principles of Inheritance and Variation encompass Mendelian genetics, chromosomal theory, molecular basis of heredity, gene expression, and modern genomic variations including epigenetic modifications and genome editing technologies like CRISPR-Cas9.",
+    "highYieldFacts": [
+      "Fact 1: Gregor Mendel used seven pairs of contrasting characters in Pisum sativum (garden pea) to formulate the Laws of Inheritance (Dominance, Segregation, and Independent Assortment).",
+      "Fact 2: Chromosomal theory of inheritance was proposed by Walter Sutton and Theodor Boveri in 1902, linking Mendelian factors to chromosomes.",
+      "Fact 3: Sickle-cell anaemia and phenylketonuria are classic examples of single-gene autosomal Mendelian disorders arising from point mutations.",
+      "Fact 4: The Indian Council of Medical Research (ICMR) and Department of Biotechnology (DBT) spearhead genomic surveillance and rare genetic disorders mapping under the Genome India Project.",
+      "Fact 5: Epigenetics involves heritable changes in gene expression without alterations in the underlying DNA sequence, heavily influenced by environmental factors."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing incomplete dominance (e.g., Mirabilis jalapa / four o'clock plant flower color) with codominance (e.g., ABO blood grouping).",
+      "Trap 2: Assuming all variations are heritable; somatic variations are acquired during a lifetime and are not passed on to progeny."
+    ],
+    "keyArticlesOrStatutes": [
+      "Biological Diversity Act, 2002",
+      "National Ethical Guidelines for Biomedical and Health Research involving Human Participants (ICMR)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution of Inheritance and Modern Genomic Applications</h3><p>The study of inheritance and variation forms the bedrock of modern life sciences, transitioning from classical Mendelian phenotypic observations to molecular genetics and advanced biotechnological interventions. Understanding these principles is crucial not only for fundamental biology but also for addressing contemporary challenges in public health, agriculture, and bio-economy.</p><h3>Gene Editing and Ethical Governance</h3><p>With the advent of precise genetic tools such as CRISPR-Cas9, base editing, and prime editing, humanity has acquired the unprecedented capacity to rewrite the code of life. These technologies offer groundbreaking solutions for monogenic hereditary disorders such as thalassemia, sickle-cell anemia, and cystic fibrosis. However, they simultaneously raise profound bioethical questions regarding germline editing, off-target mutations, and the commercial commodification of human traits.</p><h3>Socio-Economic and Public Health Implications</h3><p>In developing nations like India, the burden of genetic and rare diseases is immense, affecting millions of families. Programs such as the Genome India Project, which aims to sequence 10,000 Indian genomes, serve as a vital epidemiological tool. They map population-specific genetic architectures, enabling precision medicine, early screening, and targeted therapeutics tailored to indigenous populations.</p><h3>Institutional Framework and Regulatory Challenges</h3><p>The governance of genetic inheritance research requires robust regulatory frameworks to balance scientific innovation with biosafety and bioethics. India's institutional architecture involves bodies like the Review Committee on Genetic Manipulation (RCGM) under the Department of Biotechnology and the Genetic Engineering Appraisal Committee (GEAC) under the Ministry of Environment, Forest and Climate Change. Ensuring strict adherence to ethical guidelines is paramount to prevent misuse and protect vulnerable populations from exploitative clinical trials.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Balancing the Right to Health (Article 21) with statutory regulations on genetic experimentation, biosafety protocols, and data protection under the Digital Personal Data Protection (DPDP) Act.",
+      "socio_economic": "Mitigating the economic burden of rare genetic disorders, ensuring affordable access to gene therapies, and preventing genetic discrimination in insurance and employment.",
+      "administrative_governance": "Strengthening institutional bioethics committees, multi-agency coordination between ICMR, DBT, and CSIR, and capacity building in genetic counseling.",
+      "international_or_comparative": "Aligning with World Health Organization (WHO) global standards on human genome editing governance and adhering to the Nagoya Protocol on Access and Benefit-Sharing."
+    },
+    "landmarkJudgmentsOrReports": [
+      "WHO Expert Advisory Committee on Developing Global Standards for Governance and Oversight of Human Genome Editing",
+      "Economic Survey / ICMR Reports on Burden of Rare Diseases and Genetic Disorders in India",
+      "National Policy for Rare Diseases (NPRD)"
+    ],
+    "structuredDiagramAscii": "Classical Mendelian Genetics (DNA / Chromosomes) \n       │\n       ▼\nMolecular Genetics & Gene Expression (Transcription / Translation)\n       │\n       ▼\nModern Genomic Variations & Epigenetics (Environmental Influence)\n       │\n       ▼\nTranslational Application: Precision Medicine & CRISPR Gene Editing"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which of the following are considered as the main constituents of the 'Genome India Project'?",
+        "options": [
+          "Mapping of the complete human genome of 10,000 Indian individuals to build a reference database.",
+          "Genomic sequencing of agricultural crops to enhance drought resistance only.",
+          "Creation of synthetic artificial life forms for industrial biofuel production.",
+          "Mapping oceanic microbial diversity along the Indian coastline."
+        ],
+        "answer": "Mapping of the complete human genome of 10,000 Indian individuals to build a reference database.",
+        "explanation": "The Genome India Project is a collaborative initiative of multiple scientific institutions aimed at sequencing 10,000 representative Indian genomes to understand the genetic diversity of the Indian population and create a robust reference database for precision healthcare."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "What is genome sequencing and what are its uses and implications? Discuss in the context of recent advancements in biotechnology and healthcare."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the significance of modern genomic variations and gene-editing technologies in transforming healthcare, highlighting the associated ethical and regulatory challenges in India. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define the transition from classical inheritance principles to modern genomics and gene-editing tools like CRISPR-Cas9.",
+      "body": "Discuss applications in precision medicine, rare disease management, and agricultural resilience; analyze ethical concerns (germline editing, designer babies) and regulatory hurdles in India.",
+      "conclusion": "Suggest a balanced way forward emphasizing robust multi-stakeholder governance, international cooperation, and ethical oversight."
+    },
+    "modelAnswerHtml": "<p><strong>Introduction:</strong><br>The principles of inheritance and variation, originating from Mendel's laws, have evolved into molecular genomics and precise gene-editing technologies such as CRISPR-Cas9. These advancements allow scientists to understand hereditary traits at the nucleotide level and correct pathogenic mutations, heralding a new era of precision medicine.</p><p><strong>Significance in Healthcare and Agriculture:</strong><br><ul><li><strong>Precision Medicine:</strong> Genomic mapping identifies population-specific variations (e.g., Genome India Project), enabling tailored diagnostics and therapeutics for hereditary disorders.</li><li><strong>Rare Disease Management:</strong> Gene therapy offers curative potentials for monogenic disorders like thalassemia and sickle-cell anemia, reducing lifelong transfusion burdens.</li><li><strong>Agricultural Resilience:</strong> Understanding genetic variation facilitates targeted crop breeding for climate resilience, pest resistance, and enhanced nutritional profiles (Biofortification).</li></ul></p><p><strong>Ethical and Regulatory Challenges:</strong><br><ul><li><strong>Germline Modification:</strong> Heritable edits in human embryos pose grave ethical risks of off-target mutations and the slippery slope toward 'designer babies'.</li><li><strong>Equity and Access:</strong> High costs of advanced gene therapies can exacerbate healthcare inequalities, restricting access to privileged strata.</li><li><strong>Regulatory Gaps:</strong> Rapid technological proliferation often outpaces statutory frameworks, necessitating strict oversight by bodies like the RCGM and GEAC.</li></ul></p><p><strong>Way Forward:</strong><br>India must operationalize a comprehensive national biosafety and bioethics framework aligned with WHO guidelines. Fostering indigenous research while maintaining rigorous regulatory compliance will ensure that the fruits of genomic variations are harnessed equitably and safely for societal welfare in alignment with Sustainable Development Goals (SDG 3).</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding inheritance and genetic variations:\n1. Epigenetic modifications alter the underlying nucleotide sequence of DNA permanently.\n2. Codominance is exhibited when both alleles of a gene are expressed equally in the heterozygote.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because epigenetic modifications (such as DNA methylation and histone modification) affect gene expression without altering the underlying DNA sequence. Statement 2 is correct; codominance occurs when neither allele is dominant, and both are fully expressed, as seen in AB blood grouping."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following regulatory bodies in India is primarily mandated to review and approve proposals involving recombinant DNA technology and large-scale release of genetically engineered organisms?",
+      "options": [
+        "Genetic Engineering Appraisal Committee (GEAC)",
+        "Food Safety and Standards Authority of India (FSSAI)",
+        "National Biodiversity Authority (NBA)",
+        "Indian Council of Medical Research (ICMR)"
+      ],
+      "answer": "Genetic Engineering Appraisal Committee (GEAC)",
+      "explanation": "The Genetic Engineering Appraisal Committee (GEAC), functioning under the Ministry of Environment, Forest and Climate Change (MoEFCC), is the apex statutory body responsible for appraising activities involving large-scale use of hazardous microorganisms and recombinants in research and industrial production from an environmental safety perspective."
+    }
+  ]
+}

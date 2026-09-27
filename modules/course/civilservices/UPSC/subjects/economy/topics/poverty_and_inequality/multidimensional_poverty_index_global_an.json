@@ -1,0 +1,104 @@
+{
+  "microTopicId": "economy_poverty_and_inequality_multidimensional_poverty_index",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_poverty_and_inequality",
+  "topicTitle": "Poverty and Inequality",
+  "subTopicTitle": "Multidimensional Poverty index – Global and National",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector Initiatives.",
+    "mains": "GS Paper III (Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment)"
+  },
+  "lectureHoursEstimate": "Lecture 6&7",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Multidimensional Poverty Index (MPI) assesses deprivation across multiple overlapping dimensions such as health, education, and standard of living rather than relying solely on income or consumption expenditure. Globally published by UNDP and OPHI, India utilizes a localized National MPI developed by NITI Aayog to track deprivation across 12 distinct indicators aligned with national priorities and Sustainable Development Goals (SDGs).",
+    "highYieldFacts": [
+      "Fact 1: The Global MPI is jointly developed by the Oxford Poverty and Human Development Initiative (OPHI) and the United Nations Development Programme (UNDP) since 2010.",
+      "Fact 2: India's National MPI uses 12 indicators grouped under 3 equally weighted dimensions: Health (2 indicators), Education (2 indicators), and Standard of Living (8 indicators).",
+      "Fact 3: The 12th indicator added to India's National MPI is 'Maternal Health', complementing the existing 11 indicators inherited from the global framework.",
+      "Fact 4: NITI Aayog serves as the nodal agency for the National MPI, leveraging the National Family Health Survey (NFHS) data architecture for periodic estimation.",
+      "Fact 5: According to NITI Aayog's discussion paper 'Multidimensional Poverty in India since 2005-06', India lifted approximately 24.82 crore people out of multidimensional poverty between 2013-14 and 2022-23."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the National MPI indicators with the Tendulkar or Rangarajan committee consumption-expenditure poverty lines. MPI is non-monetary and structural.",
+      "Trap 2: Assuming the Global MPI and India's National MPI use the exact same set of indicators and cutoff weights; National MPI incorporates context-specific national parameters like maternal health and bank accounts."
+    ],
+    "keyArticlesOrStatutes": [
+      "Sustainable Development Goal Indicator 1.2.2 (Proportion of men, women and children of all ages living in poverty in all its dimensions according to national definitions)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution of Poverty Measurement: From Income to Multidimensionality</h3>\n<p>Traditional economic paradigms viewed poverty almost exclusively through the narrow lens of income or consumption expenditure, epitomized by calorie-based poverty lines in India (Alagh, Tendulkar, and Rangarajan committees). However, economists like Amartya Sen revolutionized this discourse through the 'Capability Approach', arguing that poverty is the deprivation of basic capabilities rather than merely low income. This intellectual shift culminated in the creation of the Multidimensional Poverty Index (MPI), which captures simultaneous deprivations at the household level.</p>\n\n<h3>Institutional Architecture of India's National MPI</h3>\n<p>In India, NITI Aayog has institutionalized the National MPI to track progress under SDG Target 1.2. Utilizing the Alkire-Foster (AF) counting methodology, the National MPI measures deprivation across three equally weighted dimensions (Health, Education, and Standard of Living) spanning 12 indicators: Nutrition, Child and Adolescent Mortality, Maternal Health, Years of Schooling, School Attendance, Cooking Fuel, Sanitation, Drinking Water, Electricity, Housing, Assets, and Bank Accounts. A household is multidimensionally poor if its weighted deprivation score equals or exceeds 33.33% (one-third) of the weighted indicators.</p>\n\n<h3>Governance Implications and Policy Targeting</h3>\n<p>The transition to multidimensional measurement has fundamentally transformed fiscal resource allocation and saturation-driven welfare delivery in India. Schemes like PM Ujjwala Yojana (LPG), Swachh Bharat Mission (Sanitation), Jal Jeevan Mission (Piped Water), PM Awas Yojana (Housing), and Pradhan Mantri Jan Dhan Yojana (Financial Inclusion) directly target the specific deprivation indicators captured in the MPI. By generating district-level granular dashboards, the National MPI enables competitive federalism (Aspirational Districts Programme), empowering local administrators to address micro-deprivations rather than relying on aggregate state-level metrics.</p>\n\n<h3>Structural Bottlenecks and Contemporary Challenges</h3>\n<p>Despite significant declines in headcount poverty—dropping from 29.17% in 2013-14 to 11.28% in 2022-23—critical vulnerabilities persist. Inter-state disparities remain stark, with Bihar, Jharkhand, and Meghalaya recording higher multidimensional poverty compared to Kerala, Goa, and Punjab. Furthermore, the intensity of poverty among those still poor remains a challenge, alongside emerging urban-rural divides, climate vulnerabilities, and post-pandemic educational learning deficits that threaten to reverse hard-won capability gains.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Fulfilling the Directive Principles of State Policy (Article 38 and 39) aimed at minimizing inequalities in income, status, facilities, and opportunities across individuals and regions.",
+      "socio_economic": "Shifting focus from mere calorie intake to human capital formation, health outcomes, gender equity (maternal health, clean cooking fuel), and social inclusion of marginalized communities.",
+      "administrative_governance": "Enabling data-driven policy design, decentralized district-level monitoring, and convergence among diverse central ministries and state governments.",
+      "international_or_comparative": "Aligning national development metrics with Global SDG commitments (SDG 1: End poverty in all its forms everywhere) and learning from OPHI global frameworks."
+    },
+    "landmarkJudgmentsOrReports": [
+      "NITI Aayog Discussion Paper: 'Multidimensional Poverty in India since 2005-06' (2024)",
+      "Global MPI Reports (UNDP & OPHI)",
+      "Supreme Court pronouncements on the Right to Life (Article 21) encompassing the right to live with human dignity, adequate nutrition, and basic standard of living."
+    ],
+    "structuredDiagramAscii": "Alkire-Foster Methodology Architecture:\n[3 Dimensions: Health, Education, Standard of Living]\n       │\n       ▼\n[12 Indicators with Assigned Weights]\n       │\n       ▼\n[Household Deprivation Score Calculation (Cut-off: k ≥ 33.33%)]\n       │\n       ├─► Headcount Ratio (H): Proportion of people identified as multidimensionally poor\n       └─► Intensity of Poverty (A): Average proportion of weighted deprivations experienced by poor people\n       │\n       ▼\n[National MPI = H × A] ──► District-Level Dashboards & Targeted Policy Interventions (Schemes)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "The Global Multidimensional Poverty Index is released by which of the following?",
+        "options": [
+          "The World Bank and the International Monetary Fund",
+          "The United Nations Development Programme (UNDP) and the Oxford Poverty and Human Development Initiative (OPHI)",
+          "World Economic Forum",
+          "International Labour Organization"
+        ],
+        "answer": "The United Nations Development Programme (UNDP) and the Oxford Poverty and Human Development Initiative (OPHI)",
+        "explanation": "The Global MPI was developed in 2010 by the Oxford Poverty and Human Development Initiative (OPHI) at the University of Oxford and the Human Development Report Office of the United Nations Development Programme (UNDP)."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Despite a high economic growth rate, poverty remains a major challenge in India. Examine the extent of poverty in India in light of multidimensional poverty indices and suggest measures to make growth more inclusive."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Discuss the significance of the Multidimensional Poverty Index (MPI) over traditional income-based poverty measures. How has India's National MPI framework altered the paradigm of welfare delivery and policy targeting? (15/250 words)",
+    "approach": {
+      "intro": "Define poverty beyond monetary metrics, introducing Amartya Sen's capability approach and the genesis of MPI.",
+      "body": "Compare income-based poverty with MPI; outline India's National MPI framework (12 indicators, 3 dimensions); evaluate its impact on saturation-driven governance and targeted welfare schemes; highlight remaining challenges (inter-state disparities, intensity).",
+      "conclusion": "Emphasize the roadmap toward Viksit Bharat 2047, stressing human capital accumulation and decentralized governance."
+    },
+    "modelAnswerHtml": "<p>Poverty has historically been measured in India through consumption-expenditure surveys relying on monetary thresholds (calorie norms). However, economists like Amartya Sen argued that poverty is fundamentally the deprivation of basic human capabilities. The <strong>Multidimensional Poverty Index (MPI)</strong> operationalizes this philosophy by capturing simultaneous, overlapping deprivations at the household level.</p>\n\n<p><strong>Significance of MPI over Traditional Income Measures:</strong></p>\n<ul>\n  <li><strong>Holistic Deprivation Mapping:</strong> Captures non-monetary aspects such as malnutrition, lack of sanitation, clean cooking fuel, and quality education which money alone cannot immediately rectify.</li>\n  <li><strong>Intra-household Dynamics:</strong> Reflects deprivations that monetary metrics often obscure, such as gender-based health disparities or unequal educational access within households.</li>\n  <li><strong>Alkire-Foster Methodology:</strong> Measures both the incidence of poverty (Headcount Ratio) and its severity (Intensity), providing a nuanced diagnostic tool.</li>\n</ul>\n\n<p><strong>Impact on India's Welfare Delivery and Policy Targeting:</strong></p>\n<ul>\n  <li><strong>Saturation Approach:</strong> India's National MPI, anchored by NITI Aayog, tracks 12 indicators (adding Maternal Health and Bank Accounts to the global framework). This directly mirrors flagship welfare architectures like PM Ujjwala Yojana (LPG), Jal Jeevan Mission (Water), Swachh Bharat Mission (Sanitation), and PM Awas (Housing).</li>\n  <li><strong>Competitive & Cooperative Federalism:</strong> District-level MPI dashboards and the Aspirational Districts Programme have enabled localized targeting, shifting focus from blanket state-level allocations to micro-deprivation hotspots.</li>\n  <li><strong>Empirical Success:</strong> As per NITI Aayog data, India lifted 24.82 crore people out of multidimensional poverty between 2013-14 and 2022-23, driven by targeted public provisioning of basic services.</li>\n</ul>\n\n<p><strong>Remaining Challenges:</strong> Stark inter-state divergence (high poverty concentration in central-eastern states), urban-rural divides, climate vulnerability, and post-pandemic learning poverty continue to pose hurdles.</p>\n\n<p><strong>Way Forward:</strong> To achieve inclusive growth aligned with <em>Viksit Bharat 2047</em>, India must deepen social sector investments, strengthen foundational learning and primary healthcare, and utilize real-time data integration to ensure zero deprivation across all 12 indicators.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding India's National Multidimensional Poverty Index (MPI):\n1. It is published periodically by the Ministry of Finance.\n2. It incorporates twelve indicators grouped under three equally weighted dimensions: Health, Education, and Standard of Living.\n3. The data source primarily utilized for computing the National MPI is the National Family Health Survey (NFHS).\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "2 and 3 only",
+      "explanation": "Statement 1 is incorrect because the National MPI is published by NITI Aayog, not the Ministry of Finance. Statements 2 and 3 are correct: it uses 12 indicators across 3 equally weighted dimensions and utilizes NFHS data cycles."
+    },
+    {
+      "id": "mcq_02",
+      "question": "In the context of the Alkire-Foster methodology used for calculating multidimensional poverty, what does the 'Intensity of Poverty (A)' signify?",
+      "options": [
+        "The total percentage of the population living below the national poverty line.",
+        "The average proportion of weighted deprivations that poor households experience simultaneously.",
+        "The income gap between the poorest household and the median poverty line.",
+        "The rate at which a state is reducing its monetary poverty over a five-year period."
+      ],
+      "answer": "The average proportion of weighted deprivations that poor households experience simultaneously.",
+      "explanation": "The Alkire-Foster method calculates MPI as the product of two components: Headcount Ratio (H - percentage of poor people) and Intensity of Poverty (A - average percentage of deprivations experienced by those who are poor)."
+    }
+  ]
+}

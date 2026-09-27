@@ -1,0 +1,107 @@
+{
+  "microTopicId": "economy_banking_system_types_of_banking_accounts",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_banking_system",
+  "topicTitle": "Banking System",
+  "subTopicTitle": "Types of Banking Accounts",
+  "syllabusMapping": {
+    "prelims": "Indian Economy - Inclusive Growth and issues arising from it, Banking, Financial Inclusion",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment (Inclusive Growth & Banking Sector)"
+  },
+  "lectureHoursEstimate": "Lecture 15&16",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Types of banking accounts form the foundational bedrock of monetary intermediation, credit creation, and financial inclusion in India. Classified under the Banking Regulation Act, 1949 and RBI Master Directions, these accounts span Current, Savings, Recurring, and Fixed Deposit accounts, alongside specialized categories like Basic Savings Bank Deposit (BSBD) accounts and Non-Resident accounts.",
+    "highYieldFacts": [
+      "Fact 1: BSBD accounts mandated under RBI guidelines require 'zero minimum balance' and cannot restrict the number of deposits, though a maximum of 4 withdrawals per month is permitted.",
+      "Fact 2: NRE (Non-Resident External) accounts are rupee-denominated, fully repatriable, and the interest earned is completely exempt from Indian income tax.",
+      "Fact 3: NRO (Non-Resident Ordinary) accounts are maintained in Indian rupees to manage income earned in India (rent, pension, dividends) and have repatriation limits up to USD 1 million per financial year.",
+      "Fact 4: Current accounts are strictly meant for business operations, and as per RBI's 2020 guidelines, banks cannot open current accounts for customers who have availed credit facilities (cash credit/overdraft) from other banks unless market-share criteria are met.",
+      "Fact 5: Unclaimed deposits—balances in savings/current accounts operated for 10 years or term deposits not claimed within 10 years from the date of maturity—are transferred by banks to the RBI's Depositor Education and Awareness (DEA) Fund."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming FCNR (Foreign Currency Non-Resident) accounts maintain balances in Indian rupees; they are maintained in designated foreign currencies shielding depositors from exchange rate risk.",
+      "Trap 2: Confusing the withdrawal limits of BSBD accounts with regular savings accounts; BSBD caps free withdrawals at four per month including ATM use, unlike standard savings accounts."
+    ],
+    "keyArticlesOrStatutes": [
+      "Banking Regulation Act, 1949",
+      "Reserve Bank of India Act, 1934",
+      "Foreign Exchange Management Act (FEMA), 1999",
+      "Prevention of Money Laundering Act (PMLA), 2002"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Strategic Significance of Banking Accounts</h3><p>The architecture of banking accounts in India has transitioned from an elitist urban-centric framework to an inclusive, digital-first paradigm. Historically, traditional deposit accounts—Savings, Current, Fixed, and Recurring—served transactional and saving purposes for the formal corporate and salaried sectors. However, with the advent of structural financial inclusion policies, particularly the Pradhan Mantri Jan Dhan Yojana (PMJDY) anchored on Basic Savings Bank Deposit (BSBD) accounts, the definition of banking access underwent a tectonic shift.</p><h3>Macroeconomic Implications of Account Diversification</h3><p>Different types of bank accounts serve distinct macroeconomic functions. <strong>Savings and Current accounts</strong> provide high liquidity and form the core of Demand Deposits, which constitute a vital component of narrow money ($M_1$). Conversely, <strong>Fixed and Recurring accounts</strong> represent Time Deposits ($M_3$), giving banks the stable medium-to-long-term capital required for asset-liability management (ALM) and long-term infrastructure credit creation. Specialized accounts such as NRE, NRO, and FCNR(B) act as critical conduits for channeling foreign savings and remittances into the domestic economy, thereby supporting the capital account and foreign exchange reserves.</p><h3>Contemporary Regulatory Challenges and Governance</h3><p>Modern banking accounts operate in an era of heightened compliance and technological disruption. Issues such as 'mule accounts' utilized for cyber-frauds and money laundering have forced the RBI to tighten Know Your Customer (KYC) and Central KYC (CKYC) norms. Furthermore, the proliferation of dormant accounts and unclaimed deposits—standing at thousands of crores transferred to the DEA Fund—highlights systemic gaps in customer lifecycle management. Regulatory interventions like restrictions on current account openings for credit-borrowers aim to discipline credit discipline and prevent diversion of funds, illustrating how micro-account architecture underpins macroeconomic financial stability.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing under Banking Regulation Act, 1949, and adherence to PMLA, 2002 for KYC compliance.",
+      "socio_economic": "Bridging economic divides through zero-balance BSBD accounts, fostering women empowerment (joint/sole accounts under PMJDY), and enabling direct benefit transfers (DBT).",
+      "administrative_governance": "Mitigating fraudulent 'mule' accounts, streamlining digital onboarding via Video-KYC, and managing unclaimed deposits through the UDGAM portal.",
+      "international_or_comparative": "Aligning NRI deposit structures with FEMA, 1999 regulations and global FATF standards against cross-border illicit financial flows."
+    },
+    "landmarkJudgmentsOrReports": [
+      "RBI Master Directions on KYC (2016, updated periodically)",
+      "Committee on Financial Inclusion (C. Rangarajan Committee)",
+      "Financial Sector Legislative Reforms Commission (FSLRC) Report"
+    ],
+    "structuredDiagramAscii": "CLASSIFICATION OF BANKING ACCOUNTS IN INDIA\n├── Demand Deposits (High Liquidity)\n│   ├── Savings Bank Account (Retail savings, variable interest)\n│   ├── Current Account (Business operations, zero/negative interest, OD facility)\n│   └── Basic Savings Bank Deposit (BSBD) Account (Zero balance, financial inclusion)\n├── Time Deposits (Medium to Long Term)\n│   ├── Fixed Deposit / Term Deposit (Lump sum, higher fixed interest)\n│   └── Recurring Deposit (Monthly installments, goal-based savings)\n└── Specialized / Non-Resident Accounts\n    ├── NRE Account (Rupee denominated, fully repatriable, tax-free interest)\n    ├── NRO Account (Rupee denominated, domestic income management, repatriation limits)\n    └── FCNR(B) Account (Foreign currency denominated, exchange risk protection)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "With reference to 'Basic Savings Bank Deposit Account (BSBD)উন্ট' in India, which of the following statements is/are correct? 1. The 'Basic Savings Bank Account' can be opened in any individual-centric bank branch. 2. Cost of services such as issuance of ATM-cum-debit card is not charged to the account holder. Select the correct answer using the code given below:",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "1 only",
+        "explanation": "Statement 1 is correct: BSBD accounts can be opened in all scheduled commercial banks. Statement 2 is incorrect: While RBI mandates basic services without charge, banks do levy standard charges or provide free allocations for certain debit cards based on internal policies, and certain ATM/debit card maintenance charges can apply beyond prescribed regulatory minimums."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Explain the mechanics of monetary policy-making in India and discuss the role of different categories of bank deposits in managing liquidity."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine how the proliferation of specialized banking accounts has transformed financial inclusion and monetary management in India. What are the associated regulatory governance challenges? (250 words, 15 marks)",
+    "approach": {
+      "intro": "Define banking accounts as the primary instrument of financial intermediation and note their evolution from traditional savings tools to inclusive development catalysts.",
+      "body": "Discuss the impact of inclusive accounts (BSBD/PMJDY) on socio-economic development, the role of term and demand deposits in monetary liquidity management, and highlight regulatory challenges like mule accounts, cyber frauds, and unclaimed deposits.",
+      "conclusion": "Conclude with a forward-looking perspective emphasizing digital public infrastructure (DPI), robust Video-KYC, and AI-driven fraud detection to secure the banking account ecosystem."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Banking accounts serve as the foundational interface between citizens and the formal financial ecosystem. From traditional demand and time deposits to contemporary digital-first and inclusion-driven accounts, their architecture dictates the depth of financial intermediation, monetary transmission, and socio-economic equity in India.</p><h3>Transformation of Financial Inclusion and Monetary Management</h3><ul><li><strong>Catalyzing Inclusive Growth:</strong> The introduction of Basic Savings Bank Deposit (BSBD) accounts—anchored by initiatives like the Pradhan Mantri Jan Dhan Yojana (PMJDY)—has brought over 500 million unbanked individuals into the formal fold. It has enabled seamless Direct Benefit Transfers (DBT), eliminating leakages.</li><li><strong>Liquidity and Monetary Transmission:</strong> Demand deposits (Current and Savings accounts) supply high-liquidity funds ($M_1$), while time deposits (Fixed and Recurring deposits) provide stable medium-to-long-term liabilities ($M_3$), empowering banks to engage in credit creation and supporting RBI's repo-rate transmission mechanism.</li><li><strong>External Sector Resilience:</strong> Specialized accounts like NRE, NRO, and FCNR(B) facilitate stable capital inflows from the Indian diaspora, bolstering foreign exchange reserves and cushioning the rupee against external shocks.</li></ul><h3>Regulatory Governance Challenges</h3><ul><li><strong>Mule Accounts and Financial Fraud:</strong> Cybercriminals frequently exploit lax verification or dormant accounts to channel proceeds of crime, necessitating stringent continuous monitoring.</li><li><strong>Unclaimed Deposits:</strong> Billions of rupees lie unclaimed in inoperative accounts, reflecting poor customer lifecycle tracking and succession management (addressed partially by RBI's UDGAM portal).</li><li><strong>Compliance Burden:</strong> Heightened PMLA and KYC guidelines, while necessary, impose operational overheads on rural banking correspondents.</li></ul><h3>Way Forward</h3><p>To optimize the architecture of banking accounts, India must leverage its Digital Public Infrastructure (DPI) such as Account Aggregators and centralized CKYC registries. Integrating AI-driven anomaly detection will help pre-emptively flag fraudulent mule accounts, ensuring that financial inclusion proceeds hand-in-hand with financial integrity and depositor safety, aligning with the vision of Viksit Bharat 2047.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Non-Resident Indian (NRI) accounts in India: 1. Interest earned on Non-Resident External (NRE) accounts is completely tax-exempt in India. 2. FCNR(B) accounts allow deposits to be maintained in designated foreign currencies, protecting the depositor from exchange rate fluctuations. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Both statements are correct. Under FEMA regulations, NRE account interest is exempt from income tax in India, and funds are fully repatriable. FCNR(B) accounts are held in foreign currencies (USD, GBP, EUR, etc.), shielding non-residents from rupee depreciation risk."
+    },
+    {
+      "id": "mcq_02",
+      "question": "With reference to the Depositor Education and Awareness (DEA) Fund, established by the Reserve Bank of India, consider the following statements: 1. It is funded by amounts standing to the credit of any customer account which has not been operated upon for over 5 years. 2. The fund is utilized for promotion of depositors' interests and other incidental activities. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because the threshold period for transfer to the DEA Fund is 10 years (for savings/current accounts unoperated or term deposits unclaimed for 10 years from maturity), not 5 years. Statement 2 is correct: the fund is maintained by the RBI to promote depositor awareness and educational initiatives."
+    }
+  ]
+}

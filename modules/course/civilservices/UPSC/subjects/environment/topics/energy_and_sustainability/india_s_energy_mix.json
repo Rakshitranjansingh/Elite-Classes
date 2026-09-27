@@ -1,0 +1,105 @@
+{
+  "microTopicId": "environment_energy_and_sustainability_india_s_energy_mix",
+  "subjectId": "environment",
+  "subjectTitle": "Environment, Ecology & Biodiversity",
+  "topicId": "environment_energy_and_sustainability",
+  "topicTitle": "Energy and Sustainability",
+  "subTopicTitle": "India's energy mix",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Biodiversity, and Climate Change - that do not require subject specialization.",
+    "mains": "GS Paper III - Conservation, Environmental Pollution and Degradation, Environmental Impact Assessment, Infrastructure: Energy."
+  },
+  "lectureHoursEstimate": "Lecture 35",
+  "prelimsCapsule": {
+    "coreConceptSummary": "India's energy mix refers to the proportion of different primary energy sources (coal, renewables, oil, gas, nuclear, and hydro) utilized to meet the country's total energy demand. The contemporary policy focus is aggressively shifting from fossil-fuel dominance toward non-fossil sources to fulfill India's Panchamrit commitments made at COP26.",
+    "highYieldFacts": [
+      "Fact 1: India has committed to achieving 500 GW of non-fossil electricity capacity by 2030 under its updated Nationally Determined Contributions (NDCs).",
+      "Fact 2: The Ministry of New and Renewable Energy (MNRE) and the Ministry of Power are the nodal ministries managing the transition and integration of the energy grid.",
+      "Fact 3: Coal continues to account for over 50% of India's installed power generation capacity, though its relative share in net additions is declining.",
+      "Fact 4: India crossed the milestone of 200+ GW of total non-fossil fuel installed capacity (including large hydro) by late 2023/2024.",
+      "Fact 5: Central Electricity Authority (CEA) reports project that non-fossil sources will constitute nearly 65% of installed generation capacity by 2030."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing 'installed capacity' with actual 'electricity generation' or 'energy consumption' (coal generates a much higher percentage of electricity than its capacity share due to higher Plant Load Factor/PLF compared to intermittent renewables).",
+      "Trap 2: Assuming large hydro is excluded from non-fossil targets; India classifies large hydro (>25 MW) under renewable energy as per recent policy notifications."
+    ],
+    "keyArticlesOrStatutes": [
+      "Electricity Act, 2003",
+      "Energy Conservation Act, 2001 (amended in 2022)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Imperatives of India's Energy Mix</h3><p>India stands at a critical juncture of developmental urgency and ecological responsibility. As the world's most populous nation and one of the fastest-growing major economies, its energy demand is projected to expand faster than almost any other country. Historically anchored in fossil fuels—predominantly domestic coal and imported crude oil—India's energy matrix is undergoing a structural transformation driven by climate commitments, energy security imperatives, and falling technology costs.</p><p>The traditional reliance on coal ensured affordable baseload power, lifting millions out of energy poverty. However, the external vulnerabilities associated with high fossil fuel import dependency (over 85% for oil and nearly 50% for natural gas) create severe macroeconomic shocks through current account deficits and imported inflation. Consequently, the contemporary policy architecture pivots heavily toward an ambitious expansion of renewable energy (solar, wind, green hydrogen, and pumped storage).</p><p>Despite exponential growth in solar and wind capacity, structural challenges persist. Renewable intermittency requires massive investments in grid modernization, battery energy storage systems (BESS), and green corridors. Furthermore, transitioning away from coal must be managed carefully to prevent stranded assets, socio-economic distress in coal-dependent mining regions (such as Jharkhand, Chhattisgarh, and Odisha), and fiscal pressures on state-owned distribution companies (DISCOMs).</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Grounded in Directive Principles of State Policy (Article 48A - protection of environment and wildlife) and Article 51A(g) (duty to protect the natural environment), operationalized through the Electricity Act 2003 and the Energy Conservation (Amendment) Act 2022.",
+      "socio_economic": "Balances the dual mandate of providing affordable, universal energy access to rural and industrial consumers while mitigating the disproportionate health and climate impacts borne by vulnerable marginalized communities.",
+      "administrative_governance": "Involves complex multi-level coordination between the Union Ministries (Power, MNRE, Coal, Petroleum), State governments, regulatory bodies like CERC/SERCs, and public-private utilities under cooperative and competitive federalism.",
+      "international_or_comparative": "Guided by UNFCCC frameworks, Paris Agreement targets, International Solar Alliance (ISA) leadership, and COP26 Panchamrit goals, aligning national energy security with planetary boundaries."
+    },
+    "landmarkJudgmentsOrReports": [
+      "NITI Aayog's 'The Energy and Resources Institute (TERI)' Transition Reports",
+      "Central Electricity Authority (CEA) Optimal Generation Capacity Mix Reports",
+      "Supreme Court observations in MC Mehta v. Union of India regarding sustainable development and the 'Polluter Pays' principle."
+    ],
+    "structuredDiagramAscii": "[Domestic Coal / Imported Oil/Gas] ---> (Baseline Energy Security / Economic Growth)\n                                               |\n[Panchamrit Targets (500 GW Non-Fossil)] ----> [Transition Matrix] ---> [Grid Modernization & BESS]\n                                               |\n[Green Hydrogen & Pumped Storage] -------------> (Net-Zero by 2070 / Long-term Sustainability)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2023,
+        "question": "Consider the following statements: 1. According to the Indian Scenario, government agencies give green credits for incentivizing environment-friendly practices. 2. The Global Biofuels Alliance is an initiative of India. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Both 1 and 2",
+        "explanation": "Statement 1 is correct as the Ministry of Environment, Forest and Climate Change notified the Green Credit Programme to incentivize voluntary environmental actions. Statement 2 is correct as India launched the Global Biofuels Alliance during the G20 Leaders' Summit in New Delhi in 2023."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2022,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Explain the major challenges in the production and distribution of renewable energy in India. Outline the steps taken to overcome these challenges."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically evaluate the structural transformation of India's energy mix in the context of its 2030 climate goals and energy security imperatives. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define India's current energy mix scenario and highlight the COP26 Panchamrit targets (500 GW non-fossil capacity by 2030).",
+      "body": "Discuss the progress made in renewable energy expansion, highlight structural challenges (coal dependency, grid integration, DISCOM financial health, mineral security), and examine the strategic role of emerging vectors like Green Hydrogen and storage.",
+      "conclusion": "Conclude with a forward-looking balanced approach emphasizing a just transition, technological innovation, and self-reliance (Atmanirbhar Bharat) in clean tech supply chains."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>India’s energy mix is undergoing a paradigm shift from fossil-fuel hegemony to a diversified, low-carbon portfolio. Anchored by the <strong>'Panchamrit'</strong> targets announced at COP26—including achieving 500 GW of non-fossil electricity capacity by 2030 and net-zero emissions by 2070—India is balancing developmental imperatives with global climate stewardship.</p><h3>Progress and Structure of the Contemporary Energy Mix</h3><ul><li><strong>Renewable Surge:</strong> India has aggressively expanded its solar and wind capacities, crossing the 200 GW mark in non-fossil installed capacity, ranking among the fastest globally.</li><li><strong>Baseload Realities:</strong> Coal remains central for industrial baseload power, ensuring grid stability, though its relative share in new capacity additions is steadily contracting.</li><li><strong>Diversification Vectors:</strong> Emerging technologies such as pumped storage plants (PSPs), Battery Energy Storage Systems (BESS), and the National Green Hydrogen Mission are diversifying the matrix beyond variable renewables.</li></ul><h3>Structural Bottlenecks and Challenges</h3><ul><li><strong>Grid Intermittency and Storage:</strong> High penetration of solar and wind introduces frequency and voltage fluctuations, requiring massive investments in balancing power and grid flexibility.</li><li><strong>DISCOM Vulnerabilities:</strong> Financial distress of state distribution companies hampers timely power purchase agreements, grid investments, and payment discipline.</li><li><strong>Supply Chain Dependencies:</strong> Upstream reliance on critical mineral imports (lithium, cobalt, rare earths) and solar photovoltaic modules poses geopolitical and economic risks.</li><li><strong>Just Transition Imperative:</strong> Socio-economic displacement in coal-dependent mining belts requires dedicated transition financing to prevent regional economic shocks.</li></ul><h3>Way Forward</h3><p>To achieve a resilient energy mix, India must accelerate domestic manufacturing of clean energy equipment through Production-Linked Incentive (PLI) schemes, enforce renewable purchase obligations (RPOs) strictly, reform electricity tariffs to rescue DISCOM finances, and operationalize carbon markets. A balanced, technology-neutral transition will safeguard energy security while fulfilling sustainability commitments.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to India's energy sector, consider the following statements: 1. Large hydro power plants (>25 MW) are officially classified under renewable energy in India. 2. India is a founding member of the International Solar Alliance (ISA). Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Statement 1 is correct as the Ministry of New and Renewable Energy classifies large hydro under renewable energy sources. Statement 2 is correct as India, along with France, launched the International Solar Alliance at COP21 in Paris."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following policy instruments is primarily utilized in India to mandate distribution companies and large consumers to procure a minimum percentage of power from renewable sources?",
+      "options": [
+        "Perform, Achieve and Trade (PAT) Scheme",
+        "Renewable Purchase Obligation (RPO)",
+        "National Action Plan on Climate Change (NAPCC)",
+        "Green Energy Open Access Rules"
+      ],
+      "answer": "Renewable Purchase Obligation (RPO)",
+      "explanation": "Renewable Purchase Obligation (RPO) is the mandated statutory mechanism requiring DISCOMs, open-access consumers, and captive power plants to purchase a specified percentage of their electricity from renewable energy sources."
+    }
+  ]
+}

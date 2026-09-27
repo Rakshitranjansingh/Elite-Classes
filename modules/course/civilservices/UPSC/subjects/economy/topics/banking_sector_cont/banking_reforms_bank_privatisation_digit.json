@@ -1,0 +1,106 @@
+{
+  "microTopicId": "economy_banking_sector_cont_banking_reforms_bank_privatisa",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_banking_sector_cont",
+  "topicTitle": "Banking Sector (cont.)",
+  "subTopicTitle": "Banking Reforms – Bank Privatisation, Digital Banks, etc.",
+  "syllabusMapping": {
+    "prelims": "Indian Economy and its structural reforms, inclusive growth, and banking sector developments.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Recent banking reforms in India focus on structural consolidation, privatization of select Public Sector Banks (PSBs), asset quality cleansing via NARCL, and the introduction of Digital Banking Units (DBUs) and potential Central Bank Digital Currencies (CBDC-R & CBDC-W) to enhance credit efficiency and financial inclusion.",
+    "highYieldFacts": [
+      "Fact 1: The Banking Companies (Acquisition and Transfer of Undertakings) Act, 1970 and 1980 nationalized major banks, while recent amendments and legislative proposals aim at reducing state holding below 51% under the Banking Law (Amendment) Bill.",
+      "Fact 2: National Asset Reconstruction Company Limited (NARCL) acts as the 'Bad Bank' to aggregate and resolve stressed assets worth over Rs 2 lakh crore.",
+      "Fact 3: Digital Banking Units (DBUs) were announced in the Union Budget 2022-23; 75 DBUs were dedicated to the nation across 75 districts to provide digital banking infrastructure in Tier-3 to Tier-6 centers.",
+      "Fact 4: RBI launched the pilot projects for Central Bank Digital Currency (CBDC) - Wholesale (e-W) in November 2022 and Retail (e-R) in December 2022.",
+      "Fact 5: The P.J. Nayak Committee (2014) recommended reducing government stake in PSBs below 50% and establishing an independent Bank Investment Company (BIC) to insulate banks from political interference."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing Digital Banking Units (DBUs) with Digital-Only Banks. DBUs are specialized fixed-point business units/outlets housing certain minimum digital infrastructure, set up by scheduled commercial banks, not standalone entities yet.",
+      "Trap 2: Assuming privatization of PSBs requires constitutional amendment; it requires amendments to the Banking Companies (Acquisition and Transfer of Undertakings) Acts and the State Bank of India Act."
+    ],
+    "keyArticlesOrStatutes": [
+      "Banking Regulation Act, 1949",
+      "Banking Companies (Acquisition and Transfer of Undertakings) Act, 1970 & 1980",
+      "Reserve Bank of India Act, 1934"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution of Banking Reforms in India</h3><p>Post-liberalization, India's banking sector has traversed from directed credit regimes and state monopolies to market-driven, technology-intensive paradigms. The second wave of banking reforms currently underway encompasses bank privatization, the institutionalization of bad banks, regulatory frameworks for digital banks, and the roll-out of Central Bank Digital Currency (CBDC). These reforms aim to resolve the 'Twin Balance Sheet' challenge, boost capital efficiency, and widen credit reach.</p><h3>The Imperative and Complexities of Bank Privatization</h3><p>Public Sector Banks (PSBs) historically played a monumental role in financial inclusion and priority sector lending. However, structural issues such as lower capital efficiency, high Non-Performing Assets (NPAs) during economic downturns, and administrative overhang necessitated strategic sales. Privatization proposals, building on the Narasimham Committee and P.J. Nayak Committee recommendations, argue that private ownership introduces rigorous underwriting standards, agile governance, and market-pegged valuations. Conversely, critics caution against systemic risks, potential neglect of remote rural geographies, and the dilution of socio-economic mandates like Pradhan Mantri Jan Dhan Yojana (PMJDY) and directed agricultural credit.</p><h3>Digital Banks and Technological Disruption</h3><p>The emergence of fintechs and neo-banks has fundamentally altered retail banking. To formalize this shift while safeguarding consumer protection and systemic stability, the NITI Aayog policy paper on 'Digital Banks: A Proposal for Licensing and Regulatory Regime for India' conceptualized a 'Digital Bank' framework. Unlike traditional banks with extensive physical footprints, digital banks rely primarily on the internet and other digital channels. The RBI's consultative approach balances innovation with cyber-security, data localization, and anti-money laundering (AML) compliance.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Balancing state directive principles of socio-economic justice (Article 38/39) with efficient corporate governance under the Companies Act and Banking Regulation Act.",
+      "socio_economic": "Trade-off between commercial profitability of privatized banks and the universal service obligations of financial inclusion.",
+      "administrative_governance": "Autonomous board appointments, dilution of bureaucratic control, and regulatory capacity of RBI over emerging digital-only entities.",
+      "international_or_comparative": "Adherence to Basel III capital norms, Financial Stability Board (FSB) guidelines, and cross-border digital banking standards."
+    },
+    "landmarkJudgmentsOrReports": [
+      "P.J. Nayak Committee Report (2014) on Governance of Boards of Banks in India",
+      "Narasimham Committee Reports (I and II) on Banking Sector Reforms",
+      "NITI Aayog Report on 'Digital Banks: A Proposal for Licensing and Regulatory Regime for India (2021)'"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------------------+\n|                        MODERN INDIAN BANKING REFORMS                    |\n+-------------------------------------------------------------------------+\n       |                                  |                        |\n       v                                  v                        v\n+--------------+                  +---------------+        +--------------+\n| PRIVATISATION|                  | DIGITAL BANKS |        | ASSET QUALITY|\n| & GOVERNANCE |                  | & FINTECH     |        | & RESOLUTION |\n+--------------+                  +---------------+        +--------------+\n       |                                  |                        |\n       +--> P.J. Nayak Comm.              +--> NITI Aayog Report   +--> NARCL (Bad Bank)\n       +--> Stake Dilution                +--> DBUs Rollout        +--> IBC, 2016\n       +--> Professional Boards           +--> CBDC Integration    +--> NARCL-IDRCL\n",
+    "previousYearsQuestions": {
+      "prelims": [
+        {
+          "year": 2020,
+          "question": "Which of the following is/are the most probable cause/causes of declining capital adequacy ratio (CAR) in some public sector banks in India? 1. High volume of non-performing assets 2. Decisions of government to open more rural branches 3. Expansion of credit portfolio in infrastructure sector. Select the correct answer using the code given below:",
+          "options": [
+            "1 only",
+            "2 and 3 only",
+            "1 and 3 only",
+            "1, 2 and 3"
+          ],
+          "answer": "1 and 3 only",
+          "explanation": "High volume of NPAs forces banks to provision capital, eroding CAR. Massive infrastructure project lending often results in long gestation periods and stressed assets, impacting CAR. Opening rural branches is part of statutory mandates but capital erosion is directly driven by provisioning for bad loans and asset-liability mismatches."
+        }
+      ],
+      "mains": [
+        {
+          "year": 2021,
+          "paper": "GS-III",
+          "marks": 15,
+          "question": "Explain the business model of bad banks and evaluate their utility in addressing the problem of Non-Performing Assets (NPAs) in Indian banking sector."
+        }
+      ]
+    },
+    "modelMainsQA": {
+      "question": "Examine the rationale behind the proposed privatization of Public Sector Banks in India. Discuss the associated challenges and suggest measures to balance commercial viability with financial inclusion objectives. (250 words, 15 marks)",
+      "approach": {
+        "intro": "Define the context of Indian banking reforms, highlighting the dual structure of public and private sector banks.",
+        "body": "Detail the economic rationale for privatization (efficiency, capital access, autonomy), outline the counter-challenges (inclusion, job security, rural credit), and integrate committee recommendations.",
+        "conclusion": "Conclude with a balanced roadmap emphasizing a differentiated banking architecture and robust regulatory oversight."
+      },
+      "modelAnswerHtml": "<h3>Introduction</h3><p>Public Sector Banks (PSBs) have historically served as the bedrock of India's financial inclusion architecture. However, recurrent capital infusions, structural inefficiencies, and legacy Non-Performing Assets (NPAs) have revived the debate on bank privatization, aligned with recommendations from the <strong>P.J. Nayak Committee</strong> and recent policy pronouncements.</p><h3>Rationale for Bank Privatization</h3><ul><li><strong>Capital Efficiency & Market Valuation:</strong> Private banks operate with higher price-to-book valuations, allowing them to raise equity from capital markets without relying on fiscal support.</li><li><strong>Operational Autonomy:</strong> Reduced bureaucratic interference allows for meritocratic hiring, agile risk assessment, and faster credit decision-making.</li><li><strong>Technological Agility:</strong> Private institutions seamlessly integrate advanced fintech architectures, artificial intelligence in credit scoring, and superior customer interfaces.</li></ul><h3>Associated Challenges and Concerns</h3><ul><li><strong>Financial Inclusion Mandates:</strong> PSBs drive flagship socio-economic programs like PMJDY, Mudra loans, and agricultural credit. Private banks may exhibit urban bias, affecting priority sector lending (PSL).</li><li><strong>Systemic Stability & Depositor Trust:</strong> State ownership provides implicit sovereign backing, anchoring retail depositor confidence during macroeconomic shocks.</li><li><strong>Socio-Economic Equity:</strong> Branch density in unbanked rural hinterlands could shrink if driven purely by profit maximization.</li></ul><h3>Way Forward</h3><p>A nuanced approach is imperative. Instead of wholesale blanket privatization, the government could adopt a <strong>stratified banking model</strong>: retaining strategic control over select anchor PSBs for sovereign mandates while privatizing or consolidating weaker entities. Furthermore, strengthening board governance, implementing risk-based compensation, and tightening regulatory supervision by the RBI will ensure that commercial viability coexists harmoniously with inclusive national development.</p>"
+    },
+    "practiceMCQs": [
+      {
+        "id": "mcq_01",
+        "question": "Consider the following statements regarding Digital Banking Units (DBUs) in India: 1. They are established exclusively by foreign banks operating in India. 2. They offer both digital onboarding and digital financial services without requiring a physical presence. 3. They were announced as part of the budget initiative to commemorate 75 years of independence. Which of the statements given above is/are correct?",
+        "options": [
+          "1 and 2 only",
+          "3 only",
+          "2 and 3 only",
+          "1, 2 and 3"
+        ],
+        "answer": "3 only",
+        "explanation": "Statement 1 is incorrect: DBUs are established by Scheduled Commercial Banks (both public and private, regional rural banks, and small finance banks), not exclusively by foreign banks. Statement 2 is incorrect: DBUs are physical fixed-point business units/outlets set up by banks to deliver digital banking products and services; they are not entirely virtual. Statement 3 is correct: 75 DBUs were set up across 75 districts to mark 75 years of independence (Azadi Ka Amrit Mahotsav)."
+      },
+      {
+        "id": "mcq_02",
+        "question": "Which of the following committees recommended the establishment of a Bank Investment Company (BIC) to hold the government's stake in public sector banks and insulate them from political interference?",
+        "options": [
+          "Narasimham Committee II",
+          "P.J. Nayak Committee",
+          "Nachiket Mor Committee",
+          "Urijit Patel Committee"
+        ],
+        "answer": "P.J. Nayak Committee",
+        "explanation": "The Committee to Review Governance of Boards of Banks in India, chaired by P.J. Nayak (2014), recommended that the government reduce its stake in PSBs below 50% and transfer its holdings to a Bank Investment Company (BIC), which would act as an autonomous holding company for state-owned banks."
+      }
+    ]
+  }
+}

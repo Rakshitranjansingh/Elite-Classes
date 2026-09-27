@@ -1,0 +1,103 @@
+{
+  "microTopicId": "economy_inflation_types_of_inflation",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_inflation",
+  "topicTitle": "Inflation",
+  "subTopicTitle": "Types of Inflation",
+  "syllabusMapping": {
+    "prelims": "General Issues on Environmental Ecology, Bio-diversity and Climate Change / Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives, etc. (Indian Economy - Inflation and its classification).",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 14",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Inflation is classified based on its rate (Creeping, Walking, Running, Galloping, Hyperinflation), causes (Demand-Pull, Cost-Push, Structural), and extent of coverage (Core vs. Headline inflation). Understanding these taxonomies is crucial for calibrated monetary policy transmission by the Reserve Bank of India (RBI).",
+    "highYieldFacts": [
+      "Fact 1: Headline Inflation measures total inflation within an economy, including commodities such as food and energy, which tend to be volatile.",
+      "Fact 2: Core Inflation (Non-food manufacturing, fuel-excl. items) excludes volatile food and energy components to gauge the underlying trend of price pressures.",
+      "Fact 3: Under the Flexible Inflation Targeting (FIT) framework established in 2016, the RBI targets Consumer Price Index (CPI) Combined inflation at 4% with a band of +/- 2%.",
+      "Fact 4: Structural inflation in developing economies like India often stems from supply-chain bottlenecks, agricultural bottlenecks, and infrastructural deficits.",
+      "Fact 5: Hyperinflation is typically defined as a monthly inflation rate exceeding 50%, resulting in a collapse of the domestic currency's purchasing power."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing Core Inflation with Headline Inflation; remember that Core excludes food and energy, making it smoother.",
+      "Trap 2: Assuming Cost-Push inflation is always driven by domestic wage increases; imported cost-push inflation via crude oil is vital for India."
+    ],
+    "keyArticlesOrStatutes": [
+      "Section 45ZA of the Reserve Bank of India (RBI) Act, 1934 (Inflation Targeting Framework)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Anatomy and Taxonomy of Inflation in India</h3><p>Inflation is not a monolithic economic phenomenon; its etiology, velocity, and sectoral propagation dictate the policy prescription required. From a macroeconomic perspective, categorizing inflation enables policymakers to distinguish between transient supply shocks and entrenched monetary expansion. The Indian economy, characterized by structural dualism, high dependence on imported energy, and rain-fed agriculture, experiences diverse manifestations of inflationary pressures.</p><h3>Velocity-Based Classification</h3><p>The speed of price rise determines its socio-economic disruptiveness. <strong>Creeping inflation</strong> (1-3% annually) is considered lubricative for economic growth, signaling steady demand. However, when it accelerates into <strong>Walking inflation</strong> (3-10%), it erodes middle-class savings. <strong>Running and Galloping inflation</strong> (double or triple digits) destabilize financial markets, distort resource allocation, and penalize fixed-income earners. Although India has historically avoided hyperinflation, post-pandemic global shocks tested supply-chain resilience.</p><h3>Causative Classification</h3><p><ul><li><strong>Demand-Pull Inflation:</strong> Occurs when aggregate demand outpaces aggregate supply ('too much money chasing too few goods'). Often fueled by expansionary fiscal deficits or loose monetary policies.</li><li><strong>Cost-Push Inflation:</strong> Driven by rising costs of inputs—wages, raw materials, or imported crude oil. In India, imported crude shocks shift the aggregate supply curve leftward, creating a stagflationary dilemma.</li><li><strong>Structural Inflation:</strong> Arises from institutional rigidities, hoarding, black-marketing, inadequate cold-chain infrastructure, and agricultural bottlenecks, causing structural mismatches between demand and supply.</li></ul></p><h3>Headline vs. Core Dynamics</h3><p>The RBI transitioned its anchor from Wholesale Price Index (WPI) to Consumer Price Index (CPI) Combined in 2014, following the Urjit Patel Committee recommendations. While headline CPI includes all commodities, core inflation excludes volatile food and fuel. Central banks prefer core inflation for monetary policy reaction functions because monetary instruments cannot easily alter the supply of perishable vegetables or global crude oil.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory mandate of the Monetary Policy Committee (MPC) under Section 45ZB of the RBI Act, 1934 to maintain price stability while keeping in mind the objective of growth.",
+      "socio_economic": "Regressive nature of inflation; disproportionately impacts fixed-income earners, informal workers, and rural households whose consumption baskets are heavily skewed towards food items.",
+      "administrative_governance": "Need for seamless Centre-State coordination in managing food stocks (FCI operations), buffer stocking, dynamic export-import duties, and curbing speculative hoarding under the Essential Commodities Act, 1955.",
+      "international_or_comparative": "Spillover effects of quantitative tightening by advanced economies (Fed, ECB) on imported inflation and capital outflows from emerging markets like India."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Urjit Patel Committee Report on Revising and Strengthening the Monetary Policy Framework (2014)",
+      "Economic Survey insights on 'Thalinomics' and structural supply-side management"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------------------+\n|                     TAXONOMY OF INFLATION IN INDIA                      |\n+-------------------------------------------------------------------------+\n                                     |\n        +----------------------------+----------------------------+\n        |                                                         |\n        v                                                         v\n+-----------------------+                                 +-----------------------+\n|  BASED ON VELOCITY    |                                 |   BASED ON CAUSES     |\n+-----------------------+                                 +-----------------------+\n| • Creeping (1-3%)     |                                 | • Demand-Pull         |\n| • Walking (3-10%)     |                                 | • Cost-Push           |\n| • Running (10-20%)    |                                 | • Structural          |\n| • Galloping / Hyper   |                                 | • Built-in/Wage-Price |\n+-----------------------+                                 +-----------------------+\n        |                                                         |\n        +----------------------------+----------------------------+\n                                     |\n                                     v\n                    +---------------------------------+\n                    |     MEASUREMENT CLASSIFICATION  |\n                    +---------------------------------+\n                    | • Headline Inflation (CPI/WPI)  |\n                    | • Core Inflation (Excl. Food/   |\n                    |   Fuel)                         |\n                    +---------------------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "Which of the following is considered to be a 'Core Inflation' measure in India?",
+        "options": [
+          "Headline inflation minus food and fuel inflation",
+          "WPI inflation minus manufactured products",
+          "CPI inflation minus services",
+          "Wholesale inflation minus primary articles"
+        ],
+        "answer": "Headline inflation minus food and fuel inflation",
+        "explanation": "Core inflation measures the underlying long-term trend of inflation by stripping out volatile components such as food and energy (fuel) items from the headline index."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Do you agree with the view that steady inflation is necessary for economic growth? Examine the trade-off between inflation and economic growth in the context of India."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Distinguish between Demand-Pull and Cost-Push inflation. Examine how structural factors complicate the management of inflation in developing economies like India. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define inflation briefly and introduce the dual classification (Demand-Pull vs. Cost-Push) along with structural realities.",
+      "body": "Differentiate between Demand-Pull and Cost-Push inflation using economic logic. Detail how structural factors (agricultural seasonality, supply-chain inefficiencies, import dependencies) impede standard monetary policy transmission. Highlight mitigation strategies.",
+      "conclusion": "Emphasize a synchronized policy mix combining monetary tightening with aggressive supply-side fiscal interventions to ensure sustainable growth with price stability."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Inflation represents a sustained increase in the general price level of goods and services in an economy. In developing economies like India, inflationary pressures cannot be viewed merely through the lens of monetary expansion; they are deeply rooted in structural bottlenecks and external supply shocks.</p><h3>Demand-Pull vs. Cost-Push Inflation</h3><ul><li><strong>Demand-Pull Inflation:</strong> Occurs when aggregate demand exceeds aggregate supply ('too much money chasing too few goods'). It is typically triggered by expansionary fiscal policies, credit booms, or surges in consumer confidence. Monetary policy (raising repo rates) is highly effective against this type.</li><li><strong>Cost-Push Inflation:</strong> Driven by an autonomous increase in production costs—such as rising wages, indirect taxes, or imported raw materials (crude oil, fertilizers). This shifts the aggregate supply curve leftward, leading to the economic paradox of stagflation. Conventional monetary tightening can worsen output loss in this scenario.</li></ul><h3>Structural Factors Complicating Inflation Management in India</h3><p><ul><li><strong>Agricultural Seasonality and Monsoon Dependency:</strong> Food inflation forms nearly half of the CPI basket. Unseasonal rains, droughts, or heatwaves cause sudden food price spikes that monetary policy cannot directly cure.</li><li><strong>Supply-Chain and Logistic Inefficiencies:</strong> Inadequate cold-chain infrastructure, multi-layered intermediaries, and post-harvest losses create artificial scarcity and widen the farm-to-fork price spread.</li><li><strong>Imported Energy Vulnerability:</strong> India imports over 85% of its crude oil requirements. Global geopolitical tensions transmit external cost-push shocks directly into domestic transport and manufacturing costs.</li><li>Schematic pricing rigidities and infrastructural bottlenecks limit immediate supply elasticity in response to price signals.</li></ul></p><h3>Way Forward</h3><p>To insulate the Indian economy from structural and cost-push inflation, governance must pivot toward supply-side resilience. This includes scaling up PM-KISAN, modernizing agricultural logistics through the PM GatiShakti master plan, maintaining strategic buffer stocks, and diversifying energy baskets toward renewables to cushion against global crude shocks. A harmonious coordination between fiscal supply management and monetary anchoring is imperative.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding 'Core Inflation':\n1. It includes all goods and services in the Consumer Price Index (CPI) basket.\n2. It is less volatile than Headline Inflation because it excludes food and fuel items.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because Core Inflation excludes volatile items like food and fuel from the headline basket. Statement 2 is correct; by stripping out volatile components, core inflation reflects underlying trend inflation and is less prone to temporary weather or geopolitical shocks."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following best describes 'Structural Inflation' in the Indian context?",
+      "options": [
+        "Inflation caused exclusively by high fiscal deficits of the Central Government.",
+        "Inflation arising from supply bottlenecks, hoarding, infrastructural deficits, and agricultural dependencies.",
+        "Inflation caused by a sudden reduction in the repo rate by the Reserve Bank of India.",
+        "Inflation resulting from hyper-expansion of foreign exchange reserves."
+      ],
+      "answer": "Inflation arising from supply bottlenecks, hoarding, infrastructural deficits, and agricultural dependencies.",
+      "explanation": "Structural inflation stems from structural rigidities, supply chain bottlenecks, infrastructural gaps, and institutional rigidities rather than purely monetary expansion or wage-price spirals."
+    }
+  ]
+}

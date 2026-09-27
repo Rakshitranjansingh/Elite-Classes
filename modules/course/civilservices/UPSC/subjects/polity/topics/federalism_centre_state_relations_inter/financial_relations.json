@@ -1,0 +1,108 @@
+{
+  "microTopicId": "polity_federalism_centre_state_relations_inter_state_relations_financial_relations",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_federalism_centre_state_relations_inter_state_relations",
+  "topicTitle": "Federalism, Centre – State Relations & Inter State Relations",
+  "subTopicTitle": "Financial Relations",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II: Functions and responsibilities of the Union and the States, issues and challenges pertaining to the federal structure, devolution of powers and finances up to local levels and challenges therein."
+  },
+  "lectureHoursEstimate": "Lecture 15&16",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Centre-state financial relations, governed by Part XII of the Constitution (Articles 268-293), divide tax-raising powers, non-tax revenues, and borrowing powers while establishing mechanisms like the Finance Commission for resource redistribution.",
+    "highYieldFacts": [
+      "Fact 1: Article 270 governs taxes levied and collected by the Union but distributed between the Union and the States based on Finance Commission recommendations.",
+      "Fact 2: Article 275 provides for statutory grants-in-aid to states in need of assistance, charged upon the Consolidated Fund of India.",
+      "Fact 3: Article 282 permits both the Union and the States to make discretionary grants for any public purpose, which historically formed the basis of non-Plan discretionary transfers.",
+      "Fact 4: The Goods and Services Tax (GST) Council, established under Article 279A, is a constitutional body consisting of the Union Finance Minister and State Finance Ministers.",
+      "Fact 5: The 15th Finance Commission recommended a vertical devolution of 41% of the divisible pool of central taxes to the states for the period 2021-26."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing Article 270 (taxes levied/collected by Union and distributed) with Article 269 (taxes levied/collected by Union but assigned wholly to states).",
+      "Trap 2: Assuming GST Council decisions require unanimity; they require a majority of not less than three-fourths of the weighted votes of members present and voting."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 268 to 293 (Part XII)",
+      "Article 279A (GST Council)",
+      "Article 280 (Finance Commission)",
+      "The Fiscal Responsibility and Budget Management (FRBM) Act, 2003"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Anatomy of Indian Fiscal Federalism</h3><p>Indian fiscal federalism is characterized by an inherent structural imbalance: while the Union government commands elastic and high-yield revenue sources (such as corporate tax, income tax, custom duties, and GST), the states bear heavy developmental and administrative responsibilities including law and order, health, education, irrigation, and public infrastructure. This asymmetry necessitates a robust institutional mechanism for revenue sharing and fiscal correction.</p><h3>Constitutional Architecture of Resource Allocation</h3><p>The distribution of financial powers under Part XII of the Constitution spans three dimensions: allocation of tax powers (Seventh Schedule, Union, State, and Concurrent Lists), tax sharing and assignment mechanisms (Articles 268-281), and borrowing powers (Article 293). The framers envisaged a dynamic redistribution framework centered around the Finance Commission under Article 280, a quasi-judicial body designed to bridge the vertical fiscal gap (between central and state revenues) and horizontal fiscal gap (disparities among states).</p><h3>Contemporary Challenges and Fiscal Stress</h3><p>In recent years, centre-state financial relations have witnessed severe friction. Key stress points include the proliferation of cesses and surcharges by the Union government—which are excluded from the divisible pool and thus deny states their due share under Finance Commission formulas—and the structural evolution of the GST regime. Furthermore, conditionalities attached to Centrally Sponsored Schemes (CSS) and the conditional restriction on state borrowings under Article 293(3) have constrained state fiscal autonomy. The phasing out of the GST compensation cess has further aggravated the fiscal deficit of sub-national governments.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Interplay between Article 246, Seventh Schedule, Article 270 (divisible pool), Article 279A (GST Council), and Article 293 (State borrowing limits).",
+      "socio_economic": "Impact of vertical and horizontal fiscal imbalances on human capital development, public health, and inter-state developmental convergence.",
+      "administrative_governance": "Friction over cesses, surcharges, tied funds in Centrally Sponsored Schemes, and operational challenges in GST compensation mechanisms.",
+      "international_or_comparative": "Comparison with mature federations like Canada, Australia, and the USA, where sub-national tax autonomy is significantly higher."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Sarkaria Commission Report (1988)",
+      "Punchhi Commission Report (2010)",
+      "15th Finance Commission Reports (Chairperson: N.K. Singh)",
+      "Supreme Court judgment in Mohit Minerals case (2022) regarding the advisory nature of GST Council recommendations."
+    ],
+    "structuredDiagramAscii": "UNION REVENUE GENERATION\n  │\n  ├── Divisible Pool (Income Tax, GST, Customs) ──► Distributed via Finance Commission (Vertical: 41%, Horizontal: Criteria weights)\n  ├── Non-Divisible Pool (Cesses & Surcharges)   ──► Retained entirely by Union\n  │\nSTATE REVENUE GENERATION\n  │\n  ├── Own Tax & Non-Tax Revenues (Stamp Duty, Excise, Land Revenue)\n  ├── Grants-in-Aid (Statutory under Art 275 & Discretionary under Art 282)\n  └── Borrowings (Subject to Art 293(3) limits & FRBM norms)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Consider the following items:<br>1. Cereals and pulses<br>2. Tea and coffee<br>3. Edible oils<br>4. Petroleum crude, high speed diesel, motor spirit, natural gas and aviation turbine fuel<br>Which of the above are brought under the GST Goods and Services Tax? ",
+        "options": [
+          "1 and 2 only",
+          "3 and 4 only",
+          "1, 2 and 3 only",
+          "1, 2, 3 and 4"
+        ],
+        "answer": "1, 2 and 3 only",
+        "explanation": "Petroleum crude, high speed diesel, motor spirit, natural gas, and aviation turbine fuel (Item 4) are currently kept outside the GST ambit and continue to be taxed under legacy central and state levies."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "The 15th Finance Commission's recommendations have sought to balance vertical and horizontal fiscal imbalances. Discuss the key challenges in Indian fiscal federalism in this context."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Evaluate the changing dynamics of Centre-State financial relations in India, with special reference to the growing reliance on cesses and surcharges and the implications for cooperative federalism. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define fiscal federalism in India, citing constitutional provisions under Part XII and the role of the Finance Commission.",
+      "body": "Analyze structural shifts: growth of cesses/surcharges outside the divisible pool, GST implementation and compensation issues, and restrictions on state borrowing powers under Article 293. Highlight the impact on sub-national fiscal autonomy.",
+      "conclusion": "Suggest corrective measures such as rationalizing cesses, strengthening the GST Council as a deliberative platform, and upholding cooperative federalism."
+    },
+    "modelAnswerHtml": "<p>Fiscal federalism in India, anchored in Part XII of the Constitution, balances central revenue-raising capacity with state-level expenditure mandates. However, contemporary dynamics reflect growing fiscal centralization, challenging the spirit of cooperative federalism.</p><p><strong>Key Challenges in Centre-State Financial Relations:</strong></p><ul><li><strong>Proliferation of Cesses and Surcharges:</strong> The Union government has increasingly relied on cesses and surcharges (e.g., infrastructure cess, agricultural infrastructure cess), which are excluded from the divisible pool of taxes shared with states under Article 270. This practice deprives states of their legitimate share of revenue growth.</li><li><strong>GST and Fiscal Autonomy:</strong> While the Goods and Services Tax streamlined indirect taxation, it subsumed most state-level indirect taxes, heightening state dependence on central compensation and revenue transfers. The eventual conclusion of the GST compensation period has exacerbated state fiscal stress.</li><li><strong>Restrictions on State Borrowing:</strong> Under Article 293(3), states require central approval for borrowing if they are indebted to the Centre. Recent interpretations incorporating extra-budgetary borrowings and liabilities of state public sector undertakings into net borrowing ceilings have heightened friction.</li><li><strong>Tied Transfers via Centrally Sponsored Schemes (CSS):</strong> A high proportion of central transfers routed through CSS come with rigid conditionalities, limiting the flexibility of states to allocate resources according to local priorities.</li></ul><p><strong>Way Forward:</strong><br>To foster a resilient fiscal architecture, the Union government should consider capping cesses and surcharges to a fixed percentage of gross tax revenue, bringing them within the divisible pool over time. Furthermore, the GST Council must be nurtured as an autonomous platform for consensus-building, and state borrowing autonomy should be balanced within sustainable macroeconomic frameworks. Strengthening local body finances through effective devolution will complete the triad of multi-level fiscal federalism.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to the Finance Commission of India, consider the following statements:\n1. It is a constitutional body constituted by the President under Article 280 every fifth year or earlier.\n2. Its recommendations are binding on the Central government regarding the allocation of funds to states.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: The Finance Commission is constituted under Article 280 by the President. Statement 2 is incorrect: Recommendations made by the Finance Commission are advisory in nature and not legally binding upon the Central government."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following falls outside the divisible pool of taxes shared between the Centre and the States?",
+      "options": [
+        "Corporation Tax",
+        "Personal Income Tax",
+        "Goods and Services Tax collected on inter-state trade",
+        "Surcharges levied on Union taxes"
+      ],
+      "answer": "Surcharges levied on Union taxes",
+      "explanation": "Under Article 270, surcharges levied by Parliament for specific purposes are excluded from the divisible pool and are retained entirely by the Union government."
+    }
+  ]
+}

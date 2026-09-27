@@ -1,0 +1,106 @@
+{
+  "microTopicId": "geography_drainage_system_drainage_system",
+  "subjectId": "geography",
+  "subjectTitle": "Geography of India & World",
+  "topicId": "geography_drainage_system",
+  "topicTitle": "Drainage system",
+  "subTopicTitle": "Drainage system",
+  "syllabusMapping": {
+    "prelims": "General Geography of India and World - Physical Geography, Drainage systems, River basins, and Watersheds.",
+    "mains": "GS Paper I - Salient features of world's physical geography; Distribution of key natural resources across the world (including South Asia and the Indian subcontinent); factors responsible for the location of primary, secondary, and tertiary sector industries in various parts of the world (including India)."
+  },
+  "lectureHoursEstimate": "Lecture 22",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Indian drainage system is broadly divided into the Himalayan and Peninsular river systems based on their origin, geological evolution, and hydrological characteristics. Understanding drainage patterns (trellis, dendritic, radial, centripetal) and watershed management forms the core of spatial hydrological analysis in the UPSC Civil Services Examination.",
+    "highYieldFacts": [
+      "Fact 1: The Himalayan drainage system consists of antecedent rivers (Indus, Ganga, Brahmaputra) that cut across the rising mountain ranges, predating the uplift of the Himalayas.",
+      "Fact 2: The Peninsular drainage system is older than the Himalayan system, characterized by broad, shallow valleys and mature, non-perennial (rain-fed) river regimes.",
+      "Fact 3: The 3-lakh square km Krishna river basin and 3.1-lakh square km Godavari basin (Dakshin Ganga) represent major eastward-flowing peninsular river systems.",
+      "Fact 4: The Western Ghats act as the principal water divide in Peninsular India, running close to the west coast and directing major rivers eastward into the Bay of Bengal.",
+      "Fact 5: Major tectonic faults control the flow of rift-valley rivers like the Narmada and Tapi, which flow westward into the Arabian Sea."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing antecedent rivers with superimposed rivers. Antecedent rivers maintain their courses through tectonic uplift, whereas superimposed rivers flow down a geologic structure inherited from an older surface.",
+      "Trap 2: Assuming all Himalayan rivers are perennial due to snowmelt; certain eastern Himalayan and rain-shadow sub-basins exhibit drastic lean-season flow reductions."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 262 of the Constitution of India (Adjudication of disputes relating to waters of inter-State rivers or river valleys)",
+      "Inter-State Water Disputes Act, 1956",
+      "River Boards Act, 1956"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Dynamics of the Indian Drainage Architecture</h3><p>The drainage system of India is an outcome of the evolutionary geological history of the subcontinent, shaped by three major tectonic events: the breakup of Gondwanaland, the northward drift of the Indian plate and its collision with the Eurasian plate, and the subsidence of the northern flank of the peninsular block (forming the Indo-Gangetic trough).</p><h3>Himalayan vs. Peninsular Drainage: A Comparative Paradigm</h3><p>Himalayan rivers are characterized by massive catchments, intensive headward erosion, gorge-formation in upper reaches, and meandering courses in vast plains. Conversely, Peninsular rivers display fixed, graded profiles with shallow valleys, reflecting tectonic stability over hundreds of millions of years.</p><ul><li><strong>Drainage Patterns:</strong> Dendritic patterns dominate the northern plains, trellis patterns occur in folded mountain regions, radial patterns emerge from central highlands like Amarkantak, and centripetal patterns characterize inland drainage basins such as Sambhar.</li><li><strong>Hydrological Stress:</strong> Climate change has altered precipitation regimes, shifting monsoonal surges and increasing the frequency of both flash floods in Himalayan catchments and hydrological droughts in peninsular rain-shadow zones.</li></ul>",
+    "dimensions": {
+      "constitutional_or_legal": "Inter-State water disputes, adjudication mechanisms under Article 262, and the legislative competence of Union vs. States regarding water resource management (Entry 56 of Union List vs. Entry 17 of State List).",
+      "socio_economic": "Agricultural productivity, rural livelihoods, rural-urban migration triggered by water stress, and displacement caused by large-scale river interlinking and dam infrastructure.",
+      "administrative_governance": "Fragmented institutional architecture across state boundaries, lack of basin-level integrated water resources management (IWRM), and pollution abatement challenges under Namami Gange and National River Conservation Plan.",
+      "international_or_comparative": "Hydro-diplomacy regarding transboundary rivers (Indus Waters Treaty with Pakistan, Ganga and Teesta water-sharing agreements with Bangladesh, Brahmaputra data-sharing with China)."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Sarkaria Commission Report (Recommendations on Inter-State Water Disputes Tribunal timelines)",
+      "NITI Aayog Composite Water Management Index (CWMI)",
+      "Mihir Shah Committee Report on restructuring of water governance institutions in India"
+    ],
+    "structuredDiagramAscii": "Indian Drainage Architecture\n  ├── Himalayan System (Antecedent, Perennial, Gorge/Meander)\n  │     ├── Indus System (Jhelum, Chenab, Ravi, Beas, Sutlej)\n  │     ├── Ganga System (Yamuna, Ghaghara, Gandak, Kosi)\n  │     └── Brahmaputra System (Dibang, Lohit, Teesta)\n  └── Peninsular System (Superimposed/Consequent, Non-Perennial)\n        ├── East Flowing (Mahanadi, Godavari, Krishna, Cauvery)\n        └── West Flowing (Narmada, Tapi, Mahi, Sabarmati)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Consider the following rivers: 1. Brahmaputra 2. Nagavali 3. Subansiri 4. Barak. Which of the above mentioned rivers flow through Arunachal Pradesh?",
+        "options": [
+          "1, 2 and 3 only",
+          "1 and 3 only",
+          "2 and 4 only",
+          "1, 2, 3 and 4"
+        ],
+        "answer": "1 and 3 only",
+        "explanation": "Brahmaputra enters India in Arunachal Pradesh (as Siang). Subansiri is a major tributary of the Brahmaputra originating in Tibet and flowing through Arunachal Pradesh. Nagavali flows through Odisha and Andhra Pradesh. Barak flows through Manipur, Assam, and Mizoram, entering Bangladesh. Hence, only 1 and 3 are correct."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-I",
+        "marks": 15,
+        "question": "Account for the present structure of the Himalayas and the Indian drainage system. (250 words)"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the structural and hydrological differences between Himalayan and Peninsular drainage systems in India. Examine how climate change is impacting their flow regimes. (250 words, 15 Marks)",
+    "approach": {
+      "intro": "Define the Indian drainage system and highlight its division based on geological origin (Himalayan vs. Peninsular).",
+      "body": "Elaborate on structural differences (antecedent vs. mature/graded), hydrological profiles (perennial glacier-fed vs. seasonal rain-fed), and drainage patterns. Analyze the impact of climate change (glacial retreat, erratic monsoons, flash floods, and prolonged droughts).",
+      "conclusion": "Emphasize the need for Integrated Basin Management, micro-watershed conservation, and cooperative hydro-diplomacy under SDG 6 (Clean Water and Sanitation)."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The Indian drainage network is a manifestation of complex tectonic movements, characterized by the young, antecedent Himalayan river system and the ancient, stable Peninsular river system. Both systems exhibit contrasting geological origins, morphologies, and hydrological behaviors.</p><h3>Structural and Hydrological Differences</h3><ul><li><strong>Origin and Age:</strong> Himalayan rivers (Indus, Ganga, Brahmaputra) are antecedent, meaning they existed before the uplift of the Himalayan ranges, cutting deep gorges through continuous erosion. Peninsular rivers (Godavari, Krishna, Mahanadi) are much older, flowing through shallow, mature, graded valleys over stable Precambrian shields.</li><li><strong>Nature of Flow:</strong> Himalayan rivers are perennial, sustained by both monsoon rainfall and perennial glacial meltwaters. Peninsular rivers are non-perennial and rain-fed, experiencing severe lean-season discharge reductions.</li><li><strong>Drainage Basins and Load:</strong> Himalayan basins cover vast geographic areas with high sediment loads due to active mountain building and mass wasting. Peninsular basins have smaller catchment areas with stable, graded beds and lower sediment yields.</li></ul><h3>Impact of Climate Change on Flow Regimes</h3><p>Anthropogenic climate change is profoundly destabilizing these traditional hydrological regimes:</p><ul><li><strong>Glacial Recession:</strong> Accelerated melting of Himalayan glaciers (e.g., Gangotri) initially increases river discharge but threatens long-term water security, risking chronic summer water scarcity.</li><li><strong>Monsoonal Volatility:</strong> Intensified Indian Ocean Dipole (IOD) and El Niño events cause erratic rainfall distribution, triggering unprecedented flash floods in Himalayan sub-basins (e.g., Teesta, Kedarnath) while inducing hydrological droughts in peninsular rain-shadow regions.</li><li><strong>Salinity Ingress:</strong> Reduced lean-season flows in peninsular estuaries cause saline water intrusion upstream, damaging agrarian soils and freshwater ecosystems.</li></ul><h3>Way Forward</h3><p>Adopting an <strong>Integrated Water Resources Management (IWRM)</strong> framework at the river-basin scale, promoting localized aquifer recharge, desiltting reservoirs scientifically, and strengthening transboundary data-sharing are imperative for climate-resilient water governance in India.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following river basins in India is NOT a part of the Peninsular drainage system?",
+      "options": [
+        "Mahanadi Basin",
+        "Damodar Basin",
+        "Kosi Basin",
+        "Mahi Basin"
+      ],
+      "answer": "Kosi Basin",
+      "explanation": "The Kosi River is a major left-bank tributary of the Ganga originating in Tibet and traversing Nepal and Bihar, making it part of the Himalayan drainage system. Mahanadi, Damodar (tributary of Hooghly/Ganga but flowing through Chota Nagpur plateau shield), and Mahi are part of the Peninsular/Central Indian upland systems."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following statements regarding drainage patterns: 1. A dendritic drainage pattern resembles the branches of a tree and develops in regions of uniform lithology. 2. A trellis drainage pattern develops where hard and soft rocks exist parallel to each other. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Statement 1 is correct: Dendritic patterns look like tree branches and form on horizontally bedded sedimentary rocks or uniform crystalline soils. Statement 2 is correct: Trellis patterns develop in folded mountain regions where primary tributaries follow valleys of soft rocks and secondary streams join them at right angles across hard rock ridges."
+    }
+  ]
+}

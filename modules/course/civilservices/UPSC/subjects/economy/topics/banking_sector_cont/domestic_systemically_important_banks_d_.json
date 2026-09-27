@@ -1,0 +1,105 @@
+{
+  "microTopicId": "economy_banking_sector_cont_domestic_systemically_importan",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_banking_sector_cont",
+  "topicTitle": "Banking Sector (cont.)",
+  "subTopicTitle": "Domestic Systemically Important Banks (D-SIBs)",
+  "syllabusMapping": {
+    "prelims": "Indian Economy - Inclusive Growth and related issues, Banking, Non-Banking Financial Institutions, Money Market, RBI and Monetary Policy.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development, and employment (Banking Sector Reforms, Financial Stability)."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Domestic Systemically Important Banks (D-SIBs) are institutions deemed 'Too Big to Fail' (TBTF) due to their size, cross-jurisdictional activities, complexity, and lack of substitutability. The Reserve Bank of India (RBI) designates them annually, subjecting them to higher capital surcharges and intensified regulatory supervision to mitigate systemic risk and moral hazard.",
+    "highYieldFacts": [
+      "Fact 1: The framework for D-SIBs is rooted in the Basel Committee on Banking Supervision (BCBS) guidelines, mandated globally after the 2008 Global Financial Crisis.",
+      "Fact 2: RBI issued the framework for D-SIBs in July 2014, dividing them into distinct bucketing structures with corresponding Common Equity Tier 1 (CET1) capital surcharges.",
+      "Fact 3: Currently, the designated D-SIBs in India include State Bank of India (SBI) and HDFC Bank (in bucket higher tiers) and ICICI Bank.",
+      "Fact 4: The assessment methodology evaluates banks across size, interconnectedness, substitutability/financial institution infrastructure, and complexity using a scoring model.",
+      "Fact 5: Systemic risk buffers are calibrated to the bank's systemic importance score, ranging typically from 0.20% to 0.80% of Risk-Weighted Assets (RWAs) in additional CET1 capital."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming D-SIBs are only public sector banks; private sector giants like HDFC Bank and ICICI Bank are also designated D-SIBs.",
+      "Trap 2: Confusing G-SIBs (Global Systemically Important Banks identified by the Financial Stability Board) with D-SIBs (identified purely by the national central bank, RBI)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Section 35 of the Banking Regulation Act, 1949 (Regulatory and Supervisory Powers of RBI)",
+      "Basel III Capital Regulations framework implemented by RBI"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Conceptual Architecture of D-SIBs</h3><p>The 2008 Global Financial Crisis exposed structural vulnerabilities in interconnected global financial architectures, famously coining the phrase 'Too Big to Fail' (TBTF). When financial institutions of systemic scale face insolvency, their collapse triggers contagion across interbank lending markets, freezing credit creation and necessitating massive taxpayer-funded bailouts. To dismantle the moral hazard where private gains are privatized while losses are socialized, the Basel Committee on Banking Supervision (BCBS) instituted frameworks for Systemically Important Financial Institutions (SIFIs). In India, the Reserve Bank of India operationalized the Domestic Systemically Important Banks (D-SIBs) framework in 2014.</p><h3>Regulatory Mechanics and Assessment Methodology</h3><p>The identification of D-SIBs is not merely a function of balance sheet size. The RBI employs a comprehensive scoring methodology based on quantitative indicators across four critical buckets:</p><ul><li><strong>Size:</strong> Total assets consolidated across domestic and international operations.</li><li><strong>Interconnectedness:</strong> Intra-financial system assets and liabilities, creating contagion channels.</li><li><strong>Substitutability / Financial Institution Infrastructure:</strong> The bank's role as a payment system clearer, underwriter, or provider of critical financial market utilities.</li><li><strong>Complexity:</strong> Notional amount of over-the-counter (OTC) derivatives and level of cross-border activity.</li></ul><p>Once a bank's systemic importance score crosses a predetermined threshold, it is placed in buckets ranging from Bucket 1 to Bucket 5, each carrying progressively higher Common Equity Tier 1 (CET1) capital surcharges. This acts as a shock absorber against severe macroeconomic stress.</p><h3>Implications for Financial Stability and Market Dynamics</h3><p>The D-SIB designation alters the competitive landscape. While it imposes compliance and capital costs, it simultaneously acts as an implicit market stamp of safety, often lowering the cost of wholesale funding for these institutions due to perceived implicit sovereign backing. However, this creates an asymmetric playing field vis-à-vis smaller banks or Non-Banking Financial Companies (NBFCs), necessitating vigilant antitrust and fair-play monitoring by regulators.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Grounded in the statutory supervisory mandate of the Reserve Bank of India under the Banking Regulation Act, 1949 and the RBI Act, 1934.",
+      "socio_economic": "Protects public deposits and prevents credit freezes that disproportionately impact MSMEs, agriculture, and vulnerable retail segments during systemic shocks.",
+      "administrative_governance": "Requires rigorous data auditing, resolution frameworks, and specialized supervisory teams (SSUs) embedded within the central bank.",
+      "international_or_comparative": "Aligns Indian banking supervision with international benchmarks prescribed by the Financial Stability Board (FSB) and BCBS."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Financial Sector Legislative Reforms Commission (FSLRC) Report",
+      "RBI Working Group Reports on Systemically Important Financial Institutions",
+      "Basel Committee on Banking Supervision (BCBS) - Global Systemically Important Banks Assessment Methodology"
+    ],
+    "structuredDiagramAscii": "+--------------------------------------------------------------------------+ \n|                   RBI D-SIB ASSESSMENT & REGULATION                      | \n+--------------------------------------------------------------------------+ \n         |\n         +---> 1. Quantitative Indicators (Size, Interconnectedness, etc.)\n         |\n         +---> 2. Systemic Importance Score Computation\n         |\n         +---> 3. Bucket Classification (Bucket 1 to Bucket 5)\n         |\n         +---> 4. Regulatory Enforcement:\n                 |---> Additional CET1 Capital Surcharge (0.20% - 0.80%)\n                 |---> Enhanced Disclosures & Recovery/Resolution Plans\n                 |---> Intensified Supervisory Monitoring (SSUs)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "Which of the following is/are considered by the Reserve Bank of India while identifying Domestic Systemically Important Banks (D-SIBs)?\n1. Size of the bank\n2. Interconnectedness within the financial system\n3. Substitutability of the bank's services\nSelect the correct answer using the code given below:",
+        "options": [
+          "1 only",
+          "2 and 3 only",
+          "1 and 3 only",
+          "1, 2 and 3"
+        ],
+        "answer": "1, 2 and 3",
+        "explanation": "The RBI assesses D-SIBs based on a scoring methodology that evaluates quantitative indicators across categories: size, interconnectedness, substitutability, and complexity. Therefore, all three statements are correct."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Explain the concept of Domestic Systemically Important Banks (D-SIBs). How does the designation of banks as D-SIBs impact their regulatory oversight and systemic risk management in India?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the significance of Domestic Systemically Important Banks (D-SIBs) in maintaining macroeconomic stability. Discuss the regulatory interventions associated with this designation and the associated moral hazard challenges. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define D-SIBs and contextualize the 'Too Big to Fail' phenomenon in the wake of global and domestic financial stresses.",
+      "body": "Explain the criteria used by RBI for identification, detail the regulatory mechanisms (capital surcharges, resolution plans), and critically analyze the moral hazard and competitive distortion issues.",
+      "conclusion": "Conclude with a balanced way forward focusing on effective recovery tools, bail-in mechanisms, and robust corporate governance."
+    },
+    "modelAnswerHtml": "<p>Domestic Systemically Important Banks (D-SIBs) refer to financial institutions whose distress or failure would trigger systemic disruption across the domestic financial system due to their sheer size, complexity, and interconnectedness. Popularly termed 'Too Big to Fail' (TBTF), their distress can cause contagion effects that paralyze the real economy.</p><p><strong>Significance in Macroeconomic Stability</strong></p><ul><li><strong>Contagion Prevention:</strong> D-SIBs anchor interbank payment and settlement systems. Their continuity ensures that short-term liquidity shocks do not morph into systemic solvency crises.</li><li><strong>Credit Continuity:</strong> By absorbing macroeconomic shocks without curtailing lending, they safeguard vital credit flows to productive sectors like infrastructure, agriculture, and manufacturing.</li></ul><p><strong>Regulatory Interventions and Oversight</strong></p><ul><li><strong>Capital Surcharges:</strong> Designated D-SIBs (currently SBI, HDFC Bank, and ICICI Bank) are mandated to maintain higher Common Equity Tier 1 (CET1) capital over and above standard Basel III capital requirements, acting as a direct loss-absorption cushion.</li><li><strong>Intensified Supervision:</strong> The RBI subjects these institutions to heightened supervisory monitoring, including specialized risk assessments and robust stress-testing exercises.</li><li><strong>Living Wills:</strong> D-SIBs are required to formulate detailed recovery and resolution plans (living wills) to outline orderly winding-down procedures without state bailouts.</li></ul><p><strong>Moral Hazard and Challenges</strong></p><ul><li><strong>Implicit Guarantee:</strong> The D-SIB tag reinforces market perception of sovereign backing, potentially leading to lax risk management by bank managements and lower funding costs.</li><li>Bruising Competition: It can skew market dynamics, giving large D-SIBs an unfair advantage in deposit mobilization and lending rates compared to mid-sized or small finance banks.</li></ul><p><strong>Way Forward</strong></p><p>While D-SIB regulations successfully internalize systemic externalities, India must concurrently strengthen its Resolution Corporation framework and implement effective <em>bail-in</em> debt instruments. Ensuring stringent internal corporate governance and market discipline will ensure that systemic resilience does not breed institutional complacency.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Domestic Systemically Important Banks (D-SIBs) in India:\n1. The Reserve Bank of India releases the list of D-SIBs annually.\n2. D-SIBs are subjected to higher Common Equity Tier 1 (CET1) capital requirements compared to normal banks.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Statement 1 is correct: RBI updates and releases the list of D-SIBs (SBI, ICICI Bank, HDFC Bank) annually based on data collected up to March of the preceding year. Statement 2 is correct: D-SIBs face additional CET1 capital surcharges proportional to their systemic importance score."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following parameters is NOT explicitly utilized by the RBI in its scoring methodology for assessing D-SIBs?",
+      "options": [
+        "Size of the bank",
+        "Interconnectedness within the financial system",
+        "Geographic expansion of rural branch network",
+        "Complexity of operations"
+      ],
+      "answer": "Geographic expansion of rural branch network",
+      "explanation": "The RBI assesses D-SIBs across specific quantitative categories: Size, Interconnectedness, Substitutability (financial infrastructure), and Complexity. Rural branch expansion is a priority under financial inclusion mandates (priority sector lending), not a core metric for systemic importance scoring."
+    }
+  ]
+}

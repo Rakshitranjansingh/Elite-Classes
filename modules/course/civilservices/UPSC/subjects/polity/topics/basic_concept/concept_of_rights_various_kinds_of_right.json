@@ -1,0 +1,109 @@
+{
+  "microTopicId": "polity_basic_concept_concept_of_rights_various_kind",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_basic_concept",
+  "topicTitle": "Basic Concept",
+  "subTopicTitle": "Concept of Rights & various kinds of rights",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Functions and responsibilities of the Union and the States, issues and challenges pertaining to the federal structure, devolution of powers and finances up to local levels and challenges therein; Separation of powers between various organs dispute redressal mechanisms and institutions."
+  },
+  "lectureHoursEstimate": "Lecture 1",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Rights are justifiable claims that individuals possess against the state or society, forming the foundational bedrock of a democratic polity. In India, rights are categorized hierarchically into Constitutional Rights (Part III and outside Part III), Statutory Rights, and Universal Human Rights.",
+    "highYieldFacts": [
+      "Fact 1: Fundamental Rights (Articles 12-35) are enshrined in Part III of the Indian Constitution, drawing inspiration from the US Bill of Rights.",
+      "Fact 2: Constitutional rights outside Part III include Article 300A (Right to Property) and Article 326 (Right to Vote).",
+      "Fact 3: Statutory rights are conferred through acts of Parliament, such as the Right to Information (RTI) Act, 2005, and the Right of Children to Free and Compulsory Education (RTE) Act, 2009.",
+      "Fact 4: Human rights are universal moral claims inherent to all human beings, codified internationally via the Universal Declaration of Human Rights (UDHR, 1948).",
+      "Fact 5: The Supreme Court in the KS Puttaswamy judgment (2017) expanded the contours of Article 21 to establish Privacy as a fundamental, intrinsic right."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming all constitutional rights are also Fundamental Rights. Article 300A is a constitutional right but not a fundamental right (cannot be directly enforced via Article 32).",
+      "Trap 2: Confusing statutory rights with constitutional rights. Statutory rights require legislative amendment of ordinary laws for creation or alteration, whereas fundamental rights require constitutional amendment under Article 368."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 12-35 (Part III)",
+      "Article 300A",
+      "Article 326",
+      "Protection of Human Rights Act, 1993",
+      "Right to Information Act, 2005"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Philosophical Underpinnings of Rights</h3><p>The concept of rights has evolved from the natural rights theories of John Locke and Thomas Hobbes to modern socio-legal frameworks centered on human dignity and democratic governance. In the Indian constitutional framework, rights are not merely abstract philosophical postulates; they are legally enforceable guarantees designed to realize the objectives set out in the Preamble—justice, liberty, equality, and fraternity.</p><h3>Typology of Rights in the Indian Context</h3><ul><li><strong>Natural/Moral Rights:</strong> Inherent to human existence, serving as the moral compass for positive laws.</li><li><strong>Fundamental Rights (Part III):</strong> Justiciable rights enforceable against the state through the Supreme Court (Article 32) and High Courts (Article 226).</li><li><strong>Constitutional Rights (Outside Part III):</strong> Rights guaranteed by the constitutional text but lacking Part III status, such as Article 300A (Right to Property) and Article 326 (Universal Adult Suffrage).</li><li><strong>Statutory Rights:</strong> Rights created by legislative enactments, e.g., Right to Work under MGNREGA, Right to Food under the National Food Security Act (NFSA), 2013, and RTI.</li></ul><h3>Contemporary Expansion through Judicial Activism</h3><p>The Supreme Court of India has continuously expanded the horizons of rights through progressive interpretation. The doctrine of 'Constitutionalism' treats Part III and Part IV (Directive Principles of State Policy) as complementary. Landmark rulings have converted directive principles into enforceable rights—such as the right to education, right to a clean environment, and reproductive autonomy—marking a shift from a formalistic approach to substantive substantive equality.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Interplay between Fundamental Rights (Part III), DPSP (Part IV), and statutory enactments; dynamic expansion of Article 21.",
+      "socio_economic": "Balancing negative liberties (freedoms from state interference) with positive entitlements (right to food, health, and social security).",
+      "administrative_governance": "Capacity constraints, bureaucratic red-tapism, and judicial backlogs affecting the actual realization of statutory and constitutional rights.",
+      "international_or_comparative": "Adherence to international covenants like ICCPR and ICESCR; comparison with the UK's Human Rights Act and US Bill of Rights."
+    },
+    "landmarkJudgmentsOrReports": [
+      "K.S. Puttaswamy v. Union of India (2017)",
+      "Maneka Gandhi v. Union of India (1978)",
+      "Kesavananda Bharati v. State of Kerala (1973)",
+      "Second Administrative Reforms Commission (ARC) - 12th Report: 'Citizen Centric Administration'"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------------+\n|                    THE HIERARCHY OF RIGHTS IN INDIA               |\n+-------------------------------------------------------------------+\n                                  |\n       +--------------------------+--------------------------+\n       |                          |                          |\n       v                          v                          v\n+--------------+          +---------------+          +---------------+\n| Fundamental  |          | Constitutional|          |   Statutory   |\n| Rights       |          | Rights        |          |   Rights      |\n| (Part III)   |          | (e.g., 300A)  |          | (RTI, NFSA)   |\n+--------------+          +---------------+          +---------------+\n       |                          |                          |\n       v                          v                          v\n  Enforceable via            Enforceable via         Enforceable via\n  Article 32 & 226           Article 226/Civil       Statutory Tribunals\n                             Suits                   & Commissions"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which one of the following categories of Fundamental Rights incorporates protection against untouchability as a form of discrimination?",
+        "options": [
+          "Right against Exploitation",
+          "Right to Freedom",
+          "Right to Constitutional Remedies",
+          "Right to Equality"
+        ],
+        "answer": "Right to Equality",
+        "explanation": "Article 17 of the Indian Constitution abolishes 'untouchability' and forbids its practice in any form. Article 17 falls under the Right to Equality, which spans from Article 14 to Article 18."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "The 'Doctrine of Basic Structure' has enabled the Supreme Court to protect fundamental rights from legislative overreach. Discuss with examples."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Distinguish between fundamental rights and statutory rights in the Indian polity. Examine how judicial interpretation has blurred the lines between negative liberties and positive entitlements.",
+    "approach": {
+      "intro": "Define rights in a constitutional democracy and outline the broad classification between fundamental and statutory rights.",
+      "body": "Differentiate based on source, enforceability, and amendment procedure. Analyze how judicial activism through Article 21 has incorporated positive socio-economic entitlements (like education, health, and clean environment) alongside traditional negative liberties.",
+      "conclusion": "Summarize with a note on constitutionalism, balancing state capacity with rights realization, and aligning with SDG goals."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Rights are essential claims recognized by society and sanctioned by law, serving as the moral and legal prerequisites for human development. In India, the legal architecture categorizes rights hierarchically, primarily into Fundamental Rights (guaranteed by Part III) and Statutory Rights (created via parliamentary legislation).</p><h3>Fundamental Rights vs. Statutory Rights</h3><ul><li><strong>Constitutional Basis:</strong> Fundamental rights are enshrined in Part III of the Constitution, whereas statutory rights derive from ordinary acts of Parliament (e.g., Right to Information Act, MGNREGA).</li><li><strong>Enforceability:</strong> Fundamental rights can be directly enforced via the Supreme Court under Article 32 or High Courts under Article 226. Statutory rights generally require exhaustion of lower administrative or judicial remedies before constitutional courts are approached.</li><li><strong>Amendment Process:</strong> Fundamental rights enjoy high immunity and cannot be abrogated in a manner that violates the 'Basic Structure' (Kesavananda Bharati case). Statutory rights can be altered or repealed by a simple majority in Parliament.</li></ul><h3>Blurring Lines: Negative Liberties to Positive Entitlements</h3><p>Traditionally, liberal political theory viewed rights as <em>negative liberties</em>—freedoms <em>from</em> state interference (e.g., freedom of speech, protection against arbitrary arrest). However, the Indian Supreme Court, through expansive interpretation of Article 21 (Right to Life and Personal Liberty), has transformed negative prohibitions into <em>positive entitlements</em>.</p><ul><li><strong>Right to Education:</strong> Initially read into Article 21 (Mohini Jain and Unni Krishnan cases), it later materialized as a fundamental right under Article 21A and a statutory right via the RTE Act, 2009.</li><li><strong>Right to Clean Environment:</strong> The judiciary interpreted the right to life to include the right to live in a pollution-free environment (Subhash Kumar v. State of Bihar).</li><li><strong>Socio-Economic Entitlements:</strong> Judicial intervention has recognized the right to food, shelter, and medical care as integral components of human dignity, compelling the state to enact welfare legislations.</li></ul><h3>Conclusion</h3><p>The evolution of rights in India reflects a dynamic shift from formal legal equality to substantive social justice. By expanding the scope of Article 21, the judiciary has successfully bridged the gap between Part III (Fundamental Rights) and Part IV (Directive Principles of State Policy), ensuring that civil liberties walk hand-in-hand with socio-economic entitlements in fulfilling India's constitutional vision.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding rights in the Indian constitutional framework:\n1. All constitutional rights are fundamental rights enforceable under Article 32.\n2. The Right to Property under Article 300A is a constitutional right but not a fundamental right.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because not all constitutional rights are fundamental rights (e.g., Article 300A and Article 326 are outside Part III and cannot be enforced directly via Article 32). Statement 2 is correct as the 44th Constitutional Amendment Act, 1978 moved the Right to Property from Part III to Article 300A in Part XII."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following best exemplifies a statutory right in India?",
+      "options": [
+        "Right to Equality before Law (Article 14)",
+        "Right to Information (RTI)",
+        "Right to Move Freely Throughout India (Article 19)",
+        "Protection of Life and Personal Liberty (Article 21)"
+      ],
+      "answer": "Right to Information (RTI)",
+      "explanation": "Right to Information is conferred by an act of Parliament (Right to Information Act, 2005), making it a statutory right. Options A, C, and D are Fundamental Rights enshrined in Part III of the Constitution."
+    }
+  ]
+}

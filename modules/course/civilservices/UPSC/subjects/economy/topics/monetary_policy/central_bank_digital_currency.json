@@ -1,0 +1,106 @@
+{
+  "microTopicId": "economy_monetary_policy_central_bank_digital_currency",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_monetary_policy",
+  "topicTitle": "Monetary Policy",
+  "subTopicTitle": "Central Bank Digital Currency",
+  "syllabusMapping": {
+    "prelims": "Indian Economy and National Development - Banking, Inflation, Money Supply, and Digital Payments.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development, and employment."
+  },
+  "lectureHoursEstimate": "Lecture 12&13",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Central Bank Digital Currency (CBDC), branded as the Digital Rupee (e₹) in India, is a legal tender issued by the Reserve Bank of India in digital form. It appears as a liability on the central bank's balance sheet, eliminating credit and liquidity risks associated with commercial bank money or private cryptocurrencies.",
+    "highYieldFacts": [
+      "Fact 1: RBI launched the pilot for Wholesale CBDC (e₹-W) on November 1, 2022, primarily for settling secondary market government securities transactions.",
+      "Fact 2: The pilot for Retail CBDC (e₹-R) was launched on December 1, 2022, targeting closed user groups (CUG) comprising customers and merchants in select cities.",
+      "Fact 3: CBDC is built on two primary architectural models: Token-based (bearer instrument requiring verification like physical cash) and Account-based (record-keeping tied to specific identities).",
+      "Fact 4: Unlike commercial bank deposits, CBDC does not earn interest and is a direct liability of the central bank, insulating it from commercial bank runs.",
+      "Fact 5: The legal framework empowering the RBI to issue CBDC was established via amendments to the Reserve Bank of India Act, 1934, through the Finance Act, 2022."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing CBDC with Unified Payments Interface (UPI). UPI is a payment rail built on top of existing commercial bank accounts, whereas CBDC is a standalone digital currency acting as base money.",
+      "Trap 2: Assuming CBDCs are decentralized like cryptocurrencies (Bitcoin/Ethereum). CBDCs are strictly centralized and issued exclusively by the sovereign central bank."
+    ],
+    "keyArticlesOrStatutes": [
+      "Section 2(a), Section 22, and Section 24 of the Reserve Bank of India Act, 1934",
+      "Finance Act, 2022"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Strategic Imperatives of India's Central Bank Digital Currency (e₹)</h3><p>The introduction of the Central Bank Digital Currency (CBDC), known as the Digital Rupee (e₹), marks a paradigm shift in the history of sovereign money in India. Authorized under the amended Reserve Bank of India Act, 1934, the e₹ is designed to complement physical fiat currency rather than replace it completely. From a macroeconomic perspective, the CBDC serves as a strategic instrument to reduce the massive costs associated with physical cash management—estimated in thousands of crores annually for printing, storage, transportation, and security.</p><p>Furthermore, CBDC acts as a potent structural deterrent against the systemic risks posed by private decentralized cryptocurrencies and stablecoins, which threaten monetary sovereignty and capital account management. By providing a risk-free digital alternative, the RBI ensures that the trust underpinning fiat currency transitions seamlessly into the digital economy. The dual deployment model—Retail (e₹-R) for daily transactional use by citizens and businesses, and Wholesale (e₹-W) for interbank settlements and government securities clearing—allows the central bank to optimize liquidity management and slash settlement finality windows from days to near-instantaneous real-time execution.</p><p>Despite its transformative potential, implementation presents profound policy challenges. Chief among these is the risk of 'disintermediation' of commercial banks. If retail depositors shift vast sums from low-interest commercial bank accounts to risk-free CBDC wallets during financial panics, commercial banks could face liquidity crunches, forcing them to raise deposit rates and thereby driving up credit costs for the broader economy. Additionally, balancing user privacy with regulatory mandates against anti-money laundering (AML) and countering the financing of terrorism (CFT) requires sophisticated cryptographic protocols, such as programmable anonymity up to certain thresholds. As India marches toward a trillion-dollar digital economy, the Digital Rupee stands as the foundational digital public good underpinning secure, resilient, and inclusive financial architecture.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing via the RBI Act, 1934 (amended by Finance Act, 2022), defining e₹ as legal tender alongside sovereign fiat currency.",
+      "socio_economic": "Financial inclusion of unbanked populations via offline functionalities, reduction in cash-handling costs, and enhanced transparency in welfare delivery.",
+      "administrative_governance": "Mitigation of bank run risks, balancing anonymity with AML/CFT compliance, and cybersecurity resilience against state-sponsored or rogue cyber threats.",
+      "international_or_comparative": "Cross-border settlement optimization, de-dollarization initiatives, and alignment with BIS (Bank for International Settlements) project mBridge experiments."
+    },
+    "landmarkJudgmentsOrReports": [
+      "RBI's Concept Note on Central Bank Digital Currency (2022)",
+      "Report on Currency and Finance (RCF) by RBI - 'Towards a Digital India'",
+      "Bank for International Settlements (BIS) Annual Economic Report on CBDCs"
+    ],
+    "structuredDiagramAscii": "+--------------------------------------------------------------------------+\n|                   RESERVE BANK OF INDIA (Issuer)                         |\n+--------------------------------------------------------------------------+\n          |                                         |\n    (Wholesale e₹-W)                        (Retail e₹-R)\n          v                                         v\n+-----------------------+               +----------------------------------+\n| Interbank Settlements |               | Distributed via Commercial Banks |\n| G-Sec Clearing        |               | & Authorized Intermediaries      |\n+-----------------------+               +----------------------------------+\n                                                    |\n                                                    v\n                                        +--------------------------+\n                                        | Citizens & Merchants     |\n                                        | (Token/Account Wallets)  |\n                                        +--------------------------+",
+    "prelimsCapsuleRef": "Essential framework covering structural architecture, statutory basis, and economic rationale."
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "Which of the following statements best describes the term 'Central Bank Digital Currency'?",
+        "options": [
+          "A decentralized digital currency issued by a syndicate of global commercial banks.",
+          "A digital form of sovereign currency issued by a central bank, representing a direct liability of the central bank.",
+          "A cryptographic asset backed by physical gold reserves held in international vaults.",
+          "An electronic payment token issued by private fintech companies regulated under the Payment and Settlement Systems Act, 2007."
+        ],
+        "answer": "A digital form of sovereign currency issued by a central bank, representing a direct liability of the central bank.",
+        "explanation": "CBDC is strictly a liability of the central bank (unlike commercial bank deposits which are liabilities of commercial banks) and is sovereign fiat money in digital form, distinct from decentralized cryptocurrencies or private fintech payment tokens."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2023,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Analyze the strategic implications of introducing the Central Bank Digital Currency (CBDC) in India. How does it alter the monetary policy transmission mechanism and impact the banking sector?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the structural rationale behind the introduction of the Digital Rupee (e₹) by the Reserve Bank of India. Discuss the challenges it poses to the traditional banking ecosystem and suggest measures for a balanced rollout. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define CBDC (Digital Rupee) and mention its legal backing under the amended RBI Act, 1934, highlighting its launch via wholesale and retail pilots.",
+      "body": "Explain strategic benefits (cost reduction, cross-border efficiency, countering private cryptos). Analyze banking sector challenges (bank disintermediation, liquidity shifts, credit contraction). Suggest mitigation strategies (remunerated vs. non-remunerated design, transaction limits, phased rollout).",
+      "conclusion": "Conclude by highlighting the role of e₹ as a critical digital public good that reinforces monetary sovereignty and aligns with India's vision of a secure digital economy."
+    },
+    "modelAnswerHtml": "<p>The Central Bank Digital Currency (CBDC), branded as the <strong>Digital Rupee (e₹)</strong>, represents the Reserve Bank of India's sovereign response to the digitalization of finance. Accorded legal tender status via amendments to the <strong>RBI Act, 1934</strong>, the e₹ is issued as a direct liability of the central bank, combining the safety of physical cash with the efficiency of digital transactions.</p><p><strong>Strategic Rationale for e₹:</strong></p><ul><li><strong>Operational Cost Optimization:</strong> Significantly reduces the humongous costs associated with printing, transporting, storing, and replacing physical currency notes.</li><li><strong>Monetary Sovereignty:</strong> Counters the systemic macroeconomic risks posed by private cryptocurrencies and stablecoins that threaten exchange rate stability and monetary policy control.</li><li><strong>Cross-Border Efficiency:</strong> Streamlines international trade settlements by bypassing traditional correspondent banking networks, reducing settlement times from days to seconds.</li></ul><p><strong>Challenges to the Banking Ecosystem:</strong></p><ul><li><strong>Risk of Disintermediation:</strong> If retail depositors migrate en masse from commercial bank accounts to risk-free CBDC wallets during economic uncertainty, commercial banks face severe deposit flight.</li><li><strong>Credit Crunch and Higher Costs:</strong> Deprived of low-cost current and savings account (CASA) deposits, banks would be forced to raise deposit rates, subsequently driving up lending rates for retail and corporate borrowers.</li><li><strong>Operational and Cybersecurity Risks:</strong> Demands robust cryptographic architecture to prevent sophisticated state-sponsored cyber attacks while maintaining user data privacy against overreach.</li></ul><p><strong>Way Forward:</strong><br>To harmonize innovation with financial stability, the RBI must maintain non-remunerated retail CBDC wallets to discourage massive hoarding. Implementing tiered anonymity limits can balance anti-money laundering (AML) protocols with civil privacy rights. A calibrated, data-driven phased rollout will ensure that the Digital Rupee empowers citizens without destabilizing commercial credit creation.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Central Bank Digital Currency (CBDC) in India:\n1. The Digital Rupee (e₹) is a direct liability of the Reserve Bank of India.\n2. Retail CBDC (e₹-R) earns a fixed rate of interest set by the Monetary Policy Committee to incentivize public adoption.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: CBDC is a sovereign liability of the RBI. Statement 2 is incorrect: CBDC is designed to be a digital equivalent of cash and, like physical currency, does not earn interest, as interest-bearing CBDC would cause severe disintermediation of commercial bank deposits."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following best distinguishes Wholesale CBDC (e₹-W) from Retail CBDC (e₹-R)?",
+      "options": [
+        "e₹-W is used exclusively by retail consumers for daily merchant transactions, while e₹-R is used by the central government for budgetary allocations.",
+        "e₹-W is restricted for settlement of wholesale financial transactions primarily between financial institutions, whereas e₹-R is designed for use by the private public and businesses.",
+        "e₹-W is based on decentralized blockchain technology, whereas e₹-R is operated on centralized legacy databases.",
+        "e₹-W is issued by commercial banks, whereas e₹-R is issued directly by the Ministry of Finance."
+      ],
+      "answer": "e₹-W is restricted for settlement of wholesale financial transactions primarily between financial institutions, whereas e₹-R is designed for use by the private public and businesses.",
+      "explanation": "Wholesale CBDC is targeted at interbank transfers, wholesale financial transactions, and government securities (G-Sec) settlements, whereas Retail CBDC is accessible to the private retail sector, consumers, and merchants for everyday transactions."
+    }
+  ]
+}

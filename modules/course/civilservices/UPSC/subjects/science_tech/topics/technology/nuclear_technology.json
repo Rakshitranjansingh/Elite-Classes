@@ -1,0 +1,106 @@
+{
+  "microTopicId": "science_tech_technology_nuclear_technology",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_technology",
+  "topicTitle": "Technology",
+  "subTopicTitle": "Nuclear technology",
+  "syllabusMapping": {
+    "prelims": "General Science, Atomic Energy Applications, India's Three-Stage Nuclear Power Programme, and Nuclear Non-Proliferation Regimes.",
+    "mains": "GS Paper III - Science and Technology- developments and their applications and effects in everyday life; Indigenization of technology and developing new technology."
+  },
+  "lectureHoursEstimate": "Lecture 1, 2 & 3",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Nuclear technology harnesses nuclear reactions—specifically fission and fusion—to generate electricity, propel naval vessels, and produce radioisotopes for medicine and agriculture. India's unique strategic nuclear trajectory is anchored by its indigenous Three-Stage Nuclear Power Programme designed to overcome limited domestic uranium reserves by utilizing vast thorium reserves.",
+    "highYieldFacts": [
+      "Fact 1: India's Three-Stage Nuclear Programme comprises: Stage I (Pressurised Heavy Water Reactors using natural uranium), Stage II (Fast Breeder Reactors using plutonium-239 recovered from spent fuel), and Stage III (Advanced Heavy Water Reactors / Thorium-Uranium-233 cycle).",
+      "Fact 2: The Department of Atomic Energy (DAE) functions directly under the direct charge of the Prime Minister, established under the Atomic Energy Act, 1962.",
+      "Fact 3: India operates under a separation of civilian and military nuclear facilities following the landmark Indo-US Civil Nuclear Agreement (2008) and subsequent India-IAEA Safeguards Agreement.",
+      "Fact 4: India is a non-signatory to the Nuclear Non-Proliferation Treaty (NPT) and the Comprehensive Nuclear-Test-Ban Treaty (CTBT) due to their discriminatory nature, yet maintains a voluntary moratorium on nuclear explosive testing.",
+      "Fact 5: Bhabha Atomic Research Centre (BARC), Trombay, is India's premier multi-disciplinary nuclear research facility founded by Dr. Homi J. Bhabha in 1954."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the nodal ministry for DAE; while most science departments fall under the Ministry of Science and Technology, DAE is directly under the Prime Minister's Office.",
+      "Trap 2: Assuming India is a member of all four major export control regimes; India is a member of the MTCR, Wassenaar Arrangement, and Australia Group, but its application to the Nuclear Suppliers Group (NSG) remains pending due to geopolitical opposition."
+    ],
+    "keyArticlesOrStatutes": [
+      "Atomic Energy Act, 1962",
+      "Civil Liability for Nuclear Damage Act (CLNDA), 2010",
+      "Weapons of Mass Destruction and Delivery Systems (Prohibition of Unlawful Activities) Act, 2005"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Strategic Imperatives of India's Nuclear Technology</h3><p>Nuclear technology in India represents a saga of visionary planning, scientific self-reliance, and strategic autonomy. Conceived by Dr. Homi J. Bhabha in the late 1940s, India's nuclear program was designed not merely as an instrument of energy security, but as a catalyst for socio-economic modernization and technological sovereignty. Given India's modest natural uranium reserves (roughly 1-2% of global reserves) juxtaposed with its abundant thorium reserves (approximately 25% of the world's total), a linear energy strategy was impossible. This necessitated the formulation of the ingenious <strong>Three-Stage Nuclear Power Programme</strong>.</p><h3>Institutional Architecture and Governance</h3><p>The governance of nuclear energy in India is characterized by strict state monopoly and centralized oversight. The <strong>Atomic Energy Act of 1962</strong> vests sweeping powers in the Central Government to control the production, development, and disposal of atomic energy and radioactive substances. The Atomic Energy Commission (AEC) formulates policies, while the Department of Atomic Energy (DAE) executes them through premier public sector undertakings like Nuclear Power Corporation of India Limited (NPCIL) and Bharatiya Nabhikiya Vidyut Nigam Limited (BHAVINI). Regulatory independence was bolstered by the establishment of the <strong>Atomic Energy Regulatory Board (AERB)</strong> in 1983, though academic debates continue regarding its statutory autonomy from the DAE.</p><h3>Contemporary Challenges and Strategic Dimensions</h3><p>Despite foundational strengths, India's nuclear sector confronts multifaceted challenges. Delays in commercializing Fast Breeder Reactor technology (Stage II) have slowed the transition to the thorium cycle (Stage III). Furthermore, international civil nuclear commerce, unlocked after the 2008 waiver by the Nuclear Suppliers Group, has faced implementation bottlenecks due to India's domestic liability regime—specifically Section 17(b) of the Civil Liability for Nuclear Damage Act, 2010, which allows reactor operators to exercise a right of recourse against suppliers in case of nuclear accidents.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Governed by the Atomic Energy Act, 1962 and the Civil Liability for Nuclear Damage Act, 2010; atomic minerals are exclusively under Union control (Entry 6 of Union List).",
+      "socio_economic": "Vital for clean baseload energy, reducing carbon emissions to meet Net-Zero 2070 targets, and advancing nuclear medicine (radioisotopes for cancer therapy) and agriculture (radiation-induced crop mutation).",
+      "administrative_governance": "Centralized execution via DAE-linked PSUs (NPCIL, BHAVINI) with regulatory oversight by AERB; land acquisition challenges and local community protests regarding radiation safety pose recurring administrative hurdles.",
+      "international_or_comparative": "Balancing strategic autonomy with global non-proliferation norms; navigating IAEA safeguards, bilateral civil nuclear pacts, and persistent non-membership in the Nuclear Suppliers Group (NSG)."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Kacker Committee Recommendations on Nuclear Safety (post-Fukushima)",
+      "CAG Performance Audit Reports on DAE and Nuclear Power Generation Projects",
+      "Atomic Energy Regulatory Board (AERB) Safety Codes and Guides"
+    ],
+    "structuredDiagramAscii": "+-----------------------------------------------------------------+\n|            INDIA'S THREE-STAGE NUCLEAR POWER PROGRAMME           |\n+-----------------------------------------------------------------+\n                                 |\n        +------------------------+------------------------+\n        |                                                 |\n        v                                                 v\n+-------------------------------+               +---------------------------------+\n| STAGE I: PHWRs                |               | STAGE II: FBRs                  | \n| - Uses Natural Uranium        |               | - Uses Plutonium-239            | \n| - Produces Plutonium-239      | ---------->   | - Converts Thorium-232 to U-233 | \n| - Commercial Base             |               | - Fast Breeder Technology       | \n+-------------------------------+               +---------------------------------+\n                                                          |\n                                                          v\n                                                +---------------------------------+\n                                                | STAGE III: AHWRs / Thorium Cycle| \n                                                | - Uses Thorium-233 / U-233      | \n                                                | - Long-term Energy Autonomy     | \n                                                +---------------------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "With reference to India's projects on nuclear power plants, consider the following statements: 1. Kakrapar is exclusively known for its nuclear reactors using thorium. 2. Rajasthan Atomic Power Station is the only station in India that uses natural uranium as fuel. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Neither 1 nor 2",
+        "explanation": "Statement 1 is incorrect because Kakrapar Atomic Power Station operates Pressurised Heavy Water Reactors (PHWRs) utilizing natural uranium, not thorium exclusively. Statement 2 is incorrect because multiple Indian nuclear power stations (including Kakrapar, Narora, Madras, etc.) use natural uranium as fuel in PHWRs, not just Rajasthan."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2017,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "With growing energy needs should India keep on expanding its nuclear energy programme? Discuss the facts and fears associated with nuclear energy."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the significance of India's three-stage nuclear power programme in achieving long-term energy security. Also highlight the key bottlenecks hindering its accelerated implementation. (250 words, 15 marks)",
+    "approach": {
+      "intro": "Define India's nuclear energy context, citing the constraint of meager domestic uranium reserves and abundance of thorium, introducing the three-stage roadmap envisioned by Homi Bhabha.",
+      "body": "Detail the three stages (PHWR, FBR, Thorium-U233 cycle). Enumerate bottlenecks such as technological complexities in fast breeder reactors, delays in thorium commercialization, liability concerns under CLNDA, and capital-intensive nature.",
+      "conclusion": "Summarize with a futuristic outlook, linking nuclear energy to India's decarbonization goals (Net-Zero by 2070) and energy independence under Vision 2047."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>India’s nuclear energy architecture is unique, shaped by the strategic realization that its domestic uranium reserves are limited (~1-2% of global totals), whereas its thorium reserves are among the world's largest (~25%). To reconcile this resource asymmetry with soaring baseload energy demands, Dr. Homi J. Bhabha conceptualized the indigenous <strong>Three-Stage Nuclear Power Programme</strong>.</p><h3>Significance of the Three-Stage Programme</h3><ul><li><strong>Stage I (Pressurised Heavy Water Reactors):</strong> Utilizes natural uranium with heavy water as moderator and coolant, producing Plutonium-239 as a by-product. It establishes the foundational industrial and technological base.</li><li><strong>Stage II (Fast Breeder Reactors):</strong> Utilizes Plutonium-239 combined with uranium-238 to breed more fissile material while generating power, subsequently converting inert Thorium-232 into fissile Uranium-233.</li><li><strong>Stage III (Advanced Heavy Water Reactors / Thorium Cycle):</strong> Employs a Thorium-Uranium-233 fuel cycle, unlocking limitless energy self-sufficiency for centuries.</li></ul><h3>Key Bottlenecks Hindering Implementation</h3><ul><li><strong>Technological Complexities:</strong> Fast Breeder Reactor (FBR) technology involves handling liquid sodium coolant, which is chemically reactive and technically demanding, leading to protracted commissioning delays (e.g., prototype FBR at Kalpakkam).</li><li><strong>Long Incubation Periods:</strong> Transitioning between stages requires decades of scientific research, material testing, and pilot validation.</li><li><strong>International Liability Issues:</strong> Section 17(b) of the Civil Liability for Nuclear Damage Act (CLNDA), 2010 has created apprehensions among foreign nuclear vendors regarding supplier liability, slowing down international reactor imports.</li><li><strong>Capital Intensiveness and Public Perception:</strong> High upfront capital costs and post-Fukushima safety anxieties lead to local resistance and land acquisition hurdles for new greenfield projects.</li></ul><h3>Way Forward</h3><p>To secure energy autonomy and fulfill India's COP26 climate commitments (reaching 500 GW non-fossil capacity by 2030 and Net-Zero by 2070), the government must fast-track the commercial deployment of indigenous 500 MWe PFBRs, foster public-private partnerships in manufacturing nuclear components, and streamline regulatory frameworks via an empowered, independent AERB. Integrating small modular reactors (SMRs) into industrial decarbonization grids will further vitalize India's nuclear renaissance.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding India's Three-Stage Nuclear Power Programme: 1. The primary objective of Stage II is to utilize Thorium-232 directly for generating electricity without plutonium intervention. 2. Fast Breeder Reactors (FBRs) in Stage II produce more fissile material than they consume. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because Stage II utilizes Plutonium-239 (obtained from Stage I spent fuel) to convert Thorium-232 into Uranium-233; thorium is not used directly for electricity generation in Stage II. Statement 2 is correct as FBRs breed more fissile material (Plutonium-239 or U-233) than they consume during the fission process."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following bodies is the principal regulatory authority entrusted with nuclear and radiation safety in India?",
+      "options": [
+        "Department of Atomic Energy (DAE)",
+        "Atomic Energy Regulatory Board (AERB)",
+        "Nuclear Power Corporation of India Limited (NPCIL)",
+        "Atomic Energy Commission (AEC)"
+      ],
+      "answer": "Atomic Energy Regulatory Board (AERB)",
+      "explanation": "The Atomic Energy Regulatory Board (AERB) was constituted in 1983 by the Central Government under the Atomic Energy Act, 1962 to carry out regulatory and safety functions related to nuclear energy and radiation safety in India. DAE is the executive department, AEC is the policy-formulating body, and NPCIL is the operating utility."
+    }
+  ]
+}

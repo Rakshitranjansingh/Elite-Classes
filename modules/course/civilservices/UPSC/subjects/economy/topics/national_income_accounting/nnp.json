@@ -1,0 +1,105 @@
+{
+  "microTopicId": "economy_national_income_accounting_nnp",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_national_income_accounting",
+  "topicTitle": "National Income Accounting",
+  "subTopicTitle": "NNP",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives, National Income aggregates.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 3&4",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Net National Product (NNP) represents the total market value of all final goods and services produced by the normal residents of a country during a given period, usually a year, after deducting depreciation (consumption of fixed capital). NNP at Factor Cost is conventionally referred to as National Income.",
+    "highYieldFacts": [
+      "Fact 1: NNP at Factor Cost (National Income) = NNP at Market Price - Net Indirect Taxes (Indirect Taxes - Subsidies).",
+      "Fact 2: Depreciation is officially termed 'Consumption of Fixed Capital' in the System of National Accounts (SNA) guidelines maintained by the UN and implemented in India by the National Statistical Office (NSO).",
+      "Fact 3: NNP can be measured at Market Prices (NNPmp) and Factor Cost (NNPfc), with NNPfc serving as the true measure of income earned by factors of production.",
+      "Fact 4: Per Capita Income is derived by dividing NNP at Factor Cost by the mid-year total population of the country.",
+      "Fact 5: Recent revisions by MoSPI include the transition to base year 2011-12 and alignment with SNA 2008 guidelines, incorporating corporate database MCA-21."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing NNP with GDP. NNP includes Net Factor Income from Abroad (NFIA) and excludes depreciation, whereas GDP excludes NFIA and includes depreciation.",
+      "Trap 2: Assuming NNP inherently accounts for environmental degradation or natural resource depletion, which standard macroeconomic aggregates fail to capture unless adjusted for Green Accounting."
+    ],
+    "keyArticlesOrStatutes": [
+      "Collection of Statistics Act, 2008",
+      "National Statistical Commission (NSC) resolutions"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Conceptual Significance of Net National Product (NNP)</h3><p>Net National Product (NNP) occupies a foundational position in macroeconomic theory and developmental planning. While Gross Domestic Product (GDP) measures the sheer scale of economic activity within geographical borders, NNP adjusts this metric to reflect sustainable productive capacity by accounting for the capital consumed during production—known as depreciation or Consumption of Fixed Capital (CFC). In the architecture of the National Statistical Office (NSO), NNP at factor cost represents the aggregate earnings of all domestic factors of production plus their net earnings from abroad, making it the definitive metric for India's National Income.</p><h3>The Contemporary Debate: Beyond GDP to Green NNP</h3><p>From a governance and sustainability perspective, conventional NNP suffers from a critical limitation: it treats the depletion of natural capital (such as groundwater exhaustion, mineral extraction, and deforestation) as current income rather than asset depreciation. Recognizing this lacuna, the Supreme Court and expert panels have repeatedly emphasized 'Green Accounting'. Environmentally adjusted NNP (Green NNP) deducts the monetary value of natural resource depletion and environmental degradation from traditional NNP, providing policy makers with a realistic barometer of intergenerational equity and sustainable development.</p><h3>Institutional Architecture and Data Integrity</h3><p>The compilation of NNP involves complex statistical orchestration. The NSO under the Ministry of Statistics and Programme Implementation (MoSPI) synthesizes data from the Index of Industrial Production (IIP), Corporate Annual Returns (MCA-21 database), agricultural output estimates, and household consumption surveys. However, structural transitions like informal sector informality, digital economy valuation, and underground economic activities pose persistent challenges to accurate NNP estimation, necessitating continuous methodological upgrades and periodic base-year revisions.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory mandate of statistical collection under the Collection of Statistics Act and constitutional division of economic responsibilities.",
+      "socio_economic": "Distributional equity, per capita income variations across states, and the divergence between macroeconomic growth and household well-being.",
+      "administrative_governance": "Data silos between ministries, reliance on the MCA-21 database for unlisted entities, and the formalization drive (GSTN, e-Shram) improving estimation accuracy.",
+      "international_or_comparative": "Adherence to United Nations System of National Accounts (SNA 2008) standards ensuring cross-country comparability for global ratings and trade negotiations."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Parthasarathi Shome Committee Report on General Anti-Avoidance Rules and economic data integrity",
+      "National Statistical Commission (Rangarajan Commission recommendations)",
+      "UN System of National Accounts (SNA) framework"
+    ],
+    "structuredDiagramAscii": "Gross Domestic Product (GDP)\n       │\n       ├─ (+) Net Factor Income from Abroad (NFIA) ──> Gross National Product (GNP)\n       │\n       └─ (-) Consumption of Fixed Capital (Depreciation) ──> Net National Product (NNPmp)\n                                                                    │\n                                                                    └─ (-) Net Indirect Taxes ──> NNPfc (National Income)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "If you walk through the campus of one of our premier technical institutions, you'd notice that, 'Net National Product (NNP) at factor cost is higher than NNP at market price.' Which of the following explains this?",
+        "options": [
+          "Net indirect taxes are positive",
+          "Net indirect taxes are negative",
+          "Direct taxes are higher than indirect taxes",
+          "Subsidies are lower than indirect taxes"
+        ],
+        "answer": "Net indirect taxes are negative",
+        "explanation": "NNP at Factor Cost = NNP at Market Price - (Indirect Taxes - Subsidies). Therefore, NNP at Factor Cost will be higher than NNP at Market Price if Net Indirect Taxes (Indirect Taxes minus Subsidies) are negative (i.e., Subsidies exceed Indirect Taxes)."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2017,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Define potential GDP and explain its determinants. What are the factors that have been inhibiting India from realizing its potential GDP?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the conceptual limitations of conventional National Income aggregates like NNP in capturing true societal well-being and discuss the imperative for transitioning towards Green National Accounting in India. (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define NNP and its standard role as the measure of National Income.",
+      "body": "Highlight the limitations of conventional NNP (omission of environmental degradation, income inequality, non-market household work). Explain Green NNP and its mechanism. Mention institutional steps like MoSPI's green initiatives.",
+      "conclusion": "Conclude by linking Green NNP to India's net-zero commitments and SDG 8/12, emphasizing holistic governance."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Net National Product (NNP) at factor cost, traditionally termed National Income, measures the net output of goods and services produced by residents. However, as an indicator of societal well-being, it exhibits severe structural blind spots.</p><h3>Limitations of Conventional NNP</h3><ul><li><strong>Ecological Blindness:</strong> Conventional NNP treats the depletion of natural resources (minerals, groundwater) and environmental degradation as wealth generation rather than asset erosion.</li><li><strong>Distributional Inequity:</strong> Being an aggregate macro measure, rising NNP or per capita income does not reflect economic inequality or the concentration of wealth.</li><li><strong>Exclusion of Non-Marketed Services:</strong> Extensive unpaid care work predominantly performed by women remains unvalued in NNP calculations.</li></ul><h3>The Imperative for Green NNP</h3><p>To reconcile economic growth with environmental sustainability, transitioning toward <strong>Green NNP</strong> is essential. Green NNP adjusts standard national accounts by subtracting the depletion of natural capital and the costs of environmental degradation (pollution abatement costs).</p><ul><li><strong>Policy Formulation:</strong> Enables evidence-based resource allocation aligned with sustainable development.</li><li><strong>Intergenerational Equity:</strong> Prevents short-term economic gains at the cost of long-term ecological ruin.</li></ul><h3>Way Forward</h3><p>India must institutionalize the MoSPI framework for environmental-economic accounting, integrating satellite accounts for natural resources into official GDP/NNP estimates. This will fulfill India's commitments under SDG 8 (Decent Work and Economic Growth) and long-term climate action goals.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following components is deducted from Gross National Product (GNP) to arrive at Net National Product (NNP)?",
+      "options": [
+        "Net Factor Income from Abroad",
+        "Depreciation (Consumption of Fixed Capital)",
+        "Indirect taxes minus subsidies",
+        "Corporate profits retained abroad"
+      ],
+      "answer": "Depreciation (Consumption of Fixed Capital)",
+      "explanation": "NNP is obtained by subtracting depreciation (consumption of fixed capital) from GNP. Conversely, GNP minus Net Factor Income from Abroad yields GDP."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following statements regarding 'Green National Accounting':\n1. It adjusts traditional NNP by accounting for the depletion of natural resources and environmental degradation.\n2. It is currently fully integrated into India's primary official headline National Income figures published by the NSO.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: Green National Accounting deducts natural capital depletion and environmental degradation costs from standard NNP. Statement 2 is incorrect because while MoSPI publishes green statistical frameworks and satellite accounts, headline NNP figures released officially do not yet routinely deduct these environmental costs for core tax/budgetary policy calculations."
+    }
+  ]
+}

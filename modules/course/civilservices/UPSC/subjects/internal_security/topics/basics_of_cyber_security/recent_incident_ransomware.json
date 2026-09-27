@@ -1,0 +1,106 @@
+{
+  "microTopicId": "internal_security_basics_of_cyber_security_recent_incident_ransomware",
+  "subjectId": "internal_security",
+  "subjectTitle": "Internal Security & Border Management",
+  "topicId": "internal_security_basics_of_cyber_security",
+  "topicTitle": "Basics of Cyber Security",
+  "subTopicTitle": "Recent Incident: Ransomware",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Biodiversity and Climate Change (overlaps with Information Technology, Cyber Security, and Digital Governance).",
+    "mains": "GS Paper III - Linkages between development and spread of extremism; Role of external state and non-state actors in creating challenges to internal security; Challenges to internal security through communication networks, role of media and social networking sites, basics of cyber security; money laundering and its prevention."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Ransomware is a malicious software variant that encrypts a victim's files, rendering them inaccessible until a financial ransom (typically in cryptocurrencies like Bitcoin) is paid to the attacker. Recent high-profile incidents targeting India's critical information infrastructure (CII), healthcare, and financial sectors have elevated ransomware from an IT concern to a Tier-1 national security threat.",
+    "highYieldFacts": [
+      "Fact 1: CERT-In (Indian Computer Emergency Response Team) operates under the Ministry of Electronics and Information Technology (MeitY) as the national nodal agency for responding to cybersecurity incidents under Section 70B of the Information Technology Act, 2000.",
+      "Fact 2: In April 2022, CERT-In issued sweeping directives under Section 70B(6) mandating organizations to report cyber incidents within 6 hours of noticing them and requiring VPN and crypto-exchange providers to maintain user logs for 5 years.",
+      "Fact 3: The WannaCry (2017) and Petya/NotPetya ransomware attacks utilized EternalBlue, an exploit allegedly developed by the US NSA, highlighting the vulnerability of legacy operating systems.",
+      "Fact 4: The 2022 ransomware attack on All India Institute of Medical Sciences (AIIMS) New Delhi crippled its server infrastructure, affecting patient care services and highlighting vulnerabilities in critical healthcare networks.",
+      "Fact 5: Ransomware-as-a-Service (RaaS) has democratized cybercrime, allowing non-technical actors to lease malicious infrastructure in exchange for a cut of the ransom profits."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming CERT-In is a statutory body created by a specific Act of Parliament; it was established under executive orders of MeitY in 2004, though later given statutory backing via the IT (Amendment) Act, 2008.",
+      "Trap 2: Confusing the mandate of the National Critical Information Infrastructure Protection Centre (NCIIPC), which protects CII, with CERT-In's broader incident response and reporting mandate across all sectors."
+    ],
+    "keyArticlesOrStatutes": [
+      "Section 70B of the Information Technology Act, 2000",
+      "Information Technology (The Indian Computer Emergency Response Team and Manner of Performing Functions and Duties) Rules, 2013",
+      "CERT-In Directions under Section 70B(6) [April 2022]"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution of Ransomware as a National Security Threat</h3><p>Ransomware has evolved from simple screen-locking malware into sophisticated, multi-extortion campaigns (Ransomware 3.0) that combine file encryption with data exfiltration and distributed denial-of-service (DDoS) attacks. Nation-state actors and advanced persistent threat (APT) groups increasingly deploy ransomware either for geopolitical disruption or illicit revenue generation to evade international economic sanctions.</p><h3>Vulnerabilities in India's Critical Information Infrastructure (CII)</h3><p>India’s digital transformation—accelerated by initiatives like India Stack, JAM Trinity, and Digital India—has expanded the attack surface exponentially. Critical sectors such as power grids, banking, transport, and healthcare remain vulnerable due to legacy operating systems, delayed patching cycles, lack of cyber-hygiene among personnel, and siloed security architectures.</p><h3>Institutional Framework and Governance Deficits</h3><p>While India has established specialized agencies like CERT-In, NCIIPC, the Indian Cyber Crime Coordination Centre (I4C) under the Ministry of Home Affairs, and sectoral Computer Emergency Response Teams (CERTs like sectoral CERT-Fin and CERT-Power), enforcement remains fragmented. Jurisdictional overlaps between state police forces and central agencies hinder rapid cross-border investigations, especially when threat actors operate from safe havens with limited extradition treaties.</p><h3>The Dilemma of Ransom Payment and Cyber Insurance</h3><p>Organizations often face severe operational paralysis during ransomware incidents, leading to moral and strategic dilemmas regarding ransom payments. While paying ransoms incentivizes criminal ecosystems and does not guarantee data recovery, prolonged downtime can threaten institutional survival. The nascent state of the cyber insurance market in India further complicates risk mitigation, as policies often lack standardized definitions for state-sponsored cyber warfare.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Data sovereignty issues, gaps in the Information Technology Act regarding extraterritorial jurisdiction, and balancing mandatory disclosure norms with trade secrets and right to privacy.",
+      "socio_economic": "Disruption of essential services (healthcare, banking), financial extortion of small and medium enterprises (SMEs), loss of citizen trust in e-governance, and widening digital divide through remediation costs.",
+      "administrative_governance": "Siloed approach between state police and central intelligence, shortage of certified cybersecurity professionals in public administration, and slow implementation of security audits.",
+      "international_or_comparative": "Cross-border attribution challenges, compliance with international frameworks like the Budapest Convention (which India has not signed), and collaboration via Interpol and Quad cybersecurity partnerships."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Justice K.S. Puttaswamy (Retd.) v. Union of India (2017) - Observations on data protection and state obligations to secure citizen data.",
+      "Standing Committee on Information Technology Reports on Cyber Security and Citizen Safety.",
+      "National Cyber Security Strategy (Proposed by National Security Council Secretariat)."
+    ],
+    "structuredDiagramAscii": "Ransomware Attack & Response Lifecycle:\n[Initial Vector: Phishing/RDP] ---> [Lateral Movement & Privilege Escalation]\n                                           |\n[Data Exfiltration] <----------------------+\n        |\n[File Encryption & Ransom Note] ---> [Extortion Phase: Multi-Extortion]\n                                           |\n[Response: Incident Triaged via CERT-In / NCIIPC] ---> [Forensics & Remediation]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2023,
+        "question": "What is 'WannaCry', 'Petya' and 'EternalBlue' sometimes mentioned in the news?",
+        "options": [
+          "Cryptocurrencies",
+          "Cyberattacks",
+          "Miniature satellites",
+          "Supersonic missiles"
+        ],
+        "answer": "Cyberattacks",
+        "explanation": "WannaCry and Petya are notorious ransomware cyberattacks that spread globally, exploiting vulnerabilities in Microsoft Windows operating systems using exploits like EternalBlue."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss the-threat of cyber-attacks and security framework in India. What are the challenges in countering cyber-attacks?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Ransomware attacks have transitioned from isolated IT annoyances to critical threats against national security and critical infrastructure. Examine the security implications of recent ransomware incidents in India and evaluate the efficacy of the existing institutional framework in countering them. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define ransomware and highlight its current severity citing recent high-profile Indian incidents (e.g., AIIMS server attack, power grid threats).",
+      "body": "Analyze security implications (CII disruption, data sovereignty, financial extortion). Evaluate institutional framework (CERT-In, NCIIPC, I4C) noting systemic gaps (reporting timelines vs capacity, enforcement, cross-border attribution). Provide a way forward.",
+      "conclusion": "Conclude with an emphasis on proactive deterrence, public-private partnerships, and adherence to the proposed National Cyber Security Strategy."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Ransomware is malicious software designed to block access to computer systems until a sum of money is paid. In recent years, incidents targeting India's critical infrastructure—such as the ransomware attack on the AIIMS New Delhi servers and attempts on power distribution grids—have transformed ransomware from a corporate IT hazard into a Tier-1 national security challenge.</p><h3>Security Implications of Recent Ransomware Incidents</h3><ul><li><strong>Paralysis of Critical Information Infrastructure (CII):</strong> Attacks on healthcare, finance, and transport sectors directly threaten public safety, disrupting emergency medical services and financial liquidity.</li><li><strong>Multi-Extortion and Data Sovereignty:</strong> Modern ransomware syndicates not only encrypt data but exfiltrate sensitive citizen and government data, leading to breaches of privacy and national intelligence leaks.</li><li><strong>Geo-political and State-Sponsored Threats:</strong> Ransomware is increasingly used by hostile state-sponsored actors as a plausible deniability tool for economic sabotage and espionage.</li></ul><h3>Evaluation of India's Institutional Framework</h3><ul><li><strong>Strengths:</strong> Establishment of CERT-In as the national nodal agency, the operationalization of the Indian Cyber Crime Coordination Centre (I4C), and stringent CERT-In directives (2022) mandating 6-hour incident reporting and log retention.</li><li><strong>Governance Gaps:</strong> Severe shortage of certified cybersecurity personnel across government departments; fragmented coordination between state police machinery and central agencies; and reluctance of private entities to report breaches promptly due to reputational risks.</li><li><strong>Attribution and Legal Hurdles:</strong> Extraterritorial origins of threat actors operating from safe havens complicate legal enforcement and asset recovery.</li></ul><h3>Way Forward</h3><p>To fortify India's cyber posture, the government must operationalize the long-pending <strong>National Cyber Security Strategy</strong>, transition from reactive incident response to proactive threat hunting, enforce mandatory cybersecurity audits for all CII operators, and deepen international intelligence-sharing partnerships through bilateral and multilateral platforms like the Quad.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Indian Computer Emergency Response Team (CERT-In):\n1. It is a statutory organization established under the Information Technology Act, 2000.\n2. It functions under the administrative control of the Ministry of Home Affairs.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: CERT-In was given statutory backing under Section 70B of the IT (Amendment) Act, 2008. Statement 2 is incorrect: CERT-In operates under the Ministry of Electronics and Information Technology (MeitY), not the Ministry of Home Affairs."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following best describes 'Ransomware-as-a-Service' (RaaS)?",
+      "options": [
+        "A cloud-based backup service offered by governments to recover encrypted files for free.",
+        "A subscription-based model allowing cybercriminals to lease malicious malware tools and infrastructure to launch attacks.",
+        "An international insurance protocol for reimbursing corporate ransom payments.",
+        "A cybersecurity protocol deployed by CERT-In to decrypt compromised critical infrastructure."
+      ],
+      "answer": "A subscription-based model allowing cybercriminals to lease malicious malware tools and infrastructure to launch attacks.",
+      "explanation": "Ransomware-as-a-Service (RaaS) operates like a legitimate software business model, where developers lease malware kits to affiliates in exchange for a percentage of the extorted ransom."
+    }
+  ]
+}

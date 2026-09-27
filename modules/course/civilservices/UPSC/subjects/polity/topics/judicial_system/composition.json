@@ -1,0 +1,108 @@
+{
+  "microTopicId": "polity_judicial_system_composition",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_judicial_system",
+  "topicTitle": "Judicial system",
+  "subTopicTitle": "Composition",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS-II: Structure, organization and functioning of the Judiciary; Separation of powers between various organs."
+  },
+  "lectureHoursEstimate": "Lecture 24&25",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The composition of the Indian Judiciary is governed by Articles 124 (Supreme Court) and 214-231 (High Courts) of the Constitution, alongside the Supreme Court (Number of Judges) Act. It operates on an integrated judicial system architecture where the Collegium system, rather than the Constitution, dictates the selection process.",
+    "highYieldFacts": [
+      "Fact 1: The Supreme Court (Number of Judges) Amendment Act, 2019, increased the sanctioned strength to 34 (1 CJI + 33 Judges).",
+      "Fact 2: Parliament has the power to increase the number of judges in the SC by law; for High Courts, the President determines the strength based on case load.",
+      "Fact 3: Article 124(3) prescribes qualifications for SC judges, including minimum 5 years as HC judge or 10 years as an advocate in HC.",
+      "Fact 4: The 'Collegium' is a judicial construct evolved through the Three Judges Cases (1981, 1993, 1998) and confirmed by the NJAC strike-down in 2015.",
+      "Fact 5: Retirement age is 65 for SC judges and 62 for HC judges (Article 217), though this is a subject of frequent debate for uniformity."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusion between 'Constitutional' vs 'Statutory' strength. The Constitution fixes the *minimum* or *mechanism*, while Acts fix the *current* numbers.",
+      "Trap 2: The President does not have unfettered discretion in appointing judges; the Executive is bound by the Collegium's recommendations under the MOOP (Memorandum of Procedure)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 124, 126, 127, 128 (Supreme Court composition)",
+      "Article 214-231 (High Courts)",
+      "Supreme Court (Number of Judges) Act, 1956 (as amended in 2019)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>The Architecture of Judicial Composition</h3><p>The composition of the Indian Judiciary reflects a delicate balance between independence and accountability. Unlike the US system, India has an <strong>integrated hierarchy</strong>. The <strong>Supreme Court</strong>, the apex institution, currently stands at a sanctioned strength of 34 judges. The process of appointment is governed by the <strong>Collegium system</strong>, which has emerged not from the text of the Constitution but from the 'Three Judges Cases'.</p><h4>Key Dimensions of Composition:</h4><ul><li><strong>Collegium Mechanism:</strong> The CJI and four senior-most puisne judges constitute the Collegium. This structure is intended to ensure judicial independence from executive interference, yet it faces persistent criticism regarding the lack of transparency, 'cronyism', and the absence of institutionalized objective criteria for elevation.</li><li><strong>Diversity and Representation:</strong> The composition is often criticized for failing to represent the socio-economic and gender diversity of India. The 'Memorandum of Procedure' (MoP) remains a point of contention between the Executive and Judiciary, particularly concerning 'veto' powers of the government on national security grounds.</li><li><strong>Ad-hocism vs. Permanence:</strong> Articles 126, 127, and 128 provide for Acting CJI, Ad-hoc judges, and Retired judges. These provisions are under-utilized, exacerbating the pendency crisis (the 'Judicial Vacancy' phenomenon).</li></ul><p>The interplay between the Judiciary and the Executive is fundamentally a struggle for the 'power of appointment'. While the NJAC (99th Amendment) was struck down in 2015 (Fourth Judges Case) for violating the Basic Structure of the Constitution, the discourse on reforming the composition—balancing judicial primacy with executive transparency—remains central to Indian governance.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Evolution from the 'Consultation' to 'Concurrence' in the Three Judges Cases; the role of the CJI as 'Pater Familias'.",
+      "socio_economic": "The necessity of 'Judicial Diversity' to ensure that the bench reflects the pluralistic nature of Indian society (gender, caste, regional balance).",
+      "administrative_governance": "The 'Vacancy Cycle': Delays in the MoP processing by the Law Ministry leads to a cycle of judicial attrition and backlog.",
+      "international_or_comparative": "Comparison with the UK (Judicial Appointments Commission) and the US (Presidential appointment with Senate confirmation) highlights India's unique 'Judge-appoints-Judge' model."
+    },
+    "landmarkJudgmentsOrReports": [
+      "First Judges Case (1981): Executive primacy confirmed.",
+      "Second Judges Case (1993): Collegium system established.",
+      "Third Judges Case (1998): Strength of Collegium defined (CJI + 4 senior-most).",
+      "Fourth Judges Case (2015): NJAC Act struck down.",
+      "230th Law Commission Report: Emphasized judicial reforms and the importance of diversity."
+    ],
+    "structuredDiagramAscii": "PRESIDENT (Appointing Authority)\n          |\n   COLLEGIUM (CJI + 4 Seniors)\n          |\n(Recommends/Reiterates)\n          |\n  EXECUTIVE (Law Ministry)\n          |\n(Input/Security Check)\n          |\n  APPOINTMENT (Warrant of Appointment)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2013,
+        "question": "Which of the following are included in the original jurisdiction of the Supreme Court?",
+        "options": [
+          "A dispute between the Government of India and one or more States",
+          "A dispute regarding elections to either House of the Parliament or that of Legislature of a State",
+          "A dispute between the Government of India and a Union Territory",
+          "A dispute between two or more States"
+        ],
+        "answer": "1 and 4",
+        "explanation": "Original Jurisdiction (Article 131) covers disputes between Centre and States, or between States. Election disputes are handled by the ECI/High Court (RPA Act)."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2017,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Critically examine the Supreme Court’s judgment on the 'National Judicial Appointments Commission' (NJAC) Act."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "The Collegium system is often criticized for its 'opacity and lack of accountability.' Discuss the need for a reformative approach in the composition and appointment process of the higher judiciary in India. (250 Words / 15 Marks)",
+    "approach": {
+      "intro": "Define the Collegium system and its constitutional genesis via judicial interpretation.",
+      "body": "Analyze the critique (opacity, lack of diversity) vs. the fear of executive overreach. Suggest a path forward (Memorandum of Procedure refinement, institutional diversity).",
+      "conclusion": "Emphasize that the 'Independence of Judiciary' and 'Accountability' are two sides of the same coin, essential for Constitutional Democracy."
+    },
+    "modelAnswerHtml": "<h3>Reforming the Judicial Appointment Process</h3><p>The Collegium system, developed through the Three Judges Cases, was designed to protect the independence of the judiciary from the executive. However, recent years have seen a growing consensus on the need for systemic reform.</p><h4>Critique of the Current Composition:</h4><ul><li><strong>Lack of Transparency:</strong> The 'closed-door' nature of deliberations excludes public scrutiny and objective data-driven assessments of candidates.</li><li><strong>Diversity Deficit:</strong> Despite India's diversity, the composition of the higher judiciary remains skewed, with minimal representation of marginalized communities and inadequate gender parity.</li><li><strong>Institutional Vacancies:</strong> The 'ping-pong' effect between the Collegium and the Law Ministry regarding file clearances leads to massive judicial vacancies, affecting the Rule of Law.</li></ul><h4>The Way Forward:</h4><ol><li><strong>Revised MoP:</strong> The government and the judiciary should finalize a Memorandum of Procedure that incorporates specific, objective criteria for selection, including performance metrics and integrity audits.</li><li><strong>Institutionalizing Transparency:</strong> Minutes of Collegium meetings (with necessary redactions for sensitivity) should be made public to build institutional trust.</li><li><strong>Secretariat for Collegium:</strong> A dedicated, permanent secretariat for the Collegium is needed to manage the massive data of potential candidates, as suggested by various Law Commission reports.</li></ol><p><strong>Conclusion:</strong> While the NJAC was rejected for potentially compromising judicial independence, the current system must evolve. The goal must be to create a 'judicial appointment ecosystem' that respects the Basic Structure while ensuring that the judiciary is reflective, accountable, and efficient in upholding the constitutional promise of justice.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to the Supreme Court of India, consider the following statements: 1. The strength of the Supreme Court is fixed by the Constitution of India. 2. A judge of the Supreme Court can be appointed as an Acting Chief Justice by the President.",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because the Constitution provides for the original strength, but authorizes Parliament to increase it via law. Statement 2 is correct per Article 126."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following is NOT a criterion for a person to be appointed as a Judge of a High Court under Article 217?",
+      "options": [
+        "Must be a citizen of India",
+        "Must have held a judicial office for 10 years",
+        "Must have been an advocate of a High Court for 10 years",
+        "Must be a distinguished jurist"
+      ],
+      "answer": "D",
+      "explanation": "The 'distinguished jurist' criterion is applicable only to the Supreme Court appointment (Article 124), not the High Court."
+    }
+  ]
+}

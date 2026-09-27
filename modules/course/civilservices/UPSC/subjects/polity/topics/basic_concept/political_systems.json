@@ -1,0 +1,108 @@
+{
+  "microTopicId": "polity_basic_concept_political_systems",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_basic_concept",
+  "topicTitle": "Basic Concept",
+  "subTopicTitle": "Political systems",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Functions and responsibilities of the Union and the States, issues and challenges pertaining to the federal structure, separation of powers between various organs, dispute redressal mechanisms and institutions."
+  },
+  "lectureHoursEstimate": "Lecture 1",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Political systems define the institutional framework, allocation of power, and decision-making mechanisms within a sovereign state. India operates under a Parliamentary Federal System with a unique blend of unitary biases, constitutional supremacy, and an entrenched system of checks and balances.",
+    "highYieldFacts": [
+      "Fact 1: India's political system is a 'Union of States' (Article 1) embodying cooperative and sometimes coercive federalism.",
+      "Fact 2: The basic structure doctrine, established in the Kesavananda Bharati case (1973), acts as an immutable boundary on the amending power of Parliament regarding the democratic political system.",
+      "Fact 3: Article 75(3) establishes the collective responsibility of the Council of Ministers to the Lok Sabha, the bedrock of the parliamentary executive system.",
+      "Fact 4: The Indian model incorporates a dual polity with single citizenship and an integrated judiciary, distinguishing it from classical federal models like the USA.",
+      "Fact 5: Recent judicial pronouncements (e.g., Nabam Rebia, Subhash Desai cases) have critically re-examined the limits of executive authority, Governor's discretionary powers, and anti-defection dynamics in coalition governance."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing India's 'Federal System with Unitary bias' as a purely unitary or fully classical federal structure.",
+      "Trap 2: Assuming the President of India exercises real executive power independently, overlooking that the President acts on the aid and advice of the Council of Ministers per Article 74."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 1 (Name and territory of the Union)",
+      "Article 74 & 75 (Council of Ministers and Executive Responsibility)",
+      "Article 356 (President's Rule)",
+      "Tenth Schedule (Anti-Defection Law)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Nature of India’s Political System</h3><p>India's political system is a sophisticated synthesis of British parliamentary traditions and American constitutional federalism, tailored to suit a deeply pluralistic and diverse society. As a sovereign, socialist, secular, democratic republic, India's governance architecture relies on the delicate equilibrium between the legislature, executive, judiciary, and various autonomous regulatory bodies.</p><h3>The Parliamentary vs. Presidential Dynamics</h3><p>Unlike the rigid separation of powers in presidential systems like the United States, the Indian parliamentary system is characterized by a fusion of powers between the executive and the legislature. The executive is drawn from the legislature and remains accountable to it on a continuous basis. This ensures swift legislative throughput but places a heavy premium on party discipline, often regulated stringently by the Tenth Schedule (Anti-Defection Law). However, contemporary coalition politics and shifting legislative majorities have continuously tested the resilience of this framework.</p><h3>Federal Architecture and Asymmetric Decentralization</h3><p>The Indian political system rejects rigid uniformity in favor of asymmetric federalism. Provisions under Article 370 (historically), Article 371 (A-J) granting special provisions to various states, and the Fifth and Sixth Schedules illustrate how India accommodates regional, tribal, and historical diversities. Nonetheless, centralization tendencies—manifested through the All India Services, the office of the Governor, central investigative agencies, and fiscal dominance via GST—perennially spark debates on the health of Indian federalism.</p><h3>Contemporary Challenges and Institutional Resilience</h3><p>In recent years, the political system has faced critical stress tests including the criminalization of politics, erosion of legislative debate standards, weaponization of gubernatorial offices, and questions surrounding judicial overreach versus judicial restraint. Recent Supreme Court judgments on political defections, disqualification of legislators, and the appointment of Election Commissioners underscore the judiciary's role as the ultimate guardian of constitutional integrity.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Interplay between parliamentary supremacy, judicial review, basic structure doctrine, and statutory frameworks governing elections and political parties.",
+      "socio_economic": "How the political system translates universal adult suffrage into socio-economic emancipation, managing identity politics, caste dynamics, and developmental imperatives.",
+      "administrative_governance": "Tensions between civil service neutrality, political executive compulsions, cooperative federal forums like the GST Council, and inter-state councils.",
+      "international_or_comparative": "Comparison with Westminster, US Presidential, and Swiss plural executive models; positioning India as the world's largest functioning democracy in global governance."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Kesavananda Bharati v. State of Kerala (1973) - Basic Structure Doctrine",
+      "S.R. Bommai v. Union of India (1994) - Guidelines on President's Rule and Federalism",
+      "Santhanam Committee Report - Corruption in Public Life",
+      "Punchhi Commission Report (2010) - Centre-State Relations and Political Systems"
+    ],
+    "structuredDiagramAscii": "CONSTITUTION OF INDIA (Supreme Norm)\n       |\n       +---> Legislature (Parliament: Lok Sabha & Rajya Sabha) --[Accountability]--> Executive (PM & Council of Ministers)\n       |\n       +---> Judiciary (Integrated & Independent: Supreme Court as Guardian)\n       |\n       +---> Federal Units (States & UTs) <---> Cooperative Federalism (Inter-State Council, NITI Aayog)\n       |\n       +---> Autonomous Oversight Bodies (ECI, CAG, UPSC)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2017,
+        "question": "Which of the following is regarded as the main feature of the 'Rule of Law'?",
+        "options": [
+          "Limitation of powers",
+          "Equality before law",
+          "People's responsibility to the Government",
+          "Liberty and civil rights"
+        ],
+        "answer": "Limitation of powers",
+        "explanation": "Rule of law primarily signifies the absence of arbitrary power, meaning that discretionary power is replaced by law. Limitation of powers and equality before law are key tenets, with limitation of powers being the fundamental structural check in a constitutional political system."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Do you think that the constitution of India does not accept the American principle of judicial supremacy rather it is a synthesis of the American principle of judicial review and the British principle of parliamentary sovereignty? Discuss."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Analyze the evolving nature of India's political system from a classical parliamentary democracy to an executive-centric model. What are its implications for federal balance and legislative accountability? (250 words, 15 marks)",
+    "approach": {
+      "intro": "Define India's political system under Article 1 and the Preamble, highlighting the initial design of parliamentary federalism.",
+      "body": "Examine the shift toward executive dominance, the impact on federalism (fiscal and legislative centralisation), erosion of legislative oversight, and the role of the judiciary and constitutional checks.",
+      "conclusion": "Conclude with the need to restore deliberative democracy, strengthen cooperative federalism, and uphold constitutional morality in line with Vision 2047."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>India’s political system, anchored in a parliamentary framework with federal features, was designed to balance executive efficacy with robust legislative accountability and regional autonomy. However, contemporary political dynamics reflect a discernible drift toward executive-centric governance.</p><h3>Shift Towards Executive-Centric Governance</h3><ul><li><strong>Centralization of Power:</strong> Decision-making structures have increasingly concentrated within the political executive and the Prime Minister's Office, altering the classic cabinet system of collective deliberation.</li><li><strong>Legislative Bypass:</strong> Frequent resort to ordinance routes, passage of major financial and structural bills as Money Bills, and truncated committee scrutiny weaken legislative oversight.</li><li><strong>Federal Imbalances:</strong> Fiscal centralization (e.g., cess and surcharge allocations) and controversies surrounding gubernatorial discretion challenge the spirit of cooperative federalism.</li></ul><h3>Implications for Governance and Accountability</h3><ul><li><strong>Erosion of Deliberative Space:</strong> Parliamentary debates are increasingly subordinated to whipping mechanisms, reducing the legislature's role as a grand forum of national inquest.</li><li><strong>Judicial Interventions:</strong> As political consensus wanes, courts are frequently called upon to adjudicate political disputes (e.g., floor tests, disqualifications), raising debates on judicial oversight.</li><li><strong>Federal Friction:</strong> Asymmetric political control between the Centre and States exacerbates institutional standoffs, impeding cohesive national policy implementation.</li></ul><h3>Way Forward</h3><p>Re-energizing India's democratic political system requires institutional reinvigoration: empowering Parliamentary Standing Committees, enforcing neutral and timely decisions by presiding officers on anti-defection matters, revitalizing the Inter-State Council as recommended by the Punchhi Commission, and upholding constitutional morality to safeguard democratic pluralism.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following structural features distinguishes the Indian political system from the American presidential system?",
+      "options": [
+        "Fusion of powers between the executive and legislature",
+        "Existence of a written constitution",
+        "Presence of an independent judiciary",
+        "Federal division of powers"
+      ],
+      "answer": "Fusion of powers between the executive and legislature",
+      "explanation": "The Indian parliamentary system features a fusion of powers where the executive is drawn from and accountable to the legislature, unlike the American presidential system which strictly separates the two."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following statements regarding the Basic Structure doctrine in India's political system:\n1. It is explicitly defined in the text of Part III of the Constitution.\n2. It acts as a limitation on the constituent power of Parliament under Article 368.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because the Basic Structure doctrine is a judicial innovation (originating in Kesavananda Bharati case) and is not explicitly defined in the text of the Constitution. Statement 2 is correct as it restricts Parliament's amending power."
+    }
+  ]
+}

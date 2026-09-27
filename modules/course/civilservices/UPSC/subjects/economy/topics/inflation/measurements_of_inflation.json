@@ -1,0 +1,104 @@
+{
+  "microTopicId": "economy_inflation_measurements_of_inflation",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_inflation",
+  "topicTitle": "Inflation",
+  "subTopicTitle": "Measurements of inflation",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives, etc. (specifically Inflation indices and monetary policy framework).",
+    "mains": "GS Paper III: Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 14",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Measurements of inflation involve tracking changes in the general price level of goods and services in an economy over time, primarily captured through indices like the Consumer Price Index (CPI) and Wholesale Price Index (WPI). In India, CPI (Combined) serves as the nominal anchor for the Reserve Bank of India's Flexible Inflation Targeting (FIT) framework.",
+    "highYieldFacts": [
+      "Fact 1: CPI (Combined) is published monthly by the National Statistical Office (NSO) under the Ministry of Statistics and Programme Implementation (MoSPI).",
+      "Fact 2: WPI is published monthly by the Office of the Economic Adviser, Department for Promotion of Industry and Internal Trade (DPIIT), Ministry of Commerce and Industry.",
+      "Fact 3: The baseline year for the current series of both CPI (Base 2012=100) and WPI (Base 2011-12=100) is undergoing revisions to incorporate consumption pattern shifts.",
+      "Fact 4: The Urjit Patel Committee (2014) recommended CPI (Combined) as the primary measure of inflation for monetary policy formulation in India.",
+      "Fact 5: Core inflation strips out volatile food and energy items from headline inflation to gauge underlying demand pressures."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming WPI includes services. WPI measures only goods at the wholesale level and does not capture services, whereas CPI captures both goods and services.",
+      "Trap 2: Confusing the nodal agency for CPI compilation; it is compiled by NSO, MoSPI, not the Reserve Bank of India, although RBI utilizes it for policy formulation."
+    ],
+    "keyArticlesOrStatutes": [
+      "Reserve Bank of India Act, 1934 (Section 45ZA - Inflation Targeting Framework)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Significance of Inflation Metrics in India</h3><p>The measurement of inflation is fundamental to macroeconomic governance, setting interest rates, wage indexing, and poverty alleviation assessments. Historically, India relied heavily on the Wholesale Price Index (WPI) for macroeconomic policy. However, structural limitations—such as the exclusion of services, heavy weightage of manufacturing intermediates, and failure to capture retail realities—prompted a paradigm shift. Following the recommendations of the <strong>Urjit Patel Committee (2014)</strong>, India formally transitioned to the Consumer Price Index (CPI) Combined as the headline measure for monetary policy.</p><h3>Methodological Nuances: CPI vs. WPI</h3><p>Understanding the divergence between CPI and WPI requires examining their structural composition. <strong>WPI</strong> focuses on the wholesale stage, tracking price movements before goods reach retail consumers. It includes three groups: Primary Articles, Fuel and Power, and Manufactured Products. Crucially, it excludes services. In contrast, <strong>CPI (Combined)</strong> measures price changes experienced by households across rural and urban sectors, encompassing food, beverages, housing, fuel, light, clothing, and vital services like healthcare, education, and transport. This makes CPI a direct reflection of the cost of living.</p><h3>Contemporary Challenges in Measurement</h3><p>Modern economic structures pose unique challenges to traditional inflation measurement. Rapid digitalization, the emergence of the gig economy, quality adjustments in technological products (hedonic pricing), and rapid shifts in consumer baskets driven by urbanization complicate data collection. Furthermore, supply-chain shocks driven by geopolitical conflicts cause extreme volatility in food and energy components, often masking the core domestic demand-pull inflation trends. Consequently, central banks track <em>Core Inflation</em> (excluding food and fuel) to decipher underlying inflationary momentum.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing under Section 45ZA of the RBI Act, 1934, mandating the Central Government, in consultation with the RBI, to determine the inflation target in terms of CPI once every five years.",
+      "socio_economic": "Inaccurate inflation measurements distort real wage calculations, exacerbate income inequality, and misdirect social welfare transfers and dearness allowance (DA) adjustments for public sector employees.",
+      "administrative_governance": "Requires robust inter-agency data collection infrastructure between MoSPI, DPIIT, and state-level statistical machineries to ensure high-frequency, reliable data inputs.",
+      "international_or_comparative": "Alignment with IMF's Special Data Dissemination Standard (SDDS) and global best practices in statistical sampling, index weighting (Laspeyres vs. Paasche formulas), and seasonal adjustment."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Urjit Patel Committee Report on Revisiting and Strengthening the Monetary Policy Framework (2014)",
+      "B.N. Goldar Committee Report on WPI Revision",
+      "National Statistical Commission (NSC) recommendations on price statistics"
+    ],
+    "structuredDiagramAscii": "Macroeconomic Price Tracking Architecture in India\n┌────────────────────────────────────────────────────────┐\n│               Headline Inflation Anchor                │\n│                 (CPI Combined - NSO)                   │\n└──────────────────────────┬─────────────────────────────┘\n                           │\n        ┌──────────────────┴──────────────────┐\n        ▼                                     ▼\n┌──────────────────────────────┐    ┌──────────────────────────────┐\n│         Rural CPI            │    │         Urban CPI            │\n│  (Higher weight to food)     │    │  (Higher weight to housing/  │\n│                              │    │           services)          │\n└──────────────────────────────┘    └──────────────────────────────┘\n\n┌────────────────────────────────────────────────────────┐\n│               Producer Price Tracking                  │\n│                  (WPI - DPIIT/MoCI)                    │\n│        *Goods only (Primary + Fuel + Manufactured)     │\n└────────────────────────────────────────────────────────┘"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "The WPI in India is available up to which of the following levels?",
+        "options": [
+          "Monthly, and does not include services",
+          "Weekly, and includes services",
+          "Monthly, and includes services",
+          "Weekly, and does not include services"
+        ],
+        "answer": "Monthly, and does not include services",
+        "explanation": "WPI is released on a monthly basis by the Office of the Economic Adviser, DPIIT, and it exclusively tracks prices of goods at the wholesale/producer level, omitting services."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2018,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "How is the Consumer Price Index (CPI) compiled in India? Examine its significance in shaping monetary policy compared to the Wholesale Price Index (WPI)."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the structural differences between the Consumer Price Index (CPI) and the Wholesale Price Index (WPI). Why has CPI emerged as the preferred metric for macroeconomic management in India? (15 Marks, 250 Words)",
+    "approach": {
+      "intro": "Define inflation measurement indices in India (CPI by NSO, WPI by DPIIT) and introduce the shift towards CPI as the monetary policy anchor.",
+      "body": "Compare CPI and WPI across coverage (goods vs. services), stage of transaction, and weighting pattern. Explain why CPI is superior for central banking (captures cost of living, retail transmission). Discuss limitations in both indices.",
+      "conclusion": "Conclude with the need for continuous index recalibration to reflect modern consumption baskets, aligning with India's growth ambitions."
+    },
+    "modelAnswerHtml": "<p>Inflation measurement forms the bedrock of macroeconomic stability. In India, price changes are tracked primarily through the <strong>Consumer Price Index (CPI-Combined)</strong> and the <strong>Wholesale Price Index (WPI)</strong>, each serving distinct institutional objectives.</p><p><strong>Structural Differences between CPI and WPI:</strong></p><ul><li><strong>Stage of Transaction:</strong> WPI tracks prices at the producer/wholesale gate before retail markups, whereas CPI tracks prices paid directly by retail consumers.</li><li><strong>Coverage:</strong> WPI is restricted strictly to goods (Primary articles, Fuel, Manufactured products) and excludes services. CPI covers both goods and services (including housing, education, healthcare, and transport).</li><li><strong>Weighting Pattern:</strong> WPI assigns higher weight to manufactured products, making it sensitive to global commodity cycles and producer margins. CPI assigns a dominant weight to food and beverages, reflecting household expenditure patterns, particularly in developing economies.</li></ul><p><strong>Rationale for CPI as the Monetary Policy Anchor:</strong></p><ul><li><strong>Cost of Living Reflection:</strong> Monetary policy aims to stabilize domestic purchasing power. CPI directly measures the cost of living experienced by citizens, making it socially more representative.</li><li><strong>Transmission Mechanism:</strong> Retail inflation directly impacts consumer inflation expectations. Managing CPI helps anchor these expectations more effectively than wholesale prices.</li><li><strong>Urjit Patel Committee Mandate:</strong> The adoption of the Flexible Inflation Targeting (FIT) framework under Section 45ZA of the RBI Act explicitly mandated CPI-Combined as the nominal anchor for setting policy repo rates.</li></ul><p><strong>Way Forward:</strong> While CPI is superior for demand management, WPI remains vital for assessing input-cost pressures on producers. Periodic base-year revisions (updating consumption baskets from the 2012 baseline) and incorporating digital economy metrics are imperative to maintain the statistical fidelity of India's inflation architecture.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding inflation indices in India:\n1. The Consumer Price Index (Combined) is compiled and released by the Reserve Bank of India.\n2. The Wholesale Price Index includes price movements of both goods and services at the wholesale level.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Neither 1 nor 2",
+      "explanation": "Statement 1 is incorrect because CPI (Combined) is compiled and published by the National Statistical Office (NSO) under MoSPI, not the RBI. Statement 2 is incorrect because WPI tracks only goods and does not include services."
+    },
+    {
+      "id": "mcq_02",
+      "question": "What is the primary rationale for tracking 'Core Inflation' alongside Headline Inflation?",
+      "options": [
+        "It includes volatile food and fuel items to capture immediate seasonal price shocks.",
+        "It strips out volatile items like food and fuel to reveal underlying medium-term demand pressures.",
+        "It exclusively measures international shipping and crude oil import costs.",
+        "It is legally mandated by the Fiscal Responsibility and Budget Management (FRBM) Act."
+      ],
+      "answer": "It strips out volatile items like food and fuel to reveal underlying medium-term demand pressures.",
+      "explanation": "Core inflation excludes food and energy items because their prices are subject to frequent, volatile supply-side shocks (weather, geopolitics). Removing them helps policymakers evaluate structural demand-pull inflation trends."
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "microTopicId": "science_tech_chemistry_hydrocarbons",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_chemistry",
+  "topicTitle": "Chemistry",
+  "subTopicTitle": "Hydrocarbons",
+  "syllabusMapping": {
+    "prelims": "General Science: Physics, Chemistry, and Environmental Science applications related to organic compounds and fossil fuels.",
+    "mains": "GS Paper III - Science and Technology- developments and their applications and effects in everyday life; Conservation, environmental pollution and degradation."
+  },
+  "lectureHoursEstimate": "Lecture 7",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Hydrocarbons are organic compounds consisting entirely of hydrogen and carbon, forming the fundamental backbone of petroleum, natural gas, and synthetic polymers. They are structurally classified into aliphatic (alkanes, alkenes, alkynes) and aromatic compounds, dictating their chemical reactivity, combustion behavior, and environmental impact.",
+    "highYieldFacts": [
+      "Fact 1: Alkanes (paraffins) are saturated hydrocarbons with single C-C bonds, following the general formula CnH2n+2.",
+      "Fact 2: Alkenes (olefins) and Alkynes contain double and triple bonds respectively, exhibiting unsaturation and undergoing characteristic addition reactions.",
+      "Fact 3: Aromatic hydrocarbons, represented by benzene rings, exhibit special stability due to delocalized pi-electron systems (Huckel's Rule of aromaticity: 4n+2 pi electrons).",
+      "Fact 4: Methane (CH4), the simplest hydrocarbon, is a potent greenhouse gas with a global warming potential significantly higher than carbon dioxide over a 20-year timescale.",
+      "Fact 5: India's transition to BS-VI emission norms mandates ultra-low sulfur (max 10 ppm) fuels, directly curbing unburnt hydrocarbon and particulate emissions."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing structural isomers with geometric or optical isomers; saturated hydrocarbons with fewer than 4 carbons do not exhibit chain isomerism.",
+      "Trap 2: Assuming all aromatic compounds possess strong pleasant aromas; many polycyclic aromatic hydrocarbons (PAHs) are toxic and carcinogenic mutagens."
+    ],
+    "keyArticlesOrStatutes": [
+      "Environment (Protection) Act, 1986",
+      "Petroleum and Natural Gas Regulatory Board (PNGRB) Act, 2006",
+      "National Policy on Biofuels, 2018 (amended 2022)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Significance of Hydrocarbon Chemistry in National Development</h3><p>Hydrocarbons occupy a central locus in modern industrial economies, serving simultaneously as primary energy vectors, chemical feedstocks, and significant environmental pollutants. Chemically, their diversity stems from carbon's unique catenation property and tetravalency. From an energy security perspective, crude oil and natural gas—complex mixtures of alkanes, cycloalkanes, and aromatic hydrocarbons—form the bedrock of India's commercial energy matrix, fulfilling over 40% of primary energy consumption.</p><h3>Industrial Applications and Petrochemical Value Chains</h3><p>Beyond fuel, lower alkenes like ethylene and propylene derived from steam cracking of naphtha form the primary building blocks of the petrochemical industry. They polymerize into ubiquitous plastics, synthetic rubbers, and fibers. The governance of these value chains requires delicate balancing between industrial growth, strategic petroleum reserves (SPR) management, and transition toward green hydrogen and biofuels.</p><h3>Environmental Externalities and Mitigation Strategies</h3><p>The combustion and extraction of hydrocarbons generate severe ecological footprints, including photochemical smog (mediated by unburnt hydrocarbons and NOx in sunlight), oil spills, and greenhouse gas emissions. India's commitment to net-zero emissions by 2070 necessitates structural shifts: implementing Carbon Capture, Utilization, and Storage (CCUS), accelerating coal gasification, and scaling up compressed biogas (CBG) under the SATAT initiative to substitute imported natural gas.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Article 48A (Protection and improvement of environment and safeguarding of forests and wildlife) and Article 51A(g) (Duty to protect the natural environment) provide the constitutional mandate for regulating hydrocarbon exploitation and emissions.",
+      "socio_economic": "Displacement of indigenous communities due to petroleum exploration, health hazards from refinery emissions in coastal and industrial clusters, and vulnerability of import-dependent fiscal deficits to global crude price volatility.",
+      "administrative_governance": "Role of the Ministry of Petroleum and Natural Gas (MoPNG), Directorate General of Hydrocarbons (DGH), and Central Pollution Control Board (CPCB) in enforcing environmental clearances and emission standards.",
+      "international_or_comparative": "Adherence to Paris Agreement targets, International Maritime Organization (IMO) sulfur caps on bunker fuels, and global technology transfers in CCUS and green ammonia synthesis."
+    },
+    "landmarkJudgmentsOrReports": [
+      "M.C. Mehta v. Union of India (Taj Trapezium Case): Directing shift to cleaner fuels (natural gas/CNG) to protect monuments from sulfurous and hydrocarbon acid rains.",
+      "NITI Aayog Report on 'India's Energy Security and Transition Pathways'."
+    ],
+    "structuredDiagramAscii": "CRUDE PETROLEUM / NATURAL GAS\n         │\n         ├─► Fractional Distillation ──► LPG, Petrol, Diesel, Bitumen\n         │\n         ├─► Steam Cracking ──────────► Ethylene, Propylene (Petrochemicals)\n         │\n         └─► Environmental Impact ────► Photochemical Smog, Greenhouse Gases, CCUS Mitigation"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which of the following statements is/are correct regarding the chemical nature of alkanes?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Neither 1 nor 2",
+        "explanation": "Alkanes are saturated hydrocarbons containing only single covalent sigma bonds, making them relatively inert towards acids, bases, and oxidizing agents under normal conditions. They undergo substitution rather than addition reactions."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss the implications of India's transition to BS-VI emission norms on automobile engineering and fuel refining technology."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the chemical properties of hydrocarbons and evaluate their dual role as indispensable industrial feedstocks and formidable environmental challenges in India's path to sustainable development. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define hydrocarbons and briefly outline their structural classification (aliphatic, aromatic) and strategic economic significance in India.",
+      "body": "Detail their role as petrochemical feedstocks (olefins, aromatics), analyze environmental challenges (photochemical smog, greenhouse emissions), and evaluate mitigation policies (BS-VI, biofuels, CCUS).",
+      "conclusion": "Conclude with a forward-looking statement aligning hydrocarbon management with India's Panchamrit targets and Vision 2047."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Hydrocarbons—compounds composed exclusively of carbon and hydrogen—form the backbone of organic chemistry and fossil-fuel economies. Ranging from saturated alkanes to unsaturated alkenes and aromatic benzene rings, they serve both as primary energy carriers and foundational industrial feedstocks.</p><h3>Hydrocarbons as Indispensable Industrial Feedstocks</h3><p><strong>Petrochemical Value Chains:</strong> Steam cracking of naphtha and light alkanes yields lower alkenes (ethylene, propylene) and aromatics (benzene, toluene, xylene), which are foundational for plastics, synthetic rubber, and fertilizers.<br><strong>Energy Security:</strong> Petroleum fractions and natural gas (predominantly methane) satisfy the bulk of India's primary energy demand, driving transportation, power generation, and manufacturing sectors.</p><h3>Environmental Challenges and Externalities</h3><p><strong>Air Pollution & Smog:</strong> Unburnt hydrocarbons, when reacting with nitrogen oxides ($NO_x$) in the presence of sunlight, generate photochemical smog and ground-level ozone, harming public health.<br><strong>Climate Change:</strong> Methane emissions from fugitive leaks and incomplete combustion have a high global warming potential, accelerating near-term climate warming.</p><h3>Policy Response and Mitigation Pathways</h3><p><strong>Cleaner Fuel Standards:</strong> Implementation of BS-VI fuels capped sulfur at 10 ppm, drastically reducing particulate and hydrocarbon tailpipe emissions.<br><strong>Alternative Vectors:</strong> Scaling compressed biogas (CBG) and ethanol blending (achieving 20% target) reduces fossil hydrocarbon dependency.<br><strong>Decarbonization Tech:</strong> Investments in Carbon Capture, Utilization, and Storage (CCUS) and green hydrogen initiatives to neutralize hard-to-abate sectors.</p><h3>Conclusion</h3><p>While hydrocarbons remain critical for economic momentum, transitioning from linear consumption to circular polymer economies and low-carbon technologies is imperative for India to reconcile energy security with its net-zero 2070 commitment.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding aromatic hydrocarbons:\n1. They follow Huckel's rule, possessing (4n + 2) pi-electrons in a closed ring.\n2. Unlike alkenes, they predominantly undergo electrophilic substitution reactions rather than addition reactions.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Aromatic compounds (like benzene) possess a cyclic, planar delocalized system of (4n+2) pi-electrons (Huckel's Rule). Because addition reactions would destroy the exceptionally stable aromatic resonance stabilization energy, they undergo electrophilic substitution reactions."
+    },
+    {
+      "id": "mcq_02",
+      "question": "In the context of petroleum refining, 'catalytic reforming' is primarily used to:",
+      "options": [
+        "Convert heavy gas oils into lighter diesel fractions via thermal cracking",
+        "Convert low-octane straight-chain alkanes into high-octane branched alkanes and aromatic hydrocarbons",
+        "Remove sulfur and nitrogen impurities using hydrogen gas",
+        "Polymerize gaseous alkenes into synthetic lubricating oils"
+      ],
+      "answer": "Convert low-octane straight-chain alkanes into high-octane branched alkanes and aromatic hydrocarbons",
+      "explanation": "Catalytic reforming reshapes petroleum hydrocarbon molecules—turning low-octane straight-chain paraffins (alkanes) into branched alkanes and aromatics, which have high octane ratings and prevent engine knocking."
+    }
+  ]
+}

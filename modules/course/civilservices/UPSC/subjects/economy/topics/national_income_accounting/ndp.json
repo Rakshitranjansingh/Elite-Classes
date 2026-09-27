@@ -1,0 +1,105 @@
+{
+  "microTopicId": "economy_national_income_accounting_ndp",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_national_income_accounting",
+  "topicTitle": "National Income Accounting",
+  "subTopicTitle": "NDP",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives, National Income Aggregates.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment; Inclusive growth and issues arising from it."
+  },
+  "lectureHoursEstimate": "Lecture 3&4",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Net Domestic Product (NDP) is the market value of all final goods and services produced within the domestic territory of a country during a given year, minus depreciation (capital consumption allowance). It provides a truer picture of an economy's productive capacity by accounting for the wear and tear of physical capital.",
+    "highYieldFacts": [
+      "Fact 1: NDP is calculated as Gross Domestic Product (GDP) minus Depreciation (Consumption of Fixed Capital).",
+      "Fact 2: In India, the National Statistical Office (NSO) under the Ministry of Statistics and Programme Implementation (MoSPI) computes national income aggregates.",
+      "Fact 3: NDP at Factor Cost equals National Income only when Net Indirect Taxes and Net Factor Income from Abroad (NFIA) adjustments are zero; otherwise, NDP at Factor Cost represents domestic factor income.",
+      "Fact 4: Green NDP is an experimental metric that adjusts standard NDP for environmental degradation and depletion of natural capital, championed globally by UNEP and SEEA frameworks.",
+      "Fact 5: Cross-country comparisons of economic health often favor NDP over GDP because nations with identical GDPs might experience vastly different rates of capital asset depletion."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing NDP with National Income (NNP). NDP measures production within domestic territory, whereas NNP measures production by residents (incorporating NFIA).",
+      "Trap 2: Assuming depreciation is uniform across sectors. In reality, NSO applies complex perpetual inventory method (PIM) asset-wise to estimate capital consumption."
+    ],
+    "keyArticlesOrStatutes": [
+      "Collection of Statistics Act, 2008",
+      "Recommendations of the National Statistical Commission (NSC) - Rangarajan Commission & C. Rangarajan Report"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Significance of Net Domestic Product (NDP) in Economic Governance</h3><p>While Gross Domestic Product (GDP) remains the headline figure for measuring the size of an economy, <strong>Net Domestic Product (NDP)</strong> serves as a more rigorous and sustainable indicator of economic health. By factoring in depreciation—the wear and tear, obsolescence, and accidental damage of physical capital assets like machinery, buildings, and infrastructure—NDP captures the net addition made to a nation's capital stock.</p><h3>Macroeconomic Relevance and Policy Implications</h3><p>In developing economies like India, massive capital outlays are directed toward infrastructure, industrialization, and digital public goods. However, if capital consumption matches or exceeds gross capital formation, the net productive capacity stagnates despite high GDP numbers. Therefore, fiscal policymakers track NDP alongside Gross Fixed Capital Formation (GFCF) to assess whether public investments are genuinely expanding the productive base or merely replacing depreciated assets.</p><h3>The Green NDP Paradigm</h3><p>Contemporary economic discourse emphasizes ecological sustainability. Standard NDP accounts only for man-made capital depreciation. The evolution toward <em>Green NDP</em> incorporates the depletion of natural resources (minerals, timber, water) and environmental degradation (air and water pollution, carbon emissions). Integrating these metrics shifts policy from purely quantitative growth to qualitative, sustainable development in alignment with SDG targets (SDG 8 and SDG 12).</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing of economic data collection via the Collection of Statistics Act and constitutional division of statistical responsibilities under the Union List (Entry 94 of List I).",
+      "socio_economic": "Reflects true societal welfare better than GDP by signaling whether future generations will inherit a depleted or enhanced asset and resource base.",
+      "administrative_governance": "Relies on robust administrative data, corporate balance sheets, and surveys conducted by NSO; challenges persist in capturing the informal sector's asset depreciation.",
+      "international_or_comparative": "Adheres to the United Nations System of National Accounts (SNA 2008) guidelines, enabling comparable cross-country analysis of capital consumption allowances."
+    },
+    "landmarkJudgmentsOrReports": [
+      "National Statistical Commission (NSC) Reports",
+      "Parthasarathi Shome Committee Report on Green GDP / SEEA Framework implementation in India",
+      "UN System of Environmental-Economic Accounting (SEEA)"
+    ],
+    "structuredDiagramAscii": "GDP (Gross Domestic Product)\n       |\n       | (-) Minus Capital Consumption Allowance (Depreciation)\n       v\n  [ NDP (Net Domestic Product) ]\n       |\n       +---> At Factor Cost (+/- Net Indirect Taxes)\n       |\n       +---> Green NDP Adjustments ((-) Natural Resource Depletion & Environmental Degradation)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "If you walk through the campus of your University, you are likely to see all sorts of horses, cattle, and machinery. Which of the following best describes why Net Domestic Product (NDP) is a better measure than GDP?",
+        "options": [
+          "It includes the net factor income from abroad.",
+          "It accounts for the depreciation of capital assets.",
+          "It measures the total output at constant market prices without inflation.",
+          "It includes the value of informal sector output omitted in GDP."
+        ],
+        "answer": "It accounts for the depreciation of capital assets.",
+        "explanation": "NDP is derived by subtracting depreciation (consumption of fixed capital) from GDP. This makes it a superior measure for reflecting the actual net output available for consumption and net addition to capital stock."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Define Gross Domestic Product and explain the transition from GDP to NDP. Why is NDP considered a more realistic indicator of sustainable economic growth?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the significance of Net Domestic Product (NDP) in national income accounting. How does the integration of environmental accounting into NDP (Green NDP) transform developmental policy planning in India? (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define NDP briefly and state its core distinction from GDP (accounting for depreciation).",
+      "body": "Explain why NDP is vital for measuring net economic additions, highlight the concept of Green NDP, address current governance hurdles in its estimation, and link it with India's climate commitments.",
+      "conclusion": "Conclude by emphasizing the shift from mere GDP-centric growth to sustainable, inclusive, and climate-resilient economic policy (Amrit Kaal / Vision 2047)."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Net Domestic Product (NDP) represents the total monetary value of all final goods and services produced within a domestic territory, adjusted after subtracting depreciation (capital consumption allowance). Unlike GDP, it reflects the net addition to an economy's productive capacity.</p><h3>Significance of NDP in Economic Analysis</h3><ul><li><strong>True Productive Capacity:</strong> High GDP can be misleading if achieved by excessively wearing out machinery and infrastructure without adequate reinvestment. NDP highlights the actual net capital formation.</li><li><strong>Capital Replacement Tracking:</strong> Helps fiscal authorities understand whether capital expenditure is expanding productive assets or merely maintaining status quo.</li></ul><h3>The Transformative Role of Green NDP</h3><p>Integrating environmental accounting—termed <strong>Green NDP</strong>—adjusts standard NDP for ecological costs:</p><ul><li><strong>Natural Capital Depletion:</strong> Accounts for the exhaustion of non-renewable minerals, forest cover loss, and groundwater depletion.</li><li><strong>Pollution Costing:</strong> Imputing economic costs for air and water pollution abatement.</li><li><strong>Policy Reorientation:</strong> Shifts governance focus from carbon-intensive, extractive growth to green transition, aligning with India's <em>Panchamrit</em> targets and net-zero goals by 2070.</li></ul><h3>Way Forward</h3><p>To operationalize Green NDP effectively, India must strengthen institutional capacity at the NSO, institutionalize natural resource accounting across states, and integrate environmental asset valuations into fiscal policy frameworks, ensuring truly sustainable growth for Vision 2047.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Net Domestic Product (NDP):\n1. NDP is always greater than or equal to Gross Domestic Product (GDP).\n2. Depreciation is calculated based on the replacement cost of capital assets rather than their historical cost.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because NDP is calculated by subtracting depreciation from GDP; hence, NDP is always less than or equal to GDP (equal only if depreciation is zero, which is practically impossible). Statement 2 is correct as modern economic accounting values capital consumption based on current replacement cost to reflect true economic wear and tear."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following adjustments distinguishes 'Green NDP' from standard Net Domestic Product (NDP)?",
+      "options": [
+        "Addition of Net Factor Income from Abroad",
+        "Subtraction of Net Indirect Taxes and addition of Subsidies",
+        "Deduction of the monetary value of environmental degradation and natural resource depletion",
+        "Adjustment for inflation using the Consumer Price Index"
+      ],
+      "answer": "Deduction of the monetary value of environmental degradation and natural resource depletion",
+      "explanation": "Green NDP adjusts standard NDP by accounting for the depletion of natural capital (like minerals and forests) and degradation of the environment (pollution costs), providing a measure of environmentally sustainable economic performance."
+    }
+  ]
+}

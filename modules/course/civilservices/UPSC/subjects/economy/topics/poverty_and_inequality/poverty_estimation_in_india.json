@@ -1,0 +1,106 @@
+{
+  "microTopicId": "economy_poverty_and_inequality_poverty_estimation_in_india",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_poverty_and_inequality",
+  "topicTitle": "Poverty and Inequality",
+  "subTopicTitle": "Poverty Estimation In India",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives.",
+    "mains": "GS Paper III: Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment. Inclusive growth and issues arising from it."
+  },
+  "lectureHoursEstimate": "Lecture 6&7",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Poverty estimation in India has evolved from calorie-norm-based consumption expenditure baskets (CEB) to multi-dimensional indices and expert group frameworks. Historically managed by the erstwhile Planning Commission through expert panels like Lakdawala, Tendulkar, and C. Rangarajan, current empirical tracking relies heavily on NITI Aayog's National Multidimensional Poverty Index (MPI) alongside periodic Household Consumption Expenditure Surveys (HCES) by MoSPI.",
+    "highYieldFacts": [
+      "Fact 1: The Tendulkar Committee (2009) shifted poverty estimation from calorie intake alone to a wider basket including health and education, using Mixed Reference Period (MRP).",
+      "Fact 2: The C. Rangarajan Committee (2014) raised the daily per capita expenditure threshold to Rs 32 for rural areas and Rs 47 for urban areas, utilizing the Modified Mixed Reference Period (MMRP).",
+      "Fact 3: NITI Aayog's National MPI measures poverty across 12 indicators aligned with SDGs under three dimensions: Health, Education, and Standard of Living.",
+      "Fact 4: The 2022-23 Household Consumption Expenditure Survey (HCES) released by MoSPI indicates a significant decline in extreme poverty and reduction in the rural-urban consumption gap.",
+      "Fact 5: Internationally, the World Bank estimates extreme poverty using Purchasing Power Parity (PPP) thresholds, currently pegged at $2.15 per day (2017 PPP)."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming the Planning Commission still estimates poverty; the function now rests with NITI Aayog in coordination with MoSPI.",
+      "Trap 2: Confusing Uniform Reference Period (URP), Mixed Reference Period (MRP), and Modified Mixed Reference Period (MMRP) recall periods used in consumption surveys."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 21 (Right to Life with human dignity implicitly covers basic needs)",
+      "Directive Principles of State Policy (Article 38 & 39 - minimizing inequalities and securing adequate means of livelihood)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Mechanics of Poverty Estimation in India</h3><p>Poverty estimation in India represents a critical intersection of economic policy, social welfare, and fiscal federalism. Historically, India relied on consumption expenditure data collected quinquennially by the National Sample Survey Office (NSSO). The earliest official committees, such as the Y.K. Alagh Committee (1979) and D.T. Lakdawala Committee (1993), anchored poverty lines primarily on nutritional calorie requirements (2400 kcal for rural, 2100 kcal for urban) translated into monetary terms. However, these metrics failed to capture the qualitative transformations in living standards, particularly the rising costs of non-food essentials like healthcare, education, and transport.</p><p>The paradigm shifted with the <strong>Suresh Tendulkar Committee (2009)</strong>, which discarded pure calorie-norm calculations in favor of a comprehensive Consumption Expenditure Basket (CEB). It adopted the Mixed Reference Period (MRP) and factored in private spending on health and education. Subsequently, the <strong>C. Rangarajan Committee (2014)</strong> critiqued the Tendulkar threshold as too austere and proposed higher expenditure cut-offs using the Modified Mixed Reference Period (MMRP), though its recommendations were not officially adopted as the baseline.</p><h3>The Contemporary Shift: Multidimensional Poverty and HCES</h3><p>In recent years, the discourse has moved beyond purely monetary consumption metrics toward capability deprivation models. NITI Aayog’s <strong>National Multidimensional Poverty Index (MPI)</strong>—pegged to the global Alkire-Foster methodology—evaluates deprivations across 12 sustainable development indicators grouped into health, education, and standard of living. Concurrently, the release of the <strong>Household Consumption Expenditure Survey (HCES) 2022-23</strong> by the Ministry of Statistics and Programme Implementation (MoSPI) has revitalized empirical analysis, demonstrating structural shifts in consumer spending patterns, notably a decline in the share of food expenditure and a narrowing rural-urban divide.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Implicit mandate under Directive Principles (Article 38 and 39) to reduce inequalities and ensure a living wage, aligning anti-poverty strategies with fundamental rights under Article 21.",
+      "socio_economic": "Shifting from purely calorie-based survival metrics to capability-enhancing metrics like health, sanitation, clean cooking fuel, and digital access.",
+      "administrative_governance": "Transition from centralized Planning Commission oversight to collaborative federalism involving NITI Aayog, MoSPI, and targeted DBT architectures.",
+      "international_or_comparative": "Alignment with UN Sustainable Development Goal 1 (End poverty in all its forms everywhere) and integration with global Multidimensional Poverty Indices."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Tendulkar Committee Report (2009)",
+      "Rangarajan Committee Report (2014)",
+      "NITI Aayog National Multidimensional Poverty Index Reports (2021, 2023)",
+      "MoSPI Household Consumption Expenditure Survey (2022-23)"
+    ],
+    "structuredDiagramAscii": "Evolution of Poverty Estimation Frameworks:\n[Alagh Committee (1979): Calorie Norms]\n       │\n       ▼\n[Lakdawala Committee (1993): State-wise lines via CPI-AL/CPI-IW]\n       │\n       ▼\n[Tendulkar Committee (2009): CEB + MRP + Health/Education]\n       │\n       ▼\n[Rangarajan Committee (2014): Higher Thresholds + MMRP]\n       │\n       ▼\n[NITI Aayog MPI (2021-2023) & HCES (2022-23): Multi-dimensional Deprivation & Real-time Consumption Trends]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "In the context of India, which of the following is/are considered officially 'poverty line' parameters by expert committees?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Both 1 and 2",
+        "explanation": "Both consumption expenditure baskets and calorie/nutritional norms (in earlier committees) alongside non-food parameters like health and education (in later committees) have formed the basis of official estimation frameworks."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2018,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "How is poverty measured in India? Discuss the shifts in poverty estimation methodologies and highlight their implications for inclusive growth."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the evolution of poverty estimation methodologies in India. How do multidimensional poverty indices complement traditional consumption-based approaches in achieving inclusive growth? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define poverty estimation in India and briefly trace its historical grounding from calorie-based norms to modern multi-dimensional metrics.",
+      "body": "Discuss the shift across key committees (Alagh, Lakdawala, Tendulkar, Rangarajan). Contrast traditional monetary/consumption approaches (HCES) with NITI Aayog's Multidimensional Poverty Index (MPI). Explain the policy implications for targeting welfare schemes.",
+      "conclusion": "Summarize with a futuristic view on aligning poverty eradication with SDG 1 and India's vision of inclusive, equitable development by 2047."
+    },
+    "modelAnswerHtml": "<p>Poverty estimation in India has witnessed a profound paradigm shift—transitioning from narrow subsistence-based calorie calculations to comprehensive capability-deprivation models. This evolution is central to calibrating public policy and directing targeted welfare interventions.</p><p><strong>Historical Evolution of Methodologies:</strong></p><ul><li><strong>Early Committees (Alagh, Lakdawala):</strong> Anchored heavily on nutritional calorie intake (2400 kcal rural, 2100 kcal urban) translated into monetary expenditure through retail price indices. These models treated poverty as mere food deprivation.</li><li><strong>Tendulkar Committee (2009):</strong> Broadened the Consumption Expenditure Basket (CEB) to include education, health, and clothing, utilizing the Mixed Reference Period (MRP). It delinked poverty lines from pure calorie norms.</li><li><strong>Rangarajan Committee (2014):</strong> Critiqued Tendulkar's thresholds as inadequate, proposing higher daily spending limits (Rs 32 rural, Rs 47 urban) using the Modified Mixed Reference Period (MMRP).</li></ul><p><strong>Monetary vs. Multidimensional Approaches:</strong></p><p>While recent consumption surveys (like HCES 2022-23) indicate declining extreme poverty and shifting consumption patterns, monetary metrics alone fail to capture non-income deprivations. NITI Aayog’s <strong>National Multidimensional Poverty Index (MPI)</strong> addresses this by tracking 12 indicators spanning health, education, and standard of living (e.g., sanitation, clean cooking fuel, housing).</p><p><strong>Implications for Inclusive Growth:</strong></p><ul><li><strong>Targeted Resource Allocation:</strong> MPI identifies specific geographical pockets and deprivations (e.g., malnutrition or lack of clean fuel), enabling precision governance via schemes like PM Ujjwala Yojana and Swachh Bharat.</li><li><strong>Policy Synergy:</strong> Bridges the gap between economic growth and human development, ensuring that financial gains translate into tangible improvements in human capital.</li></ul><p><strong>Conclusion:</strong> Modern poverty estimation must harmonize monetary metrics with multidimensional capabilities. Embracing data-driven, localized indicators will be vital for eradicating multidimensional poverty and fulfilling the constitutional promise of equitable development for Viksit Bharat.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following committees constituted for poverty estimation in India:\n1. Y.K. Alagh Committee\n2. D.T. Lakdawala Committee\n3. Suresh Tendulkar Committee\n4. C. Rangarajan Committee\nWhich of the above committees recommended shifting away from purely calorie-norm-based poverty lines to include expenditure on health and education?",
+      "options": [
+        "1 and 2 only",
+        "3 and 4 only",
+        "1, 3 and 4 only",
+        "1, 2, 3 and 4"
+      ],
+      "answer": "3 and 4 only",
+      "explanation": "The Suresh Tendulkar and C. Rangarajan committees explicitly broadened the consumption basket to include non-food items like health and education, moving beyond the strict calorie-norm framework of earlier committees like Alagh and Lakdawala."
+    },
+    {
+      "id": "mcq_02",
+      "question": "With reference to NITI Aayog's National Multidimensional Poverty Index (MPI), consider the following statements:\n1. It is based on the global Alkire-Foster methodology.\n2. It measures deprivations across three equally weighted dimensions: Health, Education, and Standard of Living.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Both statements are correct. NITI Aayog's MPI utilizes the Alkire-Foster methodology and evaluates 12 indicators grouped under Health, Education, and Standard of Living, each dimension carrying equal weight in the final index."
+    }
+  ]
+}

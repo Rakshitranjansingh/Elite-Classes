@@ -1,0 +1,108 @@
+{
+  "microTopicId": "economy_banking_system_banking_system_structure_in_in",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_banking_system",
+  "topicTitle": "Banking System",
+  "subTopicTitle": "Banking system structure in India",
+  "syllabusMapping": {
+    "prelims": "Indian Economy and Development-Economic Growth, Development, Inclusion and Banking Structure.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment (Banking Sector & Architecture)."
+  },
+  "lectureHoursEstimate": "Lecture 15&16",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Indian banking system is a multi-tiered hierarchical structure anchored by the Reserve Bank of India (RBI) as the central bank, comprising Scheduled Commercial Banks (Public, Private, Foreign, Regional Rural, and Small Finance/Payments Banks), Cooperative Banks, and Non-Banking Financial Companies (NBFCs). It operates under a statutory framework primarily governed by the Reserve Bank of India Act, 1934 and the Banking Regulation Act, 1949.",
+    "highYieldFacts": [
+      "Fact 1: Scheduled Banks are those included in the Second Schedule of the Reserve Bank of India Act, 1934, possessing a paid-up capital and reserves of an aggregate value not less than ₹5 lakh.",
+      "Fact 2: Regional Rural Banks (RRBs) are established under the Regional Rural Banks Act, 1976, with equity split between Central Government (50%), State Government (15%), and Sponsor Bank (35%).",
+      "Fact 3: Small Finance Banks (SFBs) and Payments Banks are differentiated bank models introduced on the recommendations of the Nachiket Mor Committee and Dr. P.J. Nayak Committee to enhance financial inclusion.",
+      "Fact 4: Cooperative banks operate on a three-tier structure in most states: State Cooperative Banks (Apex level at State), Central Cooperative Banks (District level), and Primary Agricultural Credit Societies (Village level).",
+      "Fact 5: Recent structural evolution includes the consolidation of Public Sector Banks (PSBs) reducing their numbers from 27 in 2017 to 12 mega PSBs, and the operationalization of the National Asset Reconstruction Company Limited (NARCL) for bad bank resolution."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Co-operative banks in urban areas (Urban Co-operative Banks - UCBs) are regulated exclusively by RBI post-2020 amendment to the Banking Regulation Act, whereas rural cooperative banks have a dual regulatory structure involving RBI and NABARD under the BR Act and Cooperative Societies Acts.",
+      "Trap 2: Payments Banks are prohibited from lending or issuing credit cards, but they can issue ATM/debit cards and mobilize current and savings account (CASA) deposits up to ₹2 lakh per individual customer (revised from ₹1 lakh)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Reserve Bank of India Act, 1934",
+      "Banking Regulation Act, 1949",
+      "Regional Rural Banks Act, 1976",
+      "SARFAESI Act, 2002",
+      "Insolvency and Bankruptcy Code (IBC), 2016"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Architecture of the Indian Banking System</h3><p>The Indian banking architecture has undergone a profound paradigm shift from an elite-centric urban institution pre-independence to a mass-inclusive, technologically sophisticated financial grid. Structurally, the RBI sits atop as the apex monetary authority, exercising micro-prudential regulation and macro-prudential supervision. Beneath the RBI lie Commercial Banks, Cooperative Banks, and specialized financial institutions.</p><h3>Tiered Classification and Functional Divergence</h3><p>Commercial banks are divided into Scheduled and Non-Scheduled categories. Scheduled Commercial Banks (SCBs) include Public Sector Banks (PSBs), Private Sector Banks, Foreign Banks, RRBs, and the newer differentiated banks (Payments and Small Finance Banks). PSBs, following massive consolidations, act as the vehicle for sovereign socio-economic credit delivery, steering priority sector lending (PSL) targets (40% of Adjusted Net Bank Credit for domestic banks). Conversely, private and foreign banks leverage technological agility and superior asset quality management to capture urban and high-net-worth segments.</p><h3>Contemporary Structural Innovations and Governance Reforms</h3><p>Recent structural reforms have sought to resolve the 'Twin Balance Sheet' problem and address structural fragilities. The establishment of NARCL (Bad Bank) and IDRCL has compartmentalized stressed assets. Furthermore, the licensing of Small Finance Banks and Payments Banks has decentralized micro-credit and remittance services. However, governance vulnerabilities in cooperative banking, highlighted by urban cooperative bank failures, led to the extension of direct RBI supervisory powers via the Banking Regulation (Amendment) Act, 2020. Balancing regulatory compliance with credit growth remains the central structural challenge for contemporary Indian banking.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory control under RBI Act, 1934 and BR Act, 1949; federal nuances in dual regulation of rural cooperatives.",
+      "socio_economic": "Priority Sector Lending (PSL), Jan Dhan accounts, and credit penetration into unbanked hinterlands.",
+      "administrative_governance": "Board autonomy, professionalization of PSBs via 'Indradhanush' framework, and managing non-performing assets (NPAs).",
+      "international_or_comparative": "Basel III capital adequacy norms implementation and cross-border regulatory compliance."
+    },
+    "landmarkJudgmentsOrReports": [
+      "P.J. Nayak Committee Report on Governance of Boards of Banks in India",
+      "Nachiket Mor Committee on Comprehensive Financial Services for Small Businesses and Low-Income Households",
+      "Urjit Patel Committee Report on Monetary Policy Framework",
+      "Seshasayee Committee on UCBs"
+    ],
+    "structuredDiagramAscii": "RBI (Apex Regulator & Central Bank)\n ├── Commercial Banks\n │    ├── Scheduled Commercial Banks (PSBs, Private, Foreign)\n │    ├── Regional Rural Banks (RRBs)\n │    └── Differentiated Banks (Small Finance & Payments Banks)\n ├── Cooperative Banks\n │    ├── Urban Cooperative Banks (UCBs)\n │    └── Rural Cooperatives (StCBs -> CCBs -> PACS)\n └── Specialized Financial Institutions (NABARD, SIDBI, EXIM, NHB)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "Which of the following specific steps can be taken by the Government/RBI to reduce the demand-pull inflation in the country?",
+        "options": [
+          "1. Cutting down the statutory liquidity ratio",
+          "2. Increasing the repo rate",
+          "3. Reducing the reverse repo rate"
+        ],
+        "answer": "Only 2",
+        "explanation": "Increasing the repo rate makes borrowing expensive, curbing credit creation and demand-pull inflation. Cutting SLR releases more liquidity into the system, fueling inflation. Reducing reverse repo rate discourages banks from parking funds with RBI, increasing money supply."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2022,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Assess the main goals of the National Strategy for Financial Inclusion (NSFI) in India. How do differentiated banks contribute to achieving these goals?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the structural evolution of the Indian banking system in the post-liberalization era. How have differentiated banks and cooperative banking reforms addressed the challenges of financial inclusion and systemic stability? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define the Indian banking architecture with reference to RBI as the apex body and trace the shift from social banking to market-driven yet inclusive structures.",
+      "body": "Discuss the evolution post-1991 (Narasimham Committee), the consolidation of PSBs, the introduction of differentiated banks (Payments & Small Finance Banks), and structural reforms in cooperative banking (BR Amendment Act, 2020). Highlight impact on financial inclusion and asset quality.",
+      "conclusion": "Summarize with a futuristic perspective on digital banking units (DBUs), fintech convergence, and maintaining systemic resilience toward USD 5 trillion economy goals."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The Indian banking system has traversed a remarkable trajectory from a nascent, state-controlled credit apparatus post-independence to a diversified, tech-enabled multi-tiered structure. Anchored by the Reserve Bank of India (RBI), the system balances sovereign developmental mandates with global prudential standards.</p><h3>Structural Evolution Post-Liberalization</h3><p><strong>1. Narasimham Committee Reforms:</strong> Initiated a paradigm shift by introducing capital adequacy norms (Basel framework), reducing SLR/CRR, and permitting private sector bank entry, fostering operational autonomy and competition.<br><strong>2. Consolidation Phase:</strong> To create globally competitive balance sheets and scale credit absorption capacity, PSBs were aggressively consolidated, reducing numbers to 12 mega-banks.<br><strong>3. Advent of Differentiated Banks:</strong> Recommendations of the Nachiket Mor Committee led to the creation of Small Finance Banks (SFBs) and Payments Banks, targeting unserved niches—micro-enterprises and low-income remittances.</p><h3>Addressing Financial Inclusion and Systemic Stability</h3><p><ul><li><strong>Reaching the Margins:</strong> SFBs deploy 75% of their credit to Priority Sector Lending (PSL) and cater to micro-credit, complementing Jan Dhan Yojana.</li><li><strong>Cooperative Governance:</strong> The Banking Regulation (Amendment) Act, 2020 brought Urban and Multi-State Cooperative Banks under direct RBI supervisory oversight, mitigating systemic vulnerabilities stemming from weak governance and asset quality.</li><li><strong>Bad Bank Architecture:</strong> Establishment of NARCL helps clean legacy stressed assets, freeing up public bank capital for fresh credit creation.</li></ul></p><h3>Way Forward</h3><p>To sustain structural resilience, India must fortify cybersecurity frameworks for digital banking units (DBUs), enhance board-level governance in PSBs, and balance fintech innovations with consumer data protection. A dynamic structural matrix will ensure banking acts as a resilient catalyst for Viksit Bharat 2047.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Differentiated Banks in India:\n1. Payments Banks are authorized to accept demand deposits up to a specified limit and can issue credit cards to their customers.\n2. Small Finance Banks are mandated to extend at least 75 percent of their Adjusted Net Bank Credit (ANBC) to the Priority Sector.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because Payments Banks are strictly prohibited from issuing credit cards or undertaking lending activities. Statement 2 is correct: Small Finance Banks must allocate 75% of their ANBC to Priority Sector Lending (PSL)."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following institutions is at the apex of the three-tier short-term cooperative credit structure in rural India?",
+      "options": [
+        "National Bank for Agriculture and Rural Development (NABARD)",
+        "State Cooperative Bank (StCB)",
+        "Central Cooperative Bank (CCB)",
+        "Primary Agricultural Credit Society (PACS)"
+      ],
+      "answer": "State Cooperative Bank (StCB)",
+      "explanation": "The three-tier short-term rural cooperative credit structure consists of State Cooperative Banks (StCBs) at the apex level, Central Cooperative Banks (CCBs) at the intermediate/district level, and Primary Agricultural Credit Societies (PACS) at the base/village level. NABARD is a development finance institution, not a tier in cooperative banking."
+    }
+  ]
+}

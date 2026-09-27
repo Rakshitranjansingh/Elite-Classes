@@ -1,0 +1,107 @@
+{
+  "microTopicId": "science_tech_s_t_current_affairs_human_health_and_disease",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_s_t_current_affairs",
+  "topicTitle": "S&T Current Affairs",
+  "subTopicTitle": "Human Health and Disease",
+  "syllabusMapping": {
+    "prelims": "General Science; Current events of national and international importance relating to health, diseases, and biotechnology.",
+    "mains": "GS Paper III - Science and Technology- developments and their applications and effects in everyday life; Achievement of Indians in science & technology; indigenization of technology and developing new technology; Issues relating to development and management of Social Sector/Services relating to Health."
+  },
+  "lectureHoursEstimate": "Lecture 10,11&12",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Recent paradigms in human health and disease focus on the intersection of emerging zoonotic threats, Antimicrobial Resistance (AMR), genomic surveillance, and vector-borne diseases. India's contemporary disease burden demands a strategic pivot from reactive disease management to proactive One Health frameworks, mRNA/DNA vaccine platforms, and digital health surveillance.",
+    "highYieldFacts": [
+      "Fact 1: The National One Health Mission, spearheaded by the Principal Scientific Advisor's office, integrates human, animal, and environmental health sectors to preempt cross-species pathogen transmission.",
+      "Fact 2: Antimicrobial Resistance (AMR) is driven by unchecked overuse of broad-spectrum antibiotics in clinical settings and animal husbandry, classified by the WHO as one of the top 10 global public health threats.",
+      "Fact 3: India's National Action Plan on Antimicrobial Resistance (NAP-AMR) aligns with the WHO Global Action Plan, focusing on surveillance, infection prevention, and optimized antimicrobial use.",
+      "Fact 4: Neglected Tropical Diseases (NTDs) like Lymphatic Filariasis and Visceral Leishmaniasis (Kala-azar) have specific elimination timelines under India's National Health Policy (NHP) targets, outstripping global deadlines.",
+      "Fact 5: The Indian SARS-CoV-2 Genomics Consortium (INSACOG) established a multi-laboratory network for genomic surveillance of viral variants, setting a precedent for real-time epidemiological tracking."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the mandate of the National Centre for Disease Control (NCDC) with the Indian Council of Medical Research (ICMR). NCDC focuses on epidemiology, outbreak investigation, and disease surveillance, while ICMR coordinates and promotes biomedical research.",
+      "Trap 2: Assuming all vector-borne diseases are viral; diseases like Malaria are parasitic (Plasmodium species), while Dengue and Chikungunya are viral, requiring completely different vector control and therapeutic strategies."
+    ],
+    "keyArticlesOrStatutes": [
+      "Drugs and Cosmetics Act, 1940",
+      "Epidemic Diseases Act, 1897",
+      "National Health Policy, 2017",
+      "Biological Diversity Act, 2002"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolving Paradigm of Human Health and Disease in India</h3><p>The landscape of human health and disease in India has undergone a profound epidemiological transition. While the nation continues to battle traditional communicable and vector-borne diseases (such as tuberculosis, malaria, and lymphatic filariasis), it simultaneously grapples with an escalating burden of non-communicable diseases (NCDs) like cardiovascular disorders, diabetes, and oncology-related conditions. This dual disease burden strains public health infrastructure and necessitates an adaptive, technologically driven policy response.</p><h3>The One Health Approach and Zoonotic Spillover</h3><p>Approximately 60% of emerging infectious diseases globally are zoonotic in origin. Pathogens crossing the animal-human-environment interface—exacerbated by deforestation, habitat fragmentation, and intensive livestock farming—pose severe pandemic risks. The <strong>National One Health Mission</strong> represents a critical institutional evolution, breaking departmental silos between the Ministry of Health and Family Welfare, the Ministry of Fisheries, Animal Husbandry and Dairying, and the Ministry of Environment, Forest and Climate Change. By fusing veterinary surveillance with human clinical data, India aims to build an early-warning infrastructure capable of detecting novel pathogens before community-level outbreaks occur.</p><h3>Antimicrobial Resistance (AMR) and Therapeutic Vulnerability</h3><p>AMR represents a silent pandemic. The unregulated over-the-counter availability of antibiotics, intensive use of growth promoters in poultry and aquaculture, and poor hospital infection control have accelerated the emergence of superbugs (e.g., Carbapenem-resistant Enterobacteriaceae). India’s response via the <em>National Action Plan on AMR (NAP-AMR)</em> faces implementation bottlenecks at the state and primary health centre (PHC) levels, where diagnostic stewardship remains weak. Addressing AMR requires not only restricting human antibiotic consumption but also regulating environmental discharge from pharmaceutical manufacturing hubs.</p><h3>Genomic Surveillance and Precision Public Health</h3><p>The integration of next-generation sequencing (NGS) into public health architecture—exemplified by INSACOG—has transformed how health agencies track mutational shifts in pathogens. However, bridging the gap between high-end academic sequencing and decentralized district-level public health action remains a formidable administrative challenge. Strengthening bioinformatics capacity and supply chain resilience for diagnostic reagents is vital for future biosecurity preparedness.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Implicit right to health under Article 21 of the Constitution; Directive Principles of State Policy (Article 47) mandating the State to raise the level of nutrition and the standard of living and to improve public health.",
+      "socio_economic": "Out-of-pocket expenditure (OOPE) on healthcare drives millions into poverty annually; disproportionate impact of vector-borne diseases and malnutrition on marginalized and rural communities.",
+      "administrative_governance": "Federal complexities where 'Health' is a State subject under the Seventh Schedule, occasionally leading to fragmented policy execution and uneven healthcare delivery across states.",
+      "international_or_comparative": "Adherence to International Health Regulations (IHR 2005); alignment with UN Sustainable Development Goal 3 (SDG 3) aiming to end epidemics and ensure universal health coverage."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Paschim Banga Khet Majoor Samity v. State of West Bengal (1996) - Supreme Court held that the government's failure to provide timely medical treatment in emergency cases violates Article 21.",
+      "Economic Survey highlights on Out-of-Pocket Expenditure and Public Health Infrastructure.",
+      "Parliamentary Standing Committee Reports on Health and Family Welfare regarding AMR and Vaccine Security."
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------------------+\n|                  ONE HEALTH & DISEASE GOVERNANCE FRAMEWORK               |\n+-------------------------------------------------------------------------+\n                                     |\n         +---------------------------+---------------------------+\n         |                           |                           |\n         v                           v                           v\n+------------------+       +------------------+       +------------------+\n|  ANIMAL HEALTH   |       |   HUMAN HEALTH   |       |ENVIRONMENTAL SEC.|\n| (Veterinary &    |       | (Clinical Care,  |       | (Ecosystem, Water|\n|  Livestock Sur.) |       |  NCDC & ICMR)    |       |  & Biodiversity) |\n+------------------+       +------------------+       +------------------+\n         |                           |                           |\n         +---------------------------+---------------------------+\n                                     |\n                                     v\n+-------------------------------------------------------------------------+\n|                   INTEGRATED DIGITAL DISEASE SURVEILLANCE               |\n|    (IDSP / ICMR Networks / INSACOG Genomic Tracking / Early Warnings)   |\n+-------------------------------------------------------------------------+\n                                     |\n                                     v\n+-------------------------------------------------------------------------+\n|                     CLINICAL & POLICY INTERVENTIONS                     |\n|  (AMR Stewardship, Vaccine Indigenization, Ayushman Bharat Digital Miss.) |\n+-------------------------------------------------------------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which of the following statements is/are correct regarding the Smart India Hackathon or similar S&T initiatives? (Adapted for Health context: Consider the features of antimicrobial resistance surveillance in India).",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Both 1 and 2",
+        "explanation": "AMR surveillance networks in India are managed through collaborative sentinel sites involving ICMR and CDC networks, monitoring resistance patterns across multiple bacterial pathogens."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Differentiate between the causes of public health concerns regarding antibiotic resistance in India and suggest strategic measures to curb it."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the structural challenges in India's public health architecture concerning infectious disease outbreaks and antimicrobial resistance. Propose a comprehensive framework to strengthen national biosecurity and health resilience. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define the context of contemporary health challenges in India, highlighting the dual disease burden and the growing threat of AMR and zoonotic spillovers under Article 21 imperatives.",
+      "body": "Identify structural challenges (fragmented federal delivery, sub-optimal primary healthcare, over-the-counter antibiotic abuse, weak environmental surveillance). Propose a multi-pillar solution framework (One Health integration, digital disease surveillance, stricter regulatory enforcement, R&D boost).",
+      "conclusion": "Conclude with an eye toward SDG 3 and India's vision of universal health security, emphasizing that health is a public good requiring robust state capacity and inter-sectoral synergy."
+    },
+    "modelAnswerHtml": "<p>India's public health landscape faces unprecedented challenges characterized by a dual burden of communicable and non-communicable diseases, compounded by escalating antimicrobial resistance (AMR) and the constant threat of zoonotic spillovers. While initiatives like the National Health Mission have expanded coverage, systemic vulnerabilities persist.</p><h3>Structural Challenges in Public Health Architecture</h3><ul><li><strong>Fragmented Federal Governance:</strong> Health being a State subject leads to wide disparities in healthcare infrastructure, budgetary allocations, and surveillance rigor across states.</li><li><strong>AMR and Irrational Drug Use:</strong> Over-the-counter availability of broad-spectrum antibiotics, combined with unchecked agricultural and livestock usage, has accelerated multi-drug resistant 'superbugs'.</li><li><strong>Weak Primary Healthcare Interface:</strong> District hospitals and Primary Health Centres (PHCs) often lack basic diagnostic stewardship, leading to empirical treatments and delayed outbreak detection.</li><li><strong>Environmental Effluent Risks:</strong> Lax regulation of pharmaceutical industrial waste discharge permits antibiotic residues to contaminate local water bodies, breeding environmental resistance.</li></ul><h3>Strategic Framework for Biosecurity and Health Resilience</h3><ol><li><strong>Operationalizing 'One Health':</strong> Institutionalize cross-sectoral collaboration between human, animal, and environmental ministries through the National One Health Mission to detect pathogens at animal interfaces.</li><li><strong>Strengthening Genomic & Digital Surveillance:</strong> Scale up networks like INSACOG and integrate them with the Integrated Disease Surveillance Programme (IDSP) and Ayushman Bharat Digital Mission (ABDM) for real-time epidemiological alerts.</li><li><strong>Strict Regulatory Enforcement:</strong> Implement Schedule H1 of the Drugs and Cosmetics Rules stringently to curb over-the-counter antibiotic sales and regulate effluent discharge standards for pharma manufacturing units.</li><li><strong>Boost R&D in Therapeutics:</strong> Incentivize indigenous development of novel antibiotics, rapid point-of-care diagnostics, and mRNA/vector vaccine platforms through public-private partnerships (PPPs).</li></ol><h3>Way Forward</h3><p>Building health resilience requires transitioning from a reactive, hospital-centric model to a proactive, community-based prevention paradigm. Aligning with Sustainable Development Goal 3 (SDG 3) and leveraging India's G20 Presidency commitments on global health architecture will ensure equitable, robust, and future-ready public healthcare delivery.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the 'One Health' approach: \n1. It recognizes that human health is connected to the health of animals and the environment.\n2. The framework is exclusively applicable to bacterial and viral pandemic prevention, excluding parasitic infections.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: One Health is a collaborative, multisectoral, and transdisciplinary approach operating at local, sub-national, global, and regional levels to achieve optimal health outcomes by recognizing the interconnection between people, animals, plants, and their shared environment. Statement 2 is incorrect because One Health encompasses vector-borne, zoonotic, parasitic, and bacterial diseases alike."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following bodies/networks in India is primarily tasked with genomic surveillance of viral variants to track epidemiological mutations?",
+      "options": [
+        "National Disaster Management Authority (NDMA)",
+        "Indian SARS-CoV-2 Genomics Consortium (INSACOG)",
+        "Food Safety and Standards Authority of India (FSSAI)",
+        "Bureau of Indian Standards (BIS)"
+      ],
+      "answer": "Indian SARS-CoV-2 Genomics Consortium (INSACOG)",
+      "explanation": "INSACOG is a multi-agency, multi-laboratory network established by the Government of India to monitor genomic variations in SARS-CoV-2 and other circulating pathogens through high-throughput sequencing."
+    }
+  ]
+}

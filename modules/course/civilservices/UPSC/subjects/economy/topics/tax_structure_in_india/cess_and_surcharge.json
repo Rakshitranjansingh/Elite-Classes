@@ -1,0 +1,106 @@
+{
+  "microTopicId": "economy_tax_structure_in_india_cess_and_surcharge",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_tax_structure_in_india",
+  "topicTitle": "Tax Structure in India",
+  "subTopicTitle": "Cess and Surcharge",
+  "syllabusMapping": {
+    "prelims": "Indian Economy and-Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives, etc. (specifically Fiscal Policy and Taxation).",
+    "mains": "GS Paper III: Government Budgeting, Mobilization of Resources, Growth, Development and Employment."
+  },
+  "lectureHoursEstimate": "Chapter 9\nLecture 11",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Cesses and surcharges are non-tax and tax-on-tax instruments used by the Union government to raise revenue for specific purposes without sharing the proceeds with state governments through the Finance Commission's divisible pool.",
+    "highYieldFacts": [
+      "Fact 1: Under Article 270 of the Constitution, cesses levied for specific purposes are excluded from the divisible pool of taxes shared with states, provided Parliament so provides.",
+      "Fact 2: Surcharges are additional levies on the tax itself (tax on tax) under Article 271 and are also outside the net proceeds divisible pool unless specifically legislated otherwise.",
+      "Fact 3: The 15th Finance Commission recommended freezing the vertical devolution to states at 41%, partially mitigating states' concerns regarding shrinking divisible pools due to rising cess/surcharge collections.",
+      "Fact 4: Comptroller and Auditor General (CAG) audits have repeatedly highlighted instances of cesses collected for specific funds (e.g., Road and Infrastructure Cess) not being fully transferred to the designated Public Account funds.",
+      "Fact 5: Union Budget trends over the past decade show cesses and surcharges rising from under 10% of gross tax revenue to over 15-20%, sparking debates on fiscal federalism."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming all cesses automatically lapse. Cesses can be permanent or temporary depending on the enacting legislation, though Finance Acts frequently modify rates.",
+      "Trap 2: Confusing Article 270 (Divisible Pool of Taxes) with Article 271 (Surcharge on certain duties and taxes for purposes of the Union)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 270 of the Constitution of India",
+      "Article 271 of the Constitution of India",
+      "Finance Act (amended annually)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Constitutional Intent of Cesses and Surcharges</h3>\n<p>Cesses and surcharges were originally conceived as exceptional fiscal instruments designed to enable the Union Government to raise dedicated revenues for specific exigencies or national priorities—such as calamity relief, education, or infrastructure development. While a <strong>cess</strong> is levied as an additional tax for a particular, earmarked purpose (e.g., Health and Education Cess), a <strong>surcharge</strong> is an impost levied as a percentage of the base tax liability without any statutory obligation to earmark proceeds for a specific sector.</p>\n\n<h3>The Fiscal Federalism Conundrum</h3>\n<p>Under Article 270 of the Constitution, the proceeds of taxes and duties levied by the Union are required to be distributed between the Union and the States based on recommendations of the Finance Commission. However, Article 270 explicitly excludes 'cesses levied for specific purposes under any law made by Parliament'. Consequently, successive Union governments have increasingly relied on cesses and surcharges to augment revenues. This structural shift creates significant friction in India's cooperative federal framework:</p>\n<ul>\n  <li><strong>Shrinking Divisible Pool:</strong> As the share of cesses and surcharges in Gross Tax Revenue (GTR) scales upwards, the absolute size of the divisible pool contracts, directly impacting state fiscal autonomies and developmental outlays.</li>\n  <li><strong>Undermining Finance Commission Autonomy:</strong> The calibrated vertical devolution formula (currently set at 41% by the 15th Finance Commission) is circumvented when discretionary non-shared revenue collections expand disproportionately.</li>\n</ul>\n\n<h3>Accountability and Transparency Deficits</h3>\n<p>CAG audits have repeatedly flagged governance bottlenecks regarding earmarked cesses. Funds collected through specific cesses are often credited to the Consolidated Fund of India and subsequently transferred to non-lapsable Public Account funds. Delays in transfers, under-utilization of accumulated corpuses, and absorption into general budgetary financing vitiate the core legislative intent of these instruments.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Interplay between Article 270, Article 271, and the Seventh Schedule (Union vs State taxing powers).",
+      "socio_economic": "Impact on state-led welfare delivery, capital expenditure capacity, and regional economic disparities.",
+      "administrative_governance": "Earmarking discipline, CAG oversight, Public Account fund management, and transparency in tax administration.",
+      "international_or_comparative": "Comparison with fiscal decentralization models in federations like Canada, Australia, and the US."
+    },
+    "landmarkJudgmentsOrReports": [
+      "15th Finance Commission Report (Volume I & II)",
+      "CAG Performance Audit Reports on Union Government Finances",
+      "Sarkaria and Punchhi Commission recommendations on Centre-State financial relations"
+    ],
+    "structuredDiagramAscii": "Gross Tax Revenue (GTR)\n       │\n       ├──> Divisible Pool (Shared with States as per Finance Commission Formula ~ 41%)\n       │\n       └──> Non-Divisible Pool (Retained entirely by Union)\n              │\n              ├──> Surcharges (General revenue augmentation under Art 271)\n              └──> Cesses (Earmarked for specific sectors e.g., Health, Infrastructure)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Consider the following statements: 1. Pursuant to the report of H.N. Sanyal Committee, the Contempt of Courts Act, 1971 was passed. 2. The Constitution of India empowers the Supreme Court and the High Courts to punish for contempt of themselves. 3. The Constitution of India defines Civil Contempt and Criminal Contempt. 4. In India, the Parliament is vested with the powers to make laws on Contempt of Courts. Which of the statements given above is/are correct?",
+        "options": [
+          "1 and 2 only",
+          "1, 2 and 4 only",
+          "3 and 4 only",
+          "1, 3 and 4 only"
+        ],
+        "answer": "1, 2 and 4 only",
+        "explanation": "Representative fiscal/legal governance question illustrating constitutional and statutory mapping."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Explain the rationale behind the Goods and Services Tax (Compensation to States) Act of 2017. How has the changing composition of tax revenues, particularly cesses, impacted fiscal federalism in India?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Analyze the structural implications of the rising share of cesses and surcharges in India’s tax revenue on cooperative federalism and suggest measures to restore fiscal balance between the Centre and the States.",
+    "approach": {
+      "intro": "Define cesses and surcharges with constitutional references (Articles 270 and 271) and present data highlighting their surging share in Gross Tax Revenue over the past decade.",
+      "body": "Discuss impacts on cooperative federalism (shrinking divisible pool, state fiscal autonomy), governance challenges (earmarking slippages, delayed transfers), and recommend reforms like capping non-shared levies or expanding state surcharges.",
+      "conclusion": "Conclude by emphasizing cooperative fiscal governance, adherence to Finance Commission recommendations, and upholding the spirit of fiscal decentralization for Vikshit Bharat 2047."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3>\n<p>Cesses and surcharges are non-shared fiscal levies imposed by the Union Government under Articles 270 and 271 of the Constitution. Originally conceived as exceptional, temporary instruments for dedicated national objectives, their share in Gross Tax Revenue (GTR) has expanded significantly over the past decade, raising serious structural concerns for India’s fiscal federalism.</p>\n\n<h3>Impact on Cooperative Federalism and State Finances</h3>\n<ul>\n  <li><strong>Contraction of the Divisible Pool:</strong> Because cesses and surcharges are excluded from the tax devolution pool shared with states, an expansion in their share directly reduces the quantum of funds transferred to states, limiting their capital expenditure and social sector spending capacity.</li>\n  <li><strong>Erosion of State Fiscal Autonomy:</strong> States depend heavily on central transfers. When central revenues grow primarily through non-shareable routes, states face acute budgetary stress, forcing them to borrow more or compromise welfare obligations.</li>\n  <li><strong>Distortion of Vertical Devolution:</strong> Even though the 15th Finance Commission elevated the vertical devolution to 41%, the net realization by states is undermined when the base (GTR) is skewed towards non-divisible cesses and surcharges.</li>\n</ul>\n\n<h3>Governance and Accountability Bottlenecks</h3>\n<ul>\n  <li><strong>Sub-optimal Utilization:</strong> CAG audits have frequently pointed out that proceeds collected under specific cesses (e.g., Road and Infrastructure Cess) remain unutilized in Public Account funds or are absorbed into consolidated budgetary financing.</li>\n  <li><strong>Lack of Legislative Transparency:</strong> Surcharges lack specific statutory accountability mechanisms regarding their duration and exact expenditure mapping.</li>\n</ul>\n\n<h3>Way Forward and Reform Measures</h3>\n<p>To restore fiscal harmony and uphold cooperative federalism, the following measures are imperative:</p>\n<ul>\n  <li><strong>Statutory Capping:</strong> Imposing a legislative ceiling (e.g., limiting cesses and surcharges to a maximum of 5-10% of GTR) through an amendment or inter-governmental consensus in the GST Council/Finance Commission forum.</li>\n  <li><strong>Sunset Clauses:</strong> Enforcing strict sunset clauses on all cesses so they automatically lapse once their specific purpose is fulfilled.</li>\n  <li><strong>Transparent Transfer Mechanisms:</strong> Mandating real-time, unbundled crediting of earmarked cess collections directly into dedicated non-lapsable funds with strict parliamentary oversight.</li>\n</ul>\n\n<h3>Conclusion</h3>\n<p>A resilient fiscal federal structure requires mutual trust and transparent resource-sharing. Rationalizing cesses and surcharges is essential to ensure that states remain financially empowered partners in India's march toward sustainable and inclusive growth.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Cesses and Surcharges in India: 1. Under Article 270 of the Constitution, cesses levied for specific purposes by Parliament are excluded from the divisible pool of taxes. 2. A surcharge is an additional tax levied on the base tax liability and its proceeds are automatically shared with states as per Finance Commission recommendations. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct because Article 270 explicitly excludes cesses levied for specific purposes from the divisible pool. Statement 2 is incorrect because surcharges (levied under Article 271) are also retained entirely by the Union and are not part of the divisible pool shared with states."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following constitutional provisions empowers the Parliament to levy a surcharge on certain duties and taxes for purposes of the Union?",
+      "options": [
+        "Article 268",
+        "Article 270",
+        "Article 271",
+        "Article 280"
+      ],
+      "answer": "Article 271",
+      "explanation": "Article 271 of the Constitution specifically empowers Parliament to increase any of the duties or taxes referred to in Articles 269 and 270 by way of a surcharge for purposes of the Union, and the proceeds thereof form part of the Consolidated Fund of India."
+    }
+  ]
+}

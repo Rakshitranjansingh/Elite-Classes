@@ -1,0 +1,106 @@
+{
+  "microTopicId": "disaster_mgmt_natural_man_made_disasters_epidemics",
+  "subjectId": "disaster_mgmt",
+  "subjectTitle": "Disaster Management & Resilience",
+  "topicId": "disaster_mgmt_natural_man_made_disasters",
+  "topicTitle": "Natural & Man-Made Disasters",
+  "subTopicTitle": "Epidemics",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Bio-diversity and Climate Change (Public Health and Disease Vectors); Current events of national and international importance.",
+    "mains": "GS Paper III - Disaster and Disaster Management (Management of biological disasters, pandemics, and health emergencies; institutional frameworks)."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Epidemics represent the rapid spread of infectious disease to a large number of people in a given population within a short period. Under Indian statutory architecture, while 'Public Health and Sanitation' is a State subject (List II, Entry 6), biological disasters and major national epidemics are managed through central legislation like the Epidemic Diseases Act, 1897, and the Disaster Management Act, 2005.",
+    "highYieldFacts": [
+      "Fact 1: The Epidemic Diseases Act, originally enacted in 1897 to tackle bubonic plague in Bombay, grants special powers to implement temporary measures and regulations. It was amended in 2020 to make attacks on healthcare workers a cognizable and non-bailable offense.",
+      "Fact 2: The National Disaster Management Authority (NDMA) guidelines explicitly classify biological disasters and pandemics under the ambit of national disasters requiring multi-sectoral preparedness.",
+      "Fact 3: The Integrated Disease Surveillance Programme (IDSP), overseen by the National Centre for Disease Control (NCDC), monitors disease trends across India on a weekly basis.",
+      "Fact 4: The International Health Regulations (IHR 2005), legally binding on 194 countries including India, mandate the reporting of Public Health Emergencies of International Concern (PHEIC) to the World Health Organization.",
+      "Fact 5: Under the 7th Schedule, 'Prevention of the extension from one State to another of infectious or contagious diseases or pests affecting men, animals or plants' falls under the Concurrent List (List III, Entry 29)."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing 'Public Health' (State List, Entry 6) with 'Prevention of inter-state extension of diseases' (Concurrent List, Entry 29).",
+      "Trap 2: Assuming the Epidemic Diseases Act, 1897 defines an 'epidemic' or 'pandemic'—the statute actually contains no formal definitions and relies on discretionary executive declarations."
+    ],
+    "keyArticlesOrStatutes": [
+      "Epidemic Diseases Act, 1897",
+      "Disaster Management Act, 2005 (Section 2(d) defining disaster to include biological hazards)",
+      "Seventh Schedule: List II Entry 6 and List III Entry 29"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution of Epidemic Governance in India</h3><p>Epidemics and pandemics occupy a unique intersection of public health, national security, and disaster management. Historically viewed purely through a clinical and medical lens, modern disaster management doctrine recognizes epidemics as systemic shocks that trigger cascading failures across supply chains, food security, livelihoods, and psychological well-being. The shift from a reactive containment model to a proactive, bio-surveillance-driven resilience framework is central to contemporary public administration in India.</p><h3>Institutional and Legal Architecture</h3><p>India’s response mechanism relies on a tiered governance structure. At the apex level, the Ministry of Health and Family Welfare (MoHFW) acts as the nodal agency, supported by technical institutions such as the Indian Council of Medical Research (ICMR) and the National Centre for Disease Control (NCDC). When an outbreak assumes catastrophic proportions, the National Disaster Management Authority (NDMA) coordinates multi-ministerial responses using the powers enshrined under the Disaster Management Act, 2005. Concurrently, state governments exercise police and administrative powers under the colonial-era yet amended Epidemic Diseases Act, 1897, to enforce quarantines, lockdowns, and restrictions on assembly.</p><h3>Vulnerabilities and Systemic Bottlenecks</h3><p>Despite significant advancements in indigenous vaccine manufacturing and digital health architecture (such as the Co-WIN platform and Ayushman Bharat Digital Mission), epidemic management in India faces persistent structural bottlenecks:</p><ul><li><strong>Federal Friction:</strong> Lack of uniformity in cross-border movement controls and data reporting between states creates operational friction.</li><li><strong>Public Health Infrastructure Deficit:</strong> Chronic under-investment in primary healthcare leads to delayed detection at the rural grassroots level.</li><li><strong>Infodemic and Misinformation:</strong> The rapid proliferation of unverified digital narratives undermines public trust in scientific interventions and vaccination drives.</li><li><strong>Supply Chain Fragility:</strong> Dependence on external raw materials (Active Pharmaceutical Ingredients) poses severe vulnerabilities during global health emergencies.</li></ul>",
+    "dimensions": {
+      "constitutional_or_legal": "Interplay between State List (Public Health) and Concurrent List (Inter-state disease control); adequacy of the 125-year-old Epidemic Diseases Act versus modern statutory frameworks.",
+      "socio_economic": "Disproportionate impact on informal sector workers, migrant populations, women, and marginalized communities; disruption of foundational education and nutritional safety nets like Mid-Day Meals.",
+      "administrative_governance": "Synergy between civil administration, police, and medical bureaucracy; transition from siloed disease surveillance to 'One Health' approach integrating human, animal, and environmental health.",
+      "international_or_comparative": "Compliance with WHO International Health Regulations (IHR 2005); vaccine diplomacy and South-South cooperation in genomic sequencing and pharmaceutical supply."
+    },
+    "landmarkJudgmentsOrReports": [
+      "15th Finance Commission Report (Dedicated focus on strengthening primary healthcare infrastructure and local health grants)",
+      "National Health Policy 2017 (Advocating increasing public health expenditure to 2.5% of GDP)",
+      "K.S. Puttaswamy Judgment (Balancing individual privacy rights with public health surveillance mandates during containment operations)"
+    ],
+    "structuredDiagramAscii": "[Bio-Surveillance & Early Warning (IDSP / One Health)]\n                       │\n                       ▼\n[Triggering Mechanism: State Notification / NDMA Guidelines]\n                       │\n                       ├───────────────────────────────┐\n                       ▼                               ▼\n        [Clinical Containment]             [Socio-Economic Mitigation]\n        - ICMR Testing & Genomics          - Food Security (PMGKAY)\n        - Hospital Infrastructure          - Livelihood Support & Direct Benefit\n                       │                               │\n                       └───────────────┬───────────────┘\n                                       ▼\n                    [Post-Event Audit & Systemic Resilience]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "If a major national disaster is declared in India, which of the following statutory provisions is invoked to manage the overall national response?",
+        "options": [
+          "The Epidemic Diseases Act, 1897",
+          "The Disaster Management Act, 2005",
+          "The Public Health Act, 1950",
+          "The Essential Services Maintenance Act, 1981"
+        ],
+        "answer": "The Disaster Management Act, 2005",
+        "explanation": "The Disaster Management Act, 2005 provides the statutory framework for setting up the NDMA, SDMA, and executing a holistic, multi-hazard national disaster response plan, which includes biological disasters and pandemics."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss how emerging technologies and the 'One Health' approach can transform India's preparedness against biological disasters and pandemics."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Analyze the structural challenges in managing biological disasters and epidemics in India. Suggest a comprehensive framework anchored in the 'One Health' approach to build long-term public health resilience. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define biological disasters and epidemics within the scope of modern disaster management, highlighting their multi-dimensional impacts beyond pure clinical health.",
+      "body": "Examine structural challenges (federal friction, data gaps, infrastructure deficits, infodemics) and propose solutions through the 'One Health' paradigm, digital integration, and robust supply chain autonomy.",
+      "conclusion": "Summarize with a forward-looking statement linking resilient health architecture to India's Vision 2047 and global health security commitments."
+    },
+    "modelAnswerHtml": "<p>Epidemics and biological disasters are no longer viewed merely as medical emergencies; they are systemic shocks capable of destabilizing national economies and social fabrics. While India demonstrated remarkable resilience during recent global health crises, structural vulnerabilities persist.</p><p><strong>Structural Challenges in Epidemic Governance:</strong></p><ul><li><strong>Federal Asymmetry:</strong> Disparities in state-level capacities, divergent containment protocols, and friction in interstate data reporting hamper unified national responses.</li><li><strong>Primary Healthcare Deficit:</strong> Rural primary health centers (PHCs) and community health centers (CHCs) suffer from infrastructural bottlenecks and critical shortages of specialized human resources.</li><li><strong>Supply Chain Fragility:</strong> Over-reliance on imported Active Pharmaceutical Ingredients (APIs) and critical medical consumables exposes the nation to external geopolitical shocks.</li><li><strong>Infodemic and Trust Deficit:</strong> The uncontrolled spread of misinformation on digital platforms impedes vaccination drives and compliance with safety guidelines.</li></ul><p><strong>Building Resilience via the 'One Health' Approach:</strong></p><p>To transition from reactive containment to proactive resilience, India must institutionalize the <strong>'One Health' framework</strong>, recognizing that human health is inextricably linked to animal health and environmental ecosystems:</p><ul><li><strong>Integrated Surveillance:</strong> Expand platforms like the Integrated Disease Surveillance Programme (IDSP) to monitor zoonotic spillover points at human-animal interfaces in real time.</li><li><strong>Genomic Surveillance Networks:</strong> Institutionalize consortia like INSACOG for continuous tracking of pathogenic mutations and early detection of variants of concern.</li><li><strong>Decentralized Infrastructure:</strong> Leverage recommendations of the 15th Finance Commission to build resilient public health units at district and sub-district levels.</li><li><strong>Domestic Manufacturing Autonomy:</strong> Strengthen domestic API production through PLI schemes and enhance vaccine research ecosystems.</li></ul><p><strong>Conclusion:</strong><br>Mitigating future biological disasters requires embedding biosecurity into national security planning. By synergizing digital governance, community participation, and the One Health paradigm, India can safeguard public health and emerge as a global leader in health security.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the legal and institutional framework for Epidemics in India:\n1. 'Public Health and Sanitation' is enshrined under the Concurrent List of the Seventh Schedule of the Constitution.\n2. The Epidemic Diseases Act of 1897 explicitly defines the threshold parameters for declaring a national pandemic.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Neither 1 nor 2",
+      "explanation": "Statement 1 is incorrect because 'Public Health and Sanitation' falls under the State List (List II, Entry 6). Statement 2 is incorrect because the Epidemic Diseases Act, 1897 is a brief, colonial-era statute that contains no formal definitions for epidemics, pandemics, or specific threshold criteria."
+    },
+    {
+      "id": "mcq_02",
+      "question": "The 'One Health' concept, frequently discussed in the context of disease outbreaks, primarily emphasizes which of the following?",
+      "options": [
+        "Merging all central ministries of health, pharmaceuticals, and science into a single super-ministry.",
+        "Collaborative efforts of multiple disciplines working locally, nationally, and globally to attain optimal health for people, animals, and the environment.",
+        "Mandatory universal health insurance coverage for all citizens irrespective of income.",
+        "Eliminating private healthcare providers and establishing a purely state-run medical economy."
+      ],
+      "answer": "Collaborative efforts of multiple disciplines working locally, nationally, and globally to attain optimal health for people, animals, and the environment.",
+      "explanation": "The 'One Health' approach is a collaborative, multisectoral, and transdisciplinary framework working at sub-national, national, and global levels to achieve optimal health outcomes by recognizing the interconnection between people, animals, plants, and their shared environment."
+    }
+  ]
+}

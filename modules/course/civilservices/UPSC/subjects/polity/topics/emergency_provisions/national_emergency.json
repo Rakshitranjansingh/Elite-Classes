@@ -1,0 +1,107 @@
+{
+  "microTopicId": "polity_emergency_provisions_national_emergency",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_emergency_provisions",
+  "topicTitle": "Emergency Provisions",
+  "subTopicTitle": "National Emergency",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Indian Constitution—historical underpinnings, evolution, features, amendments, significant provisions and basic structure; Comparison of the Indian constitutional scheme with that of other countries."
+  },
+  "lectureHoursEstimate": "Lecture 17",
+  "prelimsCapsule": {
+    "coreConceptSummary": "A National Emergency is a grave situation threatening the security of India or any part of its territory due to war, external aggression, or armed rebellion, proclaimed by the President under Article 352. It fundamentally transforms the federal polity into a unitary one and severely curtails certain fundamental rights.",
+    "highYieldFacts": [
+      "Fact 1: Article 352 permits proclamation on grounds of 'war', 'external aggression', or 'armed rebellion' (the term 'internal disturbance' was replaced by 'armed rebellion' via the 44th Constitutional Amendment Act, 1978).",
+      "Fact 2: The President can proclaim a National Emergency only after receiving a written recommendation from the Union Cabinet (added via 44th Amendment to prevent unilateral executive action).",
+      "Fact 3: Every proclamation must be approved by both Houses of Parliament within one month from the date of its issue by a special majority (majority of total membership and 2/3rds present and voting).",
+      "Fact 4: Once approved, the emergency continues for six months and can be extended indefinitely with Parliament approval every six months.",
+      "Fact 5: A special sitting of the House can be initiated if 10th of the Lok Sabha members give a written notice to the Speaker (or President if House is not in session), compelling the executive to consider revocation."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing simple majority with special majority for parliamentary approval of a National Emergency. Approval requires a special majority in both Houses.",
+      "Trap 2: Assuming Article 19 is suspended automatically for all grounds. Post-44th Amendment, Article 19 can be suspended only in cases of war or external aggression, not in cases of armed rebellion."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 352 (Proclamation of National Emergency)",
+      "Article 358 (Suspension of provisions of Article 19 during emergencies)",
+      "Article 359 (Suspension of the enforcement of rights conferred by Part III except Articles 20 and 21)",
+      "44th Constitutional Amendment Act, 1978"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Constitutional Architecture of National Emergency</h3><p>The emergency provisions enshrined in Part XVIII (Articles 352–360) of the Constitution of India act as a safety valve designed to protect the sovereignty, unity, integrity, and security of the nation. The framers of the Constitution realized that a rigid federal structure might falter during extraordinary crises, necessitating a temporary metamorphosis into a unitary state.</p><h3>Safeguards Introduced by the 44th Amendment Act, 1978</h3><p>The dark chapter of the 1975 internal emergency exposed severe vulnerabilities in the original text, leading the Janata Party government to enact the 44th Constitutional Amendment. Key structural safeguards include:</p><ul><li><strong>Cabinet Written Recommendation:</strong> The President can act only upon the written advice of the Union Cabinet, eliminating unilateral prime ministerial discretion.</li><li><strong>Special Majority Approval:</strong> Simple majority requirements were replaced by a special majority within a tightened timeframe of one month.</li><li><strong>Periodic Review:</strong> Parliamentary approval is mandatory every six months.</li><li><strong>Lok Sabha Control:</strong> One-tenth of Lok Sabha members can requisition a special sitting to disapprove the emergency.</li></ul><h3>Impact on Federalism and Fundamental Rights</h3><p>During a National Emergency, the executive power of the Centre extends to giving directions to any state regarding the exercise of its executive power. Parliament becomes competent to legislate on State List subjects. Furthermore, Article 358 automatically suspends freedoms under Article 19 during external aggression or war, while Article 359 empowers the President to suspend the right to move any court for the enforcement of fundamental rights (excluding Articles 20 and 21, as mandated by the Supreme Court in the landmark <em>ADM Jabalpur</em> fallout correction via the 44th Amendment).</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Balancing executive exigencies with strict parliamentary oversight and judicial review under the Basic Structure doctrine.",
+      "socio_economic": "Disproportionate impact on marginalized communities, labor rights, and civil liberties during states of high state control.",
+      "administrative_governance": "Centralization of decision-making, strain on Centre-State cooperative federalism, and invocation of bureaucratic machinery.",
+      "international_or_comparative": "Comparison with the US War Powers Act, UK civil contingencies framework, and international human rights non-derogable obligations."
+    },
+    "landmarkJudgmentsOrReports": [
+      "ADM Jabalpur v. Shivkant Shukla (1976) - Criticized dark chapter on Article 21 suspension, largely superseded by subsequent jurisprudence.",
+      "Minerva Mills v. Union of India (1980) - Held that judicial review is not barred even during an emergency if the proclamation is mala fide or based on extraneous facts.",
+      "Sarkaria Commission Report (1988) - Recommended cautious use of emergency provisions and exhausting all alternatives before invoking Article 352."
+    ],
+    "structuredDiagramAscii": "Proclamation by President (Written Cabinet Advice) \n       │\n       ▼\nParliamentary Approval (Within 1 Month - Special Majority in both Houses)\n       │\n       ├─────────────────────────┐\n       ▼                         ▼\nFederal to Unitary Shift    Suspension of Art. 19 & Art. 359 (Excl. 20 & 21)\n       │\n       ▼\nPeriodic Six-Month Extension via Parliamentary Approval"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2018,
+        "question": "Which of the following are not treated as grounds for the proclamation of National Emergency under the Constitution of India?",
+        "options": [
+          "War",
+          "External Aggression",
+          "Internal Disturbance",
+          "Armed Rebellion"
+        ],
+        "answer": "Internal Disturbance",
+        "explanation": "The 44th Amendment Act of 1978 substituted the words 'internal disturbance' with 'armed rebellion' as a ground for National Emergency. Therefore, internal disturbance is not a constitutional ground."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Discuss the institutional safeguards provided under the Indian Constitution to prevent the misuse of National Emergency provisions."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the constitutional checks and judicial safeguards against the misuse of National Emergency provisions in India. How has the jurisprudence evolved post-1978? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define National Emergency under Article 352 and its constitutional intent as a safety valve for extraordinary threats.",
+      "body": "Detail the 1978 structural safeguards (written cabinet advice, special majority, periodic renewal), Lok Sabha's special sitting mechanism, and landmark judicial pronouncements (Minerva Mills case on judicial review).",
+      "conclusion": "Conclude by emphasizing constitutional morality, dynamic judicial oversight, and the imperative of maintaining the delicate federal balance."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Article 352 of the Indian Constitution empowers the President to proclaim a National Emergency when the security of India or any part of its territory is threatened by war, external aggression, or armed rebellion. Originally conceived as an absolute executive tool, the unbridled invocation during the 1975 Emergency led to sweeping constitutional overhauls to institutionalize rigorous checks and balances.</p><h3>Constitutional Safeguards Post-44th Amendment (1978)</h3><ul><li><strong>Written Cabinet Decision:</strong> The President can issue a proclamation only upon receiving a formal written recommendation from the Union Cabinet, curbing unilateral prime ministerial decisions.</li><li><strong>Time-bound Parliamentary Approval:</strong> The proclamation must be approved by both Houses within one month (reduced from two months) by a stringent <em>special majority</em>.</li><li><strong>Periodic Review:</strong> An emergency ceases after six months unless renewed by Parliament every six months, ensuring continuous legislative accountability.</li><li><strong>Lok Sabha Veto Power:</strong> One-tenth of Lok Sabha members can requisition a special sitting to move a resolution disapproving the emergency, forcing executive accountability.</li></ul><h3>Evolution of Judicial Safeguards</h3><p>The judiciary has evolved from the conservative stance in the infamous <em>ADM Jabalpur</em> case to an assertive protector of civil liberties. In <strong>Minerva Mills v. Union of India (1980)</strong>, the Supreme Court ruled that a proclamation of National Emergency is subject to judicial review if it is based on malafide, extraneous, or irrelevant grounds. Furthermore, the 44th Amendment rendered Articles 20 and 21 immune from suspension under Article 359, cementing the non-derogable core of human dignity.</p><h3>Way Forward</h3><p>While executive readiness to meet external threats is paramount, the survival of Indian democracy depends on the active vigilance of Parliament and the judiciary. Invoking Article 352 must remain an absolute last resort, governed by the touchstones of necessity, proportionality, and constitutional morality.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the revocation of a National Emergency:",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Statement 1 is correct: The President can revoke a National Emergency at any time by a subsequent proclamation without parliamentary approval. Statement 2 is correct: If one-tenth of Lok Sabha members give a written notice to the Speaker, a special sitting must be held within 14 days to consider a resolution disapproving the emergency."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following Fundamental Rights cannot be suspended even during a National Emergency under Articles 358 and 359?",
+      "options": [
+        "Article 14 and Article 19",
+        "Article 19 and Article 21",
+        "Article 20 and Article 21",
+        "Article 21 and Article 22"
+      ],
+      "answer": "Article 20 and Article 21",
+      "explanation": "Post the 44th Amendment Act, 1978, the right to protection in respect of conviction for offenses (Article 20) and the right to life and personal liberty (Article 21) cannot be suspended under Article 359."
+    }
+  ]
+}

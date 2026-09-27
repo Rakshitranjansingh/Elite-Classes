@@ -1,0 +1,103 @@
+{
+  "microTopicId": "geography_winds_planetary_seasonal_and_local_jet_streams_winds_planetary_seasonal_and_l",
+  "subjectId": "geography",
+  "subjectTitle": "Geography of India & World",
+  "topicId": "geography_winds_planetary_seasonal_and_local_jet_streams",
+  "topicTitle": "Winds – Planetary, Seasonal and Local; Jet Streams",
+  "subTopicTitle": "Winds – Planetary, Seasonal and Local; Jet Streams",
+  "syllabusMapping": {
+    "prelims": "General Geography: Important Geophysical phenomena such as earthquakes, Tsunami, Volcanic activity, cyclone, wind systems and ocean currents.",
+    "mains": "GS Paper I: Salient features of world's physical geography, distribution of key natural resources across the world; factors responsible for the location of primary, secondary, and tertiary sector industries in various parts of the world."
+  },
+  "lectureHoursEstimate": "Lecture 7",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Atmospheric circulation operates across macro to micro scales, driven by differential solar heating, Earth's rotation (Coriolis force), and pressure gradients. Planetary winds (Trades, Westerlies, Easterlies) maintain global heat balance, while Jet streams—narrow bands of high-velocity upper-tropospheric geostrophic winds—dynamically couple upper-level flow with lower-tropospheric weather systems like the Indian Monsoon and mid-latitude cyclones.",
+    "highYieldFacts": [
+      "Fact 1: The Coriolis force is directly proportional to the wind velocity and the sine of the latitude, becoming zero at the Equator and maximum at the Poles.",
+      "Fact 2: Jet streams are typically located near the tropopause at altitudes between 9 to 14 km, with core wind speeds exceeding 120-150 km/h.",
+      "Fact 3: The Subtropical Westerly Jet (STWJ) and Tropical Easterly Jet (TEJ) play a decisive, dual role in the onset, break, and withdrawal phases of the Indian Summer Monsoon.",
+      "Fact 4: Local winds such as Foehn, Chinook, Mistral, and Sirocco are thermodynamically modified by adiabatic expansion and compression over physiographic barriers.",
+      "Fact 5: Rossby waves dictate the meandering path of the Polar Jet Stream, influencing persistent weather anomalies like extreme heatwaves and cold snaps."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming Coriolis force deflects winds to the left in the Northern Hemisphere. It always deflects to the right in the North and left in the South.",
+      "Trap 2: Confusing the origin of local thermal winds (e.g., land/sea breeze driven by diurnal differential heating) with planetary pressure belts."
+    ],
+    "keyArticlesOrStatutes": [
+      "Not applicable (Physical Geography curriculum)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Dynamics of Atmospheric Circulation and Jet Streams</h3><p>Atmospheric circulation is the large-scale movement of air by which heat is distributed on the surface of the Earth. The synthesis of thermal gradients and the Earth's rotation establishes a complex hierarchy of winds ranging from planetary systems to transient local currents. The primary driving force is the differential heating of the equatorial and polar regions, which generates a global thermal convective loop modified by the Coriolis effect, centrifugal forces, and friction.</p><h3>Planetary Winds and Global Pressure Belts</h3><p>Planetary winds—Trade Winds, Westerlies, and Polar Easterlies—flow persistently throughout the year across distinct latitudinal belts. The Intertropical Convergence Zone (ITCZ) serves as the thermal low-pressure trough where trade winds converge. The dynamic Subtropical High-Pressure Belts (Horse Latitudes) supply air equatorward and poleward. As air moves poleward from subtropical highs, the Coriolis deflection turns them into the prevailing Westerlies. These macro-scale systems form the core of the Hadley, Ferrel, and Polar atmospheric cells, which regulate planetary heat transport.</p><h3>Jet Streams: Mechanics and Climatological Significance</h3><p>Jet streams are fast-flowing, narrow air currents found in the atmospheres of some planets, including Earth. On Earth, the main geostrophic jet streams are located near the altitude of the tropopause and are driven by horizontal temperature gradients and the conservation of angular momentum. The <strong>Polar Front Jet Stream</strong> forms along the boundary between cold polar air and warmer mid-latitude air, whereas the <strong>Subtropical Jet Stream</strong> results from the poleward transport of angular momentum in the upper Hadley cell.</p><p>In the context of the Indian subcontinent, the upper-tropospheric <strong>Subtropical Westerly Jet Stream (STWJ)</strong> blows west-to-east across the Tibetan Plateau during winter, maintaining high pressure and stable conditions. Its abrupt northward migration in early summer allows the establishment of the low-level Somali Jet and the upper-tropospheric <strong>Tropical Easterly Jet (TEJ)</strong>, which acts as an exhaust pump driving intense convective activity and monsoon rainfall over India.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Not directly applicable; geophysical domain.",
+      "socio_economic": "Monsoon variability driven by jet stream shifts impacts agricultural productivity, rural livelihoods, and rural-urban migration patterns across South Asia.",
+      "administrative_governance": "Requires robust meteorological forecasting infrastructure (IMD, Doppler radar networks, high-altitude radiosonde stations) for disaster risk reduction and climate-resilient agricultural planning.",
+      "international_or_comparative": "Teleconnections such as ENSO, Indian Ocean Dipole (IOD), and North Atlantic Oscillation (NAO) interact directly with planetary wind systems and jet streams, necessitating global scientific cooperation."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Intergovernmental Panel on Climate Change (IPCC) AR6 Working Group I Report on changing atmospheric circulation and poleward expansion of Hadley cells.",
+      "State of Climate Reports by the India Meteorological Department (IMD) highlighting jet stream shifts and extreme weather events."
+    ],
+    "structuredDiagramAscii": "[Equator: Intense Solar Heating] ---> [Rising Air: ITCZ] ---> [Upper Troposphere Poleward Flow]\n                                                              |\n[Polar Region: Subsidence] <--- [Polar Jet Stream & Rossby Waves] <--- [Subtropical Jet Stream]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2015,
+        "question": "What explains the eastward flow of the equatorial counter-current?",
+        "options": [
+          "The Earth's rotation on its axis",
+          "The convergence of the two trade winds",
+          "The difference in salinity of water",
+          "The occurrence of the belt of calm near the equator"
+        ],
+        "answer": "The convergence of the two trade winds",
+        "explanation": "While oceanic, this question tests the fundamental mechanics of wind convergence (Trade Winds) at the ITCZ and how surface water piles up to drive counter-currents."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-I",
+        "marks": 15,
+        "question": "The 2004 Tsunami and subsequent extreme weather events underscore the vulnerability of coastal regions. Discuss the mechanism of Jet Streams and their impact on Indian Monsoon."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the mechanics of Jet Streams and evaluate their critical role in modulating the onset and intensity of the Indian Summer Monsoon. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define Jet Streams and locate them in the upper troposphere. Briefly state their relationship with global circulation.",
+      "body": "Explain the physical mechanics (temperature gradients, Coriolis effect, geostrophic balance). Detail the dual role of the Subtropical Westerly Jet and Tropical Easterly Jet in the Indian Monsoon (winter blockage, summer migration, and upper-air divergence). Mention climate change impacts.",
+      "conclusion": "Summarize how understanding jet stream dynamics is crucial for accurate long-range monsoon forecasting and climate resilience under SDG 13 (Climate Action)."
+    },
+    "modelAnswerHtml": "<p><strong>Introduction:</strong> Jet streams are geo-ostrophic, high-velocity meandering air currents circulating near the tropopause (9–14 km altitude) in narrow bands. Driven by strong horizontal temperature gradients and the Earth's rotation, they serve as crucial thermal regulators and dynamic links between upper- and lower-tropospheric weather systems.</p><p><strong>Mechanics of Jet Streams:</strong></p><ul><li><strong>Thermal Wind Equation:</strong> Sharp temperature contrasts between air masses (e.g., polar and tropical) create steep pressure gradients aloft, intensifying wind speeds.</li><li><strong>Coriolis Force:</strong> Balances the pressure gradient force, resulting in geostrophic flow parallel to isobars, predominantly from west to east.</li></ul><p><strong>Role in Modulating the Indian Summer Monsoon:</strong></p><ul><li><strong>Winter Dominance of Subtropical Westerly Jet (STWJ):</strong> During winter, the Tibetan Plateau forces the STWJ to split into southern and northern branches. The southern branch flows along the southern edge of the Himalayas, maintaining stable, dry weather and winter western disturbances over North India.</li><li><strong>Summer Withdrawal and Onset:</strong> By May-June, as the landmass intensely heats up, the STWJ rapidly shifts north of the Tibetan Plateau. This sudden northward jump removes the upper-air subsidence barrier, triggering the abrupt onset of the South-West Monsoon.</li><li><strong>Tropical Easterly Jet (TEJ) as an Exhaust Mechanism:</strong> During summer, high-altitude heating over the Tibetan plateau creates an upper-tropospheric anticyclone, generating the TEJ flowing from east to west over the Indian Ocean. This jet acts as an efficient pumping mechanism, evacuating upper-air mass and intensifying low-level convergence (Somali Jet) and monsoon rainfall.</li></ul><p><strong>Conclusion:</strong> Modern disruptions in jet stream paths due to Arctic amplification and wavy meandering (Rossby wave resonance) have triggered unseasonal floods and droughts across South Asia. Advanced numerical weather prediction models incorporating upper-air dynamics are vital for climate-resilient agricultural planning in line with SDG 13.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Jet Streams:\n1. They are geostrophic winds located near the tropopause flowing predominantly from west to east.\n2. All jet streams in both hemispheres flow exclusively in an easterly direction throughout the year.\n3. The Subtropical Westerly Jet plays a critical role in delaying or advancing the onset of the Indian Summer Monsoon.\nWhich of the statements given above are correct?",
+      "options": [
+        "1 and 3 only",
+        "2 and 3 only",
+        "1 only",
+        "1, 2 and 3"
+      ],
+      "answer": "1 and 3 only",
+      "explanation": "Statement 2 is incorrect because while most jet streams (including Westerly jets) flow west-to-east, the Tropical Easterly Jet flows from east to west during the summer monsoon season. Statements 1 and 3 are correct."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following local winds is correctly matched with the region where it predominantly occurs?",
+      "options": [
+        "Chinook – Alps of Europe",
+        "Foehn – Rocky Mountains of North America",
+        "Mistral – Rhône Valley, France",
+        "Sirocco – Central Australia"
+      ],
+      "answer": "Mistral – Rhône Valley, France",
+      "explanation": "Mistral is a cold, dry local wind that blows from the Alps down to the Rhône Valley and into the Mediterranean. Chinook occurs in the Rockies (North America), Foehn in the Alps (Europe), and Sirocco originates in the Sahara and blows over the Mediterranean."
+    }
+  ]
+}

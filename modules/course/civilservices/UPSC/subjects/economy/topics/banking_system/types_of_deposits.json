@@ -1,0 +1,95 @@
+{
+  "microTopicId": "economy_banking_system_types_of_deposits",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_banking_system",
+  "topicTitle": "Banking System",
+  "subTopicTitle": "Types of Deposits",
+  "syllabusMapping": {
+    "prelims": "Indian Economy - Structure of Banking, Savings, Current, Fixed, and Recurring Deposits, Mobilisation of Resources.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development, and employment."
+  },
+  "lectureHoursEstimate": "Lecture 15&16",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Bank deposits form the bedrock of financial intermediation, categorized primarily into demand deposits (Current and Savings Accounts) withdrawable on demand, and time deposits (Fixed and Recurring Deposits) locked for specific tenures. Understanding their structural nuances is critical for analyzing money supply (M1, M3), liquidity management, and transmission of monetary policy by the RBI.",
+    "highYieldFacts": [
+      "Fact 1: Deposit Insurance and Credit Guarantee Corporation (DICGC) insures bank deposits up to ₹5 lakh per depositor per bank, covering principal and interest.",
+      "Fact 2: Current Account deposits do not earn any interest and are meant for business transactions, whereas Savings Bank accounts have their interest rates deregulated by RBI since 2011.",
+      "Fact 3: Demand deposits constitute a component of M1 narrow money, while time deposits form part of M3 broad money as per RBI's monetary aggregates.",
+      "Fact 4: The Depositor Education and Awareness (DEA) Fund, maintained by the RBI, absorbs unclaimed deposits lying inactive for 10 years or more.",
+      "Fact 5: Recent guidelines mandate differentiated banks like Payments Banks to accept a maximum deposit of ₹2 lakh per individual customer (enhanced from ₹1 lakh in 2021)."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing that all scheduled commercial banks must pay interest on current accounts; by convention and regulation, current accounts earn zero interest.",
+      "Trap 2: Assuming DICGC insurance covers cooperative societies across states uniformly without realizing it applies to all registered insured banks including cooperative banks under RBI oversight."
+    ],
+    "keyArticlesOrStatutes": [
+      "Banking Regulation Act, 1949",
+      "DICGC Act, 1961",
+      "Reserve Bank of India Act, 1934"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Macroeconomic Significance of Bank Deposits</h3><p>Bank deposits represent the lifeblood of financial intermediation in emerging market economies like India. Mobilizing household savings through structured deposit products allows commercial banks to bridge the savings-investment gap, fueling capital formation and economic growth. The categorization of deposits into demand and time liabilities governs the liquidity profile of the entire banking system.</p><h3>Structural Typology of Deposits</h3><ul><li><strong>Demand Deposits (CASA - Current Account and Savings Account):</strong> These are highly liquid liabilities. Current accounts are utilized primarily by corporate entities, traders, and institutions with high transaction volumes and offer zero interest. Savings accounts cater to retail individuals, encouraging habitual thrift with modest liquidity. CASA deposits constitute the cheapest source of funds for banks, directly impacting their Net Interest Margins (NIM).</li><li><strong>Time Deposits (Fixed Deposits and Recurring Deposits):</strong> These represent contractual lock-ins for predetermined tenures ranging from seven days to ten years. They offer higher interest rates and serve as critical tools for wealth preservation, asset-liability matching (ALM) for banks, and long-term credit creation.</li></ul><h3>Contemporary Challenges and Governance Dynamics</h3><p>In recent years, the banking sector has witnessed intense deposit competition, leading to a structural divergence between credit growth and deposit mobilization. With credit growth outpacing deposit growth, banks have increasingly relied on high-cost bulk deposits and short-term market borrowings, putting pressure on liquidity coverage ratios (LCR). Furthermore, the proliferation of digital banking, alternative investment funds (AIFs), and mutual funds has triggered disintermediation, where retail savers shift funds from low-yielding savings bank accounts to higher-yielding market instruments. Protecting retail depositors through robust deposit insurance, streamlining the claim settlement process via the UDGAM (Unclaimed Deposits-Gateway to Access in Information) portal, and managing systemic cybersecurity risks remain paramount administrative imperatives.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory protection of depositors under the Banking Regulation Act, 1949, and mandatory deposit insurance framework administered by the DICGC.",
+      "socio_economic": "Promotion of financial inclusion via Pradhan Mantri Jan Dhan Yojana (PMJDY) zero-balance basic savings bank deposit (BSBD) accounts, transforming the social safety net.",
+      "administrative_governance": "RBI's regulatory oversight on liquidity management, ALM guidelines, and management of unclaimed deposits through the DEA Fund.",
+      "international_or_comparative": "Alignment with Basel III liquidity standards, specifically Liquidity Coverage Ratio (LCR) and Net Stable Funding Ratio (NSFR) anchored on stable retail deposit bases."
+    },
+    "landmarkJudgmentsOrReports": [
+      "RBI Working Group on Digital Lending and Customer Protection Guidelines",
+      "Internal Working Group (IWG) to Review Ownership Guidelines and Corporate Structure for Indian Private Sector Banks",
+      "Damodaran Committee on Customer Service in Banks"
+    ],
+    "structuredDiagramAscii": "BANK DEPOSITS ARCHITECTURE\n       |\n       +---> Demand Deposits (M1 / High Liquidity / Low Cost)\n       |      +---> Current Accounts (Business / 0% Interest)\n       |      +---> Savings Bank Accounts (Retail / Regulated/Deregulated Interest)\n       |\n       +---> Time Deposits (M3 / Locked Tenure / Higher Cost)\n              +---> Fixed Deposits (Lump sum / Term-based)\n              +---> Recurring Deposits (Periodic installments / Goal-based)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      "No direct matching question in 2013-2024 specifically restricted only to types of deposits, but closely associated with monetary aggregates and banking operations."
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Explain the mechanics of monetary policy transmission in India. How do deposit rate adjustments by commercial banks influence this mechanism?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the structural shift in household savings away from traditional bank deposits towards market instruments. What are its implications for bank liquidity and credit growth in the Indian economy? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define bank deposits as traditional safe havens for household savings and highlight the emerging trend of financialization and shift toward mutual funds/equities.",
+      "body": "Analyze reasons for the shift (inflation dynamics, search for higher real returns, fintech proliferation). Discuss implications for bank liquidity (CASA erosion, LCR pressure, reliance on bulk deposits) and credit growth (credit-deposit ratio stress). Outline policy responses by RBI.",
+      "conclusion": "Conclude with a forward-looking perspective on balancing innovation with systemic stability, ensuring banks remain resilient deposit-takers."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Bank deposits have historically formed the bedrock of domestic capital formation in India. However, post-pandemic economic recovery has witnessed a structural shift in household financial savings, with retail investors increasingly migrating from conventional bank deposits (Savings and Fixed Deposits) toward capital market instruments, mutual funds, and alternate assets.</p><h3>Drivers of the Shift Away from Bank Deposits</h3><ul><li><strong>Negative Real Interest Rates:</strong> Persistent inflationary pressures combined with sticky, low savings deposit rates have pushed real returns into negative territory.</li><li><strong>Fintech and Capital Market Penetration:</strong> Seamless digital onboarding, discount brokerages, and investor awareness campaigns have mainstreamed mutual fund Systematic Investment Plans (SIPs) as viable alternatives to Recurring and Fixed Deposits.</li><li><strong>Diversification Quest:</strong> Investors seek higher nominal yields to beat inflation, moving beyond traditional bank liabilities.</li></ul><h3>Implications for Bank Liquidity and Credit Growth</h3><ul><li><strong>Compression of CASA Ratio:</strong> As low-cost Current and Savings Account deposits shrink relative to term deposits, the cost of funds for commercial banks rises significantly.</li><li><strong>Credit-Deposit (CD) Ratio Stress:</strong> With robust post-pandemic credit demand outstripping deposit mobilization, the CD ratio of scheduled commercial banks has crossed comfortable thresholds, creating acute liquidity tightness.</li><li><strong>Reliance on High-Cost Liabilities:</strong> Banks are forced to rely on bulk deposits, certificates of deposit (CDs), and short-term RBI liquidity windows (like LAF/VRR), heightening interest rate risk.</li></ul><h3>Way Forward</h3><p>To mitigate these structural liquidity imbalances, banks must innovate their deposit products with embedded loyalty benefits, superior digital customer experience, and attractive pricing structures. Concurrently, the RBI must continue its calibrated liquidity operations while encouraging robust underwriting standards to ensure that credit expansion remains anchored to stable deposit growth.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to the Indian banking system, consider the following statements: 1. Current Account deposits do not earn any interest and are categorized under demand deposits. 2. Fixed Deposits and Recurring Deposits form a part of narrow money (M1) as per RBI classifications. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct because Current Accounts are demand deposits earning zero interest. Statement 2 is incorrect because Time Deposits (Fixed and Recurring Deposits) form part of broad money (M3), whereas narrow money (M1) comprises currency with the public, demand deposits with the banking system, and 'other' deposits with the RBI."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following statements regarding the Deposit Insurance and Credit Guarantee Corporation (DICGC): 1. It is a fully owned subsidiary of the Reserve Bank of India. 2. It provides insurance cover up to ₹10 lakh per depositor per bank for all deposits. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: DICGC is a fully owned subsidiary of the RBI. Statement 2 is incorrect because the insurance cover provided by DICGC is up to ₹5 lakh per depositor per bank (enhanced from ₹1 lakh in 2020), covering both principal and interest."
+    }
+  ]
+}

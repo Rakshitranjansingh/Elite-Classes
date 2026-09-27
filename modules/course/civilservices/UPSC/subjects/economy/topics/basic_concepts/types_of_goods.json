@@ -1,0 +1,104 @@
+{
+  "microTopicId": "economy_basic_concepts_types_of_goods",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_basic_concepts",
+  "topicTitle": "Basic Concepts",
+  "subTopicTitle": "Types of Goods",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development, and employment; Public Goods and Provisioning."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Goods in economics are classified fundamentally based on two criteria: Excludability (whether people can be prevented from using the good) and Rivalry (whether one person's use reduces availability for others). This matrix yields four primary categories: Private Goods, Public Goods, Common Pool Resources, and Club Goods.",
+    "highYieldFacts": [
+      "Fact 1: Pure Public Goods are non-excludable and non-rivalrous, leading inherently to the 'Free-Rider Problem' which necessitates state intervention and public financing.",
+      "Fact 2: Common Pool Resources (CPRs) are rivalrous but non-excludable, making them uniquely susceptible to Garrett Hardin's 'Tragedy of the Commons'.",
+      "Fact 3: Merit goods (such as primary education and healthcare) are private/public hybrids that generate positive externalities and are underconsumed if left entirely to the market mechanism.",
+      "Fact 4: Giffen goods are inferior goods for which an increase in price paradoxically increases demand, violating the standard Law of Demand due to an overwhelming negative income effect.",
+      "Fact 5: Veblen goods are luxury items whose demand increases directly with price, driven by conspicuous consumption and status signaling rather than intrinsic utility."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing non-excludable goods with free goods. A good can be non-excludable (like clean air or national defense) yet costly to produce, whereas a free good has zero opportunity cost.",
+      "Trap 2: Assuming all government-provided goods are pure public goods. Railways or public hospitals often function as private or club goods because they are excludable via pricing and subject to congestion (rivalry)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 38 and Article 39 (Directive Principles of State Policy regarding equitable distribution of material resources of the community)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Theoretical Foundations of Economic Goods</h3><p>The architecture of welfare economics rests upon how society categorizes and allocates resources. The taxonomy of goods is determined by two foundational behavioral properties: <strong>Excludability</strong> (the ability of a supplier to prevent non-payers from consuming the good) and <strong>Rivalry</strong> (the condition where consumption by one individual reduces the quantity available for others). Crossing these dimensions creates a four-quadrant matrix that dictates market efficiency and government failure.</p><h3>The Quadrants of Economic Provisioning</h3><ul><li><strong>Private Goods:</strong> Excludable and rivalrous (e.g., smartphones, clothing). Markets allocate these efficiently through the price mechanism.</li><li><strong>Public Goods:</strong> Non-excludable and non-rivalrous (e.g., national defense, street lighting). Because individuals cannot be excluded, private markets fail to supply them due to the free-rider problem, necessitating state provision through taxation.</li><li><strong>Common Pool Resources (CPRs):</strong> Rivalrous but non-excludable (e.g., fisheries, groundwater aquifers, atmospheric carbon sink). Without institutional property rights or regulatory caps, CPRs face degradation via the tragedy of the commons.</li><li><strong>Club Goods (Artificial Monopolies):</strong> Excludable but non-rivalrous (e.g., subscription streaming, toll highways up to capacity). Marginal cost of serving an extra consumer is zero, but exclusion is technologically or legally feasible.</li></ul><h3>Welfare Economics and Market Failures</h3><p>The classification of goods directly informs public policy design in developing economies like India. Merit goods—such as mid-day meals, immunization, and foundational literacy—generate massive positive externalities that private markets undervalue. Conversely, demerit goods (tobacco, high-emission fossil fuels) generate negative externalities, requiring Pigouvian taxation. Modern developmental economics emphasizes the provisioning of digital public goods (such as India's JAM Trinity, UPI, and OCEN) as modern infrastructure that lowers transaction costs and drives financial inclusion.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "State obligation under Directive Principles to prevent concentration of wealth and ensure community resources subserve the common good.",
+      "socio_economic": "Equitable access for marginalized populations; preventing deprivation of essential services due to market pricing.",
+      "administrative_governance": "Overcoming the free-rider problem in public goods provision; decentralized governance of common pool resources through community institutions.",
+      "international_or_comparative": "Global public goods such as climate stability, biodiversity preservation, and open-source technological standards."
+    },
+    "landmarkJudgmentsOrReports": [
+      "2nd Administrative Reforms Commission (ARC) Report on Citizen-Centric Administration",
+      "Supreme Court judgment in 2G Spectrum Case (natural resources as public trusts)",
+      "Elinor Ostrom's Nobel-winning framework on Governing the Commons"
+    ],
+    "structuredDiagramAscii": "+------------------------+------------------------------------+-----------------------------------+\n| Dimension              | Excludable                         | Non-Excludable                    |\n+------------------------+------------------------------------+-----------------------------------+\n| Rivalrous              | PRIVATE GOODS                      | COMMON POOL RESOURCES             |\n|                        | (Food, Cars, Private Housing)      | (Fisheries, Groundwater, Forests) |\n+------------------------+------------------------------------+-----------------------------------+\n| Non-Rivalrous          | CLUB GOODS                         | PUBLIC GOODS                      |\n|                        | (Subscription TV, Toll Roads)      | (National Defense, Clean Air)     |\n+------------------------+------------------------------------+-----------------------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which one of the following links all the items in the sequence- Bicycle, public utility, road, bridge, and dam?",
+        "options": [
+          "They are capital goods.",
+          "They are consumer goods.",
+          "They are public goods.",
+          "They are intermediate goods."
+        ],
+        "answer": "They are capital goods.",
+        "explanation": "In macroeconomic accounting, capital goods are durable goods used in the production of other goods or services over multiple periods. Infrastructure assets like roads, bridges, dams, and utilities serve as physical capital (social overhead capital) underpinning economic activity."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Explain the difference between computing public goods and private goods in developing economies. Discuss the challenges in financing public goods in India."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the economic characteristics of public goods and common pool resources. How does institutional failure in managing common pool resources impact sustainable development in India? (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define public goods and common pool resources using the excludability and rivalry matrix.",
+      "body": "Contrast the economic challenges of both (free-rider problem vs. tragedy of the commons). Highlight Indian examples (groundwater depletion, forest degradation). Suggest regulatory and community-based solutions.",
+      "conclusion": "Conclude with the imperative of balancing developmental needs with ecological stewardship in line with SDG goals."
+    },
+    "modelAnswerHtml": "<p>Goods in economics are classified by <strong>excludability</strong> and <strong>rivalry</strong>. While <em>public goods</em> are non-excludable and non-rivalrous (e.g., national defense), <em>common pool resources (CPRs)</em> are rivalrous yet non-excludable (e.g., groundwater, grazing lands, fisheries).</p><p><strong>Challenges in CPR Management & Sustainable Development:</strong></p><ul><li><strong>Tragedy of the Commons:</strong> Because individual users capture all economic benefits of extraction while bearing only a fraction of environmental costs, CPRs face over-exploitation.</li><li><strong>Groundwater Depletion:</strong> Free electricity and input subsidies in agriculture have rendered Indian aquifers severely stressed, particularly in northwestern states.</li><li><strong>Deforestation & Loss of Commons:</strong> Encroachment on village common lands (pastures and water bodies) has eroded rural resilience and traditional livelihoods.</li></ul><p><strong>Way Forward:</strong> Effective governance requires blending state regulation with community stewardship, drawing on Elinor Ostrom's decentralized management principles, combined with precise pricing and digital monitoring of resource extraction.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following categories of goods:\n1. National Defense\n2. Toll Highways (without congestion)\n3. Public Parks (free and open to all)\nWhich of the above can be classified as Pure Public Goods?",
+      "options": [
+        "1 only",
+        "1 and 3 only",
+        "2 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "1 only",
+      "explanation": "National defense is non-excludable and non-rivalrous (Pure Public Good). Toll highways are excludable (Club Good). Public parks can experience congestion and rivalry at high capacity, and some can be excludable."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following best describes the economic concept of a 'Giffen Good'?",
+      "options": [
+        "A luxury good whose demand rises exclusively with consumer status.",
+        "An inferior good for which a rise in its price leads to an increase in quantity demanded.",
+        "A public good provided exclusively by state monopolies.",
+        "A good characterized by complete non-rivalry and zero marginal cost."
+      ],
+      "answer": "An inferior good for which a rise in its price leads to an increase in quantity demanded.",
+      "explanation": "Giffen goods are a rare class of inferior goods where the negative income effect of a price increase outweighs the substitution effect, resulting in a positively sloped demand curve over a specific price range."
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "microTopicId": "economy_general_topics_regulation_of_the_capital_mark",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_general_topics",
+  "topicTitle": "General Topics",
+  "subTopicTitle": "Regulation of the capital market",
+  "syllabusMapping": {
+    "prelims": "Indian Economy - Growth, Development, Inflation, Poverty, Inclusion, Demographics, Fiscal Policy, etc. (specifically Financial Markets and SEBI)",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment; Mobilization of Resources (Capital Markets, SEBI Regulation)"
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Capital market regulation in India is spearheaded by the Securities and Exchange Board of India (SEBI), established under the SEBI Act, 1992, to protect the interests of investors in securities and to promote the development of, and to regulate the securities market. The regulatory architecture spans primary and secondary markets, mutual funds, foreign portfolio investments (FPIs), debentures, and corporate governance norms.",
+    "highYieldFacts": [
+      "Fact 1: SEBI was initially set up in 1988 as a non-statutory body and was granted statutory status on April 12, 1992, via the SEBI Act, 1992.",
+      "Fact 2: The Securities Contracts (Regulation) Act (SCRA), 1956 empowers SEBI to regulate stock exchanges, clearing corporations, and listing of securities.",
+      "Fact 3: The Depositories Act, 1996 provides the legal framework for the establishment of depositories (NSDL and CDSL) to facilitate paperless trading and book-entry transfer of securities.",
+      "Fact 4: The Reserve Bank of India (RBI) co-regulates the capital market alongside SEBI, specifically concerning foreign exchange regulations under FEMA, 1999 and government securities market.",
+      "Fact 5: The Financial Stability and Development Council (FSDC), chaired by the Union Finance Minister, acts as the apex-level super-regulator ensuring macro-prudential surveillance and inter-regulatory coordination."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing SEBI's powers over G-Secs; Government Securities (G-Secs) are primarily regulated by the RBI, not SEBI, though corporate bonds fall under SEBI.",
+      "Trap 2: Assuming SEBI is a department of the Ministry of Finance; SEBI is an independent statutory regulatory body with quasi-legislative, quasi-judicial, and quasi-executive powers."
+    ],
+    "keyArticlesOrStatutes": [
+      "SEBI Act, 1992",
+      "Securities Contracts (Regulation) Act (SCRA), 1956",
+      "Depositories Act, 1996",
+      "Companies Act, 2013 (sections related to prospectus and share capital)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Architecture of Capital Market Regulation in India</h3><p>The regulation of India's capital market has undergone a paradigm shift from a command-and-control regime under the erstwhile Controller of Capital Issues (CCI) to a statutory, market-driven, disclosure-based regulatory framework administered by the Securities and Exchange Board of India (SEBI). Established in 1992, SEBI's mandate is anchored on three foundational pillars: protecting investor interests, promoting market development, and enforcing strict regulatory oversight.</p><p>The institutional architecture rests on multiple specialized legislations, prominently the <strong>SEBI Act, 1992</strong>, the <strong>Securities Contracts (Regulation) Act, 1956</strong>, and the <strong>Depositories Act, 1996</strong>. This framework endows SEBI with three-fold powers: quasi-legislative (drafting regulations and guidelines), quasi-judicial (passing rulings on market violations, insider trading, and fraudulent practices), and quasi-executive (conducting inspections and imposing penalties).</p><h3>Contemporary Regulatory Challenges</h3><ul><li><strong>Algorithmic Trading and High-Frequency Trading (HFT):</strong> The proliferation of co-location services and sub-millisecond trading algorithms poses challenges regarding systemic stability and equitable market access for retail investors.</li><li><strong>Cross-Border Investments and P-Notes:</strong> Regulating opaque investment structures like Participatory Notes (P-Notes) requires balancing capital inflow flexibility with robust anti-money laundering (AML) and know-your-customer (KYC) norms.</li><li><strong>Fintech and Unregulated Advice:</strong> The rise of 'finfluencers', unregistered portfolio managers, and digital investment advisory platforms on social media creates severe investor protection risks.</li><li><strong>Cybersecurity and Operational Resilience:</strong> With the complete dematerialization and digitization of exchanges, clearing corporations, and depositories, the threat of cyber-attacks on critical financial market infrastructure (FMI) has scaled exponentially.</li></ul><h3>Governance Impact and Economic Significance</h3><p>Effective capital market regulation lowers the cost of capital for corporations, enhances corporate governance standards (via Listing Obligations and Disclosure Requirements - LODR norms), deepens financial inclusion through mutual funds (e.g., AMFI campaigns), and channels household savings into productive long-term national assets.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing via SEBI Act, 1992; SCRA, 1956; adjudication powers subject to Securities Appellate Tribunal (SAT) and Supreme Court appeals.",
+      "socio_economic": "Protection of retail mom-and-pop investors from ponzi schemes and market manipulation; mobilization of household savings into wealth-generating productive assets.",
+      "administrative_governance": "Inter-regulatory coordination between SEBI, RBI, and IRDAI via the FSDC; harnessing RegTech and SupTech for automated surveillance.",
+      "international_or_comparative": "Alignment with International Organization of Securities Commissions (IOSCO) principles; cross-border enforcement cooperation through bilateral MOUs."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Securities and Exchange Board of India v. Sahara India Real Estate Corp. Ltd. (2012) - Landmark ruling clarifying SEBI's jurisdiction over hybrid financial instruments.",
+      "TK Viswanathan Committee Report on Fair Market Conduct (Insider Trading regulations reform).",
+      "FSDC Guidelines on Inter-regulatory Coordination and Financial Stability."
+    ],
+    "structuredDiagramAscii": "Apex Oversight: Financial Stability and Development Council (FSDC)\n       │\n       ├─────────────────────────┼─────────────────────────┐\n       ▼                         ▼                         ▼\n   SEBI (Securities)         RBI (G-Secs/Forex)       IRDAI (Insurance)\n       │\n       ├── Primary Market (IPO, LODR, Prospectus)\n       ├── Secondary Market (Stock Exchanges, Clearing Corps)\n       ├── Intermediaries (Brokers, Mutual Funds, FPIs, Depositories)\n       └── Enforcement & Adjudication (SAT & Supreme Court Appeal)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "Which of the following is/are treated as part of the Foreign Direct Investment? (1) Real estate and commercial property (2) Foreign currency convertible bonds (3) Foreign institutional investment with holding equity below 10% (4) Portfolio investment",
+        "options": [
+          "1, 2, 3 and 4",
+          "2 only",
+          "1 and 3 only",
+          "2 and 4 only"
+        ],
+        "answer": "2 only",
+        "explanation": "Foreign Institutional Investment (FII) and Foreign Portfolio Investment (FPI) with equity holding below 10% in a listed company are classified under Foreign Portfolio Investment (FPI)/Capital Market investments, not FDI. FCCBs are debt instruments convertible into equity and have specific classification rules."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2018,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "The G20 OECD principles of Corporate Governance underline the responsibility of the board to protect shareholder rights. In this context, analyze the role of SEBI in strengthening corporate governance in India."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the evolving role of SEBI in safeguarding retail investors and maintaining systemic stability amidst increasing financialization of household savings in India. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define SEBI's statutory mandate under the SEBI Act, 1992 and highlight the post-pandemic surge in retail investor participation (demat accounts crossing multi-crore marks).",
+      "body": "Discuss SEBI's role across investor protection, market development, and regulation of intermediaries. Highlight challenges like finfluencers, algo-trading, and cyber risks. Mention regulatory innovations (T+0 settlement, ASBA, SCORES 2.0).",
+      "conclusion": "Conclude by emphasizing the need for robust SupTech/RegTech integration and financial literacy to sustain capital market vibrancy in line with India@2047."
+    },
+    "modelAnswerHtml": "<p>The Securities and Exchange Board of India (SEBI), established under the SEBI Act, 1992, acts as the paramount regulator of the Indian capital market. With a massive post-pandemic migration of household savings from physical assets (gold/real estate) to financial assets, underscored by over 15 crore demat accounts, SEBI’s role in balancing market growth with investor protection has become mission-critical for India's macroeconomic stability.</p><p><strong>1. Safeguarding Retail Investors:</strong></p><ul><li><strong>Streamlining Public Issues:</strong> Mechanisms like ASBA (Application Supported by Blocked Amount) and UPI integration for IPOs protect investor funds from arbitrary delays.</li><li><strong>Grievance Redressal:</strong> Upgraded digital platforms like SCORES 2.0 (SEBI Complaint Redress System) ensure time-bound dispute resolution against listed entities and intermediaries.</li><li><strong>Curbing Market Misconduct:</strong> Strict enforcement actions against 'pump-and-dump' schemes, unauthorized investment advisors, and social media 'finfluencers' shield vulnerable retail participants.</li></ul><p><strong>2. Enhancing Systemic Stability and Market Integrity:</strong></p><ul><li><strong>Settlement Cycle Acceleration:</strong> Transitioning India to a T+1 and optional T+0 trade settlement cycle makes Indian markets among the fastest globally, mitigating counterparty credit risks.</li><li><strong>Surveillance & Risk Management:</strong> Deploying advanced RegTech/SupTech tools to monitor algorithmic trading, prevent flash crashes, and detect anomalous price movements in real-time.</li><li><strong>Corporate Governance (LODR Norms):</strong> Enforcing stricter accountability, independent director disclosures, and related-party transaction approvals to protect minority shareholders.</li></ul><p><strong>3. Challenges in the Contemporary Ecosystem:</strong></p><ul><li>Cybersecurity vulnerabilities across critical market infrastructure (depositories and clearing corporations).</li><li>Regulating cross-border capital flows without inducing sudden volatility through portfolio withdrawals.</li></ul><p><strong>Way Forward:</strong><br>To sustain trust, SEBI must continuously upgrade its technological capabilities through AI-driven surveillance, collaborate internationally via IOSCO frameworks, and spearhead mass financial literacy campaigns. A well-regulated, transparent capital market is indispensable to channelizing savings into long-term capital formation required for Viksit Bharat by 2047.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Securities and Exchange Board of India (SEBI):\n1. SEBI is empowered to inspect books of accounts and call for information from stock exchanges and mutual funds.\n2. The Securities Appellate Tribunal (SAT) hears appeals against orders passed by SEBI.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Both statements are correct. Under the SEBI Act, 1992, SEBI has wide-ranging investigative and quasi-judicial powers, including inspecting books of accounts of market intermediaries. Appeals against SEBI's orders lie before the Securities Appellate Tribunal (SAT)."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following bodies in India functions as the apex-level financial conglomerate regulator tasked with monitoring macro-prudential stability?",
+      "options": [
+        "Reserve Bank of India (RBI)",
+        "Securities and Exchange Board of India (SEBI)",
+        "Financial Stability and Development Council (FSDC)",
+        "National Bank for Agriculture and Rural Development (NABARD)"
+      ],
+      "answer": "Financial Stability and Development Council (FSDC)",
+      "explanation": "The FSDC is an apex-level body chaired by the Union Finance Minister, set up to institutionalize and strengthen the mechanism for maintaining financial stability, inter-regulatory coordination, and macro-prudential supervision of the economy."
+    }
+  ]
+}

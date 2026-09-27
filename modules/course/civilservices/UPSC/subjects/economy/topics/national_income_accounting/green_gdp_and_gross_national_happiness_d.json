@@ -1,0 +1,106 @@
+{
+  "microTopicId": "economy_national_income_accounting_green_gdp_and_gross_national_h",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_national_income_accounting",
+  "topicTitle": "National Income Accounting",
+  "subTopicTitle": "Green GDP and Gross National Happiness/Debates around GDP and other indices",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 3&4",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Conventional Gross Domestic Product (GDP) measures market transactions and monetary output without accounting for natural resource depletion, environmental degradation, or unpaid labor. Green GDP adjusts national accounts for ecological costs, whereas Gross National Happiness (GNH) pioneered by Bhutan prioritizes psychological well-being, ecological diversity, and cultural resilience over mere material consumption.",
+    "highYieldFacts": [
+      "Fact 1: The concept of Green Accounting was initiated globally through the System of Environmental-Economic Accounting (SEEA) framework endorsed by the United Nations Statistical Commission.",
+      "Fact 2: In India, the Ministry of Statistics and Programme Implementation (MoSPI) constituted an Expert Group under Partha Dasgupta to formulate a framework for Green National Accounting.",
+      "Fact 3: Gross National Happiness (GNH) rests on four pillars: sustainable development, promotion of cultural values, conservation of the natural environment, and establishment of good governance.",
+      "Fact 4: The UNDP Human Development Index (HDI), introduced in 1990 by Mahbub ul Haq and Amartya Sen, measures achievements in health, education, and standard of living to counter GDP's narrow focus.",
+      "Fact 5: The Stiglitz-Sen-Fitoussi Commission (2009) famously advocated shifting the measurement emphasis from economic production to people's well-being and sustainability."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming Green GDP is officially and routinely published by every central bank as part of quarterly statutory GDP estimates. It remains largely a satellite accounting exercise.",
+      "Trap 2: Confusing Gross National Happiness (GNH) as a purely economic index rather than a multidimensional policy framework with 9 distinct domains."
+    ],
+    "keyArticlesOrStatutes": [
+      "System of Environmental-Economic Accounting (SEEA) Framework",
+      "Recommendations of the MoSPI Committee on Green National Accounting in India"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>The Limits of Conventional GDP and the Rise of Alternative Metrics</h3><p>Conventional Gross Domestic Product (GDP) was designed during the interwar and post-World War II eras to measure market economic activity and aggregate output. However, contemporary economists, policymakers, and ecologists universally acknowledge that GDP is a measure of throughput, not welfare. It registers defensive expenditures—such as healthcare costs due to air pollution, disaster clean-ups, and prisons—as positive additions to economic growth. Consequently, a society that depletes its aquifers, clears its ancient forests, and poisons its air can report soaring GDP figures while experiencing systemic structural collapse.</p><h3>Green GDP: Accounting for Natural Capital</h3><p>Green GDP seeks to internalize environmental externalities by subtracting the monetary value of natural resource depletion (minerals, timber, fossil fuels) and environmental degradation (air and water pollution, soil erosion) from traditional GDP. In the Indian context, where rapid industrialization clashes with severe ecological vulnerabilities—such as depleting groundwater tables in the Indo-Gangetic plain and extreme air pollution in northern urban centers—moving toward Green National Accounting is imperative for long-term macroeconomic stability.</p><p>Institutionalizing Green GDP involves complex valuation challenges. Economists must assign monetary prices to non-market goods like biodiversity, clean air, and ecosystem services using techniques like contingent valuation, hedonic pricing, and cost-of-illness approaches. Despite methodological hurdles, India's MoSPI has made steady strides in developing environmental-economic accounts to track changes in forest cover, water usage, and emission intensities.</p><h3>Gross National Happiness (GNH) and Beyond-GDP Frameworks</h3><p>Moving beyond production-centric metrics, Bhutan’s Gross National Happiness (GNH) index revolutionized development economics by asserting that human development must balance material progress with spiritual, emotional, and ecological health. The GNH index measures 9 domains: psychological well-being, health, education, time use, cultural diversity and resilience, good governance, community vitality, ecological diversity and resilience, and living standards.</p><p>Globally, indices like the Multidimensional Poverty Index (MPI), the OECD Better Life Index, and the Inequality-Adjusted Human Development Index (IHDI) represent a concerted intellectual and policy movement to recalibrate state policy toward inclusive, sustainable, and human-centric governance.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Implicitly linked to Article 21 (Right to Life includes right to a clean environment) and Directive Principles of State Policy (Article 48A - protection of environment and wildlife).",
+      "socio_economic": "Shifts focus from elite consumption and aggregate wealth concentration to public health, equity, intergenerational justice, and community resilience.",
+      "administrative_governance": "Requires inter-ministerial convergence between MoSPI, Ministry of Environment, Forest and Climate Change (MoEFCC), NITI Aayog, and state statistical bureaus.",
+      "international_or_comparative": "Aligns national policy trajectories with global commitments like the UN Sustainable Development Goals (SDGs), Paris Agreement, and the post-2020 Global Biodiversity Framework."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Stiglitz-Sen-Fitoussi Commission Report (2009) on the Measurement of Economic Performance and Social Progress",
+      "Partha Dasgupta Review on the Economics of Biodiversity (2021)",
+      "MoSPI Expert Group Reports on Green National Accounting in India",
+      "Supreme Court rulings emphasizing sustainable development and intergenerational equity (e.g., Vellore Citizens Welfare Forum v. Union of India)"
+    ],
+    "structuredDiagramAscii": "CONVENTIONAL GDP VS. ALTERNATIVE DEVELOPMENT METRICS\n[Traditional GDP] ---> Measures Market Transactions only (Ignores Environment & Equity)\n        |\n        +---> Green GDP (Adjusts for Resource Depletion & Pollution Cost)\n        |\n        +---> Human Development Index (HDI) / IHDI (Factors Health, Education & Inequality)\n        |\n        +---> Gross National Happiness (GNH) / OECD Better Life (Integrates Ecology, Culture & Well-being)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Consider the following factors:\n1. Reduction in consumption of fossil fuels\n2. Increase in the number of electric vehicles\n3. Increase in forest cover\n4. Declining groundwater table\nWhich of the above would be accounted for while calculating Green GDP?",
+        "options": [
+          "1, 2 and 3 only",
+          "1, 3 and 4 only",
+          "2, 3 and 4 only",
+          "1, 2, 3 and 4"
+        ],
+        "answer": "1, 3 and 4 only",
+        "explanation": "Green GDP accounts for environmental degradation and natural resource depletion. Declining groundwater table represents resource depletion (subtracted), increase in forest cover represents ecological enrichment, and reduction in fossil fuels lowers environmental degradation. Electric vehicle adoption is an input policy measure rather than a direct accounting adjustment entry in satellite accounts, making 1, 3 and 4 the most direct elements of green accounting."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Define Green GDP. What are its significance and limitations in the context of sustainable development in developing countries like India?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically examine the limitations of conventional Gross Domestic Product (GDP) as an indicator of economic development and evaluate the prospects of incorporating Green GDP and Gross National Happiness frameworks in India's policy architecture. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define GDP briefly and state the core critique: it measures monetary transactions rather than human welfare or ecological sustainability.",
+      "body": "1. Limitations of GDP (defensive expenditures, resource depletion, inequality).\n2. Concept and Significance of Green GDP (internalizing environmental costs, long-term macroeconomic stability).\n3. Insights from Gross National Happiness (multidimensional well-being, social capital, ecological balance).\n4. Challenges in implementation (data gaps, valuation methodologies, political economy pressures).",
+      "conclusion": "Conclude by emphasizing a balanced dashboard approach (beyond GDP) combining economic growth with ecological and human welfare targets in line with India's Vision 2047 and SDGs."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Gross Domestic Product (GDP) has long served as the preeminent gauge of national economic performance. However, as Simon Kuznets warned during its inception, GDP measures market output rather than true societal welfare. In developing nations like India, relying solely on GDP creates a misleading picture of progress by masking environmental degradation and widening inequalities.</p><h3>Limitations of Conventional GDP</h3><ul><li><strong>Exclusion of Natural Capital:</strong> GDP treats the depletion of non-renewable resources (minerals, fossil fuels) and destruction of ecosystems (forests, aquifers) as income rather than capital depreciation.</li><li><strong>Perverse Accounting of Externalities:</strong> Disasters, industrial pollution clean-ups, and healthcare expenditures due to toxic air add to GDP, equating misery with economic growth.</li><li><strong>Blindness to Distribution:</strong> Aggregate GDP hides income inequality, failing to capture whether growth benefits the bottom decile or concentrates in a few hands.</li></ul><h3>The Role of Green GDP and Gross National Happiness (GNH)</h3><p><strong>Green GDP:</strong> By adjusting conventional output for environmental degradation and resource depletion, Green GDP offers a realistic appraisal of sustainable growth. It aligns economic planning with ecological limits, ensuring intergenerational equity.</p><p><strong>Gross National Happiness & Beyond-GDP Metrics:</strong> Inspired by Bhutan’s GNH and frameworks like the UN's Multidimensional Poverty Index (MPI), these indices shift the focus from material accumulation to psychological well-being, community vitality, health, and cultural resilience.</p><h3>Challenges in Implementation for India</h3><ul><li><strong>Methodological Complexities:</strong> Assigning objective monetary values to non-market ecosystem services and biodiversity remains contentious.</li><li><strong>Data Deficits:</strong> High-frequency, granular ecological data across states and districts is often lacking.</li><li><strong>Political Economy Trade-offs:</strong> Prioritizing green accounting may create short-term growth anxieties for policymakers focused on job creation through heavy industry.</li></ul><h3>Way Forward</h3><p>India must adopt a <em>Dashboard Approach</em>—retaining standard GDP for macroeconomic stabilization while institutionalizing Green National Accounting (through MoSPI) and complementing it with human-centric indices like HDI and MPI. True development must ensure that economic ascent does not mortgage ecological survival.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following international initiatives or frameworks specifically addresses the integration of environmental and economic data to compute Green National Income?",
+      "options": [
+        "System of Environmental-Economic Accounting (SEEA)",
+        "Global Competitiveness Report",
+        "Ease of Doing Business Index",
+        "Multidimensional Poverty Index (MPI)"
+      ],
+      "answer": "System of Environmental-Economic Accounting (SEEA)",
+      "explanation": "The System of Environmental-Economic Accounting (SEEA), adopted by the UN Statistical Commission, is the internationally accepted standard for producing comprehensive environmental-economic satellite accounts."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following statements regarding Gross National Happiness (GNH):\n1. The concept was officially propounded and codified by the United Nations Development Programme (UNDP).\n2. It evaluates progress across multiple domains including psychological well-being, time use, and ecological diversity.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because GNH was pioneered by the Fourth King of Bhutan, Jigme Singye Wangchuck, in the 1970s, not by the UNDP. Statement 2 is correct as GNH measures 9 distinct domains including psychological well-being, time use, and ecological diversity."
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "microTopicId": "polity_statutory_regulatory_and_various_quasi_judicial_bodies_planning_commission",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_statutory_regulatory_and_various_quasi_judicial_bodies",
+  "topicTitle": "Statutory, Regulatory and various Quasi-Judicial Bodies",
+  "subTopicTitle": "Planning Commission",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II: Statutory, regulatory and various quasi-judicial bodies; Structure, organization and functioning of the Executive and the Judiciary; Separation of powers."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Planning Commission was a non-constitutional, non-statutory extra-constitutional body established in March 1950 by an executive resolution of the Government of India, acting as the supreme advisory organ for formulating Five-Year Plans and national economic strategies. It was subsequently replaced by the National Institution for Transforming India (NITI Aayog) on January 1, 2015, shifting the paradigm from centralized planning to cooperative federalism.",
+    "highYieldFacts": [
+      "Fact 1: Established on March 15, 1950, based on the recommendations of the Advisory Planning Board chaired by K.C. Neogy.",
+      "Fact 2: The Prime Minister of India served as the ex-officio Chairman of the Planning Commission.",
+      "Fact 3: The National Development Council (NDC), established in August 1952, acted as the apex body to review and approve the plans formulated by the Planning Commission, though the NDC was also non-statutory.",
+      "Fact 4: The Planning Commission exercised major financial allocation powers via discretionary grants under Article 282 of the Constitution, often creating friction with the statutory Finance Commission.",
+      "Fact 5: The transition from the Planning Commission to NITI Aayog marked the abandonment of the 'One size fits all' centralized planning model in favor of 'Bottom-up' decentralized regional planning."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming the Planning Commission was a statutory body established by an Act of Parliament (it was created purely through an executive cabinet resolution).",
+      "Trap 2: Confusing the role of the Planning Commission with the Finance Commission; the Finance Commission is a constitutional body (Article 280) dealing with vertical and horizontal tax devolution, whereas the Planning Commission allocated plan grants."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 282 (Discretionary grants by the Union to States, heavily utilized by the erstwhile Planning Commission)",
+      "Cabinet Secretariat Resolution of March 1950"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Institutional Architecture of the Planning Commission</h3><p>The Planning Commission of India was conceptualized as the prime architect of the nation's socialist-leaning mixed economy, drawing inspiration from the Soviet planning model. Operating outside the constitutional framework, it wielded extraordinary power over resource allocation, arbitrating between central ministries and state governments through the instrumentality of Five-Year Plans.</p><h3>Structural Deficiencies and Centralized Overreach</h3><p>Over six decades, the Commission evolved into an over-centralized bureaucratic behemoth. Key structural challenges included:</p><ul><li><strong>Top-Down Approach:</strong> Formulation of rigid national targets without adequate customization for heterogeneous local realities, often termed 'one-size-fits-all planning'.</li><li><strong>Erosion of Federalism:</strong> Critics frequently characterized the Commission as a 'Super Cabinet' or an extra-constitutional power center that bypassed the legitimate fiscal autonomy of states, converting cooperative federalism into a patron-client relationship.</li><li><strong>Allocative Inefficiencies:</strong> The distinction between 'Plan' and 'Non-Plan' expenditure led to skewed budgetary priorities, favoring capital creation in new projects over the maintenance and upkeep of existing public assets.</li></ul><h3>Transition to NITI Aayog</h3><p>Recognizing the deadweight loss of centralized command planning in an era of globalization, market-driven economies, and complex federal dynamics, the Union government dissolved the Planning Commission in 2014. It was replaced by NITI Aayog on January 1, 2015, institutionalizing a 'Team India' spirit anchored in cooperative and competitive federalism.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Extra-constitutional nature, dependence on executive resolutions, and friction with statutory bodies like the Finance Commission under Article 280.",
+      "socio_economic": "Impact on poverty alleviation, infrastructure creation, industrialization, and regional disparities due to centralized fund disbursement.",
+      "administrative_governance": "Bureaucratic inertia, rigid target-setting, lack of sub-national participation, and inadequate monitoring mechanisms.",
+      "international_or_comparative": "Adaptation of Gosplan-style Soviet central planning to a democratic parliamentary framework; eventual shift toward Asian tiger-style competitive developmental models."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Administrative Reforms Commission (ARC) Reports on the Machinery of Planning",
+      "Sarkaria Commission Report on Centre-State Relations (criticizing the politicization of plan allocation)",
+      "Punchhi Commission Report on Centre-State Relations"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------+\n|                   Union Cabinet Resolution                  | \n+------------------------------+------------------------------+\n                               |\n                               v\n+-------------------------------------------------------------+\n|                      Planning Commission                    |\n|               (Prime Minister as Ex-Officio Chairman)       |\n+------------------------------+------------------------------+\n                               |\n        +----------------------+----------------------+\n        |                                             |\n        v                                             v\n+-------------------------------+   +---------------------------------+\n|    Five-Year Plan Drafts      |   |    Discretionary Grants (Art 282)|\n+---------------+---------------+   +-----------------+---------------+\n                |                                     |\n                v                                     v\n+-------------------------------------------------------------+\n|               National Development Council (NDC)            | \n|                   (Approval & Ratification)                 |\n+-------------------------------------------------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2014,
+        "question": "With reference to the Planning Commission of India, which of the following statements is/are correct? 1. The Planning Commission of India was established by the Constitution of India. 2. The Prime Minister is the President of the Commission. 3. The Economic Advisory Council to the Prime Minister is independent of the Planning Commission.",
+        "options": [
+          "1 only",
+          "2 only",
+          "1 and 2 only",
+          "None of the above"
+        ],
+        "answer": "None of the above",
+        "explanation": "Statement 1 is incorrect because the Planning Commission was not established by the Constitution; it was set up by a cabinet resolution in March 1950. Statement 2 is incorrect because the Prime Minister is the Chairman (not 'President') of the Commission. Statement 3 is incorrect as the Economic Advisory Council historically functioned in close coordination with and sometimes under the aegis of the planning apparatus. Hence, none are correct."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2014,
+        "paper": "GS-II",
+        "marks": 12.5,
+        "question": "The Planning Commission has been replaced by the NITI Aayog. Analyse the structural and functional changes brought about in this shift and examine its implications for cooperative federalism."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the evolution, systemic flaws, and eventual dissolution of the Planning Commission, and evaluate how its successor institution attempts to realign national planning with contemporary federal dynamics. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define the origin of the Planning Commission in 1950 as an extra-constitutional body and state its initial socio-economic mandate.",
+      "body": "Detail the structural and functional flaws (top-down rigidity, plan vs. non-plan expenditure, federal friction). Discuss the shift to NITI Aayog and evaluate its impact on cooperative and competitive federalism.",
+      "conclusion": "Summarize with a futuristic outlook on how modern decentralized governance requires agile policy think-tanks rather than resource-allocating leviathans."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Established in March 1950 via an executive resolution, the Planning Commission served as the intellectual and operational engine of India's planned economic development. For over six decades, it charted the nation's trajectory through Five-Year Plans, prioritizing rapid industrialization, self-reliance, and poverty reduction within a mixed-economy framework.</p><h3>Systemic Flaws and Institutional Limitations</h3><p>Over time, the Planning Commission suffered from severe structural bottlenecks that necessitated its overhaul:</p><ul><li><strong>Erosion of Federal Autonomy:</strong> The Commission functioned as an over-centralized authority, dictating sectoral priorities and imposing uniform schemes, which undermined the fiscal space and legislative intent of state governments.</li><li><strong>Allocative Distortions:</strong> The dichotomous categorization of expenditure into 'Plan' and 'Non-Plan' created perverse incentives, starving maintenance and operational budgets while encouraging wasteful capital outlays.</li><li><strong>Bureaucratic Rigidity:</strong> Lacking dynamic feedback loops, the top-down planning model proved unresponsive to rapid macroeconomic shifts unleashed by the 1991 economic reforms.</li></ul><h3>Transition to NITI Aayog: Reorienting Federalism</h3><p>The dissolution of the Planning Commission and the establishment of NITI Aayog in 2015 marked a paradigm shift from 'command-and-control' to 'cooperative and competitive federalism':</p><ul><li><strong>Think-Tank vs. Allocator:</strong> NITI Aayog surrendered financial allocation powers to the Ministry of Finance, transforming itself into a non-partisan policy think-tank.</li><li><strong>States as Equal Partners:</strong> The Governing Council includes all Chief Ministers, fostering horizontal engagement and peer learning among states.</li><li><strong>Competitive Federalism:</strong> Index-based tracking across sectors (health, education, water) incentivizes states to improve governance outcomes.</li></ul><h3>Conclusion</h3><p>While the Planning Commission successfully laid the foundational industrial and agricultural bedrock of modern India, its obsolete administrative machinery could not sustain a complex, $5-trillion aspiring economy. NITI Aayog represents a vital evolution toward decentralized, data-driven, and cooperative statecraft, aligning national ambition with sub-national enterprise.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the erstwhile Planning Commission of India:\n1. It was a statutory body created under an Act of Parliament.\n2. The Finance Minister of India served as the ex-officio Deputy Chairman of the Planning Commission.\n3. The National Development Council (NDC) was presided over by the Prime Minister and included all Union Cabinet Ministers and Chief Ministers of States.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 and 2 only",
+        "3 only",
+        "2 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "3 only",
+      "explanation": "Statement 1 is incorrect because the Planning Commission was a non-statutory, extra-constitutional body created by an executive resolution. Statement 2 is incorrect because the Deputy Chairman was a full-time functional head appointed by the Union Cabinet, not the Finance Minister (though finance ministers frequently attended or held related posts). Statement 3 is correct: the NDC comprised the Prime Minister as Chairman, all Union Cabinet Ministers, Chief Ministers of all States, and administrators of Union Territories."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following bodies was primarily responsible for final approval of the Five-Year Plans formulated by the Planning Commission?",
+      "options": [
+        "The Union Cabinet",
+        "The National Development Council (NDC)",
+        "The Inter-State Council",
+        "The Lok Sabha"
+      ],
+      "answer": "The National Development Council (NDC)",
+      "explanation": "The National Development Council (NDC), established in August 1952, served as the apex body for policy review and final approval of the Five-Year Plans drafted by the Planning Commission before they were formally presented to Parliament."
+    }
+  ]
+}

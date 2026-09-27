@@ -1,0 +1,106 @@
+{
+  "microTopicId": "economy_external_sector_forex_reserves_external_debt_trade_balance_types_of_currencies",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_external_sector_forex_reserves_external_debt_trade_balance",
+  "topicTitle": "External Sector – Forex Reserves, External Debt, Trade Balance.",
+  "subTopicTitle": "Types of Currencies",
+  "syllabusMapping": {
+    "prelims": "Indian Economy and-Basic Economic Concepts: External Sector, Foreign Exchange Reserves, Convertible Currencies, Special Drawing Rights (SDR).",
+    "mains": "GS Paper III: Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment (External Sector dynamics and currency regimes)."
+  },
+  "lectureHoursEstimate": "Lecture 17&18",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Global currencies are classified based on their convertibility, international acceptance, and regulatory frameworks into hard/strong currencies, soft currencies, convertible and non-convertible currencies, and synthetic reserve assets like the IMF's Special Drawing Rights (SDR). Understanding these currency typologies is essential for analyzing exchange rate risk, foreign debt servicing, and RBI's foreign exchange market interventions.",
+    "highYieldFacts": [
+      "Fact 1: The IMF’s SDR basket comprises five major currencies: US Dollar, Euro, Chinese Renminbi, Japanese Yen, and British Pound.",
+      "Fact 2: Indian Rupee (INR) is fully convertible on the Current Account (under Article VIII of IMF), but only partially convertible on the Capital Account.",
+      "Fact 3: Hard currencies are universally accepted safe-haven currencies with low volatility, dominated by the USD, EUR, GBP, CHF, and JPY.",
+      "Fact 4: Nostro and Vostro accounts facilitate cross-border trade settlements in domestic currencies, heavily utilized under the RBI's Special Rupee Vostro Account (SRVA) framework.",
+      "Fact 5: The Tarapore Committee (1997 and 2006) laid down the roadmap for full capital account convertibility (CAC) for India, setting critical macroeconomic preconditions."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming full capital account convertibility exists in India. India currently permits partial capital account convertibility governed by the Liberalised Remittance Scheme (LRS) and FPI/FDI caps.",
+      "Trap 2: Confusing 'Hard Currency' with 'Cryptocurrency' or digital fiat. Hard currencies refer to globally trusted fiat currencies of stable economies."
+    ],
+    "keyArticlesOrStatutes": [
+      "Foreign Exchange Management Act (FEMA), 1999",
+      "Reserve Bank of India Act, 1934 (Section 40)",
+      "IMF Articles of Agreement (Article VIII and Article XIV)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Taxonomy of Currencies in Global Trade</h3><p>The architecture of the international monetary system rests upon the categorization and convertibility of currencies. Currencies are broadly classified into <strong>Hard (Strong) Currencies</strong>, which enjoy deep liquidity and high global confidence (e.g., USD, EUR), and <strong>Soft Currencies</strong>, which belong to unstable or developing economies and face high depreciation volatility. Furthermore, the degree of government restriction dictates whether a currency is <strong>Convertible</strong> or <strong>Non-Convertible/Blocked</strong>.</p><h3>The Indian Context: Convertibility and Capital Controls</h3><p>India adopted current account convertibility in August 1994 by accepting Article VIII of the IMF Articles of Agreement. However, capital account convertibility remains managed. The Reserve Bank of India (RBI) regulates capital flows to insulate the domestic economy from sudden capital flight, 'hot money' surges, and balance of payment (BoP) shocks. The Tarapore Committees established distinct guardrails—such as fiscal deficit targets, inflation rates, and forex reserve adequacy—before full capital account convertibility can be safely attempted.</p><h3>Contemporary Geopolitical Shifts: De-dollarization and Rupee Internationalization</h3><p>Recent geopolitical shocks, including Western sanctions on Russian central bank assets, have accelerated conversations around de-dollarization. India has championed <strong>Rupee Internationalization</strong> through the Special Rupee Vostro Account (SRVA) mechanism, allowing global trade invoicing in INR. While this reduces exchange rate risk and conserves forex reserves, structural hurdles such as shallow domestic bond markets, capital controls, and lack of full convertibility limit the global hoarding of rupees as a reserve asset.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Governance under FEMA, 1999, which shifted policy from conservation of foreign exchange to facilitation of external trade and payments.",
+      "socio_economic": "Impact of currency depreciation on imported inflation, domestic purchasing power, fuel import bills, and external debt servicing costs for emerging markets.",
+      "administrative_governance": "RBI and Ministry of Finance coordination in managing forex intervention, sterilisation operations, and managing the external debt-to-GDP ratio.",
+      "international_or_comparative": "Comparison with China's managed renminbi float and dollar-bloc dominance, alongside IMF's SDR basket evolution."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Tarapore Committee Reports (1997 and 2006) on Capital Account Convertibility",
+      "Economic Survey chapters on External Sector and Forex Reserve Management",
+      "RBI Working Group Report on Internationalisation of the Indian Rupee (2023)"
+    ],
+    "structuredDiagramAscii": "Global Currency Taxonomy Hierarchy:\n[Global Currencies] \n  ├── Hard Currencies (USD, EUR, GBP, JPY, CHF) -> High Global Acceptance, Safe Haven\n  ├── Soft Currencies (Developing economies) -> High Volatility, Capital Controls\n  └── Synthetic Reserve Assets (IMF SDR) -> Basket of 5 Currencies\n\nIndian Rupee Convertibility Status:\n[INR Convertibility] \n  ├── Current Account -> FULLY CONVERTIBLE (Article VIII of IMF)\n  └── Capital Account -> PARTIALLY CONVERTIBLE (Managed via FEMA & LRS)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Convertibility of currency implies:",
+        "options": [
+          "1. being able to convert currency into gold",
+          "2. being able to convert currency into notes of any other country",
+          "3. the ease with which a country's currency can be converted into gold or other currencies without any restriction",
+          "4. the development of an export market for a country's currency"
+        ],
+        "answer": "3",
+        "explanation": "Currency convertibility refers to the freedom to convert domestic currency into foreign currency (and vice versa) at market-determined exchange rates for current and/or capital account transactions without quantitative restrictions."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss the rationale for internationalisation of the Indian rupee. What are the major bottlenecks in achieving this objective?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the concept of currency convertibility and evaluate India’s journey toward rupee internationalization amidst evolving global macroeconomic uncertainties. (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define currency convertibility and state India's current standing (Full current account, partial capital account convertibility).",
+      "body": "Discuss the drivers and rationale for Rupee Internationalization (SRVA framework, hedging cost reduction). Outline structural bottlenecks (shallow bond markets, capital controls).",
+      "conclusion": "Conclude with a balanced way forward emphasizing gradual macroeconomic stabilization and structural financial sector reforms."
+    },
+    "modelAnswerHtml": "<p>Currency convertibility is the ease with which a country's domestic currency can be exchanged for foreign currencies through market channels. While India achieved full current account convertibility in 1994, capital account transactions remain regulated.</p><p><strong>Rationale for Rupee Internationalization:</strong></p><ul><li><strong>Reduction of Exchange Risk:</strong> Invoicing trade in INR protects Indian entities from currency volatility and lowers transaction costs.</li><li><strong>Forex Reserve Conservation:</strong> Reduces the immediate dependence on USD for energy and commodity imports.</li><li><strong>Geopolitical Resilience:</strong> Mitigates vulnerabilities arising from Western sanctions and weaponization of global financial infrastructure (e.g., SWIFT).</li></ul><p><strong>Major Bottlenecks:</strong></p><ul><li><strong>Partial Capital Controls:</strong> Full convertibility is a prerequisite for a currency to achieve reserve asset status globally.</li><li><strong>Shallow Financial Markets:</strong> India lacks deep, liquid domestic debt and capital markets required by foreign central banks to park rupee surpluses.</li><li><strong>Current Account Deficit (CAD):</strong> Persistent structural trade deficits limit the net outward accumulation of rupees globally.</li></ul><p><strong>Way Forward:</strong> India must adopt a calibrated, phased approach—deepening domestic bond markets, strengthening macroeconomic fundamentals, and expanding bilateral currency swap agreements—before pushing for aggressive global adoption of the Rupee.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Special Drawing Rights (SDR):\n1. It is a form of international reserve asset created by the World Bank.\n2. The SDR basket includes the Chinese Renminbi alongside the US Dollar and Euro.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because SDR is an international reserve asset created by the International Monetary Fund (IMF), not the World Bank. Statement 2 is correct; the SDR basket comprises the USD, EUR, CNY, JPY, and GBP."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following best describes 'Hard Currency'?",
+      "options": [
+        "A currency backed strictly by physical gold reserves held domestically.",
+        "A globally traded currency that is expected to remain politically and economically stable, serving as a reliable safe haven.",
+        "A currency issued exclusively by developing economies with pegged exchange rates.",
+        "A digital token issued by central banks for wholesale cross-border settlements."
+      ],
+      "answer": "A globally traded currency that is expected to remain politically and economically stable, serving as a reliable safe haven.",
+      "explanation": "Hard currencies (like USD, EUR, CHF) are widely accepted across the world due to the economic stability, low inflation, and strong governance of the issuing nations, making them safe-haven assets."
+    }
+  ]
+}

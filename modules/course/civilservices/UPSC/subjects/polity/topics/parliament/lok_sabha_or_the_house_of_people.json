@@ -1,0 +1,108 @@
+{
+  "microTopicId": "polity_parliament_lok_sabha_or_the_house_of_peop",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_parliament",
+  "topicTitle": "Parliament",
+  "subTopicTitle": "Lok Sabha or The House of People",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Parliament and State Legislatures—Structure, Functioning, Conduct of Business, Powers & Privileges and Issues Arising out of these."
+  },
+  "lectureHoursEstimate": "Lecture 21&22",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Lok Sabha (House of the People) is the lower house of India's bicameral Parliament, directly elected by the citizens on the basis of universal adult suffrage. It mirrors the popular will of the nation and holds ultimate financial supremacy and control over the executive through collective responsibility.",
+    "highYieldFacts": [
+      "Fact 1: Maximum strength of Lok Sabha is capped at 550 members (530 from States and 20 from UTs) following the 104th Constitutional Amendment Act, 2019, which abolished the nomination of two Anglo-Indian members.",
+      "Fact 2: Article 81 defines the composition of the Lok Sabha, ensuring allocation of seats across states based on population proportions as far as practicable.",
+      "Fact 3: The normal term of Lok Sabha is 5 years from the date appointed for its first meeting, but it can be dissolved earlier by the President on the advice of the Prime Minister under Article 85.",
+      "Fact 4: Money Bills (Article 110) can originate only in the Lok Sabha, and the Rajya Sabha has virtually no power to reject or amend them (it can only delay for 14 days).",
+      "Fact 5: The 84th Amendment Act, 2001 froze the total number of seats in the Lok Sabha and their division into territorial constituencies based on the 1971 Census until the first census after 2026."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Examiners often trick aspirants by stating that the Rajya Sabha can vote on Demands for Grants; voting on Demands for Grants is the exclusive privilege of the Lok Sabha.",
+      "Trap 2: Confusing the quorum requirement (1/10th of the total members of each house, i.e., 55 for Lok Sabha) with majority requirements for ordinary vs. constitutional amendment bills."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 81 (Composition of the House of the People)",
+      "Article 83 (Duration of Houses of Parliament)",
+      "Article 85 (Sessions of Parliament, prorogation and dissolution)",
+      "Article 109 & 110 (Special procedure in respect of Money Bills)",
+      "104th Constitutional Amendment Act, 2019"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Institutional Architecture of the Lok Sabha</h3><p>As the direct representative organ of the Indian citizenry, the Lok Sabha embodies the core principle of popular sovereignty in a parliamentary democracy. Established under Article 81, the House reflects the dynamic demographic and political currents of the nation. Unlike the Rajya Sabha, which represents the states as constituent units of the federation, the Lok Sabha represents the people of India as individuals on the basis of territorial constituencies.</p><h3>Constitutional Powers and Asymmetries</h3><p>The institutional design of the Indian Parliament deliberately tilts financial and executive accountability toward the Lok Sabha. Under Article 75(3), the Council of Ministers is collectively responsible solely to the Lok Sabha. This makes mechanisms like motions of no-confidence, adjournment motions, and censure motions exclusively deployable in the lower house. Furthermore, financial supremacy is constitutionally guaranteed: Money Bills originate exclusively in the Lok Sabha, and the Rajya Sabha's concurrence is not mandatory for their passage.</p><h3>Contemporary Challenges and Governance Impacts</h3><p>Despite its towering constitutional status, the contemporary functioning of the Lok Sabha faces severe structural bottlenecks. The declining number of sitting days, frequent disruptions, weaponization of parliamentary instruments, and bypassing of Department-Related Standing Committees (DRSCs) by pushing contentious legislations as Money Bills (e.g., Aadhaar Act, Tribunals Reforms Act) have triggered intense judicial and academic debates. The debate over the impending delimitation exercise post-2026 also poses critical federal questions regarding representation parity between northern and southern states.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Interplay between Article 110 (Money Bills) and judicial review; limits of executive dominance over legislative timetables under Article 85.",
+      "socio_economic": "Representation of marginalized communities, women (via the recently enacted Nari Shakti Vandan Adhiniyam, 2023), and regional imbalances.",
+      "administrative_governance": "Erosion of deliberative spaces, decline in private members' bills passing rates, and the efficacy of parliamentary oversight mechanisms.",
+      "international_or_comparative": "Comparison with Westminster traditions, question hour conventions, and committee scrutiny rigor vis-a-vis the UK House of Commons or US Congress."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Raja Ram Pal v. Hon'ble Speaker, Lok Sabha (2007) - Scope of judicial review over parliamentary privileges and internal proceedings.",
+      "Kajah Mohideen v. The State of Tamil Nadu / Aadhaar Judgment (Justice K.S. Puttaswamy v. Union of India, 2018) - Observations on passing core socio-economic legislations as Money Bills.",
+      "National Commission to Review the Working of the Constitution (NCRWC, 2002) recommendations on fixing minimum parliamentary sitting days."
+    ],
+    "structuredDiagramAscii": "LOK SABHA LEGISLATIVE & FINANCIAL ECOSYSTEM\n[Voter Base: Universal Adult Suffrage]\n       │\n       ▼ (Article 81 Direct Election)\n[Lok Sabha: Max 550 Members]\n       │\n       ├─► Executive Control: Collective Responsibility (Art 75(3)) ──► No-Confidence Motion\n       ├─► Financial Supremacy: Exclusive Origination of Money Bills (Art 110)\n       └─► Deliberative Role: Question Hour, Zero Hour, Motions & DRSCs"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "A Bill which is not a Money Bill and has been passed by the Lok Sabha and transmitted to the Rajya Sabha can be stalled by the Rajya Sabha for a maximum period of:",
+        "options": [
+          "1 Month",
+          "3 Months",
+          "6 Months",
+          "14 Days"
+        ],
+        "answer": "6 Months",
+        "explanation": "Under Article 107, an ordinary bill can be delayed by the Rajya Sabha for a maximum period of 6 months, after which the President may summon a joint sitting under Article 108. (Note: 14 days applies strictly to Money Bills)."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "To what extent, in your view, has the Parliament been able to ensure accountability of the executive in recent years? Discuss."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the changing role of the Lok Sabha in India’s parliamentary democracy. Discuss how structural bottlenecks and procedural innovations have impacted its core functions of representation and executive accountability. (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define the constitutional position of the Lok Sabha as the primary repository of popular sovereignty and executive accountability under Article 75(3).",
+      "body": "Highlight its core powers (financial supremacy, no-confidence), analyze contemporary challenges (declining sitting days, weaponization of Money Bills, disruptions), and mention recent reforms like the Nari Shakti Vandan Adhiniyam.",
+      "conclusion": "Emphasize the need for adherence to constitutional morality, strengthening committee scrutiny, and restoring Parliament as a vibrant temple of debate."
+    },
+    "modelAnswerHtml": "<p>The Lok Sabha, as the directly elected House of the People, occupies the apex position in India’s democratic architecture, serving as the crucible for national debate, executive accountability, and legislative enactment.</p><p><strong>Evolving Role and Constitutional Powers:</strong></p><ul><li><strong>Executive Accountability:</strong> Through mechanisms like Question Hour, Zero Hour, and No-Confidence Motions, it ensures the Council of Ministers remains collectively responsible (Art 75(3)).</li><li><strong>Financial Dominance:</strong> Exclusive control over Money Bills (Art 110) underscores its ultimate authority over national exchequer and taxation.</li></ul><p><strong>Structural Bottlenecks & Challenges:</strong></p><ul><li><strong>Decline in Deliberation:</strong> Reduced number of working days and frequent disruptions have compromised rigorous law-making.</li><li><strong>Erosion of Committee Oversight:</strong> Bypassing Department-Related Standing Committees and certifying contentious laws (e.g., Aadhaar, Tribunals reforms) as Money Bills undermines bicameral federalism.</li></ul><p><strong>Way Forward:</strong><br>The passage of the <strong>Nari Shakti Vandan Adhiniyam (106th Amendment, 2023)</strong> marks a historic step towards deepening socio-political representation. To reclaim its foundational ethos, the Lok Sabha must institutionalize a mandatory calendar of sitting days (as recommended by the NCRWC) and enforce codes of conduct to substitute disruptions with reasoned debate, reinforcing constitutional democracy.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Lok Sabha:\n1. The allocation of seats in the Lok Sabha to the states is based on the 1971 Census and will remain frozen until the first census taken after 2026.\n2. The provision for reservation of seats for Scheduled Castes and Scheduled Tribes in the Lok Sabha was originally for 10 years, but has been extended periodically by constitutional amendments.",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Statement 1 is correct due to the 84th Amendment Act, 2001 (freezing seats based on 1971 census). Statement 2 is also correct as reservations for SCs and STs under Article 330 are extended every 10 years (most recently via the 104th Amendment Act up to 2030)."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following functions/powers belong exclusively to the Lok Sabha and not to the Rajya Sabha?",
+      "options": [
+        "1. To initiate constitutional amendment bills",
+        "2. To pass a resolution for the removal of the Vice-President",
+        "3. To vote on the Demands for Grants",
+        "4. To pass a resolution under Article 249 empowering Parliament to legislate on State List items"
+      ],
+      "answer": "3 only",
+      "explanation": "Voting on Demands for Grants is exclusively vested in the Lok Sabha. Constitutional amendment bills can originate in either house (Option 1 incorrect). Removal of the Vice-President must originate in the Rajya Sabha (Option 2 incorrect). Resolutions under Article 249 can only be initiated by the Rajya Sabha (Option 4 incorrect)."
+    }
+  ]
+}

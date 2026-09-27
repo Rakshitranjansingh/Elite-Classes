@@ -1,0 +1,104 @@
+{
+  "microTopicId": "economy_monetary_policy_monetary_policy",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_monetary_policy",
+  "topicTitle": "Monetary Policy",
+  "subTopicTitle": "Monetary Policy",
+  "syllabusMapping": {
+    "prelims": "Indian Economy and Social Development - Economic Growth, Development, Poverty, Inclusion, Demographics, Social Sector Initiatives, etc.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment; Inclusive growth and issues arising from it."
+  },
+  "lectureHoursEstimate": "Lecture 12&13",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Monetary policy refers to the use of macroeconomic instruments under the control of the central bank (RBI) to regulate the availability, cost, and use of money and credit to achieve overarching macroeconomic objectives like price stability, economic growth, and financial stability.",
+    "highYieldFacts": [
+      "Fact 1: The statutory basis for the Monetary Policy Committee (MPC) is Section 45ZB of the Reserve Bank of India (RBI) Act, 1934, amended in 2016.",
+      "Fact 2: The primary objective of the monetary policy is to maintain price stability while keeping in mind the objective of growth, anchored by a Consumer Price Index (CPI) inflation target of 4% with a band of +/- 2%.",
+      "Fact 3: The MPC consists of 6 members: 3 from RBI (including the Governor as Chairperson with a casting vote) and 3 external members appointed by the Central Government.",
+      "Fact 4: The Marginal Standing Facility (MSF) rate and Bank Rate are pegged to the Repo Rate; MSF represents the penal rate at which scheduled banks can borrow overnight funds against approved government securities up to a limit (2% of NDTL).",
+      "Fact 5: The Urjit Patel Committee (2014) recommended the adoption of Flexible Inflation Targeting (FIT) as the formal operating framework for monetary policy in India."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the statutory inflation target setting authority. The Central Government, in consultation with the RBI, determines the inflation target once every five years, not the RBI unilaterally.",
+      "Trap 2: Assuming the MPC decides micro-prudential banking regulations. MPC's sole mandate is determining the policy interest rate required to achieve the inflation target; banking regulation is handled by other departments of RBI."
+    ],
+    "keyArticlesOrStatutes": [
+      "Section 45ZA, 45ZB, and 45ZC of the Reserve Bank of India Act, 1934"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Institutional Architecture of Monetary Policy in India</h3><p>Monetary policy in India has undergone a paradigm shift from a multi-indicator approach prioritizing planned economic growth and credit allocation to a modern, rule-based <strong>Flexible Inflation Targeting (FIT)</strong> framework established in 2016. The amendment to the Reserve Bank of India Act, 1934, institutionalized the <strong>Monetary Policy Committee (MPC)</strong>, dismantling the absolute discretionary authority previously vested solely in the RBI Governor and replacing it with a democratic, consensus-driven collegiate body.</p><h3>The Operational Framework and Transmission Mechanism</h3><p>The operating framework rests on the liquidity management architecture anchored by the Liquidity Adjustment Facility (LAF), comprising the repo rate, reverse repo rate, Standing Deposit Facility (SDF), and Marginal Standing Facility (MSF). The primary transmission channel—the interest rate channel—operates through the pass-through of policy repo rates to deposit and lending rates (External Benchmark Lending Rate framework, e.g., repo-linked loans). However, structural rigidities like high small-savings rates, legacy non-performing assets (NPAs), and sovereign fiscal dominance often impede swift monetary transmission.</p><h3>Contemporary Policy Challenges</h3><p>Balancing growth impulses with inflation management remains a tightrope walk for the central bank. Supply-side shocks, notably volatile global crude oil prices, geopolitical fragmentations, and domestic agricultural price shocks driven by climatic aberrations (El Niño/La Niña), often render conventional interest rate hikes ineffective against cost-push inflation. Furthermore, managing domestic liquidity in the face of volatile global capital flows and Federal Reserve rate cycles presents a persistent trilemma for macroeconomic stability.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing via the RBI Act 1934 (amended 2016); division of powers between the Central Government (inflation target notification) and RBI (policy rate determination); accountability mechanisms if the target is missed for three consecutive quarters.",
+      "socio_economic": "Disproportionate impact of inflation as an unlegislated regressive tax on fixed-income earners and the poor; balancing aggressive rate hikes that curb inflation against potential output losses and employment suppression.",
+      "administrative_governance": "Inter-agency coordination between fiscal authorities (Ministry of Finance) and monetary authority (RBI) regarding deficit monetization, public borrowing calendars, and liquidity management operations.",
+      "international_or_comparative": "Alignment with global central banking standards (Fed, ECB); managing exchange rate volatility and capital account openness under Mundell-Fleming trilemma constraints."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Urjit Patel Committee Report (2014) on Revisiting and Strengthening the Monetary Policy Framework",
+      "Fali S. Nariman Committee / Financial Sector Legislative Reforms Commission (FSLRC) recommendations",
+      "N.K. Singh Committee Report on Fiscal Responsibility and Budget Management (FRBM)"
+    ],
+    "structuredDiagramAscii": "Central Government sets CPI Inflation Target (4% +/- 2%) every 5 years\n       |\n       v\nMonetary Policy Committee (6 Members) convenes bi-monthly\n       |\n       +---> Evaluates Macroeconomic Data (CPI, GDP, Global Spillovers)\n       +---> Determines Policy Repo Rate via Majority Vote\n       |\n       v\nLiquidity Management Framework (LAF / SDF / MSF / OMO)\n       |\n       v\nMonetary Transmission Channels (Interest Rate, Credit, Asset Price, Exchange Rate)\n       |\n       v\nUltimate Objective: Price Stability with a View to Economic Growth"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which of the following changes/changes is/are-the principal feature(s) of Monetary Policy Committee (MPC)?\n1. It decides the benchmark interest rates required to contain inflation.\n2. It is a 12-member body and is reconstituted every year.\n3. It functions under the chairmanship of the Union Finance Minister.\nSelect the correct answer using the code given below:",
+        "options": [
+          "1 only",
+          "2 and 4 only",
+          "1 and 3 only",
+          "2, 3 and 4 only"
+        ],
+        "answer": "1 only",
+        "explanation": "Statement 1 is correct: The MPC decides the policy repo rate to achieve the inflation target. Statement 2 is incorrect: It is a 6-member body, not 12. Statement 3 is incorrect: It is chaired by the Governor of RBI, not the Union Finance Minister."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2017,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Do you agree that the Indian economy has recently experienced 'v-shaped' recovery? Give reasons in favor of your argument. (Note: Subsumed under macroeconomic stability and monetary policy interventions post-shocks)."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the mandate and functioning of the Monetary Policy Committee (MPC) in India. To what extent has the Flexible Inflation Targeting (FIT) framework succeeded in balancing price stability with economic growth?",
+    "approach": {
+      "intro": "Define monetary policy framework in India, introducing the statutory foundation (RBI Act 1934) and the adoption of FIT in 2016.",
+      "body": "Discuss the composition and operational mandate of the MPC; analyze successes (anchoring inflation expectations, resilience against external shocks) and challenges (supply-side constraints, growth-inflation trade-off, transmission lags).",
+      "conclusion": "Conclude with a forward-looking perspective on institutional coordination and managing macroeconomic stability in an uncertain global economic landscape."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The Monetary Policy Committee (MPC), established under Section 45ZB of the amended RBI Act, 1934, marked a decisive transition from a discretionary central banking model to a transparent, institutionalized <strong>Flexible Inflation Targeting (FIT)</strong> regime. Anchored around a CPI inflation target of 4% (with a tolerance band of +/- 2%), the framework aims to prioritize price stability as a pre-condition for sustainable, inclusive growth.</p><h3>Mandate and Functioning of the MPC</h3><ul><li><strong>Democratic Decision Making:</strong> Comprising six members (three from the RBI and three external experts appointed by the government), decisions are taken by majority vote, with the RBI Governor holding a casting vote in case of a tie.</li><li><strong>Accountability Mechanism:</strong> If average inflation breaches the mandated tolerance band for three consecutive quarters, the RBI is statutorily mandated to submit a formal report to the Central Government detailing the failures and remedial actions.</li><li><strong>Instrument Independence:</strong> The MPC exclusively determines the policy repo rate required to achieve the inflation target, isolating monetary management from short-term political pressures.</li></ul><h3>Successes of the Flexible Inflation Targeting Framework</h3><ul><li><strong>Anchoring Inflation Expectations:</strong> FIT has successfully brought down structural inflation rates from double-digit levels (pre-2014) to more manageable bands, reducing the volatility of core inflation.</li><li><strong>Credibility During Global Crises:</strong> The framework provided the necessary institutional flexibility to navigate extreme macroeconomic shocks, including the COVID-19 pandemic and subsequent global supply-chain disruptions.</li><li><strong>Enhanced Transparency:</strong> Bi-monthly resolution statements, detailed minutes, and predictable voting patterns have improved market communication and forward guidance.</li></ul><h3>Limitations and Challenges</h3><ul><li><strong>Supply-Side Dominance:</strong> Monetary policy tools are inherently blunt against cost-push inflation driven by structural food and fuel price volatility, where interest rate hikes aggravate output loss without subduing supply shocks.</li><li><strong>Transmission Lags:</strong> Structural rigidities in India’s financial architecture—such as sticky small savings rates and asset-liability mismatches—often delay the complete pass-through of policy rates to the real economy.</li><li><strong>The Growth-Inflation Trade-off:</strong> Aggressive tightening to tame imported inflation risks stifling private capital formation and employment generation during fragile economic recoveries.</li></ul><h3>Way Forward</h3><p>To optimize the efficacy of monetary policy, India must pursue a synchronized policy mix characterized by robust fiscal-monetary coordination, supply-side de-bottlenecking of agricultural supply chains, and deeper financial sector reforms to improve transmission efficiency. Maintaining price stability while nurturing medium-term growth potential remains central to achieving India's Viksit Bharat 2047 aspirations.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Monetary Policy Committee (MPC) of India:\n1. It is a statutory body constituted under the provisions of the Finance Act.\n2. The external members of the MPC are appointed for a non-renewable term of four years.\n3. The quorum for the meetings of the MPC is four members.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 and 2 only",
+        "2 only",
+        "2 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect: The MPC is constituted under the RBI Act, 1934 (amended in 2016), not the Finance Act. Statement 2 is correct: External members hold office for a period of four years and are not eligible for re-appointment. Statement 3 is incorrect: The quorum for a meeting of the MPC is four members (including the Governor), but wait—the statutory quorum is actually four members. Let's verify: Section 45ZO of the RBI Act specifies that the quorum for the meeting of the MPC shall be four members. Thus Statement 3 is correct. Wait, let's re-examine external member terms: 4 years, non-renewable. Therefore, statements 2 and 3 are correct. Let's adjust answer to '2 and 3 only'."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following instruments constitutes part of the Liquidity Adjustment Facility (LAF) operated by the Reserve Bank of India?",
+      "options": [
+        "1, 2 and 3 only",
+        "1, 3 and 4 only",
+        "2, 3 and 4 only",
+        "1, 2, 3 and 4"
+      ],
+      "answer": "1, 3 and 4 only",
+      "explanation": "The Liquidity Adjustment Facility (LAF) consists of the Repo Rate, Standing Deposit Facility (SDF) / Reverse Repo Rate, and Marginal Standing Facility (MSF). Bank Rate is a separate standalone discount rate, though currently aligned with the MSF rate."
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "microTopicId": "polity_parliament_powers_and_priveleges",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_parliament",
+  "topicTitle": "Parliament",
+  "subTopicTitle": "Powers and priveleges",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Parliament and State Legislatures—Structure, Functioning, Conduct of Business, Powers & Privileges and Issues Arising out of these."
+  },
+  "lectureHoursEstimate": "Lecture 21&22",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Parliamentary privileges are special rights, immunities, and exemptions enjoyed by both Houses of Parliament, their committees, and members, designed to protect them from obstruction in the discharge of their constitutional functions. Derived primarily from Article 105 (for Parliament) and Article 194 (for State Legislatures), these privileges can be classified into collective rights and individual member immunities.",
+    "highYieldFacts": [
+      "Fact 1: Article 105(3) originally stated privileges would be the same as those of the British House of Commons at the commencement of the Constitution, a provision amended by the 44th Constitutional Amendment Act, 1978, to substitute it with Indian legislative practice.",
+      "Fact 2: Freedom of speech inside Parliament is absolute under Article 105(1), subject only to the provisions of the Constitution and the rules/standing orders of the House (Article 121 restricts discussion on the conduct of judges).",
+      "Fact 3: Members enjoy immunity from civil arrest during the session and for 40 days before and 40 days after, but this immunity does not extend to criminal proceedings, preventive detention, or contempt of court.",
+      "Fact 4: The power to punish for breach of privilege or contempt of the House is exclusive to each House and is quasi-judicial in nature.",
+      "Fact 5: Codification of parliamentary privileges has consciously been avoided in India to preserve the flexibility of the Houses to meet unforeseen contingencies, unlike Australia or Canada."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming freedom of speech in Parliament is subject to the reasonable restrictions under Article 19(2). It is governed independently by Article 105(1) and internal rules of the House.",
+      "Trap 2: Believing that legislative privilege can override Fundamental Rights without exception. The Supreme Court in the *Keshav Singh case* (1965) established that privileges are subject to Part III of the Constitution when personal liberty is infringed."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 105 (Powers, Privileges, etc., of the Houses of Parliament and of the members and committees thereof)",
+      "Article 121 (Restriction on discussion in Parliament)",
+      "Article 122 (Courts not to inquire into proceedings of Parliament)",
+      "Article 194 (Privileges of State Legislatures)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Constitutional Basis of Parliamentary Privileges</h3><p>Parliamentary privileges are foundational to the doctrine of separation of powers and legislative autonomy. They ensure that Members of Parliament (MPs) can deliberate, debate, and legislate without fear of external intimidation, executive overreach, or judicial interference. In India, while Article 105 and Article 194 outline these privileges for Parliament and state legislatures respectively, the absence of a comprehensive codification statute has led to an evolving dynamic between legislative sovereignty and constitutional supremacy.</p><h3>Classification of Privileges</h3><p>Privileges are bifurcated into two categories: <strong>Collective Privileges</strong> (which belong to the House as a body, such as the right to publish debates, exclude strangers, regulate internal proceedings, punish for breach of privilege/contempt, and receive prompt information of the arrest or detention of a member) and <strong>Individual Privileges</strong> (which protect individual members, such as freedom of speech, freedom from civil arrest during and 40 days before/after sessions, and exemption from service as a juror while Parliament is in session).</p><h3>The Codification Debate and Judicial Scrutiny</h3><p>The eternal debate surrounding privileges centers on whether they should be codified. Proponents of codification argue that in a written constitution committed to the rule of law, nebulous privileges violate the principle of clarity, exposing citizens to arbitrary legislative punishment. Opponents, including various presiding officers' conferences, contend that codification would drag the judiciary into routine legislative matters, subverting legislative autonomy. Landmark rulings like the <em>Searchlight Case (1958)</em> and the <em>Keshav Singh Presidential Reference (1965)</em> have demarcated the boundary, affirming that while a House possesses exclusive jurisdiction over its internal proceedings, it cannot violate the fundamental rights of citizens (specifically Article 21) when exercising punitive powers.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Tension between legislative supremacy (Article 105/194) and judicial review (Articles 13, 32, and 226), especially concerning fundamental rights.",
+      "socio_economic": "Public accountability vs. legislative shielding; misuse of privilege motions to curb legitimate media scrutiny and public discourse.",
+      "administrative_governance": "Procedural delays, lack of codified rules for punishing contempt, and the arbitrary nature of Privileges Committee proceedings.",
+      "international_or_comparative": "Comparison with the UK (where Parliament historically claimed privileges as part of the Crown's prerogative) and Australia (which codified privileges via the Parliamentary Privileges Act 1987)."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Pandit M.S. Sharma v. Sri Krishna Sinha (Searchlight Case, 1958)",
+      "Special Reference No. 1 of 1964 (Keshav Singh Case / UP Legislative Assembly Case)",
+      "Raja Ram Pal v. Hon'ble Speaker, Lok Sabha (Cash-for-Query Case, 2007)",
+      "Constitution Review Commission (NCRWC, 2002) recommendations on codifying privileges."
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------------------+\n|                   CLASSIFICATION OF PARLIAMENTARY PRIVILEGES            +----+\n+-------------------------------------------------------------------------+    |\n       |                                           |                           |\n       v                                           v                           |\n+------------------------------+            +------------------------------+   |\n|     COLLECTIVE PRIVILEGES    |            |     INDIVIDUAL PRIVILEGES    |   |\n+------------------------------+            +------------------------------+   |\n| - Right to publish debates   |            | - Freedom of speech (Art 105)|   |\n| - Right to exclude strangers |            | - Freedom from civil arrest  |   |\n| - Regulation of proceedings  |            | - Exemption from jury service|   |\n| - Power to punish for breach |            |                              |   |\n+------------------------------+            +------------------------------+   |\n       |                                           |                           |\n       +-------------------+-----------------------+                           |\n                           |                                                   |\n                           v                                                   |\n          +----------------------------------+                                 |\n          |         JUDICIAL OVERSIGHT       |                                 |\n          | - Subject to Fundamental Rights  | <-------------------------------+\n          | - Procedural irregularity vs.    |\n          |   Illegality (Keshav Singh Case) |\n          +----------------------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "With reference to India, consider the following statements: 1. When a Member of Parliament is arrested, the authorities are not required to immediately inform the Speaker or Chairman. 2. The privileges of the Parliament of India are codified in a comprehensive statute enacted by Parliament.",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Neither 1 nor 2",
+        "explanation": "Statement 1 is incorrect because arresting authorities must immediately inform the Speaker of Lok Sabha or Chairman of Rajya Sabha if a member is arrested or detained. Statement 2 is incorrect because parliamentary privileges in India are not codified in a single comprehensive statute; they are derived from Article 105 and British House of Commons practices as they stood at the commencement of the Constitution."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2022,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Discuss the 'privilege motion' as a parliamentary instrument. How far do you think it infringes upon freedom of speech and expression in a democratic setup?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the scope of parliamentary privileges in India. To what extent do nebulous privileges create friction between the legislature and the judiciary? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define parliamentary privileges under Article 105 and state their core objective (protecting legislative independence).",
+      "body": "Discuss the scope of collective and individual privileges. Highlight the non-codification debate. Analyze judicial interventions (Searchlight, Keshav Singh, Raja Ram Pal cases) showing friction points where privileges clash with fundamental rights. Conclude with a reformist outlook.",
+      "conclusion": "Emphasize constitutional morality, judicial comity, and the need for self-restraint or structured guidelines to balance legislative autonomy with citizens' rights."
+    },
+    "modelAnswerHtml": "<p>Parliamentary privileges are special rights and immunities conferred upon Parliament, its committees, and members under <strong>Article 105</strong> (and <strong>Article 194</strong> for state legislatures). Designed to insulate lawmakers from executive interference and ensure unhindered discharge of public duties, these privileges form the bedrock of legislative sovereignty.</p><p><strong>Scope and Dimensions of Privileges:</strong></p><ul><li><strong>Immunity in Debates:</strong> Freedom of speech inside the House ensures members are not liable to any court proceedings for anything said or voted in Parliament (Art 105(2)).</li><li><strong>Exclusive Cognizance:</strong> Each House has the sole authority to regulate its internal proceedings, prohibit publication of reports, and punish individuals for breach of privilege or contempt of the House.</li></ul><p><strong>Friction Points Between Legislature and Judiciary:</strong><br>The non-codification of parliamentary privileges in India has historically fueled turf wars between the legislature and the judiciary:</p><ul><li><strong>The Fundamental Rights Conundrum:</strong> In the <em>Keshav Singh Case (1964)</em>, the Supreme Court held that while the legislature has absolute powers to punish for its contempt, such power cannot override the fundamental right to personal liberty (Article 21) or preclude judicial review when an individual's liberty is directly imperiled.</li><li><strong>Cash-for-Query Ruling:</strong> In <em>Raja Ram Pal v. Hon'ble Speaker (2007)</em>, the Supreme Court asserted its power to review the expulsion of MPs, ruling that legislative proceedings are immune from judicial scrutiny only against <em>irregularity of procedure</em>, not against <em>illegality or unconstitutionality</em>.</li><li><strong>Chilling Effect on Free Speech:</strong> Ambiguous definitions of 'contempt of the House' are often weaponized against media reporting and critical public discourse, creating a democratic deficit.</li></ul><p><strong>Way Forward:</strong><br>While codification remains contentious due to fears of micromanagement by courts, both organs must operate within the ambit of <em>constitutional morality</em>. Presiding officers must exercise prudence in admitting privilege motions, and a self-regulatory code of conduct should be adopted to ensure parliamentary privileges do not morph into legislative impunity, thereby strengthening India's robust constitutional democracy.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following statements is/are correct regarding the freedom of speech guaranteed under Article 105(1) of the Constitution?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: Freedom of speech under Article 105(1) is subject to the provisions of the Constitution and the rules and standing orders regulating the procedure of Parliament. Statement 2 is incorrect because this freedom is not subject to the reasonable restrictions under Article 19(2) (such as public order, morality, sovereignty, and integrity of India), but operates independently."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following privileges enjoyed by Members of Parliament: 1. Complete immunity from criminal proceedings during their term of office. 2. Freedom from arrest in civil cases during the continuance of the session and 40 days before and after. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect: MPs do not enjoy any immunity from criminal proceedings, preventive detention, or arrest in criminal cases; immunity from arrest is strictly confined to civil cases during the session and 40 days before and after. Statement 2 is correct."
+    }
+  ]
+}

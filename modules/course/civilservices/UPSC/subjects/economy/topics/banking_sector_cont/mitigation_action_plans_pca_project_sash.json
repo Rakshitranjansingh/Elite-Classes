@@ -1,0 +1,105 @@
+{
+  "microTopicId": "economy_banking_sector_cont_mitigation_action_plans_pca_pr",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_banking_sector_cont",
+  "topicTitle": "Banking Sector (cont.)",
+  "subTopicTitle": "Mitigation Action Plans: PCA, project Sashakt etc.",
+  "syllabusMapping": {
+    "prelims": "Indian Economy - Economic Growth, Development, Banking, Non-Banking Financial Institutions, and Monetary Policy",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment"
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Prompted by mounting Non-Performing Assets (NPAs) and capital erosion in Indian banks, regulatory frameworks like the Prompt Corrective Action (PCA) framework and resolution architectures such as Project Sashakt were formulated. These mechanisms act as early intervention tools and market-driven resolution strategies to restore institutional soundness, restrict risk-taking, and prevent systemic contagion.",
+    "highYieldFacts": [
+      "Fact 1: The Prompt Corrective Action (PCA) framework was introduced by the Reserve Bank of India (RBI) in December 2002 based on the recommendations of the Working Group of the BSR (Board for Financial Supervision).",
+      "Fact 2: Key parameters monitored under the PCA framework include Capital to Risk-weighted Assets Ratio (CRAR), Net Non-Performing Assets (NNPA), Leverage Ratio, and Return on Assets (RoA).",
+      "Fact 3: Project Sashakt was a 5-track resolution plan recommended in 2018 by a committee led by then Punjab National Bank Chairman Sunil Mehta to resolve stressed assets up to Rs. 500 crores through an Asset Management Company (AMC) and Alternative Investment Fund (AIF) structure.",
+      "Fact 4: Under the revised PCA framework implemented effective January 1, 2022, RoA was removed as a standalone threshold indicator, streamlining triggers to Capital, Net NPA, and Tier-1 Leverage ratios.",
+      "Fact 5: The Insolvency and Bankruptcy Code (IBC), 2016 works in tandem with these mitigation strategies by providing a time-bound, creditor-in-control statutory resolution ecosystem."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Examiners often trick aspirants by claiming PCA is triggered only after a bank defaults on sovereign deposits. In reality, it is triggered preemptively based on internal regulatory capital and asset quality metrics.",
+      "Trap 2: Confusing Project Sashakt (designed for inter-creditor resolution of medium to large stressed loans through private/public market mechanisms) with the statutory PCA framework (which is an RBI regulatory supervisory tool)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Section 35A of the Banking Regulation Act, 1949 (Power of RBI to issue directions)",
+      "Insolvency and Bankruptcy Code (IBC), 2016"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution of Regulatory Mitigation Frameworks in Indian Banking</h3><p>The Indian banking system entered a phase of extreme systemic stress post-2015, catalyzed by the Asset Quality Review (AQR) initiated by the RBI. This exposed massive underreporting of bad loans, leading to a ballooning of Non-Performing Assets (NPAs) that threatened capital adequacy across both Public Sector Banks (PSBs) and private lenders. To safeguard financial stability, the regulatory architecture required robust, preemptive, and multi-pronged mitigation action plans.</p><h3>The Prompt Corrective Action (PCA) Framework</h3><p>The PCA framework is a structured early-intervention mechanism deployed by the RBI to check capital erosion, asset quality deterioration, and profitability loss in commercial banks. Under PCA, banks are classified into risk thresholds based on their CRAR, Net NPA levels, and Leverage ratios. Once a bank breaches a threshold, mandatory actions (such as restrictions on dividend distribution, branch expansion, and capital expenditure) and discretionary actions (such as asset restructuring and management replacement) are enforced. The revised 2022 framework streamlined these triggers to focus tightly on core capital and asset safety, ensuring that weak institutions are pruned or rehabilitated before posing systemic risks.</p><h3>Project Sashakt and Market-Led Resolution</h3><p>Recognizing that regulatory restrictions alone cannot resolve legacy stressed assets, the government and financial sector leaders formulated <strong>Project Sashakt</strong> in 2018. Designed as a comprehensive five-track approach, it addressed different brackets of stressed assets:</p><ul><li><strong>Track 1:</strong> Small bad loans (up to Rs. 50 crores) managed at the bank level through a standardized resolution process.</li><li><strong>Track 2:</strong> Mid-sized bad loans (Rs. 50 crores to Rs. 500 crores) handled through an Inter-Creditor Agreement (ICA), empowering the lead bank with a 66% majority vote to drive swift restructuring under the 'Sashakt India Asset Management' framework.</li><li><strong>Track 3:</strong> Large stressed loans (above Rs. 500 crores) addressed via an Alternative Investment Fund (AIF) or Asset Management Company (AMC) setup to pool capital and acquire viable assets.</li><li><strong>Track 4:</strong> NCLT/IBC-driven legal resolution for recalcitrant promoters.</li><li><strong>Track 5:</strong> Asset-backed monetization and strategic stake sales.</li></ul><h3>Systemic Governance Impact and Contemporary Challenges</h3><p>These mitigation frameworks successfully transformed the Indian banking landscape by cleaning up balance sheets, driving down Gross NPAs to multi-year lows, and boosting the Provision Coverage Ratio (PCR). However, challenges remain concerning credit growth in productive sectors, moral hazard associated with repeated recapitalization, and the operational efficacy of specialized institutional mechanisms like the National Asset Reconstruction Company Limited (NARCL) and India Debt Resolution Company Ltd (IDRCL), which emerged as direct institutional evolutions of the Sashakt philosophy.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing derived from the Banking Regulation Act, 1949 and Section 35A, alongside legislative updates like the IBC, 2016.",
+      "socio_economic": "Mitigating credit squeeze on MSMEs, protecting small depositors, preventing systemic contagion, and ensuring credit availability for priority sectors.",
+      "administrative_governance": "Balancing regulatory forbearance with strict supervision, managing Inter-Creditor Agreement (ICA) deadlocks, and enforcing accountability in public sector banking leadership.",
+      "international_or_comparative": "Aligning Indian macroprudential norms with Basel III capital and leverage standards, echoing global early intervention models like the FDIC's Prompt Corrective Action in the US."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Sunil Mehta Committee Report on Project Sashakt (2018)",
+      "P.J. Nayak Committee Report on Governance of Boards of Banks in India",
+      "RBI Asset Quality Review (AQR) Directives (2015-2016)"
+    ],
+    "structuredDiagramAscii": "STRESSED ASSET MITIGATION ECOSYSTEM:\n[Asset Quality Stress / Capital Erosion]\n           |\n           +---> [Regulatory Intervention: PCA Framework] ---> (Mandatory & Discretionary Restrictions)\n           |\n           +---> [Market-Led Resolution: Project Sashakt] ---> (Inter-Creditor Agreements & AIF/AMC Models)\n           |\n           +---> [Statutory Legal Resolution: IBC / NARCL-IDRCL] ---> (Time-Bound Asset Recovery & Bad Bank Transfer)\n           |\n           v\n[Clean Balance Sheets & Restored Credit Growth]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2019,
+        "question": "Consider the following statements:\n1. RBI's Prompt Corrective Action (PCA) can restrict a bank from opening new branches.\n2. Under PCA, banks are disallowed from hiring new staff.\nWhich of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "1 only",
+        "explanation": "Statement 1 is correct: Under the PCA framework, restrictions are placed on branch expansion as a corrective action to preserve capital. Statement 2 is incorrect; while capital expenditure and expansion are curtailed, standard human resource management and operational functioning are not completely frozen unless specifically directed by the regulator based on extreme insolvency risk, but hiring bans are not a standard mandatory blanket restriction across all PCA thresholds."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Examine the role of the Prompt Corrective Action (PCA) framework of the RBI in revitalizing weak public sector banks. What challenges remain in ensuring long-term banking sector stability?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Discuss the significance of mitigation action plans such as the Prompt Corrective Action (PCA) framework and Project Sashakt in addressing the NPA crisis in India. Evaluate their impact on the structural health of public sector banks. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define the context of the NPA crisis post-2015 and introduce PCA and Project Sashakt as critical regulatory and market-led mitigation instruments.",
+      "body": "Explain the mechanics and significance of the PCA framework (early intervention, thresholds). Detail the contribution of Project Sashakt (5-track resolution, Inter-Creditor Agreement, asset pooling). Evaluate the positive outcomes (cleaner balance sheets, higher PCR) and lingering structural challenges (credit growth revival, corporate governance).",
+      "conclusion": "Conclude with a forward-looking statement on the necessity of proactive risk management, digital underwriting, and maintaining rigorous institutional safeguards in line with Vision 2047."
+    },
+    "modelAnswerHtml": "<p>The Indian banking sector witnessed an unprecedented accumulation of Non-Performing Assets (NPAs) post-2015, undermining capital adequacy and economic credit flow. To restore institutional resilience, the RBI and the government deployed rigorous mitigation mechanisms, notably the <strong>Prompt Corrective Action (PCA)</strong> framework and <strong>Project Sashakt</strong>.</p><p><strong>Significance of the PCA Framework</strong><br>The PCA framework serves as an early-warning regulatory tool. By tracking core prudential parameters—Capital to Risk-weighted Assets Ratio (CRAR), Net NPAs, and Tier-1 Leverage ratios—it compels weak banks to arrest capital erosion. Mandatory restrictions under PCA (curtailing dividend distribution, branch expansion, and high-risk lending) protect depositors while discretionary actions facilitate restructuring and management overhaul, preventing sudden institutional failures.</p><p><strong>Significance of Project Sashakt</strong><br>Recommended by the Sunil Mehta Committee, Project Sashakt introduced a market-driven, 5-track approach for resolution of stressed assets:<ul><li>Enforced swift Inter-Creditor Agreements (ICAs) with a 66% majority threshold for mid-sized loans.</li><li>Paved the way for Alternative Investment Funds (AIFs) and Asset Management Companies (AMCs) to pool capital.</li><li>Accelerated resolutions without clogging the National Company Law Tribunal (NCLT) entirely.</li></ul></p><p><strong>Impact on Structural Health of Public Sector Banks (PSBs)</strong><br>These concerted mitigation plans transformed the banking landscape: Gross NPAs plummeted from a peak of over 11% to multi-year lows below 3%, and Provision Coverage Ratios (PCR) rose significantly. PCA successfully forced PSBs to clean up their balance sheets, leading to subsequent capital infusions by the government and a return to profitability.</p><p><strong>Remaining Challenges</strong><br>Despite these gains, challenges persist, including cautious credit disbursement to MSMEs, potential risks in retail unsecured lending, and ensuring professionalized credit appraisal to prevent future vintage stress.</p><p><strong>Way Forward</strong><br>Mitigation action plans must evolve into perpetual prudential safeguards. Combining rigorous macroprudential supervision (PCA), robust market-led restructuring (Sashakt/NARCL), and technology-driven underwriting will ensure a resilient banking sector capable of financing India's $5 trillion economy goal.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following parameters are explicitly evaluated under the revised Prompt Corrective Action (PCA) framework for commercial banks introduced by the RBI?",
+      "options": [
+        "1, 2 and 3 only",
+        "2, 3 and 4 only",
+        "1, 3 and 4 only",
+        "1, 2, 3 and 4"
+      ],
+      "answer": "1, 3 and 4 only",
+      "explanation": "Under the revised PCA framework effective January 2022, the parameters monitored are Capital (CRAR/CET1), Asset Quality (Net NPAs), and Leverage (Tier 1 Leverage ratio). Return on Assets (RoA) was removed as a standalone metric for PCA invocation, making statements 1, 3, and 4 correct while 2 is incorrect."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Project Sashakt, frequently seen in the news in the context of the Indian economy, is best described as:",
+      "options": [
+        "A multi-pronged strategy for resolution of stressed bank assets through Inter-Creditor Agreements and AIF/AMC structures.",
+        "A central bank digital currency (CBDC) pilot project launched for wholesale retail settlements.",
+        "A fiscal stimulus package aimed at boosting rural employment through direct benefit transfers.",
+        "A regulatory framework formulated by SEBI to govern high-frequency algorithmic trading."
+      ],
+      "answer": "A multi-pronged strategy for resolution of stressed bank assets through Inter-Creditor Agreements and AIF/AMC structures.",
+      "explanation": "Project Sashakt was recommended by the Sunil Mehta Committee in 2018 as a comprehensive 5-track resolution plan to tackle stressed assets in the Indian banking system, making Option A correct."
+    }
+  ]
+}

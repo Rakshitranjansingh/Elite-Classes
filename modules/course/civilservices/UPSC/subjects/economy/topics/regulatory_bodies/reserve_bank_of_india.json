@@ -1,0 +1,108 @@
+{
+  "microTopicId": "economy_regulatory_bodies_reserve_bank_of_india",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_regulatory_bodies",
+  "topicTitle": "Regulatory Bodies",
+  "subTopicTitle": "Reserve Bank of India",
+  "syllabusMapping": {
+    "prelims": "Indian Economy and Issues relating to Planning, Mobilization of Resources, Growth, Development and Employment (RBI functions, monetary policy, banking regulation).",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment; Effects of liberalization on the economy, changes in industrial policy and their effects on industrial growth."
+  },
+  "lectureHoursEstimate": "Lecture 21",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Reserve Bank of India (RBI) is India's central banking institution, established on April 1, 1935, under the Reserve Bank of India Act, 1934. It controls the monetary policy of the Indian rupee, regulates the banking system, manages foreign exchange, acts as a lender of last resort, and plays a pivotal role in developmental and promotional roles.",
+    "highYieldFacts": [
+      "Fact 1: Originally established as a private shareholders' bank, RBI was nationalized on January 1, 1949, under the Reserve Bank of India (Transfer to Public Ownership) Act, 1948.",
+      "Fact 2: The Monetary Policy Committee (MPC), constituted under Section 45ZB of the RBI Act, 1934, determines the policy interest rate required to achieve the inflation target (4% with a band of +/- 2%).",
+      "Fact 3: The RBI is governed by a central board of directors appointed by the Government of India in keeping with the Reserve Bank of India Act.",
+      "Fact 4: RBI holds the monopoly on banknote issue in India under Section 22 of the RBI Act, 1934, though one-rupee notes and coins are issued by the Ministry of Finance.",
+      "Fact 5: Recent policy evolution includes the launch of the Central Bank Digital Currency (CBDC) - e-Rupee, and the enhancement of cross-border payment frameworks like UPI-PayNow linkage."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the issuer of One Rupee notes and coins. While RBI manages all other currency notes, the One Rupee note and all coins are issued by the Ministry of Finance (bearing the signature of the Finance Secretary).",
+      "Trap 2: Assuming the MPC has equal voting power for all members; the RBI Governor holds a casting vote in the event of a tie under Section 45ZH."
+    ],
+    "keyArticlesOrStatutes": [
+      "Reserve Bank of India Act, 1934",
+      "Banking Regulation Act, 1949",
+      "Section 45ZB of RBI Act (Monetary Policy Committee)",
+      "Foreign Exchange Management Act (FEMA), 1999"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Institutional Architecture of the RBI</h3><p>The Reserve Bank of India (RBI) stands at the commanding heights of India's financial sector architecture. Established in 1935 on the recommendations of the Hilton Young Commission (Royal Commission on Indian Currency and Finance), the central bank has transitioned from a colonial currency authority to a modern developmental central bank of an emerging trillion-dollar economy. Its statutory foundation rests primarily on the Reserve Bank of India Act, 1934, and the Banking Regulation Act, 1949, which together provide the legal teeth required for monetary management, banking supervision, and systemic stability.</p><h3>Core Functions and Contemporary Paradigms</h3><p>The traditional taxonomy of RBI's functions includes monetary management, issuing currency, acting as banker to the government and banks, and managing foreign exchange reserves. However, in the post-liberalization era, especially post-2016 adoption of the flexible inflation targeting (FIT) framework, the primary mandate has been anchored on price stability while keeping in mind the objective of growth. The Monetary Policy Committee (MPC) institutionalized transparency, accountability, and collective decision-making in setting the repo rate.</p><p>Simultaneously, the regulatory perimeter of the RBI has expanded significantly. With amendments to the Banking Regulation Act, the RBI now exercises rigorous oversight over Urban Cooperative Banks (UCBs) and Multi-State Cooperative Banks. Furthermore, the rise of Fintech, NBFC consolidation, and systemic cross-border capital flows have tested the regulatory agility of the central bank. The twin-balance sheet problem, resolution of Non-Performing Assets (NPAs) via the Insolvency and Bankruptcy Code (IBC) in tandem with RBI guidelines, and proactive liquidity management underscore its dynamic governance role.</p><h3>Governance, Autonomy, and Challenges</h3><p>The debate surrounding central bank autonomy remains a perennial theme in Indian political economy. Striking a delicate balance between fiscal policy imperatives of the elected government and the macroeconomic stability goals of an independent central bank is vital. Issues such as economic capital framework transfers, prompt corrective action (PCA) frameworks, and digital currency security present ongoing administrative and technical challenges.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory autonomy derived from the RBI Act, 1934 and Banking Regulation Act, 1949, balanced with Section 7 provisions allowing government directions in public interest.",
+      "socio_economic": "Financial inclusion mandates (Pradhan Mantri Jan Dhan Yojana, Payments Banks, Priority Sector Lending), consumer protection, and dampening inflationary shocks that disproportionately affect the poor.",
+      "administrative_governance": "Supervisory convergence across commercial, cooperative, and shadow banking systems; adoption of Risk-Based Supervision (RBS) and SupTech (Supervisory Technology).",
+      "international_or_comparative": "Alignment with Basel III norms, management of capital account convertibility, and integration of domestic payment rails (UPI) with global networks."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Urjit Patel Committee Report on Monetary Policy Framework (2014)",
+      "Bimal Jalan Committee on RBI Economic Capital Framework (2019)",
+      "Nandan Nilekani Committee on Digital Payments (2019)",
+      "Supreme Court judgment striking down RBI's April 2018 circular on Cryptocurrency (Internet and Mobile Association of India v. RBI, 2020)"
+    ],
+    "structuredDiagramAscii": "RBI GOVERNANCE & FUNCTIONS MATRIX\n┌────────────────────────────────────────────────────────┐\n│               Central Board of Directors               │\n└───────────┬────────────────────────────────┬───────────┘\n            │                                │\n┌───────────▼────────────┐        ┌──────────▼───────────┐\n│ Monetary Policy (MPC)  │        │ Regulation & Sup.    │\n│ - Flexible Inflation   │        │ - Commercial Banks   │\n│   Targeting (4% +/- 2%)│        │ - UCBs & NBFCs       │\n└────────────────────────┘        └──────────────────────┘\n            │                                │\n┌───────────▼────────────┐        ┌──────────▼───────────┐\n│ Currency & Foreign Ex. │        │ Developmental Role   │\n│ - Issue Management     │        │ - Financial Inclusion│\n│ - FEMA Administration  │        │ - Payment Systems    │\n└────────────────────────┘        └──────────────────────┘"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Consider the following statements: 1. Other things remaining unchanged, market demand for goods might increase if there is an expansion of monetary policy. 2. Expansion of monetary policy may result in an increase in the supply of money. 3. The Central Bank of a country can influence the cost of credit. Which of the statements given above are correct?",
+        "options": [
+          "1 and 2 only",
+          "2 and 3 only",
+          "1 and 3 only",
+          "1, 2 and 3"
+        ],
+        "answer": "1, 2 and 3",
+        "explanation": "An expansion of monetary policy involves lowering interest rates and increasing money supply (Statements 2 and 3). This lowers the cost of credit, boosts investment and consumer spending, thereby increasing the market demand for goods (Statement 1)."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Explain the changes in India’s monetary policy framework over the recent years and assess its effectiveness in controlling inflation."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the changing role of the Reserve Bank of India from a traditional banking regulator to an enabler of financial inclusion, digital innovation, and macroeconomic stability. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define RBI's evolving mandate from traditional central banking to modern developmental and regulatory roles under the RBI Act, 1934.",
+      "body": "Discuss its role in monetary management (Flexible Inflation Targeting), financial inclusion (PSL, Payments Banks, Jan Dhan), digital innovation (UPI, CBDC), and systemic risk management (PCA, asset quality review). Address challenges like autonomy and shadow banking regulation.",
+      "conclusion": "Summarize how balancing growth, inflation, and digital resilience makes RBI critical to India's vision of a $5 trillion economy."
+    },
+    "modelAnswerHtml": "<p>The Reserve Bank of India (RBI), established in 1935, has undergone a profound metamorphosis. From a conventional central bank focused primarily on currency issuance and exchange rate stability, it has evolved into a multi-faceted institution driving macroeconomic stability, inclusive growth, and digital financial transformation.</p><p><strong>1. Shift in Monetary Policy Management:</strong><br>The adoption of the Flexible Inflation Targeting (FIT) framework in 2016, following the Urjit Patel Committee recommendations, anchored consumer price inflation at 4% (+/- 2%). The Monetary Policy Committee (MPC) brought predictability, accountability, and transparency to interest rate decisions, successfully anchoring inflation expectations during global shocks like the pandemic and geopolitical crises.</p><p><strong>2. Financial Inclusion and Equitable Growth:</strong><br>Recognizing that financial exclusion breeds inequality, the RBI expanded its mandate. Priority Sector Lending (PSL) norms, licensing of Small Finance Banks and Payments Banks, and deployment of the 'RBI's Financial Inclusion Index' have deepened credit penetration into unserved rural and micro-enterprise segments.</p><p><strong>3. Spearheading Digital Financial Architecture:</strong><br>The RBI has positioned India at the global forefront of digital payments. By fostering public digital rails like UPI, Bharat Bill Payment System (BBPS), and pioneering the Central Bank Digital Currency (CBDC / e-Rupee), the central bank has reduced transaction friction while maintaining systemic oversight.</p><p><strong>4. Enhanced Regulation and Systemic Resilience:</strong><br>Post the asset quality review and resolution of legacy Non-Performing Assets (NPAs) through the IBC, the RBI instituted robust macroprudential tools. Bringing Urban Cooperative Banks under direct supervisory radar and tightening norms for Non-Banking Financial Companies (NBFCs) have insulated the financial sector from contagion risks.</p><p><strong>Way Forward:</strong><br>While preserving institutional autonomy and striking a judicious balance between fiscal imperatives and monetary goals, the RBI must continuously adapt to emerging risks such as cybersecurity threats, climate-related financial disclosures, and crypto-asset volatility. A proactive, agile RBI remains indispensable to realizing India's aspiration of sustainable and inclusive growth toward Vision 2047.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Monetary Policy Committee (MPC) of India: 1. It is a statutory body constituted under the provisions of the Foreign Exchange Management Act (FEMA), 1999. 2. It consists of six members, out of which three are nominated by the Central Government and three are officials of the Reserve Bank of India. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because the MPC is constituted under Section 45ZB of the Reserve Bank of India Act, 1934, not FEMA. Statement 2 is correct: the MPC has six members—three from the RBI (including the Governor as chairperson) and three external members appointed by the Central Government."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following functions is NOT performed by the Reserve Bank of India?",
+      "options": [
+        "Acting as the banker to the Central and State Governments",
+        "Regulation and supervision of non-banking financial companies (NBFCs)",
+        "Determination of the exchange rate band under a fixed exchange rate regime",
+        "Issuing One Rupee notes and coins on behalf of the government"
+      ],
+      "answer": "Issuing One Rupee notes and coins on behalf of the government",
+      "explanation": "One Rupee notes and all coins are issued by the Ministry of Finance, Government of India, not the RBI (though the RBI puts them into circulation). All other currency notes are exclusively issued by the RBI under Section 22 of the RBI Act."
+    }
+  ]
+}

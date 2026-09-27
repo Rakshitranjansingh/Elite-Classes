@@ -1,0 +1,106 @@
+{
+  "microTopicId": "environment_environment_pollution_water_pollution",
+  "subjectId": "environment",
+  "subjectTitle": "Environment, Ecology & Biodiversity",
+  "topicId": "environment_environment_pollution",
+  "topicTitle": "Environment Pollution",
+  "subTopicTitle": "Water Pollution",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental ecology, Bio-diversity and Climate Change - that do not require subject specialization.",
+    "mains": "GS-III: Conservation, Environmental Pollution and Degradation, Environmental Impact Assessment."
+  },
+  "lectureHoursEstimate": "Lecture 18&20",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Water pollution is the contamination of water bodies (lakes, rivers, oceans, aquifers) primarily due to anthropogenic activities, exceeding the self-purification capacity of water. It is measured via key parameters like Biological Oxygen Demand (BOD), Chemical Oxygen Demand (COD), Dissolved Oxygen (DO), and Fecal Coliform counts.",
+    "highYieldFacts": [
+      "Fact 1: The Water (Prevention and Control of Pollution) Act, 1974 is the primary legislation; it mandates the constitution of Central and State Pollution Control Boards (CPCB/SPCB).",
+      "Fact 2: Eutrophication is the process of nutrient enrichment (Nitrogen/Phosphorus) leading to algal blooms and eventual hypoxic 'dead zones'.",
+      "Fact 3: Bureau of Indian Standards (BIS) IS 10500:2012 specifies the permissible limits for drinking water quality in India.",
+      "Fact 4: The 'Polluter Pays Principle' (PPP) is a core legal doctrine applied by the National Green Tribunal (NGT) in water conservation cases.",
+      "Fact 5: Central Ground Water Authority (CGWA) regulates groundwater extraction under the Environment (Protection) Act, 1986."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing BOD and COD. BOD measures biodegradable organic matter; COD measures both biodegradable and non-biodegradable, hence COD is always higher than BOD.",
+      "Trap 2: Assuming NGT has jurisdiction only over forest cases. NGT has jurisdiction over all 'substantial' environmental issues involving water pollution under the NGT Act, 2010."
+    ],
+    "keyArticlesOrStatutes": [
+      "Water (Prevention and Control of Pollution) Act, 1974",
+      "Environment (Protection) Act, 1986",
+      "Article 21 (Right to clean water)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Governance of Water Pollution in India</h3><p>Water pollution governance is a multi-layered challenge involving the <strong>Water Act, 1974</strong> and the <strong>Environment Protection Act, 1986</strong>. The institutional architecture rests on the CPCB and SPCBs, which set effluent standards for industries and sewage treatment plants (STPs).</p><h4>Critical Dimensions:</h4><ul><li><strong>Technological Gap:</strong> Majority of urban India relies on legacy sewage infrastructure. Only 30-40% of generated sewage is treated; the rest enters water bodies as untreated wastewater.</li><li><strong>Non-Point Source Pollution:</strong> Unlike industrial effluents (point source), agricultural runoff (pesticides/fertilizers) is a diffuse, non-point source that lacks effective regulatory oversight.</li><li><strong>Groundwater Depletion-Contamination Nexus:</strong> Over-extraction leads to lower water tables, which increases the concentration of geogenic pollutants like Arsenic, Fluoride, and Uranium in the remaining water.</li><li><strong>Governance Fragmentation:</strong> Responsibility for water quality is split between Ministry of Jal Shakti (DoWR, RD & GR), Ministry of Environment, Forest and Climate Change (MoEFCC), and urban local bodies (ULBs).</li></ul><p>The <strong>National Mission for Clean Ganga (NMCG)</strong> serves as a template for river basin management, transitioning from a project-based approach to a basin-based integrated approach.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Article 21 (Right to Life includes right to clean water as per M.C. Mehta vs Union of India) and the 12th Schedule (responsibilities of ULBs).",
+      "socio_economic": "Water-borne diseases (Cholera, Dysentery) disproportionately impact the poor. Economic loss due to productivity decline and healthcare costs is significant.",
+      "administrative_governance": "Lack of real-time monitoring and enforcement of 'Consent to Operate' (CTO) by SPCBs due to resource constraints and political economy at the state level.",
+      "international_or_comparative": "UN SDG 6: Ensure availability and sustainable management of water and sanitation for all."
+    },
+    "landmarkJudgmentsOrReports": [
+      "M.C. Mehta v. Union of India (Taj Trapezium Case)",
+      "Vellore Citizens' Welfare Forum v. Union of India (Precautionary Principle)",
+      "NITI Aayog Composite Water Management Index (CWMI)"
+    ],
+    "structuredDiagramAscii": "Pollution Sources --> [Industrial Effluents | Urban Sewage | Agricultural Runoff] --> |Impact| -> [Eutrophication | Biodiversity Loss | Human Health Risks] --> [Mitigation: STPs | Zero Liquid Discharge | Circular Water Economy]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "With reference to the 'Water (Prevention and Control of Pollution) Act, 1974', consider the following statements: 1. The Central Pollution Control Board (CPCB) has the power to restrict the construction of new industries. 2. The Act empowers the government to declare any area as a 'Water Pollution Prevention Control Area'.",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Both 1 and 2",
+        "explanation": "Both statements are correct as the Act grants broad regulatory powers to the CPCB/SPCBs to regulate industrial setups in notified areas to prevent degradation of water quality."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "What are the key features of the National River Conservation Plan (NRCP)? Discuss its effectiveness in controlling pollution in major rivers."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the efficacy of the current regulatory framework in addressing non-point source water pollution in India. (250 words, 15 marks)",
+    "approach": {
+      "intro": "Define non-point source (NPS) pollution (agriculture/runoff) and its contrast with point source (industry) pollution.",
+      "body": "Explain why existing laws (Water Act 1974) focus on point sources. Discuss challenges with NPS (diffuse nature, chemical-heavy agriculture). Suggest solutions: organic farming, buffer zones, and legislative reform.",
+      "conclusion": "Emphasize an integrated 'One Water' approach aligned with SDG 6 targets."
+    },
+    "modelAnswerHtml": "<h3>Regulatory Efficacy against Non-Point Source (NPS) Pollution</h3><p>The regulatory framework for water pollution in India, primarily the <strong>Water Act, 1974</strong>, is structurally designed to regulate 'point source' pollution (factories/STPs). However, NPS pollution, such as fertilizer-laden agricultural runoff, untreated urban storm-water, and open defecation, remains largely outside the scope of effective enforcement.</p><h4>Challenges in Addressing NPS:</h4><ul><li><strong>Diffuse Nature:</strong> Unlike industrial pipes, NPS pollution is widespread, making it difficult to monitor, quantify, or hold a specific entity accountable under the 'Polluter Pays Principle'.</li><li><strong>Political Sensitivity:</strong> Regulating agricultural run-off involves complex political considerations regarding farmers' livelihoods and input subsidies.</li><li><strong>Legal Lacunae:</strong> The current 'Consent to Operate' (CTO) mechanism applies to industries, whereas agriculture is unregulated, leading to massive nitrate loading in groundwater.</li></ul><h4>Way Forward:</h4><ul><li><strong>Integrated Nutrient Management:</strong> Shift towards precision agriculture to reduce the use of synthetic nitrogen and phosphorus.</li><li><strong>Natural Infrastructure:</strong> Developing riparian buffers and wetlands to act as bio-filters for agricultural run-off before it reaches water bodies.</li><li><strong>Citizen Science:</strong> Leveraging community-led monitoring systems for local water bodies to supplement SPCB surveillance.</li></ul><p><strong>Conclusion:</strong> To move beyond the current limited approach, India needs to institutionalize a 'basin-management' protocol that integrates land-use planning with water governance, effectively targeting the source of pollution at the watershed level rather than just the tail-end effluent outlet.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following parameters is used as a proxy for the amount of organic pollution in water?",
+      "options": [
+        "Dissolved Oxygen (DO)",
+        "Biological Oxygen Demand (BOD)",
+        "Total Hardness",
+        "pH Value"
+      ],
+      "answer": "Biological Oxygen Demand (BOD)",
+      "explanation": "BOD measures the amount of oxygen required by aerobic microorganisms to decompose the organic matter in water; higher BOD indicates higher pollution."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following: 1. Arsenic 2. Fluoride 3. Uranium. Which of these are common geogenic water pollutants in India?",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "1, 2 and 3",
+      "explanation": "All three are prevalent geogenic contaminants in various parts of India due to excessive groundwater extraction and geological conditions."
+    }
+  ]
+}

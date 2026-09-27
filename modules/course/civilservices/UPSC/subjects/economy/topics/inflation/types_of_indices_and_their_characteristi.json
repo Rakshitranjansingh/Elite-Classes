@@ -1,0 +1,104 @@
+{
+  "microTopicId": "economy_inflation_types_of_indices_and_their_cha",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_inflation",
+  "topicTitle": "Inflation",
+  "subTopicTitle": "Types of Indices and their characteristics: CPI, WPI etc.",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives, etc. (Focus on Inflation, Price Indices)",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 14",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Price indices measure the average change in prices over time of a fixed basket of goods and services consumed or traded by specific segments of the economy. In India, the two primary indices are the Consumer Price Index (CPI) and the Wholesale Price Index (WPI), which serve distinct macroeconomic signaling and policy formulation purposes.",
+    "highYieldFacts": [
+      "Fact 1: The Reserve Bank of India (RBI) abandoned WPI and adopted CPI-Combined (CPI-C) as the sole benchmark for monetary policy formulation in 2014, based on the Urjit Patel Committee recommendations.",
+      "Fact 2: CPI is compiled by the National Statistical Office (NSO) under the Ministry of Statistics and Programme Implementation (MoSPI).",
+      "Fact 3: WPI is compiled and published by the Office of the Economic Adviser, Department for Promotion of Industry and Internal Trade (DPIIT) under the Ministry of Commerce and Industry.",
+      "Fact 4: The current base year for CPI (Combined, Rural, Urban) is 2012 (100), while for WPI, the base year is 2011-12 (100).",
+      "Fact 5: WPI measures price movements at the producer/wholesale level and does not include services, whereas CPI captures retail prices paid by consumers, covering both goods and services."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the publishing authorities—WPI is published by DPIIT (Ministry of Commerce), while CPI is published by NSO (MoSPI).",
+      "Trap 2: Assuming WPI includes services. WPI exclusively tracks commodities (Primary articles, Fuel & power, Manufactured products), whereas CPI includes a substantial service component like housing, education, and health."
+    ],
+    "keyArticlesOrStatutes": [
+      "Reserve Bank of India Act, 1934 (Section 45ZA - Flexible Inflation Targeting framework)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Structural Dynamics of Price Indices in India</h3><p>Price indices form the bedrock of economic policymaking, wage negotiations, and national income accounting. The architecture of inflation measurement in India has undergone a paradigm shift, transitioning from a heavy reliance on wholesale price movements to consumer-centric metrics that reflect the true cost of living. Understanding the structural differences, methodological nuances, and policy implications of CPI and WPI is essential for evaluating macroeconomic governance.</p><h3>Consumer Price Index (CPI): The Yardstick of Retail Inflation</h3><p>CPI measures the average change over time in prices paid by ultimate households for a basket of goods and services. India shifted to CPI-Combined (CPI-C) as the primary anchor for monetary policy following the Urjit Patel Committee report. Key variants include CPI-Industrial Workers (CPI-IW), CPI-Agricultural Labourers (CPI-AL), and CPI-Rural Labourers (CPI-RL)—compiled by the Labour Bureau (Ministry of Labour and Employment)—which are traditionally used for wage indexation and dearness allowance (DA) calculations. The macro-level CPI-C, published by the NSO, encompasses sub-groups such as food and beverages, pan/tobacco, fuel and light, housing, clothing, and miscellaneous items.</p><h3>Wholesale Price Index (WPI): The Producer Price Indicator</h3><p>WPI tracks price changes of goods traded in the wholesale markets before they reach retail consumers. Computed by the DPIIT, WPI is structured into three main groups: Primary Articles (weight ~22.6%), Fuel and Power (~13.1%), and Manufactured Products (~64.2%). Unlike CPI, WPI completely omits services, making it heavily sensitive to global commodity price shocks, crude oil volatility, and industrial raw material costs. Consequently, a widening wedge between WPI and CPI often indicates structural bottlenecks in supply chains, profit margin compression for corporates, or inefficiencies in wholesale-to-retail transmission.</p><h3>Contemporary Challenges and Governance Reforms</h3><p>The contemporary macroeconomic landscape poses unique challenges for inflation indices. Rapid digitalization, the emergence of the gig economy, shifting consumption baskets toward high-value protein and services, and extreme weather events driven by climate change necessitate frequent base-year revisions and basket weight recalibrations. Furthermore, discrepancies between rural and urban inflation trajectories complicate uniform monetary policy transmission across diverse regional economies.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory mandate under Section 45ZA of the RBI Act, 1934, binding the central bank to maintain price stability with an inflation target of 4% (with a +/- 2% tolerance band) anchored on CPI.",
+      "socio_economic": "Differential impact on vulnerable sections; food inflation in CPI disproportionately burdens lower-income households due to a higher Engel's coefficient, affecting nutritional security.",
+      "administrative_governance": "Data collection hurdles, price collection lag across thousands of rural and urban markets, and institutional coordination between MoSPI and DPIIT.",
+      "international_or_comparative": "Transition globally toward Producer Price Indices (PPI) to replace WPI, aligning with International Monetary Fund (IMF) and System of National Accounts (SNA) standards."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Urjit Patel Committee Report to Revise and Strengthen the Monetary Policy Framework (2014)",
+      "B.N. Goldar Committee Report on WPI Revision",
+      "National Statistical Commission (NSC) recommendations on economic data integrity"
+    ],
+    "structuredDiagramAscii": "Macroeconomic Transmission & Price Indices:\n[Global/Domestic Shocks] ---> [WPI (Producer Level)] ---> [Supply Chain / Wholesalers] ---> [CPI (Retail Level)] ---> [RBI Monetary Policy (FIT Anchor: 4% +/- 2%)]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "The inflations in India is measured which of the following? 1. Consumer Price Index (Combined) 2. Consumer Price Index for Industrial Workers 3. Wholesale Price Index 4. 4. CPI for Agricultural Labourers Select the correct answer using the code given below.",
+        "options": [
+          "1 only",
+          "1, 2 and 3 only",
+          "2, 3 and 4 only",
+          "1, 2, 3 and 4"
+        ],
+        "answer": "1, 2, 3 and 4",
+        "explanation": "All the listed indices are official measures of inflation in India, published by different agencies for distinct administrative, regulatory, and socio-economic purposes."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2015,
+        "paper": "GS-III",
+        "marks": 12.5,
+        "question": "How does the RBI utilize Consumer Price Index (Combined) as an anchor for inflation targeting? Discuss its implications on economic growth."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the structural differences between the Wholesale Price Index (WPI) and the Consumer Price Index (CPI). Examine why the Reserve Bank of India transitioned to CPI as the primary anchor for monetary policy.",
+    "approach": {
+      "intro": "Define WPI and CPI briefly, mention their respective publishing authorities and current base years, and establish the context of inflation measurement in India.",
+      "body": "Differentiate WPI and CPI across coverage (goods vs. services), economic stage (producer vs. consumer), and basket weights. Explain the rationale behind the RBI's shift (Urjit Patel Committee recommendations, better transmission, targeting cost-of-living). Address limitations and structural challenges.",
+      "conclusion": "Summarize with a futuristic note on moving toward a Producer Price Index (PPI) and aligning statistical systems with global standards for robust macroeconomic governance."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Price indices are critical navigational tools for macroeconomic governance. While the Wholesale Price Index (WPI) tracks price movements at the producer/wholesale level, the Consumer Price Index (CPI) measures the average retail price of a basket of goods and services consumed by households. Recognizing their distinct utilities, India maintains both, though their policy roles have fundamentally diverged.</p><h3>Structural Differences: WPI vs. CPI</h3><ul><li><strong>Scope and Coverage:</strong> WPI (published by DPIIT) covers only commodities (Primary articles, Fuel, Manufactured products) and excludes services. CPI (published by NSO) comprehensively covers both goods and services (including housing, education, and health).</li><li><strong>Stage of Transaction:</strong> WPI captures transactions at the early wholesale/bulk stage, ignoring intermediate markups and retail distribution costs. CPI captures the final retail price paid by the ultimate consumer.</li><li><strong>Weighting Diagram:</strong> WPI assigns a heavy weightage to manufactured products (~64%), making it responsive to industrial raw material cycles. Conversely, CPI places significant weight on food and beverages (~45% in combined), making it sensitive to agricultural supply shocks.</li></ul><h3>Rationale for RBI's Transition to CPI</h3><p>The Reserve Bank of India, acting on the <strong>Urjit Patel Committee recommendations (2014)</strong>, adopted CPI-Combined as the solitary benchmark for its Flexible Inflation Targeting (FIT) framework due to the following reasons:</p><ul><li><strong>Cost of Living Representation:</strong> Monetary policy aims to protect the purchasing power of citizens. CPI directly reflects the cost of living, whereas WPI reflects producer cost dynamics.</li><li><strong>Exclusion of Services:</strong> With services constituting over 50% of India’s Gross Value Added (GVA), an index devoid of services (WPI) failed to capture a major segment of domestic demand and inflation pressures.</li><li><strong>Global Best Practices:</strong> Most advanced and emerging central banks utilize retail or consumer price inflation metrics, as monetary transmission ultimately impacts consumer demand and retail credit.</li></ul><h3>Limitations and Contemporary Concerns</h3><p>Despite CPI's primacy, structural issues persist, such as infrequent basket weight revisions, regional discrepancies in rural-urban inflation, and the lagging nature of housing data. Furthermore, a persistent divergence between WPI and CPI often obscures true corporate margin trends and wholesale supply chain bottlenecks.</p><h3>Conclusion</h3><p>While CPI remains the gold standard for monetary policy, WPI retains vital utility for industrial cost analysis and GDP deflator calculations. To enhance macroeconomic governance, India must expedite the transition from WPI to a comprehensive <strong>Producer Price Index (PPI)</strong>, ensuring better alignment with international statistical standards and more precise inflation management.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Consumer Price Index (CPI) in India:\n1. CPI-Combined is compiled and published by the Labour Bureau under the Ministry of Labour and Employment.\n2. It includes a separate sub-group for 'Housing', which is applicable only to the urban component of CPI-Combined.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because CPI-Combined is compiled and published by the National Statistical Office (NSO) under the Ministry of Statistics and Programme Implementation (MoSPI). Statement 2 is correct because the housing index in CPI-Combined is assigned a weight only in the urban sector (since imputed rent for owned houses in rural areas is not factored into the rural CPI basket)."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following factors best explains why the Wholesale Price Index (WPI) often diverges significantly from the Consumer Price Index (CPI) during periods of global crude oil price volatility?",
+      "options": [
+        "WPI includes services like transport and logistics, whereas CPI excludes them.",
+        "WPI has a much higher sensitivity to imported raw materials and fuel inputs at the producer stage compared to the retail consumer basket.",
+        "CPI is calculated using geometric mean, while WPI uses arithmetic mean exclusively.",
+        "WPI is updated monthly, whereas CPI is updated on an annual decennial basis."
+      ],
+      "answer": "WPI has a much higher sensitivity to imported raw materials and fuel inputs at the producer stage compared to the retail consumer basket.",
+      "explanation": "WPI includes direct components like 'Fuel and Power' and raw material inputs for 'Manufactured Products' with substantial weights, making it immediately responsive to global commodity and crude price shocks. Retail prices in CPI are buffered by retail margins, domestic pricing policies, and a larger service component, leading to a lag or divergence."
+    }
+  ]
+}

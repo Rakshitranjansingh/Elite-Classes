@@ -1,0 +1,105 @@
+{
+  "microTopicId": "economy_general_topics_secondary_market_stock_market",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_general_topics",
+  "topicTitle": "General Topics",
+  "subTopicTitle": "Secondary market/stock market",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector Initiatives, etc. (Capital Markets/Financial Markets)",
+    "mains": "GS Paper III: Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The secondary market is the financial platform where previously issued securities (stocks, bonds, debentures) are traded between investors, rather than between the investor and the issuing company. It facilitates liquidity and price discovery for the financial system.",
+    "highYieldFacts": [
+      "Fact 1: The Securities and Exchange Board of India (SEBI) Act, 1992, empowers SEBI to regulate the securities market, protecting investor interests and promoting development.",
+      "Fact 2: Stock Exchanges like BSE (the oldest in Asia, est. 1875) and NSE are Self-Regulatory Organizations (SROs) operating under the Securities Contracts (Regulation) Act, 1956.",
+      "Fact 3: The 'T+1' settlement cycle is now the standard for equity trades in India, significantly reducing counterparty risk and enhancing capital efficiency.",
+      "Fact 4: Clearing Corporations (e.g., ICCL, NCL) act as central counterparties, guaranteeing trade settlement and mitigating systemic risk.",
+      "Fact 5: ASBA (Application Supported by Blocked Amount) is a mandatory mechanism for IPOs, preventing funds from being debited until allotment is confirmed."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing Primary Market (IPOs/FPOs where capital is raised by companies) with Secondary Market (trading existing shares where capital changes hands between investors).",
+      "Trap 2: Assuming SEBI manages monetary policy (RBI's mandate) vs capital market regulation (SEBI's mandate)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Securities and Exchange Board of India Act, 1992",
+      "Securities Contracts (Regulation) Act, 1956",
+      "Depositories Act, 1996"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Architecture of the Secondary Market</h3><p>The secondary market serves as the lifeblood of the Indian capital market, transforming 'illiquid' financial assets into 'liquid' investments. It operates through recognized stock exchanges where price discovery occurs via the interaction of supply and demand.</p><h4>Institutional Pillars</h4><ul><li><strong>SEBI:</strong> The apex regulator ensuring market integrity, transparency, and prevention of manipulative practices.</li><li><strong>Stock Exchanges:</strong> Venues providing the infrastructure for trading.</li><li><strong>Depositories (NSDL/CDSL):</strong> Enabling paperless (dematerialized) holding and transfer of securities, crucial for reducing fraud and settlement time.</li><li><strong>Clearing Corporations:</strong> The backbone of systemic stability, ensuring that even if one counterparty defaults, the trade is settled.</li></ul><h4>Contemporary Challenges</h4><p>Despite modernization, challenges persist: <strong>Algorithmic Trading</strong> risks, where high-frequency trading can exacerbate market volatility; <strong>Financial Inclusion gaps</strong>, where retail participation is concentrated in select urban corridors; and <strong>Cybersecurity vulnerabilities</strong> as the market moves entirely digital.</p><h4>Governance Impact</h4><p>Robust secondary markets facilitate capital allocation efficiency—capital moves to firms with higher growth potential. This acts as a 'barometer' for the macro-economy and enforces corporate governance, as listed companies are subject to rigorous disclosure norms under SEBI (LODR) Regulations.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Regulated under Union List Entry 48 (Stock exchanges and futures markets). Legal framework provided by SCRA, 1956.",
+      "socio_economic": "Democratization of wealth; retail participation via SIPs leads to financialization of household savings.",
+      "administrative_governance": "Move towards 'E-governance' in markets; KYC simplification (e-KYC); Investor grievances redressal via SCORES platform.",
+      "international_or_comparative": "Alignment with IOSCO (International Organization of Securities Commissions) standards to attract Foreign Portfolio Investment (FPI)."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Justice B.N. Srikrishna Committee on Financial Sector Legislative Reforms Commission (FSLRC).",
+      "Mohinder Singh Gill v. Chief Election Commissioner (Applied analogously to administrative fairness in regulatory actions)."
+    ],
+    "structuredDiagramAscii": "INVESTOR -> BROKER -> EXCHANGE (Price Discovery) -> CLEARING CORP (Risk Mgmt) -> DEPOSITORY (Ownership Update) -> INVESTOR"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "With reference to the Indian economy, consider the following statements: 1. 'Share of household financial savings go towards government borrowings.' 2. 'Dated securities issued at market-related rates in auctions create a large component of internal debt.' Which is correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Both 1 and 2",
+        "explanation": "Both statements describe the structural mechanism of internal debt management and the role of financial markets."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "How does the functioning of the stock market reflect the health of an economy? Explain the role of SEBI in ensuring the integrity of the market."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Discuss the significance of the secondary market in India’s economic growth and analyze the role of regulatory technology (RegTech) in mitigating modern market risks. (15 Marks, 250 Words)",
+    "approach": {
+      "intro": "Define the secondary market as a catalyst for capital formation and liquidity.",
+      "body": "Explain its economic significance (price discovery, capital allocation) and discuss RegTech (AI/ML for surveillance, T+1 settlement).",
+      "conclusion": "Link with 'Amrit Kaal' vision of a robust, inclusive financial system."
+    },
+    "modelAnswerHtml": "<h3>Significance and Role of RegTech</h3><p>The secondary market is essential for an efficient economy as it provides an exit mechanism for investors and liquidity for the market. By allowing for continuous valuation of enterprises, it enables efficient capital allocation.</p><h4>Economic Significance</h4><ul><li><strong>Liquidity:</strong> Ensures investors can convert assets to cash, encouraging long-term investment.</li><li><strong>Capital Allocation:</strong> Market efficiency ensures capital shifts towards productive sectors.</li><li><strong>Barometer:</strong> Reflects investor sentiment regarding economic policy and growth prospects.</li></ul><h4>RegTech in Risk Mitigation</h4><p>To address 21st-century risks, SEBI has adopted RegTech:</p><ul><li><strong>Surveillance:</strong> Using AI/ML to detect 'wash trading' and 'front running' in real-time.</li><li><strong>Settlement Efficiency:</strong> Implementation of T+1 settlement reduces the window of risk.</li><li><strong>Investor Protection:</strong> Implementation of SCORES (SEBI Complaints Redress System) for efficient grievance handling.</li></ul><p><strong>Way Forward:</strong> India must prioritize 'Digital Trust' through cybersecurity frameworks and deep-tech surveillance to ensure that the secondary market remains the engine of growth for a $5 trillion economy.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following functions is primarily associated with a Clearing Corporation?",
+      "options": [
+        "Determining the IPO price",
+        "Guaranteeing trade settlement",
+        "Issuing stock certificates",
+        "Regulating FPI inflow"
+      ],
+      "answer": "Guaranteeing trade settlement",
+      "explanation": "Clearing Corporations act as the legal counterparty to every trade, ensuring that even if one member fails to pay, the other receives their dues, thus maintaining market stability."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Regarding the 'Secondary Market', which statement is incorrect?",
+      "options": [
+        "It is where the company raises capital directly from the public.",
+        "Price discovery happens based on market demand and supply.",
+        "It provides liquidity to existing investors.",
+        "It is regulated by the SEBI."
+      ],
+      "answer": "It is where the company raises capital directly from the public.",
+      "explanation": "Raising capital directly from the public is the function of the Primary Market (e.g., IPOs). The secondary market deals only with existing shares."
+    }
+  ]
+}

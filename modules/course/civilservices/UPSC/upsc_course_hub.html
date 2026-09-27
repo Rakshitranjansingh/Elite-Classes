@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>UPSC Civil Services Integrated Hub — Elite Classes</title>
+
+    <meta name="application-name" content="Elite Classes">
+    <meta name="apple-mobile-web-app-title" content="Elite Classes">
+    <link rel="icon" type="image/png" href="../../../favicon-32x32.png">
+    <link rel="stylesheet" href="../../../css/styles.css">
+
+    <style>
+        :root {
+            --hub-bg: #0f172a;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --primary-blue: #2563eb;
+            --gold-accent: #d97706;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hub-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+        }
+
+        .btn-transparent-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-transparent-nav:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .hub-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px 80px;
+        }
+
+        .hub-hero-banner {
+            position: relative;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #1e1b4b 100%);
+            border-radius: 20px;
+            padding: 36px 30px;
+            margin-bottom: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(217, 119, 6, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #fbbf24;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            font-size: 11.5px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 14px 16px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .stat-val {
+            font-size: 22px;
+            font-weight: 800;
+            color: #f8fafc;
+        }
+
+        .stat-lbl {
+            font-size: 11px;
+            color: #94a3b8;
+            font-weight: 600;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Search & Filter Bar */
+        .search-filter-bar {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 14px 18px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .search-input-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            min-width: 260px;
+            background: #f8fafc;
+            border: 1.5px solid var(--border-color);
+            border-radius: 10px;
+            padding: 8px 14px;
+        }
+
+        .search-input-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 13.5px;
+            font-weight: 600;
+            width: 100%;
+            color: var(--text-dark);
+        }
+
+        /* Subject Cards */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .subject-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 12px 28px rgba(37, 99, 235, 0.12);
+        }
+
+        .sub-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .sub-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            background: #eff6ff;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        .sub-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .sub-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .sub-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .pill {
+            font-size: 11px;
+            padding: 4px 9px;
+            border-radius: 6px;
+            font-weight: 700;
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .btn-explore {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            color: var(--primary-blue);
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 13px;
+            margin-top: 18px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .subject-card:hover .btn-explore {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border-color: var(--primary-blue);
+        }
+
+        /* Modal Drawer for Topic List */
+        .drawer-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .drawer-modal {
+            background: #ffffff;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 800px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+            overflow: hidden;
+            animation: popIn 0.25s ease-out;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.96); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .drawer-header {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8fafc;
+        }
+
+        .drawer-body {
+            padding: 20px 24px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .topic-accordion {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .topic-accordion-title {
+            padding: 14px 18px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .topic-accordion-title:hover {
+            background: #f1f5f9;
+        }
+
+        .subtopic-list {
+            padding: 10px 18px;
+            border-top: 1px solid var(--border-color);
+            background: #ffffff;
+        }
+
+        .subtopic-item {
+            padding: 8px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #334155;
+            border-radius: 8px;
+            transition: background 0.15s ease;
+            text-decoration: none;
+        }
+
+        .subtopic-item:hover {
+            background: #eff6ff;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP HEADER -->
+    <header class="hub-header">
+        <a href="../../../student_home.html" style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:10px;" title="Return to Student Portal">
+            <img src="../../../eliteLogo_crest.png" onerror="this.src='../../../favicon-32x32.png'" alt="Elite Classes Logo" style="height:38px; width:auto; border-radius:6px;">
+            <div>
+                <div style="font-weight:800; font-size:15px; letter-spacing:-0.2px;">Elite Classes</div>
+                <div style="font-size:11px; opacity:0.8; font-weight:600;">Civil Services Examination Hub</div>
+            </div>
+        </a>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <a href="../courses_civilservices.html" class="btn-transparent-nav">
+                ← Civil Services Programs
+            </a>
+            <a href="../../../student_home.html" class="btn-transparent-nav">
+                Portal Home
+            </a>
+        </div>
+    </header>
+
+    <div class="hub-container">
+
+        <!-- HERO SECTION -->
+        <div class="hub-hero-banner">
+            <div class="hero-badge">🏛️ UPSC Civil Services Examination (IAS / IPS / IFS)</div>
+            <h1 style="font-size:26px; font-weight:800; margin:0 0 10px; line-height:1.2;">
+                Integrated GS Prelims & Mains Syllabus Master Hub
+            </h1>
+            <p style="font-size:14px; color:#cbd5e1; margin:0; max-width:850px; line-height:1.6;">
+                Topic-wise granular micro-curriculum covering 16 core disciplines. Every sub-topic delivers comprehensive Prelims fact capsules, analytical Mains frameworks, landmark Supreme Court judgments, authentic PYQs (2013–2024), and structured Model Mains Q&A.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-val" id="stat-subjects">16</div>
+                    <div class="stat-lbl">Core Subjects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val" id="stat-topics">329</div>
+                    <div class="stat-lbl">Curricular Modules</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val" id="stat-subtopics">1,436</div>
+                    <div class="stat-lbl">Micro-Topics</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">100%</div>
+                    <div class="stat-lbl">Prelims & Mains Align</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEARCH & FILTER BAR -->
+        <div class="search-filter-bar">
+            <div class="search-input-box">
+                <span>🔍</span>
+                <input type="text" id="topicSearch" placeholder="Search across 1,436 micro-topics (e.g. Regulating Act, Money Multiplier, Ramsar, Preamble)..." oninput="handleSearch(this.value)">
+            </div>
+            <div style="font-size:13px; font-weight:700; color:var(--text-muted);" id="results-count">
+                Showing all 16 subjects
+            </div>
+        </div>
+
+        <!-- SUBJECTS GRID -->
+        <div class="subjects-grid" id="subjects-container">
+            <!-- Dynamically Rendered via JS -->
+        </div>
+
+    </div>
+
+    <!-- DRAWER MODAL FOR TOPIC EXPLORATION -->
+    <div class="drawer-overlay" id="drawerModal" onclick="closeDrawer(event)">
+        <div class="drawer-modal" onclick="event.stopPropagation()">
+            <div class="drawer-header">
+                <div>
+                    <h3 id="modalSubjectTitle" style="margin:0; font-size:18px; font-weight:800; color:var(--text-dark);">Subject Topics</h3>
+                    <div id="modalSubjectMeta" style="font-size:12px; color:var(--text-muted); margin-top:2px;">Topics and Sub-Topics</div>
+                </div>
+                <button onclick="closeDrawer(null)" style="background:transparent; border:none; font-size:22px; cursor:pointer; color:var(--text-muted);">&times;</button>
+            </div>
+            <div class="drawer-body" id="modalDrawerBody">
+                <!-- Topics list populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let CATALOG = null;
+
+        const SUBJECT_ICONS = {
+            'polity': '⚖️',
+            'economy': '📈',
+            'environment': '🌿',
+            'geography': '🌍',
+            'medieval_history': '🏰',
+            'ancient_history': '🏛️',
+            'modern_history': '🇮🇳',
+            'history': '📜',
+            'science_tech': '🔬',
+            'ir': '🌐',
+            'internal_security': '🛡️',
+            'disaster_mgmt': '🌪️',
+            'governance_ethics': '🤝'
+        };
+
+        async function initHub() {
+            try {
+                const resp = await fetch('catalog/upsc_curriculum_catalog.json');
+                CATALOG = await resp.json();
+                
+                document.getElementById('stat-subjects').innerText = CATALOG.metadata.totalSubjects;
+                document.getElementById('stat-topics').innerText = CATALOG.metadata.totalTopics;
+                document.getElementById('stat-subtopics').innerText = CATALOG.metadata.totalSubtopics.toLocaleString();
+
+                renderSubjects(CATALOG.subjects);
+            } catch (e) {
+                console.error('Error loading UPSC catalog:', e);
+            }
+        }
+
+        function renderSubjects(subjects) {
+            const container = document.getElementById('subjects-container');
+            container.innerHTML = '';
+
+            subjects.forEach(subj => {
+                const totalSub = subj.topics.reduce((acc, t) => acc + (t.subtopics ? t.subtopics.length : 0), 0);
+                const icon = SUBJECT_ICONS[subj.subjectId] || '📚';
+
+                const card = document.createElement('div');
+                card.className = 'subject-card';
+                card.onclick = () => openSubjectDrawer(subj.subjectId);
+
+                card.innerHTML = `
+                    <div>
+                        <div class="sub-header">
+                            <div class="sub-icon">${icon}</div>
+                            <div>
+                                <h3 class="sub-title">${subj.subjectTitle}</h3>
+                                <div class="sub-meta">${subj.topics.length} Modules &bull; ${totalSub} Micro-Topics</div>
+                            </div>
+                        </div>
+                        <div class="sub-pills">
+                            <span class="pill">GS Prelims Paper-I</span>
+                            <span class="pill">GS Mains Alignment</span>
+                            <span class="pill">PYQs Bank</span>
+                        </div>
+                    </div>
+                    <button class="btn-explore">
+                        Explore Topics &amp; PYQs &rarr;
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function openSubjectDrawer(subjectId) {
+            const subj = CATALOG.subjects.find(s => s.subjectId === subjectId);
+            if (!subj) return;
+
+            document.getElementById('modalSubjectTitle').innerText = subj.subjectTitle;
+            document.getElementById('modalSubjectMeta').innerText = `${subj.topics.length} Topics &bull; ${subj.topics.reduce((acc, t) => acc + t.subtopics.length, 0)} Micro-Topics`;
+
+            const body = document.getElementById('modalDrawerBody');
+            body.innerHTML = '';
+
+            subj.topics.forEach((topic, idx) => {
+                const acc = document.createElement('div');
+                acc.className = 'topic-accordion';
+                acc.innerHTML = `
+                    <div class="topic-accordion-title" onclick="toggleAccordion('acc-${idx}')">
+                        <span><strong>${idx + 1}. ${topic.topicTitle}</strong> <span style="font-size:11.5px; color:#64748b; font-weight:600;">(${topic.subtopics.length} subtopics)</span></span>
+                        <span>▼</span>
+                    </div>
+                    <div class="subtopic-list" id="acc-${idx}" style="display:${idx === 0 ? 'block' : 'none'};">
+                        ${topic.subtopics.map(st => `
+                            <a href="upsc_topic_player.html?file=${encodeURIComponent(st.dataPath || '')}&subject=${subj.subjectId}&topic=${topic.topicId}&subtopic=${st.subTopicId}" class="subtopic-item">
+                                <span>&bull; ${st.subTopicTitle}</span>
+                                <span style="font-size:11px; color:#2563eb; font-weight:700;">Study &rarr;</span>
+                            </a>
+                        `).join('')}
+                    </div>
+                `;
+                body.appendChild(acc);
+            });
+
+            document.getElementById('drawerModal').style.display = 'flex';
+        }
+
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
+            }
+        }
+
+        function closeDrawer(event) {
+            if (!event || event.target.id === 'drawerModal') {
+                document.getElementById('drawerModal').style.display = 'none';
+            }
+        }
+
+        function handleSearch(query) {
+            if (!CATALOG) return;
+            const q = query.trim().toLowerCase();
+            if (!q) {
+                renderSubjects(CATALOG.subjects);
+                document.getElementById('results-count').innerText = `Showing all ${CATALOG.subjects.length} subjects`;
+                return;
+            }
+
+            const matched = [];
+            CATALOG.subjects.forEach(subj => {
+                let hasMatch = subj.subjectTitle.toLowerCase().includes(q);
+                if (!hasMatch) {
+                    subj.topics.forEach(t => {
+                        if (t.topicTitle.toLowerCase().includes(q)) hasMatch = true;
+                        t.subtopics.forEach(st => {
+                            if (st.subTopicTitle.toLowerCase().includes(q)) hasMatch = true;
+                        });
+                    });
+                }
+                if (hasMatch) matched.push(subj);
+            });
+
+            renderSubjects(matched);
+            document.getElementById('results-count').innerText = `Found ${matched.length} matching subjects`;
+        }
+
+        document.addEventListener('DOMContentLoaded', initHub);
+    </script>
+</body>
+
+</html>

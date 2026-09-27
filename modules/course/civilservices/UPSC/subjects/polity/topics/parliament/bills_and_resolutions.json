@@ -1,0 +1,108 @@
+{
+  "microTopicId": "polity_parliament_bills_and_resolutions",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_parliament",
+  "topicTitle": "Parliament",
+  "subTopicTitle": "Bills and Resolutions",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc. (Focus on Parliamentary Procedures, Legislative Process, Money Bills, Constitutional Amendment Bills).",
+    "mains": "GS Paper II: Parliament and State Legislatures—Structure, Functioning, Conduct of Business, Powers & Privileges and Issues Arising out of these."
+  },
+  "lectureHoursEstimate": "Lecture 21&22",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The legislative process in the Indian Parliament involves transitioning proposals (Bills) through structured readings and committee scrutiny into enforceable laws, complemented by non-binding or binding expressions of opinion (Resolutions). Understanding the precise distinctions between Ordinary, Money, Financial, and Constitutional Amendment Bills, alongside private member business, is paramount for UPSC Prelims.",
+    "highYieldFacts": [
+      "Fact 1: Article 107 and 108 govern ordinary bills and joint sittings respectively; Article 109 and 110 specifically deal with the special procedure and definition of Money Bills.",
+      "Fact 2: A Money Bill can only be introduced in the Lok Sabha on the recommendation of the President, and the Rajya Sabha must return it within 14 days with or without recommendations.",
+      "Fact 3: Article 368 outlines the dual mechanisms for Constitutional Amendment Bills—special majority in both houses, and ratification by half of the state legislatures for federal provisions.",
+      "Fact 4: Private Member Bills can be introduced by any Member of Parliament other than a minister, and are taken up only on alternate Fridays in the afternoon session.",
+      "Fact 5: Resolutions are categorized into Private Member's, Government, and Statutory Resolutions; unlike bills, resolutions do not result in statutes but express the house's resolve."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming Money Bills can be introduced in either House. They can exclusively originate in the Lok Sabha upon Presidential recommendation.",
+      "Trap 2: Confusing Financial Bills (Category I under Art 117(1) and Category II under Art 117(3)) with Money Bills (Art 110); all Money Bills are Financial Bills, but not all Financial Bills are Money Bills."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 107 (Provisions as to introduction and passing of Bills)",
+      "Article 109 (Special procedure in respect of Money Bills)",
+      "Article 110 (Definition of 'Money Bills')",
+      "Article 117 (Special provisions as to financial bills)",
+      "Article 368 (Power of Parliament to amend the Constitution)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Mechanics of Parliamentary Legislative Process</h3><p>The legislative architecture of the Indian Parliament is anchored in meticulous constitutional protocols and Rules of Procedure and Conduct of Business in Lok Sabha and Rajya Sabha. The journey from a legislative proposal to an enacted statute embodies the principles of deliberative democracy, checks and balances, and federal accommodation. Bills are broadly classified into Public (Government) Bills and Private Member Bills, reflecting executive dominance versus individual legislative agency.</p><h3>Contemporary Challenges in Law-Making</h3><p>In recent years, the quality of legislation has faced severe critique due to declining discussion hours, rampant bypassing of Department-Related Standing Committees (DRSCs), and the classification of extensive reform packages as Money Bills (e.g., Aadhaar Act, Tribunal Reforms Act). This trend undermines bicameralism and judicial review frameworks established under landmark jurisprudence. Furthermore, the abysmal clearance rate of Private Member Bills highlights systemic disinterest in utilizing individual legislative initiatives for socio-economic transformation.</p><h3>Resolutions as Instruments of Legislative Accountability</h3><p>Resolutions serve as vital instruments for members to articulate policy positions, demand executive accountability, or initiate non-legislative actions. While substantive resolutions require a formal vote and can lead to executive embarrassment or policy shifts if adopted, statutory resolutions enable parliamentarians to annul or modify delegated legislation (rules, regulations, and bye-laws framed under parent acts), serving as an indispensable check on executive overreach.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Strict adherence to Article 107-111 procedures, Speaker's absolute certification power under Article 110(3) regarding Money Bills, and judicial review limits post-Kavita Lokesh Sharma and Rojer Mathew judgments.",
+      "socio_economic": "Impact of hasty legislation on marginalized groups, lack of pre-legislative consultation policies, and inadequate representation of grassroots socio-economic realities in drafting.",
+      "administrative_governance": "Over-reliance on delegated legislation, weakening of DRSCs, and erosion of executive accountability during voice-vote passages of complex economic bills.",
+      "international_or_comparative": "Comparison with Westminster traditions where pre-legislative scrutiny (Green/White papers) is institutionalized, contrasting with India's emergent proclivity for ordinance-to-bill pipelines."
+    },
+    "landmarkJudgmentsOrReports": [
+      "KSRuchiram case / Rojer Mathew v. Union of India (2020) regarding the misuse of Money Bill routes for passing non-money provisions.",
+      "National Legal Services Authority (NALSA) observations on private member resolutions for rights-based legislations.",
+      "2nd Administrative Reforms Commission (ARC) recommendations on strengthening parliamentary oversight and pre-legislative consultations."
+    ],
+    "structuredDiagramAscii": "Bill Introduction -> First Reading -> Referral to DRSC (Optional/Standard) -> Second Reading (Clause-by-Clause Discussion) -> Third Reading -> Transmission to Second House -> Assent by President (Act) / Joint Sitting (Art 108)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which one of the following is correct in respect of the commencement of the Election Commission of India?",
+        "options": [
+          "A Money Bill is introduced in the Lok Sabha and it can be recommended by a minister as well as private member.",
+          "The Rajya Sabha has no power either to reject or to amend a Money Bill.",
+          "The Rajya Sabha cannot delay a Money Bill for more than 30 days.",
+          "A bill passed by the Lok Sabha and transmitted to the Rajya Sabha can be returned with amendments."
+        ],
+        "answer": "The Rajya Sabha has no power either to reject or to amend a Money Bill.",
+        "explanation": "Under Article 109, Rajya Sabha can only make recommendations within 14 days, which Lok Sabha may accept or reject. Thus, it cannot amend or reject it."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Discuss the operational peculiarities of the exercise of a power of the office of Speaker with respect to Money Bills under Article 110 of the Constitution of India."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the declining trend of substantive legislative deliberations and the bypass of Department-Related Standing Committees in passing crucial bills in India. Suggest reforms to restore Parliament's core constitutional role. (250 words, 15 Marks)",
+    "approach": {
+      "intro": "Define the constitutional role of Parliament under Article 107-111 as a deliberative forum and highlight the alarming shift towards rushed legislation and bypassing committees.",
+      "body": "Analyze reasons for declining deliberations (executive dominance, guillotine closures, weaponization of Money Bill route). Discuss the impact on governance and federal balance. Cite judicial/committee perspectives.",
+      "conclusion": "Provide a forward-looking conclusion advocating institutionalized pre-legislative consultations, mandatory DRSC referrals, and adherence to constitutional morality."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The Indian Parliament, envisioned by the framers as the grand inquest of the nation, derives its legitimacy from deep, reasoned deliberation. However, contemporary legislative practices exhibit a troubling departure from this ethos, marked by hasty passage of bills, declining sitting days, and the systematic marginalization of Department-Related Standing Committees (DRSCs).</p><h3>Causes and Manifestations of Declining Deliberations</h3><ul><li><strong>Bypassing Standing Committees:</strong> In recent sessions, a decreasing fraction of bills have been referred to DRSCs, leading to poorly drafted statutes laden with ambiguities and implementation loopholes.</li><li><strong>Weaponization of Money Bills:</strong> Classifying contentious socio-economic reforms (e.g., Aadhaar Act, Tribunal Reforms) as Money Bills under Article 110 subverts the bicameral checks of the Rajya Sabha.</li><li><strong>Guillotine and Rushed Passages:</strong> Complex budgetary allocations and sweeping laws are frequently passed via voice votes with minimal debate, eroding executive accountability.</li></ul><h3>Impact on Governance and Federalism</h3><p>When laws are enacted without robust legislative scrutiny, it engenders downstream litigation, administrative friction, and executive overreach through delegated legislation. The bypassing of the Rajya Sabha alienates states, weakening the cooperative federal architecture.</p><h3>Way Forward</h3><p>To restore Parliament's foundational primacy, the following measures are imperative:</p><ul><li><strong>Institutionalizing Pre-Legislative Consultation Policy (PLCP):</strong> Making public consultation mandatory for all draft bills prior to table introduction.</li><li><strong>Binding Committee Referrals:</strong> Amending rules of procedure to make referral of all financial and major policy bills to DRSCs mandatory.</li><li><strong>Enforcing Time Quotas:</strong> Allocating fixed minimum hours for debate based on bill complexity, curbing the misuse of urgency clauses.</li></ul><p><strong>Conclusion:</strong> Restoring the sanctity of the legislative process is essential for deepening India's constitutional democracy and ensuring that statutes emerge as durable instruments of socio-economic justice.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Financial Bills under the Constitution of India:\n1. All Money Bills are Financial Bills, but all Financial Bills are not Money Bills.\n2. Financial Bills (Category-I) under Article 117(1) can be introduced only in the Lok Sabha on the recommendation of the President.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Statement 1 is correct because every Money Bill contains provisions dealing with taxation/expenditure mentioned in Art 110, making it a Financial Bill (Category-I or II), but other bills contain financial matters without meeting all criteria of Art 110. Statement 2 is correct as Article 117(1) bills require Presidential recommendation and share the Lok Sabha introduction restriction with Money Bills."
+    },
+    {
+      "id": "mcq_02",
+      "question": "With reference to Private Member's Business in Parliament, consider the following statements:\n1. A Private Member Bill can be introduced by any Member of Parliament who is not a Minister.\n2. The discussion on Private Member Bills takes place only on alternate Fridays during the afternoon sitting.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Both statements are factually accurate under the Rules of Procedure and Conduct of Business in Lok Sabha. Private members comprise all MPs minus ministers, and their business is exclusively allotted to alternate Friday afternoons."
+    }
+  ]
+}

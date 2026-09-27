@@ -1,0 +1,106 @@
+{
+  "microTopicId": "polity_parliament_motions_or_resolutions_in_parl",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_parliament",
+  "topicTitle": "Parliament",
+  "subTopicTitle": "Motions or Resolutions in parliament",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Parliament and State Legislatures—structure, functioning, conduct of business, powers & privileges and issues arising out of these."
+  },
+  "lectureHoursEstimate": "Lecture 21&22",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Motions and resolutions are procedural devices used in Parliament to initiate substantive discussions, express opinions, or record decisions of the House. Every resolution is a particular type of motion, but not all motions are resolutions; resolutions always require a substantive vote and specific notice periods.",
+    "highYieldFacts": [
+      "Fact 1: All resolutions come in the category of substantive motions and thus require a formal vote, whereas motions can be substantive, substitute, or subsidiary.",
+      "Fact 2: Private Members' Resolutions can be taken up only on alternate Fridays in the afternoon sitting, highlighting the strict allocation of time for non-ministerial business.",
+      "Fact 3: Adjournment Motion needs the support of 50 members to be admitted and involves the interruption of normal business of the House to discuss a matter of urgent public importance.",
+      "Fact 4: No-Confidence Motion (Article 75) can only be moved in the Lok Sabha and requires the support of 50 members for admission without stating any reasons.",
+      "Fact 5: The landmark Supreme Court ruling in Kihoto Hollohan (1992) and subsequent evolution of anti-defection and procedural motions highlight the judicial review limits on internal parliamentary proceedings under Article 122."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming No-Confidence Motions can be moved in the Rajya Sabha. The Rajya Sabha has no power to move a No-Confidence Motion because the Council of Ministers is collectively responsible only to the Lok Sabha.",
+      "Trap 2: Confusing 'Censure Motion' with 'No-Confidence Motion'. A Censure Motion must state the reasons for censure against an individual minister or whole council and does not lead to resignation if passed, unlike a No-Confidence Motion."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 75 of the Constitution of India",
+      "Article 118 of the Constitution of India",
+      "Rules of Procedure and Conduct of Business in Lok Sabha"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Constitutional Basis of Parliamentary Motions</h3><p>Parliamentary democracy rests upon the foundational principle of executive accountability to the legislature. To operationalize this control, parliamentary rules provide a robust array of procedural devices known as motions and resolutions. Governed primarily by Article 118 of the Constitution empowering each House to make rules for regulating its procedure, these tools enable the Opposition to scrutinize administrative actions, test executive majorities, and force legislative deliberation on matters of urgent national importance.</p><h3>Typology and Functional Mechanics</h3><p>Motions are broadly classified into three categories: <strong>Substantive Motions</strong> (independent proposals dealing with major subjects like impeachment of the President or removal of the CEC), <strong>Substitute Motions</strong> (moved in substitution of an original motion and debated concurrently), and <strong>Subsidiary Motions</strong> (which have no meaning by themselves and depend on an original motion or proceeding). Within these, specific tactical devices like the <em>Censure Motion</em>, <em>No-Confidence Motion</em>, <em>Adjournment Motion</em>, and <em>Calling Attention Notice</em> serve distinct constitutional ends.</p><h3>Contemporary Challenges and Decline of Deliberation</h3><p>In recent years, the functional utility of motions has witnessed a decline due to frequent disruptions, curtailment of parliamentary calendar days, and the invocation of the guillotine during financial business. The executive's reluctance to face substantive motions, coupled with the weaponization of procedural technicalities, compromises the core oversight mandate of Parliament. Furthermore, judicial interpretations regarding the immunity of legislators under Article 105 vis-a-vis parliamentary behavior (such as the 1998 JMM bribery case and its 2023 constitutional bench review) have added complex judicial dimensions to parliamentary privileges and motions.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Interplay between Article 105 (Parliamentary Privileges), Article 122 (Courts not to inquire into proceedings of Parliament), and the Speaker's absolute discretion in admitting motions.",
+      "socio_economic": "How adjournment and calling attention motions amplify grassroots socio-economic crises (agrarian distress, inflation, public health emergencies) into national legislative debates.",
+      "administrative_governance": "Impact of parliamentary scrutiny via motions on bureaucratic responsiveness, policy course-correction, and parliamentary committee referrals.",
+      "international_or_comparative": "Comparison with the British Westminster system, where opposition days and specific motion allocations are institutionalized more predictably."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Kihoto Hollohan v. Zachillhu (1992) - Scope of judicial review over parliamentary procedures and speaker's powers.",
+      "Raja Ram Pal v. Hon'ble Speaker, Lok Sabha (2007) - Cash-for-query scam and limits of Article 122 regarding expulsion of MPs.",
+      "National Commission to Review the Working of the Constitution (NCRWC) Report - Recommendations on enhancing parliamentary work days and motion management."
+    ],
+    "structuredDiagramAscii": "PARLIAMENTARY PROPOSALS & DEVICES\n       |\n       +---> MOTIONS (Procedural & Substantive)\n       |       |\n       |       +---> Substantive Motion (Independent proposal; e.g., Impeachment)\n       |       +---> Substitute Motion (Alternative to original motion)\n       |       +---> Subsidiary Motion (Dependent on another motion)\n       |               |\n       |               +---> Ancillary, Superseding, Amenatory\n       |\n       +---> SPECIFIC EXECUTIVE CONTROL DEVICES\n       |       |\n       |       +---> No-Confidence Motion (Lok Sabha only; requires 50 MPs)\n       |       +---> Censure Motion (States reasons; censures govt/minister)\n       |       +---> Adjournment Motion (Urgent public matter; halts routine business)\n       |       +---> Calling Attention Notice (Draws urgent attention of minister)\n       |\n       +---> RESOLUTIONS (Always Substantive)\n               |\n               +---> Private Member's Resolution (Alternate Fridays)\n               +---> Government Resolution (Any day designated by Govt)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2018,
+        "question": "With reference to the Parliament of India, which of the following Parliamentary committees scrutinizes and reports to the House whether the powers to make regulations, rules, sub-rules, by-laws, etc., conferred by the Constitution or delegated by Parliament are being properly exercised by the Executive?",
+        "options": [
+          "Committee on Government Assurances",
+          "Committee on Subordinate Legislation",
+          "Rules Committee",
+          "Business Advisory Committee"
+        ],
+        "answer": "Committee on Subordinate Legislation",
+        "explanation": "The Committee on Subordinate Legislation examines whether the delegated legislative powers given to the executive are being exercised within proper statutory limits. Motions related to rule modification stem from this committee's work."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2019,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Frequent disruptions of Parliamentary proceedings lead to the wastage of taxpayers' money and decline in the quality of legislation. Discuss the measures required to make parliamentary democracy more effective."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the significance of various parliamentary motions as instruments of executive accountability. How has the declining time spent on substantive motions impacted Indian parliamentary democracy? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define parliamentary motions as vital mechanisms ensuring ministerial accountability under Article 75 and outline their classification.",
+      "body": "Detail the role of specific motions (No-Confidence, Adjournment, Censure) in keeping the executive on its toes. Analyze the reasons for declining debate time (frequent disruptions, rushed legislations) and its adverse impacts on executive oversight and federal democracy. Suggest structural reforms.",
+      "conclusion": "Conclude by reiterating the necessity of robust parliamentary oversight for democratic sustenance, aligning with constitutional morality."
+    },
+    "modelAnswerHtml": "<h4>Introduction</h4><p>Parliamentary democracy is founded on the cardinal principle of executive accountability to the legislature. Motions and resolutions are vital procedural instruments enshrined in parliamentary rules under Article 118, enabling members to seek information, register dissent, test executive majorities, and censure administrative apathy.</p><h4>Significance of Motions as Instruments of Accountability</h4><ul><li><strong>No-Confidence Motion:</strong> Under Article 75, it directly tests the majority support of the Council of Ministers in the Lok Sabha. Requiring 50 members for admission, it acts as the ultimate constitutional sword of Damocles.</li><li><strong>Censure Motion:</strong> Unlike a no-confidence motion, it must specify charges against the government or an individual minister. Its passage signals distinct disapproval of government policies.</li><li><strong>Adjournment Motion:</strong> Interrupts normal business to deliberate on urgent matters of public importance (e.g., security breaches or disaster crises), ensuring immediate executive responsiveness.</li><li><strong>Resolutions:</strong> Private members' and government resolutions allow long-form articulation of socio-economic policy directions, forcing legislative consensus.</li></ul><h4>Impact of Declining Time on Substantive Motions</h4><p>In recent years, the efficacy of these devices has been undermined by structural and behavioral shifts:</p><ul><li><strong>Erosion of Oversight:</strong> The rising frequency of disruptions and premature adjournments leads to passage of crucial bills 'under the guillotine' without substantive clause-by-clause debate.</li><li><strong>Executive Dominance:</strong> When opposition motions like adjournment or censure are routinely rejected or stifled, the accountability loop between Parliament and the Union Cabinet weakens.</li><li><strong>Democratic Deficit:</strong> Reduced deliberative space alienates regional and marginalized voices whose concerns are best ventilated through adjournment or private member motions.</li></ul><h4>Way Forward</h4><p>To restore parliamentary sanctity, recommendations of the <strong>National Commission to Review the Working of the Constitution (NCRWC)</strong> must be operationalized. Parliament must mandate a minimum number of sitting days (at least 120 days for Lok Sabha), establish a strict Code of Conduct penalizing well-orchestrated disruptions, and ensure time-bound allocation for opposition-led substantive motions.</p><h4>Conclusion</h4><p>A vibrant Parliament requires not merely numbers on the treasury benches, but the unhindered play of debate, dissent, and deliberation through parliamentary motions to fulfill the promise of constitutional democracy.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding a 'No-Confidence Motion' in the Parliament of India:\n1. It can be moved against the entire Council of Ministers or an individual minister.\n2. It does not require any reasons to be stated in its text for adoption.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because a No-Confidence Motion can only be moved against the entire Council of Ministers collectively, not against an individual minister (for which a Censure Motion or a motion of no-confidence against a specific minister is not applicable; individual ministers can be censured, but Article 75 mandates collective responsibility). Statement 2 is correct: Rule 198 of the Lok Sabha rules states that a no-confidence motion does not need to state reasons for its moving."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which one of the following motions involves the interruption of the normal business of the House to discuss a definite matter of urgent public importance?",
+      "options": [
+        "Censure Motion",
+        "Adjournment Motion",
+        "Calling Attention Notice",
+        "Confidence Motion"
+      ],
+      "answer": "Adjournment Motion",
+      "explanation": "The Adjournment Motion is unique because it plunges the House into an immediate discussion of a definite matter of urgent public importance, thereby setting aside the normal agenda of the day. It requires the support of 50 members and can only be moved in the Lok Sabha."
+    }
+  ]
+}

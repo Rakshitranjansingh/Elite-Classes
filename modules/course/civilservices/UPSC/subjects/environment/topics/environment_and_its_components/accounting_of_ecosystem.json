@@ -1,0 +1,107 @@
+{
+  "microTopicId": "environment_environment_and_its_components_accounting_of_ecosystem",
+  "subjectId": "environment",
+  "subjectTitle": "Environment, Ecology & Biodiversity",
+  "topicId": "environment_environment_and_its_components",
+  "topicTitle": "Environment and its components",
+  "subTopicTitle": "Accounting of ecosystem",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Biodiversity and Climate Change - that do not require subject specialization; Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives.",
+    "mains": "GS Paper III - Conservation, Environmental Pollution and Degradation, Environmental Impact Assessment; Mobilization of Resources (Natural Capital accounting)."
+  },
+  "lectureHoursEstimate": "Lecture 1 & 2",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Ecosystem Accounting is a spatial, systematic approach to measuring and reporting the stock and change in stocks of ecosystem assets and the ecosystem services they generate over a given period. It translates ecological wealth into monetary and non-monetary metrics to complement standard macroeconomic aggregates like GDP.",
+    "highYieldFacts": [
+      "Fact 1: The UN System of Environmental-Economic Accounting (SEEA) - Ecosystem Accounting (SEEA EA) was adopted by the United Nations Statistical Commission in March 2021 as an international statistical standard.",
+      "Fact 2: In India, the Ministry of Statistics and Programme Implementation (MoSPI) spearheads the 'Green National Accounts in India' framework, compiling Environmental-Economic Accounts.",
+      "Fact 3: SEEA EA framework comprises five core accounts: Ecosystem Extent, Ecosystem Condition, Ecosystem Services (Flow) in physical terms, Ecosystem Services (Flow) in monetary terms, and Monetary Ecosystem Asset Accounts.",
+      "Fact 4: The 15th Finance Commission of India explicitly recommended incentives for forest cover and ecological maintenance, recognizing natural capital in fiscal devolution.",
+      "Fact 5: Ecosystem accounting avoids double counting by separating intermediate ecosystem services from final services delivered directly to economic units."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing SEEA Central Framework (which accounts for individual environmental assets like water, minerals, energy as sub-soil assets) with SEEA Ecosystem Accounting (which measures whole functioning ecosystems and their spatial interactions).",
+      "Trap 2: Assuming Ecosystem Accounting replaces Gross Domestic Product (GDP); rather, it operates as a complementary satellite account alongside the System of National Accounts (SNA)."
+    ],
+    "keyArticlesOrStatutes": [
+      "UN System of Environmental-Economic Accounting (SEEA EA 2021)",
+      "National Environment Policy (NEP) 2006",
+      "Article 48A and Article 51A(g) of the Constitution of India"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Significance of Ecosystem Accounting</h3><p>Conventional macroeconomic indicators such as Gross Domestic Product (GDP) measure economic performance through market transactions while failing to capture the depletion of natural capital and degradation of ecosystems. Ecosystem accounting provides a comprehensive framework to integrate ecological realities into national economic planning. By quantifying both biotic and abiotic components through the UN System of Environmental-Economic Accounting (SEEA EA), governments can trace how economic sectors depend upon and impact nature.</p><h3>Core Architecture of SEEA Ecosystem Accounting</h3><p>The SEEA EA framework rests on a spatial data infrastructure that maps biophysical characteristics across distinct Ecosystem Accounting Areas (EAAs). Its architecture involves five interconnected accounts:</p><ul><li><strong>Ecosystem Extent Account:</strong> Measures the total area of different ecosystem types (e.g., forests, wetlands, croplands, marine systems) and tracks conversions between them.</li><li><strong>Ecosystem Condition Account:</strong> Assesses the quality of ecosystem assets against a reference condition, tracking metrics like biodiversity, soil health, and water quality.</li><li><strong>Ecosystem Services Flow (Physical):</strong> Quantifies services like carbon sequestration, water purification, pollination, and flood mitigation in physical units (tonnes of carbon, cubic meters of water).</li><li><strong>Ecosystem Services Flow (Monetary):</strong> Applies valuation techniques (replacement cost, travel cost, contingent valuation) to price these services.</li><li><strong>Monetary Ecosystem Asset Account:</strong> Estimates the net present value of future flows of ecosystem services to treat nature as a depreciable asset on the national balance sheet.</li></ul><h3>Governance and Policy Integration in India</h3><p>India presents a complex canvas for ecosystem accounting due to its high demographic pressure, rapid urbanization, and rich yet threatened biodiversity. MoSPI’s initiative to institutionalize 'Green National Accounting' marks a paradigm shift from pure productivism to sustainable wealth generation. Integrating ecosystem accounts into district-level planning and state-level budgeting aids in designing optimal Payment for Ecosystem Services (PES) schemes, rationalizing compensatory afforestation, and operationalizing climate-resilient agricultural subsidies.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Operationalizes Directive Principles of State Policy (Article 48A) and Fundamental Duties (Article 51A(g)) by introducing accountability for natural asset depletion.",
+      "socio_economic": "Highlights hidden subsidies and environmental costs borne by marginalized communities dependent on common property resources.",
+      "administrative_governance": "Requires inter-ministerial synergy between MoSPI, Ministry of Environment, Forest and Climate Change (MoEFCC), NITI Aayog, and state revenue departments.",
+      "international_or_comparative": "Aligns national reporting with SDG Indicator 15.9.1 and global biodiversity frameworks under the Kunming-Montreal Global Biodiversity Framework."
+    },
+    "landmarkJudgmentsOrReports": [
+      "T.N. Godavarman Thirumulpad v. Union of India (directions on valuing forest natural capital)",
+      "Parthasarathi Shome Committee Report on Tax Administration and Green Accounting",
+      "15th Finance Commission Report (incorporating demographic performance and forest/ecology criteria in tax devolution)",
+      "Dasgupta Review on the Economics of Biodiversity (2021)"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------------+\n|                SYSTEM OF NATIONAL ACCOUNTS (SNA)                  |\n|                     (Traditional GDP Focus)                       |\n+-------------------------------------------------------------------+\n                                  |\n                                  v\n+-------------------------------------------------------------------+\n|                  SEEA ECOSYSTEM ACCOUNTING (EA)                   |\n|                  (Complementary Satellite Accounts)               |\n+-------------------------------------------------------------------+\n       |                          |                        |\n       v                          v                        v\n+--------------+          +---------------+        +----------------+\n|   EXTENT     |          |   CONDITION   |        |    SERVICES    |  \n|   ACCOUNT    |          |    ACCOUNT    |        |  (PHYSICAL &   |  \n| (Area/Types) |          | (Bio-integrity|        |   MONETARY)    |\n+--------------+          +---------------+        +----------------+\n                                                           |\n                                                           v\n                                            +-----------------------+\n                                            | ASSET VALUATION &     | \n                                            | WEALTH ACCOUNTING     | \n                                            +-----------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Consider the following statements: 1. The United Nations System of Environmental-Economic Accounting (SEEA) was adopted as an international standard in 2021. 2. SEEA Ecosystem Accounting treats ecosystems as assets that provide a stream of services to humanity. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Both 1 and 2",
+        "explanation": "Statement 1 is correct: The UN Statistical Commission adopted the SEEA Ecosystem Accounting (SEEA EA) as an international statistical standard in March 2021. Statement 2 is correct: SEEA EA expands the asset boundary of national accounts to include ecosystems, viewing them as natural assets generating ecosystem services over time."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Define environmental impact assessment (EIA) and discuss the various steps involved in it. How can the integration of natural capital accounting enhance the efficacy of environmental governance in India?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the significance of Ecosystem Accounting under the SEEA framework in redefining national economic metrics. How can India leverage natural capital accounting to achieve its sustainable development and net-zero commitments? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define ecosystem accounting briefly and state its core purpose of moving beyond GDP to measure natural wealth.",
+      "body": "Explain the mechanics of SEEA EA, highlight India's current initiatives (MoSPI), analyze the socio-economic and governance benefits, and discuss challenges in data collection and valuation.",
+      "conclusion": "Conclude with a forward-looking statement linking ecosystem accounting to India's Vision 2047 and global climate targets."
+    },
+    "modelAnswerHtml": "<p><strong>Introduction</strong><br>Ecosystem accounting is a spatial and systematic framework designed to measure the stock and changes in stocks of ecosystem assets and the ecosystem services they generate. Endorsed by the UN Statistical Commission via the System of Environmental-Economic Accounting - Ecosystem Accounting (SEEA EA), it addresses the systemic flaw of conventional GDP, which registers environmental depletion as economic gain.</p><p><strong>Significance in Redefining Economic Metrics</strong><br><ul><li><strong>Correcting Market Failures:</strong> Natural services like pollination, carbon sequestration, and watershed protection carry zero market price in standard national accounts, leading to their overexploitation.</li><li><strong>Comprehensive Wealth Tracking:</strong> SEEA EA provides accounts for Extent, Condition, and Services, allowing policymakers to measure net changes in national wealth after accounting for natural capital depreciation.</li><li><strong>Informed Fiscal Transfers:</strong> Incorporating ecological parameters into financial devolution (as pioneered by India's Finance Commissions) rewards states for preserving forest and wetland covers.</li></ul></p><p><strong>Leveraging Natural Capital Accounting for India's Sustainable Goals</strong><br><ul><li><strong>Net-Zero Strategy:</strong> Quantifying carbon sequestration services across different biomes helps identify optimal afforestation zones and protects high-integrity carbon sinks.</li><li><strong>District-Level Planning:</strong> MoSPI’s Green National Accounts initiative can be cascaded to districts to evaluate trade-offs between industrial land conversion and agricultural/ecological security.</li><li><strong>Payment for Ecosystem Services (PES):</strong> Accurate monetary valuation enables operationalizing PES mechanisms, ensuring downstream beneficiaries compensate upstream indigenous communities for watershed management.</li></ul></p><p><strong>Implementation Challenges</strong><br><ul><li>Methodological complexities in valuing non-market cultural and regulatory ecosystem services.</li><li>Spatial data gaps, high costs of continuous ecological monitoring, and lack of technical synergy between statistical agencies and forest departments.</li></ul></p><p><strong>Conclusion</strong><br>Integrating ecosystem accounting into macroeconomic management is critical for India's transition to a green economy. By institutionalizing SEEA EA within national planning, India can operationalize the principle of sustainable development, fulfilling constitutional mandates and securing intergenerational equity en route to Vision 2047.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to the System of Environmental-Economic Accounting Ecosystem Accounting (SEEA EA), consider the following statements: 1. It integrates biophysical data with economic data to measure ecosystem services. 2. It measures only the monetary value of ecosystems without accounting for physical changes in extent. 3. It was adopted by the United Nations Statistical Commission as an international statistical standard. Which of the statements given above are correct?",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "1 and 3 only",
+      "explanation": "Statement 1 is correct: SEEA EA integrates spatial biophysical data with economic accounts. Statement 2 is incorrect: SEEA EA includes both physical accounts (Extent, Condition, Physical Services) and monetary accounts. Statement 3 is correct: It was adopted by the UN Statistical Commission in March 2021."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following bodies in India is primarily responsible for steering the compilation of Green National Accounts and environmental-economic statistics?",
+      "options": [
+        "Ministry of Environment, Forest and Climate Change (MoEFCC)",
+        "Ministry of Statistics and Programme Implementation (MoSPI)",
+        "NITI Aayog",
+        "National Green Tribunal (NGT)"
+      ],
+      "answer": "Ministry of Statistics and Programme Implementation (MoSPI)",
+      "explanation": "MoSPI is the nodal ministry steering the 'Green National Accounts in India' framework, coordinating with various departments to institutionalize environmental-economic accounting."
+    }
+  ]
+}

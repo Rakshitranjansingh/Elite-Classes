@@ -1,0 +1,105 @@
+{
+  "microTopicId": "economy_national_income_accounting_gnp",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_national_income_accounting",
+  "topicTitle": "National Income Accounting",
+  "subTopicTitle": "GNP",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives, National Income concepts.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 3&4",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Gross National Product (GNP) measures the total monetary value of all final goods and services produced by the permanent residents of a country, regardless of their geographical location, during a specific financial year. Unlike Gross Domestic Product (GDP), which uses a territorial definition, GNP relies on the nationality/ownership criterion by factoring in Net Factor Income from Abroad (NFIA).",
+    "highYieldFacts": [
+      "Fact 1: GNP at Market Price = GDP at Market Price + Net Factor Income from Abroad (NFIA).",
+      "Fact 2: NFIA comprises net compensation of employees, net property income (interest, dividends, and rents), and net corporate reinvested earnings between residents and non-residents.",
+      "Fact 3: In a closed economy where NFIA is zero, GNP is identically equal to GDP.",
+      "Fact 4: India typically runs a negative NFIA due to heavy outward remittance of profits by multinational corporations operating in India and interest payments on external debt, making India's GNP consistently lower than its GDP.",
+      "Fact 5: The National Statistical Office (NSO) under the Ministry of Statistics and Programme Implementation (MoSPI) is the nodal agency responsible for macro-aggregates estimation in India."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming GNP measures production inside the domestic boundary of a nation. (Correction: That is GDP; GNP focuses on citizens/residents regardless of location).",
+      "Trap 2: Confusing Net Factor Income from Abroad (NFIA) with Net Exports (X-M). NFIA deals with factor services, whereas Net Exports deal with goods and non-factor services."
+    ],
+    "keyArticlesOrStatutes": [
+      "Collection of Statistics Act, 2008",
+      "Recommendations of the National Statistical Commission (NSC)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Analytical Significance of Gross National Product (GNP)</h3><p>National Income Accounting provides the empirical foundation for macroeconomic policy formulation, fiscal planning, and developmental evaluation in India. While Gross Domestic Product (GDP) captures the economic output generated within the physical and geographical boundaries of the country, <strong>Gross National Product (GNP)</strong> shifts the analytical lens toward the economic achievements of a nation's permanent residents, both domestically and internationally.</p><h3>The Mechanics of NFIA: India’s Structural Realities</h3><p>The transition from GDP to GNP hinges entirely on <strong>Net Factor Income from Abroad (NFIA)</strong>. NFIA is calculated as the income earned by domestic residents abroad minus the income earned by foreign residents within the domestic economy. For developing economies like India, NFIA is structurally negative. This occurs due to:</p><ul><li>Massive repatriation of profits and dividends by Foreign Direct Investors (FDI) and Foreign Portfolio Investors (FPI).</li><li>Interest payments on external commercial borrowings (ECBs) and sovereign debt.</li><li>Royalty and technical fee payments to foreign parent entities.</li></ul><p>Conversely, while India receives substantial private remittances from its massive diaspora (amounting to over $100 billion annually), these remittances are classified largely as 'current transfers' rather than factor incomes in standard national accounting conventions, though they profoundly impact disposable income and national welfare.</p><h3>Policy Implications and Governance Utility</h3><p>From a governance and planning perspective, relying exclusively on GDP can mask the actual ownership of national wealth. GNP offers a truer picture of national command over resources and national savings. In an era of hyper-globalization, cross-border supply chains, and digital service delivery, tracking GNP alongside GDP helps policymakers design interventions targeting domestic capital formation, technological self-reliance, and mitigation of external sector vulnerabilities.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing of data collection through the Collection of Statistics Act, 2008 and institutional mandates of MoSPI and NSO.",
+      "socio_economic": "Reflects the true income entitlement of citizens, impacting national savings, investment rates, and the capacity to fund social sector schemes.",
+      "administrative_governance": "Requires robust data harmonization across balance of payments (BoP) statistics compiled by the Reserve Bank of India (RBI) and domestic output accounts by NSO.",
+      "international_or_comparative": "Adherence to the United Nations System of National Accounts (SNA 2008) guidelines to ensure cross-country comparability."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Report of the National Statistical Commission (Rangarajan Commission)",
+      "UN System of National Accounts (SNA 2008) Framework",
+      "Economic Survey chapters on National Income and Macroeconomic Aggregates"
+    ],
+    "structuredDiagramAscii": "GDP at Market Price (Domestic Boundary Production)\n       +\nNet Factor Income from Abroad (NFIA) [Resident Earnings Abroad minus Foreign Earnings Domestically]\n       =\nGNP at Market Price (National Ownership Production)\n       -\nDepreciation (Consumption of Fixed Capital)\n       =\nNNP at Market Price (National Income equivalent)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2013,
+        "question": "Gross Domestic Product (GDP) is the monetary value of:",
+        "options": [
+          "goods and services produced for the market only",
+          "all final goods and services produced in a country during a particular year",
+          "goods produced by the nationals of a country abroad as well as within the country",
+          "goods and services produced by the foreign nationals in a country"
+        ],
+        "answer": "all final goods and services produced in a country during a particular year",
+        "explanation": "GDP is strictly a territorial concept measuring all final goods and services produced within the domestic territory of a country during a specific period, regardless of whether produced by citizens or foreigners."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Explain the difference between computing GDP and GNP. Why is India's GNP typically lower than its GDP? Analyze its economic implications."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Distinguish between Gross Domestic Product (GDP) and Gross National Product (GNP). Examine why India’s GNP remains structurally lower than its GDP and discuss its macroeconomic policy implications. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define GDP and GNP briefly, highlighting the core conceptual difference (territorial vs. ownership criterion).",
+      "body": "Explain the components of NFIA, why India's NFIA is negative (FDI outflows, royalties, interest payments), and analyze the economic implications for national savings, autonomy, and external vulnerability.",
+      "conclusion": "Conclude with a forward-looking perspective on balancing foreign capital attraction with domestic capacity building (Atmanirbhar Bharat) to optimize national income generation."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>National Income Accounting measures economic performance using standardized macroeconomic aggregates. While <strong>Gross Domestic Product (GDP)</strong> measures the total market value of final goods and services produced within the physical boundaries of a country, <strong>Gross National Product (GNP)</strong> measures the total output generated by the permanent residents of a nation, irrespective of their geographic location.</p><h3>Distinction Between GDP and GNP</h3><p>Mathematically, <strong>GNP = GDP + Net Factor Income from Abroad (NFIA)</strong>. GDP relies on the <em>territorial principle</em> (where the production occurs), whereas GNP relies on the <em>ownership principle</em> (who owns the factors of production).</p><h3>Why India’s GNP is Structurally Lower than its GDP</h3><p>In the case of India, GNP is consistently lower than GDP primarily due to a <strong>negative Net Factor Income from Abroad (NFIA)</strong>. The key drivers include:</p><ul><li><strong>Repatriation of Profits:</strong> Substantial FDI and FPI inflows into India generate high corporate profits, a significant portion of which are remitted back to foreign parent entities.</li><li><strong>External Debt Servicing:</strong> India's reliance on external commercial borrowings (ECBs) and multilateral loans entails continuous interest outflows classified under factor income.</li><li><strong>Technology and Royalty Fees:</strong> Indian corporations pay large sums in royalties and technical know-how fees to multinational entities, reducing net national factor income.</li></ul><h3>Macroeconomic Policy Implications</h3><p>1. <strong>National Savings and Investment:</strong> A lower GNP implies that domestic disposable income available for national savings is slightly constrained compared to total domestic production, impacting self-financed capital formation.<br>2. <strong>External Vulnerability:</strong> Heavy factor outflows necessitate robust current account management and continuous capital inflows (FDI/FPI) to maintain balance of payments equilibrium.<br>3. <strong>Policy Orientation:</strong> It underscores the need for initiatives like <em>Atmanirbhar Bharat</em> to foster indigenous R&D, reduce royalty leakages, and enhance domestic technological ownership.</p><h3>Way Forward</h3><p>While global integration through FDI is indispensable for growth, long-term economic resilience requires upgrading India's position in global value chains, boosting domestic innovation, and retaining a larger share of value-addition within the national economy.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Gross National Product (GNP):\n1. It includes the income earned by domestic citizens working abroad.\n2. It excludes the profits earned by foreign multinational corporations operating within the domestic territory.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Statement 1 is correct because GNP accounts for the factor incomes earned by residents abroad as part of NFIA. Statement 2 is correct because profits earned by foreign corporations within India are factor payments made to non-residents and are therefore subtracted when moving from GDP to GNP."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following components constitutes Net Factor Income from Abroad (NFIA)?\n1. Private remittances sent by non-resident citizens to their families\n2. Interest payments on foreign loans\n3. Profits earned by domestic companies from their foreign branches\nSelect the correct answer using the code given below:",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "2 and 3 only",
+      "explanation": "Private remittances (Statement 1) are classified as current transfers (unrequited transfers), not factor income, and are part of the Current Account of the Balance of Payments outside NFIA. Interest payments on foreign loans (factor payments out) and profits from foreign branches (factor income in) are core elements of NFIA."
+    }
+  ]
+}

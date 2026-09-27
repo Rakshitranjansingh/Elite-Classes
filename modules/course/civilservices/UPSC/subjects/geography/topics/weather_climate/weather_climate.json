@@ -1,0 +1,105 @@
+{
+  "microTopicId": "geography_weather_climate_weather_climate",
+  "subjectId": "geography",
+  "subjectTitle": "Geography of India & World",
+  "topicId": "geography_weather_climate",
+  "topicTitle": "Weather & climate",
+  "subTopicTitle": "Weather & climate",
+  "syllabusMapping": {
+    "prelims": "General Geography: Important Geophysical phenomena, Weather and Climate fundamentals, Atmospheric circulation, Insolation, and Pressure belts.",
+    "mains": "GS Paper I - Salient features of world's physical geography, Geographical features and their location in changes in critical geographical features (including water-bodies and ice-caps) and in flora and fauna and the effects of such changes."
+  },
+  "lectureHoursEstimate": "Lecture 6",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Weather represents the instantaneous state of the atmosphere at a given place and time, characterized by variables like temperature, pressure, wind, and humidity, whereas climate is the statistical synthesis of weather conditions over a long duration, typically 30 years as defined by the World Meteorological Organization (WMO). Understanding the dynamic equilibrium between solar insolation, earth's radiation budget, and global atmospheric circulation is foundational for UPSC Prelims.",
+    "highYieldFacts": [
+      "Fact 1: The World Meteorological Organization (WMO) standard baseline period for defining climate normals is 30 consecutive years.",
+      "Fact 2: Approximately 51% of incoming solar radiation (insolation) reaches the Earth's surface, while about 34% is reflected back to space (planetary albedo) and 15% is absorbed by the atmosphere.",
+      "Fact 3: The Intertropical Convergence Zone (ITCZ) is a low-pressure trough circling the globe near the equator where the northeast and southeast trade winds converge.",
+      "Fact 4: The Coriolis force, resulting from Earth's rotation, deflects winds to the right in the Northern Hemisphere and to the left in the Southern Hemisphere, becoming zero at the equator.",
+      "Fact 5: The IPCC Sixth Assessment Report (AR6) highlights that global surface temperature has reached 1.1°C above pre-industrial levels between 2011–2020, intensifying regional weather and climate extremes."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing weather anomalies with climate change; weather is chaotic and short-term, whereas climate represents long-term statistical shifts.",
+      "Trap 2: Assuming the Coriolis force determines the *speed* of wind; the Coriolis force only affects the *direction* of moving air, while pressure gradient force and friction determine speed."
+    ],
+    "keyArticlesOrStatutes": [
+      "UNFCCC (United Nations Framework Convention on Climate Change)",
+      "India's National Action Plan on Climate Change (NAPCC)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Foundations of Weather and Climate Dynamics</h3><p>Weather and climate, while often used interchangeably in common parlance, represent distinct spatial and temporal scales of atmospheric behavior. Weather is the day-to-day or hour-to-hour state of the atmosphere, driven by thermodynamic imbalances, humidity fluctuations, and localized pressure variations. Climate, on the other hand, embodies the macro-scale aggregate of these weather patterns over decades and centuries, dictated by astronomical forcing, oceanic circulation, tectonic configurations, and radiative feedback mechanisms.</p><h3>The Energy Balance and Circulation Engine</h3><p>The Earth-Atmosphere system operates as a giant heat engine. Differential heating between the equatorial and polar regions creates global pressure belts and wind systems. Insolation peaks at the equator due to vertical sun rays and a shorter atmospheric path, generating thermal low-pressure zones. Conversely, sub-polar and polar regions experience net radiation deficits, creating high-pressure zones. This thermal disequilibrium triggers the three-cell atmospheric circulation model—Hadley, Ferrel, and Polar cells—which redistributes heat poleward.</p><h3>Thermodynamic Controls and Contemporary Perturbations</h3><p>Atmospheric stability, lapse rates, and moisture availability determine precipitation regimes and extreme weather events. In the context of the Anthropocene, anthropogenic greenhouse gas emissions have altered the baseline of radiative forcing, shifting precipitation patterns, intensifying tropical cyclones, and exacerbating flash droughts. For a monsoon-dependent agrarian economy like India, understanding these macro-climatic shifts is critical for food security, disaster risk reduction, and long-term infrastructure resilience.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Integration of environmental and climate justice under Article 21 (Right to a clean environment) and Directive Principles of State Policy (Article 48A).",
+      "socio_economic": "Disproportionate vulnerability of agrarian communities, urban poor, and coastal populations to shifting weather patterns and extreme climate shocks.",
+      "administrative_governance": "Need for seamless multi-tier institutional coordination between IMD, NDMA, State Disaster Management Authorities (SDMAs), and local bodies for early warning dissemination.",
+      "international_or_comparative": "Adherence to Common But Differentiated Responsibilities and Respective Capabilities (CBDR-RC) under the Paris Agreement and Sendai Framework for Disaster Risk Reduction."
+    },
+    "landmarkJudgmentsOrReports": [
+      "IPCC Sixth Assessment Report (AR6 - Physical Science Basis)",
+      "National Action Plan on Climate Change (NAPCC) 8 National Missions",
+      "Supreme Court judgment in M.C. Mehta v. Union of India and recent rulings linking climate change to Fundamental Rights (2024)."
+    ],
+    "structuredDiagramAscii": "Solar Insolation (Shortwave) ---> Earth's Surface (Absorption & Reflection)\n                                                |\n                                    Greenhouse Gas Blanket\n                                                |\n                 +------------------------------+------------------------------+\n                 |                                                             |\n     Atmospheric Circulation (Hadley/Ferrel/Polar)             Oceanic Circulation (Thermohaline/ENSO)\n                 |                                                             |\n                 +------------------------------+------------------------------+\n                                                |\n                        Global Weather Patterns & Climate Extremes"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "The 'Greenhouse Gas Protocol' is a:",
+        "options": [
+          "international accounting tool for government and business leaders to understand, quantify and manage greenhouse gas emissions",
+          "international treaty agreed to by the member countries of the UN to curb emissions specified in the Kyoto Protocol",
+          "scheme of the World Bank to amass funds for carbon trading in developing countries",
+          "governmental inter-parliamentary coalition of free trade nations to assess carbon footprints"
+        ],
+        "answer": "international accounting tool for government and business leaders to understand, quantify and manage greenhouse gas emissions",
+        "explanation": "The GHG Protocol is the most widely used international accounting tool for corporate and government greenhouse gas emissions programs, developed by WRI and WBCSD."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-I",
+        "marks": 15,
+        "question": "How do ocean currents and atmospheric circulation influence the climate of the world? Give specific examples."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Distinguish between weather and climate. Examine how anthropogenic factors are modifying traditional climatic boundaries and triggering extreme weather events across the Indian subcontinent. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define weather and climate clearly with their respective temporal and spatial scales.",
+      "body": "Differentiate them briefly. Explain anthropogenic drivers (global warming, aerosol loading, land-use change). Analyze impacts on the Indian subcontinent (erratic monsoons, cloudbursts, marine heatwaves in the Arabian Sea). Conclude with a mitigation-adaptation way forward.",
+      "conclusion": "Emphasize climate-resilient infrastructure, localized early warning systems, and adherence to net-zero commitments under Panchamrit."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p><strong>Weather</strong> refers to the day-to-day, short-term atmospheric conditions at a specific location, involving variables like temperature, humidity, and wind. <strong>Climate</strong> is the statistical synthesis of these weather conditions over long periods, typically 30 years, reflecting regional and global thermodynamic equilibrium.</p><h3>Key Differences</h3><ul><li><strong>Temporal Scale:</strong> Weather changes in hours or days; climate represents secular trends over decades.</li><li><strong>Predictability:</strong> Weather forecasting is limited by chaotic non-linear atmospheric dynamics (butterfly effect); climate prediction relies on statistical probabilities and radiative forcing scenarios.</li></ul><h3>Anthropogenic Modification of Climatic Boundaries</h3><p>Human activities, particularly fossil fuel combustion, deforestation, and industrialization, have disrupted the natural energy balance, leading to the following impacts on the Indian subcontinent:</p><ul><li><strong>Monsoon Intensification and Vagaries:</strong> Rapid warming of the Indian Ocean, especially the Arabian Sea, has increased moisture loading, transforming the southwest monsoon into intense, short-duration downpours interspersed with prolonged dry spells.</li><li><strong>Himalayan Cryosphere Degradation:</strong> Accelerated retreat of Himalayan glaciers has altered regional micro-climates, increasing the frequency of glacial lake outburst floods (GLOFs) and cloudbursts in fragile terrains like Uttarakhand and Himachal Pradesh.</li><li><strong>Shift in Cyclone Genesis:</strong> Tropical cyclone patterns have shifted; the Arabian Sea now experiences a higher frequency of severe cyclonic storms (e.g., Cyclone Tauktae) due to rising sea surface temperatures exceeding 28°C.</li><li><strong>Urban Heat Island Effect:</strong> Unplanned urbanization and replacement of green cover with concrete have intensified urban heatwaves, exemplified by severe summer spikes in northern and central Indian cities.</li></ul><h3>Way Forward</h3><p>Addressing these shifts requires robust institutional integration. India must fast-track its <strong>Panchamrit targets</strong> announced at COP26, enhance hyper-local early warning networks via Doppler radar expansion, enforce climate-resilient building codes, and transition toward regenerative agro-ecological practices to safeguard vulnerable rural and urban ecosystems.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following factors affecting the climate of a region: 1. Latitude 2. Altitude 3. Distance from the sea 4. Ocean currents 5. Relief features. Which of these are considered the major climatic controls of the earth?",
+      "options": [
+        "1, 2 and 3 only",
+        "1, 2, 4 and 5 only",
+        "3, 4 and 5 only",
+        "1, 2, 3, 4 and 5"
+      ],
+      "answer": "1, 2, 3, 4 and 5",
+      "explanation": "All five factors—latitude, altitude, distance from the sea (continentality), ocean currents, and relief—are universally recognized as the major controls that shape the climate of any region on Earth."
+    },
+    {
+      "id": "mcq_02",
+      "question": "With reference to the Coriolis force, which of the following statements is/are correct? 1. It acts perpendicular to the pressure gradient force. 2. It is maximum at the equator and minimum at the poles. 3. It deflects wind to the right in the Northern Hemisphere.",
+      "options": [
+        "1 and 3 only",
+        "2 only",
+        "1, 2 and 3",
+        "3 only"
+      ],
+      "answer": "1 and 3 only",
+      "explanation": "Statement 1 is correct: Coriolis force acts at a right angle to the pressure gradient force (balancing it in geostrophic winds). Statement 2 is incorrect because the Coriolis force is zero at the equator and maximum at the poles. Statement 3 is correct: it deflects winds to the right in the Northern Hemisphere and left in the Southern Hemisphere."
+    }
+  ]
+}

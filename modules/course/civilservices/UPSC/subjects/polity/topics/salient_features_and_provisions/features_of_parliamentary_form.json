@@ -1,0 +1,109 @@
+{
+  "microTopicId": "polity_salient_features_and_provisions_features_of_parliamentary_form",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_salient_features_and_provisions",
+  "topicTitle": "Salient Features and Provisions",
+  "subTopicTitle": "Features of Parliamentary form",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Functions and responsibilities of the Union and the States, issues and challenges pertaining to the federal structure, separation of powers between various organs, dispute redressal mechanisms and institutions."
+  },
+  "lectureHoursEstimate": "Lecture 3&4",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Indian parliamentary system, borrowed from the British Westminster model, is characterized by a close relationship between the executive and the legislature, dual executive (nominal and real), collective responsibility, and political homogeneity. It ensures democratic accountability through continuous legislative oversight, question hour, and motions of no-confidence.",
+    "highYieldFacts": [
+      "Fact 1: Article 74 provides for a Council of Ministers with the Prime Minister at the head to aid and advise the President, who shall act in accordance with such advice.",
+      "Fact 2: Article 75 stipulates that the Council of Ministers shall be collectively responsible to the House of the People (Lok Sabha).",
+      "Fact 3: The British parliamentary system is based on the doctrine of parliamentary sovereignty, whereas the Indian system operates within a written Constitution with limited parliamentary sovereignty and judicial review.",
+      "Fact 4: In India, a person who is not a member of either House of Parliament can become a minister for a maximum period of six consecutive months (Article 75(5)).",
+      "Fact 5: The Tenth Schedule (Anti-Defection Law, added by the 52nd Constitutional Amendment Act, 1985) fundamentally alters the pure Westminster model by penalizing legislative dissent."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing India's parliamentary form with the British model regarding judicial review; India has an integrated judiciary with the power of judicial review over parliamentary legislation, unlike the UK.",
+      "Trap 2: Assuming that the Prime Minister must always belong to the Lok Sabha; the Constitution only requires a minister (including the PM) to be a member of either House of Parliament."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 74",
+      "Article 75",
+      "Article 163",
+      "Article 164",
+      "Tenth Schedule of the Constitution"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Architecture of the Indian Parliamentary System</h3><p>The Constituent Assembly consciously opted for the parliamentary system of government over the presidential model, primarily due to two factors: its familiarity with the British Westminster model operating during the colonial era, and its greater suitability to accommodate India's vast social, cultural, and regional diversity. The parliamentary system ensures that different segments of society find representation in the decision-making apparatus through a cabinet government that derives its authority directly from the legislature.</p><h3>Core Structural Features</h3><p>The defining feature of India's parliamentary form is the fusion of powers between the executive and the legislature, as opposed to the rigid separation found in the American presidential model. The ministers are simultaneously members of the legislature, ensuring a direct line of policy formulation and legislative enactment. Furthermore, the system is anchored on <strong>collective responsibility</strong> (Article 75(3)), implying that the executive acts as a cohesive team; a loss of confidence in the Lok Sabha necessitates the resignation of the entire ministry. Additionally, the system provides for a <strong>dual executive</strong>: the President serves as the constitutional, nominal head of state (Article 52), while the Prime Minister serves as the real executive and head of government (Article 74).</p><h3>Contemporary Challenges and Governance Degradation</h3><p>In recent decades, the functioning of the Indian parliamentary framework has faced profound stress tests. The rise of coalition politics historically, followed by majoritarian single-party dominance, has altered legislative dynamics. Key concerns include the declining duration of parliamentary sittings, passing of crucial financial and substantive bills without adequate debate or scrutiny by Department-Related Parliamentary Standing Committees (DRSCs), and the weaponization of the anti-defection law (Tenth Schedule) which stifles intra-party dissent and reduces legislators to rubber stamps. Furthermore, the increasing executive dominance has transformed the legislature from a deliberative forum into a mere arena for political posturing, undermining horizontal accountability.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Interplay between Articles 74, 75, and 163, 164; tension between legislative oversight and executive ordinance-making power (Article 123); evolution of the Tenth Schedule.",
+      "socio_economic": "Representation of marginalized communities through inclusive cabinet formations; social welfare legislation driven by popular political mandates.",
+      "administrative_governance": "Bureaucratic responsiveness to political executives; weakening of parliamentary committees impacting policy rigour and budgetary scrutiny.",
+      "international_or_comparative": "Comparison with the British Westminster model (absence of parliamentary sovereignty in India due to written Constitution and judicial review) and the US Presidential system."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Kesavananda Bharati v. State of Kerala (1973) - Established parliamentary democracy and judicial review as part of the Basic Structure.",
+      "S.R. Bommai v. Union of India (1994) - Clarified floor test in the legislature as the sole objective test for determining majority support.",
+      "Kihoto Hollohan v. Zachillhu (1992) - Upheld the constitutional validity of the Tenth Schedule while subjecting speaker's decisions to judicial review.",
+      "National Commission to Review the Working of the Constitution (NCRWC, 2002) - Recommended constructive vote of no confidence to ensure governmental stability."
+    ],
+    "structuredDiagramAscii": "ELECTORATE (Universal Adult Suffrage)\n       │\n       ▼\nPARLIAMENT (Lok Sabha & Rajya Sabha)\n       │\n       ├─► Legislature & Executive Fusion (Ministers are MPs)\n       │\n       ▼\nCOUNCIL OF MINISTERS (Real Executive led by PM)\n       │\n       ├─► Collectively Responsible to Lok Sabha (Art. 75(3))\n       └─► Individual Responsibility to President (Art. 75(2))"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "Which one of the following categories of Fundamental Rights incorporates protection against untouchability as a form of discrimination?",
+        "options": [
+          "Right against Exploitation",
+          "Right to Freedom",
+          "Right to Equality",
+          "Right to Freedom of Religion"
+        ],
+        "answer": "Right to Equality",
+        "explanation": "Article 17 of the Constitution falls under the Right to Equality (Articles 14-18) and abolishes 'untouchability' and forbids its practice in any form."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Discuss the institutional changes needed in the parliamentary system to make it more responsive to contemporary governance challenges."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the functioning of the Indian parliamentary system in the context of declining legislative accountability and rising executive dominance. Suggest measures to restore the primacy of deliberative democracy. (15/250 Words)",
+    "approach": {
+      "intro": "Define the parliamentary system in India, highlighting its core premise of executive accountability to the legislature under Article 75(3).",
+      "body": "Examine the structural and functional trends causing a decline in legislative oversight (decline in sittings, bypass of standing committees, anti-defection impact). Discuss the implications for democratic governance. Propose institutional and systemic reforms.",
+      "conclusion": "Conclude by emphasizing that constitutional morality and mutual institutional respect are vital for rejuvenating the parliamentary form."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The Indian parliamentary system, anchored in the Westminster model, rests on the bedrock of executive accountability to the elected legislature, as codified under Article 75(3) of the Constitution. However, contemporary political dynamics have increasingly witnessed a tilt toward executive unilateralism, raising concerns regarding the health of India's deliberative democracy.</p><h3>Dimensions of Declining Legislative Accountability</h3><ul><li><strong>Marginalization of Parliamentary Committees:</strong> A growing number of bills are being rushed through Parliament without being referred to Department-Related Parliamentary Standing Committees (DRSCs), depriving legislation of domain expertise and stakeholder consensus.</li><li><strong>Bypassing Deliberation:</strong> Important legislative and financial measures are often passed amidst pandemonium or as 'Money Bills', thereby evading the scrutiny and veto power of the Rajya Sabha.</li><li><strong>Impact of the Anti-Defection Law:</strong> Paragraph 2 of the Tenth Schedule penalizes dissent, effectively converting lawmakers into voting fodder and blunting individual legislative initiative or conscience voting.</li><li><strong>Shrinking Parliamentary Calendar:</strong> The average number of sitting days of Parliament has witnessed a secular decline, reducing the time available for accountability mechanisms like Question Hour and Zero Hour.</li></ul><h3>Implications for Governance</h3><p>This executive dominance erodes horizontal accountability, breeds sub-optimal legislation prone to judicial challenge, and alienates minority viewpoints from national policy formulation, undermining the core tenets of inclusive governance.</p><h3>Way Forward / Reforms</h3><ul><li><strong>Mandatory Committee Scrutiny:</strong> Enact procedural rules making it mandatory for all bills (except certified emergency legislation) to undergo Standing Committee review.</li><li><strong>Strengthening the Speaker's Role:</strong> Entrust the power of disqualification under the Tenth Schedule to an independent tribunal rather than the political Speaker, drawing inspiration from Supreme Court observations.</li><li><strong>Calendar Guarantee:</strong> Legally mandate a minimum number of sitting days per year (e.g., 120 days for Lok Sabha) as recommended by various parliamentary committees.</li><li><strong>Constructive Vote of No Confidence:</strong> Adopt the German model of a 'constructive vote of no confidence' where the government cannot be unseated unless an alternative government commands a clear majority.</li></ul><h3>Conclusion</h3><p>A vibrant parliamentary democracy requires the legislature to act not merely as a rubber stamp for executive fiat, but as a robust crucible of debate, dissent, and deliberative national policy. Restoring parliamentary primacy is indispensable for upholding constitutionalism and democratic legitimacy.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following are the distinct features of the Indian parliamentary system as compared to the British model? \n1. Existence of a written Constitution \n2. System of judicial review over parliamentary legislation \n3. Principle of parliamentary sovereignty \nSelect the correct answer using the code given below:",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "1 and 2 only",
+      "explanation": "The British parliamentary system is characterized by the doctrine of parliamentary sovereignty, whereas India has a written Constitution with limited parliamentary sovereignty and an independent judiciary exercising judicial review. Therefore, statement 3 is incorrect while statements 1 and 2 are correct."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following statements regarding the Council of Ministers in India:\n1. The Constitution specifies the exact size of the Council of Ministers at the central level.\n2. Ministers must be members of either House of Parliament at the time of their appointment.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Neither 1 nor 2",
+      "explanation": "Statement 1 is incorrect because the 91st Constitutional Amendment Act (2003) specified that the total number of ministers, including the Prime Minister, in the Council of Ministers shall not exceed 15% of the total strength of the Lok Sabha (not an exact fixed number). Statement 2 is incorrect because a person who is not a member of either House can also be appointed as a minister, provided they become a member of either House within six months from the date of appointment (Article 75(5))."
+    }
+  ]
+}

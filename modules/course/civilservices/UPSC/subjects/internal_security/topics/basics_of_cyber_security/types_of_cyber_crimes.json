@@ -1,0 +1,106 @@
+{
+  "microTopicId": "internal_security_basics_of_cyber_security_types_of_cyber_crimes",
+  "subjectId": "internal_security",
+  "subjectTitle": "Internal Security & Border Management",
+  "topicId": "internal_security_basics_of_cyber_security",
+  "topicTitle": "Basics of Cyber Security",
+  "subTopicTitle": "Types of Cyber Crimes",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental ecology, Bio-diversity and Climate Change - that does not require subject specialization (often overlaps with IT Act and Cyber Security basics)",
+    "mains": "GS Paper III - Linkages between development and spread of extremism; Role of external state and non-state actors in creating challenges to internal security; Challenges to internal security through communication networks, role of media and social media in internal security basics, cyber security basics, money laundering and its prevention."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Cyber crimes encompass unlawful acts where computer systems, networks, or digital devices are either the target of attacks (e.g., malware, DDoS) or the primary instrument used to commit offenses (e.g., financial fraud, identity theft). Understanding their classification is critical for targeted legal enforcement and technical counter-measures under the Information Technology framework.",
+    "highYieldFacts": [
+      "Fact 1: The Information Technology (IT) Act, 2000 is the primary legal legislation in India addressing cyber crimes and electronic commerce, amended in 2008 to introduce provisions on data protection and cyber terrorism.",
+      "Fact 2: The Indian Cyber Crime Coordination Centre (I4C), under the Ministry of Home Affairs (MHA), serves as the nodal point to deal with cyber crimes in the country in a comprehensive and coordinated manner.",
+      "Fact 3: Section 66F of the IT Act specifically deals with 'Cyber Terrorism', penalizing acts intended to threaten the unity, integrity, security, or sovereignty of India.",
+      "Fact 4: Ransomware attacks have evolved into 'Ransomware-as-a-Service' (RaaS), lowering technical barriers for threat actors and heavily targeting critical infrastructure sectors like energy and healthcare.",
+      "Fact 5: According to the National Crime Records Bureau (NCRB) data, cyber crime registration has witnessed exponential multi-fold surges, with financial fraud accounting for the majority of reported cases."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the National Cyber Security Coordinator (NCSC) under the National Security Council Secretariat (NSCS) with the Indian Computer Emergency Response Team (CERT-In) under the Ministry of Electronics and Information Technology (MeitY).",
+      "Trap 2: Assuming that all cyber offenses are cognizable under the IT Act; many minor offenses require specific procedural thresholds or complaints before police action can commence without a warrant."
+    ],
+    "keyArticlesOrStatutes": [
+      "Information Technology Act, 2000 (Sections 65, 66, 66C, 66D, 66E, 66F, 67)",
+      "Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011",
+      "CERT-In Directions under Section 70B(6) of the IT Act, 2000"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Multi-Dimensional Typology of Cyber Crimes</h3><p>As India transitions into a digitally empowered society under initiatives like Digital India, the attack surface for malicious entities has expanded exponentially. Cyber crimes are no longer confined to isolated acts of digital vandalism; they have evolved into sophisticated, borderless enterprises orchestrated by transnational syndicates, state-sponsored APTs (Advanced Persistent Threats), and tech-savvy organized crime rings. Comprehending the types of cyber crimes is foundational to designing robust defensive postures across administrative, legal, and technical domains.</p><h3>Primary Categories of Cyber Crimes</h3><ul><li><strong>Targeting Individuals:</strong> Includes cyberstalking, identity theft, online financial frauds (phishing, vishing, SIM swapping), and morphing/revenge porn. These crimes erode personal privacy, cause severe psychological trauma, and result in substantial financial losses for citizens.</li><li><strong>Targeting Organizations and Businesses:</strong> Encompasses intellectual property theft, corporate espionage, Distributed Denial of Service (DDoS) attacks, and business email compromise (BEC). These attacks undermine economic competitiveness and corporate viability.</li><li><strong>Targeting Critical Infrastructure:</strong> The most alarming vector, involving attacks on power grids, financial networks (NPCI, RBI systems), transportation networks, and healthcare facilities using sophisticated malware (e.g., wipers, ransomware). This directly threatens national sovereignty and public safety.</li><li><strong>State-Sponsored and Cyber Warfare:</strong> Involves espionage, destabilization of democratic institutions through disinformation campaigns, and pre-positioning destructive code inside adversary critical infrastructure.</li></ul><h3>Governance and Security Implications</h3><p>The asymmetric, anonymous, and borderless nature of cyber crimes creates severe jurisdictional bottlenecks. Traditional law enforcement agencies, traditionally bound by territorial boundaries and slow bureaucratic processes, struggle to match the speed of digital transactions. Furthermore, under-reporting by corporations due to reputational risk obscures the true magnitude of the threat landscape. A holistic paradigm shift from reactive policing to proactive threat intelligence, public-private partnerships, and robust international cooperation (such as Budapest Convention alignment or bilateral frameworks) is imperative for securing India's digital destiny.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Balancing citizen right to privacy (Puttaswamy judgment) with state powers of interception and surveillance under Section 69 of the IT Act and CERT-In directions.",
+      "socio_economic": "Disproportionate vulnerability of senior citizens, rural populations unversed in digital hygiene, and micro-enterprises lacking dedicated cybersecurity budgets.",
+      "administrative_governance": "Capacity constraints in state police forces, shortage of trained cyber forensic experts, and fragmented coordination between central agencies (I4C, CERT-In) and state cyber cells.",
+      "international_or_comparative": "Cross-border attribution challenges, safe havens for cybercriminals in non-cooperative jurisdictions, and adherence to international cybersecurity frameworks."
+    },
+    "landmarkJudgmentsOrReports": [
+      "K.S. Puttaswamy v. Union of India (2017) - Right to Privacy as a fundamental right.",
+      "Shreya Singhal v. Union of India (2015) - Struck down Section 66A of the IT Act for being unconstitutional and violative of free speech.",
+      "Standing Committee on Information Technology Reports on Cyber Security and Cyber Crime."
+    ],
+    "structuredDiagramAscii": "CLASSIFICATION OF CYBER CRIMES\n        │\n        ├──► 1. Against Individuals (Identity Theft, Phishing, Stalking)\n        ├──► 2. Against Property/Business (Ransomware, IP Theft, DDoS)\n        ├──► 3. Against Government/Critical Infrastructure (Wiper Malware, APTs)\n        └──► 4. Against Society (Child Sexual Abuse Material, Radicalization, Fake News)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "The 'Christianrictor' and 'Petya', sometimes mentioned in the news, are:",
+        "options": [
+          "Cryptocurrencies",
+          "Cyber attacks",
+          "Private secret communication networks",
+          "Water-borne diseases"
+        ],
+        "answer": "Cyber attacks",
+        "explanation": "Wannacry, Petya, and NotPetya are well-known ransomware/malware-based cyber attacks that crippled computer systems globally, highlighting the threat of destructive cyber weapons."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss different types of cybercrimes and security challenges involved in the digital era. Suggest measures to counter them effectively."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Categorize the major types of cyber crimes confronting India today. Examine the systemic security challenges they pose to critical national infrastructure and outline a comprehensive strategy to mitigate them. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define cyber crime briefly and highlight India's high vulnerability due to rapid digitization (highest digital transactions globally).",
+      "body": "Classify cyber crimes into categories (Financial, Infrastructure-targeted, Social/Individual). Discuss systemic challenges (attribution, jurisdictional issues, skill deficit). Suggest a way forward involving I4C, CERT-In, international cooperation, and capacity building.",
+      "conclusion": "Conclude by linking cybersecurity to national security and India's vision of a secure, trusted digital economy."
+    },
+    "modelAnswerHtml": "<p>Cyber crimes represent unlawful acts executed via digital networks, posing severe threats to economic stability and national security. With over 40% of global real-time digital payments occurring in India, the cyber threat landscape has grown exponentially.</p><h3>Major Classifications of Cyber Crimes</h3><ul><li><strong>Financial Frauds:</strong> UPI scams, Phishing, Vishing, and Investment frauds forming the bulk of reported cases.</li><li><strong>Malware and Ransomware Attacks:</strong> Targeted extortion affecting corporate networks and supply chains (e.g., AIIMS ransomware attack).</li><li><strong>Critical Infrastructure Disruption:</strong> Attacks using Advanced Persistent Threats (APTs) targeting power grids, transport, and banking backbones.</li><li><strong>Societal & Individual Offenses:</strong> Cyberbullying, deepfake manipulation, identity theft, and dissemination of Child Sexual Abuse Material (CSAM).</li></ul><h3>Systemic Security Challenges</h3><ul><li><strong>Attribution Dilemma:</strong> Difficulty in tracing cross-border threat actors operating from safe-haven jurisdictions.</li><li><strong>Asymmetry of Capabilities:</strong> State-sponsored actors possess advanced toolsets, whereas local law enforcement faces resource and technical constraints.</li><li><strong>Under-Reporting:</strong> Corporate entities often conceal breaches due to fear of reputational loss and regulatory penalties.</li><li><strong>Evolving Threat Vectors:</strong> Proliferation of AI-generated deepfakes and Ransomware-as-a-Service (RaaS).</li></ul><h3>Comprehensive Mitigation Strategy</h3><p>A multi-pronged approach is required: <strong>Institutional Strengthening:</strong> Operationalizing the Indian Cyber Crime Coordination Centre (I4C) and expanding specialized Cyber Police Stations across districts. <strong>Technical Resilience:</strong> Mandatory cybersecurity audits for critical sectors, adoption of Zero Trust Architecture, and proactive threat hunting by CERT-In. <strong>Capacity Building:</strong> Upskilling judicial officers, law enforcement personnel, and forensic investigators. <strong>International Cooperation:</strong> Strengthening mutual legal assistance treaties (MLATs) and collaborative intelligence sharing. Only through a whole-of-government and whole-of-society approach can India ensure a resilient and trusted cyberspace.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Indian Cyber Crime Coordination Centre (I4C):\n1. It is an apex coordination center established under the Ministry of Electronics and Information Technology (MeitY).\n2. The National Cyber Crime Reporting Portal is an initiative under I4C to enable citizens to report all types of cyber crimes.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because I4C functions under the Ministry of Home Affairs (MHA), not MeitY. Statement 2 is correct; the National Cyber Crime Reporting Portal is managed by I4C to facilitate centralized reporting of cyber crimes."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following best describes the term 'Ransomware-as-a-Service' (RaaS), often seen in news?",
+      "options": [
+        "A cloud-based legal data recovery service offered by software enterprises.",
+        "A business model where cybercriminals lease out ransomware tools to affiliates for a share of the extortion payout.",
+        "A government initiative to compensate victims of cyber fraud.",
+        "An open-source cybersecurity protocol used to secure banking transactions."
+      ],
+      "answer": "A business model where cybercriminals lease out ransomware tools to affiliates for a share of the extortion payout.",
+      "explanation": "Ransomware-as-a-Service (RaaS) operates like a legitimate software business model, where developers create malicious ransomware kits and rent them out to affiliates, lowering the technical entry barrier for launching cyber attacks."
+    }
+  ]
+}

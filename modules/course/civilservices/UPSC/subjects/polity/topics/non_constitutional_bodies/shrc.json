@@ -1,0 +1,106 @@
+{
+  "microTopicId": "polity_non_constitutional_bodies_shrc",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_non_constitutional_bodies",
+  "topicTitle": "Non - constitutional Bodies",
+  "subTopicTitle": "SHRC",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Statutory, regulatory and various quasi-judicial bodies; Structure, organization and functioning of the Executive and the Judiciary."
+  },
+  "lectureHoursEstimate": "Lecture 39&40",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The State Human Rights Commission (SHRC) is a statutory body established under the Protection of Human Rights (PHR) Act, 1993 (amended in 2019) to exercise powers conferred upon and to perform functions assigned to it for the protection of human rights relating to subjects enumerated in Lists II and III of the Seventh Schedule of the Constitution.",
+    "highYieldFacts": [
+      "Fact 1: Established under Section 21 of the Protection of Human Rights Act, 1993, applicable to States.",
+      "Fact 2: Composition amended in 2019: One Chairperson (who has been a Chief Justice or Judge of a High Court) and two Members (one must be a District Judge and another having practical experience in human rights), plus Member Secretaries.",
+      "Fact 3: The 2019 Amendment reduced the tenure of Chairperson and Members from 5 years to 3 years, and made them eligible for re-appointment.",
+      "Fact 4: The Chairperson and members are appointed by the Governor on the recommendations of a committee consisting of the Chief Minister (Head), Speaker of the Legislative Assembly, Minister-in-charge of the Home Department, and Leader of the Opposition in the Legislative Assembly (in bicameral states, Chairman of the Legislative Council and Leader of the Opposition in the Legislative Council are also members).",
+      "Fact 5: The NHRC can take up matters pending before an SHRC, but an SHRC cannot inquire into any matter being inquired into by the NHRC or any other statutory commission."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing removal powers — SHRC members are appointed by the Governor, but they can be removed *only* by the President of India on the grounds of proved misbehavior or incapacity (same as NHRC), not by the Governor.",
+      "Trap 2: Assuming SHRC has punitive/enforcement powers; SHRC is purely recommendatory and cannot award compensation directly, though it can recommend monetary relief."
+    ],
+    "keyArticlesOrStatutes": [
+      "Protection of Human Rights Act, 1993 (Sections 21 to 29)",
+      "Protection of Human Rights (Amendment) Act, 2019",
+      "Article 226 of the Constitution (Intersection with writ jurisdictions)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Statutory Framework of SHRCs</h3><p>The State Human Rights Commission (SHRC) occupies a critical tier in India’s decentralized human rights architecture. Conceived under the Protection of Human Rights Act (PHR Act) of 1993—subsequent to the Paris Principles relating to the status of national institutions—SHRCs are designed to bring human rights accountability closer to the grassroots. While the National Human Rights Commission (NHRC) handles pan-Indian issues and matters concerning Union and Concurrent lists, the SHRC focuses specifically on human rights violations under List II (State List) and List III (Concurrent List) of the Seventh Schedule, subject to Section 36 which prevents jurisdictional overlap with the NHRC.</p><h3>Structural Evolution and the 2019 Amendment Impact</h3><p>The operational efficacy of SHRCs underwent a major overhaul via the Protection of Human Rights (Amendment) Act, 2019. The amendment diversified the eligibility criteria: previously, only a retired High Court Chief Justice could serve as Chairperson; post-2019, a retired High Court Judge is also eligible. Furthermore, the number of members was increased, and specialized domain expertise in human rights was explicitly integrated. However, concerns persist regarding financial autonomy, administrative dependence on state bureaucracies, and vacant posts that undermine the statutory mandate.</p><h3>Functional Jurisdiction and Limitations</h3><p>SHRCs possess powers of a civil court under the Code of Civil Procedure, 1908, enabling them to summon witnesses, examine documents, and requisition public records. Despite these robust inquiry powers, their mandate is severely hobbled by structural toothlessness: recommendations made by SHRCs are non-binding. State governments are merely required to submit an action-taken report within a stipulated timeframe, leading to systemic apathy where critical directives are shelved or ignored. Moreover, the one-year limitation bar on taking up suo motu or petitioned cases prevents SHRCs from investigating historical or protracted human rights abuses.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory creation under PHR Act 1993; interacts with fundamental rights (Part III) and directive principles (Part IV); dependent on state executive implementation.",
+      "socio_economic": "Crucial for safeguarding vulnerable groups (dalits, tribals, women, children, migrant workers) against localized state high-handedness and custodial violence.",
+      "administrative_governance": "Plagued by bureaucratic delays, acute staff shortages, financial dependence on state governments, and non-compliance with recommendations by law enforcement agencies.",
+      "international_or_comparative": "Aligns with the UN Paris Principles on National Human Rights Institutions (NHRIs), promoting decentralized accountability and grassroots rights protection."
+    },
+    "landmarkJudgmentsOrReports": [
+      "NHRC v. State of Arunachal Pradesh (1996) — Expounded state duty to protect human rights of all persons.",
+      "2nd Administrative Reforms Commission (ARC) Reports on Public Order and Ethics in Governance.",
+      "Law Commission of India Reports on Police Reforms and Custodial Torture."
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------------+\n|           APPOINTMENT COMMITTEE FOR SHRC (Sec 22)                 |\n|  Chief Minister (Chair) + Speaker + Home Minister + Opposition Ldr  |\n+-------------------------------------------------------------------+\n                                  |\n                                  v\n+-------------------------------------------------------------------+\n|               COMPOSITION (PHR Amendment Act, 2019)               |\n|  - Chairperson (Retd. CJ or Judge of High Court)                  |\n|  - Member 1 (Serving or Retd. District Judge)                     |\n|  - Member 2 (Expert in Human Rights domain)                       |\n+-------------------------------------------------------------------+\n                                  |\n                                  v\n+-------------------------------------------------------------------+\n|                    POWERS & FUNCTIONAL DOMAIN                     |\n|  - Civil Court Powers (Summoning, Discovery, Affidavits)          |\n|  - Suo Motu or Petition Inquiry (List II & III Violations)        |\n|  - Non-binding Recommendations & Annual Reports to State Legislature |\n+-------------------------------------------------------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "With reference to the State Human Rights Commission in India, consider the following statements: 1. Its chairperson must be a sitting Judge of a High Court. 2. A member of a State Human Rights Commission can be removed by the Governor of the State. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Neither 1 nor 2",
+        "explanation": "Statement 1 is incorrect because the chairperson must be a retired or former Chief Justice or Judge of a High Court, not a sitting judge. Statement 2 is incorrect because although members are appointed by the Governor, they can be removed only by the President of India on the grounds of proved misbehavior or incapacity."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2019,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Performance of welfare schemes that are implemented by the state is not so effective due to the lack of awareness and effective grievance redressal mechanisms. Discuss the role of statutory bodies like SHRCs in bridging this implementation gap."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Evaluate the functional efficacy of State Human Rights Commissions (SHRCs) in India. Examine the structural bottlenecks that constrain their role as frontline defenders of human rights.",
+    "approach": {
+      "intro": "Define SHRC as a statutory mechanism under the PHR Act 1993, highlighting its mandate to protect and promote human rights at the sub-national level.",
+      "body": "Analyze positive contributions (grassroots vigilance, civil court powers). Enumerate structural bottlenecks (non-binding recommendations, financial/administrative dependence, vacancy deficits, 1-year limitation bar). Discuss the impact of the 2019 Amendment.",
+      "conclusion": "Suggest practical reforms including binding status for recommendations, financial autonomy, and enhanced civil society engagement to fulfill the vision of constitutionalism."
+    },
+    "modelAnswerHtml": "<p>The State Human Rights Commissions (SHRCs), constituted under the Protection of Human Rights Act, 1993, act as crucial statutory sentinels safeguarding human rights at the sub-national level. Operating within the federal framework, SHRCs specialize in rights violations stemming from matters under the State and Concurrent lists.</p><br/><h3>Functional Contributions of SHRCs</h3><ul><li><strong>Decentralized Redressal:</strong> Brings human rights grievance mechanisms closer to citizens, particularly marginalized sections facing local police high-handedness or administrative apathy.</li><li><strong>Investigative Autonomy:</strong> Utilizes civil court powers to summon witnesses, inspect custodial institutions, and unearth systemic human rights violations.</li><li><strong>Preventive Interventions:</strong> Conducts suo motu inquiries into custodial deaths, fake encounters, and communal flare-ups, acting as a deterrent against executive overreach.</li></ul><br/><h3>Structural Bottlenecks Constraining SHRCs</h3><ul><li><strong>Toothless Recommendations:</strong> Under Section 18, SHRC findings and recommendations are strictly recommendatory. State executives often sit on reports without implementing suggested disciplinary actions or monetary reliefs.</li><li><strong>Financial and Administrative Dependence:</strong> SHRCs rely heavily on state governments for budgetary allocations and investigative staff (often deputed from the same state police forces they are meant to investigate), creating a conflict of interest.</li><li><strong>Vacancies and Infrastructure Deficits:</strong> Chronic delays in appointing chairpersons and members, coupled with lack of specialized forensic and legal infrastructure, cripple disposal rates.</li><li><strong>The One-Year Limitation Bar:</strong> Section 36(2) bars SHRCs from inquiring into any matter after the expiry of one year from the date on which the act constituting violation is alleged to have been committed, shutting out victims of delayed justice.</li></ul><br/><h3>Way Forward</h3><p>To transform SHRCs into robust guardians of human rights, the Supreme Court's observations in various rulings must be operationalized. Recommendations of SHRCs should be accorded presumptive enforceability, requiring state governments to seek judicial review if they wish to reject them. Granting independent investigative machinery and ensuring transparent, timely appointments will restore institutional credibility and uphold the mandate of Article 21.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the State Human Rights Commission (SHRC):\n1. The Protection of Human Rights (Amendment) Act, 2019 expanded eligibility to include a retired Judge of a High Court as Chairperson.\n2. The tenure of the Chairperson and members of SHRC was reduced from 5 years to 3 years by the 2019 Amendment.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Both statements are correct. Prior to the 2019 amendment, only a retired Chief Justice of a High Court could be appointed as SHRC Chairperson; now, a retired Judge of a High Court is also eligible. The tenure was altered from 5 years to 3 years (and made eligible for reappointment)."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following bodies is empowered to remove the Chairperson or a member of a State Human Rights Commission?",
+      "options": [
+        "Governor of the concerned State",
+        "Chief Minister of the concerned State",
+        "President of India",
+        "Supreme Court of India on a reference by the Governor"
+      ],
+      "answer": "President of India",
+      "explanation": "Although the Chairperson and members of an SHRC are appointed by the Governor, they can be removed only by the President of India on the grounds of proved misbehavior or incapacity, and that too after an inquiry by the Supreme Court. This ensures institutional independence from state political executive pressure."
+    }
+  ]
+}

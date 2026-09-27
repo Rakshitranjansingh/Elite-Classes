@@ -1,0 +1,106 @@
+{
+  "microTopicId": "environment_climate_change_global_warming",
+  "subjectId": "environment",
+  "subjectTitle": "Environment, Ecology & Biodiversity",
+  "topicId": "environment_climate_change",
+  "topicTitle": "Climate change",
+  "subTopicTitle": "Global warming",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Biodiversity and Climate Change - that do not require subject specialization.",
+    "mains": "GS Paper III - Conservation, environmental pollution and degradation, environmental impact assessment."
+  },
+  "lectureHoursEstimate": "Lecture 21",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Global warming refers to the long-term heating of Earth's climate system observed since the pre-industrial period due to human activities, primarily fossil fuel burning, which increases heat-trapping greenhouse gas levels in the atmosphere. Current scientific consensus confirms that human activities are unequivocally responsible for warming the planet by approximately 1.1°C above pre-industrial levels.",
+    "highYieldFacts": [
+      "Fact 1: Carbon dioxide (CO2), Methane (CH4), Nitrous Oxide (N2O), and fluorinated gases are the primary anthropogenic greenhouse gases regulated under international frameworks.",
+      "Fact 2: The Intergovernmental Panel on Climate Change (IPCC) acts as the principal UN body for assessing the science related to climate change, established in 1988 by WMO and UNEP.",
+      "Fact 3: Global warming potentials (GWPs) are used to compare the heat-trapping ability of different gases relative to CO2 over a specific timeframe, typically 100 years.",
+      "Fact 4: The Paris Agreement aims to hold the increase in the global average temperature to well below 2°C above pre-industrial levels and pursue efforts to limit it to 1.5°C.",
+      "Fact 5: India's updated Nationally Determined Contributions (NDCs) target a 45% reduction in emissions intensity of GDP by 2030 over 2005 levels and achieving about 50% cumulative electric power installed capacity from non-fossil fuel-based energy."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing Global Warming with Climate Change. Global warming refers strictly to the Earth's rising surface temperature, whereas climate change includes global warming and its side-effects like precipitation changes and sea-level rise.",
+      "Trap 2: Assuming water vapor is an anthropogenic greenhouse gas driver. While water vapor is the most abundant greenhouse gas, it acts as a feedback loop rather than a primary forcing driver of anthropogenic climate change."
+    ],
+    "keyArticlesOrStatutes": [
+      "Environment (Protection) Act, 1986",
+      "National Action Plan on Climate Change (NAPCC)",
+      "UN Framework Convention on Climate Change (UNFCCC)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Anatomy and Governance of Global Warming</h3><p>Global warming represents the defining environmental crisis of the Anthropocene, fundamentally altering biogeochemical cycles and threatening planetary boundaries. Driven exponentially since the industrial revolution, anthropogenic emissions have accelerated radiative forcing, disrupting the delicate radiative balance of the Earth-atmosphere system.</p><h3>Mechanisms of Forcing and Feedbacks</h3><p>The core driver is the enhanced greenhouse effect. Shortwave solar radiation penetrates the atmosphere, is absorbed by the Earth's surface, and is re-emitted as longwave infrared radiation. Greenhouse gases absorb and trap this upward radiation, radiating it back toward the surface. Critical climate feedbacks—such as the ice-albedo feedback, permafrost thaw releasing massive methane pulses, and water vapor feedback—exacerbate initial temperature anomalies, creating non-linear tipping points.</p><h3>Socio-Economic and Geopolitical Dimensions</h3><p>Global warming is not merely an ecological crisis; it is deeply intertwined with economic equity, human rights, and national security. Developing nations, despite contributing historically miniscule shares of cumulative emissions, bear the disproportionate brunt of extreme weather events, agricultural distress, and vector-borne diseases. This gives rise to the critical imperative of 'Climate Justice' and 'Common But Differentiated Responsibilities and Respective Capabilities' (CBDR-RC).</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Article 21 (Right to a clean environment), Article 48A (State obligation to protect forests and wildlife), and Article 51A(g) (Fundamental duty of citizens).",
+      "socio_economic": "Agrarian distress, forced climate migration, loss of livelihood for coastal and indigenous communities, and exacerbation of poverty.",
+      "administrative_governance": "Integration of climate action into fiscal policy, strengthening disaster management frameworks under the NDMA, and multi-ministerial coordination (MoEFCC, Ministry of Power, Ministry of New and Renewable Energy).",
+      "international_or_comparative": "Adherence to UNFCCC, Kyoto Protocol, Paris Agreement, and the principle of equity in global carbon budgets."
+    },
+    "landmarkJudgmentsOrReports": [
+      "M.C. Mehta v. Union of India (Taj Trapezium and vehicular pollution cases)",
+      "IPCC Sixth Assessment Report (AR6)",
+      "Economic Survey chapters on Climate Finance and Green Growth"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------+\n|            ANTHROPOGENIC DRIVERS (Fossil Fuels, Deforestation)|\n+------------------------------+------------------------------+\n                               |\n                               v\n+-------------------------------------------------------------+\n|          ELEVATED GREENHOUSE GAS CONCENTRATIONS (CO2, CH4)   |\n+------------------------------+------------------------------+\n                               |\n                               v\n+-------------------------------------------------------------+\n|          ENHANCED RADIATIVE FORCING & TEMPERATURE RISE      |\n+------------------------------+------------------------------+\n        |                      |                      |\n        v                      v                      v\n+---------------+      +---------------+      +---------------+\n| Cryosphere    |      | Hydrosphere   |      | Biosphere     | \n| Melt/Albedo   |      | Sea-level Rise|      | Ecosystem Shift\n+---------------+      +---------------+      +---------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2018,
+        "question": "Which of the following statements best describes 'Carbon Fertilization'?",
+        "options": [
+          "Increased plant growth due to increased concentration of carbon dioxide in the atmosphere",
+          "Increased temperature of Earth due to increased concentration of carbon dioxide in the atmosphere",
+          "Method of agricultural clearance in shifting cultivation",
+          "Gaseous exchange between plant roots and soil"
+        ],
+        "answer": "Increased plant growth due to increased concentration of carbon dioxide in the atmosphere",
+        "explanation": "Carbon fertilization refers to the enhanced photosynthetic rate and growth of plants resulting from elevated atmospheric CO2 concentrations, though its long-term benefits are often constrained by water and nutrient limitations."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Describe the major outcomes of the 26th session of the Conference of the Parties (COP26) to the United Nations Framework Convention on Climate Change (UNFCCC). What are the commitments made by India at this forum?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the scientific basis of global warming and discuss the challenges in operationalizing the principle of 'Common But Differentiated Responsibilities and Respective Capabilities' (CBDR-RC) in contemporary climate geopolitics. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define global warming briefly, citing recent IPCC findings on temperature anomalies.",
+      "body": "Explain the physical mechanism of global warming. Discuss how CBDR-RC originated and its evolution into CBDR-RC-NC (in light of national circumstances). Highlight contemporary geopolitical hurdles like historical emissions vs. current output, climate finance bottlenecks, and technology transfer.",
+      "conclusion": "Conclude with India's leadership through Panchamrit and International Solar Alliance, emphasizing inclusive multilateralism."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Global warming represents the anthropogenic heating of the Earth's climate system, with global surface temperatures currently exceeding pre-industrial levels by approximately 1.1°C to 1.2°C. As highlighted by the IPCC AR6, unchecked emissions threaten irreversible tipping points.</p><h3>Scientific Basis of Global Warming</h3><p>The mechanism relies on radiative forcing: human activities release greenhouse gases that absorb outgoing longwave radiation. While natural factors like solar variability play a minimal role, human-induced emissions of carbon dioxide and methane account for virtually all global warming since the 19th century, triggering cascading impacts across the cryosphere, biosphere, and hydrosphere.</p><h3>Challenges in Operationalizing CBDR-RC</h3><p>The principle of <strong>Common But Differentiated Responsibilities and Respective Capabilities (CBDR-RC)</strong> acknowledges that developed nations bear historical responsibility for cumulative emissions and possess greater financial/technological capacity. However, operationalizing this in contemporary geopolitics faces severe hurdles:</p><ul><li><strong>Shifting Emission Geographies:</strong> Emerging economies like China and India now feature among top current emitters, prompting developed nations to dilute historical liability and demand universal emission caps.</li><li><strong>Deficit in Climate Finance:</strong> The unfulfilled promise of $100 billion annually by developed nations undermines adaptation and mitigation efforts in the Global South.</li><li><strong>Technological Protectionism:</strong> Intellectual Property Rights (IPRs) and restrictive trade barriers hinder the transfer of green technologies (e.g., green hydrogen, carbon capture) to developing states.</li><li>Dilution into 'National Circumstances' under the Paris Agreement has decentralized emission targets, shifting the onus from mandatory historical redressal to voluntary pledges.</li></ul><h3>Way Forward</h3><p>Global climate governance must move beyond polarized debates. Developed nations must operationalize loss and damage funds and fulfill climate finance commitments. Concurrently, developing nations must accelerate green transitions—exemplified by India's <strong>Panchamrit</strong> targets and lifestyle for environment (LiFE)—ensuring that global warming is countered through equitable burden-sharing and cooperative multilateralism.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following greenhouse gases: 1. Carbon dioxide 2. Methane 3. Nitrous oxide 4. Water vapour. Which of the above are considered major drivers of anthropogenic global warming forcing?",
+      "options": [
+        "1, 2 and 3 only",
+        "2 and 4 only",
+        "1, 3 and 4 only",
+        "1, 2, 3 and 4"
+      ],
+      "answer": "1, 2 and 3 only",
+      "explanation": "While water vapor is the most abundant natural greenhouse gas and acts as a powerful feedback mechanism, carbon dioxide, methane, and nitrous oxide are the primary anthropogenic drivers of direct radiative forcing."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following international agreements specifically introduced the concept of 'Nationally Determined Contributions' (NDCs)?",
+      "options": [
+        "Kyoto Protocol",
+        "Paris Agreement",
+        "Copenhagen Accord",
+        "Montreal Protocol"
+      ],
+      "answer": "Paris Agreement",
+      "explanation": "The Paris Agreement (COP21, 2015) replaced top-down emission targets with bottom-up voluntary pledges known as Nationally Determined Contributions (NDCs), submitted and updated every five years by signatory countries."
+    }
+  ]
+}

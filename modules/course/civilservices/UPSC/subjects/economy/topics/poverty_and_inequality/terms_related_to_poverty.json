@@ -1,0 +1,107 @@
+{
+  "microTopicId": "economy_poverty_and_inequality_terms_related_to_poverty",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_poverty_and_inequality",
+  "topicTitle": "Poverty and Inequality",
+  "subTopicTitle": "Terms related to Poverty",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 6&7",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Understanding poverty requires navigating a precise taxonomy of economic concepts including absolute vs. relative poverty, multidimensional poverty, poverty line baskets, and chronic vs. transient poverty. These terminologies form the foundational toolkit for empirical policy design, resource allocation under fiscal federalism, and international welfare benchmarking.",
+    "highYieldFacts": [
+      "Fact 1: Absolute Poverty measures deprivation against a fixed minimum subsistence threshold (Poverty Line Basket - PLB), whereas Relative Poverty measures inequality across income deciles within a population.",
+      "Fact 2: Chronic Poor refers to those who are always poor or mostly poor (e.g., persistently destitute), while Transitory Poor includes 'churning poor' (moving in and out) and 'occasionally poor'.",
+      "Fact 3: The Multidimensional Poverty Index (MPI), developed by Oxford OPHI and UNDP, utilizes 10 indicators across Health, Education, and Standard of Living.",
+      "Fact 4: The Tendulkar Committee (2009) shifted focus from calorie intake alone to a comprehensive consumption basket including health and education expenditure.",
+      "Fact 5: NITI Aayog's National Multidimensional Poverty Index 2023 tracks progress using NFHS data, reporting a decline in India's multidimensional poverty from 24.85% to 14.96% between 2015-16 and 2019-21."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing relative poverty with absolute poverty. Relative poverty can exist even in developed nations with zero absolute poverty (e.g., Scandinavia).",
+      "Trap 2: Assuming the Tendulkar or Rangarajan committees estimated poverty based purely on income; they used monthly per capita consumption expenditure (MPCE)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 21 (Right to Life with dignity)",
+      "Article 38 (State to secure a social order for the promotion of welfare of the people)",
+      "Article 47 (Duty of the State to raise the level of nutrition and the standard of living)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Taxonomy of Poverty Terminology</h3><p>The academic and administrative discourse on poverty relies on a precise lexicon. Grasping these terms is critical for analyzing contemporary economic reports, designing targeted social protection floors, and evaluating redistributive policies. Poverty is no longer viewed merely as a lack of income; it is conceptualized as a multi-layered phenomenon encompassing capabilities, deprivations, and social exclusion.</p><h3>Core Analytical Categories</h3><ul><li><strong>Absolute vs. Relative Poverty:</strong> Absolute poverty defines a threshold below which basic human needs cannot be met. Relative poverty compares individuals or groups to the median or average standard of living of the society they inhabit, reflecting income inequality.</li><li><strong>Multidimensional Poverty:</strong> Spearheaded by Amartya Sen's Capability Approach, this perspective evaluates deprivations across simultaneous domains such as nutrition, school attendance, sanitation, and clean cooking fuel, rather than monetary metrics alone.</li><li><strong>Chronic vs. Transitory Poverty:</strong> Chronic poverty denotes deep-seated structural destitution, often passed down generations. Transitory poverty captures vulnerability to shocks (climate, health, macroeconomic crises), separating the 'churning poor' from the 'occasionally poor'.</li></ul><h3>Contemporary Policy Integration</h3><p>Modern governance in India leverages these terminologies through schemes like PM-GKAY (addressing transient shocks) and mission-mode execution of MGNREGA and PMAY (combating chronic deprivation). Understanding these nuances enables the state to transition from generalized subsidies to precision-targeted developmental interventions aligned with SDG 1 (No Poverty).</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Fulfilling Directive Principles of State Policy (DPSP) mandates under Articles 38 and 39 to minimize inequalities in income, status, facilities, and opportunities.",
+      "socio_economic": "Mitigating inter-generational traps, preventing social unrest, and building human capital for the demographic dividend.",
+      "administrative_governance": "Overcoming exclusion errors (Type I) and inclusion errors (Type II) through Aadhaar-seeded Direct Benefit Transfers (DBT) and dynamic registry systems.",
+      "international_or_comparative": "Benchmarking performance against Sustainable Development Goals (SDGs) and global indices like the UNDP Multidimensional Poverty Index."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Tendulkar Expert Group Report (2009)",
+      "Rangarajan Committee Report (2014)",
+      "NITI Aayog National Multidimensional Poverty Index Baseline and Progress Reports",
+      "Bandhua Mukti Morcha v. Union of India (1984) on human dignity and poverty"
+    ],
+    "structuredDiagramAscii": "POVERTY TAXONOMY FRAMEWORK\n│\n├── Monetary Dimensions\n│   ├── Absolute Poverty (Fixed Subsistence / PLB / MPCE)\n│   └── Relative Poverty (Decile / Quintile Inequality Measures)\n│\n├── Temporal Dimensions\n│   ├── Chronic Poor (Always / Usually Poor)\n│   └── Transitory Poor (Churning / Occasionally Poor)\n│\n└── Capability / Deprivation Dimensions\n    └── Multidimensional Poverty Index (Health, Education, Living Standards)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "In the context of India, which of the following is/are the purpose/purposes of 'Statutory Generally Accepted Accounting Principles (GAAP)'? (Re-contextualized for economic welfare tracking)... Consider the following statements regarding the Multidimensional Poverty Index: 1. It measures deprivations across health, education, and standard of living. 2. All indicators carry equal weight in the final index computation. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "1 only",
+        "explanation": "Statement 1 is correct as MPI measures deprivations across health, education, and standard of living (10 indicators). Statement 2 is incorrect because within the 3 dimensions, health and education indicators are weighted equally (1/6th each), and standard of living indicators are also weighted equally (1/18th each), but the dimensions themselves have weights (1/3rd each)."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Poverty alleviation programmes in India have been affected by widespread corruption and lack of administrative efficiency. Examine the structural bottlenecks and suggest measures for effective delivery."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Distinguish between absolute poverty and relative poverty. Examine how the shift from a purely monetary definition of poverty to a multidimensional approach has transformed policy formulation in India. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define poverty briefly and state the fundamental dichotomy between absolute and relative poverty.",
+      "body": "Differentiate clearly between absolute and relative poverty. Explain the rationale for shifting to a multidimensional approach (Capability Approach by Amartya Sen). Discuss how this shift reflects in NITI Aayog's Multidimensional Poverty Index and targeted policy interventions like PM-GKAY, Aspirational Districts Programme, and NFSA. Mention administrative challenges like data lag.",
+      "conclusion": "Conclude by linking poverty eradication to inclusive growth, constitutional ideals, and achieving SDG 1 by 2030."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Poverty is a complex socio-economic phenomenon representing deprivation of human necessities. While <strong>absolute poverty</strong> measures inability to meet a fixed minimum subsistence baseline, <strong>relative poverty</strong> evaluates income inequality within a given societal distribution.</p><h3>Absolute vs. Relative Poverty</h3><ul><li><strong>Absolute Poverty:</strong> Based on a Poverty Line Basket (PLB) measuring caloric intake, expenditure on education, and health. It is independent of economic growth levels (e.g., Tendulkar Committee benchmarks).</li><li><strong>Relative Poverty:</strong> Measures disparity by comparing the bottom deciles against median income thresholds. Even developed nations with negligible absolute poverty experience relative poverty.</li></ul><h3>The Shift to Multidimensional Poverty</h3><p>Inspired by Amartya Sen’s <em>Capability Approach</em>, modern economics recognizes that income alone fails to capture human misery. The transition to a multidimensional paradigm is driven by:</p><ul><li><strong>Holistic Deprivation:</strong> Captures simultaneous deficits in health, schooling, sanitation, clean cooking fuel, and housing.</li><li><strong>Policy Precision:</strong> NITI Aayog's National Multidimensional Poverty Index (MPI) identifies exact micro-deprivations, enabling targeted interventions in lagging districts.</li><li><strong>Inter-sectoral Convergence:</strong> Schemes like Ayushman Bharat (Health), Samagra Shiksha (Education), Swachh Bharat (Sanitation), and Ujjwala (Clean Energy) operate in synergy to address overlapping deprivations.</li></ul><h3>Conclusion</h3><p>Redefining poverty from a static monetary measure to a dynamic, multidimensional construct has revolutionized India's welfare architecture. By embedding disaggregated regional data into the Aspirational Districts Programme and PM Jan Dhan-Aadhaar-Mobile (JAM) trinity, India is systematically dismantling systemic traps, aligning governance with constitutional justice and SDG 1.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the classification of the poor: 1. The 'churning poor' refer to households that regularly move in and out of poverty. 2. The 'chronic poor' include both the persistently poor and the occasional poor who face seasonal shocks. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: Churning poor are those who frequently cross the poverty line (up and down). Statement 2 is incorrect because 'occasional poor' belong to the transitory category, whereas chronic poor are perpetually or usually poor."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following international indices explicitly utilizes Alkire-Foster methodology to measure poverty?",
+      "options": [
+        "Global Hunger Index",
+        "Multidimensional Poverty Index (MPI)",
+        "Human Development Index (HDI)",
+        "Global Multidimensional Inequality Metric"
+      ],
+      "answer": "Multidimensional Poverty Index (MPI)",
+      "explanation": "The global MPI, developed by Oxford Poverty and Human Development Initiative (OPHI) and UNDP, uses the Alkire-Foster method, which counts the overlapping deprivations each person faces simultaneously."
+    }
+  ]
+}

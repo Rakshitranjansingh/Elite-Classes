@@ -1,0 +1,108 @@
+{
+  "microTopicId": "science_tech_technology_intellectual_property_rights",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_technology",
+  "topicTitle": "Technology",
+  "subTopicTitle": "Intellectual Property Rights",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Bio-diversity and Climate Change - that do not require subject specialization; General Science; Intellectual Property Rights (IPR) issues under UPSC General Science syllabus.",
+    "mains": "GS Paper III - Science and Technology - Awareness in the fields of IT, Space, Computers, robotics, nano-technology, bio-technology and issues relating to Intellectual Property Rights."
+  },
+  "lectureHoursEstimate": "Lecture 1,2 &3",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Intellectual Property Rights (IPRs) are legal rights that protect creations of the mind—ranging from inventions and literary works to designs and symbols—granting creators exclusive rights to use and commercialize their innovations for a specific period. India's IPR regime is governed by statutory frameworks aligned with the WTO’s TRIPS Agreement, balancing private monopoly incentives with public welfare obligations.",
+    "highYieldFacts": [
+      "Fact 1: The Patents Act was enacted in 1970 and subsequently amended in 2005 to introduce product patents in pharmaceuticals and agro-chemicals to comply with TRIPS.",
+      "Fact 2: The Department for Promotion of Industry and Internal Trade (DPIIT) under the Ministry of Commerce and Industry is the nodal agency for IPR administration in India.",
+      "Fact 3: Section 3(d) of the Indian Patents Act prevents evergreening of patents by stipulating that mere discovery of a new form of a known substance does not result in efficacy enhancement.",
+      "Fact 4: India's National Intellectual Property Rights (NIPR) Policy was adopted in May 2016 with the tagline 'Creative India; Innovative India'.",
+      "Fact 5: Geographical Indication (GI) registration in India is governed by the Geographical Indications of Goods (Registration and Protection) Act, 1999, with Darjeeling Tea being the first Indian product to receive a GI tag in 2004."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing Copyright protection with Patent protection terms (Copyright generally lasts for the lifetime of the author plus 60 years, whereas standard patents last for 20 years from the date of filing).",
+      "Trap 2: Assuming compulsory licensing is applicable to all IP categories; compulsory licensing under Section 92 of the Patents Act primarily targets pharmaceuticals and public health crises."
+    ],
+    "keyArticlesOrStatutes": [
+      "The Patents Act, 1970 (Amended 2005)",
+      "The Trademarks Act, 1999",
+      "The Copyright Act, 1957",
+      "The Designs Act, 2000",
+      "Geographical Indications of Goods (Registration and Protection) Act, 1999"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Strategic Imperatives of Intellectual Property Rights (IPR)</h3><p>Intellectual Property Rights have evolved from localized merchant protections into a core pillar of the global knowledge economy. In contemporary international relations, IPR functions not merely as a legal instrument for individual inventors, but as a geopolitical lever determining technological sovereignty, supply chain dominance, and public health security.</p><h3>India's Statutory Architecture and Balance</h3><p>India maintains a nuanced approach to IPR that carefully balances commercial monopoly incentives with developmental imperatives. Unlike Western jurisdictions that lean heavily toward absolute patent thickets, Indian statute incorporates progressive safeguards:</p><ul><li><strong>Section 3(d) of the Patents Act:</strong> Prevents 'evergreening' by demanding verifiable proof of enhanced therapeutic efficacy for modifications of existing compounds.</li><li><strong>Compulsory Licensing (Sections 84 and 92):</strong> Empowers the Controller General of Patents to permit third-party manufacture of patented drugs during public health emergencies, famously invoked in the *Bayer v. Natco* case for Nexavar.</li><li><strong>Traditional Knowledge Digital Library (TKDL):</strong> A pioneering defensive mechanism established by CSIR and AYUSH to prevent the bio-piracy of India's indigenous medicinal heritage by converting traditional texts into searchable international patent databases.</li></ul><h3>Contemporary Governance Challenges</h3><p>Despite administrative consolidation under the Office of the Controller General of Patents, Designs and Trademarks (CGPDTM) and the modernization drive of the National Intellectual Property Awareness Mission (NIPAM), structural bottlenecks persist:</p><p><strong>Backlog and Examination Delays:</strong> High pendency rates for patent and trademark examinations hinder domestic startups and academic institutions from securing timely market advantage. <strong>Enforcement Deficits:</strong> Counterfeiting and piracy continue to erode brand value, particularly in digital media, pharmaceuticals, and consumer goods. <strong>Low R&D Expenditure:</strong> India's Gross Expenditure on R&D (GERD) hovers around 0.65% of GDP, constraining domestic patent creation compared to the US, China, or South Korea.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Implicitly linked to Article 21 (Right to Life and Health via affordable medicines) and Article 19(1)(g) (Right to practice any profession, trade or business). Statutory framework governed by Union List entries under the Seventh Schedule.",
+      "socio_economic": "Crucial for ensuring affordable healthcare, protecting rural agricultural innovations (Plant Varieties and Farmers' Rights Act, 2001), and supporting MSME competitiveness.",
+      "administrative_governance": "Requires inter-ministerial synergy between DPIIT, Ministry of Health, Ministry of Agriculture, and judicial bodies like the Delhi High Court's dedicated IP Division.",
+      "international_or_comparative": "Operates under WTO TRIPS Agreement mandates, bilateral free trade agreements (FTAs), and WIPO-administered treaties. India's TRIPS-flexibility utilization remains a benchmark for Global South nations."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Novartis AG v. Union of India (2013) - Landmark Supreme Court judgment upholding Section 3(d) against evergreening.",
+      "Bayer Corporation v. Natco Pharma Ltd. (2012) - First Compulsory License granted in India for a life-saving cancer drug.",
+      "Parliamentary Standing Committee Reports on Intellectual Property Rights regime in India."
+    ],
+    "structuredDiagramAscii": "[R&D / Innovation Genesis] \n       │\n       ▼\n[DPIIT / CGPDTM Administrative Processing] ──► [Examination & Publication]\n       │                                                      │\n       ├─────────────────────────┬────────────────────────────┘\n       ▼                         ▼\n[Grant of IPR Monopoly]   [Pre/Post Grant Opposition (Section 25)]\n       │\n       ├─────────────────────────┐\n       ▼                         ▼\n[Commercialization]       [Public Welfare Safeguards]\n(Licensing/Startups)      (Section 3(d), Compulsory Licensing)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2019,
+        "question": "Consider the following statements: 1. Agricultural soils release nitrogen oxides into environment. 2. Cattle release ammonia into environment. 3. Poultry industry releases reactive nitrogen compounds into environment. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 and 3 only",
+          "1 and 2 only",
+          "1, 2 and 3"
+        ],
+        "answer": "1, 2 and 3",
+        "explanation": "Representative science and tech governance question testing multi-sectoral environmental and industrial impacts."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss how India's intellectual property rights regime has evolved to balance innovation incentives with public health commitments, with special reference to pharmaceuticals."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the challenges in India's Intellectual Property Rights (IPR) regime and evaluate the measures taken to foster a vibrant innovation and startup ecosystem in the country. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define IPR in the context of India's transition to a knowledge-based economy and mention the National IPR Policy (2016).",
+      "body": "Discuss structural challenges (patent backlog, enforcement gaps, low R&D spending) and evaluate policy measures (IPR policy modernization, NIPAM, fast-tracked startup facilitation, specialized IP benches in High Courts).",
+      "conclusion": "Suggest way forward emphasizing increased R&D investment, capacity building, and striking a balance between TRIPS compliance and developmental flexibilities."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Intellectual Property Rights (IPR) serve as the legal bedrock for a knowledge-driven economy by incentivizing research, development, and commercialization. India’s IPR regime operates on a delicate statutory balance—encouraging cutting-edge domestic innovation while preserving vital developmental flexibilities under the WTO’s TRIPS Agreement, especially regarding public health and affordable healthcare.</p><h3>Key Challenges in India's IPR Regime</h3><ul><li><strong>High Patent Backlog and Examiner Shortages:</strong> Pendency rates for patent and trademark examinations have historically delayed market entry for startups and academic spin-offs, blunting the competitive edge of Indian enterprises.</li><li><strong>Enforcement Deficits and Piracy:</strong> Widespread counterfeiting, digital piracy, and weak judicial enforcement in certain lower courts dilute brand value and deter foreign direct investment (FDI) in high-tech sectors.</li><li><strong>Sub-optimal R&D Investment:</strong> India's Gross Expenditure on Research and Development (GERD) lingers around 0.65% of GDP, significantly lower than major economies like China (2.4%) or the US (3.5%), restricting high-value patent output.</li><li><strong>Awareness Gap:</strong> MSMEs, rural artisans, and academic institutions often lack awareness regarding patent filing procedures and the monetization of geographical indications (GIs) or designs.</li></ul><h3>Measures Fostering Innovation and Startup Ecosystem</h3><ul><li><strong>Administrative Streamlining:</strong> The modernization of the Office of the Controller General of Patents, Designs and Trademarks (CGPDTM) has drastically reduced examination timelines and increased manpower.</li><li><strong>Startup Facilitation:</strong> The Scheme for Facilitating Start-Ups Intellectual Property Protection (SIPP) provides a panel of facilitators and an 80% rebate on patent filing fees, incentivizing young enterprises.</li><li><strong>Judicial Reforms:</strong> The establishment of dedicated Intellectual Property Divisions (IPD) in High Courts, such as the Delhi High Court, has streamlined adjudication and reduced litigation delays.</li><li><strong>Defensive Safeguards:</strong> Initiatives like the Traditional Knowledge Digital Library (TKDL) continue to safeguard indigenous genetic resources against international bio-piracy.</li></ul><h3>Way Forward</h3><p>To transform India from an IP consumer to an IP creator, the nation must augment public-private partnership in R&D to push GERD toward 2% of GDP. Integrating IPR education into higher technical curricula, strengthening district-level GI facilitation centers, and judiciously utilizing TRIPS flexibilities will ensure equitable, sustainable innovation aligned with Atmanirbhar Bharat and Vision 2047.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to India's patent regime, consider the following statements: 1. Section 3(d) of the Indian Patents Act, 1970 prohibits the patenting of all pharmaceutical derivatives. 2. Compulsory licensing can be granted only after the expiry of three years from the date of the grant of a patent under normal circumstances. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because Section 3(d) does not prohibit all derivatives; it bars mere discoveries of new forms of known substances unless they demonstrate significant enhancement in efficacy. Statement 2 is correct: under Section 84 of the Patents Act, any person can make an application for a compulsory license after the expiration of three years from the date of the grant of the patent, subject to prescribed statutory grounds."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following bodies functions as the nodal agency for the regulation and administration of Intellectual Property Rights (IPRs) in India?",
+      "options": [
+        "Council of Scientific and Industrial Research (CSIR)",
+        "Department for Promotion of Industry and Internal Trade (DPIIT)",
+        "NITI Aayog",
+        "Competition Commission of India (CCI)"
+      ],
+      "answer": "Department for Promotion of Industry and Internal Trade (DPIIT)",
+      "explanation": "The Department for Promotion of Industry and Internal Trade (DPIIT) under the Ministry of Commerce and Industry is the nodal department responsible for the formulation and administration of policies and laws relating to IPRs such as patents, designs, trademarks, and geographical indications in India."
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "microTopicId": "economy_national_income_accounting_gdp",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_national_income_accounting",
+  "topicTitle": "National Income Accounting",
+  "subTopicTitle": "GDP",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives, etc.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 3&4",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Gross Domestic Product (GDP) is the monetary value of all final goods and services produced within the domestic territory of a country during a given accounting year. It serves as the primary gauge of macroeconomic health, tracked in India primarily through the Index of Industrial Production (IIP), Consumer Price Index (CPI), and corporate financial filings.",
+    "highYieldFacts": [
+      "Fact 1: The National Statistical Office (NSO) under the Ministry of Statistics and Programme Implementation (MoSPI) is responsible for compiling and releasing GDP data in India.",
+      "Fact 2: India transitioned its base year for GDP calculation from 2004-05 to 2011-12, incorporating the MCA-21 database for corporate filings.",
+      "Fact 3: Gross Value Added (GVA) at basic prices plus product taxes minus product subsidies equals GDP at market prices.",
+      "Fact 4: The System of National Accounts (SNA 2008), an international standard maintained by the UN, guides India's national income accounting framework.",
+      "Fact 5: The Economic Advisory Council to the Prime Minister (EAC-PM) and the Standing Committee on Statistics (SCOS) periodically review economic measurement methodologies."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing domestic territory (geographical and economic boundaries including embassies abroad) with resident citizenship (GNP).",
+      "Trap 2: Assuming intermediate goods are included in GDP; only final goods and services are accounted for to prevent double counting."
+    ],
+    "keyArticlesOrStatutes": [
+      "Collection of Statistics Act, 2008",
+      "Statutory mandate of the National Statistical Commission (NSC)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Mechanics of GDP Estimation in India</h3><p>Gross Domestic Product (GDP) remains the foundational metric for evaluating macroeconomic performance, policy formulation, and resource allocation in India. Over decades, India's national accounting has transitioned from basic domestic output aggregations to complex system-of-accounts frameworks aligned with global standards set by the United Nations System of National Accounts (SNA).</p><h3>Institutional Architecture</h3><p>The institutional machinery rests with the National Statistical Office (NSO) under MoSPI. The shift to the 2011-12 base year marked a paradigm change by incorporating the MCA-21 database—capturing balance sheets of over half a million corporate entities electronically—and transitioning from the Annual Survey of Industries (ASI) factory-level data to comprehensive value-added tracking.</p><h3>Contemporary Challenges and Structural Critiques</h3><p>Despite methodological refinements, GDP measurement faces acute structural headwinds. First, the vast informal sector (comprising micro-enterprises, unorganised manufacturing, and informal services) resists real-time capture, relying instead on indirect proxy indicators. Second, the digital economy, platform-based gig work, and cross-border data flows challenge traditional geographical boundaries of domestic production. Third, GDP measures market transactions rather than societal well-being, ignoring environmental degradation, resource depletion, and income inequality.</p><h3>Governance and Policy Implications</h3><p>Fiscal deficit targets (under the FRBM Act), monetary policy committee (MPC) inflation-targeting frameworks, and international credit ratings are inextricably linked to GDP growth prints. Consequently, ensuring data integrity, mitigating methodological revisions shock, and augmenting high-frequency alternative indicators (like e-way bills, UPI transaction volumes, and GST collection trends) are vital for modern fiscal governance.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing via the Collection of Statistics Act; oversight via institutional frameworks like the National Statistical Commission (NSC) though lacking statutory autonomy.",
+      "socio_economic": "GDP growth does not automatically translate to distributive justice; jobless growth and K-shaped recovery highlight the divergence between aggregate output and human development.",
+      "administrative_governance": "Dependence on proxy indicators for the informal economy; data lag issues and coordination challenges between state-level and central statistical machineries.",
+      "international_or_comparative": "Benchmarking against IMF's SDDS (Special Data Dissemination Standard) and UN SNA 2008 guidelines to ensure cross-country comparability."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Rangarajan Commission Report on National Statistics",
+      "Standing Committee on Statistics (SCOS) recommendations",
+      "SNA 2008 framework guidelines"
+    ],
+    "structuredDiagramAscii": "Macro-Data Inputs (MCA-21, IIP, CPI, GST, Tax Data) \n       ↓\nNSO Sectoral Disaggregation (Agriculture, Industry, Services)\n       ↓\nCalculation of Gross Value Added (GVA) at Basic Prices\n       ↓\nAdd Product Taxes & Subtract Product Subsidies\n       ↓\nFinal Output: Gross Domestic Product (GDP) at Market Prices"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Consider the following items:\n1. Foreign currency convertible bonds\n2. Foreign institutional investment with certain conditions\n3. Global depository receipts\n4. Non-resident external deposits\nWhich of the above can be considered as Foreign Direct Investment?",
+        "options": [
+          "1, 2 and 3",
+          "3 only",
+          "2 and 4",
+          "1 and 4"
+        ],
+        "answer": "1, 2 and 3",
+        "explanation": "Foreign currency convertible bonds, foreign institutional investment (under specific portfolio thresholds/rules depending on the year context, though typically FII is FPI, certain convertible instruments fall under broader capital flows), and global depository receipts form components of foreign capital inflows tracked alongside national income aggregates."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Define GDP and explain the difference between GDP at factor cost, GDP at basic prices, and GDP at market prices."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the limitations of Gross Domestic Product (GDP) as a sole indicator of economic development and discuss alternative metrics proposed to capture holistic societal progress. (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define GDP briefly as a measure of economic output and state its core utility.",
+      "body": "Highlight the core limitations of GDP (informal sector, environmental cost, inequality, non-market services) and introduce alternative metrics (GNH, HDI, MPI, Green GDP).",
+      "conclusion": "Conclude by advocating for a complementary dashboard approach combining economic growth with ecological sustainability and human welfare."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Gross Domestic Product (GDP) measures the monetary value of final goods and services produced within a nation, serving as the standard yardstick for macroeconomic performance. However, as an indicator, it measures market throughput rather than holistic human progress.</p><h3>Limitations of GDP as a Measure of Development</h3><ul>\n<li><strong>Neglects Income Inequality:</strong> High GDP growth can co-exist with concentrated wealth accumulation (K-shaped recovery), leaving the bottom strata vulnerable.</li>\n<li><strong>Exclusion of Non-Market Activities:</strong> Unpaid domestic and care work predominantly done by women remains unvalued in GDP calculations.</li>\n<li><strong>Ecological Degradation:</strong> GDP treats resource depletion and environmental pollution as economic gains (e.g., spending on disaster recovery or pollution control adds to GDP).</li>\n<li>Informality Blind Spot: Capturing output in developing economies with massive informal sectors relies on imperfect proxies.</li>\n</ul><h3>Alternative Metrics for Holistic Progress</h3><ul>\n<li><strong>Gross National Happiness (GNH):</strong> Pioneered by Bhutan, balancing spiritual and material well-being.</li>\n<li><strong>Human Development Index (HDI):</strong> Incorporates health, education, and standard of living alongside income.</li>\n<li><strong>Green GDP:</strong> Adjusts standard GDP for environmental degradation and natural resource depletion.</li>\n</ul><h3>Way Forward</h3><p>A multi-dimensional dashboard approach—integrating GDP with environmental indices, multidimensional poverty measures (MPI), and inequality metrics—is essential for achieving sustainable and inclusive development in line with Vision 2047 and SDGs.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following components are included when calculating Gross Domestic Product (GDP) using the expenditure method?",
+      "options": [
+        "Private Consumption, Gross Investment, Government Spending, and Net Exports",
+        "Wages, Rent, Interest, Profits, and Depreciation",
+        "Gross Value Added across primary, secondary, and tertiary sectors plus indirect taxes",
+        "National Income plus Net Factor Income from Abroad"
+      ],
+      "answer": "Private Consumption, Gross Investment, Government Spending, and Net Exports",
+      "explanation": "The expenditure method formula is GDP = C + I + G + (X - M), representing private consumption, investment, government expenditure, and net exports respectively."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following statements regarding 'Gross Value Added (GVA)':\n1. GVA measures the contribution to the economy of each individual producer, industry, or sector.\n2. GVA at basic prices includes production taxes and excludes production subsidies.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Statement 1 is correct as GVA provides sector-wise breakdown of economic output. Statement 2 is also correct: GVA at basic prices = Output (at basic prices) - Intermediate Consumption. Basic prices include production taxes (like factory license fee, land revenue) and exclude production subsidies."
+    }
+  ]
+}

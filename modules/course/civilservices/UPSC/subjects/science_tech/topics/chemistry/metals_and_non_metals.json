@@ -1,0 +1,104 @@
+{
+  "microTopicId": "science_tech_chemistry_metals_and_non_metals",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_chemistry",
+  "topicTitle": "Chemistry",
+  "subTopicTitle": "Metals and non-metals",
+  "syllabusMapping": {
+    "prelims": "General Science: Physics, Chemistry, and Biology applications in daily life, industrial chemistry, and materials science.",
+    "mains": "GS Paper III: Science and Technology- developments and their applications and effects in everyday life; Indigenization of technology and developing new technology."
+  },
+  "lectureHoursEstimate": "Lecture 7",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Metals and non-metals form the foundational pillars of inorganic chemistry, classified based on their physical properties (malleability, ductility, electrical and thermal conductivity) and chemical behavior (formation of basic vs. acidic oxides, electron-donating vs. electron-accepting nature). Understanding their reactivity series, alloy formation, and corrosion processes is critical for applications ranging from metallurgy to advanced electronics.",
+    "highYieldFacts": [
+      "Fact 1: Mercury is the only metal that exists as a liquid at room temperature, while gallium and cesium have melting points just above room temperature.",
+      "Fact 2: Non-metals can exist in solid, liquid, or gaseous states at room temperature; bromine is the only liquid non-metal.",
+      "Fact 3: The Reactivity Series arranges metals in order of decreasing reactivity, with potassium and sodium at the top (reacting violently with water) and gold and platinum at the bottom (noble metals).",
+      "Fact 4: Graphite, an allotrope of the non-metal carbon, is an exceptional conductor of electricity due to the presence of free delocalized electrons.",
+      "Fact 5: The Ministry of Mines and the Geological Survey of India (GSI) regulate critical mineral extraction, aligning with India's target of achieving net-zero emissions by 2070."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming all metals react with dilute acids to evolve hydrogen gas; metals below hydrogen in the reactivity series (like copper, silver, gold) do not displace hydrogen.",
+      "Trap 2: Believing that all metal oxides are basic; amphoteric oxides like aluminum oxide and zinc oxide react with both acids and bases."
+    ],
+    "keyArticlesOrStatutes": [
+      "Mines and Minerals (Development and Regulation) Amendment Act, 2023",
+      "Critical Minerals List for India (Ministry of Mines)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Metallurgical Evolution and Strategic Significance in India's Growth Paradigm</h3><p>The dichotomy between metals and non-metals underpins not only fundamental chemical science but also the material foundations of modern industrial economies. In the contemporary geopolitical landscape, the transition toward green energy technologies—such as electric vehicles (EVs), wind turbines, and grid-scale energy storage—has elevated certain non-metals and rare earth metals into assets of profound strategic value. India's reliance on imported critical minerals necessitates a robust domestic framework for mineral exploration, refining, and recycling.</p><h3>Chemical Behavior and Technological Applications</h3><p>Metals are characterized by their electropositive nature, low ionization energies, and metallic bonding, which grants them high thermal and electrical conductivity. Non-metals, conversely, possess high electronegativity and act as essential constituents of organic molecules, fertilizers (e.g., nitrogen, phosphorus), and semiconductor devices (e.g., silicon, germanium). The alloying of metals—such as stainless steel or titanium alloys—enhances tensile strength and corrosion resistance, directly impacting aerospace engineering, defense manufacturing, and civil infrastructure.</p><h3>Governance and Environmental Challenges</h3><p>The extraction and processing of metallic ores (extraction metallurgy) are among the most carbon-intensive industrial activities globally. Acid mine drainage, particulate air pollution, and toxic effluent discharge pose severe threats to river basins and local ecosystems. The Mines and Minerals (Development and Regulation) Amendment Act, 2023, marks a crucial shift by introducing private sector participation in the exploration of critical and deep-seated minerals, balancing resource security with stringent environmental impact assessments (EIAs).</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Under the Seventh Schedule of the Constitution of India, mineral rights and the regulation of mines are shared between the Union (List I) and States (List II), with Union paramountcy over regulation and development under the MMDR Act.",
+      "socio_economic": "Mining-dependent districts often suffer from the 'resource curse,' experiencing severe environmental degradation, displacement of indigenous (tribal) populations, and socio-economic vulnerability despite high local mineral wealth.",
+      "administrative_governance": "Streamlining auction processes through the National Mineral Exploration Trust (NMET) and leveraging remote sensing via the Geological Survey of India (GSI) to reduce approval delays.",
+      "international_or_comparative": "India's membership in the Minerals Security Partnership (MSP) and the International Renewable Energy Agency (IRENA) to secure supply chains for lithium, cobalt, and nickel."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Samatha v. State of Andhra Pradesh (1997) - Supreme Court ruling on tribal land rights and mining leases in Scheduled Areas.",
+      "NITI Aayog Strategy Papers on Critical Minerals for India's Economic Security."
+    ],
+    "structuredDiagramAscii": "RAW ORE EXTRACTION --> BENEFICIATION & CRUSHING --> EXTRACTION METALLURGY (Reduction/Electrolysis) --> REFINING & PURIFICATION --> ALLOYING & ADVANCED MANUFACTURING --> RECYCLING & CIRCULAR ECONOMY"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which of the following is/are the example/examples of chemical change? 1. Crystallization of sodium chloride 2. Melting of ice 3. Souring of milk Select the correct answer using the code given below:",
+        "options": [
+          "1 and 2 only",
+          "3 only",
+          "1, 2 and 3",
+          "None"
+        ],
+        "answer": "3 only",
+        "explanation": "Crystallization of sodium chloride and melting of ice are physical changes where no new chemical substances are formed. Souring of milk involves lactose converting into lactic acid, which is a chemical change."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss India's mineral security strategy with special reference to critical minerals and their role in transitioning to a green economy."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the strategic importance of critical metals and non-metals in India's transition to a low-carbon economy. What are the key regulatory hurdles in domestic mineral exploration? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define critical metals and non-metals in the context of the green transition (EVs, renewable energy).",
+      "body": "Elaborate on their specific applications (lithium, cobalt, silicon, rare earths), discuss India's import dependency and supply chain vulnerabilities, and highlight regulatory/environmental hurdles in domestic mining.",
+      "conclusion": "Suggest a way forward focusing on deep-sea mining, urban mining (recycling), international partnerships, and strict environmental compliance."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The global transition from fossil-fuel-dependent energy systems to renewable energy infrastructure has triggered a paradigm shift in material science. Critical metals (such as lithium, cobalt, nickel) and non-metals/metalloids (such as silicon, germanium, and graphite) have become the bedrock of advanced manufacturing, electric mobility, and grid-scale battery storage, directly tying material security to national sovereignty.</p><h3>Strategic Importance in the Green Transition</h3><ul><li><strong>Energy Storage:</strong> Lithium-ion and solid-state batteries rely heavily on lithium, cobalt, and nickel for cathode and anode chemistry.</li><li><strong>Renewable Energy Generation:</strong> Solar photovoltaic cells depend on hyper-pure silicon (a metalloid), while wind turbines require rare earth permanent magnets containing neodymium and dysprosium.</li><li><strong>Green Hydrogen:</strong> Electrolyzers for green hydrogen production require platinum-group metals and nickel as catalysts.</li></ul><h3>Regulatory and Structural Hurdles in Domestic Exploration</h3><ul><li><strong>High Import Dependency:</strong> India imports nearly 100% of its requirements for lithium, cobalt, and nickel, exposing the economy to geopolitical supply shocks.</li><li><strong>Complex Approval Architecture:</strong> Multiple clearances under forest, wildlife, and environmental laws lead to protracted project delays.</li><li><strong>Federal Friction:</strong> Delays in auction execution at the state level under the MMDR framework hamper rapid exploration of deep-seated mineral reserves.</li><li><strong>Technological Deficit:</strong> Domestic capacity for complex refining and downstream processing of critical minerals remains nascent.</li></ul><h3>Way Forward</h3><p>To secure a self-reliant 'Aatmanirbhar' green transition, India must operationalize the critical mineral mission through aggressive public-private exploration via NMET, strengthen international alliances such as the Minerals Security Partnership, and incentivize 'urban mining' through comprehensive electronic and battery waste recycling frameworks under Circular Economy principles.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the physical and chemical properties of metals and non-metals: 1. Most metals form basic oxides, whereas most non-metals form acidic or neutral oxides. 2. Hydrogen gas is evolved when metals react with concentrated nitric acid. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: Metal oxides are generally basic, while non-metal oxides are acidic or neutral. Statement 2 is incorrect because concentrated nitric acid is a strong oxidizing agent; when metals react with it, it oxidizes the hydrogen gas produced to water and itself reduces to nitrogen oxides (NO2 or NO), with few exceptions like magnesium and manganese."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following non-metals is a good conductor of electricity due to its unique crystalline structure?",
+      "options": [
+        "Phosphorus",
+        "Graphite",
+        "Sulphur",
+        "Silicon"
+      ],
+      "answer": "Graphite",
+      "explanation": "Graphite is an allotrope of carbon in which each carbon atom is bonded to three other carbon atoms in the same plane, leaving one free valence electron per atom. These delocalized electrons move freely through the structure, making graphite a good electrical conductor."
+    }
+  ]
+}

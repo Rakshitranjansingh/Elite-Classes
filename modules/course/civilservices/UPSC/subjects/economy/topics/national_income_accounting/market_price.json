@@ -1,0 +1,104 @@
+{
+  "microTopicId": "economy_national_income_accounting_market_price",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_national_income_accounting",
+  "topicTitle": "National Income Accounting",
+  "subTopicTitle": "Market Price",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector Initiatives, etc.",
+    "mains": "GS-III: Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 3&4",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Market Price (MP) represents the actual transaction price of goods and services including Indirect Taxes (GST) and excluding Subsidies. It serves as the nominal valuation of GDP, reflecting the 'final' cost paid by consumers at the point of sale.",
+    "highYieldFacts": [
+      "Fact 1: Since 2015, the Ministry of Statistics and Programme Implementation (MoSPI) shifted from GDP at Factor Cost to GDP at Market Price as the headline growth indicator.",
+      "Fact 2: GDP at Market Price = GDP at Factor Cost + Indirect Taxes - Subsidies.",
+      "Fact 3: The inclusion of product subsidies at the producer level in 'Market Price' ensures alignment with the System of National Accounts (SNA) 2008 standards.",
+      "Fact 4: Market Price is prone to inflation volatility; hence, GDP Deflator is used to derive real growth by stripping away price effects.",
+      "Fact 5: GST compensation cess and various central excise duties are critical components that wedge the difference between Factor Cost and Market Price."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing 'Market Price' with 'Basic Price'. Basic Price excludes product taxes and includes product subsidies, whereas Market Price includes both.",
+      "Trap 2: Assuming Market Price always increases real purchasing power; it is a nominal metric, whereas 'Constant Prices' (Base Year) provide the real perspective."
+    ],
+    "keyArticlesOrStatutes": [
+      "Collection of Statistics Act, 2008",
+      "System of National Accounts (SNA) 2008 (UN Guidelines)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>The Conceptual Pivot: Market Price in National Income Accounting</h3><p>Market Price (MP) serves as the primary valuation metric in India’s National Accounts Statistics. Moving away from the 'Factor Cost' methodology in 2015, India aligned its reporting with international standards (SNA 2008), emphasizing the price paid by the final consumer.</p><h3>Why the shift to Market Price?</h3><ul><li><strong>Global Harmonization:</strong> To enable seamless comparison with global economies (World Bank/IMF reports) that predominantly use Market Price.</li><li><strong>Transparency:</strong> Captures the true impact of government fiscal interventions—specifically, how indirect tax structures and subsidy regimes distort final market valuation.</li><li><strong>Policy Precision:</strong> It provides a realistic gauge of the 'purchasing power' impact on the household sector, as consumer inflation is tethered to market prices, not factor costs.</li></ul><h3>Contemporary Challenges</h3><p>The reliance on Market Price has introduced volatility in growth estimates. When indirect taxes (like GST) are hiked, GDP at Market Price may show an artificial inflation, even if the underlying production volume remains stagnant. Conversely, massive subsidy rollouts lower the MP, potentially masking actual economic productivity. This necessitates the use of GVA (Gross Value Added) at Basic Prices as a more robust indicator of supply-side performance.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Compliance with UN System of National Accounts 2008; statistical autonomy via the National Statistical Commission (NSC).",
+      "socio_economic": "High market prices affect the 'Cost of Living'. Changes in indirect tax components directly impact the real income of vulnerable populations.",
+      "administrative_governance": "Requirement for high-frequency data collection from GSTN (Goods and Services Tax Network) to compute accurate quarterly GDP.",
+      "international_or_comparative": "Alignment with OECD standards allows for better FDI inflow analysis and external sovereign rating benchmarking."
+    },
+    "landmarkJudgmentsOrReports": [
+      "National Statistical Commission (NSC) Report on GDP Methodology.",
+      "Economic Survey 2015-16 (Justification for shift to Market Price)."
+    ],
+    "structuredDiagramAscii": "   [FACTOR COST (Basic Input Cost)]\n             |\n      + Indirect Taxes\n      - Product Subsidies\n             |\n             v\n      [MARKET PRICE (Actual Transaction Price)]\n             |\n      - GDP Deflator (Inflation Adjustment)\n             |\n             v\n      [REAL GDP (Constant Prices)]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2015,
+        "question": "With reference to the Indian economy, consider the following statements: 1. The 'rate of growth of real GDP' usually implies the rate of growth of nominal GDP. 2. Nominal GDP is measured at current prices. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Option B",
+        "explanation": "Real GDP refers to GDP at constant prices (adjusted for inflation), whereas Nominal GDP is at current market prices. Statement 1 is incorrect as real GDP excludes inflation effects."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2016,
+        "paper": "GS-III",
+        "marks": 10,
+        "question": "Explain the rationale behind the shift from Factor Cost to Market Price in India’s GDP computation."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Analyze the implications of using 'Market Price' as the principal measure of GDP in India, vis-à-vis 'Gross Value Added (GVA)'. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define GDP at Market Price and mention the 2015 transition in national accounting.",
+      "body": "Compare Market Price vs. GVA, discuss the fiscal policy impact, and highlight the significance for international comparability.",
+      "conclusion": "Suggest that a dual-reporting mechanism (GVA for supply-side, GDP-MP for demand-side) is the most balanced approach for policy formulation."
+    },
+    "modelAnswerHtml": "<h3>Analytical Framework: Market Price vs. GVA</h3><p>Since 2015, India has adopted <strong>GDP at Market Price</strong> as the lead indicator for economic growth. While GVA at Basic Price measures the supply-side contribution of various sectors, GDP at Market Price measures the demand-side value of final expenditure.</p><h4>1. The Rationale of the Shift:</h4><ul><li><strong>SNA 2008 Alignment:</strong> Provides international comparability, vital for trade negotiations and credit rating agencies.</li><li><strong>Fiscal Transparency:</strong> GDP at Market Price captures the government’s tax collection efforts more clearly, as it includes net indirect taxes.</li></ul><h4>2. Implications of Market Price:</h4><ul><li><strong>Sensitivity to Tax Shocks:</strong> Since Market Price includes indirect taxes, sudden changes in GST rates or excise duties lead to fluctuations in GDP figures, even if the real volume of production remains unchanged.</li><li><strong>Subsidy Distortion:</strong> Subsidies act as a negative tax in this formula; large-scale public distribution or fertilizer subsidies effectively lower the Market Price, which can mask the true 'market value' of output.</li></ul><h4>3. GVA as a Superior Metric:</h4><p>GVA at Basic Prices excludes product taxes and includes product subsidies, making it a better proxy for the performance of the producing sectors (Agriculture, Industry, Services) as it represents the net output generated at the 'factory gate'.</p><h4>Conclusion:</h4><p>While GDP at Market Price is an essential metric for understanding the total economic scale and consumer expenditure, GVA at Basic Prices remains more effective for sector-specific policy interventions. A symbiotic use of both metrics, as practiced by the RBI in its Monetary Policy Committee (MPC) reviews, ensures a comprehensive and nuanced understanding of India’s macroeconomic trajectory toward a $5 trillion economy.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following components are included in 'GDP at Market Price' but excluded from 'GVA at Basic Price'?",
+      "options": [
+        "Product Taxes",
+        "Production Taxes",
+        "Production Subsidies",
+        "All of the above"
+      ],
+      "answer": "Product Taxes",
+      "explanation": "Product taxes are specifically included in the transition from Basic Price to Market Price. Production taxes/subsidies are already accounted for in GVA at Basic Price."
+    },
+    {
+      "id": "mcq_02",
+      "question": "If the government decides to increase subsidies on fertilizers, ceteris paribus, what will be the immediate impact on GDP at Market Price?",
+      "options": [
+        "Increase",
+        "Decrease",
+        "Remain Constant",
+        "Cannot be determined"
+      ],
+      "answer": "Decrease",
+      "explanation": "GDP at Market Price = Factor Cost + Taxes - Subsidies. An increase in subsidies results in a mathematical reduction of the Market Price value."
+    }
+  ]
+}

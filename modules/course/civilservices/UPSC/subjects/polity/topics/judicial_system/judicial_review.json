@@ -1,0 +1,110 @@
+{
+  "microTopicId": "polity_judicial_system_judicial_review",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_judicial_system",
+  "topicTitle": "Judicial system",
+  "subTopicTitle": "Judicial Review",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II: Structure, organization and functioning of the Executive and the Judiciary—Ministries and Departments of the Government; pressure groups and formal/informal associations and their role in the Polity."
+  },
+  "lectureHoursEstimate": "Lecture 24&25",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Judicial Review is the power of the judiciary to examine the constitutionality of legislative enactments and executive orders of both the Central and State governments. In India, while it is not explicitly defined as a single comprehensive term in the Constitution, it derives its authority directly from specific constitutional provisions such as Articles 13, 32, 131-136, 143, 226, and 246.",
+    "highYieldFacts": [
+      "Fact 1: The phrase 'Judicial Review' is explicitly mentioned nowhere in the text of the Constitution of India, though Article 13(2) prohibits the State from making laws that take away or abridge Fundamental Rights.",
+      "Fact 2: The Indian model of judicial review is a synthesis of both the American model (based on 'Due Process of Law' historically, though India transitioned to 'Procedure Established by Law' modified post-Maneka Gandhi case to substantive due process) and the British model (parliamentary sovereignty versus written constitution).",
+      "Fact 3: The 42nd Constitutional Amendment Act, 1976 attempted to curtail the writ jurisdiction of High Courts and Supreme Court judicial review powers, which was subsequently restored and expanded by the 43rd and 44th Constitutional Amendment Acts, 1977/1978.",
+      "Fact 4: The 99th Constitutional Amendment Act, 2014 establishing the National Judicial Appointments Commission (NJAC) was struck down by the Supreme Court in the Fourth Judges Case (2015) as violating the 'Basic Structure' doctrine through judicial review.",
+      "Fact 5: Laws placed under the Ninth Schedule of the Constitution are protected from judicial review under Article 31B, but the landmark IR Coelho case (2007) ruled that laws inserted into the Ninth Schedule after April 24, 1973, are open to judicial review if they violate the Basic Structure."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming India follows the American doctrine of 'Due Process of Law' strictly; India follows 'Procedure Established by Law' under Article 21, but judicial interpretation via Maneka Gandhi (1978) has read 'due process' elements ('just, fair and reasonable') into it.",
+      "Trap 2: Believing that Presidential ordinances and Constitutional Amendment Acts are immune to judicial review; both can be struck down if they violate the Basic Structure or fundamental rights."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 13 (Laws inconsistent with or in derogation of Fundamental Rights)",
+      "Article 32 (Remedies for enforcement of rights conferred by Part III)",
+      "Article 131-136 (Original, Appellate, and Special Leave jurisdiction of the Supreme Court)",
+      "Article 226 (Power of High Courts to issue certain writs)",
+      "Article 368 (Power of Parliament to amend the Constitution and procedure thereof)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Constitutional Basis of Judicial Review in India</h3><p>Judicial Review is the bedrock of constitutional democracy in India, acting as a vital check on legislative excess and executive overreach. Unlike the United States Constitution, which explicitly establishes judicial review through early jurisprudence (Marbury v. Madison), the Indian Constitution embeds it across a web of specific articles. Article 13(2) explicitly declares that any law made in contravention of Fundamental Rights shall be void. Furthermore, the Supreme Court and High Courts act as the ultimate guardians of the Constitution through their writ jurisdictions under Articles 32 and 226 respectively.</p><h3>The Duality: Procedure Established by Law vs. Due Process of Law</h3><p>The drafting history of the Indian Constitution reveals a deliberate choice of 'Procedure Established by Law' (borrowed from Article 31 of the Japanese Constitution) over 'Due Process of Law' found in the US Constitution, reflecting the Constituent Assembly's faith in parliamentary wisdom. However, in the epochal <em>Maneka Gandhi v. Union of India (1978)</em> case, the Supreme Court fused the two concepts. It held that the 'procedure' under Article 21 must be 'right, just and fair' and not arbitrary, fanciful, or oppressive—effectively importing substantive due process into Indian constitutional jurisprudence.</p><h3>Expansion via the Basic Structure Doctrine</h3><p>The scope of judicial review was fundamentally transformed by the landmark <em>Kesavananda Bharati v. State of Kerala (1973)</em> judgment, which propounded the 'Basic Structure' doctrine. This doctrine established that while Parliament possesses expansive constituent power to amend the Constitution under Article 368, it cannot alter its core foundational identity (e.g., federalism, secularism, judicial review itself). Consequently, any constitutional amendment violating these principles is liable to be struck down by the judiciary.</p><h3>Contemporary Challenges and Judicial Overreach</h3><p>While judicial review is indispensable for protecting civil liberties and minority rights, its contemporary practice often invites severe debate. The rise of Public Interest Litigation (PIL), originally designed for the marginalized, has occasionally morphed into 'epistemic activism' or judicial populism. Critics argue that unchecked judicial intervention in executive policy domains—such as pollution control, disaster management, and administrative appointments—violates the delicate separation of powers, creating an unelected super-legislature.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Interplay between Article 13, Article 368, and the Basic Structure doctrine; Ninth Schedule jurisprudence post-IR Coelho case.",
+      "socio_economic": "Judicial review as a tool for socio-economic justice, protection of environmental rights (Right to Clean Environment under Article 21), and enforcement of Directive Principles.",
+      "administrative_governance": "Managing the thin line between judicial review (examining decision-making process) and judicial merit/superintendence (substituting administrative wisdom).",
+      "international_or_comparative": "Comparison with the US doctrine of judicial review, German constitutional court jurisprudence, and UK's transition from parliamentary sovereignty to human rights compliance."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Kesavananda Bharati v. State of Kerala (1973) - Basic Structure Doctrine",
+      "Maneka Gandhi v. Union of India (1978) - Substantive Due Process",
+      "IR Coelho v. State of Tamil Nadu (2007) - Ninth Schedule Judicial Review",
+      "Supreme Court Advocates-on-Record Association v. Union of India (2015) - NJAC verdict",
+      "Second Administrative Reforms Commission (ARC) - 4th Report on Ethics in Governance and Judicial Accountability"
+    ],
+    "structuredDiagramAscii": "LEGISLATURE/EXECUTIVE ACTION\n            |\n            v\n  Challenged under Article 13 / 32 / 226\n            |\n            v\n  SUPREME/HIGH COURT REVIEW\n            |\n     +------+------+\n     |             |\n     v             v\n[Intra-Vires]  [Ultra-Vires / Violates Basic Structure]\n     |             |\n     v             v\n Valid Law     Declared Null and Void (Void Ab Initio)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2017,
+        "question": "What is the constitutional remedy provided under the Indian Constitution to check the arbitrary exercise of power by the legislature and executive?",
+        "options": [
+          "Doctrine of Severability",
+          "Judicial Review",
+          "Doctrines of Pith and Substance",
+          "Doctrine of Eclipse"
+        ],
+        "answer": "Judicial Review",
+        "explanation": "Judicial review is the core constitutional mechanism empowering the judiciary to invalidate legislative and executive actions that violate the Constitution or fundamental rights."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Judicial review is a crucial safeguard in a constitutional democracy, yet concerns regarding judicial overreach persist. Analyze."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the evolution of the scope of Judicial Review in India. How has the judiciary balanced its role as the guardian of the Constitution with the principle of separation of powers? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define Judicial Review and its constitutional roots (Articles 13, 32, 226).",
+      "body": "Trace evolution from literal interpretation (AK Gopalan) to dynamic expansion (Maneka Gandhi, Kesavananda Bharati, IR Coelho). Discuss the tension between judicial review and separation of powers, citing instances of judicial overreach vs. judicial restraint. Use appropriate committees/judgments.",
+      "conclusion": "Emphasize 'constitutionalism' and institutional comity; a harmonious balance where judicial review reinforces democracy without paralyzing governance."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Judicial Review is the power of the judiciary to review and determine the constitutional validity of legislative enactments and executive actions. Though the phrase is not explicitly mentioned in the Indian Constitution, it is an immutable facet of the 'Basic Structure' embedded within Articles 13, 32, 131-136, and 226.</p><h3>Evolution of the Scope of Judicial Review</h3><p>The journey of judicial review in India has transitioned from textual positivism to expansive constitutionalism:</p><ul><li><strong>Literal Era:</strong> In early cases like <em>A.K. Gopalan (1950)</em>, the Supreme Court adopted a strict positivist approach, restricting judicial review of preventive detention to procedural compliance.</li><li><strong>Basic Structure Breakthrough:</strong> <em>Kesavananda Bharati (1973)</em> established that Parliament's amending power under Article 368 cannot destroy the foundational pillars of the Constitution, making judicial review itself an unalterable basic feature.</li><li><strong>Substantive Due Process:</strong> <em>Maneka Gandhi (1978)</em> expanded Article 21, holding that executive and legislative procedures must be 'just, fair, and reasonable'.</li><li><strong>Ninth Schedule Scrutiny:</strong> In <em>I.R. Coelho (2007)</em>, the Court ruled that laws placed in the Ninth Schedule after April 24, 1973, are subject to judicial review if they infringe upon fundamental rights that form part of the basic structure.</li></ul><h3>Balancing Judicial Review and Separation of Powers</h3><p>The doctrine of separation of powers (Article 50) assigns distinct roles to the legislature, executive, and judiciary. While judicial review is mandated to prevent authoritarianism, expansive interventions often trigger debates on overreach:</p><ul><li><strong>Judicial Restraint:</strong> Recognizing policy domains, economic reforms, and complex administrative decisions as the exclusive domain of the executive and legislature.</li><li><strong>Judicial Activism & Overreach:</strong> Instances where courts issue micro-managed directives on pollution control, highway liquor bans, or institutional appointments can risk disrupting governance efficiency and accountability.</li></ul><h3>Way Forward</h3><p>As noted by the 2nd ARC, judicial review must be exercised with institutional self-restraint and judicial comity. The judiciary must act not as a super-legislature, but as a sentinel on the qui vive, ensuring that executive efficiency and legislative policy conform strictly to constitutional morality and the rule of law.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Judicial Review in India:\n1. The power of judicial review in India is applicable to both Central and State legislations, as well as Constitutional Amendment Acts.\n2. India strictly follows the American doctrine of 'Due Process of Law' without any constitutional modifications.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: Judicial review covers Central, State laws, ordinances, executive orders, and constitutional amendments (if they violate the basic structure). Statement 2 is incorrect because India formally follows 'Procedure Established by Law' under Article 21, although post-Maneka Gandhi, the Supreme Court has read substantive due process into it."
+    },
+    {
+      "id": "mcq_02",
+      "question": "In the context of Indian constitutional history, the landmark judgment in the I.R. Coelho case (2007) is best known for which of the following?",
+      "options": [
+        "Laying down the doctrine of Basic Structure for the first time.",
+        "Struck down the National Judicial Appointments Commission (NJAC) Act.",
+        "Ruled that laws placed in the Ninth Schedule after April 24, 1973, are open to judicial review.",
+        "Established the primacy of the Chief Justice of India in judicial appointments."
+      ],
+      "answer": "Ruled that laws placed in the Ninth Schedule after April 24, 1973, are open to judicial review.",
+      "explanation": "The I.R. Coelho v. State of Tamil Nadu (2007) judgment held that laws inserted into the Ninth Schedule after the Kesavananda Bharati judgment date (April 24, 1973) are subject to judicial review if they violate fundamental rights forming the basic structure of the Constitution."
+    }
+  ]
+}

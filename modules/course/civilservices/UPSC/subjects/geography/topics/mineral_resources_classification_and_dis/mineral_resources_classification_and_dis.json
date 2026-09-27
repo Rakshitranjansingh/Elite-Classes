@@ -1,0 +1,106 @@
+{
+  "microTopicId": "geography_mineral_resources_classification_and_distribution_mineral_resources_classificati",
+  "subjectId": "geography",
+  "subjectTitle": "Geography of India & World",
+  "topicId": "geography_mineral_resources_classification_and_distribution",
+  "topicTitle": "Mineral resources – classification and distribution",
+  "subTopicTitle": "Mineral resources – classification and distribution",
+  "syllabusMapping": {
+    "prelims": "General Geography: Resources, Economic Geography of India.",
+    "mains": "GS-I: Distribution of key natural resources across the world (including South Asia and the Indian sub-continent); GS-III: Infrastructure: Energy, Ports, Roads, Airports, Railways etc. (Mineral sector regulation)."
+  },
+  "lectureHoursEstimate": "Lecture 38",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Minerals are naturally occurring homogeneous inorganic substances with a definable internal structure. In India, they are classified under the Mines and Minerals (Development and Regulation) Act, 1957, into Major Minerals (Coal, Iron Ore, Manganese, etc.) and Minor Minerals (Building stones, gravel, ordinary clay).",
+    "highYieldFacts": [
+      "Fact 1: Under the MMDR Act, states have the power to frame rules for minor minerals, while the Union government regulates major minerals.",
+      "Fact 2: The 'National Mineral Policy, 2019' aims at sustainable mining, enhancing mineral production, and ensuring effective regulation.",
+      "Fact 3: Most of the metallic minerals in India are concentrated in the Peninsular Plateau, particularly in the Dharwar and Cuddapah rock systems.",
+      "Fact 4: India is the second-largest producer of coal and a significant global producer of chromite and iron ore.",
+      "Fact 5: The Ministry of Mines is the nodal agency, whereas the Indian Bureau of Mines (IBM) performs the regulatory and technical advisory role."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Distinguishing between Atomic Minerals (governed by the Atomic Energy Act, 1962) and Major Minerals—both are central subjects but differ in licensing.",
+      "Trap 2: Assuming all minerals are 'resources'. A mineral is only a resource when it is technologically accessible and economically viable."
+    ],
+    "keyArticlesOrStatutes": [
+      "Mines and Minerals (Development and Regulation) Act, 1957",
+      "Atomic Energy Act, 1962",
+      "Article 297 (Lands and minerals underlying the ocean within the territorial waters vest in the Union)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Geological Architecture and Distribution</h3><p>India’s mineral wealth is intrinsically linked to its geological evolution. The <strong>Dharwar System</strong> (Archean) is the storehouse of economic minerals (Iron, Gold, Manganese). The <strong>Gondwana system</strong> contains 98% of India’s coal reserves, primarily in the Damodar, Mahanadi, and Godavari basins.</p><h3>Economic Governance and Challenges</h3><p>The mineral sector faces the <strong>'Resource Curse'</strong> paradox. While critical for industrialization (Steel, Aluminum, Infrastructure), extraction often leads to severe environmental degradation and social displacement.</p><ul><li><strong>Sustainable Mining:</strong> The transition to green energy requires 'Critical Minerals' (Lithium, Rare Earth Elements), which are geographically scarce in India, necessitating a shift from import dependency to strategic exploration.</li><li><strong>Administrative Hurdles:</strong> The 2015 and 2021 amendments to the MMDR Act introduced 'Auction-based regimes' to ensure transparency and eliminate discretionary allocation.</li><li><strong>Federal Dynamics:</strong> Royalty payments are a contentious issue between Centre and States, impacting resource-rich states like Jharkhand and Odisha.</li></ul>",
+    "dimensions": {
+      "constitutional_or_legal": "MMDR Act (1957) mandates auctions; state ownership of sub-surface minerals vs. private property rights on surface land.",
+      "socio_economic": "Impact on Adivasi livelihoods; corporate social responsibility (CSR) via District Mineral Foundations (DMF).",
+      "administrative_governance": "Need for seamless integration between Ministry of Mines, Ministry of Coal, and State Departments of Geology and Mining.",
+      "international_or_comparative": "Adoption of international standards like EITI (Extractive Industries Transparency Initiative)."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Samatha vs. State of Andhra Pradesh (Protection of tribal land rights against mining)",
+      "N. Godavarman Thirumulpad vs. Union of India (Environmental clearance and forest diversion)",
+      "HLEG (High Level Empowered Committee) on Mining"
+    ],
+    "structuredDiagramAscii": "MINERAL GOVERNANCE FRAMEWORK\n[CENTRE (Major Minerals)] <--> [STATE (Minor Minerals)]\n        |\n[IBM - Technical Oversight] -- [GSI - Exploration]\n        |\n[District Mineral Foundation (DMF) - Welfare/Development]\n        |\n[End Goal: Sustainable Growth + Strategic Self-Reliance]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Consider the following statements: 1. In India, the state governments do not have the power to auction non-coal mineral concessions. 2. Andhra Pradesh and Jharkhand do not have gold mines. 3. Rajasthan has reserves of lead and zinc. Which of the statements given above are correct?",
+        "options": [
+          "1 and 2 only",
+          "2 only",
+          "3 only",
+          "1 and 3 only"
+        ],
+        "answer": "Option C",
+        "explanation": "States have the power to auction mineral concessions for minerals listed in the MMDR Act (subject to central oversight). Jharkhand has gold mines (e.g., Singhbhum). Rajasthan is the largest producer of lead and zinc in India."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-I",
+        "marks": 15,
+        "question": "Mention the global occurrence of metallic minerals in South Asia and justify the uneven distribution of these resources."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Analyze the significance of 'Critical Minerals' in the context of India's 'Net Zero' transition. Discuss the challenges in achieving self-sufficiency in this sector. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define critical minerals (Li, Co, REEs) and their role in the EV and renewable energy value chains.",
+      "body": "Discuss: 1. Strategic importance (Energy transition); 2. Supply chain vulnerabilities (Import dependency on China/Australia); 3. Policy shift (MMDR Amendment 2023); 4. Challenges (Geological, Environmental, Technological).",
+      "conclusion": "Emphasize international mineral partnerships (MSP - Minerals Security Partnership), R&D, and circular economy (recycling)."
+    },
+    "modelAnswerHtml": "<h3>The Strategic Imperative of Critical Minerals</h3><p>Critical minerals are non-fuel minerals essential for the economic and national security of a nation. They are the 'new oil' in the context of India’s commitment to achieve Net Zero by 2070.</p><h4>1. Significance in Energy Transition</h4><ul><li><strong>EVs and Storage:</strong> Lithium, Cobalt, and Nickel are indispensable for Li-ion battery manufacturing.</li><li><strong>Renewables:</strong> Rare Earth Elements (REEs) are required for permanent magnets in wind turbines and high-efficiency solar cells.</li></ul><h4>2. Challenges to Self-Sufficiency</h4><ul><li><strong>Geological Scarcity:</strong> India lacks significant primary deposits of critical minerals compared to its needs.</li><li><strong>Processing Technology:</strong> While India may have ore, the refining and processing infrastructure for critical minerals is currently underdeveloped.</li><li><strong>Environmental Constraints:</strong> Mining these minerals is water-intensive and ecologically disruptive, often leading to local resistance.</li></ul><h4>3. Policy Landscape & Way Forward</h4><p>The <strong>MMDR Amendment Act, 2023</strong> has identified 24 critical minerals, exempting them from the traditional auction process to allow direct exploration. To ensure security, India must: <strong>(a)</strong> Diversify supply chains through initiatives like the Minerals Security Partnership; <strong>(b)</strong> Invest in 'Urban Mining'—extracting minerals from e-waste; <strong>(c)</strong> Strengthen domestic exploration through GSI and private participation.</p><p><strong>Conclusion:</strong> Bridging the gap in critical minerals is not merely an economic goal but a geopolitical necessity. A synchronized approach between public sector expertise and private sector technology is vital to secure India’s energy future.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to the Mineral resources of India, consider the following: 1. Iron ore in India is primarily found in the Dharwar craton. 2. All offshore minerals are owned by the respective coastal states. Which of the statements is correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Offshore minerals (within territorial waters) vest in the Union, not the state governments."
+    },
+    {
+      "id": "mcq_02",
+      "question": "The 'District Mineral Foundation' (DMF) is a statutory trust established under:",
+      "options": [
+        "The Environment (Protection) Act, 1986",
+        "The MMDR Act, 1957",
+        "The Mines Act, 1952",
+        "The Forest Rights Act, 2006"
+      ],
+      "answer": "The MMDR Act, 1957",
+      "explanation": "DMFs were established by the 2015 amendment to the MMDR Act to work for the interest and benefit of persons/areas affected by mining operations."
+    }
+  ]
+}

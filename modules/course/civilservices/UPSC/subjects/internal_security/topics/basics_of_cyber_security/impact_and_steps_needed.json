@@ -1,0 +1,106 @@
+{
+  "microTopicId": "internal_security_basics_of_cyber_security_impact_and_steps_needed",
+  "subjectId": "internal_security",
+  "subjectTitle": "Internal Security & Border Management",
+  "topicId": "internal_security_basics_of_cyber_security",
+  "topicTitle": "Basics of Cyber Security",
+  "subTopicTitle": "Impact and Steps needed",
+  "syllabusMapping": {
+    "prelims": "General Science, Science & Technology (Cyber security basics)",
+    "mains": "GS Paper III: Challenges to internal security through communication networks, role of media and social networking sites in internal security challenges, basics of cyber security; money-laundering and its prevention."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Cyber security refers to the practice of protecting systems, networks, and programs from digital attacks aimed at accessing, changing, or destroying sensitive information. In the Indian context, it is a multi-dimensional challenge spanning critical infrastructure, data privacy, and national sovereignty.",
+    "highYieldFacts": [
+      "Fact 1: CERT-In (Indian Computer Emergency Response Team) operates under MeitY as the nodal agency for cyber incidents.",
+      "Fact 2: Section 66E of the IT Act, 2000 deals with the punishment for violation of privacy.",
+      "Fact 3: The 'Cyber Swachhata Kendra' is a part of the Ministry of Electronics and IT's Digital India initiative for botnet cleaning and malware analysis.",
+      "Fact 4: India follows the Budapest Convention on Cybercrime principles, though it is not a signatory.",
+      "Fact 5: The National Cyber Security Policy (2013) remains the foundational document, currently being updated to a comprehensive national framework."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing CERT-In with NCIIPC. NCIIPC focuses specifically on Critical Information Infrastructure (CII), while CERT-In covers general cyber incidents.",
+      "Trap 2: Assuming IT Act 2000 is the only legislation; overlook the Digital Personal Data Protection (DPDP) Act, 2023, which is now the primary legal bedrock for data privacy."
+    ],
+    "keyArticlesOrStatutes": [
+      "Information Technology Act, 2000 (Amended 2008)",
+      "Digital Personal Data Protection Act, 2023",
+      "Section 69A of the IT Act (Power to block public access)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>The Multi-Dimensional Impact of Cyber Insecurity</h3><p>Cyber threats in India have evolved from simple financial phishing to sophisticated <strong>Advanced Persistent Threats (APTs)</strong> targeting Critical Information Infrastructure (CII). The impact manifests across four dimensions:</p><ul><li><strong>Economic Impact:</strong> Losses due to Ransomware, Business Email Compromise (BEC), and disruption in digital payments (e.g., UPI vulnerabilities).</li><li><strong>Societal/Psychological:</strong> Rise in deepfakes, cyber-stalking, and the use of social media for radicalization and communal disharmony.</li><li><strong>National Security:</strong> State-sponsored cyber espionage targeting defense databases and space research organizations.</li><li><strong>Strategic Sovereignty:</strong> Vulnerability of the power grid, telecommunications, and financial clearing houses (NEFT/RTGS) to foreign-originated malware.</li></ul><h3>Governance and Strategic Steps</h3><p>To mitigate these risks, the government follows a layered approach:</p><ul><li><strong>Institutional Framework:</strong> Strengthening the National Cyber Security Coordinator (NCSC) office to harmonize inter-agency cooperation.</li><li><strong>CII Protection:</strong> Designating specific sectors (Energy, Banking, Transport) as 'Critical' under the NCIIPC mandate to ensure higher security protocols.</li><li><strong>Capacity Building:</strong> Projects like 'I4C' (Indian Cyber Crime Coordination Centre) aim to provide a unified platform for law enforcement agencies.</li><li><strong>Legislation:</strong> The shift from the IT Act to the DPDP Act signifies a move toward a 'Data-First' security philosophy.</li></ul>",
+    "dimensions": {
+      "constitutional_or_legal": "Balancing 'Right to Privacy' (Puttaswamy Judgment) with 'State Power to Regulate' under Article 19(2) and Section 69A IT Act.",
+      "socio_economic": "The 'Digital Divide' leads to uneven cyber-awareness, making rural populations more susceptible to financial fraud.",
+      "administrative_governance": "The siloed approach between state police (law & order) and central agencies (technical intelligence) creates latency in response times.",
+      "international_or_comparative": "The need for a global 'Cyber-Norms' treaty akin to the Geneva Convention to prevent escalation of cyber-warfare."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Justice K.S. Puttaswamy vs Union of India (2017) - Right to Privacy as a fundamental right.",
+      "Gulshan Rai Committee Report - On National Cyber Security Strategy.",
+      "Parliamentary Standing Committee on Communications & IT Reports."
+    ],
+    "structuredDiagramAscii": "GOVERNANCE ARCHITECTURE:\n[Policy Level: NCSC] --> [Operational Level: CERT-In & NCIIPC]\n        |                 |\n[Investigative: I4C] <--> [State Cyber Cells]\n        |\n[Public Awareness: Cyber Swachhata]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "With reference to 'Cyber Swachhata Kendra', consider the following statements: 1. It is an initiative of the Ministry of Electronics and Information Technology. 2. It aims to create a secure cyber ecosystem by detecting malicious programmes. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Both 1 and 2",
+        "explanation": "Both statements are correct as the Kendra is a key operational arm of CERT-In under MeitY focusing on botnet cleaning."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss different types of cyber crimes and measures required to be taken to fight the menace."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "The proliferation of digital infrastructure in India has expanded the 'attack surface' for state and non-state actors. Critically analyze the challenges in securing India's cyber-domain and suggest a way forward. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define the expanding attack surface due to the 'Digital India' push and mention the paradox of increased connectivity vs. increased vulnerability.",
+      "body": "Analyze challenges (technical skill gap, attribution problem, inter-agency silos). Provide a multi-dimensional way forward (Technological, Legislative, Behavioral).",
+      "conclusion": "Link with the goal of a 'Self-Reliant India' (Atmanirbhar Bharat) where security is built into the design (Security-by-Design)."
+    },
+    "modelAnswerHtml": "<h3>Securing the Cyber-Domain: A Strategic Necessity</h3><p>India’s digital footprint has expanded exponentially with the success of UPI, Aadhaar, and the PM-WANI scheme. However, this progress is countered by a sophisticated threat landscape ranging from state-sponsored APTs to localized cyber-frauds.</p><h4>Challenges</h4><ul><li><strong>Attribution Problem:</strong> The pseudo-anonymous nature of the internet makes it difficult to distinguish between state-sponsored acts and criminal elements, complicating diplomatic responses.</li><li><strong>Institutional Silos:</strong> There remains a gap between state-level law enforcement (lacking technical forensic training) and central nodal agencies.</li><li><strong>Legacy Infrastructure:</strong> Many government systems operate on outdated software (e.g., Windows XP variants), making them prone to zero-day vulnerabilities.</li><li><strong>Dependence on Imported Tech:</strong> High reliance on foreign-manufactured hardware introduces the risk of 'Hardware Trojans' and backdoors.</li></ul><h4>Way Forward</h4><ul><li><strong>Shift to 'Security-by-Design':</strong> Moving away from 'reactive' security to embedding security protocols at the manufacturing and coding levels.</li><li><strong>Unified Cyber-Command:</strong> Integrating state and central agencies under a single operational portal to reduce response time in 'Critical Information Infrastructure' (CII) attacks.</li><li><strong>Cyber-Diplomacy:</strong> Actively shaping global cyber-norms at forums like the UN GGE (Group of Governmental Experts) to protect civilian infrastructure.</li><li><strong>Public Awareness:</strong> Implementing 'Cyber-Hygiene' campaigns in school curricula to build a long-term resilient society.</li></ul><p><strong>Conclusion:</strong> Cyber security is not merely a technical vertical but a pillar of national sovereignty. Aligning with the vision of a <em>Viksit Bharat</em>, India must prioritize 'Cyber-Atmanirbharta' by promoting indigenous encryption technologies and hardware manufacturing to minimize reliance on foreign digital stacks.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following bodies is responsible for protecting 'Critical Information Infrastructure' in India?",
+      "options": [
+        "CERT-In",
+        "NCIIPC",
+        "National Cyber Security Coordinator",
+        "Intelligence Bureau"
+      ],
+      "answer": "NCIIPC",
+      "explanation": "NCIIPC (National Critical Information Infrastructure Protection Centre) is specifically mandated to protect CII."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following with reference to the IT Act 2000: 1. It provides legal recognition for electronic transactions. 2. It is the only act that governs data privacy in India. Which is correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 2 is incorrect; the Digital Personal Data Protection Act, 2023, now specifically governs personal data privacy."
+    }
+  ]
+}

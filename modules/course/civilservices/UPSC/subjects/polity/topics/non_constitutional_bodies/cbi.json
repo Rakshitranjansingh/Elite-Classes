@@ -1,0 +1,108 @@
+{
+  "microTopicId": "polity_non_constitutional_bodies_cbi",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_non_constitutional_bodies",
+  "topicTitle": "Non - constitutional Bodies",
+  "subTopicTitle": "CBI",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Statutory, Regulatory and various Quasi-judicial bodies.",
+    "mains": "GS Paper II - Statutory, regulatory and various quasi-judicial bodies; Structure, organization and functioning of the Executive and the Judiciary; Ministries and Departments of the Government; pressure groups and formal/informal associations and their role in the Polity."
+  },
+  "lectureHoursEstimate": "Lecture 39&40",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Central Bureau of Investigation (CBI) is India's premier investigative agency, deriving its anti-corruption powers from the Delhi Special Police Establishment (DSPE) Act, 1946. Operating under the administrative control of the Ministry of Personnel, Public Grievances and Pensions, it investigates major economic crimes, anti-corruption cases, and high-profile criminal offenses of national significance.",
+    "highYieldFacts": [
+      "Fact 1: Established in 1963 by a resolution of the Ministry of Home Affairs, later transferred to the Ministry of Personnel, Public Grievances and Pensions.",
+      "Fact 2: The Director of CBI is appointed for a fixed tenure of not less than 2 years under the DSPE (Amendment) Act, 2021, upon recommendation by a high-powered committee consisting of the Prime Minister, Leader of Opposition/Leader of single largest opposition party in Lok Sabha, and the Chief Justice of India.",
+      "Fact 3: Consent of the State Government is mandatory under Section 6 of the DSPE Act for investigating offenses within a State. States can grant either 'case-specific' consent or 'general consent'.",
+      "Fact 4: The CBI acts as the National Central Bureau of Interpol in India, coordinating international police cooperation.",
+      "Fact 5: Supreme Court in landmark rulings compared CBI's autonomy constraints to a 'caged parrot speaking in its master's voice', leading to structural reforms like the Lokpal Act linkage."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing CBI with a constitutional body or a body created directly by a central statute; it derives investigative powers from the colonial-era DSPE Act, 1946, not a standalone foundational statute for its creation.",
+      "Trap 2: Assuming the CBI can suo motu enter any state without prior notification or general consent; states have the legal authority to withdraw general consent under Section 6 of the DSPE Act, requiring specific court orders or state permission."
+    ],
+    "keyArticlesOrStatutes": [
+      "Delhi Special Police Establishment (DSPE) Act, 1946",
+      "Section 6 of DSPE Act (State consent)",
+      "Central Vigilance Commission (CVC) Act, 2003",
+      "Lokpal and Lokayuktas Act, 2013"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Institutional Architecture of the CBI</h3><p>The Central Bureau of Investigation traces its origins to the Special Police Establishment (SPE) set up in 1941 by the Government of India to investigate bribery and corruption in war-related purchases. Later formalized via the Delhi Special Police Establishment Act, 1946, and expanded through the Ministry of Home Affairs resolution in 1963, the CBI has evolved into India's premier multi-disciplinary investigating agency. Its mandate broadly spans three divisions: Anti-Corruption Division, Economic Offences Division, and Special Crimes Division.</p><h3>Contemporary Challenges and Operational Bottlenecks</h3><p>Despite its stellar reputation in cracking complex financial frauds and high-profile crimes, the CBI faces severe institutional bottlenecks. Chief among them is the erosion of operational autonomy, frequently exacerbated by political executive interference, delayed sanctions for prosecution under Section 17A of the Prevention of Corruption Act, and acute manpower shortages across investigating cadres. Furthermore, the withdrawal of 'general consent' by several non-BJP ruled states has created unprecedented jurisdictional deadlocks, crippling federal investigative harmony.</p><h3>Judicial Interventions and Path to Autonomy</h3><p>Judicial activism has been the primary driver of CBI reforms. Landmark rulings such as the <em>Vineet Narain v. Union of India (1997)</em> established fixed tenures and insulated appointments. Subsequent rulings, alongside recommendations from the 2nd Administrative Reforms Commission (ARC) and the Hota Committee, have continually emphasized the need for a comprehensive statutory backing, financial autonomy, and internal vigilance mechanisms to insulate the agency from external pressures.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory basis under DSPE Act, 1946; oversight by CVC and Lokpal; intersection of federalism (Entry 80 of Union List vs Entry 1 of State List).",
+      "socio_economic": "Combating high-level corruption, bank frauds, and organized crime that distort macroeconomic stability and erode public trust in governance institutions.",
+      "administrative_governance": "Capacity constraints, dependence on state police infrastructure, protracted trials, and forensic infrastructure deficits.",
+      "international_or_comparative": "Functioning as Interpol NCB; comparative alignment with the UK's Serious Fraud Office (SFO) or the US FBI in terms of operational independence."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Vineet Narain v. Union of India (1997)",
+      "CBI v. State of Tripura (Supreme Court ruling on general consent)",
+      "2nd Administrative Reforms Commission (ARC) 4th Report - 'Ethics in Governance'",
+      "Parliamentary Standing Committee on Personnel, Public Grievances, Law and Justice (various reports on CBI functioning)"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------------------+\n|                        APPOINTMENT COMMITTEE                            | \n|     (Prime Minister + Leader of Opposition Lok Sabha + CJI)             | \n+-------------------------------------------------------------------------+\n                                     |\n                                     v\n+-------------------------------------------------------------------------+\n|                       DIRECTOR, CBI (Fixed Tenure)                      |\n+-------------------------------------------------------------------------+\n                                     |\n         +---------------------------+---------------------------+\n         |                           |                           |\n         v                           v                           v\n+-----------------+         +-----------------+         +-----------------+\n| Anti-Corruption |         | Economic        |         | Special Crimes  |\n| Division        |         | Offences Div.   |         | Division        |\n+-----------------+         +-----------------+         +-----------------+\n         ^                           ^                           ^\n         |                           |                           |\n         +------------[Jurisdiction & Consent Limits]------------+\n                      (Requires General/Specific State Consent)\n+-------------------------------------------------------------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2019,
+        "question": "With reference to the Central Bureau of Investigation (CBI), consider the following statements: 1. The CBI is created by an Act of Parliament. 2. The power of the CBI to investigate crimes in a state is subject to the consent of the concerned state government. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "2 only",
+        "explanation": "Statement 1 is incorrect because the CBI was established by a resolution of the Ministry of Home Affairs in 1963, and derives its powers from the DSPE Act, 1946, rather than being directly created by a standalone Act of Parliament. Statement 2 is correct because under Section 6 of the DSPE Act, state consent is mandatory for CBI investigations within a state."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Discuss the 'General Consent' clause with respect to the Central Bureau of Investigation (CBI). How does the withdrawal of this consent by various states impact federal investigative efficiency?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the structural and functional challenges confronting the Central Bureau of Investigation (CBI). In light of recent legal controversies regarding 'General Consent', suggest pragmatic reforms to insulate the agency and enhance its credibility.",
+    "approach": {
+      "intro": "Define CBI's statutory roots (DSPE Act, 1946) and its critical role as premier anti-corruption and criminal investigation agency.",
+      "body": "Analyze structural issues (lack of complete autonomy, funding, manpower) and functional roadblocks (withdrawal of general consent by states, political overtones). Reference judgments and committees.",
+      "conclusion": "Suggest a roadmap incorporating comprehensive statutory backing, independent budget, and enhanced federal cooperation in line with recommendations of parliamentary panels."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The Central Bureau of Investigation (CBI), functioning under the DSPE Act, 1946, is India's principal investigative agency entrusted with probing high-profile corruption, economic offenses, and serious crimes. Often termed the premier anti-corruption watchdog, its efficacy is vital for maintaining the rule of law and probity in public life.</p><h3>Structural and Functional Challenges</h3><ul><li><strong>Politicization and Lack of Autonomy:</strong> Critics, including the Supreme Court, have frequently highlighted external executive pressures, famously describing the agency as a <em>'caged parrot speaking in its master's voice'</em>.</li><li><strong>The 'General Consent' Stalemate:</strong> Under Section 6 of the DSPE Act, the CBI requires state consent to operate. Several opposition-ruled states have recently withdrawn 'general consent', forcing the CBI to seek case-specific permissions or approach courts, severely hampering pan-India investigations into corruption.</li><li><strong>Manpower and Infrastructural Deficits:</strong> Acute shortages of investigating officers, legal prosecutors, and forensic experts lead to protracted investigations and delayed charge-sheeting.</li><li><strong>Procedural Bottlenecks:</strong> Prior sanction requirements under Section 17A of the Prevention of Corruption Act often delay prompt action against public servants.</li></ul><h3>Impact on Federal Investigative Efficiency</h3><p>The withdrawal of general consent creates jurisdictional fragmentation, enabling economic offenders to exploit inter-state boundaries. It undermines cooperative federalism, turning federal crime investigation into a political flashpoint.</p><h3>Way Forward and Reforms</h3><ul><li><strong>Comprehensive Legislation:</strong> Enacting a dedicated, autonomous CBI Act to replace the colonial-era DSPE Act, granting it independent statutory status akin to the Comptroller and Auditor General (CAG).</li><li><strong>Financial Independence:</strong> Providing a non-lapsable independent budget allocated directly from the Consolidated Fund of India to insulate it from executive financial control.</li><li><strong>Strengthening Accountability:</strong> Establishing an institutionalized oversight mechanism comprising judicial members and civil society representatives to monitor high-profile probes.</li><li><strong>Collaborative Framework:</strong> Institutionalizing structured dialogue mechanisms between state police forces and the CBI to harmonize multi-jurisdictional investigations.</li></ul><h3>Conclusion</h3><p>Transforming the CBI into an autonomous, transparent, and professionally robust institution is imperative. Upholding institutional integrity is vital for strengthening India's democratic fabric and fulfilling the vision of corruption-free governance.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the appointment of the Director of the CBI: \n1. The Director is appointed by the Central Government on the recommendation of a committee consisting of the Prime Minister, the Chief Justice of India, and the Leader of the Opposition in Lok Sabha.\n2. The DSPE (Amendment) Act allows for extensions of the tenure of the CBI Director up to a maximum of five years in total.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Both statements are correct. Under the CVC Act (as amended), the selection committee comprises the PM, CJI, and Leader of Opposition (or leader of single largest opposition party). Furthermore, the DSPE (Amendment) Act, 2021 permits the extension of the tenure of the CBI Director by up to one year at a time, subject to a maximum overall tenure of five years."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following bodies exercises superintendence over the CBI with respect to investigations conducted under the Prevention of Corruption Act, 1988?",
+      "options": [
+        "Ministry of Home Affairs",
+        "Central Vigilance Commission (CVC)",
+        "Cabinet Secretariat",
+        "National Human Rights Commission"
+      ],
+      "answer": "Central Vigilance Commission (CVC)",
+      "explanation": "Under the CVC Act, 2003, the Central Vigilance Commission exercises superintendence over the functioning of the CBI in so far as it relates to the investigation of offenses under the Prevention of Corruption Act, 1988."
+    }
+  ]
+}

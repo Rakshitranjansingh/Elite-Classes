@@ -1,0 +1,106 @@
+{
+  "microTopicId": "disaster_mgmt_natural_man_made_disasters_earthquakes",
+  "subjectId": "disaster_mgmt",
+  "subjectTitle": "Disaster Management & Resilience",
+  "topicId": "disaster_mgmt_natural_man_made_disasters",
+  "topicTitle": "Natural & Man-Made Disasters",
+  "subTopicTitle": "Earthquakes",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Bio-diversity and Climate Change - that do not require subject specialization; Indian and World Geography - Physical, Social, Economic Geography of India and the World.",
+    "mains": "GS Paper III - Disaster and disaster management, Key statutory institutions, and vulnerability profiling."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Earthquakes represent the sudden release of strain energy in the Earth's crust, generating seismic waves that radiate outward from the hypocenter. India's high vulnerability stems from rapid tectonic convergence along the Himalayan arc and complex intra-plate faults, with nearly 59% of the country's landmass vulnerable to moderate-to-severe seismic hazards.",
+    "highYieldFacts": [
+      "Fact 1: Seismic Zoning Map of India (IS 1893:2002) classifies the country into four seismic zones: Zone II (Low), Zone III (Moderate), Zone IV (Severe), and Zone V (Very Severe). Zone I has been merged into Zone II.",
+      "Fact 2: The National Centre for Seismology (NCS) under the Ministry of Earth Sciences (MoES) is the nodal agency for monitoring earthquakes in and around the country.",
+      "Fact 3: Zone V encompasses the entire Northeast India, parts of Jammu & Kashmir, Himachal Pradesh, Uttarakhand, the Rann of Kutch, and Andaman & Nicobar Islands.",
+      "Fact 4: Induced seismicity, a man-made variant, is increasingly documented near large reservoirs (Reservoir-Induced Seismicity like Koyna) and due to deep fluid injection/fracking.",
+      "Fact 5: The Bureau of Indian Standards (BIS) prescribes building codes (e.g., IS 1893, IS 4326) for earthquake-resistant design, though compliance at municipal levels remains weak."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the Epicenter (point on the Earth's surface directly above the focus) with the Hypocenter or Focus (the exact subterranean point of rupture).",
+      "Trap 2: Assuming the Richter scale has an upper limit; it is a logarithmic scale measuring amplitude, whereas the Moment Magnitude Scale ($Mw$) measures seismic moment and energy release more accurately for major events."
+    ],
+    "keyArticlesOrStatutes": [
+      "Disaster Management Act, 2005",
+      "National Building Code of India (NBC)",
+      "IS 1893 (Criteria for Earthquake Resistant Design of Structures)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Anatomy and Governance of Seismic Vulnerability in India</h3><p>Earthquakes are among the most catastrophic natural hazards, capable of precipitating systemic collapse across infrastructure, economy, and human lives within seconds. India's geo-tectonic framework is defined by the northward drift of the Indian Plate into the Eurasian Plate at a rate of approximately 40-50 mm per year. This persistent tectonic convergence accumulates immense strain along the 2,500 km Himalayan arc and triggers complex intra-plate fault systems, such as the Kachchh, Koyna, and Narmada-Son lineaments.</p><p>From a governance and policy perspective, managing seismic risk requires a paradigm shift from post-disaster relief and rehabilitation to pre-disaster mitigation, structural resilience, and community preparedness. The Disaster Management Act of 2005 provides the overarching legal framework, establishing a tiered institutional architecture comprising the National Disaster Management Authority (NDMA), State Disaster Management Authorities (SDMAs), and District Disaster Management Authorities (DDMAs). However, the operational efficacy of this architecture during seismic events is severely tested by rapid, unplanned urbanization and widespread non-compliance with building bylaws.</p><h3>Vulnerability Profiling and Structural Challenges</h3><p>India's vulnerability is exacerbated by compounding socio-economic factors. Over 60% of urban and rural housing stock comprises unreinforced masonry (URM) structures—brick or stone masonry in lime or mud mortar—which lack ductility and collapse catastrophically under moderate ground shaking. Furthermore, critical infrastructure such as hospitals, schools, and bridges in Seismic Zones IV and V frequently fail to meet retrofitting standards. Man-made factors, including unscientific slope cutting in fragile Himalayan terrain, unregulated groundwater extraction, and mega-reservoir projects, further aggravate geological instability.</p><h3>Strategic Pathways to Seismic Resilience</h3><p>Mitigating earthquake risks demands rigorous enforcement of the National Building Code and BIS seismic codes, capacity building of local masons and engineers in earthquake-resistant construction, and large-scale seismic retrofitting of vulnerable lifelines. Additionally, the operationalization of advanced Earthquake Early Warning Systems (EEWS)—such as those piloted by IIT Roorkee in Uttarakhand—offers critical seconds of warning to shut down industrial plants, halt trains, and evacuate schools, fundamentally reducing mortality.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Disaster Management falls under the Concurrent List (implicitly via 'social security and social insurance' and broader executive powers), requiring cooperative federalism between Centre, States, and Local Bodies under the DM Act, 2005.",
+      "socio_economic": "Disproportionate impact on economically weaker sections who reside in non-engineered informal housing; loss of livelihood, capital stock, and inter-generational poverty traps.",
+      "administrative_governance": "Implementation gaps at ULB (Urban Local Body) levels where building bylaws are poorly enforced; lack of technical personnel in DDMAs for hazard-mapping and structural audits.",
+      "international_or_comparative": "Alignment with the Sendai Framework for Disaster Risk Reduction (2015-2030), emphasizing 'Build Back Better' and substantial reduction of disaster damage to critical infrastructure."
+    },
+    "landmarkJudgmentsOrReports": [
+      "NDMA Guidelines on Management of Earthquakes",
+      "National Building Code (NBC) 2016 revisions",
+      "Second Administrative Reforms Commission (ARC) 3rd Report: 'Crisis Management - From Despair to Hope'"
+    ],
+    "structuredDiagramAscii": "Seismic Risk Mitigation Framework:\n[Hazard Identification & Microzonation] \n        │\n        ▼\n[Structural Mitigation: BIS Codes & Retrofitting] \n        │\n        ▼\n[Institutional Preparedness: DDMA & Mock Drills] \n        │\n        ▼\n[Early Warning Systems & Community Response] \n        │\n        ▼\n[Build Back Better: Post-Disaster Recovery]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which of the following phenomena might have influenced the evolution of Bhopal earthquake or general seismic activities in Indian subcontinent?",
+        "options": [
+          "Himalayan Orogeny",
+          "Movement of Indian Plate",
+          "Volcanic hotspots in the Arabian Sea",
+          "Select the correct answer using the code given below:"
+        ],
+        "answer": "1 and 2 only",
+        "explanation": "The Indian subcontinent's seismicity is primarily driven by the northward movement of the Indian plate and its collision with the Eurasian plate, which caused the Himalayan Orogeny. Volcanic hotspots in the Arabian Sea (like Reunion hotspot) formed the Deccan Traps in the past but are not the primary active driver of contemporary widespread tectonic earthquakes compared to plate convergence."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Account for the huge flooding milyon-affected cities in India and discuss the steps required to mitigate this urban disaster. (Contextual note: Often linked with multi-hazard vulnerability assessments including seismic risks in urban sprawls)."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Discuss the vulnerability of the Indian subcontinent to major earthquakes and evaluate the efficacy of the existing institutional mechanisms in mitigating seismic risks. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define India's seismic setting using the plate tectonic paradigm and percentage of vulnerable landmass.",
+      "body": "Detail the physical and anthropogenic vulnerabilities (unreinforced masonry, high-density urbanization). Evaluate NDMA guidelines, building codes, and implementation gaps at local governance levels. Suggest technological interventions like EEWS.",
+      "conclusion": "Conclude by emphasizing a paradigm shift from reactive relief to proactive resilience, aligning with the Sendai Framework."
+    },
+    "modelAnswerHtml": "<p>India's geo-dynamic setting makes it highly prone to catastrophic earthquakes. Driven by the relentless northward convergence of the Indian tectonic plate into the Eurasian plate, nearly <strong>59% of India's landmass</strong>—spanning the entire Himalayan belt, Northeast, Indo-Gangetic plains, and parts of Western India—is vulnerable to moderate to severe seismic intensity (Zones III, IV, and V).</p><br/><h3>Vulnerability Profile of the Indian Subcontinent</h3><ul><li><strong>Structural Fragility:</strong> A vast majority of housing stock, particularly in semi-urban and rural areas, comprises unreinforced masonry (URM) buildings lacking ductile detailing, rendering them vulnerable to sudden collapse.</li><li><strong>Unplanned Urbanization:</strong> Rapid, unregulated urban sprawl in seismic zones, often violating zoning laws and building bylaws, concentrates high-risk populations and critical infrastructure in hazard-prone areas.</li><li><strong>Man-Made Amplifiers:</strong> Anthropogenic activities such as reservoir construction (Reservoir-Induced Seismicity), unscientific slope modification in young fold mountains, and heavy groundwater mining exacerbate instability.</li></ul><br/><h3>Evaluation of Institutional Mechanisms</h3><p>The institutional framework, anchored by the <strong>Disaster Management Act of 2005</strong> and the <strong>NDMA Guidelines on Earthquakes</strong>, has strengthened pre-disaster planning and search-and-rescue capabilities through specialized forces like the NDRF. However, significant governance bottlenecks persist:</p><ul><li><strong>Implementation Deficit at ULB Level:</strong> Urban Local Bodies (Municipalities) often lack technical capacity and political will to strictly enforce the Bureau of Indian Standards (BIS) seismic codes (IS 1893).</li><li><strong>Lack of Retrofitting:</strong> While new constructions show improved compliance in select metros, millions of legacy buildings and critical lifelines (hospitals, schools) remain unretrofitted.</li><li><strong>Reactive Focus:</strong> Resource allocation continues to skew toward post-disaster response rather than continuous vulnerability mapping and mandatory structural audits.</li></ul><br/><h3>Way Forward</h3><p>To transition toward a resilient paradigm, India must mandate <strong>third-party structural safety audits</strong> for all public and high-rise buildings, scale up indigenous <strong>Earthquake Early Warning Systems (EEWS)</strong>, train local artisans in earthquake-resistant construction, and strictly operationalize the Sendai Framework's 'Build Back Better' principle.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Seismic Zoning Map of India: \n1. The map is officially published by the Bureau of Indian Standards (BIS). \n2. Zone I is currently retained for areas with the lowest risk of earthquakes in peninsular India. \nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: The Seismic Zoning Map of India is formulated and updated by the BIS (IS 1893). Statement 2 is incorrect: Based on past experiences and scientific consensus, Zone I was merged into Zone II, making Zone II the lowest seismic hazard zone in the current four-zone classification (II, III, IV, V)."
+    },
+    {
+      "id": "mcq_02",
+      "question": "With reference to seismology, which of the following best describes 'Reservoir-Induced Seismicity' (RIS)?",
+      "options": [
+        "Earthquakes triggered by tectonic plate subduction beneath artificial water bodies.",
+        "Seismic activity caused by the weight of water in a large reservoir and increased pore fluid pressure along underlying faults.",
+        "Volcanic tremors induced by geothermal energy tapping near dam sites.",
+        "Tectonic shifts caused by rapid siltation altering the Earth's rotational axis."
+      ],
+      "answer": "Seismic activity caused by the weight of water in a large reservoir and increased pore fluid pressure along underlying faults.",
+      "explanation": "Reservoir-Induced Seismicity (RIS) occurs when the filling of a large reservoir alters the stress field in the Earth's crust due to the massive weight of the water body and increases pore water pressure along pre-existing faults, lubricating them and triggering slip events (e.g., Koyna earthquake)."
+    }
+  ]
+}

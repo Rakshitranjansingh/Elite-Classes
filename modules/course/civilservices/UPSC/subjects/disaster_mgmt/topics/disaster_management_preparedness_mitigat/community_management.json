@@ -1,0 +1,104 @@
+{
+  "microTopicId": "disaster_mgmt_disaster_management_preparedness_mitigation_community_management",
+  "subjectId": "disaster_mgmt",
+  "subjectTitle": "Disaster Management & Resilience",
+  "topicId": "disaster_mgmt_disaster_management_preparedness_mitigation",
+  "topicTitle": "Disaster Management, Preparedness & Mitigation",
+  "subTopicTitle": "Community management",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Biodiversity and Climate Change (Disaster Management component).",
+    "mains": "GS Paper III: Disaster and disaster management."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Community-Based Disaster Risk Management (CBDRM) shifts the paradigm from top-down expert-driven approaches to a bottom-up methodology where the community is the primary responder. It treats local knowledge and social capital as the first line of defense in disaster mitigation and preparedness.",
+    "highYieldFacts": [
+      "Fact 1: The Sendai Framework (2015-2030) explicitly emphasizes 'inclusive, accessible and non-discriminatory participation' of communities.",
+      "Fact 2: 'Aapda Mitra' scheme is a Centrally Sponsored Scheme aimed at training 350 community volunteers in disaster-prone districts.",
+      "Fact 3: The Disaster Management Act, 2005 mandates the constitution of District Disaster Management Authorities (DDMAs) which must involve local bodies (Panchayati Raj Institutions).",
+      "Fact 4: The concept of 'Social Capital' is quantified in the resilience index as the ability of a community to reorganize post-disaster.",
+      "Fact 5: Community resilience is built on three pillars: Anticipatory Capacity, Absorptive Capacity, and Adaptive Capacity."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming NDRF is the only first responder; in reality, the local community is the immediate first responder before state forces arrive.",
+      "Trap 2: Confusing 'Community Management' with 'NGO-led relief'; the former is an empowerment process, while the latter is often delivery-based."
+    ],
+    "keyArticlesOrStatutes": [
+      "Disaster Management Act, 2005 (Section 30 regarding District Authority roles).",
+      "73rd and 74th Constitutional Amendment Acts (Empowerment of PRIs and ULBs in disaster governance)."
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>The Paradigm Shift: From Victimhood to Agency</h3><p>Community-based management is rooted in the philosophy that local populations are not passive victims but active agents of change. Traditional disaster management often failed due to the 'top-down' disconnect where standardized technological solutions did not account for localized socio-cultural and geographical vulnerabilities.</p><h3>Core Components of Community Management</h3><ul><li><strong>Hazard, Vulnerability, and Capacity Assessment (HVCA):</strong> Engaging the community in mapping their own risks ensures the data is granular and grounded in reality.</li><li><strong>Indigenous Knowledge Integration:</strong> Traditional architectural practices (like Assam’s stilt houses) or ecological warnings (animal behavior) are invaluable tools in mitigation.</li><li><strong>Social Capital and Networks:</strong> Trust-based networks (Self Help Groups, Mahila Mandals) act as conduits for early warning dissemination and post-disaster psychological support.</li></ul><h3>Contemporary Governance Challenges</h3><p>Despite its theoretical merit, implementation suffers from <strong>'Elite Capture'</strong> of local institutions, where powerful village figures monopolize relief resources. Additionally, there is a persistent lack of <strong>technical capacity</strong> at the local level to interpret scientific alerts from the India Meteorological Department (IMD) or INCOIS. Sustainable resilience requires the transition from 'ad-hoc volunteerism' to 'institutionalized professional volunteering' under the aegis of schemes like Aapda Mitra.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "The 11th and 12th schedules of the Constitution allow local bodies to manage social and economic development, which includes disaster preparedness.",
+      "socio_economic": "Empowering women through community management (SHGs) serves as a force multiplier for post-disaster economic recovery.",
+      "administrative_governance": "The 'Last-Mile Connectivity' problem: Information must travel from the District Authority to the Gram Panchayat effectively.",
+      "international_or_comparative": "Alignment with the 'Sendai Framework' priority 4: Enhancing disaster preparedness for effective response."
+    },
+    "landmarkJudgmentsOrReports": [
+      "2nd ARC Report on Crisis Management: Recommended the institutionalization of community-based volunteering.",
+      "National Policy on Disaster Management (NPDM, 2009): Emphasizes the need for community sensitization and training."
+    ],
+    "structuredDiagramAscii": "Community Disaster Management Cycle:\n[Local Risk Mapping] -> [Capacity Building/Training] -> [Mock Drills] -> [Early Warning Dissemination] -> [Community-led Recovery] -> [Feedback Loop]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2016,
+        "question": "With reference to the National Disaster Management Authority (NDMA), consider the following: 1. It is a statutory body under the DM Act 2005. 2. It is chaired by the Prime Minister. 3. Community participation is not explicitly mandated. Which are correct?",
+        "options": [
+          "1 and 2 only",
+          "2 and 3 only",
+          "1, 2 and 3",
+          "1 only"
+        ],
+        "answer": "1 and 2 only",
+        "explanation": "Statement 3 is incorrect because the NDMA guidelines consistently advocate for community-based approaches to disaster management."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2018,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Vulnerability is an essential element for defining disaster impacts and its more costly effects. Discuss how community-based disaster management can reduce vulnerability."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Community participation is the bedrock of disaster resilience in India. Critically analyze the challenges in institutionalizing community-based disaster management at the grassroots level. (250 words)",
+    "approach": {
+      "intro": "Define CBDRM and its link to local governance (PRIs/ULBs) and the Sendai Framework.",
+      "body": "Discuss the 'Need' (First responder logic), 'Challenges' (Technical, administrative, social), and 'Way Forward' (Technological, inclusive policy).",
+      "conclusion": "Connect to 'Atmanirbhar Bharat' and the goal of disaster-resilient India (Vision 2047)."
+    },
+    "modelAnswerHtml": "<h3>Model Answer: Community Resilience in India</h3><p>Community-Based Disaster Risk Management (CBDRM) shifts disaster governance from a relief-centric model to a risk-resilient, community-driven approach. It empowers local stakeholders to identify, analyze, and manage risks inherent to their geography.</p><h4>Challenges in Institutionalization:</h4><ul><li><strong>Top-down bureaucratic inertia:</strong> Decisions are often taken at the state/district level without local consultation, leading to 'one-size-fits-all' policies.</li><li><strong>Technical Gap:</strong> Lack of training for local volunteers to operate modern early warning systems or emergency equipment.</li><li><strong>Socio-Economic Barriers:</strong> Vulnerable groups (women, marginalized castes) are often excluded from local disaster management committees due to existing patriarchal or power structures.</li><li><strong>Funding constraints:</strong> Local bodies (Gram Panchayats) often lack the fiscal autonomy to earmark funds for proactive mitigation works (e.g., retrofitting of buildings).</li></ul><h4>Way Forward:</h4><ul><li><strong>Integrating Indigenous knowledge:</strong> Policies must document and scale local best practices (e.g., traditional water harvesting).</li><li><strong>Professionalizing Volunteers:</strong> Scaling the <em>Aapda Mitra</em> project with continuous drill-based capacity building.</li><li><strong>ICT Integration:</strong> Using community-led mobile platforms for real-time risk reporting to the District Authorities.</li></ul><p><strong>Conclusion:</strong> To achieve the goals of the Sendai Framework, India must move towards a 'bottom-up' synergy where the state acts as a facilitator and the community as the primary architect of its own safety, ensuring disaster-resilient local development.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following is the primary objective of the 'Aapda Mitra' scheme?",
+      "options": [
+        "Providing compensation to disaster victims",
+        "Training community volunteers for emergency response",
+        "Establishing modern disaster control rooms in every village",
+        "Digital mapping of all high-risk flood zones"
+      ],
+      "answer": "Training community volunteers for emergency response",
+      "explanation": "Aapda Mitra focuses on training volunteers to function as the first responder force at the community level."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following statements regarding the role of Gram Panchayats in disaster management: 1. They are mandated to prepare the Disaster Management Plan under the DM Act, 2005. 2. They possess the power to declare a disaster event at the district level. Which is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Declaration of a disaster event is a state/district level authority function, not the mandate of a Gram Panchayat."
+    }
+  ]
+}

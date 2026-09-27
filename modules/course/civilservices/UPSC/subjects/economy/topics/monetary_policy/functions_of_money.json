@@ -1,0 +1,106 @@
+{
+  "microTopicId": "economy_monetary_policy_functions_of_money",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_monetary_policy",
+  "topicTitle": "Monetary Policy",
+  "subTopicTitle": "Functions of Money",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives, etc. (specifically Money and Banking evolution).",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 12&13",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Money transcends physical currency to serve four primary functions: medium of exchange, unit of account, store of value, and standard of deferred payment. In the contemporary Indian economy, these functions are evolving rapidly with the advent of Central Bank Digital Currencies (CBDC-e/CBDC-w) and unified digital payments infrastructure.",
+    "highYieldFacts": [
+      "Fact 1: Legal Tender status in India is conferred under Section 26 of the Reserve Bank of India Act, 1934.",
+      "Fact 2: Currency notes are issued by the RBI under Section 22 of the RBI Act, while one-rupee notes and coins are issued by the Ministry of Finance under the Coinage Act, 2011.",
+      "Fact 3: The Reserve Bank of India introduced the retail and wholesale Central Bank Digital Currency (e-Rupee) pilot phases in late 2022 to augment the medium of exchange function digitally.",
+      "Fact 4: Fiat money has no intrinsic value and is established as money by government regulation, differing from commodity money or representative money.",
+      "Fact 5: The RBI's Report on Currency and Finance (RCF) highlights how digital money innovations redefine traditional monetary aggregates (M1, M2, M3, M4)."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming coins and one-rupee notes are issued by the RBI. They are issued by the Ministry of Finance, though distributed by the RBI.",
+      "Trap 2: Confusing 'Limited Legal Tender' (coins up to Rs 1000 under Coinage Act) with 'Unlimited Legal Tender' (banknotes of higher denominations)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Section 22 and Section 26 of the Reserve Bank of India Act, 1934",
+      "The Coinage Act, 2011",
+      "Information Technology Act, 2000"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Contemporary Relevance of Functions of Money</h3><p>The classical paradigm classifies the functions of money into four pillars: <strong>Medium of Exchange</strong>, <strong>Unit of Account</strong>, <strong>Store of Value</strong>, and <strong>Standard of Deferred Payment</strong>. These functions eliminate the crippling 'double coincidence of wants' inherent in barter systems, drastically lowering transaction costs and facilitating complex intertemporal economic coordination.</p><h3>Digital Transformation and Modern Challenges</h3><p>In the contemporary Indian macroeconomic framework, the digitization of payments (UPI, Account Aggregator framework, and Central Bank Digital Currency - e-Rupee) has modernized these functions. While UPI acts as an ultra-fast payment rail enhancing the medium of exchange, the e-Rupee serves as a digital fiat liability of the central bank, ensuring that the fundamental store of value and unit of account functions remain anchored in sovereign trust rather than private cryptographic tokens.</p><h3>Macroeconomic Implications and Financial Stability</h3><p>The integrity of money's functions dictates the efficacy of Monetary Policy. When inflation erodes the 'store of value' and 'unit of account' functions, economic agents substitute domestic currency with hard assets or private assets, precipitating currency substitution. Maintaining price stability (targeting 4% +/- 2% CPI inflation) is thus a prerequisite for preserving the functional integrity of money.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing of legal tender via RBI Act 1934 and Coinage Act 2011; legal sovereignty over monetary issuance.",
+      "socio_economic": "Impact of inflation (tax on the poor) undermining the store of value function for fixed-income and informal workers; financial inclusion bridging the unbanked.",
+      "administrative_governance": "RBI-Government coordination on currency management, counterfeit deterrence, and rollout of CBDC infrastructure.",
+      "international_or_comparative": "Cross-border CBDC arrangements (Project mBridge), internationalization of the Rupee, and competition from global stablecoins."
+    },
+    "landmarkJudgmentsOrReports": [
+      "RBI Report on Currency and Finance (RCF) - Focus on Digital Currencies",
+      "Nandan Nilekani Committee on Deepening Digital Payments",
+      "Ghosh Committee on Frauds and Internal Security in Banks"
+    ],
+    "structuredDiagramAscii": "BARTER SYSTEM (Double Coincidence of Wants) \n       │\n       ▼\nTRADITIONAL MONEY (Medium of Exchange & Store of Value)\n       │\n       ▼\nFIAT & BANK MONEY (Legal Tender & Standard of Deferred Payment)\n       │\n       ▼\nCONTEMPORARY DIGITAL ECOSYSTEM (UPI, Account Aggregator, CBDC / e-Rupee)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "If you walk into a restaurant in India and pay for your meal using a smartphone application running UPI, which of the following best describes the underlying economic role being performed?",
+        "options": [
+          "A shift from fiat money to cryptocurrency",
+          "An instant execution of the medium of exchange function via digital rails",
+          "The creation of a new unit of account independent of the Indian Rupee",
+          "The elimination of commercial banks from the payment settlement loop"
+        ],
+        "answer": "An instant execution of the medium of exchange function via digital rails",
+        "explanation": "UPI is a payment system/rail that facilitates the transfer of funds denominated in the Indian Rupee (the official fiat money). It does not create a new unit of account or cryptocurrency, nor does it eliminate commercial banks (which hold the underlying accounts)."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2022,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Examine the potential and challenges of introducing Central Bank Digital Currency (CBDC) in India. How does it alter the traditional understanding of money and its functions?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Analyze how technological innovations like Unified Payments Interface (UPI) and Central Bank Digital Currency (CBDC) are redefining the traditional functions of money in the Indian economy. (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define money briefly and state how its classical functions are undergoing a digital paradigm shift in India.",
+      "body": "Discuss impact on Medium of Exchange (UPI speed, friction reduction), Store of Value and Unit of Account (CBDC providing sovereign safety vs. crypto volatility), and challenges (cybersecurity, privacy, disintermediation risks).",
+      "conclusion": "Summarize with a futuristic outlook on India's financial architecture balancing innovation with sovereign monetary stability."
+    },
+    "modelAnswerHtml": "<p>Money traditionally performs four cardinal functions: medium of exchange, unit of account, store of value, and standard of deferred payment. In India, fintech innovations are deeply augmenting these operational dimensions.</p><p><strong>Redefining Medium of Exchange:</strong> UPI has revolutionized transactions by making the medium of exchange instantaneous, interoperable, and near-zero cost, transitioning India from a cash-heavy economy to a population-scale digital ledger system.</p><p><strong>Sovereign Safety and Store of Value:</strong> The introduction of the Central Bank Digital Currency (e-Rupee) reinforces the store of value and unit of account functions by combining the safety of physical cash with the efficiency of digital money, shielding citizens from the volatility of private crypto-assets.</p><p><strong>Governance Challenges:</strong> Disintermediation risks for commercial banks, data privacy concerns, and cyber resilience remain critical operational hurdles.</p><p><strong>Way Forward:</strong> India's monetary architecture must harmonise digital innovation with robust cybersecurity frameworks, ensuring that the foundational trust in money remains uncompromised as envisioned under Digital India.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following constitutes 'Legal Tender' in India?",
+      "options": [
+        "All bank deposits and demand drafts",
+        "All currency notes issued by the RBI and coins minted under the Coinage Act",
+        "Cryptocurrencies recognized by private fintech platforms",
+        "Cheques and bills of exchange issued by scheduled commercial banks"
+      ],
+      "answer": "All currency notes issued by the RBI and coins minted under the Coinage Act",
+      "explanation": "Legal tender refers to money that by law cannot be refused in settlement of a debt. Banknotes issued by the RBI and coins issued by the Central Government are legal tender. Cheques and demand drafts are 'credit money' or 'near money', not statutory legal tender."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following statements regarding the 'Unit of Account' function of money: \n1. It provides a common denominator to quote prices and calculate profit and loss.\n2. High inflation strengthens the reliability of money as a unit of account.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: Money serves as a common measure of value (unit of account). Statement 2 is incorrect because high and volatile inflation distorts relative prices, rendering money an unreliable unit of account and eroding its predictability."
+    }
+  ]
+}

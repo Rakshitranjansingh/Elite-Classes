@@ -1,0 +1,105 @@
+{
+  "microTopicId": "polity_parliamentary_forums_and_parliamentary_groups_issues_with_working_of_parliam",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_parliamentary_forums_and_parliamentary_groups",
+  "topicTitle": "Parliamentary forums and Parliamentary groups",
+  "subTopicTitle": "Issues with working of parliamentary commiteess",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Parliament and State Legislatures—Structure, Functioning, Conduct of Business, Powers & Privileges and Issues Arising out of these."
+  },
+  "lectureHoursEstimate": "Lecture 23",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Parliamentary committees act as miniature legislatures performing deep scrutiny of policies, expenditure, and legislation. However, their structural, functional, and systemic bottlenecks severely impair their institutional efficacy in holding the executive accountable.",
+    "highYieldFacts": [
+      "Fact 1: Departmentally Related Standing Committees (DRSCs) were established in 1993, later expanded from 17 to 24 committees in 2004.",
+      "Fact 2: Out of 24 DRSCs, 16 function under the Lok Sabha Secretariat and 8 under the Rajya Sabha Secretariat.",
+      "Fact 3: A crucial structural constraint is that Bills are not mandatorily referred to DRSCs, leading to a declining trend in legislative reference (dropping from over 60% in the 14th Lok Sabha to less than 15% in recent Lok Sabhas).",
+      "Fact 4: The tenure of members on standing committees is restricted to one year, which curtails long-term domain specialization.",
+      "Fact 5: The Rules of Procedure and Conduct of Business in Lok Sabha do not permit committees to examine policy matters of government-owned companies unless specifically directed or included within their routine mandates."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming all Bills are mandatorily scrutinized by DRSCs. In reality, referral to committees is discretionary, resting with the presiding officer of the respective house.",
+      "Trap 2: Confusing the tenure of Parliamentary Committee members (1 year) with the tenure of the Lok Sabha (5 years)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 105 (Powers, Privileges, etc., of the Houses of Parliament and of the members and committees thereof)",
+      "Article 118 (Rules of procedure)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Institutional Architecture of Parliamentary Committees</h3><p>Often designated as the 'miniature legislatures' of the Indian Parliament, Parliamentary Committees provide the vital mechanism for detailed bipartisan legislative scrutiny, financial oversight, and executive accountability. Broadly divided into Standing Committees (such as the 24 DRSCs, Financial Committees like Estimates, Public Accounts, and Public Undertakings) and Ad Hoc Committees, they are designed to bypass the partisan noise of the floor and delve into technical minutiae.</p><h3>Contemporary Challenges and Structural Bottlenecks</h3><p>Despite their constitutional significance under Article 105 and procedural backing, the working of parliamentary committees faces grave structural infirmities:</p><ul><li><strong>Decline in Legislative Referral:</strong> A disturbing trend in recent legislative history is the bypassing of DRSCs. Major contentious economic, social, and penal legislations are increasingly rushed through Parliament without being referred to committees, defeating the core purpose of pre-legislative consultative scrutiny.</li><li><strong>Lack of Domain Specialization and Frequent Transfers:</strong> The one-year tenure of committee members acts as a severe impediment. Just as legislators begin to grasp complex economic, scientific, or security paradigms, they are rotated out, preventing the accumulation of institutional memory and deep expertise.</li><li><strong>Non-Binding Nature of Recommendations:</strong> Committee reports are purely recommendatory. The executive is under no legal or constitutional obligation to incorporate their suggestions, often resulting in watered-down accountability where ministries furnish perfunctory Action Taken Reports (ATRs).</li><li><strong>Low Attendance and Partisan Polarization:</strong> Committee deliberations are increasingly plagued by abysmal member attendance and the infiltration of hyper-partisan rhetoric, overshadowing objective, evidence-based policy evaluation.</li><li><strong>Resource and Research Deficit:</strong> Unlike the US Congressional Research Service or UK select committees, Indian parliamentary committees suffer from a lack of dedicated, independent, multi-disciplinary research staff, forcing them to rely heavily on data and narratives supplied by the very executive ministries they are meant to oversee.</li></ul>",
+    "dimensions": {
+      "constitutional_or_legal": "Tension between parliamentary sovereignty, executive dominance, and the dilution of committee mandates through procedural bypasses.",
+      "socio_economic": "Impact on vulnerable demographics when welfare legislations, social sector outlays, and economic reforms bypass rigorous scrutiny.",
+      "administrative_governance": "Friction between bureaucratic inertia, lack of timely information sharing, and parliamentary oversight mechanisms.",
+      "international_or_comparative": "Comparison with mature democracies like the UK and USA, where committee chairs wield subpoena powers and permanent professional staff support."
+    },
+    "landmarkJudgmentsOrReports": [
+      "National Commission to Review the Working of the Constitution (NCRWC, 2002)",
+      "Lok Sabha Secretariat Rules Committee Recommendations",
+      "Reports of the Chairman of Rajya Sabha and Speaker of Lok Sabha on strengthening DRSCs"
+    ],
+    "structuredDiagramAscii": "Executive Bill / Policy Formulation\n             │\n             ▼\n[Discretionary Referral by Presiding Officer]\n   ├──► Bypassed (Direct Floor Voting) ──► Rushed Legislation / Implementation Gaps\n   └──► Referred to DRSC (24 Committees)\n             │\n             ├──► Structural Bottlenecks: 1-Year Tenure, Partisan Polarization, Non-Binding ATRs\n             └──► Resource Deficit: Lack of Independent Research Staff\n             │\n             ▼\n   Sub-optimal Legislative Scrutiny & Weakened Executive Accountability"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2018,
+        "question": "Which of the following is/are the function(s) of the Cabinet Secretariat?",
+        "options": [
+          "1. Preparation of agenda for Cabinet Meetings",
+          "2. Secretarial assistance to Cabinet Committees",
+          "3. Allocation of financial resources to the Ministries",
+          "Select the correct answer using the code given below:"
+        ],
+        "answer": "1 and 2 only",
+        "explanation": "Statement 3 is incorrect because the allocation of financial resources is handled by the Ministry of Finance (Department of Expenditure), not the Cabinet Secretariat."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2018,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "To what extent, in your opinion, has the decentralization of power in India changed the governance landscape at the grassroots level?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the structural and functional bottlenecks plaguing the working of Departmentally Related Standing Committees (DRSCs) in the Indian Parliament. Suggest measures to enhance their efficacy in legislative oversight. (250 words, 15 marks)",
+    "approach": {
+      "intro": "Define DRSCs as the bedrock of parliamentary oversight and mention their evolution under rule 331 of Lok Sabha Rules.",
+      "body": "Detail the structural bottlenecks (non-referral of bills, 1-year tenure, lack of independent research, non-binding nature). Suggest actionable institutional reforms.",
+      "conclusion": "Conclude by linking effective parliamentary scrutiny to constitutional democracy and Vision 2047 governance standards."
+    },
+    "modelAnswerHtml": "<p>Established in 1993, Departmentally Related Standing Committees (DRSCs) serve as the primary institutional mechanism for detailed scrutiny of financial proposals, policies, and legislations. However, their functional efficacy has been severely impaired by structural and systemic bottlenecks.</p><p><strong>Major Bottlenecks in the Working of DRSCs:</strong></p><ul><li><strong>Decline in Legislative Referrals:</strong> A worrying trend shows a steep decline in bills referred to DRSCs (dropping below 15% in recent terms), with major legislations pushed through without adequate pre-legislative consultation.</li><li><strong>Transient Membership:</strong> The one-year tenure of members restricts domain specialization and continuity, rendering committees vulnerable to shifts in political calendars.</li><li><strong>Resource Deficit:</strong> Unlike mature western democracies, Indian committees lack dedicated, multi-disciplinary research staff and independent data-auditing mechanisms, forcing reliance on executive-supplied inputs.</li><li><strong>Non-Binding Recommendations & Weak ATRs:</strong> Committee recommendations are merely persuasive. Ministries often submit perfunctory Action Taken Reports (ATRs) without real compliance.</li><li><strong>Partisan Polarization:</strong> Hyper-partisan agendas occasionally eclipse consensus-building, weakening objective policy critique.</li></ul><p><strong>Way Forward and Reforms:</strong></p><ul><li><strong>Mandatory Referral:</strong> Amend rules to make it mandatory for all money and major public-interest bills to stand referred to DRSCs.</li><li><strong>Extended Tenure:</strong> Increase committee tenure to at least two or three years to build specialized institutional capital.</li><li><strong>Independent Research Support:</strong> Establish a dedicated Parliamentary Research Bureau staffed by domain experts, economists, and legal scholars.</li><li><strong>Binding Oversight Mechanisms:</strong> Institutionalize a follow-up mechanism where unaccepted recommendations require formal floor justification by the concerned minister.</li></ul><p>Strengthening parliamentary committees is indispensable for restoring executive accountability and upholding constitutional morality in India's deliberative democracy.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Departmentally Related Standing Committees (DRSCs):\n1. All DRSCs function exclusively under the administrative control of the Lok Sabha Secretariat.\n2. The referral of Bills introduced in Parliament to DRSCs is legally mandatory under the Rules of Procedure.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Neither 1 nor 2",
+      "explanation": "Statement 1 is incorrect because out of 24 DRSCs, 16 function under the Lok Sabha Secretariat and 8 under the Rajya Sabha Secretariat. Statement 2 is incorrect because the referral of Bills to DRSCs is discretionary, resting with the Speaker of the Lok Sabha or the Chairman of the Rajya Sabha, not legally mandatory."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following is/are considered major systemic constraints limiting the efficiency of Parliamentary Committees in India?\n1. Frequent rotation of members undermining domain specialization.\n2. Non-binding nature of committee recommendations upon the executive.\n3. Statutory power of committees to issue binding executive directives.\nSelect the correct answer using the code given below:",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "1 and 2 only",
+      "explanation": "Statement 1 is correct as the 1-year tenure prevents long-term expertise. Statement 2 is correct as recommendations are purely recommendatory and non-binding. Statement 3 is incorrect because parliamentary committees do not possess statutory powers to issue binding executive directives; their role is strictly oversight and advisory."
+    }
+  ]
+}

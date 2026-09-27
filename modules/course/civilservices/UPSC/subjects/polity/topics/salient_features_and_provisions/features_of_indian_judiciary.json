@@ -1,0 +1,111 @@
+{
+  "microTopicId": "polity_salient_features_and_provisions_features_of_indian_judiciary",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_salient_features_and_provisions",
+  "topicTitle": "Salient Features and Provisions",
+  "subTopicTitle": "Features of Indian Judiciary",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Structure, organization and functioning of the Executive and the Judiciary"
+  },
+  "lectureHoursEstimate": "Lecture 3&4",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Indian judiciary is an integrated, independent, and unified judicial system structured hierarchically to enforce both central and state laws. Unlike the dual judicial systems in federal nations like the USA, India features a single integrated chain of courts headed by the Supreme Court, ensuring uniformity in fundamental laws and civil/criminal jurisprudence.",
+    "highYieldFacts": [
+      "Fact 1: Article 124 to 147 in Part V of the Constitution deal with the organization, independence, jurisdiction, and powers of the Supreme Court.",
+      "Fact 2: The Collegium System for the appointment of judges evolved through the Three Judges Cases (1981, 1993, 1998) and was structurally challenged by the 99th Constitutional Amendment Act, 2014, which was struck down by the Supreme Court in 2015 as violative of the Basic Structure.",
+      "Fact 3: Article 13 and Article 32/226 anchor the doctrine of judicial review, making the Supreme Court and High Courts the ultimate protectors and guarantors of Part III (Fundamental Rights).",
+      "Fact 4: Public Interest Litigation (PIL), pioneered by Justice P.N. Bhagwati and Justice V.R. Krishna Iyer in the early 1980s, relaxed the traditional rule of 'locus standi' to enable socio-economic justice for marginalized sections.",
+      "Fact 5: The Supreme Court enjoys a unique advisory jurisdiction under Article 143, allowing the President to seek its opinion on questions of law or fact of public importance."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the Supreme Court's advisory jurisdiction under Article 143 as binding on the President. The opinion is merely advisory and not binding.",
+      "Trap 2: Assuming that the High Courts are subordinate to the Supreme Court in administrative matters; High Courts have independent administrative control over subordinate courts within their states under Article 235."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 124 (Establishment and Constitution of Supreme Court)",
+      "Article 131 (Original Jurisdiction of Supreme Court)",
+      "Article 136 (Special Leave Petition)",
+      "Article 141 (Law declared by Supreme Court to be binding on all courts)",
+      "Article 142 (Enforcement of decrees and orders of Supreme Court and orders as to discovery, etc.)",
+      "Article 226 (Power of High Courts to issue certain writs)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Institutional Architecture of the Indian Judiciary</h3><p>The Indian judicial system represents a profound departure from strict models of separation of powers, adopting instead a dynamic system of checks and balances anchored by a written Constitution. Unlike the American federal framework where federal and state courts operate parallelly, the Indian judiciary is an integrated system where the Supreme Court sits at the apex, followed by High Courts at the state level and a vast hierarchy of subordinate courts.</p><h3>Core Structural Features</h3><p><strong>1. Integrated Judicial System:</strong> India possesses a single hierarchy of courts administering both Union and State laws. This eliminates conflicts of jurisdiction and ensures uniform interpretation of national statutes and constitutional mandates.</p><p><strong>2. Judicial Review:</strong> Derived implicitly from Articles 13, 32, and 226, Indian judicial review empowers courts to examine the constitutional validity of legislative enactments and executive orders. While American judicial review includes the doctrine of 'due process of law', the Indian judiciary historically operated under 'procedure established by law' (Article 21), though subsequent jurisprudence (Maneka Gandhi case, 1978) has judicially imported substantive due process standards.</p><p><strong>3. Judicial Activism and PIL:</strong> Through relaxation of <em>locus standi</em>, the judiciary transformed from a dispute-resolution forum into an engine of social engineering. PILs have expanded human rights enforcement, environmental protection (e.g., CNG transition in Delhi), and prison reforms.</p><h3>Contemporary Challenges</h3><p>Despite its robust architecture, the contemporary Indian judiciary faces immense systemic stress. Pendency of over 4.5 crore cases across all tiers, structural delays, infrastructural deficits in district courts, and controversies surrounding judicial appointments undermine institutional efficiency. The debate over judicial overreach versus judicial restraint highlights the ongoing tension between democratic organs of governance.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Balancing the doctrine of Separation of Powers (Article 50) with judicial review and the Basic Structure Doctrine.",
+      "socio_economic": "Access to justice for marginalized populations, backlog reduction, and legal aid efficacy under Article 39A.",
+      "administrative_governance": "Judicial vacancies, infrastructure modernization through e-Courts mission, and case management efficiency.",
+      "international_or_comparative": "Comparative analysis with US Supreme Court's certiorari jurisdiction and UK's transition under the Constitutional Reform Act 2005."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Kesavananda Bharati v. State of Kerala (1973) - Basic Structure Doctrine",
+      "Second Judges Case (1993) & Third Judges Case (1998) - Collegium Evolution",
+      "Supreme Court Advocates-on-Record Association v. Union of India (2015) - NJAC verdict",
+      "Second Administrative Commission (ARC) 4th Report - 'Ethics in Governance' and Judicial Reforms",
+      "National Mission for Justice Delivery and Legal Reforms"
+    ],
+    "structuredDiagramAscii": "Supreme Court of India (Apex Court - Article 124)\n       |\n       +---> High Courts (State Level - Article 214)\n              |\n              +---> District & Sessions Courts\n                     |\n                     +---> Civil Courts (Junior/Senior Division) & Criminal Courts (JMIC / CJM)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2019,
+        "question": "Which of the following is/are underweight/correct regarding the 'Collegium System' in India?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Neither 1 nor 2",
+        "explanation": "The collegium system is not mentioned in the original Constitution; it was evolved through Supreme Court judgments (Three Judges Cases). Also, it is headed by the Chief Justice of India and includes senior-most judges, not Union Ministers."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Discuss the 'ivory tower' syndrome of the Indian judiciary and examine the need for institutional reforms to ensure transparency and accountability."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Analyze the distinctive features of the Indian judiciary in maintaining constitutional supremacy. How does the interplay between judicial review and judicial activism shape Indian democracy? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define the unique integrated character of the Indian judiciary and its role as the guardian of the Constitution under Article 32 and 226.",
+      "body": "Elaborate key features: Integrated structure, power of judicial review, and the evolution of judicial activism/PIL. Discuss the checks and balances, the separation of powers, and the debate over judicial overreach.",
+      "conclusion": "Emphasize institutional resilience, the necessity of internal reforms (e.g., pendency reduction, transparent appointments), and adherence to constitutional morality."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The Indian judiciary occupies a unique position under the constitutional scheme as the ultimate interpreter and guardian of the Constitution. Unlike federal models with dual court systems, India features an integrated judicial architecture designed to uphold national legal uniformity while enforcing fundamental rights.</p><h3>Key Features of the Indian Judiciary</h3><ul><li><strong>Integrated Hierarchy:</strong> A single unified system where the Supreme Court binds all subordinate and high courts under Article 141, ensuring consistent jurisprudence.</li><li><strong>Robust Judicial Review:</strong> Empowered by Articles 13, 32, and 226, courts can invalidate unconstitutional legislative and executive actions, safeguarding the 'Basic Structure' of the Constitution.</li><li><strong>Judicial Activism & PIL:</strong> Relaxation of <em>locus standi</em> transformed the court into a social welfare instrument, expanding rights related to environment, livelihood, and human dignity.</li><li><strong>Complete Justice (Article 142):</strong> Grants extraordinary powers to the Supreme Court to pass any order necessary for doing complete justice in any cause or matter pending before it.</li></ul><h3>Interplay between Judicial Review and Judicial Activism</h3><p>While judicial review is a constitutional mandate, judicial activism represents its dynamic application. Activism has plugged legislative vacuums—such as guidelines on sexual harassment at the workplace (Vishaka Guidelines) and rights of undertrials. However, over-extension into policy domains often triggers friction regarding the separation of powers, raising concerns over judicial overreach into areas like executive policy, environmental clearances, and sports administration.</p><h3>Way Forward</h3><p>To preserve institutional legitimacy and democratic balance, the judiciary must exercise self-restraint while defending constitutional values. Strengthening the e-Courts framework, rationalizing judicial appointments through enhanced institutional accountability, and clearing backlogs are vital for sustaining public faith in the rule of law.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Advisory Jurisdiction of the Supreme Court of India: \n1. The President can refer any matter of public importance to the Supreme Court for its opinion.\n2. The opinion given by the Supreme Court is binding upon the President.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct under Article 143. Statement 2 is incorrect because the advisory opinion rendered by the Supreme Court is not binding on the President; it is merely advisory."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following doctrines was introduced into Indian constitutional jurisprudence through judicial interpretation to prevent arbitrary executive and legislative action?",
+      "options": [
+        "Eminent Domain",
+        "Due Process of Law",
+        "Doctrine of Basic Structure",
+        "Doctrine of Pith and Substance"
+      ],
+      "answer": "Doctrine of Basic Structure",
+      "explanation": "The Doctrine of Basic Structure (Kesavananda Bharati case, 1973) acts as a fundamental limitation on the amending power of Parliament, protecting core constitutional features from legislative majoritarianism."
+    }
+  ]
+}

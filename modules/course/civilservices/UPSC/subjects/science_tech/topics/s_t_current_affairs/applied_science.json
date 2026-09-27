@@ -1,0 +1,106 @@
+{
+  "microTopicId": "science_tech_s_t_current_affairs_applied_science",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_s_t_current_affairs",
+  "topicTitle": "S&T Current Affairs",
+  "subTopicTitle": "Applied Science",
+  "syllabusMapping": {
+    "prelims": "General Science, Science and Technology- developments and their applications and effects in everyday life.",
+    "mains": "GS Paper III - Awareness in the fields of IT, Space, Computers, Robotics, Nano-technology, Bio-technology and issues relating to Intellectual Property Rights."
+  },
+  "lectureHoursEstimate": "Lecture 10,11&12",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Applied Science bridges the gap between fundamental scientific theories and practical, real-world commercial or societal applications. In contemporary UPSC trends, it focuses on translational research involving synthetic biology, advanced materials, quantum key distribution, and green hydrogen deployment.",
+    "highYieldFacts": [
+      "Fact 1: National Deep Tech Startup Policy (NDTSP) targets streamlining commercialization of high-tech laboratory research in India.",
+      "Fact 2: National Quantum Mission (NQM) allocates over Rs. 6,000 crores to secure communications and develop quantum processors by 2031.",
+      "Fact 3: The Department of Science and Technology (DST) functions as the nodal central agency for funding applied civilian R&D projects.",
+      "Fact 4: India's Gross Expenditure on R&D (GERD) hovers around 0.65% of its GDP, with private sector contribution targeted to reach 50% under recent policy shifts.",
+      "Fact 5: Anusandhan National Research Foundation (ANRF) Act, 2023 replaced the SERB to centrally fund and seed research in universities and labs."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing basic research funding bodies with commercial venture capital windows like BIRAC (Biotechnology Industry Research Assistance Council).",
+      "Trap 2: Assuming all applied science applications automatically receive statutory clearance without environmental or ethical assessments under the Biological Diversity Act or Gene Technology regulations."
+    ],
+    "keyArticlesOrStatutes": [
+      "Anusandhan National Research Foundation (ANRF) Act, 2023",
+      "Biological Diversity (Amendment) Act, 2023",
+      "Patents (Amendment) Rules, 2024"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Significance of Applied Science in India</h3><p>Applied science transforms abstract scientific paradigms into tangible socio-economic tools. In the current governance framework, translating basic research into commercial goods is critical for India to transition from a consumer of technology to a net exporter and technology shaper. The establishment of the <strong>Anusandhan National Research Foundation (ANRF)</strong> marks a paradigm shift, aiming to infuse Rs. 50,000 crore over five years, with a major portion leveraged from non-governmental sources (philanthropy and industry).</p><h3>Key Sectors Driving Applied Science</h3><ul><li><strong>Biotechnology & Synthetic Biology:</strong> Driven by BRIC (Biotechnology Research and Innovation Council) and BIRAC, applied bio-manufacturing is critical for Net Zero targets, bio-plastics, and customized therapeutics.</li><li><strong>Advanced Materials and Nanotech:</strong> Graphene, carbon nanotubes, and perovskite solar cells are revolutionizing energy storage and conversion.</li><li><strong>Quantum Technologies:</strong> Moving cryptography to quantum-resistant encryption via Quantum Key Distribution (QKD) tested successfully by DRDO and IISc.</li></ul><h3>Systemic Bottlenecks</h3><p>Despite robust scientific talent, the 'valley of death' between academic proof-of-concept and commercial scale-up remains wide. Low industry R&D investment (currently skewed heavily toward IT services rather than deep-tech manufacturing), rigid bureaucratic procurement norms, and inadequate intellectual property (IP) literacy in state universities hamper translational success.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Strengthening IPR regimes through the Patents (Amendment) Rules, 2024, expediting patent examination pipelines, and balancing compulsory licensing provisions under TRIPS.",
+      "socio_economic": "Bridging the digital and technological divide, creating high-value STEM jobs, and ensuring affordable healthcare and climate-resilient agriculture through localized innovations.",
+      "administrative_governance": "Overhauling public procurement to incentivize domestic deep-tech startups, fostering academic-industry-government (A-I-G) triple helix models.",
+      "international_or_comparative": "Leveraging frameworks like the India-US Initiative on Critical and Emerging Technology (iCET) and Indo-Pacific Economic Framework (IPEF) to co-develop applied technologies."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Economic Survey chapters on R&D and Innovation",
+      "Principal Scientific Adviser (PSA) Office Reports on Deep-Tech Startups",
+      "K. Kasturirangan Committee recommendations on Research and Innovation"
+    ],
+    "structuredDiagramAscii": "Basic Research (Universities/Labs) \n         │\n         ▼ (Valey of Death / TRL 3-5)\nApplied Science & Translational Hubs (BIRAC / ANRF / IIT Incubators)\n         │\n         ▼ (Commercialization / TRL 6-9)\nMarket Deployment & Global Export (Make in India / Atmanirbhar Bharat)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "The term 'Two-Factor Authentication' is sometimes discussed in the news in the context of which of the following?",
+        "options": [
+          "Cryptocurrency mining",
+          "Cybersecurity and applied digital architecture",
+          "Quantum computing protocols",
+          "Biometric attendance systems"
+        ],
+        "answer": "Cybersecurity and applied digital architecture",
+        "explanation": "Two-factor authentication is a practical, applied cybersecurity mechanism designed to provide extra layers of security beyond standard passwords."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2022,
+        "paper": "GS-III",
+        "mark": 15,
+        "question": "What are the key research and development achievements in the field of science and technology in India? How do such developments help in socio-economic betterment of the country?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the role of Applied Science in driving India's ambition of transitioning from an innovation-consumer to a technology-leader. What structural hurdles must be overcome to bridge the 'valley of death' in commercializing deep-tech research? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define applied science in the current geopolitical and economic context, linking it to India's Vision 2047 and Atmanirbhar Bharat.",
+      "body": "Discuss sectors where applied science is critical (Quantum, Biotech, Green Hydrogen). Analyze structural hurdles (low GERD, weak industry-academia linkages, bureaucratic red tape). Suggest multi-pronged solutions including ANRF and iCET.",
+      "conclusion": "Conclude with an optimistic note on leveraging demographic dividend and institutional reforms to make India a global hub for translational research."
+    },
+    "modelAnswerHtml": "<p><strong>Introduction</strong></p><p>Applied science represents the bridge connecting fundamental theoretical discoveries with commercial products and socio-economic solutions. In the era of techno-nationalism, sovereign capabilities in applied sciences—ranging from semiconductors to synthetic biology—are vital for strategic autonomy and economic growth.</p><p><strong>Role in Technology Leadership</strong></p><ul><li><strong>Strategic Sectors:</strong> Applied research in quantum computing and cryptography safeguards national security infrastructure via Quantum Key Distribution.</li><li><strong>Green Transition:</strong> Mission LiFE and National Green Hydrogen Mission rely heavily on applied electrochemistry and catalyst development.</li><li><strong>Inclusive Growth:</strong> Translational biotech delivers affordable diagnostics and climate-resilient crop varieties.</li></ul><p><strong>Hurdles in Bridging the 'Valley of Death'</strong></p><ul><li><strong>Sub-optimal R&D Spending:</strong> India's Gross Expenditure on R&D (GERD) lingers below 0.7% of GDP, with negligible private sector risk capital for early-stage deep-tech.</li><li><strong>Siloed Ecosystems:</strong> Academic institutions traditionally focus on publications rather than patent commercialization or spin-off startups.</li><li><strong>Procurement Bottlenecks:</strong> Risk-averse public procurement systems favor legacy foreign vendors over domestic startup prototypes.</li></ul><p><strong>Way Forward</strong></p><p>The operationalization of the <strong>Anusandhan National Research Foundation (ANRF)</strong> to inject private capital into university labs is a step in the right direction. Furthermore, implementing the <strong>National Deep Tech Startup Policy (NDTSP)</strong>, streamlining IPR regimes, and scaling up international collaborations like the <strong>India-US iCET</strong> will help establish India as a net technology provider for the Global South.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Anusandhan National Research Foundation (ANRF) Act, 2023:\n1. It replaced the Science and Engineering Research Board (SERB).\n2. The Prime Minister of India serves as the ex-officio President of the Governing Board of ANRF.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Statement 1 is correct: ANRF was established by repealing the SERB Act, 2008 and subsuming SERB into ANRF. Statement 2 is correct: The Prime Minister is the ex-officio President of the Governing Board, and the Union Minister of Science & Technology and Union Minister of Education are ex-officio Vice-Presidents."
+    },
+    {
+      "id": "mcq_02",
+      "question": "In the context of Applied Science and technology commercialization, what does the term 'TRL' frequently used in policy documents stand for?",
+      "options": [
+        "Technological Readiness Level",
+        "Telemetry Research Laboratory",
+        "Trans-National Regulatory Limit",
+        "Total Risk Liability"
+      ],
+      "answer": "Technological Readiness Level",
+      "explanation": "TRL (Technology Readiness Level) is a method for estimating technology maturity during the acquisition phase of a program, spanning from basic principles observed (TRL 1) to actual system proven through successful deployment (TRL 9)."
+    }
+  ]
+}

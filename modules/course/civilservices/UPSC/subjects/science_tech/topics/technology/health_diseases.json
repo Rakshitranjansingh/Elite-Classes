@@ -1,0 +1,108 @@
+{
+  "microTopicId": "science_tech_technology_health_diseases",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_technology",
+  "topicTitle": "Technology",
+  "subTopicTitle": "Health & Diseases",
+  "syllabusMapping": {
+    "prelims": "General Science; Developments in Biotechnology, Nanotechnology, and Medical Technologies; Public Health, Communicable and Non-Communicable Diseases.",
+    "mains": "GS Paper III - Science and Technology - Achievements of Indians in science & technology; indigenization of technology and developing new technology. Issues relating to development and management of Social Sector/Services relating to Health."
+  },
+  "lectureHoursEstimate": "Lecture 1, 2 & 3",
+  "prelimsCapsule": {
+    "coreConceptSummary": "This module explores the nexus between advanced medical technologies (genomics, mRNA vaccines, AI diagnostics) and disease burden dynamics (communicable and non-communicable diseases). It evaluates India's epidemiological transition from infectious pathogens to chronic metabolic disorders, alongside regulatory frameworks like the National Health Policy and clinical trial regulations.",
+    "highYieldFacts": [
+      "Fact 1: India accounts for nearly 20% of the global disease burden, characterized by a dual burden of communicable diseases (TB, Malaria) and non-communicable diseases (CVDs, Diabetes, Cancer).",
+      "Fact 2: The National Health Mission (NHM) and Pradhan Mantri Jan Arogya Yojana (PM-JAY) under Ayushman Bharat form the core institutional architecture for secondary and tertiary healthcare financing.",
+      "Fact 3: Under the Drugs and Cosmetics Act, 1940, the Central Drugs Standard Control Organization (CDSCO) headed by the Drug Controller General of India (DCGI) regulates the safety, efficacy, and quality of drugs, medical devices, and vaccines.",
+      "Fact 4: India's commitment to eliminating Tuberculosis (TB) by 2025 (five years ahead of the global SDG target of 2030) is anchored through the National TB Elimination Programme (NTEP) and the Ni-kshay platform.",
+      "Fact 5: The ICMR (Indian Council of Medical Research) serves as the apex body for formulating, coordinating, and promoting biomedical research in India."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing CDSCO's mandate with ICMR's mandate. CDSCO is primarily a regulatory and licensing authority, whereas ICMR is a premier research-funding and coordinating body.",
+      "Trap 2: Assuming Non-Communicable Diseases (NCDs) only affect urban populations; rural epidemiological profiles increasingly show rising hypertension and diabetes due to lifestyle shifts."
+    ],
+    "keyArticlesOrStatutes": [
+      "Drugs and Cosmetics Act, 1940",
+      "National Health Policy, 2017",
+      "Clinical Trial Rules, 2019",
+      "Article 21 and Article 47 of the Constitution of India"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Epidemiological Transition and Technological Interventions</h3><p>India is currently navigating a complex epidemiological transition. While historic gains have been made in lowering maternal and child mortality and controlling vector-borne outbreaks, the nation faces an unprecedented surge in Non-Communicable Diseases (NCDs), which account for over 60% of all deaths. Simultaneously, the constant threat of antimicrobial resistance (AMR), zoonotic spillovers, and neglected tropical diseases necessitates a paradigm shift in public health governance.</p><h3>Technological Frontiers in Disease Management</h3><p>The integration of cutting-edge technologies has transformed healthcare delivery. <strong>mRNA and DNA vaccine platforms</strong> have reduced development timelines from decades to months, as witnessed during the COVID-19 pandemic. <em>Artificial Intelligence (AI) and Machine Learning (ML)</em> are increasingly deployed in diagnostic radiology, predictive analytics for epidemic outbreaks, and personalized medicine through genomic sequencing (e.g., Genome India Project). Furthermore, telemedicine frameworks like the Ayushman Bharat Digital Mission (ABDM) are bridging the urban-rural healthcare divide by creating unique health IDs and interoperable health records.</p><h3>Systemic Bottlenecks and Governance Challenges</h3><p>Despite these advancements, structural impediments persist:</p><ul><li><strong>Public Expenditure Deficit:</strong> India's public health expenditure hovers around 1.2-1.5% of GDP, far below the recommended 2.5% envisioned in the National Health Policy 2017.</li><li><strong>Human Resource Constraints:</strong> Severe deficits in doctor-population ratios (worse than the WHO norm of 1:1000) and skewed distribution favoring urban tertiary centers.</li><li><strong>Out-of-Pocket Expenditure (OOPE):</strong> High OOPE (exceeding 45%) driven by private sector reliance pushes millions into catastrophic health poverty annually.</li><li><strong>Antimicrobial Resistance (AMR):</strong> Unchecked over-the-counter sales of antibiotics and agricultural misuse have made India the 'AMR capital of the world', threatening to render common infections untreatable.</li></ul>",
+    "dimensions": {
+      "constitutional_or_legal": "Judicial interpretation of Article 21 (Right to Life includes Right to Health) and Directive Principles of State Policy (Article 47 - Duty of the State to raise the level of nutrition and standard of living).",
+      "socio_economic": "Disproportionate burden on vulnerable and marginalized sections, catastrophic out-of-pocket expenditure, and gender disparities in healthcare access.",
+      "administrative_governance": "Federal challenges in health (Health is a State subject under the 7th Schedule), fragmented primary healthcare delivery, and supply chain bottlenecks in rural medical depots.",
+      "international_or_comparative": "Compliance with International Health Regulations (IHR 2005), TRIPS flexibilities for generic drug manufacturing, and global health security architecture."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Paschim Banga Khet Mazoor Samity v. State of West Bengal (1996) - Supreme Court ruled that denial of emergency medical treatment by a government hospital violates Article 21.",
+      "National Health Policy, 2017 Recommendations",
+      "15th Finance Commission Report on Health Sector Financing",
+      "NITI Aayog Strategy for New India @ 75 (Health Chapter)"
+    ],
+    "structuredDiagramAscii": "+-----------------------------------------------------------------+\n|                NATIONAL HEALTH SECURITY ECOSYSTEM               |\n+-----------------------------------------------------------------+\n                                  |\n       +--------------------------+--------------------------+\n       |                                                     |\n       v                                                     v\n+-----------------------+                         +-----------------------+\n| PREVENTION & SURVEILLANCE|                       | TREATMENT & FINANCING |\n| - Integrated Disease  |                         | - Ayushman Bharat     |\n|   Surveillance Prog.  |                         |   (AB-PMJAY)          |\n| - Genomic Sequencing  |                         | - National Health     |\n|   (INSACOG)           |                         |   Mission (NHM)       |\n+-----------------------+                         +-----------------------+\n       |                                                     |\n       +--------------------------+--------------------------+\n                                  |\n                                  v\n                 +---------------------------------+\n                 |     TECHNOLOGICAL ENABLERS      | \n                 | - ABDM (Digital Health ID)      | \n                 | - Telemedicine (eSanjeevani)    | \n                 | - Indigenous R&D (ICMR/DBT)     | \n                 +---------------------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "Which of the following statements is/are correct regarding the Smart India Hackathon or relevant health initiatives? (Adapted: Consider the term 'Antimicrobial Resistance')",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Option A",
+        "explanation": "Antimicrobial resistance can affect any person, of any age, in any country. It is driven by misuse and overuse of antimicrobials in humans, animals, and agriculture."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2022,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Assess the main objectives of the National Health Policy 2017. What are the major challenges in achieving universal health coverage in India?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Discuss the dual burden of communicable and non-communicable diseases in India. Examine how emerging technologies can be harnessed to achieve Universal Health Coverage (UHC) and the Sustainable Development Goals (SDGs). (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define India's epidemiological transition and the coexistence of infectious diseases and lifestyle disorders.",
+      "body": "Detail the dual burden. Discuss technological solutions (telemedicine, AI diagnostics, genomic surveillance, ABDM). Highlight governance challenges (funding, infrastructure).",
+      "conclusion": "Conclude with a forward-looking statement integrating SDG 3 (Good Health and Well-being) and the ethos of 'Ayushman Bharat' / 'One Health'."
+    },
+    "modelAnswerHtml": "<p>India is undergoing a profound epidemiological transition, characterized by a <strong>dual disease burden</strong>. While persistent communicable challenges like Tuberculosis, malaria, and emerging zoonotic threats remain prevalent, non-communicable diseases (NCDs) such as cardiovascular disorders, diabetes, and cancers now account for over 60% of total mortality.</p><h3>Dimensions of the Dual Disease Burden</h3><ul><li><strong>Communicable Diseases:</strong> Rooted in poverty, poor sanitation, and antimicrobial resistance (AMR), threatening public health security.</li><li><strong>Non-Communicable Diseases (NCDs):</strong> Driven by urbanization, dietary shifts, and sedentary lifestyles, striking the productive workforce prematurely.</li></ul><h3>Harnessing Emerging Technologies for UHC</h3><p>Technology offers transformative levers to bridge gaps in accessibility, affordability, and quality:</p><ul><li><strong>Telemedicine & Digital Health:</strong> Platforms like <em>eSanjeevani</em> and the <strong>Ayushman Bharat Digital Mission (ABDM)</strong> enable remote triage, reducing physical load on tertiary centers and ensuring continuity of care.</li><li><strong>Artificial Intelligence & Precision Medicine:</strong> AI-driven diagnostic tools in radiology and pathology enhance screening accuracy for conditions like diabetic retinopathy and oral cancers in resource-constrained settings.</li><li><strong>Genomic Surveillance:</strong> Networks like INSACOG allow real-time tracking of pathogen mutations, crucial for pandemic preparedness.</li><li><strong>Point-of-Care Diagnostics:</strong> Low-cost, indigenous molecular diagnostic kits facilitate decentralization of testing for infectious diseases.</li></ul><h3>Governance Bottlenecks and the Way Forward</h3><p>To realize Universal Health Coverage (UHC) aligned with SDG 3, India must address public spending deficits by elevating health expenditure to 2.5% of GDP. Embracing a <strong>'One Health' approach</strong> that integrates human, animal, and environmental health, alongside strengthening primary health centers (Ayushman Arogya Mandirs), is vital for resilient health architecture.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Central Drugs Standard Control Organization (CDSCO):\n1. It functions under the Ministry of Health and Family Welfare.\n2. The Drug Controller General of India (DCGI), who heads the CDSCO, is responsible for approving new drugs and clinical trials in India.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "CDSCO is the national regulatory body for Indian pharmaceuticals and medical devices, functioning under the Directorate General of Health Services, Ministry of Health and Family Welfare. The DCGI heads the CDSCO and holds statutory authority under the Drugs and Cosmetics Act for approvals."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following best describes the 'One Health' framework often cited in public health discussions?",
+      "options": [
+        "A strategy to merge all public hospitals into a single centralized federal corporation.",
+        "A collaborative, multisectoral approach operating at local, national, and global levels to achieve optimal health outcomes recognizing the interconnection between people, animals, plants, and their shared environment.",
+        "A mandatory vaccination scheme exclusively targeting livestock and domestic pets.",
+        "An international treaty for uniform global pricing of life-saving cancer drugs."
+      ],
+      "answer": "A collaborative, multisectoral approach operating at local, national, and global levels to achieve optimal health outcomes recognizing the interconnection between people, animals, plants, and their shared environment.",
+      "explanation": "The One Health approach recognizes that human health is connected to the health of animals and the environment, which is critical for addressing zoonotic diseases, AMR, and food safety."
+    }
+  ]
+}

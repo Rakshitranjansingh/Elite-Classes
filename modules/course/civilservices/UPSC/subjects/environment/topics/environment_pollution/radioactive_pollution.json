@@ -1,0 +1,106 @@
+{
+  "microTopicId": "environment_environment_pollution_radioactive_pollution",
+  "subjectId": "environment",
+  "subjectTitle": "Environment, Ecology & Biodiversity",
+  "topicId": "environment_environment_pollution",
+  "topicTitle": "Environment Pollution",
+  "subTopicTitle": "Radioactive pollution",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Biodiversity and Climate Change - that do not require subject specialization.",
+    "mains": "GS Paper III - Conservation, environmental pollution and degradation, environmental impact assessment."
+  },
+  "lectureHoursEstimate": "Lecture 18&20",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Radioactive pollution is the physical pollution of living organisms and their environment by radioactive substances emitting ionizing radiation (alpha, beta particles, gamma rays). It arises from natural sources (terrestrial background, cosmic rays) and anthropogenic activities (nuclear power generation, uranium mining, medical applications, and nuclear weapons testing).",
+    "highYieldFacts": [
+      "Fact 1: The Atomic Energy Regulatory Board (AERB), constituted in 1983 under the Atomic Energy Act, 1962, is the nodal national regulator for nuclear safety in India.",
+      "Fact 2: Radiation dose is measured in Sieverts (Sv) or Millisieverts (mSv), with natural background radiation averaging about 2.4 mSv per year globally.",
+      "Fact 3: Uranium mining in India is primarily managed by Uranium Corporation of India Limited (UCIL) under the Department of Atomic Energy (DAE).",
+      "Fact 4: The 1986 Chernobyl disaster and the 2011 Fukushima Daiichi nuclear disaster remain the two major Level 7 (Maximum) accidents on the International Nuclear and Radiological Event Scale (INES).",
+      "Fact 5: India's three-stage nuclear power programme relies on Plutonium-238/Uranium-233 and Thorium-232 to ensure long-term fuel self-sufficiency while addressing waste management challenges."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming all radiation is ionizing. Non-ionizing radiation (such as microwaves and radio waves) does not cause radioactive pollution in the classical sense.",
+      "Trap 2: Confusing the roles of the Department of Atomic Energy (DAE) as a promoter of nuclear technology with the AERB as an independent safety regulator (AERB functions under the aegis of the Atomic Energy Commission)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Atomic Energy Act, 1962",
+      "Environment (Protection) Act, 1986",
+      "Civil Liability for Nuclear Damage Act, 2010"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Anatomy of Radioactive Pollution and Governance Architecture</h3><p>Radioactive pollution represents a unique ecological threat due to the persistence of radionuclides and the invisible, insidious nature of ionizing radiation. Unlike organic or chemical pollutants that degrade over time through biochemical pathways, radioactive isotopes decay according to their characteristic half-lives, which can range from fractions of a second to billions of years (e.g., Uranium-238 has a half-life of 4.5 billion years).</p><p>The genesis of radioactive pollution spans the nuclear fuel cycle—from uranium mining and milling, fuel fabrication, nuclear reactor operations, to the management of spent nuclear fuel and high-level radioactive waste (HLW). In India, the institutional architecture for handling radioactive safety and pollution is anchored by the Atomic Energy Act, 1962. The Atomic Energy Regulatory Board (AERB) is mandated to enforce safety standards, though civil society groups have long argued for a statutory, fully independent nuclear safety regulator untethered from the administrative control of the Department of Atomic Energy (DAE).</p><p>Contemporary governance challenges include managing long-term repositories for high-level nuclear waste, addressing legacy contamination near uranium mining sites (such as Jaduguda in Jharkhand), and ensuring rigorous transboundary monitoring in the wake of expanding nuclear energy targets under India's net-zero transition strategy.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Grounded in Article 21 (Right to a clean environment) and Article 48A (State to protect and improve the environment) of the Constitution of India; governed strictly by the Atomic Energy Act, 1962 and the Civil Liability for Nuclear Damage Act, 2010.",
+      "socio_economic": "Disproportionate impact of uranium mining on indigenous tribal communities (e.g., Jaduguda), health burdens of genetic mutations, and socio-economic displacement due to nuclear power plant installations.",
+      "administrative_governance": "Tension between promotional mandates of the DAE and regulatory independence of the AERB; need for robust third-party environmental impact assessments (EIA) for nuclear installations.",
+      "international_or_comparative": "Compliance with International Atomic Energy Agency (IAEA) safety standards, Convention on Nuclear Safety, and Joint Convention on the Safety of Spent Fuel Management and on the Safety of Radioactive Waste Management."
+    },
+    "landmarkJudgmentsOrReports": [
+      "T.N. Godavarman Thirumulpad v. Union of India (principles of intergenerational equity applied to hazardous and radioactive wastes)",
+      "Law Commission of India Reports on Nuclear Safety and Civil Liability",
+      "UNSCEAR (United Nations Scientific Committee on the Effects of Atomic Radiation) periodic reports on radiation levels and effects"
+    ],
+    "structuredDiagramAscii": "Uranium Mining & Milling ---> Fuel Fabrication ---> Nuclear Reactor Operation ---> Spent Fuel Generation ---> [Option A: Reprocessing] / [Option B: Long-Term Geological Disposal (HLW)]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2019,
+        "question": "Which of the following are the reasons/factors for exposure to benzene pollution? 1. Auto exhaust 2. Tobacco smoke 3. Wood burning 4. Using varnished wooden furniture 5. Using products made of polyurethane. Select the correct answer using the code given below:",
+        "options": [
+          "1, 2 and 3 only",
+          "2 and 4 only",
+          "1, 3 and 4 only",
+          "1, 2, 3, 4 and 5"
+        ],
+        "answer": "1, 2, 3, 4 and 5",
+        "explanation": "Benzene is a widespread toxic pollutant emitted from automobile exhausts, tobacco smoke, wood burning, and off-gassing from varnishes and synthetic materials like polyurethane."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Describe the key features of the Civil Liability for Nuclear Damage Act, 2010 and analyze its significance in the context of India's civil nuclear energy program."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the ecological and health hazards posed by radioactive pollution. Discuss the institutional measures and regulatory frameworks in place in India to mitigate these risks. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define radioactive pollution and highlight its unique persistence and ionizing nature.",
+      "body": "Detail the ecological and health impacts (genetic damage, bioaccumulation). Outline India's institutional framework (AERB, DAE, Civil Liability Act). Discuss challenges (waste disposal, regulatory autonomy).",
+      "conclusion": "Conclude with the imperative of independent regulation, adherence to IAEA norms, and balancing clean energy goals with ecological safety."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Radioactive pollution refers to the contamination of the environment by radionuclides emitting dangerous levels of ionizing radiation. Unlike conventional pollutants, radioactive isotopes pose severe, long-term multi-generational threats due to invisible contamination and prolonged radioactive decay.</p><h3>Ecological and Health Hazards</h3><ul><li><strong>Cellular and Genetic Damage:</strong> Ionizing radiation directly breaks chemical bonds in DNA molecules, causing mutations, chromosomal aberrations, and various cancers (leukemia, thyroid cancer).</li><li><strong>Bioaccumulation:</strong> Radionuclides like Strontium-90 (mimicking calcium) and Cesium-137 enter aquatic and terrestrial food webs, bioaccumulating in higher trophic levels.</li><li><strong>Ecosystem Degradation:</strong> Chronic low-dose radiation suppresses reproductive success in flora and fauna, altering species composition in localized habitats (e.g., surrounding mining tailings or accident zones).</li></ul><h3>Institutional and Regulatory Framework in India</h3><ul><li><strong>Atomic Energy Act, 1962:</strong> Empowers the Union Government to control radioactive substances, atomic minerals, and electricity generation.</li><li><strong>Atomic Energy Regulatory Board (AERB):</strong> Established in 1983 to oversee nuclear safety, radiation protection, and environmental discharges from nuclear facilities.</li><li><strong>Civil Liability for Nuclear Damage Act, 2010:</strong> Establishes a strict liability regime on the operator and provides mechanisms for prompt compensation in case of a nuclear incident.</li><li><strong>Waste Management Protocols:</strong> Vitrification of high-level radioactive waste and deep geological repository planning spearheaded by the Bhabha Atomic Research Centre (BARC).</li></ul><h3>Challenges and Way Forward</h3><p>Despite stringent safeguards, challenges persist regarding the statutory independence of the AERB, localized contamination around uranium mining hubs like Jaduguda, and long-term public acceptance of spent-fuel repositories. <strong>Way Forward:</strong> India must enact an independent, statutory nuclear safety regulator, ratify advanced international conventions on nuclear liability, and implement rigorous, transparent Environmental Impact Assessments (EIAs) to balance its ambitious low-carbon nuclear expansion with absolute ecological safety.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Atomic Energy Regulatory Board (AERB): 1. It is a statutory body established under the Environment (Protection) Act, 1986. 2. It derives its safety powers from the Atomic Energy Act, 1962. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because AERB is not a statutory body under the EPA 1986; it was constituted by a presidential resolution under the Atomic Energy Act, 1962."
+    },
+    {
+      "id": "mcq_02",
+      "question": "With reference to radioactive pollution, which of the following radionuclides is known to mimic calcium and deposit in human bones?",
+      "options": [
+        "Cesium-137",
+        "Strontium-90",
+        "Iodine-131",
+        "Plutonium-239"
+      ],
+      "answer": "Strontium-90",
+      "explanation": "Strontium-90 is a radioactive isotope produced by nuclear fission. Because its chemical properties resemble those of calcium, it tends to accumulate in bones and teeth, increasing the risk of bone cancer and leukemia."
+    }
+  ]
+}

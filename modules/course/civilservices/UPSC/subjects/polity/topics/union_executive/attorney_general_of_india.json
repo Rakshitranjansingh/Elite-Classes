@@ -1,0 +1,104 @@
+{
+  "microTopicId": "polity_union_executive_attorney_general_of_india",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_union_executive",
+  "topicTitle": "Union Executive",
+  "subTopicTitle": "Attorney General of India",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Functions and responsibilities of the Union and the States, issues and challenges pertaining to the federal structure, devolution of powers and finances up to local levels and challenges therein."
+  },
+  "lectureHoursEstimate": "Lecture 18&19",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Attorney General (AG) of India is the highest law officer in the country, appointed by the President under Article 76. Serving as the chief legal advisor to the Union Government, the AG possesses the unique constitutional right to speak and take part in the proceedings of both Houses of Parliament or their joint sittings, though without the right to vote.",
+    "highYieldFacts": [
+      "Fact 1: Appointed by the President of India; must be a person qualified to be appointed as a Judge of the Supreme Court (i.e., a citizen of India, judge of a High Court for 5 years, advocate of a High Court for 10 years, or an eminent jurist).",
+      "Fact 2: Holds office during the pleasure of the President and receives remuneration as determined by the President; the Constitution does not fix a fixed term.",
+      "Fact 3: Under Article 88, the AG has the right to speak and participate in parliamentary proceedings and parliamentary committees, but cannot vote.",
+      "Fact 4: The AG does not fall under the category of a full-time government servant and is not debarred from private legal practice, provided it does not conflict with the interests of the Government of India.",
+      "Fact 5: Assisted by the Solicitor General of India and Additional Solicitors General, who are statutory officers (not constitutional) assisting the AG."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the AG with a government servant—the AG is a constitutional functionary who can engage in private practice, subject to professional conduct rules vis-à-vis government litigation.",
+      "Trap 2: Assuming the AG has voting rights in Parliament because they have the right to speak and participate in committee meetings. Article 88 explicitly denies voting rights."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 76 (Attorney-General for India)",
+      "Article 88 (Rights of Ministers and Attorney-General as respects Houses)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Constitutional Architecture</h3><p>The office of the Attorney General of India is rooted in the British constitutional tradition, adapted to suit India's federal-unitary framework under <strong>Article 76</strong> of the Constitution. As the principal legal counsel to the Union Executive, the AG bridges the executive branch and the judiciary, appearing on behalf of the Government of India in the Supreme Court and various High Courts across the country.</p><h3>Scope of Duties and Constitutional Privileges</h3><p>The duties of the AG involve giving advice to the Government of India on legal matters referred by the President, performing legal duties assigned by the President, and discharging functions conferred by the Constitution or any other law. Uniquely, <strong>Article 88</strong> grants the AG access to Parliament, enabling them to articulate the government's legal stance on legislative proposals. Furthermore, under Article 105(4), the AG enjoys the same privileges, immunities, and parliamentary exemptions as a Member of Parliament.</p><h3>Contemporary Challenges and Governance Concerns</h3><p>Despite its critical role, the office faces structural and ethical dilemmas. The permission for private practice often raises questions of <em>conflict of interest</em>, where an AG might appear against a state government or private entities whose interests intersect with broader public policy. Moreover, unlike civil servants or judges, the absence of a fixed tenure or clear removal criteria (beyond the 'pleasure of the President') can potentially expose the office to political expediency, impacting the objectivity and candor of legal advice tendered to the executive.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Interplay between executive privilege under Article 76, parliamentary rights under Article 88, and ethical constraints regarding private legal practice.",
+      "socio_economic": "Representation of public interest litigation, defending progressive socio-economic legislations and welfare measures enacted by Parliament against constitutional challenges.",
+      "administrative_governance": "Coordination between the Union Government, Solicitor General, Additional Solicitors General, and state advocates general during complex federal litigations.",
+      "international_or_comparative": "Comparison with the British Attorney General or the US Solicitor General, where institutional independence and prosecutorial oversight differ significantly."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Supreme Court observations on Conflict of Interest of Law Officers",
+      "Law Commission of India Reports on the restructuring of the Law Officers' framework"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------------+\n|                     PRESIDENT OF INDIA                            |\n|            (Appoints & Determines Remuneration)                   |\n+-------------------------------------------------------------------+\n                                  |\n                                  v\n+-------------------------------------------------------------------+\n|                  ATTORNEY GENERAL OF INDIA                        |\n|                        (Article 76)                               |\n+-------------------------------------------------------------------+\n      |                           |                           |\n      v                           v                           v\n+---------------+   +---------------------------+   +---------------+\n| Legal Advisor |   | Right to Speak in         |   | Appears in SC |\n| to Government |   | Parliament (Article 88)   |   | & High Courts |\n+---------------+   +---------------------------+   +---------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2013,
+        "question": "With reference to the Attorney General of India, consider the following statements: 1. The President shall appoint a person who is qualified to be appointed to be a Judge of the Supreme Court. 2. The Attorney General shall receive such remuneration as the Parliament may determine. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "1 only",
+        "explanation": "Statement 1 is correct: Under Article 76(1), the President appoints a person qualified to be a Supreme Court judge as AG. Statement 2 is incorrect: Under Article 76(4), the remuneration of the AG is determined by the President, not Parliament."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2019,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Discuss the constitutional position, duties, and limitations of the Attorney General of India in light of recent debates on institutional independence and conflict of interest."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the constitutional status, scope of authority, and institutional challenges associated with the office of the Attorney General of India. Suggest measures to enhance its professional objectivity. (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define the Attorney General of India under Article 76 as the highest law officer and chief legal advisor to the Union Government.",
+      "body": "Detail the constitutional powers (Article 88, audience in courts) alongside core challenges (conflict of interest due to private practice, lack of fixed tenure). Propose institutional reforms.",
+      "conclusion": "Conclude by highlighting the need to balance executive representation with constitutional morality and professional independence."
+    },
+    "modelAnswerHtml": "<p>The <strong>Attorney General (AG) of India</strong>, appointed under <strong>Article 76</strong>, is the chief legal advisor to the Union Government and the primary representative of the state before the Supreme Court.</p><p><strong>Constitutional Status & Authority:</strong></p><ul><li><strong>Qualifications:</strong> Must possess qualifications required for a Supreme Court Judge.</li><li><strong>Parliamentary Privileges:</strong> Under Article 88, the AG has the right to speak and participate in proceedings of both Houses of Parliament or committees, though without voting rights.</li><li><strong>Audience:</strong> Has right of audience in all courts in the territory of India.</li></ul><p><strong>Institutional Challenges:</strong></p><ul><li><strong>Conflict of Interest:</strong> As the AG is permitted private practice, representing private clients against state instrumentalities creates ethical grey areas.</li><li><strong>Tenure Vulnerability:</strong> Holding office 'during the pleasure of the President' without a fixed tenure makes the office susceptible to political fluctuations.</li></ul><p><strong>Way Forward:</strong><br>To fortify the office's neutrality, clear statutory guidelines on private practice, transparent appointment criteria mirroring judicial commissions, and institutionalizing a dedicated litigation wing can uphold constitutional morality and integrity.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Attorney General of India: 1. The AG has the right to vote in the Lok Sabha if a tie occurs on a constitutional amendment bill. 2. The AG is a whole-time government employee barred from private legal practice. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Neither 1 nor 2",
+      "explanation": "Statement 1 is incorrect because Article 88 explicitly denies voting rights in Parliament to the AG under any circumstances. Statement 2 is incorrect because the AG is not a full-time government servant and is permitted private practice, subject to certain restrictions."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following provisions correctly describes the privileges of the Attorney General of India?",
+      "options": [
+        "Immunity from civil and criminal proceedings for actions taken in discharge of official duties.",
+        "Same privileges and immunities as a member of Parliament under Article 105.",
+        "Immunity from testifying in any court of law during tenure.",
+        "Exemption from payment of income tax on professional remuneration."
+      ],
+      "answer": "Same privileges and immunities as a member of Parliament under Article 105.",
+      "explanation": "Article 105(4) explicitly states that the provisions relating to the privileges and immunities of members of Parliament shall apply to the Attorney General of India."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "microTopicId": "economy_money_market_cash_management_bill_and_other",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_money_market",
+  "topicTitle": "Money market",
+  "subTopicTitle": "Cash management bill and others",
+  "syllabusMapping": {
+    "prelims": "Indian Economy - Economic Growth, Development, Inflation, Banking, Liquidity Management, and Money Market Instruments.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 19",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Cash Management Bills (CMBs) are short-term, zero-coupon instruments introduced by the Reserve Bank of India (RBI) on behalf of the Government of India in 2010 to meet temporary cash-flow mismatches. Unlike standard Treasury Bills (T-Bills), CMBs have a maturity of less than 91 days, offering flexibility in liquidity management alongside traditional money market instruments like Commercial Papers (CPs), Certificates of Deposit (CDs), and Call Money.",
+    "highYieldFacts": [
+      "Fact 1: CMBs were introduced in 2010 under an agreement between the Government of India and the RBI to manage temporary liquidity mismatches.",
+      "Fact 2: They are tradable and issued at a discount to face value through auctions conducted by the RBI.",
+      "Fact 3: They do not have a fixed pre-announced tenure; the maturity period is less than 91 days (often issued for 7, 14, 28, or 42 days).",
+      "Fact 4: Commercial Papers (CPs) are unsecured money market instruments issued in the form of promissory notes with a minimum maturity of 7 days and a maximum of up to one year.",
+      "Fact 5: Certificates of Deposit (CDs) are unsecured, negotiable money market instruments issued by scheduled commercial banks (excluding RRBs and Local Area Banks) and All India Financial Institutions."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing CMBs with Treasury Bills (T-Bills). While T-Bills are issued for fixed standard tenures of 91 days, 182 days, and 364 days, CMBs have flexible tenures of *less than* 91 days.",
+      "Trap 2: Assuming CMBs are issued by state governments. CMBs are exclusively issued for the Central Government's temporary cash deficits, whereas states rely on Ways and Means Advances (WMA) and Overdraft (OD) facilities."
+    ],
+    "keyArticlesOrStatutes": [
+      "Reserve Bank of India Act, 1934",
+      "Government Securities Act, 2006",
+      "Negotiable Instruments Act, 1881"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Significance of Cash Management Bills and Money Market Instruments</h3><p>The Indian money market serves as the pivotal financial segment for short-term funding and liquidity management. Within this ecosystem, managing the fiscal cash flows of the sovereign is critical to avoid volatility in interbank interest rates. Prior to 2010, the government relied primarily on Treasury Bills of 91-day tenures or Ways and Means Advances (WMA) from the RBI to bridge temporary mismatches between receipts and disbursements. However, a 91-day tenure was often too long for short-duration cash surpluses or deficits, leading to suboptimal liquidity management. To bridge this gap, the Reserve Bank of India, in consultation with the Government of India, introduced <strong>Cash Management Bills (CMBs)</strong> in 2010.</p><h3>Operational Dynamics of CMBs and Other Instruments</h3><p>CMBs share structural similarities with Treasury Bills—they are zero-coupon securities issued at a discount and redeemed at face value. However, their defining characteristic is flexibility; their maturity period is tailored to prevailing cash imbalances, ranging anywhere from 1 to 90 days. This allows the government to mop up excess liquidity or raise short-term funds precisely when needed without distorting the long-term yield curve.</p><p>Alongside CMBs, the broader money market comprises several critical instruments:</p><ul><li><strong>Commercial Papers (CPs):</strong> Issued by highly rated corporate entities, primary dealers, and All India Financial Institutions to diversify their sources of short-term borrowings.</li><li><strong>Certificates of Deposit (CDs):</strong> Issued by banks to mobilize bulk deposits from the market, acting as a flexible tool for liquidity adjustment during credit-credit expansion phases.</li><li><strong>Call, Notice, and Term Money:</strong> Interbank borrowings for overnight, 2-14 days, and 15-day to 1-year tenors respectively, serving as the immediate barometer of systemic liquidity.</li></ul><h3>Contemporary Challenges and Governance Impacts</h3><p>In recent years, structural liquidity surpluses and deficits driven by government spending cycles, foreign portfolio flows, and advance tax outflows have tested the resilience of the money market. The reliance on CMBs helps smoothen these frictional liquidities, preventing the weighted average call rate (WACR) from breaching the policy repo rate corridor. However, excessive issuance of short-term sovereign paper can sometimes crowd out private corporate paper in the money market, impacting short-term corporate borrowing costs.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Grounded in the sovereign borrowing framework and RBI Act provisions governing central bank operations and public debt management.",
+      "socio_economic": "Ensures non-inflationary management of government cash flows, stabilizing short-term interest rates which directly affect retail and corporate credit pricing.",
+      "administrative_governance": "Requires seamless coordination between the Ministry of Finance (Budget Division) and the RBI's Internal Debt Management Department (IDMD).",
+      "international_or_comparative": "Aligns with global central banking best practices (such as US Treasury Cash Management Bills) for ultra-short sovereign liquidity adjustments."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Urjit Patel Committee Report on the Revision and Strengthening of the Monetary Policy Framework",
+      "Internal Working Group (IWG) to Review the Agricultural Credit and Money Market Instruments (RBI)",
+      "Financial Sector Legislative Reforms Commission (FSLRC) recommendations"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------------------+\n|                     SHORT-TERM MONEY MARKET ECOSYSTEM                   |\n+-------------------------------------------------------------------------+\n                                     |\n        +----------------------------+----------------------------+\n        |                                                         |\n   [SOVEREIGN INSTRUMENTS]                                [PRIVATE/BANK INSTRUMENTS]\n        |                                                         |\n        +---> Treasury Bills (91, 182, 364 days)                  +---> Commercial Papers (CPs)\n        +---> Cash Management Bills (<91 days)                    +---> Certificates of Deposit (CDs)\n        +---> Cash Management / WMA                               +---> Call & Notice Money\n        |\n        v\n[Objective: Bridge Govt Cash Mismatches & Mop Up Frictional Liquidity]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which of the following are considered as Treasury Bills in India?",
+        "options": [
+          "14-day Treasury Bill, 91-day Treasury Bill, and 182-day Treasury Bill",
+          "91-day Treasury Bill, 182-day Treasury Bill, and 364-day Treasury Bill",
+          "7-day, 14-day, 28-day, and 91-day Treasury Bills",
+          "30-day, 90-day, and 365-day Treasury Bills"
+        ],
+        "answer": "91-day Treasury Bill, 182-day Treasury Bill, and 364-day Treasury Bill",
+        "explanation": "Standard Treasury Bills in India are issued by the RBI for three tenors: 91 days, 182 days, and 364 days. Cash Management Bills (CMBs) are distinct instruments introduced for tenures of less than 91 days."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2018,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Explain the mechanics of monetary policy transmission in India. How do money market instruments support liquidity management by the Reserve Bank of India?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "What are Cash Management Bills (CMBs)? How do they differ from standard Treasury Bills, and what role do they play in modern sovereign liquidity management in India? (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define Cash Management Bills (CMBs) and state their inception year (2010).",
+      "body": "Highlight key differences between CMBs and T-Bills (tenure, purpose, flexibility). Explain their role in absorbing frictional liquidity and stabilizing short-term rates.",
+      "conclusion": "Conclude by emphasizing their importance in modern public debt and treasury management under the RBI."
+    },
+    "modelAnswerHtml": "<p><strong>Introduction:</strong><br>Cash Management Bills (CMBs) are short-term, zero-coupon monetary instruments introduced in 2010 by the Reserve Bank of India (RBI) on behalf of the Government of India. They are designed to meet temporary mismatches in government cash flows without resorting to long-term debt issuance.</p><p><strong>Difference between CMBs and Standard Treasury Bills (T-Bills):</strong></p><ul><li><strong>Tenure:</strong> Standard T-Bills have fixed tenures of 91 days, 182 days, and 364 days. Conversely, CMBs have flexible maturities of <em>less than</em> 91 days (e.g., 7, 14, 28 days).</li><li><strong>Purpose:</strong> T-Bills are a regular part of the government’s borrowing calendar to finance fiscal deficits, whereas CMBs specifically target temporary, unforeseen cash-flow deficits or frictional liquidity surpluses.</li><li><strong>Issuance Frequency:</strong> T-Bills follow a pre-announced calendar, while CMBs are issued on an as-needed basis depending on government cash balances.</li></ul><p><strong>Role in Sovereign Liquidity Management:</strong><br>CMBs act as vital shock absorbers in the money market. By mopping up sudden liquidity surges or funding short-term deficits, they prevent wide fluctuations in the Weighted Average Call Rate (WACR), keeping it aligned with the RBI's policy repo rate. They also reduce the government's reliance on costly Ways and Means Advances (WMA).</p><p><strong>Way Forward:</strong><br>Integrating CMB issuance with robust cash forecasting models enhances the RBI's liquidity management framework, ensuring macroeconomic stability and efficient public debt management in line with Vision 2047 goals.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Cash Management Bills (CMBs):\n1. They are issued by the Reserve Bank of India on behalf of the Central Government.\n2. Their maturity period is always fixed at 91 days.\n3. They are zero-coupon instruments issued at a discount.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "1 and 3 only",
+      "explanation": "Statement 1 is correct: CMBs are issued by the RBI for the Central Government. Statement 2 is incorrect: The maturity period of CMBs is less than 91 days and is flexible, unlike 91-day T-Bills. Statement 3 is correct: CMBs are zero-coupon bonds issued at a discount and redeemed at face value."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following instruments is NOT a part of the Indian Money Market?",
+      "options": [
+        "Treasury Bills",
+        "Commercial Papers",
+        "Zero Coupon Bonds of 10-year maturity",
+        "Certificates of Deposit"
+      ],
+      "answer": "Zero Coupon Bonds of 10-year maturity",
+      "explanation": "The money market deals in short-term funds with a maturity of up to one year. Zero Coupon Bonds with a 10-year maturity belong to the capital market (long-term debt market), whereas Treasury Bills, Commercial Papers, and Certificates of Deposit are classic money market instruments."
+    }
+  ]
+}

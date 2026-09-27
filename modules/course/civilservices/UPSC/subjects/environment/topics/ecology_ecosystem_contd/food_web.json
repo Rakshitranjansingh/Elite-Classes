@@ -1,0 +1,104 @@
+{
+  "microTopicId": "environment_ecology_ecosystem_contd_food_web",
+  "subjectId": "environment",
+  "subjectTitle": "Environment, Ecology & Biodiversity",
+  "topicId": "environment_ecology_ecosystem_contd",
+  "topicTitle": "Ecology & Ecosystem (Contd.)",
+  "subTopicTitle": "Food web",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Biodiversity, and Climate Change - that do not require subject specialization.",
+    "mains": "GS Paper III - Conservation, Environmental Pollution and Degradation, Environmental Impact Assessment."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "A food web represents the natural interconnection of multiple food chains and a graphical representation of what-eats-what in an ecological community. Unlike a linear food chain, a food web provides multiple alternative feeding pathways, thereby imparting stability, resilience, and resistance to ecosystems against environmental stressors and species perturbations.",
+    "highYieldFacts": [
+      "Fact 1: Food webs showcase energy flow through trophic levels (Producers -> Primary Consumers -> Secondary/Tertiary Consumers).",
+      "Fact 2: Ecosystem stability is directly proportional to the complexity and interconnectivity of its food web (Eltonian principle of ecological stability).",
+      "Fact 3: Omnivores occupy multiple trophic levels simultaneously, forming complex web loops that buffer energy shocks.",
+      "Fact 4: The deletion or extinction of a 'keystone species' can collapse an entire food web despite low biomass representation (e.g., Sea Otters, Wolves in Yellowstone).",
+      "Fact 5: Anthropogenic pollutants such as heavy metals and persistent organic pollutants (POPs) undergo biological magnification (biomagnification) across complex food webs."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming a food chain and a food web are synonymous; food chains are isolated linear sequences, whereas food webs are matrices of interlinked food chains.",
+      "Trap 2: Believing that higher trophic complexity always prevents species extinction; excessive specialization within complex webs can sometimes make niches highly vulnerable to rapid climate shifts."
+    ],
+    "keyArticlesOrStatutes": [
+      "Wildlife Protection Act, 1972 (Habitat and keystone species conservation)",
+      "Biological Diversity Act, 2002"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Understanding the Architecture of Ecological Food Webs</h3><p>At the heart of ecosystem dynamics lies the <strong>food web</strong>—a complex, non-linear network of predator-prey interactions that dictates how energy and matter circulate through biotic communities. While early ecological studies emphasized linear food chains, modern systems ecology recognizes that ecosystems function through web-like matrices where organisms have multiple dietary options.</p><h3>Ecological Stability and Resilience</h3><p>The complexity of a food web is intimately tied to ecological resilience. When an ecosystem possesses a diverse web with numerous alternative pathways for energy transfer, the sudden population crash of a specific prey species does not automatically precipitate the collapse of its predators. Instead, predators shift their feeding pressure to alternative prey species, acting as a damping mechanism against stochastic environmental shocks.</p><h3>Trophic Cascades and Keystone Species</h3><p>Food webs are governed by top-down and bottom-up forces. <em>Top-down control</em> illustrates how apex predators regulate the population of herbivores, which in turn prevents overgrazing and protects primary producers like forests or grasslands. The removal of a keystone species triggers a <strong>trophic cascade</strong>, unraveling the structural integrity of the entire web. Conversely, <em>bottom-up control</em> emphasizes resource limitation, where nutrient availability dictates primary productivity, cascading upwards through the web.</p><h3>Anthropogenic Disruptions</h3><p>Human activities profoundly fracture food webs. Habitat fragmentation isolates populations, reducing web connectivity. Furthermore, bioaccumulation and biomagnification of synthetic toxins (such as DDT and microplastics) compound exponentially as they traverse higher trophic levels in aquatic and terrestrial food webs, threatening apex predators and human populations alike.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Implicitly linked to Article 48A (Protection and improvement of environment and safeguarding of forests and wildlife) and Article 51A(g) (Duty to protect the natural environment) of the Indian Constitution.",
+      "socio_economic": "Disruption of food webs impacts fisheries, agriculture, and indigenous communities dependent on ecosystem services, directly threatening livelihoods and nutritional security.",
+      "administrative_governance": "Requires landscape-level conservation planning, trans-boundary wildlife corridors, and science-based management rather than isolated species-specific sanctuaries.",
+      "international_or_comparative": "Aligns with the Kunming-Montreal Global Biodiversity Framework (GBF) targets on species restoration, habitat connectivity, and ecosystem integrity."
+    },
+    "landmarkJudgmentsOrReports": [
+      "T.N. Godavarman Thirumulpad v. Union of India (Supreme Court directions on forest and ecosystem integrity)",
+      "IPBES Global Assessment Report on Biodiversity and Ecosystem Services"
+    ],
+    "structuredDiagramAscii": "[Primary Producers: Phytoplankton/Plants]\n              |\n      (Bottom-Up Energy)\n              v\n[Primary Consumers: Herbivores / Zooplankton]\n              |\n    -----------------------------------\n    |                                 |\n[Secondary Consumers: Carnivores] <---> [Omnivores]\n    |                                 |\n    -----------------------------------\n              |\n      (Top-Down Control)\n              v\n[Apex Predators / Top Carnivores] ---> [Decomposers (Nutrient Recycling)]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2013,
+        "question": "Which one of the following is the best description of the term 'ecosystem'?",
+        "options": [
+          "A community of organisms interacting with one another",
+          "That part of the Earth which is inhabited by living organisms",
+          "A community of organisms together with the environment in which they live",
+          "The flora and fauna of a geographical area"
+        ],
+        "answer": "A community of organisms together with the environment in which they live",
+        "explanation": "An ecosystem is a functional unit consisting of all the living organisms (biotic community) in a given area interacting with the non-living (abiotic) physical environment. Food webs operate within these ecosystems."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2019,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Define 'Keystone species'. What is their role in maintaining the structure and function of an ecosystem's food web? Illustrate with examples."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "How do food webs provide greater ecological stability compared to food chains? Examine the impact of anthropogenic pressures on the resilience of food webs.",
+    "approach": {
+      "intro": "Define food web and distinguish it briefly from a linear food chain.",
+      "body": "Explain how complexity, alternative pathways, and trophic redundancies enhance ecosystem stability. Discuss top-down and bottom-up controls. Analyze anthropogenic threats (fragmentation, climate change, chemical pollution/biomagnification).",
+      "conclusion": "Conclude with the need for holistic landscape conservation, aligning with Global Biodiversity Framework targets."
+    },
+    "modelAnswerHtml": "<p>A <strong>food web</strong> is an intricate, non-linear network of interconnected food chains within an ecological community. While a food chain represents a rigid, linear sequence of energy transfer, a food web depicts multiple feeding relationships, illustrating that most organisms consume, and are consumed by, multiple species.</p><h3>Role of Food Webs in Enhancing Ecological Stability</h3><ul><li><strong>Alternative Feeding Pathways:</strong> Complex food webs provide alternative prey options for predators. If a disease or environmental shock decimates one prey species, predators can shift their feeding pressure, preventing immediate starvation and collapse.</li><li><strong>Trophic Redundancy and Buffering:</strong> Multiple species occupying similar functional niches buffer the ecosystem against sudden population shocks. Energy dissipation is distributed across multiple vectors.</li><li><strong>Regulation of Populations:</strong> Through complex feedback loops (both top-down and bottom-up), food webs prevent the uncontrolled exponential growth of herbivores or the over-exploitation of primary producers.</li></ul><h3>Impact of Anthropogenic Pressures on Food Web Resilience</h3><ul><li><strong>Habitat Fragmentation:</strong> Infrastructure projects and land-use change fragment contiguous habitats, severing food web connections and isolating populations, leading to inbreeding depression and local extinctions.</li><li><strong>Loss of Keystone Species:</strong> Overhunting and poaching remove apex predators and keystone species, triggering runaway trophic cascades (e.g., herbivore overpopulation leading to overgrazing and desertification).</li><li><strong>Biomagnification of Toxins:</strong> Synthetic pesticides, heavy metals, and microplastics accumulate and concentrate exponentially as they move up the food web, severely impacting top carnivores and raptors.</li><li><strong>Climate Change:</strong> Phenological mismatches (e.g., pollinators emerging before flowering plants bloom) disrupt the synchronization of food webs, leading to energy bottlenecks.</li></ul><h3>Way Forward</h3><p>Ensuring the resilience of ecological food webs requires transitioning from isolated species conservation to <strong>landscape-level ecosystem management</strong>. Establishing trans-boundary wildlife corridors, strictly enforcing environmental regulations against chemical pollution, and integrating the Kunming-Montreal Global Biodiversity Framework targets into national planning will safeguard ecological integrity and planetary health.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding food webs:\n1. A food web provides alternative pathways for energy flow, which increases the overall stability of an ecosystem.\n2. Omnivores occupy a single trophic level within a food web because of their generalized diet.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: Food web complexity and alternative feeding pathways enhance ecosystem resilience. Statement 2 is incorrect because omnivores feed on multiple trophic levels (e.g., eating both plants and primary/secondary consumers), thereby occupying more than one trophic level simultaneously."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following phenomena best describes the process where concentration of toxic substances increases at successive trophic levels in a food web?",
+      "options": [
+        "Eutrophication",
+        "Biomagnification",
+        "Biological fixation",
+        "Ecological succession"
+      ],
+      "answer": "Biomagnification",
+      "explanation": "Biomagnification (or biological magnification) refers to the progressive accumulation and concentration of persistent toxins (like mercury or DDT) at higher trophic levels in a food web."
+    }
+  ]
+}

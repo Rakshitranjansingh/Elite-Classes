@@ -1,0 +1,106 @@
+{
+  "microTopicId": "science_tech_s_t_current_affairs_cell_structure_and_function",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_s_t_current_affairs",
+  "topicTitle": "S&T Current Affairs",
+  "subTopicTitle": "Cell structure and function",
+  "syllabusMapping": {
+    "prelims": "General Science - Biology: Cell biology, organelles, stem cells, gene editing, and current breakthroughs in biotechnology.",
+    "mains": "GS Paper III - Awareness in the fields of IT, Space, Computers, Robotics, Nanotechnology, Bio-technology and issues relating to Intellectual Property Rights."
+  },
+  "lectureHoursEstimate": "Lecture 10,11&12",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Recent advancements in cell biology span synthetic biology, spatial transcriptomics, mitochondrial replacement therapy (MRT), and CAR-T cell immunotherapy. Understanding these subcellular architectures and their regulatory mechanisms is fundamental to modern therapeutics and biotechnology governance.",
+    "highYieldFacts": [
+      "Fact 1: CAR-T (Chimeric Antigen Receptor T-cell) therapy modifies a patient's own T-cells genetically in vitro to target specific cancer surface antigens.",
+      "Fact 2: Mitochondrial Replacement Therapy (MRT), legalized in the UK via the Human Fertilisation and Embryology Authority, prevents mitochondrial diseases by using nuclear transfer between oocytes.",
+      "Fact 3: Spatial transcriptomics allows scientists to map gene expression within intact tissue sections, preserving spatial context at cellular resolution.",
+      "Fact 4: The Indian Council of Medical Research (ICMR) and the Department of Biotechnology (DBT) regulate gene therapy and stem cell research under National Guidelines for Stem Cell Research (NGSCR).",
+      "Fact 5: Nobel Prize in Physiology or Medicine (2024) was awarded to Victor Ambros and Gary Ruvkun for the discovery of microRNA and its role in post-transcriptional gene regulation."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming all prokaryotic cells lack internal membranes; specialized prokaryotes like photosynthetic cyanobacteria possess extensive internal thylakoid membranes.",
+      "Trap 2: Confusing somatic cell nuclear transfer (SCNT) used in cloning with mitochondrial replacement therapy (MRT); SCNT replaces the entire nuclear genome, whereas MRT replaces only the cytoplasmic mitochondrial DNA while preserving nuclear DNA."
+    ],
+    "keyArticlesOrStatutes": [
+      "National Guidelines for Stem Cell Research (NGSCR) 2017 (Amended)",
+      "Biological Diversity Act, 2002",
+      "Draft Biotechnology Regulatory Authority of India (BRAI) Bill context"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution of Cell Biology in Contemporary S&T Governance</h3><p>Cell structure and function have transitioned from passive micro-anatomical studies to active molecular engineering. Modern biotechnology allows precise modification of cellular machinery, raising unprecedented socio-ethical, legal, and biosafety questions.</p><h3>Key Technological Fronts</h3><ul><li><strong>CAR-T Cell Therapy:</strong> Reprogramming cellular immunity against hematological malignancies. India's indigenously developed CAR-T cell therapy (ImmunoACT) marks a paradigm shift in affordable oncology.</li><li><strong>CRISPR-Cas Systems and Epigenetic Editing:</strong> Moving beyond double-strand breaks to precise base-editing and epigenomic modifications without altering DNA sequences.</li><li><strong>Organoids and Microphysiological Systems:</strong> 3D cellular constructs mimicking organ-level functionality, reducing reliance on animal testing in drug discovery.</li></ul><h3>Regulatory and Ethical Dimensions</h3><p>As cellular manipulation enters germline editing and xenotransplantation, regulatory frameworks must balance innovation with biosafety, preventing unverified stem cell clinics and unauthorized clinical trials.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Right to Health under Article 21, compliance with ICMR ethical guidelines, and biosafety protocols under the Environment (Protection) Act, 1986.",
+      "socio_economic": "High out-of-pocket expenditure for advanced cell therapies, equity in access to breakthrough oncology treatments, and indigenous biomanufacturing under Atmanirbhar Bharat.",
+      "administrative_governance": "Role of CDSCO, DBT, and institutional ethics committees (IECs) in regulating clinical trials and commercialization of cellular products.",
+      "international_or_comparative": "Alignment with WHO global standards for human genome editing governance and Cartagena Protocol on Biosafety."
+    },
+    "landmarkJudgmentsOrReports": [
+      "National Guidelines for Stem Cell Research, ICMR-DBT (2017 & updates)",
+      "WHO Expert Advisory Committee on Developing Global Standards for Governance and Oversight of Human Genome Editing",
+      "Economic Survey insights on indigenous pharmaceutical and biotherapeutic scaling"
+    ],
+    "structuredDiagramAscii": "[Cellular Architecture & Engineering] \n        |\n        +---> [Genomic Level] ---> CRISPR / Gene Editing / microRNA Regulation\n        |\n        +---> [Organelle Level] ---> Mitochondrial Replacement / Autophagy Pathways\n        |\n        +---> [Immunological Level] ---> CAR-T Cell / Monoclonal Antibodies\n        |\n        +---> [Synthetic Systems] ---> Organoids & 3D Microphysiological Models"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "What is the importance of using 'Stem Cells' in medical treatments?",
+        "options": [
+          "Stem cells can regenerate damaged tissues.",
+          "Stem cells can be used for screening new drugs.",
+          "Stem cells can be used for medical research.",
+          "All of the above"
+        ],
+        "answer": "All of the above",
+        "explanation": "Stem cells possess unique properties of self-renewal and pluripotency or multipotency, making them invaluable for regenerative medicine, drug toxicity screening, and understanding fundamental developmental biology."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss the application of nanotechnology in the field of health and medicine, with specific reference to targeted drug delivery inside cells."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the paradigm shift in modern therapeutics driven by advancements in cell biology, particularly focusing on CAR-T cell therapy and gene editing. What are the associated biosafety and regulatory challenges in India? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define the transition of cell biology from descriptive science to precision cellular engineering, citing recent breakthroughs like indigenous CAR-T therapies.",
+      "body": "Explain the mechanics and therapeutic significance of CAR-T cell therapy and gene editing. Highlight regulatory gaps, high costs, equity concerns, and biosafety risks. Provide institutional remedies.",
+      "conclusion": "Emphasize balanced regulation under ICMR-DBT guidelines, fostering indigenous innovation, and ensuring affordable public health delivery in alignment with SDG 3."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Cell biology has undergone a revolutionary transformation, evolving from microscopic observation to programmable cellular engineering. Breakthroughs such as Chimeric Antigen Receptor T-cell (CAR-T) therapy and CRISPR-Cas gene editing enable targeted interventions at the subcellular level, redefining oncology and genetic medicine.</p><h3>Mechanisms and Therapeutic Significance</h3><ul><li><strong>CAR-T Cell Therapy:</strong> Genetically modifies patient T-cells to express synthetic receptors recognizing specific tumor antigens, offering personalized, targeted destruction of cancer cells. India's recent indigenous CAR-T approvals democratize access to this breakthrough.</li><li><strong>Gene Editing:</strong> Precision tools like CRISPR-Cas9 allow targeted correction of pathogenic mutations within the nuclear genome, offering potential cures for monogenic disorders like sickle cell anemia.</li></ul><h3>Regulatory, Ethical, and Biosafety Challenges in India</h3><ul><li><strong>Affordability and Commercial Equity:</strong> High cost of personalized cell manufacturing restricts access, exacerbating out-of-pocket expenditure unless integrated into Ayushman Bharat.</li><li><strong>Biosafety and Off-Target Effects:</strong> Unintended genomic modifications and insertional mutagenesis pose long-term biosafety risks.</li><li><strong>Regulatory Overlaps:</strong> Navigating approvals between the Central Drugs Standard Control Organization (CDSCO) and the Department of Biotechnology (DBT) requires streamlined single-window clearances.</li></ul><h3>Way Forward</h3><p>Strengthening institutional ethics committees, scaling indigenous biomanufacturing under the National Biotechnology Development Strategy, and establishing robust post-market surveillance will ensure safe, ethical, and equitable deployment of advanced cell therapies.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding CAR-T cell therapy:\n1. It utilizes a patient's own immune cells, genetically engineered outside the body to target cancer cells.\n2. It is exclusively used for treating solid tumors such as glioblastoma and lung cancer.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct; CAR-T cell therapy involves reprogramming patient T-cells in vitro. Statement 2 is incorrect because CAR-T therapy has primarily achieved clinical success in hematological malignancies (like leukemia and lymphoma), while targeting solid tumors remains an active area of research due to immunosuppressive microenvironments."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Mitochondrial Replacement Therapy (MRT), sometimes discussed in current affairs, is primarily aimed at:",
+      "options": [
+        "Reversing cellular senescence and aging in human skin cells.",
+        "Preventing transmission of mitochondrial diseases from mother to child.",
+        "Synthesizing artificial chloroplasts for enhanced photosynthetic yield in crops.",
+        "Correcting chromosomal aneuploidies during early embryonic mitosis."
+      ],
+      "answer": "Preventing transmission of mitochondrial diseases from mother to child.",
+      "explanation": "Mitochondrial Replacement Therapy (MRT) involves techniques like pronuclear transfer or maternal spindle transfer to replace mutated mitochondrial DNA with healthy donor mitochondrial DNA, preventing mitochondrial genetic disorders."
+    }
+  ]
+}

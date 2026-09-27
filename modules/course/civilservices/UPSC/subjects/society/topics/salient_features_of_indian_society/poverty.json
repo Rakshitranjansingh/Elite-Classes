@@ -1,0 +1,108 @@
+{
+  "microTopicId": "society_salient_features_of_indian_society_poverty",
+  "subjectId": "society",
+  "subjectTitle": "Society",
+  "topicId": "society_salient_features_of_indian_society",
+  "topicTitle": "Salient features of Indian society",
+  "subTopicTitle": "Poverty",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives.",
+    "mains": "GS Paper I - Salient features of Indian Society, Diversity of India; Poverty and developmental issues."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Poverty in India is transitioning from a narrow calorie-deprivation metric to a multi-dimensional phenomenon encompassing health, education, and living standards. While absolute income poverty has steadily declined, structural inequalities, vulnerability to shocks, and spatial disparities persist.",
+    "highYieldFacts": [
+      "Fact 1: According to NITI Aayog's National Multidimensional Poverty Index (MPI) based on NFHS-5 (2019-21), India's multidimensional poverty rate declined from 24.85% in 2015-16 to 14.96% in 2019-20.",
+      "Fact 2: Uttar Pradesh, Bihar, and Madhya Pradesh registered the largest absolute declines in the number of multidimensional poor between 2015-16 and 2019-20.",
+      "Fact 3: The Alkire-Foster methodology is used for the Global MPI as well as India's National MPI, utilizing 12 indicators across health, education, and standard of living.",
+      "Fact 4: The Tendulkar Committee (2009) shifted the poverty line basket from calorie intake to monthly per capita consumption expenditure (MPCE) including health and education, while the Rangarajan Committee (2014) raised these thresholds further.",
+      "Fact 5: Sustainable Development Goal 1 (SDG 1) aims to end poverty in all its forms everywhere by 2030, with Target 1.2 specifically tracking multidimensional poverty."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing NITI Aayog's National MPI indicators with the Tendulkar or Rangarajan committees; National MPI includes dimensions like nutrition, child mortality, maternal health, years of schooling, school attendance, cooking fuel, sanitation, drinking water, electricity, housing, assets, and bank accounts.",
+      "Trap 2: Assuming income poverty and multidimensional poverty always overlap perfectly; an individual above the income poverty line may still suffer from deprivations in sanitation or clean cooking fuel."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 21 (Right to Life with dignity)",
+      "Article 38 (State to secure a social order for the promotion of welfare of the people)",
+      "Article 39(a) & (b) (Distribution of material resources and prevention of concentration of wealth)",
+      "National Food Security Act (NFSA), 2013"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Multi-Dimensionality of Poverty in India</h3><p>Poverty in the Indian context cannot be understood merely through the prism of economic deprivation or insufficient calorie intake. It is deeply intertwined with social stratification, historical marginalization, spatial geography, and structural exclusions. Elite Classes pedagogy emphasizes that Indian poverty has transitioned from being studied purely as a lack of income to a complex web of capability deprivations, as theorized by Amartya Sen.</p><h3>Structural Determinants of Poverty</h3><p>The persistence of poverty in contemporary India is sustained by systemic factors:</p><ul><li><strong>Social Stratification:</strong> Historical caste hierarchies, gender discrimination, and tribal marginalization concentrate poverty among Scheduled Castes (SCs), Scheduled Tribes (STs), and women-headed households.</li><li><strong>Informalization of Labor:</strong> Over 90% of India's workforce operates in the informal sector, characterized by lack of social security, volatile wages, and absence of formal employment contracts, making them perpetually vulnerable to economic shocks.</li><li><strong>Agrarian Distress:</strong> Sub-optimal landholdings, fragmentation, dependence on monsoons, and inadequate institutional credit push rural smallholder farmers into chronic indebtedness and cyclical poverty.</li><li><strong>Spatial Disparities:</strong> Regional imbalances persist, with central and eastern states (such as Bihar, Jharkhand, and parts of Uttar Pradesh) lagging behind southern and western states in human capital accumulation and industrialization.</li></ul><h3>Governance and Policy Paradigms</h3><p>Post-liberalization economic growth has successfully lifted hundreds of millions out of absolute income poverty, yet the nature of 'jobless growth' has exacerbated relative inequality. Modern governance has shifted towards a 'rights-based approach' (e.g., MGNREGA, NFSA) backed by digital public infrastructure (JAM Trinity—Jan Dhan, Aadhaar, Mobile) to plug leakages in welfare delivery. However, structural transformation requires moving beyond safety nets toward universal quality education, healthcare, and productive job creation.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Violation of Directive Principles of State Policy (DPSP) and Fundamental Rights (Article 21); statutory backing of welfare schemes like MGNREGA and NFSA.",
+      "socio_economic": "Deepens gender inequality, stunts child development through malnutrition, drives distress migration, and limits intergenerational social mobility.",
+      "administrative_governance": "Challenges of exclusion errors in beneficiary identification, bureaucratic delays, fiscal federalism strains in welfare financing, and data lag in official poverty estimates.",
+      "international_or_comparative": "Aligns with SDG 1; India's performance on Global Multidimensional Poverty Index compared with peer emerging economies like China and Vietnam."
+    },
+    "landmarkJudgmentsOrReports": [
+      "NITI Aayog National Multidimensional Poverty Index (Progress Review Reports)",
+      "Tendulkar Expert Group (2009) and Rangarajan Committee (2014) Reports on Poverty Estimation",
+      "Second Administrative Reforms Commission (ARC) - 9th Report on Combating Terrorism / Social Security",
+      "PUCL v. Union of India (Right to Food case)"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------+\n|              STRUCTURAL DRIVERS OF POVERTY            |\n+-------------------------------------------------------+\n                            |\n      +---------------------+---------------------+\n      |                     |                     |\n      v                     v                     v\n+-------------+      +-------------+      +-------------+\n|   Social    |      |  Agrarian   |      | Informal    |\n| Stratification    |  Distress   |      | Labor Mkt   |\n| (Caste/Tribes)|    | (Fragmentation)|   | (No Security)|\n+-------------+      +-------------+      +-------------+\n      |                     |                     |\n      +---------------------+---------------------+\n                            |\n                            v\n+-------------------------------------------------------+\n|            MANIFESTATIONS & CAPABILITY LOSS           |\n|      (Malnutrition, Stunting, Spatial Inequality)     |\n+-------------------------------------------------------+\n                            |\n                            v\n+-------------------------------------------------------+\n|              STATE INTERVENTIONS & OUTCOMES           |\n|  (JAM Trinity, NFSA, MGNREGA, National MPI Targeting)   |\n+-------------------------------------------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "The-poverty line in India is estimated on the basis of which of the following?",
+        "options": [
+          "A) Household consumption expenditure",
+          "B) Per capita income",
+          "C) Employment rate",
+          "D) Level of budget deficit"
+        ],
+        "answer": "A",
+        "explanation": "In India, official poverty lines (historically by Tendulkar and Rangarajan committees) have been estimated primarily based on Monthly Per Capita Consumption Expenditure (MPCE) data collected through household consumer expenditure surveys."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-I",
+        "marks": 15,
+        "question": "Why stability and inclusion are necessary for the emergence of India as a global economic power? Critically discuss in the context of persistent poverty and inequality."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Despite impressive economic growth over the past three decades, structural poverty and inequality continue to challenge India's social fabric. Examine the multi-dimensional nature of poverty in India and evaluate the efficacy of current state interventions in addressing it. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define poverty beyond mere income deficit, citing NITI Aayog's National MPI context to establish the current baseline.",
+      "body": "Analyze structural causes of poverty (informality, agrarian distress, social identity). Evaluate state interventions (rights-based approach, JAM trinity, direct benefit transfers). Highlight implementation bottlenecks and spatial inequalities.",
+      "conclusion": "Conclude with a forward-looking perspective emphasizing human capital development, quality education, and inclusive growth aligned with India@2047."
+    },
+    "modelAnswerHtml": "<p>Poverty in India has evolved from a narrow calorie-deprivation metric to a multi-dimensional reality. According to NITI Aayog's National Multidimensional Poverty Index (MPI), India's multidimensional poverty rate has declined significantly, yet structural disparities across regions and social groups remain persistent impediments to inclusive growth.</p><p><strong>Multi-Dimensional Nature and Structural Roots:</strong></p><ul><li><strong>Social Exclusions:</strong> Historical social stratification ensures that Scheduled Castes, Scheduled Tribes, and women face compounded deprivations in health, education, and asset ownership.</li><li><strong>Informalization of the Economy:</strong> Over 90% of the labor force remains trapped in the informal sector, lacking formal contracts, social security, and resilience against economic shocks or health emergencies.</li><li><strong>Agrarian Vulnerability:</strong> Small and marginal landholdings, coupled with climate volatility, keep a vast rural demographic susceptible to chronic indebtedness.</li><li><strong>Spatial Disparities:</strong> Inter-state divergence is stark; empowered action group (EAG) states lag behind southern and western counterparts in human capital indicators.</li></ul><p><strong>Efficacy of State Interventions:</strong></p><ul><li><strong>Rights-Based Architecture:</strong> Legislation like MGNREGA provides crucial safety nets during agrarian lean seasons, while the National Food Security Act (NFSA) cushions nutritional deprivation.</li><li><strong>Digital Governance &amp; Targeting:</strong> The JAM Trinity (Jan Dhan, Aadhaar, Mobile) and Direct Benefit Transfers (DBT) have drastically curtailed leakage and improved fiscal targeting efficiency.</li><li><strong>Limitations:</strong> While welfare delivery has improved, structural issues like low quality of public schooling, out-of-pocket health expenditure pushing households into debt, and lack of adequate high-quality manufacturing jobs constrain upward social mobility.</li></ul><p><strong>Way Forward:</strong><br>To eradicate poverty sustainably, India must transition from mere welfare distribution to capability enhancement. This requires massive public investment in foundational healthcare and quality education, formalization of labor markets, climate-resilient agriculture, and localized decentralization through Panchayati Raj institutions to ensure bottom-up, need-based development.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the National Multidimensional Poverty Index (MPI) released by NITI Aayog:\n1. It is computed using the Alkire-Foster methodology.\n2. It measures poverty across three equally weighted dimensions: health, education, and standard of living.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Statement 1 is correct: The National MPI uses the globally recognized Alkire-Foster methodology. Statement 2 is correct: It evaluates poverty across three core dimensions—health, education, and standard of living—represented through 12 specific indicators, with health and education having a weight of 1/3 each and standard of living having 1/3."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following expert committees recommended shifting poverty estimation away from pure calorie intake toward a broader consumption basket including health and education expenditure?",
+      "options": [
+        "Lakdawala Committee",
+        "Tendulkar Committee",
+        "Alagh Committee",
+        "Dandekar and Rath Committee"
+      ],
+      "answer": "Tendulkar Committee",
+      "explanation": "The Suresh Tendulkar Committee (2009) departed from the calorie-norm-based poverty line and recommended a Monthly Per Capita Consumption Expenditure (MPCE) based poverty line that factored in spending on health and education."
+    }
+  ]
+}

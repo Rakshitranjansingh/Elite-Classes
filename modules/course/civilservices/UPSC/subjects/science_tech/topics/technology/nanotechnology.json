@@ -1,0 +1,105 @@
+{
+  "microTopicId": "science_tech_technology_nanotechnology",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_technology",
+  "topicTitle": "Technology",
+  "subTopicTitle": "Nanotechnology",
+  "syllabusMapping": {
+    "prelims": "General Science; Science and Technology- developments and their applications and effects in everyday life.",
+    "mains": "GS Paper III - Awareness in the fields of IT, Space, Computers, robotics, nano-technology, biotechnology and issues relating to intellectual property rights."
+  },
+  "lectureHoursEstimate": "Lecture 1,2 &3",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Nanotechnology involves the manipulation of matter on an atomic, molecular, and supramolecular scale, typically between 1 to 100 nanometers. At this scale, quantum mechanical and surface-area-to-volume effects dramatically alter physical, chemical, and biological properties.",
+    "highYieldFacts": [
+      "Fact 1: The term 'nanotechnology' was first coined by Norio Taniguchi in 1974, though Richard Feynman's 1959 lecture 'There's Plenty of Room at the Bottom' conceptualized the field.",
+      "Fact 2: Nano Mission in India was launched in 2007 by the Department of Science and Technology (DST) as an umbrella program to foster R&D.",
+      "Fact 3: Carbon nanotubes (CNTs) possess a tensile strength vastly superior to steel while exhibiting exceptional electrical and thermal conductivity.",
+      "Fact 4: Quantum dots are semiconductor nanocrystals that glow when illuminated by UV light, finding extensive applications in displays and biomedical imaging.",
+      "Fact 5: Nanomaterials exhibit drastically increased surface-area-to-volume ratios, enhancing catalytic activity, reactivity, and toxicological pathways."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming all nanoparticles are man-made. Natural nanoparticles exist in volcanic ash, smoke, and biological systems.",
+      "Trap 2: Confusing the scale range: Nanotechnology strictly operates in the 1-100 nm regime where quantum effects dominate bulk material properties."
+    ],
+    "keyArticlesOrStatutes": [
+      "Nano Mission Guidelines under Department of Science and Technology (DST)",
+      "National Guidelines for Nanotechnology Research and Development"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Strategic Significance of Nanotechnology</h3><p>Nanotechnology represents a paradigm shift in material science, engineering, and medicine. Operating within the 1-100 nanometer dimension, materials exhibit unique quantum and surface phenomena that deviate fundamentally from their macro-scale counterparts. These shifts enable breakthroughs across critical sectors such as targeted drug delivery, ultra-capacitors, water purification via titanium dioxide nanoparticles, and high-efficiency photovoltaic cells.</p><h3>Institutional Architecture in India</h3><p>India formalized its commitment to this field through the <strong>Nano Mission</strong> launched in 2007 under the aegis of the Department of Science and Technology (DST). The mission focuses on infrastructure development, human resource training, basic research, and translational product development. Specialized research hubs such as the Centre for Nano Science and Engineering (CeNSE) at IISc Bangalore and centers at various IITs have propelled India into global research rankings, placing it among the top nations in terms of scientific publications in nanomaterials.</p><h3>Multidimensional Applications and Governance Challenges</h3><p>While the economic dividends are immense—spanning agriculture (nano-fertilizers like Nano Urea by IFFCO), medicine (theranostics), and electronics—significant regulatory and safety hurdles persist. Nanoparticles can cross biological membranes, including the blood-brain barrier and placenta, raising severe nanotoxicological concerns. The absence of a dedicated regulatory authority for nano-safety poses risks to occupational health and environmental ecosystems. Addressing these challenges requires balancing rapid commercialization with robust risk assessment frameworks and life-cycle analysis.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Right to Health and clean environment under Article 21 necessitates stringent toxicological testing and environmental impact assessments for engineered nanomaterials.",
+      "socio_economic": "Bridging agricultural productivity gaps via nano-nutrients while safeguarding rural and industrial workforces from occupational exposure hazards.",
+      "administrative_governance": "Multi-agency fragmentation involving DST, ICMR, MoEFCC, and BIS leading to gaps in standard formulation and product safety compliance.",
+      "international_or_comparative": "Adherence to OECD Working Party on Manufactured Nanomaterials standards and harmonization of cross-border trade safety protocols."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Department of Science and Technology (DST) Nano Mission Evaluation Reports",
+      "Bureau of Indian Standards (BIS) Sectional Committee on Nanotechnologies Guidelines",
+      "OECD Guidelines on the Safety Testing of Manufactured Nanomaterials"
+    ],
+    "structuredDiagramAscii": "Macro Materials ---> Processing (Mechanical/Chemical) ---> Nanoscale (1-100 nm) ---> Quantum/Surface Effects Manifest ---> Sectoral Applications (Med, Agri, Energy) ---> Risk & Safety Governance"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "What is the application of nanotechnology in health sector?",
+        "options": [
+          "Targeted drug delivery systems",
+          "Gene therapy without vectors",
+          "Manufacture of synthetic organs without cells",
+          "Complete eradication of communicable diseases"
+        ],
+        "answer": "Targeted drug delivery systems",
+        "explanation": "Nanotechnology enables precision medicine through targeted drug delivery nanoparticles that release therapeutics directly at tumor sites, minimizing systemic toxicity."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2016,
+        "paper": "GS-III",
+        "marks": 12.5,
+        "question": "Discuss the application of nanotechnology in India's agricultural sector and the challenges associated with its adoption."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the potential of nanotechnology in transforming India's agricultural and energy sectors. What are the key regulatory and safety challenges that need to be addressed? (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define nanotechnology briefly and mention India's institutional impetus through the Nano Mission.",
+      "body": "Highlight specific applications in agriculture (nano-urea, nano-pesticides) and energy (solar cells, supercapacitors). Address toxicity, environmental accumulation, and regulatory voids.",
+      "conclusion": "Emphasize establishing a dedicated regulatory body and adopting a 'Safe-by-Design' paradigm aligned with sustainable development goals."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Nanotechnology involves manipulating matter at the 1–100 nm scale, unlocking exceptional quantum properties. Driven by India's <strong>Nano Mission</strong>, it has transitioned from basic research to strategic commercial deployment in agriculture and energy.</p><h3>Transformative Potential</h3><ul><li><strong>Agriculture:</strong> Introduction of nano-fertilizers (e.g., Nano Urea) enhances nutrient use efficiency (NUE) by over 80%, reducing chemical runoff and input costs for farmers. Nano-encapsulated agrochemicals enable controlled-release pest management.</li><li><strong>Energy Sector:</strong> Promotes high-efficiency perovskite solar cells, lightweight graphene-based supercapacitors for electric vehicles, and high-density hydrogen storage materials, aiding India's net-zero transition.</li></ul><h3>Regulatory and Safety Challenges</h3><ul><li><strong>Nanotoxicology:</strong> High surface-area-to-volume ratios allow nanoparticles to cross cellular barriers, inducing oxidative stress and chronic health hazards for industrial workers.</li><li><strong>Environmental Accumulation:</strong> Persistence of engineered nanoparticles in soil and aquatic food chains creates bioaccumulation risks.</li><li><strong>Governance Gaps:</strong> Absence of a unified regulatory statute leads to fragmented oversight across DST, MoEFCC, and BIS.</li></ul><h3>Way Forward</h3><p>India must enact a comprehensive <strong>National Nanotechnology Regulatory Framework</strong>, mandate lifecycle safety testing, and institutionalize 'Safe-by-Design' principles to secure equitable and sustainable techno-economic growth.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Carbon Nanotubes (CNTs):\n1. They are allotropes of carbon with a cylindrical nanostructure.\n2. They exhibit exceptional thermal conductivity and tensile strength.\n3. They are exclusively produced through natural volcanic processes.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 and 2 only",
+        "2 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "1 and 2 only",
+      "explanation": "Carbon nanotubes are synthetic allotropes of carbon produced via techniques like arc discharge, laser ablation, and chemical vapor deposition (CVD). Statement 3 is incorrect."
+    },
+    {
+      "id": "mcq_02",
+      "question": "The 'Nano Mission' in India is implemented under the aegis of which of the following?",
+      "options": [
+        "Ministry of Environment, Forest and Climate Change",
+        "Department of Science and Technology (DST)",
+        "NITI Aayog",
+        "Council of Scientific and Industrial Research (CSIR)"
+      ],
+      "answer": "Department of Science and Technology (DST)",
+      "explanation": "The Nano Mission was launched in 2007 by the Department of Science and Technology (DST), Ministry of Science and Technology, Government of India."
+    }
+  ]
+}

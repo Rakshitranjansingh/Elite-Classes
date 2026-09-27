@@ -1,0 +1,107 @@
+{
+  "microTopicId": "polity_basic_concept_political_theory_and_c",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_basic_concept",
+  "topicTitle": "Basic Concept",
+  "subTopicTitle": "Political Theory and C",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance - Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS Paper II - Indian Constitution—historical underpinnings, evolution, features, amendments, significant provisions and basic structure; Salient features of the Representation of the People Act."
+  },
+  "lectureHoursEstimate": "Lecture 1",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Political theory examines the foundational values, normative frameworks, and institutional designs that shape modern governance, linking abstract ideas like justice, liberty, and equality with concrete constitutional mechanisms. In the Indian context, it bridges Western liberal constitutionalism with indigenous socio-cultural realities through judicial interpretation and institutional practice.",
+    "highYieldFacts": [
+      "Fact 1: The Preamble to the Indian Constitution encapsulates the core values of political theory: Justice, Liberty, Equality, and Fraternity.",
+      "Fact 2: Part III (Fundamental Rights) and Part IV (Directive Principles of State Policy) embody the tension and synthesis between individual liberty and social justice, often termed the 'conscience of the Constitution' by Granville Austin.",
+      "Fact 3: The Basic Structure Doctrine, propounded in the landmark Kesavananda Bharati case (1973), acts as a theoretical guardrail against unfettered legislative amendments.",
+      "Fact 4: Constitutionalism in India mandates that the exercise of governmental power must be legally limited and subject to the rule of law.",
+      "Fact 5: Recent Supreme Court jurisprudence has heavily drawn upon substantive equality and constitutional morality to expand the scope of fundamental rights."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing 'Constitution' with 'Constitutionalism'. While a Constitution is a written document setting up organs of government, Constitutionalism refers to the limitation of governmental power and adherence to higher normative values.",
+      "Trap 2: Assuming Directive Principles are merely non-enforceable ideals; modern jurisprudence treats them as complementary to Fundamental Rights under the harmonious construction doctrine."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 13 (Laws inconsistent with or in derogation of Fundamental Rights)",
+      "Article 14 (Right to Equality - Substantive vs Formal)",
+      "Article 21 (Right to Life and Personal Liberty - expanding canvas)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Significance of Political Theory in Indian Governance</h3><p>Political theory provides the normative bedrock upon which state institutions are erected, legitimized, and critiqued. In the Indian constitutional framework, political theory transcends academic discourse to become an operational reality codified in the Preamble, Fundamental Rights, and Directive Principles. The Indian state was conceptualized not merely as a sovereign entity, but as an engine of social transformation designed to dismantle deeply entrenched feudal hierarchies.</p><h3>The Duality of Liberalism and Social Justice</h3><p>A critical inquiry into Indian political theory reveals a unique synthesis of Western liberal democracy and radical egalitarianism inspired by figures like Dr. B.R. Ambedkar. While Western constitutionalism traditionally prioritized negative liberty (freedom from state interference), the Indian state adopted positive liberty and substantive equality. This is manifested in provisions like Article 15(4), Article 16(4), and affirmative action policies. Recent contemporary judgments have expanded this theoretical discourse by integrating concepts such as <strong>Constitutional Morality</strong>, which subordinates majoritarian impulses to the overarching values of justice and human dignity.</p><h3>Contemporary Challenges and Institutional Friction</h3><p>In contemporary governance, theoretical ideals often clash with practical statecraft. Issues such as national security versus civil liberties, executive overreach versus judicial review, and majoritarian democracy versus minority rights test the resilience of India's constitutional framework. The judiciary, through active PIL (Public Interest Litigation) jurisprudence and the invocation of the <em>Basic Structure Doctrine</em>, acts as the guardian of these political theories, ensuring that the soul of the Constitution is not eroded by transient parliamentary majorities.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Balancing parliamentary sovereignty with judicial review and the inviolability of the Basic Structure Doctrine.",
+      "socio_economic": "Bridging formal legal equality with substantive socio-economic justice for marginalized communities.",
+      "administrative_governance": "Ensuring bureaucratic accountability, rule of law, and adherence to constitutional morality rather than administrative expediency.",
+      "international_or_comparative": "Aligning domestic constitutional values with international human rights covenants and global democratic standards."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Kesavananda Bharati v. State of Kerala (1973) - Basic Structure Doctrine",
+      "Navtej Singh Johar v. Union of India (2018) - Constitutional Morality",
+      "K.S. Puttaswamy v. Union of India (2017) - Dignity and Autonomy",
+      "Second Administrative Reforms Commission (ARC) - 15th Report on Ethics in Governance"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------+\n|           NORMATIVE FOUNDATION: Political Theory            |\n|     (Justice, Liberty, Equality, Fraternity, Dignity)       |\n+------------------------------+------------------------------+\n                               |\n                               v\n+-------------------------------------------------------------+\n|              CONSTITUTIONAL CODIFICATION (Part III/IV)      |\n+------------------------------+------------------------------+\n                               |\n                               v\n+-------------------------------------------------------------+\n|           INSTITUTIONAL REALIZATION & ADJUDICATION          | \n|     (Legislative Enactments + Judicial Review / PIL)        |\n+-------------------------------------------------------------+"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "Which of the following defines the term 'Constitutionalism' most accurately?",
+        "options": [
+          "A written document that outlines the powers of the government.",
+          "A principle that the government's power is limited by law and fundamental values.",
+          "The supremacy of the legislature in amending the constitution.",
+          "A system where the judiciary runs the administration."
+        ],
+        "answer": "A principle that the government's power is limited by law and fundamental values.",
+        "explanation": "Constitutionalism is a philosophical and legal concept which asserts that government power is not absolute, but limited by a constitution and higher principles of justice and human rights, separating it from mere possession of a written constitution."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Constitutional morality is rooted in the Constitution itself and derives its authority from its commitments. Explain the doctrine of constitutional morality with reference to recent judgments of the Supreme Court."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine how Indian political theory balances the tension between individual liberty and social justice through the lens of recent constitutional jurisprudence. (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define Indian political theory's core ethos (fusion of individual rights and collective social justice as enshrined in the Preamble).",
+      "body": "Discuss how Part III (Liberty) and Part IV (Social Justice) interact. Cite recent judicial doctrines like substantive equality and constitutional morality. Mention challenges in execution.",
+      "conclusion": "Conclude by highlighting that constitutionalism in India is a dynamic process striving towards an inclusive egalitarian democracy."
+    },
+    "modelAnswerHtml": "<p>Indian political theory is uniquely characterized by its departure from strict Western individualism, forging a synthesis between <strong>individual liberty (Part III)</strong> and <strong>social justice (Part IV)</strong>. Framers like Dr. B.R. Ambedkar recognized that political democracy must transform into social democracy to survive.</p><p><strong>Balancing Tension through Jurisprudence:</strong></p><ul><li><strong>Substantive Equality:</strong> Moving beyond formal equality, the Supreme Court has interpreted Articles 14 and 15 to permit affirmative action, ensuring that unequals are not treated equally.</li><li><strong>Constitutional Morality:</strong> In judgments like <em>Navtej Singh Johar (2018)</em> and <em>Sabarimala (2018)</em>, the Supreme Court emphasized that majoritarian morality must yield to constitutional morality, protecting individual autonomy against dogmatic social norms.</li><li><strong>Right to Privacy (Puttaswamy case):</strong> Reinforced individual dignity as an intrinsic component of liberty, harmonizing personal autonomy with public welfare.</li></ul><p><strong>Way Forward:</strong> As India marches towards Vision 2047, the challenge lies in upholding civil liberties while deploying state power for distributive justice, ensuring that constitutionalism remains a living, breathing reality for the marginalized.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to Indian Political Theory and Constitutionalism, consider the following statements:\n1. Constitutionalism implies absolute power vested in a democratically elected parliament.\n2. The doctrine of Basic Structure acts as a theoretical limitation on the amending power of Parliament.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because constitutionalism precisely opposes absolute power; it mandates that governmental power must be legally limited. Statement 2 is correct as the Basic Structure doctrine limits parliamentary amendments to preserve core constitutional values."
+    },
+    {
+      "id": "mcq_02",
+      "question": "The 'conscience of the Constitution'—a term popularized by legal scholar Granville Austin—primarily refers to the combination of which of the following parts?",
+      "options": [
+        "Fundamental Rights and Directive Principles of State Policy",
+        "Preamble and Emergency Provisions",
+        "Fundamental Duties and Amendment Procedures",
+        "Center-State Legislative Relations and Judiciary"
+      ],
+      "answer": "Fundamental Rights and Directive Principles of State Policy",
+      "explanation": "Granville Austin famously described the Fundamental Rights and the Directive Principles of State Policy together as the 'conscience of the Constitution', as they commit the state to social revolution and individual liberty."
+    }
+  ]
+}

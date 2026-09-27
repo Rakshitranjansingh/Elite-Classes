@@ -1,0 +1,105 @@
+{
+  "microTopicId": "disaster_mgmt_natural_man_made_disasters_landslides",
+  "subjectId": "disaster_mgmt",
+  "subjectTitle": "Disaster Management & Resilience",
+  "topicId": "disaster_mgmt_natural_man_made_disasters",
+  "topicTitle": "Natural & Man-Made Disasters",
+  "subTopicTitle": "Landslides",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Bio-diversity and Climate Change - Geography (Physical Geography of India - Landslides and Geomorphological hazards)",
+    "mains": "GS Paper III - Disaster Management: Disaster and Disaster Management (Vulnerability profiles, Hazard mapping, and Institutional frameworks)"
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Landslides involve the down-slope movement of rock, debris, or earth under the influence of gravity. In India, they are triggered by a combination of intense monsoon rainfall, fragile geo-tectonic settings (Himalayas and Western Ghats), and anthropogenic pressures like unscientific hill-cutting and infrastructure expansion.",
+    "highYieldFacts": [
+      "Fact 1: Over 12.6% of India's land area is prone to landslides, primarily spread across the Himalayan arc, Western Ghats, and the North-Eastern hill ranges.",
+      "Fact 2: The Geological Survey of India (GSI) is the nodal agency for landslide hazard mapping, having prepared the National Landslide Susceptibility Mapping (NLSM) on a 1:50,000 scale.",
+      "Fact 3: According to NDMA guidelines, India's landslide vulnerability is categorized into five zones: Very High, High, Moderate, Low, and Stable zones.",
+      "Fact 4: The National Landslide Forecasting Centre (NLFC), established by GSI in Kolkata, issues region-specific early warning bulletins.",
+      "Fact 5: Unplanned toe-cutting, inadequate drainage, deforestation, and heavy quarrying account for over 60% of anthropogenic landslide triggers in the Western Ghats."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the nodal ministry for landslides. While NDMA handles overall disaster management under the Ministry of Home Affairs, GSI operates under the Ministry of Mines for mapping and scientific study.",
+      "Trap 2: Assuming all landslides are exclusively natural phenomena; anthropogenic activities like hydro-power projects and road widening often act as the primary catalyst."
+    ],
+    "keyArticlesOrStatutes": [
+      "Disaster Management Act, 2005",
+      "National Disaster Management Plan (NDMP), 2019"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Anatomy of Landslide Vulnerability in India</h3><p>Landslides in India represent a creeping socio-economic crisis exacerbated by fragile geo-tectonic formations and aggressive developmental paradigms. The Indian Himalayan Region (IHR), being young fold mountains, is inherently unstable, characterized by intensive shearing, faulting, and high seismicity. Similarly, the Western Ghats, formed of basaltic lava flows (Deccan Traps), face severe structural instability due to laterite weathering and heavy tropical downpours.</p><h3>Anthropogenic Accelerators and Governance Deficits</h3><p>While natural triggers such as cloudbursts, earthquakes, and prolonged monsoon precipitation initiate slope failure, human interventions convert these hazards into disasters. Unregulated tourism, ribbon development along national highways, unscientific cut-and-fill slope operations, and improper drainage disposal saturate the soil matrix and elevate pore-water pressure. The absence of statutory, enforceable Landslide Building Codes and the lack of micro-zonation laws at municipal levels further compound vulnerabilities.</p><h3>Institutional and Technological Paradigm Shift</h3><p>Moving away from a reactive post-disaster relief framework, India is transitioning toward a proactive resilience model. The integration of empirical data from the Geological Survey of India (GSI) with real-time telemetry, radar interferometry (InSAR), and automated rain-gauge networks has enabled early warning systems (EWS). However, translating these scientific advisories into local community action remains an administrative bottleneck.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Disaster Management Act, 2005 mandates holistic mitigation, yet state-level municipal laws rarely integrate legally binding landslide hazard safety clauses.",
+      "socio_economic": "Disproportionately impacts marginal hill communities, disrupts vital supply chains (e.g., Char Dham highway), and inflicts severe economic losses on tourism and agriculture.",
+      "administrative_governance": "Siloed functioning between line departments (PWD, Forest, Irrigation, and GSI) leads to conflicting land-use policies and fragmented disaster response.",
+      "international_or_comparative": "Aligns with the Sendai Framework for Disaster Risk Reduction (2015-2030) Priorities 1 (Understanding risk) and 3 (Investing in resilience)."
+    },
+    "landmarkJudgmentsOrReports": [
+      "NDMA Guidelines on Management of Landslides and Snow Avalanches (2009)",
+      "Ravi Chopra Committee Report (Supreme Court appointed committee on Char Dham Mahamarg Vikas Pariyojna)",
+      "National Institute of Disaster Management (NIDM) reports on Himalayan vulnerability"
+    ],
+    "structuredDiagramAscii": "Pre-Disaster Phase: [Hazard Mapping (GSI)] -> [Susceptibility Zoning] -> [Early Warning Systems (NLFC)]\n                                        |\n                                        v\nEvent Phase:       [Trigger: Cloudburst / Seismic Shaking / Toe Cutting]\n                                        |\n                                        v\nPost-Disaster Phase: [NDRF / SDRF Deployment] -> [Geotechnical Remediation] -> [Build Back Better]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2018,
+        "question": "Which of the following phenomena happens when the Earth's crust is subjected to intense tectonic forces?",
+        "options": [
+          "Folding and Faulting leading to Landslides",
+          "Volcanic eruptions alone",
+          "Tsunami generation exclusively",
+          "None of the above"
+        ],
+        "answer": "Folding and Faulting leading to Landslides",
+        "explanation": "Tectonic forces cause crustal deformation (folding and faulting) which fractures rock masses, making them highly susceptible to weathering, mass wasting, and subsequent landslides when triggered by external factors like rain or seismic activity."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Compress the causes and effects of the recurring landslides in the Western Ghats and Himalayan regions. Suggest measures to mitigate the hazards."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the geo-climatic and anthropogenic drivers of landslides in India. Discuss the institutional measures required to establish a robust resilience and early warning framework. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define landslides briefly with India's vulnerability statistics (e.g., 12.6% prone area).",
+      "body": "Detail geo-climatic causes (young folded mountains, heavy monsoons) and anthropogenic causes (toe-cutting, unscientific infrastructure). Outline institutional mechanisms (GSI mapping, NLFC early warnings, NDMA guidelines). Suggest the way forward.",
+      "conclusion": "Conclude with Sendai Framework targets and the necessity of mainstreaming disaster resilience into sustainable hill development."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Landslides represent the downward mass movement of rock, debris, or soil, constituting a major recurrent hazard in India. Approximately <strong>12.6% of India's landmass</strong> is vulnerable, predominantly affecting the Himalayan arc, North-Eastern ranges, and the Western Ghats.</p><h3>Drivers of Landslides in India</h3><ul><li><strong>Geo-Climatic Drivers:</strong> The Himalayas are young, tectonically active, and structurally fragile fold mountains susceptible to seismic shocks. The Western Ghats experience intense, concentrated monsoon downpours over steep basaltic slopes.</li><li><strong>Anthropogenic Accelerators:</strong> Unscientific hill-slope cutting for widening roads, aggressive tourist infrastructure, unmonitored tunneling for hydel projects, and improper drainage disposal elevate pore-water pressure, triggering slope failures.</li><li><strong>Deforestation:</strong> Indiscriminate clearing of deep-rooted vegetation destabilizes the topsoil matrix, stripping slopes of natural cohesive binding.</li></ul><h3>Institutional and Resilience Framework</h3><ul><li><strong>Hazard Mapping:</strong> The Geological Survey of India (GSI) has completed National Landslide Susceptibility Mapping (NLSM) on a 1:50,000 scale to identify high-risk zones.</li><li><strong>Early Warning Systems:</strong> Establishment of the National Landslide Forecasting Centre (NLFC) in Kolkata for regional rainfall-threshold-based forecasting.</li><li><strong>Regulatory Guidelines:</strong> NDMA Guidelines on Landslides prescribe standard operating procedures for slope stabilization, bio-engineering solutions, and restriction of construction in very high hazard zones.</li></ul><h3>Way Forward</h3><p>To transition from reactive relief to proactive mitigation, India must enforce legally binding <strong>Landslide Building Codes</strong>, mandate Environmental Impact Assessments (EIAs) for all hill-road projects, promote bio-engineering techniques (such as coir-geotextiles and vetiver grass planting), and integrate real-time sensor-based monitoring in high-risk zones, aligning with Sendai Framework goals.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding landslide vulnerability in India:\n1. The Geological Survey of India (GSI) is the designated nodal agency for landslide hazard susceptibility mapping.\n2. Over 25% of India's total geographical area falls under the very high landslide susceptibility zone.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: GSI is the nodal agency for landslide mapping and has formulated the National Landslide Susceptibility Mapping (NLSM). Statement 2 is incorrect: Only about 12.6% of India's total land area is prone to landslides, not 25%."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following best describes 'Bio-engineering' in the context of landslide mitigation?",
+      "options": [
+        "Using genetically modified crops to resist soil erosion",
+        "Integrating living plant materials and vegetation with civil engineering structures to stabilize slopes",
+        "Constructing high concrete retaining walls along national highways in mountainous regions",
+        "Using microbial bacteria to solidify loose rock fragments in fault lines"
+      ],
+      "answer": "Integrating living plant materials and vegetation with civil engineering structures to stabilize slopes",
+      "explanation": "Bio-engineering combines ecological principles with engineering practices, utilizing vegetation (roots for soil reinforcement and evapotranspiration to reduce pore water pressure) alongside structural measures like retaining walls."
+    }
+  ]
+}

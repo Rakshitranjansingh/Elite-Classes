@@ -1,0 +1,106 @@
+{
+  "microTopicId": "environment_climate_change_green_house_gases",
+  "subjectId": "environment",
+  "subjectTitle": "Environment, Ecology & Biodiversity",
+  "topicId": "environment_climate_change",
+  "topicTitle": "Climate change",
+  "subTopicTitle": "Green House Gases",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental ecology, Bio-diversity and Climate Change - that do not require subject specialization.",
+    "mains": "GS-III: Conservation, environmental pollution and degradation, environmental impact assessment."
+  },
+  "lectureHoursEstimate": "Lecture 21",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Greenhouse gases (GHGs) are atmospheric constituents—both natural and anthropogenic—that absorb and emit infrared radiation, leading to the greenhouse effect and global radiative forcing. Their impact is measured via Global Warming Potential (GWP) and atmospheric residence time.",
+    "highYieldFacts": [
+      "Fact 1: CO2 has a GWP of 1 (baseline), while Methane (CH4) has a GWP of ~28-30 over 100 years, and N2O has ~270-300.",
+      "Fact 2: Fluorinated gases (HFCs, PFCs, SF6) have the highest GWP, with SF6 being the most potent GHG known.",
+      "Fact 3: The Montreal Protocol (Kigali Amendment) specifically mandates the phasedown of Hydrofluorocarbons (HFCs).",
+      "Fact 4: Water vapor is the most abundant GHG, yet it is not classified as an 'anthropogenic' pollutant under standard climate policy frameworks.",
+      "Fact 5: Black Carbon (soot) is a Short-Lived Climate Pollutant (SLCP) with a high warming effect, though it is a particulate, not a gas."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Distinguish between 'Residence Time' (how long a gas stays in the atmosphere) and 'GWP' (effectiveness in trapping heat).",
+      "Trap 2: Examiners often equate 'GHG emissions' with 'CO2 emissions'. Remember, N2O emissions are primarily linked to agricultural nitrogen application."
+    ],
+    "keyArticlesOrStatutes": [
+      "UNFCCC (United Nations Framework Convention on Climate Change)",
+      "Kyoto Protocol (Annex A gases)",
+      "Paris Agreement (Nationally Determined Contributions)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>The Dynamics of Greenhouse Gases in Global Governance</h3><p>Greenhouse Gases (GHGs) represent the foundational variable in the anthropogenic climate change equation. Unlike traditional pollutants, GHGs are cumulative in nature, implying that current mitigation efforts are intrinsically linked to historical emissions (Common But Differentiated Responsibilities - CBDR).</p><h4>1. The Scientific Paradigm</h4><p>The warming efficacy of a gas is determined by its <strong>radiative forcing</strong>. While CO2 accounts for the largest share of total forcing due to the sheer volume of anthropogenic emissions, trace gases like Methane (CH4) and Nitrous Oxide (N2O) play a critical role in 'near-term' temperature spikes. Methane, in particular, is a focus of the <em>Global Methane Pledge</em>, given its 80x greater warming potential over a 20-year horizon compared to CO2.</p><h4>2. Institutional & Governance Architecture</h4><p>The governance of GHGs shifted from the Kyoto Protocol’s binding targets to the Paris Agreement’s voluntary NDCs. This shift represents a transition from 'top-down' mandates to 'bottom-up' pledge-and-review mechanisms. India’s climate strategy, encapsulated in the <em>Panchamrit</em> announcement at COP26, focuses on 500 GW of non-fossil energy capacity and net-zero emissions by 2070, highlighting a paradigm shift from simple abatement to a 'green growth' economic model.</p><h4>3. Challenges in Mitigation</h4><ul><li><strong>Sectoral Complexity:</strong> Unlike point-source pollution, GHG emissions are diffuse—emanating from agriculture (CH4), transport (CO2), and cooling systems (HFCs).</li><li><strong>Economic Lock-in:</strong> Developing economies struggle with 'carbon lock-in' where long-term fossil-fuel infrastructure inhibits rapid transitions.</li><li><strong>Technological Disparity:</strong> The transition to net-zero is contingent upon the viability of carbon capture, utilization, and storage (CCUS) and green hydrogen, which remain capital-intensive.</li></ul>",
+    "dimensions": {
+      "constitutional_or_legal": "Article 48A and 51A(g) of the Indian Constitution mandate the protection of the environment, forming the base for Climate Action Acts.",
+      "socio_economic": "Energy poverty vs. Emission intensity: The dilemma of developing nations seeking 'Just Transition' for coal-dependent labor forces.",
+      "administrative_governance": "The role of the Ministry of Environment, Forest and Climate Change (MoEFCC) in coordinating with NITI Aayog for decarbonization pathways.",
+      "international_or_comparative": "Global Methane Pledge vs. Kyoto Protocol legacy; comparison of EU's Carbon Border Adjustment Mechanism (CBAM) with India's domestic carbon market."
+    },
+    "landmarkJudgmentsOrReports": [
+      "M.C. Mehta v. Union of India (Environmental consciousness)",
+      "IPCC Sixth Assessment Report (AR6) on physical science basis",
+      "IEA World Energy Outlook (Net Zero 2050 scenario)"
+    ],
+    "structuredDiagramAscii": "EMISSION SOURCES --> ATMOSPHERIC FORCING --> IMPACTS --> POLICY INTERVENTION\n[Agriculture/Industry/Energy] --> [Greenhouse Effect] --> [Temp Rise/Sea Level] --> [NDCs/Net-Zero Targets]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which of the following are the short-lived climate pollutants (SLCPs)?",
+        "options": [
+          "Black Carbon",
+          "Methane",
+          "Tropospheric Ozone",
+          "All of the above"
+        ],
+        "answer": "All of the above",
+        "explanation": "SLCPs remain in the atmosphere for a shorter time than CO2 but have a high warming effect. Black Carbon, Methane, and Tropospheric Ozone are prime examples."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Describe the mechanism of the greenhouse effect and evaluate the effectiveness of global protocols in curbing the emission of fluorinated gases."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Discuss the significance of the Kigali Amendment to the Montreal Protocol in the context of mitigating climate change. (150 words, 10 Marks)",
+    "approach": {
+      "intro": "Define HFCs and the shift from CFCs/HCFCs to HFCs, then explain how HFCs became a 'climate issue'.",
+      "body": "Explain the Kigali Amendment’s mandate (phasedown, not phaseout), its legal status, and its potential to avert 0.5°C of warming. Mention India’s challenge and approach.",
+      "conclusion": "Emphasize technology transfer and climate finance as prerequisites for global success."
+    },
+    "modelAnswerHtml": "<h3>The Kigali Amendment: A Climate Milestone</h3><p>The Kigali Amendment (2016) to the Montreal Protocol marks a paradigm shift in environmental governance by transitioning from ozone protection to climate change mitigation.</p><h4>1. Context and Significance</h4><ul><li><strong>HFC Paradox:</strong> HFCs were introduced to replace ozone-depleting substances, but they possess a high GWP (Global Warming Potential).</li><li><strong>Mandate:</strong> It mandates the <strong>phasedown</strong> of HFCs by more than 80% over the next 30 years. Unlike the Montreal Protocol’s phase-out, this is a gradual reduction.</li></ul><h4>2. Impact on Climate Change</h4><p>Scientific estimates suggest that the amendment could prevent up to 0.5°C of global warming by 2100. By shifting the refrigeration and air-conditioning industry toward low-GWP alternatives, it directly targets the fastest-growing sector of greenhouse gas emissions.</p><h4>3. India’s Role</h4><p>India, despite being a major user of cooling appliances, has actively participated in this amendment, negotiating 'differentiated timelines' to protect domestic industry growth. Access to green technology and patent-free alternatives remains a core pillar of India's stance.</p><h4>Way Forward</h4><p>The success of Kigali rests on <strong>Multilateral Fund (MLF)</strong> support for developing countries to meet compliance costs. Integrating energy efficiency with refrigerant transition is critical to ensure net-zero pathways remain economically viable for the Global South.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Nitrous Oxide (N2O):",
+      "options": [
+        "1. It is a byproduct of nitrogen-based fertilizers.",
+        "2. It has a higher GWP than Methane.",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "N2O is a significant agricultural byproduct and has a higher GWP (approx. 270-300) compared to methane (approx. 28-30)."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following international initiatives focuses specifically on the reduction of Methane emissions?",
+      "options": [
+        "The Global Methane Pledge",
+        "The Basel Convention",
+        "The Stockholm Convention",
+        "The Cartagena Protocol"
+      ],
+      "answer": "The Global Methane Pledge",
+      "explanation": "The Global Methane Pledge, launched at COP26, aims to reduce global methane emissions by at least 30% from 2020 levels by 2030."
+    }
+  ]
+}

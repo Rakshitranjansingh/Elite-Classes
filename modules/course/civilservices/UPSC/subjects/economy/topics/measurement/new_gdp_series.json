@@ -1,0 +1,105 @@
+{
+  "microTopicId": "economy_measurement_new_gdp_series",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_measurement",
+  "topicTitle": "Measurement",
+  "subTopicTitle": "New GDP series",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development – Sustainable Development, Poverty, Inclusion, Demographics, Social Sector Initiatives.",
+    "mains": "GS Paper III: Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 5",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The 2015 GDP revision marked a paradigm shift from Factor Cost to Market Price (GVA at Basic Prices) and switched the base year to 2011-12. This alignment with the UN System of National Accounts (SNA 2008) enhances international comparability and captures value addition more accurately.",
+    "highYieldFacts": [
+      "Fact 1: The National Statistical Commission (NSC) approved shifting the base year from 2004-05 to 2011-12 in 2015.",
+      "Fact 2: GDP at Market Price replaced Factor Cost as the headline measure, aligning with international best practices (SNA 2008).",
+      "Fact 3: The Ministry of Statistics and Programme Implementation (MoSPI) utilizes the MCA-21 database for corporate sector coverage.",
+      "Fact 4: Gross Value Added (GVA) at basic prices is calculated as (Production - Intermediate Consumption) + Production Taxes - Production Subsidies.",
+      "Fact 5: The methodology utilizes the 'Economic Census' and 'Annual Survey of Industries' (ASI) data more dynamically than previous series."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Examiners often confuse 'Factor Cost' with 'Basic Prices'. Factor cost excludes production taxes/subsidies; Basic prices include production taxes less subsidies but exclude product taxes/subsidies.",
+      "Trap 2: Assuming GDP growth is synonymous with welfare. Distinguish between GDP (aggregate output) and NNP (welfare focus)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Collection of Statistics Act, 2008",
+      "UN System of National Accounts (SNA 2008)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Methodology</h3><p>The transition to the 2011-12 GDP series reflects India's attempt to institutionalize global standards. Previously, India measured growth at 'Factor Cost', which failed to capture the indirect taxes paid by producers. By adopting <strong>GVA at Basic Prices</strong>, India aligned with the <strong>SNA 2008</strong> guidelines, ensuring a cleaner reflection of the economy's 'productive' contribution.</p><h3>Institutional Architecture</h3><p>The <strong>National Statistical Office (NSO)</strong>, under MoSPI, serves as the nodal agency. A critical advancement was the integration of the <strong>MCA-21 database</strong>, which digitizes company balance sheets, replacing the older 'RBI sample' approach. This transition aimed to improve coverage of the formal corporate sector, though it triggered debates regarding the 'formalization' of the informal economy.</p><h3>Contemporary Challenges</h3><ul><li><strong>Measurement of Informal Sector:</strong> The challenge remains in reflecting the 'unorganized' sector (which forms the bulk of employment) using data primarily derived from corporate filings.</li><li><strong>Base Year Obsolescence:</strong> An 11-year gap (since 2011-12) has drawn criticism from economists for failing to capture structural shifts (post-GST/Demonetization).</li><li><strong>Data Credibility:</strong> Concerns regarding the divergence between GDP growth and other high-frequency indicators like credit growth and power consumption persist.</li></ul>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory framework provided by the Collection of Statistics Act; oversight by the MoSPI.",
+      "socio_economic": "GDP is a measure of output, not distribution. High growth may coexist with rising inequality if GVA is driven by capital-intensive sectors.",
+      "administrative_governance": "Need for NSO-NSSO merger to ensure administrative agility and reduced data silos.",
+      "international_or_comparative": "Adherence to IMF's Special Data Dissemination Standard (SDDS) to maintain investor confidence."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Standing Committee on Finance Report on 'State of Economy'",
+      "NSC Report on Methodological Revisions",
+      "UN System of National Accounts (SNA) 2008 guidelines"
+    ],
+    "structuredDiagramAscii": "GDP(Market Price) = GVA(Basic Prices) + Product Taxes - Product Subsidies\n\n[Inputs] -> [Production Process] -> [GVA] -> [Taxes/Subsidies] -> [GDP]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2015,
+        "question": "In the 'Index of Eight Core Industries', which one of the following is given the highest weight?",
+        "options": [
+          "Coal production",
+          "Electricity generation",
+          "Fertilizer production",
+          "Steel production"
+        ],
+        "answer": "Electricity generation",
+        "explanation": "Electricity generation carries the highest weight in the core sector index, which is a key component in understanding industrial output alongside GDP."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2019,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Define potential GDP and explain its determinants. What are the factors that have been inhibiting India from realizing its potential GDP?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the methodology of the new GDP series (base year 2011-12). How has the shift to GVA at basic prices influenced our understanding of economic growth? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define the 2011-12 series as a transition to international standards (SNA 2008).",
+      "body": "Explain the GVA at Basic Prices methodology, shift from factor cost, benefits (accuracy), and criticisms (disconnect with ground reality/informal sector).",
+      "conclusion": "Emphasize the need for regular base-year revision and inclusion of 'Green GDP' concepts to move toward a more holistic economic metric."
+    },
+    "modelAnswerHtml": "<h3>The New GDP Series: A Paradigm Shift</h3><p>The transition to the 2011-12 base year marked India's move toward the <strong>UN SNA 2008</strong> framework. By replacing 'Factor Cost' with <strong>GVA at Basic Prices</strong>, the government aimed to provide a cleaner measure of output by excluding product taxes/subsidies.</p><h4>Impact of the Shift:</h4><ul><li><strong>Enhanced Coverage:</strong> The usage of the <strong>MCA-21 database</strong> replaced reliance on RBI's sample companies, providing a wider digital window into the corporate sector.</li><li><strong>Conceptual Clarity:</strong> Basic prices represent the amount receivable by the producer from the purchaser, minus any tax on the product. This removes the distortion caused by volatile indirect tax regimes.</li></ul><h4>Critical Analysis:</h4><p>While the methodology aligns with global norms, it has faced criticism:</p><ul><li><strong>Disconnect with High-Frequency Indicators:</strong> Post-2015, experts noted a 'growth puzzle' where GDP figures remained high despite sluggish credit growth and capital investment.</li><li><strong>Neglect of Informal Sector:</strong> The reliance on MCA-21 (formal sector) inadvertently masks the distress in the MSME and unorganized sectors, leading to 'jobless growth' perceptions.</li></ul><h4>Way Forward:</h4><p>To ensure robust measurement, the base year must be revised to reflect the post-GST structural reality. Furthermore, India should move toward <strong>Inclusive GDP</strong>, which incorporates indicators of social well-being and environmental sustainability (Green GDP), as recommended by the NITI Aayog’s vision for 2047.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following is/are true regarding GVA at Basic Prices?",
+      "options": [
+        "1. It includes production taxes and excludes production subsidies.",
+        "2. It excludes product taxes and product subsidies.",
+        "3. It is the headline measure of economic growth in India since 2015.",
+        "4. Both 2 and 3"
+      ],
+      "answer": "Both 2 and 3",
+      "explanation": "GVA at Basic Prices includes production taxes/subsidies but excludes product taxes/subsidies. GDP at Market Price is the headline measure."
+    },
+    {
+      "id": "mcq_02",
+      "question": "The MCA-21 database is primarily associated with:",
+      "options": [
+        "A. Measuring agricultural output at the district level",
+        "B. Digitizing and capturing financial data of corporate sector companies for GDP calculation",
+        "C. Tracking rural employment data under MGNREGA",
+        "D. Monitoring fiscal deficit targets"
+      ],
+      "answer": "B",
+      "explanation": "MCA-21 is an e-governance initiative by the Ministry of Corporate Affairs, used by the NSO to improve the granularity of GDP estimates."
+    }
+  ]
+}

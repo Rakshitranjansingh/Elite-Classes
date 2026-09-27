@@ -1,0 +1,104 @@
+{
+  "microTopicId": "science_tech_chemistry_acids_bases_and_salts",
+  "subjectId": "science_tech",
+  "subjectTitle": "Science & Technology",
+  "topicId": "science_tech_chemistry",
+  "topicTitle": "Chemistry",
+  "subTopicTitle": "Acids, bases and salts",
+  "syllabusMapping": {
+    "prelims": "General Science: Fundamental concepts of chemistry, everyday applications, environmental chemistry, and industrial chemicals.",
+    "mains": "GS Paper III: Science and Technology- developments and their applications and effects in everyday life, environmental pollution, and industrial processes."
+  },
+  "lectureHoursEstimate": "Lecture 7",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Acids, bases, and salts form the cornerstone of chemical reactivity, defined classically by Arrhenius, Brønsted-Lowry, and Lewis theories based on proton donation, electron pair acceptance, and hydronium/hydroxide ion generation. Understanding their pH dynamics, buffer actions, and industrial hydrolysis is critical for addressing modern environmental challenges such as ocean acidification and soil degradation.",
+    "highYieldFacts": [
+      "Fact 1: Strong acids like HCl and strong bases like NaOH completely dissociate in aqueous solutions, whereas weak acids like acetic acid ($CH_3COOH$) undergo partial ionization.",
+      "Fact 2: The pH scale is logarithmic; a decrease of one pH unit represents a tenfold increase in hydrogen ion ($H^+$) concentration.",
+      "Fact 3: Neutralization reactions between strong acids and strong bases release a standard enthalpy of neutralization of approximately $-57.1\\text{ kJ/mol}$.",
+      "Fact 4: Common salt ($NaCl$) undergoes brine electrolysis via the Chlor-alkali process, producing caustic soda ($NaOH$), chlorine gas ($Cl_2$), and hydrogen gas ($H_2$).",
+      "Fact 5: Ocean acidification, driven by anthropogenic $CO_2$ absorption, has reduced surface ocean pH by roughly $0.1$ units since the Industrial Revolution, severely impacting calcifying organisms."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming all salts form neutral solutions upon hydrolysis; salts of weak acids and strong bases (e.g., $CH_3COONa$) form alkaline solutions, while salts of strong acids and weak bases ($NH_4Cl$) form acidic solutions.",
+      "Trap 2: Confusing the Brønsted-Lowry definition (proton donor/acceptor) with the Lewis definition (electron-pair acceptor/donor)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Environment (Protection) Act, 1986 (governing industrial effluent discharge standards for pH)",
+      "Water (Prevention and Control of Pollution) Act, 1974"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution of Chemical Concepts and Governance Implications</h3><p>The study of acids, bases, and salts transcends laboratory chemistry; it underpins industrial manufacturing, agricultural productivity, and ecological stability. At the core of chemical governance is the management of pH—a master variable controlling biological systems and chemical reactions. From the Arrhenius concept of aqueous ion generation to Lewis's electron-pair donation model, chemical definitions have evolved to explain complex industrial catalysis and environmental phenomena.</p><h3>Industrial Symbiosis and the Chlor-Alkali Industry</h3><p>Salts, particularly sodium chloride, serve as the raw material backbone for the chemical industry. The <strong>Chlor-Alkali process</strong> generates chlorine, caustic soda, and hydrogen—three pillars of modern chemical synthesis, water purification, and paper manufacturing. However, these industries present significant environmental externalities, requiring stringent regulatory oversight under the Central Pollution Control Board (CPCB) guidelines to manage mercury and membrane cell technologies.</p><h3>Agronomic Dynamics: Soil Acidity and Alkaline Reclamation</h3><p>In agrarian economies like India, soil health is directly tied to pH management. Over-application of urea and synthetic nitrogenous fertilizers has led to widespread soil acidification across the Indo-Gangetic plains. Acid soils stunt crop yields by increasing toxic aluminum solubility. Conversely, sodic and alkaline soils require gypsum ($CaSO_4 \\cdot 2H_2O$) amendment to replace sodium ions with calcium ions, restoring soil permeability and aeration.</p><h3>Environmental Crises: Acid Rain and Ocean Acidification</h3><p>Anthropogenic emissions of sulfur dioxide ($SO_2$) and nitrogen oxides ($NO_x$) from thermal power plants and vehicular exhaust react with atmospheric moisture to form sulfuric and nitric acids, precipitating acid rain that corrodes monuments and leaches vital soil nutrients. Simultaneously, global carbon emissions lower oceanic pH, dissolving marine carbonate structures and threatening global marine biodiversity and food security.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Enforcement of statutory standards under the Environment (Protection) Act, 1986 and Water Pollution Acts to control acidic and alkaline industrial effluents.",
+      "socio_economic": "Impact of soil pH imbalances on smallholder agricultural productivity, rural livelihoods, and food security.",
+      "administrative_governance": "Implementation hurdles in monitoring diffuse agricultural runoff versus point-source industrial chemical discharges.",
+      "international_or_comparative": "Compliance with Sustainable Development Goals (SDGs 13, 14, and 15) regarding climate action, life below water, and life on land."
+    },
+    "landmarkJudgmentsOrReports": [
+      "MC Mehta v. Union of India (Taj Trapezium Case - addressing acid rain and sulfur emissions affecting heritage structures)",
+      "National Green Tribunal (NGT) directives on Zero Liquid Discharge (ZLD) for chemical and pharmaceutical units"
+    ],
+    "structuredDiagramAscii": "pH Regulation & Environmental Governance Framework\n  ┌────────────────────────────────────────────────────────┐\n  │                Anthropogenic Emissions                 │\n  │          ($SO_2, NO_x, CO_2$ & Chemical Effluents)        │\n  └──────────────────────────┬─────────────────────────────┘\n                             │\n             ┌───────────────┴───────────────┐\n             ▼                               ▼\n  ┌─────────────────────┐         ┌─────────────────────┐\n  │     Atmospheric     │         │  Aquatic & Terrestrial │\n  │  Acid Deposition    │         │     Environments    │\n  └──────────┬──────────┘         └──────────┬──────────┘\n             │                               │\n             ▼                               ▼\n  ┌─────────────────────┐         ┌─────────────────────┐\n  │ Corrosion of Stones │         │  Ocean Acidification│\n  │ & Soil Acidification│         │  & Sodic Soil Stress│\n  └──────────┬──────────┘         └──────────┬──────────┘\n             └───────────────┬───────────────┘\n                             │\n                             ▼\n  ┌────────────────────────────────────────────────────────┐\n  │       Policy Response: Flue-Gas Desulfurization (FGD), │\n  │     Gypsum Amendments, & ZLD Effluent Standards        │\n  └────────────────────────────────────────────────────────┘"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Common salt ($NaCl$) is used in the manufacture of which of the following compounds?",
+        "options": [
+          "Bleaching powder, Baking soda, Washing soda",
+          "Bleaching powder, Plaster of Paris, Washing soda",
+          "Baking soda, Washing soda, Slaked lime",
+          "Bleaching powder, Baking soda, Quicklime"
+        ],
+        "answer": "Bleaching powder, Baking soda, Washing soda",
+        "explanation": "Common salt is the raw material for producing Sodium hydroxide, Washing soda ($Na_2CO_3 \\cdot 10H_2O$), Baking soda ($NaHCO_3$), and Bleaching powder ($CaOCl_2$). Slaked lime ($Ca(OH)_2$) and Quicklime ($CaO$) do not use sodium chloride as a primary precursor."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss the chemical basis of soil acidity and alkalinity in Indian agriculture. Examine the remedial measures adopted for soil health restoration."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the role of acids, bases, and salts in industrial manufacturing and environmental degradation. Suggest pragmatic measures to mitigate chemical pollution and restore soil-water ecosystems.",
+    "approach": {
+      "intro": "Define the significance of acids, bases, and salts in everyday chemistry and industrial development.",
+      "body": "Analyze industrial applications (Chlor-alkali, fertilizers), environmental impacts (acid rain, soil salinization, ocean acidification), and governance challenges.",
+      "conclusion": "Conclude with sustainable pathways including circular economy models, green chemistry, and strict enforcement of environmental regulations."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Acids, bases, and salts constitute the fundamental triad of chemical reactions. Beyond academic importance, they drive heavy industrial manufacturing, regulate agricultural productivity, and dictate environmental equilibria. Balancing their industrial utility with ecological preservation is a vital governance challenge.</p><h3>Industrial Applications and Economic Significance</h3><ul><li><strong>Chlor-Alkali Industry:</strong> Electrolysis of brine produces caustic soda, chlorine, and hydrogen, serving as precursors for textiles, pharmaceuticals, and water sanitation.</li><li><strong>Fertilizer Manufacturing:</strong> Sulfuric acid ($H_2SO_4$) and phosphoric acid ($H_3PO_4$) are essential for synthesizing superphosphates and ammonium sulfate fertilizers.</li></ul><h3>Environmental Degradation and Ecological Impact</h3><ul><li><strong>Acid Rain:</strong> Unabated emissions of sulfur dioxide and nitrogen oxides lead to acid deposition, damaging forests, aquatic ecosystems, and architectural heritage like the Taj Mahal.</li><li><strong>Soil Acidification and Salinization:</strong> Intensive chemical fertilizer use lowers soil pH, while improper irrigation causes alkalinization and salt encrustation, rendering millions of hectares infertile.</li><li><strong>Ocean Acidification:</strong> Increased dissolution of anthropogenic carbon dioxide lowers marine pH, destabilizing marine calcium carbonate equilibrium.</li></ul><h3>Mitigation and Governance Measures</h3><ul><li><strong>Flue-Gas Desulfurization (FGD):</strong> Mandatory installation of FGD systems in thermal power plants to scrub $SO_2$ emissions.</li><li><strong>Soil Health Management:</strong> Promoting Soil Health Cards, balanced NPK usage, and gypsum amendments for sodic soils.</li><li><strong>Green Chemistry & Zero Liquid Discharge (ZLD):</strong> Enforcing stringent CPCB norms to treat industrial effluents before discharge.</li></ul><h3>Way Forward</h3><p>Achieving sustainable chemistry requires transitioning toward a circular economy model where industrial by-products are valorized rather than dumped. Integrating green chemistry principles into industrial policies will align economic growth with SDG 12 (Responsible Consumption and Production) and safeguard ecological integrity.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the pH scale and chemical solutions:\n1. The pH of a neutral solution is strictly 7 at all temperatures.\n2. Salts derived from a strong acid and a weak base form acidic aqueous solutions due to cationic hydrolysis.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because the ionic product of water ($K_w$) varies with temperature; hence, neutral pH changes with temperature (e.g., at higher temperatures, pure water has a neutral pH less than 7). Statement 2 is correct; salts of strong acids and weak bases undergo cationic hydrolysis, releasing hydronium ions and making the solution acidic."
+    },
+    {
+      "id": "mcq_02",
+      "question": "In the context of industrial chemistry, which of the following substances are produced during the chlor-alkali process?",
+      "options": [
+        "Sodium carbonate, Chlorine gas, and Hydrogen gas",
+        "Sodium hydroxide, Chlorine gas, and Hydrogen gas",
+        "Sodium bicarbonate, Hydrogen chloride, and Oxygen gas",
+        "Sodium chloride, Water, and Carbon dioxide"
+      ],
+      "answer": "Sodium hydroxide, Chlorine gas, and Hydrogen gas",
+      "explanation": "The chlor-alkali process involves the electrolysis of an aqueous solution of sodium chloride (brine), which decomposes to produce sodium hydroxide (caustic soda), chlorine gas at the anode, and hydrogen gas at the cathode."
+    }
+  ]
+}

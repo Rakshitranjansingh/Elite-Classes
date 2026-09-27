@@ -1,0 +1,108 @@
+{
+  "microTopicId": "economy_economic_survey_and_budget_economic_survey_and_budget",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_economic_survey_and_budget",
+  "topicTitle": "Economic Survey and Budget",
+  "subTopicTitle": "Economic Survey and Budget",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives, Budgeting.",
+    "mains": "GS Paper III: Government Budgeting, Mobilization of Resources, Growth, Development and Employment."
+  },
+  "lectureHoursEstimate": "Lecture 31,32,33,34 & 35",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Economic Survey is the flagship annual document of the Ministry of Finance that reviews India's economic developments over the past financial year, while the Union Budget (Annual Financial Statement) under Article 112 presents estimated receipts and expenditures for the coming financial year. Together, they provide the diagnostic assessment and financial blueprint of macroeconomic governance.",
+    "highYieldFacts": [
+      "Fact 1: The Economic Survey is prepared by the Economic Division of the Department of Economic Affairs (DEA), Ministry of Finance, and traditionally presented a day before the Union Budget.",
+      "Fact 2: Article 112 of the Constitution of India mandates the Union Budget as the 'Annual Financial Statement', which must distinguish expenditure on revenue account from other expenditure.",
+      "Fact 3: No demand for a grant can be made except on the recommendation of the President, as stipulated under Article 113(3).",
+      "Fact 4: The Budget process involves five stages: Presentation, General Discussion, Scrutiny by Departmental Standing Committees (DRSCs), Voting on Demands for Grants, and Passing of Appropriation and Finance Bills.",
+      "Fact 5: The Fiscal Responsibility and Budget Management (FRBM) Act, 2003 mandates the government to place medium-term fiscal policy statements along with the budget documents."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Believing that the Economic Survey is a constitutional obligation; it is a convention and a policy document, unlike the Union Budget which is a constitutional mandate under Article 112.",
+      "Trap 2: Confusing the Vote on Account (Article 116) with an Interim Budget; an Interim Budget covers both estimated receipts and expenditures and seeks Parliament's approval for the full transitional period, whereas a Vote on Account is strictly a grant in advance to meet government expenses for a part of the year."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 112 (Annual Financial Statement)",
+      "Article 113 (Procedure in Parliament with respect to estimates)",
+      "Article 114 (Appropriation Bills)",
+      "Article 116 (Votes on account, votes of credit and exceptional grants)",
+      "Fiscal Responsibility and Budget Management (FRBM) Act, 2003"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Architecture of India's Macroeconomic Blueprint</h3><p>The Economic Survey and the Union Budget represent the twin pillars of macroeconomic policymaking and fiscal federalism in India. While the Economic Survey serves as the state-of-the-economy report—diagnosing structural bottlenecks, evaluating past policy interventions, and offering unconventional perspectives through academic rigor—the Union Budget translates these diagnoses into concrete allocative priorities and tax instruments. Understanding their interplay is vital for analyzing India's transition from welfare-driven statism to investment-led growth.</p><h3>Institutional Dynamics and Preparation Process</h3><p>The formulation of the Economic Survey is spearheaded by the Chief Economic Adviser (CEA) and their team within the Department of Economic Affairs. It relies extensively on empirical data collated from diverse ministries, RBI reports, sample surveys, and satellite accounts. Conversely, the Union Budget is compiled by the Budget Division through an iterative consultative process involving administrative ministries, the NITI Aayog, and state governments. The sanctity of legislative scrutiny is preserved through the Departmentally Related Standing Committees (DRSCs), which examine the demands for grants during the recess period.</p><h3>Contemporary Macro-Fiscal Challenges</h3><p>In recent years, the budget architecture has grappled with the trilemma of fiscal consolidation, capital expenditure (CapEx) expansion, and populist welfare commitments. The shift from revenue expenditure to high-multiplier capital expenditure—evident in the substantial hike in interest-free loans to states and infrastructure outlays—has structurally transformed the quality of fiscal deficit. However, off-budget borrowings, contingent liabilities of public sector enterprises, and structural rigidities in tax buoyancy continue to pose analytical challenges that are meticulously dissected in the Economic Survey.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Governed by Articles 112 to 117 of the Constitution and disciplined by the statutory glide paths of the FRBM Act, 2003.",
+      "socio_economic": "Balancing fiscal prudence with distributive justice through targeted subsidies, capital creation, and employment-linked incentive schemes.",
+      "administrative_governance": "Overcoming expenditure bunching in the final quarter, improving execution capacity at sub-national levels, and enhancing tax compliance via digitization (GST, e-invoicing).",
+      "international_or_comparative": "Aligning domestic fiscal parameters with global credit rating agencies' metrics and adhering to UN Sustainable Development Goals (SDGs)."
+    },
+    "landmarkJudgmentsOrReports": [
+      "N.K. Singh Committee Report on Fiscal Responsibility and Budget Management (FRBM)",
+      "2nd Administrative Reforms Commission (ARC) Report on Financial Management",
+      "Standing Committee on Finance Reports on Demands for Grants"
+    ],
+    "structuredDiagramAscii": "Economic Survey (Diagnosis & Policy Options) \n       │\n       ▼\nUnion Budget (Article 112 - Allocative Blueprint)\n       │\n       ├─► Revenue Receipts & Capital Receipts\n       ├─► Revenue Expenditure & Capital Expenditure (CapEx)\n       │\n       ▼\nParliamentary Scrutiny (DRSCs & Appropriation/Finance Bills)\n       │\n       ▼\nExecution & Fiscal Outcome (FRBM Glide Path Compliance)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2018,
+        "question": "Which of the following is/are part of the consolidated fund of India?",
+        "options": [
+          "1. All revenues received by the Government",
+          "2. All loans raised by the Government",
+          "3. All moneys received by the Government in repayment of loans",
+          "Select the correct answer using the code given below:"
+        ],
+        "answer": "1, 2 and 3",
+        "explanation": "Under Article 265(1) of the Constitution, all revenues received by the Government of India, all loans raised by issuance of treasury bills, loans or ways and means advances, and all moneys received by the Government in repayment of loans form the Consolidated Fund of India."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Distinguish between capital budget and revenue budget. Explain the components of both types of budget."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the changing composition of India's Union Budget with a special focus on the shift towards capital expenditure and its implications for sustainable macroeconomic growth. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define the Union Budget under Article 112 and introduce the contemporary structural shift toward capital expenditure (CapEx) over revenue expenditure.",
+      "body": "Discuss the composition of Revenue and Capital budgets; analyze the multiplier effect of CapEx on infrastructure and crowding-in private investment; highlight challenges such as fiscal deficit targets and sub-national execution bottlenecks.",
+      "conclusion": "Conclude with a forward-looking statement on maintaining fiscal consolidation while sustaining growth momentum in alignment with Vision 2047."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The Union Budget, mandated under <strong>Article 112</strong> of the Constitution, is not merely an accounting statement of receipts and expenditures, but a strategic instrument of state policy. In recent fiscal cycles, India has witnessed a paradigm shift in budgetary philosophy: prioritizing high-multiplier <strong>capital expenditure (CapEx)</strong> over recurring revenue consumption to engineer durable economic growth.</p><h3>Composition and the Shift Toward Capital Expenditure</h3><p>The budget comprises two segments: the <strong>Revenue Budget</strong> (covering day-to-day running expenses and operational receipts) and the <strong>Capital Budget</strong> (covering asset creation, infrastructure building, and repayment of loans). Historically, India's fiscal space was constrained by high revenue deficits driven by non-discretionary commitments like interest payments, salaries, and subsidies.</p><ul><li><strong>Multiplier Effect:</strong> Public CapEx carries a high multiplier effect (estimated between 2.5 to 3.2), stimulating demand for cement, steel, and capital goods.</li><li><strong>Crowding-In Effect:</strong> Strategic investments in logistics (PM GatiShakti, National Infrastructure Pipeline) help crowd-in dormant private investments by reducing logistics costs and improving operational ease.</li><li><strong>Quality of Deficit:</strong> Financing fiscal deficits through asset-creating capital expenditures rather than revenue expenditures improves the structural health of public finances.</li></ul><h3>Macro-Fiscal Challenges and Governance Hurdles</h3><p>Despite progressive shifts, structural roadblocks persist: <ul><li><strong>Sub-national Implementation:</strong> While the Centre provides interest-free 50-year capital loans to states, execution capacities and land acquisition bottlenecks at the state level can delay capital realization.</li><li><strong>Fiscal Consolidation Glide Path:</strong> Balancing aggressive CapEx with the FRBM mandate of bringing fiscal deficit down requires sustained tax buoyancy and rationalization of low-efficiency subsidies.</li></ul></p><h3>Conclusion</h3><p>The strategic re-engineering of India's budget toward asset creation marks a maturation in fiscal governance. Sustaining this momentum, coupled with rigorous structural reforms and digital efficiency, will be critical to achieving the goal of an Atmanirbhar Bharat by 2047 while respecting fiscal prudence.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the Economic Survey of India: \n1. It is a statutory document mandated under the Fiscal Responsibility and Budget Management (FRBM) Act, 2003.\n2. It is prepared by the Economic Division of the Department of Economic Affairs under the Ministry of Finance.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "2 only",
+      "explanation": "Statement 1 is incorrect because the Economic Survey is not a statutory requirement; it is a convention and a policy document prepared annually. Statement 2 is correct: it is prepared by the Economic Division of the Department of Economic Affairs (DEA), Ministry of Finance, under the guidance of the Chief Economic Adviser."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following items are categorized under Capital Expenditure in the Union Budget? \n1. Loans given by the Central Government to State Governments\n2. Expenditure on acquisition of land, buildings, and machinery\n3. Interest payments on national debt\nSelect the correct answer using the code given below:",
+      "options": [
+        "1 and 2 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": "1 and 2 only",
+      "explanation": "Statements 1 and 2 are correct: loans to states and expenditure on asset creation (land, buildings, machinery) add to the capital assets of the government and are classified as Capital Expenditure. Statement 3 is incorrect: interest payments do not result in asset creation or reduction of liability; hence, they form part of Revenue Expenditure."
+    }
+  ]
+}

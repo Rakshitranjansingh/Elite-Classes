@@ -1,0 +1,106 @@
+{
+  "microTopicId": "economy_general_topics_different_stock_exchanges_in_i",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_general_topics",
+  "topicTitle": "General Topics",
+  "subTopicTitle": "Different stock Exchanges in India",
+  "syllabusMapping": {
+    "prelims": "Indian Economy - Growth, Development and Employment, Mobilization of Resources, Financial Markets",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment (Mobilization of Resources and Financial Markets)"
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Stock exchanges in India are organized marketplaces regulated by the Securities and Exchange Board of India (SEBI) under the Securities Contracts (Regulation) Act, 1956, facilitating the buying and selling of securities. They include national-level dominant bourses like the National Stock Exchange (NSE) and Bombay Stock Exchange (BSE), regional exchanges, and specialized platforms like the India International Exchange (India INX) at GIFT City.",
+    "highYieldFacts": [
+      "Fact 1: The Bombay Stock Exchange (BSE), established in 1875, is Asia's oldest stock exchange and was granted permanent recognition under SCRA in 1957.",
+      "Fact 2: The National Stock Exchange (NSE), set up in 1992 based on the recommendations of the Pherwani Committee, introduced fully automated screen-based electronic trading to India.",
+      "Fact 3: The Securities Contracts (Regulation) Act (SCRA) of 1956 empowers the Central Government and SEBI to regulate stock exchanges and recognize them.",
+      "Fact 4: Metropolitan Stock Exchange of India (MSEI) is another recognized national stock exchange providing platforms for capital market, futures and options, and currency derivatives.",
+      "Fact 5: GIFT City (Gujarat International Finance Tec-City) houses international stock exchanges like India INX and NSE IFSC, operating under the regulatory purview of the International Financial Services Centres Authority (IFSCA)."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing SEBI's regulatory oversight with direct management; SEBI regulates stock exchanges as a statutory watchdog, while exchanges operate as self-regulatory organizations (SROs) with corporate governance structures.",
+      "Trap 2: Assuming regional stock exchanges (RSEs) are still active in trading; most RSEs exited operations following SEBI's exit policy of 2012 due to inability to meet the mandatory Rs. 100 crore net worth requirement."
+    ],
+    "keyArticlesOrStatutes": [
+      "Securities Contracts (Regulation) Act (SCRA), 1956",
+      "Securities and Exchange Board of India (SEBI) Act, 1992",
+      "International Financial Services Centres Authority (IFSCA) Act, 2019"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Institutional Architecture of Indian Stock Exchanges</h3><p>Stock exchanges serve as the vital plumbing of a modern market economy, converting household savings into productive corporate capital. The evolution of Indian stock exchanges transitioned from open-cry pits in colonial Bombay to high-frequency, algorithmic, electronic trading grids spanning the globe. The regulatory framework is anchored by the Securities Contracts (Regulation) Act (SCRA), 1956, and supervised by the Securities and Exchange Board of India (SEBI), established under the SEBI Act, 1992.</p><h3>Major Stock Exchanges and Market Infrastructure</h3><p>India's contemporary exchange landscape is dominated by two national heavyweights: the Bombay Stock Exchange (BSE) and the National Stock Exchange (NSE). The BSE, hosting the benchmark S&P BSE SENSEX, is historically significant as the oldest in Asia. The NSE, established in 1992, revolutionized Indian capital markets by introducing nationwide electronic screen-based trading, eliminating floor-based counterparty risks, and creating benchmark indices like the NIFTY 50. Alongside these, the Metropolitan Stock Exchange of India (MSEI) operates as a recognized corporate exchange.</p><h3>International Financial Services Centres (IFSC) and Globalization</h3><p>A transformative paradigm in India's stock exchange architecture is the establishment of international exchanges—such as India INX and NSE IFSC—located within the GIFT City SEZ in Gujarat. Regulated by the IFSCA, these exchanges allow domestic and global investors to trade in foreign currency-denominated securities, derivatives, and depository receipts, bridging domestic savings with global liquidity pools while retaining offshore financial transactions onshore.</p><h3>Structural Challenges and Regulatory Governance</h3><p>Despite technological advancements, structural challenges persist. Incidents of algorithmic trading glitches, colocation controversies, and systemic risk concentrations underscore the need for robust cybersecurity and resilient market surveillance. Furthermore, the demutualization and corporatization of stock exchanges—separating ownership, management, and trading rights—have reduced broker-driven conflicts of interest, yet continuous regulatory vigilance is imperative to safeguard retail investors and ensure fair price discovery.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing under SCRA 1956 and SEBI Act 1992; adherence to corporate governance standards under the Companies Act, 2013.",
+      "socio_economic": "Democratization of finance through digital retail participation; capital formation driving employment and infrastructure growth; systemic risks affecting household wealth.",
+      "administrative_governance": "Multi-tiered regulatory architecture involving SEBI, RBI, and IFSCA; enforcement of cyber-security protocols and anti-money laundering (AML) norms.",
+      "international_or_comparative": "Integration with global financial systems; competition with offshore jurisdictions like Singapore and Dubai via GIFT City IFSC."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Pherwani Committee Report (1991) on the establishment of the National Stock Exchange",
+      "Bimal Jalan Committee Report (2010) on review of ownership and governance of market infrastructure institutions (MIIs)",
+      "SEBI Expert Committee on Information Systems Security and Algorithmic Trading"
+    ],
+    "structuredDiagramAscii": "SEBI (Apex Regulator) / IFSCA (GIFT City)\n        │\n        ├── National Exchanges (BSE, NSE, MSEI)\n        │      ├── Capital Market Segment\n        │      ├── Derivatives Segment (F&O)\n        │      └── Debt & SME Segments\n        │\n        └── International Exchanges (India INX, NSE IFSC)\n               └── Foreign Currency / Global Securities"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "With reference to 'India's International Exchange (India INX)', consider the following statements: 1. It is the country's first international exchange located in GIFT City, Gujarat. 2. It is a subsidiary of the National Stock Exchange (NSE). Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "1 only",
+        "explanation": "Statement 1 is correct: India INX is India's first international exchange located in GIFT IFSC. Statement 2 is incorrect because India INX is a subsidiary of BSE Ltd, not NSE (NSE operates NSE IFSC)."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2018,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "What is meant by the term 'demutualization' of stock exchanges? Discuss its significance in the context of the Indian capital market."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the evolution and structural transformation of stock exchanges in India. How do International Financial Services Centres (IFSC) stock exchanges contribute to India's ambition of becoming a global financial hub? (150 Words, 10 Marks)",
+    "approach": {
+      "intro": "Define stock exchanges as critical market infrastructure institutions (MIIs) and trace their shift from floor-based regional bourses to electronic national and international networks.",
+      "body": "Discuss the evolution (BSE to NSE), the shift toward demutualization, the decline of Regional Stock Exchanges, and the strategic role of IFSC exchanges (GIFT City) in capturing offshore financial flows.",
+      "conclusion": "Conclude by highlighting how robust regulatory frameworks and technological resilience will cement India's position as a premier global financial corridor."
+    },
+    "modelAnswerHtml": "<p>Stock exchanges are core Market Infrastructure Institutions (MIIs) that facilitate capital formation, liquidity, and fair price discovery. India's stock exchange landscape has witnessed a monumental structural transformation over the past three decades.</p><p><strong>Evolution and Structural Transformation:</strong></p><ul><li><strong>From Floor to Screen:</strong> The transition from physical trading rings at the Bombay Stock Exchange (BSE) to nationwide electronic screen-based trading via the National Stock Exchange (NSE) eliminated spatial barriers and counterparty risks.</li><li><strong>Demutualization:</strong> Separating ownership, management, and trading rights transformed exchanges from broker-controlled clubs into profit-seeking, professionally managed corporate entities, reducing conflict of interest.</li><li><strong>Consolidation:</strong> Stricter SEBI net-worth norms led to the exit of defunct Regional Stock Exchanges (RSEs), consolidating liquidity into dominant national bourses.</li></ul><p><strong>Role of IFSC Stock Exchanges (GIFT City):</strong></p><ul><li><strong>Onshoring Offshore Volumes:</strong> Exchanges like India INX and NSE IFSC allow trading in foreign currency securities, shifting derivative volumes from offshore hubs like Singapore and Dubai back to Indian jurisdiction.</li><li><strong>Global Integration:</strong> Operating under IFSCA, they offer tax incentives and flexible regulatory regimes, attracting global institutional capital and sovereign funds.</li></ul><p><strong>Way Forward:</strong><br>To sustain this growth, India must fortify cybersecurity infrastructure against algorithmic shocks, deepen corporate bond liquidity, and harmonize regulations with global standards, aligning with the vision of Atmanirbhar Bharat and Viksit Bharat 2047.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding the regulatory framework of stock exchanges in India: 1. All recognized stock exchanges in India operate under the direct statutory supervision of the Securities and Exchange Board of India (SEBI). 2. Stock exchanges are classified as Market Infrastructure Institutions (MIIs) and are subject to stringent governance and ownership caps. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Statement 1 is correct because SEBI is the statutory regulator for all recognized stock exchanges under the SCRA, 1956 and SEBI Act, 1992. Statement 2 is also correct as exchanges are critical MIIs subject to ownership and governance regulations recommended by committees like the Bimal Jalan Committee to prevent vested interests."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following bodies regulates the international stock exchanges established within the Gujarat International Finance Tec-City (GIFT City)?",
+      "options": [
+        "Reserve Bank of India (RBI)",
+        "Securities and Exchange Board of India (SEBI) directly without any intermediary",
+        "International Financial Services Centres Authority (IFSCA)",
+        "Ministry of Corporate Affairs (MCA)"
+      ],
+      "answer": "International Financial Services Centres Authority (IFSCA)",
+      "explanation": "The International Financial Services Centres Authority (IFSCA), established under the IFSCA Act, 2019, acts as a unified regulator for the development and regulation of financial products, financial services, and financial institutions in all International Financial Services Centres (IFSCs) in India, including stock exchanges like India INX and NSE IFSC."
+    }
+  ]
+}

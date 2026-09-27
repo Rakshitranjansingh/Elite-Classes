@@ -1,0 +1,106 @@
+{
+  "microTopicId": "polity_pressure_groups_and_local_government_hunger",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_pressure_groups_and_local_government",
+  "topicTitle": "Pressure Groups and Local Government",
+  "subTopicTitle": "Hunger",
+  "syllabusMapping": {
+    "prelims": "Economic and Social Development - Sustainable Development, Poverty, Inclusion, Demographics, Social Sector initiatives.",
+    "mains": "GS Paper II: Issues relating to poverty and hunger; Governance, Welfare schemes for vulnerable sections and the performance of these schemes."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Hunger in the Indian governance framework transcends a mere lack of food; it is a multi-dimensional crisis involving nutritional deprivation, hidden hunger (micronutrient deficiency), and distributive failures. It is directly linked to the Right to Life under Article 21 and the Directive Principles of State Policy under Article 47, making food security a constitutional mandate.",
+    "highYieldFacts": [
+      "Fact 1: The National Food Security Act (NFSA), 2013 legally entitles up to 75% of the rural population and 50% of the urban population to receive subsidized food grains under the Targeted Public Distribution System (TPDS).",
+      "Fact 2: The nodal ministry for the implementation of the NFSA and administration of food security buffers is the Ministry of Consumer Affairs, Food and Public Distribution.",
+      "Fact 3: India ranked 105th out of 127 countries in the Global Hunger Index (GHI) 2024, falling under the 'serious' hunger category.",
+      "Fact 4: The Poshan Abhiyaan (National Nutrition Mission) targets reduction in stunting, under-nutrition, anemia, and low birth weight, monitored via the Poshan Tracker dashboard.",
+      "Fact 5: Article 47 of the Constitution of India states that the State shall regard the raising of the level of nutrition and the standard of living of its people and the improvement of public health as among its primary duties."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing the Global Hunger Index indicators (Undernourishment, Child Stunting, Child Wasting, Child Mortality) with purely economic poverty metrics.",
+      "Trap 2: Assuming NFSA covers 100% of the population; it covers roughly two-thirds of India's population (75% rural, 50% urban)."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 21 (Right to Life including Right to Food)",
+      "Article 47 (Duty of the State to raise the level of nutrition)",
+      "National Food Security Act (NFSA), 2013"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution of Food Security and Governance of Hunger in India</h3><p>The governance architecture surrounding hunger in India has transitioned from a purely relief-centric approach during the famine-prone British era to a rights-based entitlement framework in the 21st century. The enactment of the <strong>National Food Security Act (NFSA), 2013</strong> transformed food from a matter of state benevolence into a justiciable legal right. This legislative leap was catalyzed by proactive judicial activism, most notably through the People's Union for Civil Liberties (PUCL) vs. Union of India PIL (Right to Food case), wherein the Supreme Court systematically expanded the Right to Life (Article 21) to encompass the right to be free from hunger and malnutrition.</p><h3>Institutional Architecture and Implementation Gaps</h3><p>Despite robust legislative backdrops, addressing hunger involves complex institutional coordination across federal tiers. The central government procures, stores, and allocates food grains through the Food Corporation of India (FCI), while State Governments identify beneficiaries and operate the Targeted Public Distribution System (TPDS) through Fair Price Shops. However, systemic bottlenecks persist:</p><ul><li><strong>Exclusion Errors:</strong> Outdated socio-economic data (relying heavily on the 2011 Census) leads to the exclusion of newly urbanized poor and internal migrants who lack local ration cards.</li><li><strong>Hidden Hunger and Dietary Quality:</strong> TPDS and welfare schemes historically skewed toward calorie-dense cereals (rice and wheat) rather than protein and micronutrient-rich coarse grains (millets/shree anna), pulses, and vegetables.</li><li><strong>Last-Mile Delivery Bottlenecks:</strong> Leakages, corruption, and biometric authentication failures (Aadhaar seeding mismatches) continue to impede efficient delivery, although technological integration like electronic Point of Sale (e-POS) machines has mitigated diversion.</li></ul><h3>Intersectional Vulnerabilities</h3><p>Hunger does not impact all demographics equally. Structural inequalities rooted in caste, patriarchy, and regional disparities exacerbate nutritional deficits. Women and adolescent girls suffer disproportionately from 'hidden hunger' and anemia, leading to an intergenerational cycle of low birth weight and child stunting. Furthermore, climate shocks, erratic monsoons, and agrarian distress directly threaten rural livelihoods, precipitating acute food insecurity in vulnerable pockets.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Intersection of Article 21 (Right to Life) and Article 47 (Nutritional duties of the State); Judicial enforceability via PILs.",
+      "socio_economic": "Deep-seated inequality, gender disparity in intra-household food allocation, child stunting, and the intergenerational trap of poverty.",
+      "administrative_governance": "FCI logistics, digital integration (One Nation One Ration Card), corruption in Fair Price Shops, and inter-ministerial convergence (WCD, Health, Agriculture, Food).",
+      "international_or_comparative": "Adherence to UN Sustainable Development Goal 2 (Zero Hunger) and nutritional metrics benchmarked against global indices."
+    },
+    "landmarkJudgmentsOrReports": [
+      "PUCL vs. Union of India (Right to Food Case, Supreme Court Writ Petition 196/2001)",
+      "Swaminathan Commission (National Commission on Farmers) Reports",
+      "2nd Administrative Reforms Commission (ARC) Reports on Public Distribution"
+    ],
+    "structuredDiagramAscii": "CONVERGENCE ARCHITECTURE FOR ERADICATING HUNGER IN INDIA\n┌────────────────────────┐     ┌────────────────────────┐     ┌────────────────────────┐\n│  Legislative Mandate   │     │   Entitlement Schemes  │     │ Technological Delivery │\n│  • NFSA, 2013          │ ──> │  • TPDS & Mid-Day Meal │ ──> │  • ONORC Portability   │\n│  • Article 21 & 47     │     │  • Poshan Abhiyaan     │     │  • e-POS Authentication│\n└────────────────────────┘     └────────────────────────┘     └────────────────────────┘\n                                                                          │\n                                                                          ▼\n                                                             ┌────────────────────────┐\n                                                             │ Outcome: Zero Hunger   │\n                                                             │ & Human Capital Growth │\n                                                             └────────────────────────┘"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2018,
+        "question": "Consider the following statements:\n1. The National Food Security Act, 2013 satisfies the food security needs of 50% of the rural population and 75% of the urban population.\n2. The eldest woman in the household of age 18 years or above is mandated to be the head of the household for the purpose of issuing ration cards under the Act.\nWhich of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "2 only",
+        "explanation": "Statement 1 is incorrect because NFSA covers up to 75% of the rural population and 50% of the urban population, not the other way around. Statement 2 is correct: Section 13 of the NFSA, 2013 mandates that the eldest woman of age 18 years or above in every eligible household shall be the head of the household for issuing ration cards."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2019,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Hunger and poverty are biggest challenges to good governance in India today. Evaluate the extent to which provisioning of food grains under the National Food Security Act, 2013 has helped in eliminating hunger and poverty."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the effectiveness of India's rights-based approach to food security in combating hunger, highlighting structural bottlenecks and the path forward. (250 words, 15 marks)",
+    "approach": {
+      "intro": "Define India's transition to a rights-based approach via the NFSA, 2013, linking it to Constitutional provisions (Article 21 and 47).",
+      "body": "Discuss the successes (buffer stock management, resilience during crises like COVID-19 through PMGKAY), followed by structural challenges (exclusion errors, focus on calories over nutrition/hidden hunger, administrative bottlenecks). Use relevant indices or committee perspectives.",
+      "conclusion": "Suggest multi-dimensional interventions like decentralized procurement, diversification of food baskets (millets/nutri-cereals), and leveraging technology for last-mile inclusion."
+    },
+    "modelHtml": "<p>The enactment of the National Food Security Act (NFSA), 2013 marked a paradigm shift in India's governance framework, anchoring food security in a rights-based approach derived from the Right to Life (Article 21) and the Directive Principles of State Policy (Article 47).</p><p><strong>Effectiveness of the Rights-Based Approach:</strong></p><ul><li><strong>Legal Entitlement & Resilience:</strong> By legally entitling nearly two-thirds of the population to subsidized food grains, it insulated vulnerable sections against extreme deprivation. This was visibly demonstrated during the COVID-19 pandemic through the Pradhan Mantri Garib Kalyan Anna Yojana (PMGKAY), which prevented catastrophic starvation.</li><li><strong>Supply Chain Transformation:</strong> Integration of technology such as electronic Point of Sale (e-POS) machines, Aadhaar seeding, and the 'One Nation One Ration Card' (ONORC) scheme has significantly reduced leakages and empowered migrant workers.</li></ul><p><strong>Structural Bottlenecks in Combating Hunger:</strong></p><ul><li><strong>The 'Hidden Hunger' Paradox:</strong> The TPDS has traditionally focused on macro-nutrients (rice and wheat), neglecting micro-nutrient deficiencies. This contributes to high rates of child stunting and anemia, as reflected in India's persistent low ranking in the Global Hunger Index.</li><li><strong>Exclusion Errors and Demographic Shifts:</strong> Reliance on outdated 2011 Census population baselines excludes millions of newly urbanized poor, homeless populations, and informal sector migrants who lack local documentation.</li><li><strong>Logistical and Storage Inefficiencies:</strong> Suboptimal storage facilities lead to grain rotting alongside persistent fiscal burdens of high food subsidies.</li></ul><p><strong>Way Forward:</strong></p><p>To transition from mere calorie sufficiency to genuine nutritional security, India must diversify its welfare food basket by aggressively incorporating millets (Shree Anna), pulses, and fortified foods. Decentralized procurement involving local farmer-producer organizations (FPOs), dynamic updating of beneficiary lists, and convergence between the Public Distribution System and Poshan Abhiyaan are vital to fulfilling the constitutional promise of a hunger-free nation in alignment with SDG 2.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to the National Food Security Act (NFSA), 2013, consider the following statements:\n1. It provides legal entitlements for subsidized food grains to approximately two-thirds of the Indian population.\n2. The identification of eligible households under the Act is entirely a Central Government responsibility.\n3. Pregnant women and lactating mothers are entitled to a maternity benefit of not less than Rs. 6,000.\nWhich of the statements given above are correct?",
+      "options": [
+        "1 and 3 only",
+        "2 and 3 only",
+        "1 only",
+        "1, 2 and 3"
+      ],
+      "answer": "1 and 3 only",
+      "explanation": "Statement 1 is correct (covers 75% rural and 50% urban, roughly 67% overall). Statement 2 is incorrect because state governments are responsible for identifying eligible households under rural and urban guidelines formulated by the Central Government. Statement 3 is correct: Section 4 of the NFSA entitles pregnant women and lactating mothers to receive maternity benefit of not less than Rs. 6,000."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following parameters are used in computing the Global Hunger Index (GHI)?\n1. Undernourishment\n2. Child stunting\n3. Child mortality\n4. Adult literacy rate\nSelect the correct answer using the code given below:",
+      "options": [
+        "1, 2 and 3 only",
+        "1, 3 and 4 only",
+        "2 and 4 only",
+        "1, 2, 3 and 4"
+      ],
+      "answer": "1, 2 and 3 only",
+      "explanation": "The Global Hunger Index combines four component indicators: Undernourishment (share of the population with insufficient caloric intake), Child stunting (children under five who have low height for their age), Child wasting (children under five who have low weight for their height), and Child mortality (mortality rate of children under five). Adult literacy is not a GHI indicator."
+    }
+  ]
+}

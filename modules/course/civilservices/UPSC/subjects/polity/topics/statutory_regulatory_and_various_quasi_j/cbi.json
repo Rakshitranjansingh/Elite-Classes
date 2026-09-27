@@ -1,0 +1,106 @@
+{
+  "microTopicId": "polity_statutory_regulatory_and_various_quasi_judiciary_bodies_cbi",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_statutory_regulatory_and_various_quasi_judicial_bodies",
+  "topicTitle": "Statutory, Regulatory and various Quasi-Judicial Bodies",
+  "subTopicTitle": "CBI",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance – Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS-II: Statutory, regulatory and various quasi-judicial bodies. GS-III: Internal Security – Various Security forces and agencies and their mandate."
+  },
+  "lectureHoursEstimate": "1-2 Hours",
+  "prelimsCapsule": {
+    "coreConceptSummary": "The Central Bureau of Investigation (CBI) is the premier investigating police agency in India. It is a non-constitutional, non-statutory body deriving its investigative powers from the Delhi Special Police Establishment (DSPE) Act, 1946.",
+    "highYieldFacts": [
+      "Fact 1: The CBI is not a statutory body; it functions under the Ministry of Personnel, Public Grievances and Pensions.",
+      "Fact 2: The Director, CBI as Inspector-General of Police, Delhi Special Police Establishment, is responsible for the administration of the organization.",
+      "Fact 3: The Lokpal and Lokayuktas Act (2013) amended the DSPE Act to provide for the appointment of the Director, CBI based on the recommendation of a three-member committee (PM, Leader of Opposition, CJI/Judge nominated by CJI).",
+      "Fact 4: The 'General Consent' requirement: The CBI requires consent from the respective state government to conduct investigations in its territory (derived from Section 6 of DSPE Act).",
+      "Fact 5: The CBI acts as the 'National Central Bureau' of India for INTERPOL coordination."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Often confused as a Statutory Body. Clarification: It derives powers from an Act (DSPE Act) but was established by a Ministry Resolution in 1963; it lacks an independent charter like the CVC.",
+      "Trap 2: Oversight confusion. CBI is under the Ministry of Personnel, but for investigation of offences under the Prevention of Corruption Act, it is subject to the superintendence of the CVC."
+    ],
+    "keyArticlesOrStatutes": [
+      "Delhi Special Police Establishment (DSPE) Act, 1946",
+      "Prevention of Corruption Act, 1988",
+      "Lokpal and Lokayuktas Act, 2013"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Institutional Architecture</h3><p>The CBI traces its origin to the Special Police Establishment (SPE) set up in 1941 by the Government of India. Post-independence, the DSPE Act of 1946 brought it under the Home Ministry. It was formalized by the Ministry of Home Affairs resolution in 1963 to investigate cases of bribery and governmental corruption.</p><h3>Contemporary Challenges</h3><ul><li><strong>Politicization:</strong> Frequent allegations of being a 'caged parrot' (SC observation in the Coal Allocation case) reflect the tension between political executive control and operational independence.</li><li><strong>Jurisdictional Hurdles:</strong> The withdrawal of 'General Consent' by several states limits the CBI’s ability to probe federal crimes without specific judicial intervention.</li><li><strong>Staffing & Infrastructure:</strong> High vacancy rates in the executive cadre and over-reliance on deputation from state police forces hampers long-term investigative specialization.</li></ul><h3>Governance Impact</h3><p>The CBI occupies a unique space as the nodal agency for international cooperation via Interpol. Its effectiveness is central to maintaining the integrity of public institutions. The 2nd ARC recommended transitioning the CBI into a truly autonomous statutory body with an independent budgetary and administrative framework, yet this remains a work in progress.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "DSPE Act 1946 lacks a dedicated oversight mechanism comparable to the CAG. Dependence on executive order makes it vulnerable to administrative pressure.",
+      "socio_economic": "Corruption in high-stakes public contracts directly impacts the delivery of social welfare schemes and the fiscal health of the nation.",
+      "administrative_governance": "Conflict between federalism and investigative mandates creates legal grey zones, specifically regarding the investigation of offences within state territories.",
+      "international_or_comparative": "Compared to the FBI (USA) or SFO (UK), the CBI lacks legislative protection for its investigative autonomy."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Vineet Narain vs. Union of India (1997): Established the independence of the CBI and the mechanism for the appointment of the Director.",
+      "2nd ARC Report: Recommended granting statutory status to the CBI.",
+      "SC observations in Coal Allocation Case: Described CBI as a 'caged parrot' speaking in its master's voice."
+    ],
+    "structuredDiagramAscii": "CENTRAL BUREAU OF INVESTIGATION (CBI)\n       |\n       +--- Administrative Control: Ministry of Personnel\n       +--- Supervisory Oversight: CVC (for PC Act cases)\n       +--- Legal Mandate: DSPE Act, 1946\n       +--- Investigation Scope:\n            |-- Anti-Corruption\n            |-- Economic Crimes\n            |-- Special Crimes (Murder, Kidnapping, Terrorism)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which of the following is/are the power(s) of the Central Bureau of Investigation (CBI)?",
+        "options": [
+          "It can suo motu take up cases of corruption in any state",
+          "It is the nodal agency for INTERPOL in India",
+          "It derives its power from the Prevention of Corruption Act",
+          "None of the above"
+        ],
+        "answer": "It is the nodal agency for INTERPOL in India",
+        "explanation": "CBI cannot take suo motu action in state-subject cases without state consent. It derives power from the DSPE Act, not directly from the Prevention of Corruption Act, though it investigates cases under it. It acts as the National Central Bureau for Interpol."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "Discuss the institutional challenges faced by the CBI in maintaining its professional autonomy and public credibility."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the need for granting statutory status to the Central Bureau of Investigation (CBI) to enhance its operational autonomy. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define CBI's current status (non-statutory) and the DSPE Act context.",
+      "body": "Explain the need for statutory status (accountability, insulation from executive, legislative backing), current challenges (General Consent, politicization), and arguments for/against (Federalism concerns).",
+      "conclusion": "Suggest a middle path: Strengthening existing structures, legal amendments to ensure insulation, and maintaining the federal spirit."
+    },
+    "modelAnswerHtml": "<h3>Model Answer: Statutory Status for CBI</h3><p>The Central Bureau of Investigation (CBI) is currently governed by the DSPE Act of 1946, a colonial-era legislation. The debate regarding its statutory status is a critique of the 'caged parrot' syndrome and the need for institutional insulation.</p><h4>Why Statutory Status is Necessary:</h4><ul><li><strong>Structural Autonomy:</strong> A statutory mandate would define the agency's functions, powers, and accountability mechanism, shielding it from arbitrary administrative interference.</li><li><strong>Standardization of Appointment:</strong> It would codify the tenure and appointment processes, currently dependent on the Lokpal Act amendments, ensuring uniformity.</li><li><strong>Financial Independence:</strong> A statute could ensure the CBI has a dedicated budget, preventing the executive from using financial levers to stall investigations.</li></ul><h4>Challenges and Counter-Perspectives:</h4><ul><li><strong>Federalism Concerns:</strong> Many states view the CBI as an instrument of the Union. A statutory body with wider, entrenched powers might face greater opposition from states invoking the federal principle.</li><li><strong>Accountability Paradox:</strong> Autonomy must be balanced with accountability. A powerful, autonomous agency without robust oversight (e.g., a Parliamentary Committee) could lead to an 'investigative state'.</li></ul><h4>Way Forward:</h4><p>Rather than merely seeking a statutory label, the focus must be on <strong>internal institutional reforms</strong>: increasing the permanent cadre strength, reducing reliance on deputation, and setting up an independent oversight board as suggested by the 2nd ARC. The goal should be to transform the CBI into a 'Professional Investigation Service' capable of meeting 21st-century cyber and financial crime challenges, in alignment with the 'Vision 2047' for robust and transparent governance.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to the 'General Consent' for CBI, consider the following statements: 1. A state government can withdraw its general consent at any time. 2. Without general consent, the CBI cannot investigate any case involving a central government employee in that state.",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "CBI can still investigate central government employees in states without general consent, provided they have a specific court order or if the offence is committed in the central territory."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following is responsible for the appointment of the Director of CBI?",
+      "options": [
+        "President of India on the advice of the Union Cabinet",
+        "A committee comprising the PM, Leader of Opposition, and the Chief Justice of India",
+        "A committee comprising the PM, Leader of Opposition and the Union Home Minister",
+        "The Appointments Committee of the Cabinet alone"
+      ],
+      "answer": "A committee comprising the PM, Leader of Opposition, and the Chief Justice of India",
+      "explanation": "Per the Lokpal and Lokayuktas Act, 2013, the appointment is made by a three-member committee."
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "microTopicId": "economy_banking_system_non_performing_assets_nps",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_banking_system",
+  "topicTitle": "Banking System",
+  "subTopicTitle": "Non-Performing Assets (NPS)",
+  "syllabusMapping": {
+    "prelims": "Indian Economy and Social Development - Growth, Development, Poverty, Inclusion, Demographics, Social Sector Initiatives, etc., specifically Banking and Financial Sector Reforms.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development, and employment (Inclusiveness and issues arising from it)."
+  },
+  "lectureHoursEstimate": "Lecture 15&16",
+  "prelimsCapsule": {
+    "coreConceptSummary": "A Non-Performing Asset (NPA) is a loan or advance for which the principal or interest payment remained overdue for a period of 90 days. To address structural balance-sheet stress, institutional mechanisms like the National Asset Reconstruction Company Limited (NARCL) and the Insolvency and Bankruptcy Code (IBC) have been deployed alongside prudential asset classification norms.",
+    "highYieldFacts": [
+      "Fact 1: The 90-day delinquency norm applies universally to term loans for income-recognition and asset-classification (IRAC) purposes.",
+      "Fact 2: Agricultural advances have distinct classification cycles based on crop seasons—two crop seasons for short-term duration crops and one crop season for long-term duration crops.",
+      "Fact 3: The Insolvency and Bankruptcy Code (IBC), 2016, establishes a time-bound resolution process of 330 days, including litigation, for corporate persons.",
+      "Fact 4: The National Asset Reconstruction Company Limited (NARCL) operates as the 'Bad Bank', aggregating distressed assets, with a government guarantee backing up to Rs 30,600 crore for Security Receipts.",
+      "Fact 5: RBI's Prompt Corrective Action (PCA) framework imposes mandatory and discretionary restrictions on banks when capital, asset quality, or leverage thresholds breach specified risk limits."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing SMA (Special Mention Accounts) classifications (SMA-0: 1-30 days, SMA-1: 31-60 days, SMA-2: 61-90 days) with actual NPAs.",
+      "Trap 2: Assuming agricultural loans follow the standard 90-day norm without factoring in crop-season variations mandated by the Reserve Bank of India."
+    ],
+    "keyArticlesOrStatutes": [
+      "Insolvency and Bankruptcy Code (IBC), 2016",
+      "SARFAESI Act, 2002",
+      "Recovery of Debts and Bankruptcy (RDB) Act, 1993",
+      "Banking Regulation Act, 1949"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Multi-Dimensional Impact of Non-Performing Assets (NPAs)</h3><p>Non-Performing Assets represent the quintessential stress test for India's macroeconomic architecture. Historically rooted in the 'Indo-Swiss' or exuberant credit expansion cycles of the mid-2000s, structural bottlenecks—such as environmental clearances, land acquisition delays, and global commodity downturns—paralyzed infrastructure and core industrial sectors, converting productive loans into toxic assets. The resultant 'twin balance sheet problem' immobilized both corporate investments and banking credit creation capacity.</p><p>From a governance perspective, the accumulation of NPAs exposes systemic vulnerabilities in underwriting standards, risk management frameworks, and board-level oversight. The lifecycle of asset degradation flows from Standard Assets to Special Mention Accounts (SMA-0, SMA-1, SMA-2), eventually crossing the 90-day delinquency threshold into Sub-Standard, Doubtful, and Loss categories. This classification mandates provisioning out of operating profits, eroding capital adequacy ratios (CRAR) under Basel III guidelines, and impairing financial intermediaries' capacity to finance capital formation.</p><p>To mitigate this systemic drag, India's institutional architecture has undergone a paradigm shift. Moving away from the era of protracted litigation under the Sick Industrial Companies Act (SICA) and BIFR, the modern resolution framework is anchored by the <strong>Insolvency and Bankruptcy Code (IBC), 2016</strong>, the <strong>SARFAESI Act, 2002</strong>, and market-based mechanisms like Asset Reconstruction Companies (ARCs). Furthermore, the establishment of the National Asset Reconstruction Company Limited (NARCL) represents a macro-aggregator model designed to clean up legacy stressed assets through an 'Aggregator-Resolution' design, utilizing a Public-Private Partnership model backed by a sovereign guarantee on Security Receipts.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Balancing creditor rights under the SARFAESI and IBC statutes with principles of natural justice, debtor rehabilitation, and operational independence of statutory regulators like the RBI and IBBI.",
+      "socio_economic": "Credit rationing stifling MSME growth and employment generation, alongside the opportunity cost of public capital diverted toward recapitalizing state-owned banks instead of healthcare and education.",
+      "administrative_governance": "Judicial delays in National Company Law Tribunals (NCLT), information asymmetry in credit bureaus, and the challenge of moral hazard associated with repeated regulatory forbearance.",
+      "international_or_comparative": "Benchmarking against global standards like the European Union's Banking Union and US resolution frameworks (FDIC), ensuring alignment with Financial Stability Board (FSB) recommendations."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Economic Survey (various years) analyses on the Twin Balance Sheet and Prudential Clean-up",
+      "P.J. Nayak Committee Report on Governance of Boards of Banks in India",
+      "Supreme Court judgments on IBC timelines and operational creditor primacy",
+      "RBI Financial Stability Reports (FSR)"
+    ],
+    "structuredDiagramAscii": "+--------------------------------------------------------------------------+\n|                       STRESS IDENTIFICATION CYCLE                        |\n+--------------------------------------------------------------------------+\n  Standard Asset ---> SMA-0 (1-30d) ---> SMA-1 (31-60d) ---> SMA-2 (61-90d)\n                                                                     |\n                                                                     v\n+--------------------------------------------------------------------------+\n|                        NPA CLASSIFICATION ( > 90 Days)                   |\n+--------------------------------------------------------------------------+\n  Sub-Standard (< 12 mos) ---> Doubtful (> 12 mos) ---> Loss (Uncollectible)\n                                                                     |\n                                                                     v\n+--------------------------------------------------------------------------+\n|                      RESOLUTION & RECOVERY ECOSYSTEM                     |\n+--------------------------------------------------------------------------+\n  [IBC, 2016]      [SARFAESI Act, 2002]      [NARCL / Bad Bank]    [DRTs]"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "Which of the following is/are correct regarding the 'Prompt Corrective Action' (PCA) framework of the Reserve Bank of India?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Both 1 and 2",
+        "explanation": "The PCA framework acts as a supervisory tool triggered when banks breach risk thresholds relating to capital, asset quality, and leverage. It imposes mandatory restrictions such as dividend distribution curbs and discretionary restrictions on branch expansion."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Ordinarily, the Government and RBI come to the rescue of public sector banks. What are the mechanisms of this rescue? Explain long-term implications of such rescue operations."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Analyze the structural causes behind the accumulation of Non-Performing Assets (NPAs) in the Indian banking sector and evaluate the efficacy of the Insolvency and Bankruptcy Code (IBC) in resolving this challenge. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define NPAs briefly and highlight the macroeconomic context of the 'Twin Balance Sheet' problem affecting Indian banking.",
+      "body": "Examine structural causes (lax underwriting, macroeconomic shocks, governance deficits) and evaluate IBC (strengths like time-bound resolution, change in control, and challenges such as NCLT bench delays and haircuts taken by lenders).",
+      "conclusion": "Suggest forward-looking measures, including robust early warning systems, professionalization of board structures, and strengthening secondary debt markets."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Non-Performing Assets (NPAs)—loans where interest or principal installments remain overdue for over 90 days—have historically constrained India's financial stability. The accumulation of legacy stressed assets culminated in the 'Twin Balance Sheet' crisis, choking corporate investment and dampening credit growth across key sectors.</p><h3>Structural Causes of NPA Accumulation</h3><ul><li><strong>Exuberant Credit Expansion:</strong> Undisciplined lending during the 2003–2008 boom cycle without adequate due diligence or stress testing.</li><li><strong>Macroeconomic Shocks and Bottlenecks:</strong> Regulatory hurdles, land acquisition delays, and environmental clearances stalling infrastructure and power projects.</li><li><strong>Governance Deficits:</strong> Concentrated exposures to large conglomerates, political interference, and weak risk management frameworks in Public Sector Banks (PSBs).</li><li><strong>Information Asymmetry:</strong> Absence of unified enterprise-wide credit registries during early credit expansion phases, leading to multiple-banking models with uncoordinated monitoring.</li></ul><h3>Efficacy of the Insolvency and Bankruptcy Code (IBC), 2016</h3><p>The IBC has transformed the debtor-creditor dynamic from 'debtor in possession' to 'creditor in control':</p><ul><li><strong>Paradigm Shift in Resolution:</strong> Shifted power to financial creditors, instilling corporate discipline and discouraging willful default.</li><li><strong>Time-Bound Mechanism:</strong> Mandated a 330-day outer limit for resolution, improving speed relative to legacy tribunals like BIFR and DRTs.</li><li><strong>Preservation of Economic Value:</strong> Focuses on corporate rescue as a going concern rather than immediate liquidation.</li></ul><h3>Challenges Facing IBC</h3><ul><li><strong>Judicial Bottlenecks:</strong> Infrastructure deficits and vacancy rates in National Company Law Tribunals (NCLTs) leading to mounting case backlogs and timeline breaches.</li><li><strong>Steep Haircuts:</strong> Creditors often incur substantial write-offs when resolutions fail to match liquidation valuations.</li><li>Operational bottlenecks in operationalizing the cross-border insolvency framework and personal guarantor provisions.</li></ul><h3>Way Forward</h3><p>To institutionalize asset quality durability, India must strengthen early warning signals (EWS), operationalize the bad bank (NARCL) effectively, enhance NCLT infrastructure, and mandate robust underwriting standards underpinned by artificial intelligence and big-data analytics.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to the Special Mention Accounts (SMA) framework in Indian banking, consider the following statements: 1. SMA-0 is triggered when principal or interest payments are overdue between 1 to 30 days. 2. SMA-2 classification is applied when the overdue period ranges from 61 to 90 days. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Both statements are correct. SMA categories act as early warning signals: SMA-0 (1-30 days), SMA-1 (31-60 days), and SMA-2 (61-90 days) before a loan transitions into an NPA at 90 days."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following statements regarding the National Asset Reconstruction Company Limited (NARCL): 1. It acts as an asset reconstruction company that acquires stressed loan assets from commercial banks. 2. Security receipts issued by NARCL are backed by a sovereign guarantee from the Government of India. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "NARCL is structured as a bad bank to aggregate stressed assets. The government has provided a sovereign guarantee of up to Rs 30,600 crore for Security Receipts issued by NARCL to cover potential shortfalls in ultimate realization."
+    }
+  ]
+}

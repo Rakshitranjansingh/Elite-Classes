@@ -1,0 +1,105 @@
+{
+  "microTopicId": "polity_basic_concept_concept_of_freedom",
+  "subjectId": "polity",
+  "subjectTitle": "Indian Polity & Governance",
+  "topicId": "polity_basic_concept",
+  "topicTitle": "Basic Concept",
+  "subTopicTitle": "Concept of freedom",
+  "syllabusMapping": {
+    "prelims": "Indian Polity and Governance: Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.",
+    "mains": "GS-II: Indian Constitution—historical underpinnings, evolution, features, amendments, significant provisions and basic structure."
+  },
+  "lectureHoursEstimate": "Lecture 1",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Freedom in the Indian constitutional context is not an absolute license but a 'regulated liberty' balanced against 'reasonable restrictions' to ensure public order, morality, and sovereignty. It operates through the interplay of positive liberty (capacity to act) and negative liberty (absence of state interference).",
+    "highYieldFacts": [
+      "Fact 1: Article 19(1) guarantees six fundamental freedoms, while Article 19(2) prescribes grounds for reasonable restrictions.",
+      "Fact 2: Freedom of speech and expression (19(1)(a)) inherently includes freedom of the press and the right to remain silent (Bijoe Emmanuel case).",
+      "Fact 3: The 'Doctrine of Proportionality' is the judicial benchmark used to determine if a restriction is 'reasonable'.",
+      "Fact 4: Article 21 acts as the residual protector of freedom, ensuring that no person is deprived of life or personal liberty except by procedure established by law.",
+      "Fact 5: India ranks poorly in global indices like the World Press Freedom Index (RSF) due to concerns regarding digital surveillance and dissent."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Assuming all freedoms in Article 19 are available to aliens; note that Articles 15, 16, 19, 29, and 30 are exclusively for citizens.",
+      "Trap 2: Confusing 'reasonable restriction' with 'arbitrary restriction'. The former must be provided by a law, not just executive order."
+    ],
+    "keyArticlesOrStatutes": [
+      "Article 19, Article 21, Article 22, Reasonable Restrictions (19(2) to 19(6)), IT Act 2000 (Section 66A struck down)."
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Philosophical and Constitutional Foundation</h3><p>Freedom in Indian polity transcends mere absence of restraint. It is anchored in the Preamble as 'Liberty of thought, expression, belief, faith, and worship'. The constitutional design adopts a <strong>'Harmonious Construction'</strong> approach, where Article 19 freedoms are juxtaposed with state-imposed reasonable restrictions.</p><h3>The Architecture of Restriction</h3><p>The state's power to restrict freedom is not plenary. The Supreme Court in <em>A.K. Gopalan</em> (1950) adopted a strict legalistic view, but <em>Maneka Gandhi</em> (1978) evolved the 'Golden Triangle' theory (Articles 14, 19, and 21), mandating that any restriction must pass the test of <strong>Reasonableness, Fairness, and Non-arbitrariness.</strong></p><h3>Contemporary Challenges</h3><ul><li><strong>Digital Sovereignty vs. Free Speech:</strong> The tension between national security (Intermediary Guidelines) and the right to information.</li><li><strong>Surveillance State:</strong> The impact of Pegasus-like spyware on the 'Right to Privacy' (K.S. Puttaswamy judgment).</li><li><strong>Chilling Effect:</strong> The misuse of sedition (Section 124A) and UAPA laws to silence legitimate dissent.</li></ul>",
+    "dimensions": {
+      "constitutional_or_legal": "Evolution from 'Procedure established by law' to 'Due process of law'.",
+      "socio_economic": "Freedom is illusory without economic security; Right to Education (Art 21A) is a prerequisite for exercising freedom.",
+      "administrative_governance": "The tendency of executive overreach in enforcing public order (e.g., blanket internet shutdowns).",
+      "international_or_comparative": "Comparison with US First Amendment (near absolute) vs. Indian 'Ordered Liberty'."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Maneka Gandhi vs Union of India (1978)",
+      "K.S. Puttaswamy vs Union of India (2017)",
+      "Shreya Singhal vs Union of India (2015)",
+      "Anuradha Bhasin vs Union of India (2020) on Internet Shutdowns"
+    ],
+    "structuredDiagramAscii": "FREEDOM (Constitutional Liberty) --> (1) Article 19 (Specific Freedoms) & (2) Article 21 (Personal Liberty) --> BALANCED BY --> Reasonable Restrictions (Public Order/Sovereignty/Morality) --> JUDICIAL OVERSIGHT (Proportionality Test)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2021,
+        "question": "With reference to India, consider the following statements: 1. A constitutional government is one which places effective restrictions on individual liberty. 2. A constitutional government is one which places effective restrictions on the authority of the State. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "2 only",
+        "explanation": "Constitutionalism is defined by limiting state power, not necessarily restricting liberty, although regulation exists to protect collective rights."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-II",
+        "marks": 15,
+        "question": "The right to move freely throughout the territory of India is a fundamental right. Examine the scope and limitations of this right with special reference to recent judicial interventions."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the evolving concept of 'Freedom' in the digital age. How has the judiciary balanced individual liberty against the state's interest in national security?",
+    "approach": {
+      "intro": "Define freedom as a dynamic concept and link it to the 'Golden Triangle' (Art 14, 19, 21).",
+      "body": "Discuss the digital shift (privacy vs. surveillance), judicial interventions (Shreya Singhal, Anuradha Bhasin), and the proportionality test.",
+      "conclusion": "Emphasize 'Constitutional Morality' and the need for a balanced legal framework."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Freedom in India is not static; it is a transformative right. In the digital age, the conflict between individual liberty and state authority has shifted from physical spaces to the 'virtual public square', necessitating a nuanced judicial approach.</p><h3>Judicial Balancing Act</h3><ul><li><strong>The Proportionality Doctrine:</strong> The SC mandates that any restriction on freedom must be proportional to the objective sought. If less restrictive measures exist, the state's severe action is unconstitutional (e.g., Internet shutdowns).</li><li><strong>Privacy as Freedom:</strong> <em>Puttaswamy (2017)</em> redefined freedom by placing 'Privacy' at the core of Article 21, limiting state intrusion into the digital life of citizens.</li><li><strong>Checks on Executive Overreach:</strong> The striking down of Section 66A of the IT Act in <em>Shreya Singhal</em> highlights the court's role in curbing 'chilling effects' on speech.</li></ul><h3>Way Forward</h3><p>The state must transition from a 'security-first' to a 'rights-first' governance model. Legislation like the Digital Personal Data Protection Act must be implemented with independent oversight to ensure freedom is not curtailed under the guise of technical necessity.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following is NOT a ground for 'Reasonable Restriction' under Article 19(2)?",
+      "options": [
+        "Sovereignty and integrity of India",
+        "Public order",
+        "Defamation",
+        "Economic stability of the nation"
+      ],
+      "answer": "Economic stability of the nation",
+      "explanation": "Economic stability is not a grounds for restricting Article 19(1)(a) speech."
+    },
+    {
+      "id": "mcq_02",
+      "question": "The concept of 'Ordered Liberty' in India implies:",
+      "options": [
+        "Complete freedom from state laws",
+        "Freedom balanced by constitutional obligations",
+        "Freedom applicable only to the legislature",
+        "None of the above"
+      ],
+      "answer": "Freedom balanced by constitutional obligations",
+      "explanation": "Ordered liberty suggests that true freedom thrives within the framework of law, not outside it."
+    }
+  ]
+}

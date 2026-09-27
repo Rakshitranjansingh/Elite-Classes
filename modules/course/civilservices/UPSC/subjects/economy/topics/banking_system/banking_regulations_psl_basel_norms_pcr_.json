@@ -1,0 +1,108 @@
+{
+  "microTopicId": "economy_banking_system_banking_regulations_psl_basel_",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_banking_system",
+  "topicTitle": "Banking System",
+  "subTopicTitle": "Banking Regulations; PSL, Basel Norms, PCR, etc.",
+  "syllabusMapping": {
+    "prelims": "Indian Economy - Economic Development, Banking, Regulation, Inclusion, Financial Stability",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment"
+  },
+  "lectureHoursEstimate": "Lecture 15&16",
+  "prelimsCapsule": {
+    "coreConceptSummary": "This module covers the core regulatory and supervisory architecture of India's banking sector, encompassing statutory powers under the Banking Regulation Act, 1949, Priority Sector Lending (PSL) mandates for inclusive growth, global capital adequacy frameworks (Basel III), and data infrastructures like the Public Credit Registry (PCR) designed to mitigate asymmetric information and non-performing assets (NPAs).",
+    "highYieldFacts": [
+      "Fact 1: The Banking Regulation Act, 1949 empowers the RBI to regulate, inspect, and license commercial cooperative and banking companies in India.",
+      "Fact 2: Priority Sector Lending (PSL) targets require domestic commercial banks and foreign banks with 20 branches and above to allocate 40% of their Adjusted Net Bank Credit (ANBC) or Credit Equivalent Amount of Off-Balance Sheet Exposure (CEOBE), whichever is higher, to specified priority sectors.",
+      "Fact 3: Basel III norms stipulate a minimum Total Capital Adequacy Ratio (CRAR) of 9% plus a Capital Conservation Buffer (CCB) of 2.5%, bringing the total common equity and buffer requirement to 11.5% (excluding countercyclical buffers).",
+      "Fact 4: The Public Credit Registry (PCR), conceptualized on the recommendations of the Y.H. Malegam Committee and the RBI High-Level Task Force, serves as an extensive public repository of credit information for both retail and corporate borrowers.",
+      "Fact 5: Prompt Corrective Action (PCA) framework enables the RBI to intervene early and take supervisory actions (such as restrictions on dividend distribution, branch expansion, and asset growth) when banks breach specified thresholds for capital, asset quality, and leverage."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing PSL targets for foreign banks having fewer than 20 branches (they have lower overall targets or differential sub-targets compared to domestic banks).",
+      "Trap 2: Assuming Basel III Tier-1 Capital consists solely of Common Equity Tier-1 (CET1); additional Tier-1 instruments like Perpetual Bonds also qualify under specific limits."
+    ],
+    "keyArticlesOrStatutes": [
+      "Banking Regulation Act, 1949",
+      "Reserve Bank of India Act, 1934",
+      "Securitisation and Reconstruction of Financial Assets and Enforcement of Security Interest (SARFAESI) Act, 2002",
+      "Insolvency and Bankruptcy Code (IBC), 2016"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Architecture of Indian Banking Regulations</h3><p>The stability of India's financial architecture rests on a tripod of rigorous statutes, macro-prudential capital standards, and developmental mandates. At the apex stands the Reserve Bank of India (RBI), deriving its regulatory authority primarily from the RBI Act, 1934 and the Banking Regulation Act, 1949. Over the decades, this framework has evolved from micro-management of interest rates to risk-based supervision, prompt intervention models, and internationally harmonized capital standards.</p><h3>Priority Sector Lending (PSL) as an Instrument of Financial Inclusion</h3><p>Priority Sector Lending ensures that commercial credit reaches vulnerable and neglected segments of the economy—agriculture, micro, small and medium enterprises (MSMEs), export credit, education, housing, social infrastructure, and renewable energy. While critics argue that PSL introduces market distortions and elevates non-performing assets in agricultural portfolios, it remains a critical socio-economic instrument to bridge regional disparities and foster inclusive growth, in alignment with Sustainable Development Goals (SDGs 8 and 9).</p><h3>Basel Norms and Global Risk Mitigation</h3><p>Implementation of Basel III standards marks India's transition to a risk-sensitive banking system. By enforcing stricter definitions of capital, leverage ratios, and liquidity requirements (Liquidity Coverage Ratio - LCR and Net Stable Funding Ratio - NSFR), Basel norms insulate domestic banks from global systemic shocks. However, capital computation models face constant friction between regulatory conservatism and credit expansion needs, especially during economic downturns.</p><h3>Addressing Information Asymmetry: Public Credit Registry (PCR)</h3><p>A primary driver of systemic NPAs in India has been information asymmetry—borrowers leveraging multiple institutions without transparent disclosure of total liabilities. The Public Credit Registry (PCR) is designed to act as a single-point granular credit information repository. By amalgamating data from banks, financial regulators, and corporate registries, the PCR enhances credit appraisal accuracy, accelerates debt resolution, and lowers the cost of borrowing for credit-worthy entities.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory powers of RBI under the Banking Regulation Act, 1949, and the constitutional validity of federal financial regulation vs. state cooperative bank controls (via 97th Constitutional Amendment jurisprudence).",
+      "socio_economic": "Balancing commercial viability with social welfare through PSL; bridging the credit gap for MSMEs and agriculture; promoting financial deepening in rural hinterlands.",
+      "administrative_governance": "Regulatory overlap among RBI, SEBI, and IBBI; enforcement efficacy of the Prompt Corrective Action (PCA) framework; capacity constraints in credit appraisal and auditing.",
+      "international_or_comparative": "Adherence to Basel Committee on Banking Supervision (BCBS) standards; cross-border resolution mechanisms; competitiveness of Indian banks in global financial markets."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Y.H. Malegam Committee Report on Public Credit Registry",
+      "P.J. Nayak Committee Report on Governance of Boards of Banks in India",
+      "Narayan Murthy Committee and 2nd ARC Recommendations on Financial Sector Reforms",
+      "Supreme Court judgment on Cooperative Banks and RBI's regulatory jurisdiction under the Banking Regulation Act"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------------------------+\n|               MACRO-PRUDENTIAL REGULATORY ARCHITECTURE                  |\n+-------------------------------------------------------------------------+\n                                     |\n        +----------------------------+----------------------------+\n        |                                                         |\n        v                                                         v\n+-------------------------------+         +-------------------------------+\n|     STATUTORY & SUPERVISORY   |         |     PRUDENTIAL & STABILITY    |\n|        (RBI & Statutes)       |         |         (Basel III & PCR)     |\n+-------------------------------+         +-------------------------------+\n        |                                                         |\n        +--> Banking Regulation Act, 1949                         +--> CRAR & Liquidity Ratios (LCR/NSFR)\n        |                                                         |\n        +--> Prompt Corrective Action (PCA)                       +--> Public Credit Registry (PCR)\n        |                                                         |\n        +--> Risk-Based Supervision (RBS)                         +--> Priority Sector Lending (PSL)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "If you decide to start a financial business in India, which of the following is/are the statutory requirement(s) to be complied with?",
+        "options": [
+          "1 only",
+          "2 only",
+          "Both 1 and 2",
+          "Neither 1 nor 2"
+        ],
+        "answer": "Both 1 and 2",
+        "explanation": "To set up a banking company in India, compliance with the Banking Regulation Act, 1949 and licensing by the Reserve Bank of India under Section 22 of the Act are mandatory statutory requirements."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "The '1-P' strategy of the government—Prompt Corrective Action (PCA)—has been instrumental in steering weak public sector banks. Critically evaluate the impact of PCA on the Indian banking system."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the significance of Basel III norms and Priority Sector Lending (PSL) in strengthening the resilience and inclusivity of the Indian banking sector. What structural bottlenecks remain in their effective implementation? (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define the dual mandate of Indian banking—financial stability (Basel norms) and financial inclusion (PSL). Cite constitutional and statutory backing.",
+      "body": "1. Analyze how Basel III enhances resilience (capital buffers, LCR, NSFR). 2. Explain how PSL ensures equitable credit allocation to agriculture and MSMEs. 3. Detail the structural bottlenecks: capital stress on PSBs, high NPAs in agricultural PSL, and compliance costs for foreign/small banks.",
+      "conclusion": "Suggest a forward-looking roadmap involving risk-based pricing, digital integration via PCR, and dynamic capital buffers."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The Indian banking sector operates under a delicate equilibrium between systemic stability and developmental inclusivity. While <strong>Basel III norms</strong> safeguard financial institutions against macroeconomic shocks, <strong>Priority Sector Lending (PSL)</strong> channels credit toward marginalized socio-economic segments, fulfilling the Directive Principles of State Policy (Article 38) regarding equitable resource distribution.</p><h3>Significance of Basel III Norms in Ensuring Resilience</h3><ul><li><strong>Capital Adequacy:</strong> Imposes stringent requirements on Common Equity Tier-1 (CET1) and Total Capital Ratio, compelling banks to absorb unexpected losses.</li><li><strong>Liquidity Standards:</strong> Introduction of the Liquidity Coverage Ratio (LCR) and Net Stable Funding Ratio (NSFR) prevents asset-liability mismatches, mitigating risks akin to global liquidity crunches.</li><li><strong>Countercyclical Buffers:</strong> Builds reserves during credit booms to be drawn down during economic downturns.</li></ul><h3>Role of Priority Sector Lending (PSL) in Inclusivity</h3><ul><li><strong>Equitable Credit Distribution:</strong> Mandates 40% of ANBC toward agriculture, MSMEs, education, and renewable energy, addressing systemic credit starvation in rural areas.</li><li><strong>Socio-Economic Development:</strong> Supports priority segments that generate large-scale employment and foster grassroots entrepreneurship, directly contributing to SDGs 1, 8, and 9.</li></ul><h3>Structural Bottlenecks in Implementation</h3><ul><li><strong>Capital Constraints on Public Sector Banks (PSBs):</strong> Meeting high capital buffers under Basel III often requires aggressive fiscal recapitalization, straining public finances.</li><li><strong>Distortions and NPAs in PSL:</strong> Forced lending targets without adequate credit appraisal capacity in remote areas have frequently manifested as elevated stress and non-performing assets in agricultural portfolios.</li><li><strong>Compliance Burden for Foreign Banks:</strong> Banks with fewer than 20 branches face unique operational challenges in meeting sub-targets like small and marginal farmers or micro-enterprises.</li></ul><h3>Conclusion</h3><p>To future-proof the Indian economy, regulatory frameworks must evolve harmoniously. Integrating advanced data architectures like the <strong>Public Credit Registry (PCR)</strong> with Basel III risk models, alongside rationalizing PSL sub-targets through tradable Priority Sector Lending Certificates (PSLCs), will ensure robust, resilient, and inclusive credit growth in alignment with Vision 2047.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Priority Sector Lending (PSL) in India:\n1. Foreign banks with 20 branches and above are mandated to meet the same overall PSL target as domestic commercial banks.\n2. Priority Sector Lending Certificates (PSLCs) enable banks to buy and sell surplus/deficit PSL achievements without transferring credit risk.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Both statements are correct. Foreign banks with 20 branches and above are subject to the 40% overall PSL target similar to domestic banks. PSLCs are market instruments allowing banks to trade their over-achievement or shortfall in PSL targets without transferring the underlying credit risk."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following institutions/committees recommended the establishment of a Public Credit Registry (PCR) in India?",
+      "options": [
+        "Y.H. Malegam Committee",
+        "P.J. Nayak Committee",
+        "Narasimham Committee II",
+        "Urjit Patel Committee"
+      ],
+      "answer": "Y.H. Malegam Committee",
+      "explanation": "The Reserve Bank of India constituted a High-Level Task Force on Public Credit Registry (PCR) under the chairmanship of Shri Y.H. Malegam to suggest a comprehensive credit information architecture for India."
+    }
+  ]
+}

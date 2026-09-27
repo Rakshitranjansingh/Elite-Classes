@@ -1,0 +1,104 @@
+{
+  "microTopicId": "economy_monetary_policy_inflation_targeting",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_monetary_policy",
+  "topicTitle": "Monetary Policy",
+  "subTopicTitle": "Inflation Targeting",
+  "syllabusMapping": {
+    "prelims": "Indian Economy and Social Development - Economic Growth, Inflation, Poverty, Inclusion, Demographics, Social Sector Initiatives.",
+    "mains": "GS Paper III - Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment."
+  },
+  "lectureHoursEstimate": "Lecture 12&13",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Inflation Targeting is a central banking policy that involves public announcement of official inflation target rates and a public commitment by the central bank to achieve these targets primarily through monetary policy instruments like the repo rate. In India, a flexible inflation targeting (FIT) framework was adopted in 2016 under the Reserve Bank of India (RBI) Act, 1934.",
+    "highYieldFacts": [
+      "Fact 1: The statutory target is set at 4% Consumer Price Index (CPI) combined inflation, with an upper tolerance limit of 6% and a lower limit of 2% (4 +/- 2%).",
+      "Fact 2: The framework is reviewed every five years by the Central Government in consultation with the RBI; the current framework was extended for the period April 1, 2021, to March 31, 2026.",
+      "Fact 3: The Monetary Policy Committee (MPC), established under Section 45ZB of the RBI Act, consists of 6 members (3 from RBI and 3 external members appointed by the Central Government).",
+      "Fact 4: If the RBI fails to meet the inflation target for three consecutive quarters, it must submit a formal report to the Central Government explaining the reasons for failure, remedial actions, and estimated time frame for achieving the target (Section 45ZN).",
+      "Fact 5: The Urjit Patel Committee (2014) laid the institutional blueprint for adopting CPI-combined as the headline inflation gauge and establishing the flexible inflation targeting framework."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing WPI (Wholesale Price Index) with CPI (Consumer Price Index) as the target metric. India targets headline CPI inflation, not WPI.",
+      "Trap 2: Assuming the MPC has a casting vote for the Governor under all circumstances; the Governor has a casting vote in case of a tie, but no veto power over majority decisions."
+    ],
+    "keyArticlesOrStatutes": [
+      "Section 45ZA to 45ZN of the Reserve Bank of India (RBI) Act, 1934 (Inserted by the Finance Act, 2016)"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Institutional Architecture of Inflation Targeting in India</h3><p>The adoption of Flexible Inflation Targeting (FIT) in 2016 marked a paradigm shift in India's macroeconomic governance, transitioning from a multi-indicator approach to a price-stability-anchored framework. Grounded in amendments to the Reserve Bank of India Act, 1934, FIT legally mandates the central bank to prioritize price stability while keeping in mind the objective of economic growth.</p><h3>The Mechanics of the Monetary Policy Committee (MPC)</h3><p>The 6-member MPC institutionalized collective decision-making, moving away from the erstwhile sole discretion of the RBI Governor. The committee meets bimonthly, evaluating high-frequency indicators, global spillover risks, fiscal impulses, and inflation projections. The primary anchor is headline CPI inflation, anchored at 4% with a +/- 2% band. This framework has successfully anchored inflation expectations, reduced structural inflation volatility, and enhanced policy credibility among domestic and international investors.</p><h3>Contemporary Challenges and Governance Trade-offs</h3><p>Despite its success, FIT faces unique structural bottlenecks in developing economies like India. Supply-side rigidities, particularly volatile food and fuel prices which constitute a significant share of the CPI basket, often render interest rate adjustments blunt instruments against cost-push inflation. Aggressive rate hikes to tame imported food inflation can suppress nascent credit growth and private capital formation without directly impacting supply constraints. Furthermore, managing the Trilemma of open capital accounts, exchange rate volatility, and domestic monetary autonomy tests the dexterity of the MPC during global monetary tightening cycles.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory backing via the Finance Act, 2016 amending the RBI Act, 1934, defining accountability mechanisms through failure reports under Section 45ZN.",
+      "socio_economic": "Inflation acts as a regressive tax disproportionately eroding the purchasing power of fixed-income and unorganized sector households; targeting price stability protects the vulnerable from poverty traps.",
+      "administrative_governance": "Requires seamless synergy between fiscal policy (government expenditure, food management, buffer stock operations) and monetary policy to manage supply-side shocks effectively.",
+      "international_or_comparative": "Aligns India with advanced and emerging market economies (such as New Zealand, UK, Brazil, South Africa) adopting transparent rule-based monetary frameworks to enhance global credibility."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Urjit Patel Committee Report (2014) on Revising and Strengthening the Monetary Policy Framework",
+      "Financial Sector Legislative Reforms Commission (FSLRC) Report",
+      "Economic Survey chapters on Inflation Management and Supply-Side Interventions"
+    ],
+    "structuredDiagramAscii": "Macroeconomic Shocks (Global Supply / Domestic Food Shocks)\n       |\n       v\n[Headline CPI Inflation Tracking (Target: 4% +/- 2%)]\n       |\n       v\n[Monetary Policy Committee (MPC) Review & Deliberation]\n       |\n       +---> If Inflation > 6% (3 consecutive quarters) ---> Mandatory Failure Report to Central Govt\n       |\n       +---> Policy Rate Adjustment (Repo Rate Hike / Cut)\n       |\n       v\nTransmission via Banking Channels ---> Aggregate Demand Management ---> Price Stability & Growth Balance"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2020,
+        "question": "Consider the following statements: 1. RBI's monetary policy committee is a statutory body. 2. It sets the benchmark repo rate to reduce inflation. 3. It consists of 12 members. Which of the statements given above is/are correct?",
+        "options": [
+          "1 only",
+          "1 and 2 only",
+          "3 only",
+          "1, 2 and 3"
+        ],
+        "answer": "1 and 2 only",
+        "explanation": "Statement 1 is correct as MPC is constituted under Section 45ZB of the RBI Act. Statement 2 is correct as setting repo rate to achieve inflation target is its primary function. Statement 3 is incorrect because the MPC has 6 members, not 12."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2018,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Do you agree with the view that the monetary policy committee has been able to anchor inflation expectations in India? Critically examine."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the rationale behind adopting Flexible Inflation Targeting (FIT) in India. Discuss its efficacy in balancing price stability with growth objectives amidst persistent supply-side shocks. (250 words, 15 Marks)",
+    "approach": {
+      "intro": "Define Flexible Inflation Targeting and mention its statutory basis (RBI Act amended in 2016, 4% +/- 2% target).",
+      "body": "Explain the rationale (anchoring expectations, eliminating discretion). Analyze its efficacy (success in controlling core inflation, limitations in managing food/supply shocks). Suggest complementary fiscal measures.",
+      "conclusion": "Summarize with a forward-looking perspective on institutional coordination for sustained growth toward Vision 2047."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>Flexible Inflation Targeting (FIT), institutionalized via the 2016 amendment to the RBI Act, 1934, mandates the Reserve Bank of India to maintain consumer price index (CPI) inflation at 4% with a band of +/- 2%. This marked a decisive transition from a multiple-indicator monetary regime to a rule-based, transparent framework aimed at cementing macroeconomic stability.</p><h3>Rationale for Adopting FIT</h3><p><strong>Anchoring Inflation Expectations:</strong> Historically, India suffered from double-digit persistent inflation, unhinging public expectations and triggering wage-price spirals.<br><strong>Policy Credibility:</strong> A quantifiable target enhances institutional accountability. Under Section 45ZN, failure to meet targets for three consecutive quarters requires a formal explanatory report to the government.<br><strong>Clarity of Mandate:</strong> It resolves the objective conflict by prioritizing price stability as a pre-condition for sustainable growth.</p><h3>Efficacy Amidst Supply-Side Shocks</h3><p><strong>Successes:</strong> FIT has successfully anchored structural inflation expectations, keeping headline inflation largely within the tolerance band during normal economic cycles and enhancing resilience against global shocks.<br><strong>Limitations (Supply-Side Rigidities):</strong> Indian inflation is heavily driven by volatile food and fuel items. Monetary policy, operating through interest rates, is a blunt instrument against supply shocks. Raising repo rates cannot increase agricultural output or fix supply chain bottlenecks, leading to output losses without immediate inflation relief.</p><h3>Way Forward</h3><p>Achieving optimal macroeconomic outcomes requires a synchronized policy mix where aggressive monetary policy is complemented by robust fiscal supply-side interventions, proactive buffer stock management, and structural agricultural reforms to mitigate food price volatility.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Which of the following bodies/committees recommended the adoption of the Consumer Price Index (CPI) combined as the headline measure for inflation targeting in India?",
+      "options": [
+        "N.K. Singh Committee",
+        "Urjit Patel Committee",
+        "Bimal Jalan Committee",
+        "Nachiket Mor Committee"
+      ],
+      "answer": "Urjit Patel Committee",
+      "explanation": "The Expert Committee to Revise and Strengthen the Monetary Policy Framework, chaired by Urjit Patel in 2014, recommended adopting headline CPI-combined inflation as the nominal anchor for monetary policy."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Consider the following statements regarding the Monetary Policy Committee (MPC): 1. It is chaired by the Union Finance Minister. 2. All members of the MPC are appointed exclusively by the Reserve Bank of India. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Neither 1 nor 2",
+      "explanation": "Statement 1 is incorrect because the MPC is chaired by the Governor of the Reserve Bank of India, not the Finance Minister. Statement 2 is incorrect because 3 members are from the RBI and 3 external members are appointed by the Central Government through a search-cum-selection committee."
+    }
+  ]
+}

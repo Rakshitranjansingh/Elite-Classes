@@ -1,0 +1,105 @@
+{
+  "microTopicId": "economy_regulatory_bodies_security_and_exchange_board_of",
+  "subjectId": "economy",
+  "subjectTitle": "Indian Economy & Development",
+  "topicId": "economy_regulatory_bodies",
+  "topicTitle": "Regulatory Bodies",
+  "subTopicTitle": "Security and Exchange board of India (SEBI)",
+  "syllabusMapping": {
+    "prelims": "Indian Economy: Financial System, Capital Markets, Regulatory Institutions.",
+    "mains": "GS Paper III: Indian Economy and issues relating to planning, mobilization of resources, growth, development and employment. Structure of financial markets."
+  },
+  "lectureHoursEstimate": "Lecture 21",
+  "prelimsCapsule": {
+    "coreConceptSummary": "SEBI is the statutory apex regulator for the Indian securities market, established under the SEBI Act, 1992. It performs a tripartite mandate of protecting investor interests, promoting the development of the securities market, and regulating the market to ensure systemic integrity.",
+    "highYieldFacts": [
+      "Fact 1: Originally set up in 1988 as a non-statutory body, it became a statutory entity in 1992 after the Harshad Mehta scam necessitated stronger enforcement powers.",
+      "Fact 2: SEBI acts under the Ministry of Finance; its Board comprises a Chairman, two members from the Union Finance Ministry, one member from RBI, and five other members appointed by the Central Government.",
+      "Fact 3: SEBI has quasi-legislative (framing regulations), quasi-judicial (passing rulings/orders), and quasi-executive (investigation and enforcement) powers.",
+      "Fact 4: The Securities Appellate Tribunal (SAT) is the specialized forum for appeals against SEBI orders; further appeals lie with the Supreme Court of India.",
+      "Fact 5: Recent policy evolution includes the T+0 settlement cycle trial and the 'SCORES' platform for investor grievance redressal."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Examiners often confuse SEBI’s oversight of Commodity Derivatives with the Forward Markets Commission (FMC). Note: FMC was merged into SEBI in 2015.",
+      "Trap 2: SEBI does not regulate Banking institutions directly; it regulates 'listed' banks' equity shares, while RBI regulates the 'banking business' (prudential norms)."
+    ],
+    "keyArticlesOrStatutes": [
+      "SEBI Act, 1992",
+      "Securities Contracts (Regulation) Act, 1956",
+      "Depositories Act, 1996"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Institutional Architecture</h3><p>SEBI represents the transition of Indian capital markets from a 'controller of capital issues' era (pre-1992) to a 'market-regulated' ecosystem. Its establishment reflects the post-liberalization need for a transparent, efficient, and investor-centric financial marketplace.</p><h3>Contemporary Challenges</h3><ul><li><strong>Algorithm-based trading:</strong> With the surge in high-frequency trading (HFT), SEBI faces the challenge of managing 'flash crashes' and ensuring fair access for retail investors.</li><li><strong>Corporate Governance:</strong> SEBI's role in enforcing the 'Listing Obligations and Disclosure Requirements' (LODR) is critical for preventing market manipulation and tunneling of funds.</li><li><strong>Cyber-Security:</strong> As a digital-first regulator, SEBI must protect market infrastructure institutions (MIIs) from systemic cyber risks.</li></ul><h3>Governance Impact</h3><p>SEBI’s role is pivotal in 'democratizing' capital markets. By mandates on ESG (Environmental, Social, and Governance) reporting and mandatory public float requirements, it compels companies to align with global sustainability standards and ensures inclusive shareholding.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Statutory body with quasi-judicial authority; subject to administrative law review under the SEBI Act, 1992.",
+      "socio_economic": "Empowering retail investors and ensuring capital formation by reducing the cost of raising funds for genuine entrepreneurs.",
+      "administrative_governance": "Balancing autonomy with accountability; the Board's composition ensures institutional synergy between the Finance Ministry, RBI, and professional experts.",
+      "international_or_comparative": "Member of IOSCO (International Organization of Securities Commissions); adheres to global benchmarks for cross-border surveillance."
+    },
+    "landmarkJudgmentsOrReports": [
+      "Sahara India Real Estate Corp. Ltd vs. SEBI (Affirmed SEBI's power to regulate unlisted companies if they solicit public funds).",
+      "Financial Sector Legislative Reforms Commission (FSLRC) Report (P.J. Nayak Committee) on harmonizing regulatory standards."
+    ],
+    "structuredDiagramAscii": "SEBI GOVERNANCE STRUCTURE\n[ Central Govt ]\n       |\n[ SEBI Board (Chairman + 8 Members) ]\n       |\n------------------------------------------\n|                 |                      |\nQuasi-Legislative  Quasi-Judicial     Quasi-Executive\n(Regulations)      (Adjudication)     (Investigation/Surveillance)"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2013,
+        "question": "The SEBI is a statutory body. Which of the following acts governs it?",
+        "options": [
+          "SEBI Act, 1992",
+          "Securities Contracts Act, 1956",
+          "Companies Act, 1956",
+          "Banking Regulation Act, 1949"
+        ],
+        "answer": "SEBI Act, 1992",
+        "explanation": "SEBI was established as a statutory body specifically through the SEBI Act, 1992 to provide a legal framework for its functioning."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2018,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss the role of SEBI in protecting the interests of the investors in the Indian capital market."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Critically analyze the role of SEBI as a frontline regulator in maintaining the integrity of the Indian financial market in an era of rapid technological disruption. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define SEBI as the 'Watchdog' of the capital market and link its mandate to the 1992 liberalization reforms.",
+      "body": "Discuss the tripartite mandate (Investor protection, Development, Regulation). Analyze the 'Tech-Disruption' challenges (Algo-trading, Cybersecurity). Mention enforcement mechanisms.",
+      "conclusion": "Suggest proactive regulatory sandboxes and 'Regulatory Technology' (RegTech) as the way forward for 2047."
+    },
+    "modelAnswerHtml": "<h3>Introduction</h3><p>The Securities and Exchange Board of India (SEBI) is the apex regulatory body for the Indian securities market. Established under the <strong>SEBI Act, 1992</strong>, it functions as the 'watchdog' to ensure market transparency and integrity, which are the bedrocks of investor confidence.</p><h3>SEBI as a Frontline Regulator</h3><ul><li><strong>Investor Protection:</strong> SEBI ensures information asymmetry is minimized through stringent disclosure norms (LODR), protecting retail participants from corporate fraud.</li><li><strong>Market Development:</strong> By introducing products like REITs (Real Estate Investment Trusts) and InvITs, and enabling easier KYC norms, SEBI has expanded the reach of financial markets.</li><li><strong>Regulatory Enforcement:</strong> Its investigative wing holds power to penalize market manipulators, insider traders, and Ponzi schemes (e.g., Sahara case).</li></ul><h3>Technological Disruptions & Challenges</h3><p>In the digital age, SEBI faces unique hurdles:</p><ul><li><strong>Algorithmic/HFT Trading:</strong> Requires real-time surveillance to prevent market volatility driven by automated entities.</li><li><strong>Cyber-Security:</strong> Protecting the digital infrastructure of Stock Exchanges and Depositories is critical for systemic stability.</li><li><strong>FinTech & Neo-Brokers:</strong> Balancing innovation with compliance, ensuring that digital trading platforms do not incentivize 'gamification' of trading.</li></ul><h3>Way Forward</h3><p>To remain effective, SEBI should adopt:</p><ol><li><strong>RegTech Adoption:</strong> Utilizing AI/ML for real-time monitoring of patterns in trade data.</li><li><strong>Regulatory Sandboxes:</strong> Testing innovations in a controlled environment to foster growth without compromising stability.</li><li><strong>Investor Awareness:</strong> Strengthening the 'Investor Education and Protection Fund' (IEPF) outreach to reach rural India, ensuring financial inclusion is not just about banking, but also wealth creation.</li></ol><p><strong>Conclusion:</strong> As India aims for a $5 trillion economy, SEBI’s role is shifting from a mere policeman to an 'enabler of growth.' By harmonizing innovation with stringent surveillance, it can ensure the Indian market remains the preferred destination for global capital.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "With reference to the Securities Appellate Tribunal (SAT), consider the following statements: 1. It is a statutory body constituted under the SEBI Act, 1992. 2. A person aggrieved by an order of the SAT can file an appeal directly to the High Court. Which of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 2 is incorrect; appeals against the orders of SAT lie with the Supreme Court, not the High Court."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Which of the following functions are performed by SEBI in the Indian market? 1. Regulation of Stock Exchanges. 2. Registration and regulation of working of stock brokers. 3. Promotion of self-regulatory organizations. 4. Prohibiting fraudulent and unfair trade practices.",
+      "options": [
+        "1 and 2 only",
+        "2, 3 and 4 only",
+        "1, 2 and 4 only",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "explanation": "SEBI is empowered under the SEBI Act to perform all these functions to ensure market integrity and development."
+    }
+  ]
+}

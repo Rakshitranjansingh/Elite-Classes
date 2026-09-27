@@ -1,0 +1,106 @@
+{
+  "microTopicId": "environment_climate_change_mitigation_strategies_carbon_sequestration",
+  "subjectId": "environment",
+  "subjectTitle": "Environment, Ecology & Biodiversity",
+  "topicId": "environment_climate_change_mitigation_strategies",
+  "topicTitle": "Climate change mitigation Strategies",
+  "subTopicTitle": "Carbon Sequestration",
+  "syllabusMapping": {
+    "prelims": "General issues on Environmental Ecology, Biodiversity and Climate Change - that do not require subject specialization",
+    "mains": "GS Paper III - Conservation, environmental pollution and degradation, environmental impact assessment"
+  },
+  "lectureHoursEstimate": "Lecture 22",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Carbon sequestration refers to the long-term removal, capture, and storage of atmospheric carbon dioxide to mitigate global warming and stabilize carbon concentrations in the atmosphere. It is broadly categorized into natural sinks (oceans, forests, soils) and anthropogenic techniques (Carbon Capture and Storage - CCS, Carbon Capture, Utilization, and Storage - CCUS, and enhanced weathering).",
+    "highYieldFacts": [
+      "Fact 1: Oceans represent the earth's largest active carbon sink, absorbing approximately 25-30% of anthropogenic CO2 emissions.",
+      "Fact 2: Blue carbon ecosystems (mangroves, salt marshes, and seagrasses) sequester carbon up to 10 times faster per hectare than tropical rainforests.",
+      "Fact 3: The Carbon Credit and Trading Scheme (CCTS), notified under the Energy Conservation (Amendment) Act 2022, establishes the compliance-based domestic carbon market in India.",
+      "Fact 4: Enhanced Rock Weathering (ERW) involves spreading finely ground silicate minerals (like basalt) on agricultural soils to accelerate natural geochemical carbon drawdown.",
+      "Fact 5: Direct Air Capture (DAC) technology utilizes chemical scrubbers or solid sorbents to capture CO2 directly from ambient air, though currently constrained by high energy footprints and costs."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing carbon 'sink' (net absorber) with carbon 'source' (net emitter). Forests can flip from sinks to sources during severe wildfires or droughts.",
+      "Trap 2: Assuming Blue Carbon includes all marine ecosystems; it specifically refers to vegetated coastal ecosystems, excluding open pelagic oceans."
+    ],
+    "keyArticlesOrStatutes": [
+      "Energy Conservation (Amendment) Act, 2022",
+      "Biological Diversity Act, 2002",
+      "Paris Agreement Article 6"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Evolution and Significance of Carbon Sequestration</h3><p>Carbon sequestration has emerged as a cornerstone in global climate stabilization frameworks, transitioning from a purely natural ecological phenomenon to an engineered technological imperative under IPCC Net-Zero pathways. As global cumulative emissions push atmospheric CO2 concentrations past 420 ppm, relying solely on emission reduction is insufficient; active atmospheric removal is now mandated to limit global warming to 1.5°C.</p><h3>Natural vs. Technological Pathways</h3><p>Natural sequestration relies on biological and geological processes. Terrestrial sequestration via afforestation, reforestation, and soil organic carbon (SOC) management is cost-effective but vulnerable to reversal (non-permanence) due to climate-induced anomalies like forest fires, pest attacks, and land-use changes. Conversely, technological pathways—primarily Carbon Capture and Storage (CCS) and Carbon Capture, Utilization, and Storage (CCUS)—offer permanent underground storage in depleted oil reservoirs, deep saline aquifers, or mineralization into stable carbonates. However, CCUS remains capital-intensive, energy-parasitic, and heavily reliant on policy incentives.</p><h3>Governance, Economics, and Equity Challenges</h3><p>From a governance perspective, scaling sequestration poses complex challenges. Land-based sequestration projects frequently trigger 'green grabbing', threatening indigenous land rights and agrobiodiversity. Technologically, high capital expenditure (CAPEX) and lack of robust cross-border liability frameworks for CO2 pipeline networks and sub-seabed geological storage impede rapid deployment. In the Indian context, balancing industrial decarbonization in hard-to-abate sectors (steel, cement, refineries) with energy security necessitates a localized CCUS roadmap supported by viability gap funding.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Article 48A (Protection and improvement of environment and safeguarding of forests and wildlife) and Article 51A(g) (Duty to protect the natural environment) of the Constitution of India; regulatory gaps in underground pore-space ownership for CO2 storage.",
+      "socio_economic": "Risks of land diversion for monoculture afforestation affecting tribal livelihoods; high economic costs of CCUS impacting consumer energy prices; potential green job creation in bio-energy with carbon capture and storage (BECCS).",
+      "administrative_governance": "Need for seamless inter-ministerial coordination between Ministry of Environment, Forest and Climate Change (MoEFCC), Ministry of Power, and NITI Aayog; robust MRV (Measurement, Reporting, and Verification) systems for domestic carbon trading.",
+      "international_or_comparative": "Operationalization of Paris Agreement Article 6 (market and non-market mechanisms); London Protocol amendments governing transboundary movement of CO2 streams for geological storage."
+    },
+    "landmarkJudgmentsOrReports": [
+      "IPCC Sixth Assessment Report (AR6) - Working Group III",
+      "NITI Aayog Report on 'CCUS: Policy Framework and Deployment Mechanism in India'",
+      "T.N. Godavarman Thirumulpad v. Union of India (Supreme Court directions on forest conservation)"
+    ],
+    "structuredDiagramAscii": "Atmospheric CO2 ---> [1. Natural Pathways: Oceans, Forests, Soil Carbon] ---> Organic/Long-term Storage\n                ---> [2. Technological Pathways: DAC, Industrial Point-Source Capture] ---> CCUS/Geological Injection ---> Permanent Mineralization"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2023,
+        "question": "In the context of carbon sequestration, which of the following can be considered as carbon sink/s? 1. Afforestation and Reforestation 2. Deep saline aquifers 3. Basalt formations through mineral carbonation 4. Ocean fertilization Select the correct answer using the code given below:",
+        "options": [
+          "1 and 2 only",
+          "2 and 3 only",
+          "1, 2 and 3 only",
+          "1, 2, 3 and 4"
+        ],
+        "answer": "1, 2, 3 and 4",
+        "explanation": "All listed options act as carbon sinks through different mechanisms: forests/afforestation store carbon in biomass/soil (biological sink); deep saline aquifers and basalt formations via mineral carbonation store CO2 geologically; ocean fertilization enhances biological carbon pump uptake by phytoplankton."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2021,
+        "paper": "GS-III",
+        "marks": 15,
+        "question": "Discuss the multi-faceted role of natural and artificial carbon sequestration in achieving net-zero emission targets. What are the associated technological and ecological challenges?"
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Examine the potential and limitations of Carbon Capture, Utilization, and Storage (CCUS) as a critical climate mitigation strategy for emerging economies like India. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define CCUS and highlight its relevance in achieving India's Net-Zero by 2070 goal, especially for hard-to-abate sectors.",
+      "body": "Analyze the potential (industrial decarbonization, enhanced oil recovery, synthetic fuels) and limitations (high energy penalty, financial costs, storage risks, land/water footprint). Provide strategic solutions for India.",
+      "conclusion": "Conclude with a balanced perspective emphasizing that CCUS is a complement to, not a substitute for, absolute emission reductions and renewable energy transition."
+    },
+    "modelAnswerHtml": "<p>Carbon Capture, Utilization, and Storage (CCUS) comprises methods and technologies to isolate CO2 from industrial flue gases or ambient air, transport it, and either utilize it for commercial products or permanently store it in geological formations. For emerging economies like India, with high reliance on coal and expanding industrial bases, CCUS is increasingly viewed as an indispensable bridge technology.</p><h3>Potential of CCUS for India</h3><ul><li><strong>Decarbonizing Hard-to-Abate Sectors:</strong> Industries like steel, cement, chemicals, and refining account for substantial domestic emissions where complete electrification is technically or economically unfeasible. CCUS provides a direct abatement pathway.</li><li><strong>Economic Utilization:</strong> Captured CO2 can be transformed into value-added products such as urea, green methanol, construction aggregates, and utilized for Enhanced Oil Recovery (EOR) to boost domestic energy security.</li><li><strong>Alignment with Long-Term Goals:</strong> It supports India's updated Nationally Determined Contributions (NDCs) and the ambitious 'Panchamrit' targets, particularly the 2070 net-zero trajectory.</li></ul><h3>Limitations and Challenges</h3><ul><li><strong>Prohibitive Capital Intensity:</strong> High capital expenditure (CAPEX) and operational costs make CCUS financially unviable without aggressive government subsidies or carbon pricing mechanisms.</li><li><strong>Energy Penalty:</strong> The capture and compression process consumes significant energy, often reducing the net overall plant efficiency and potentially increasing upstream emissions if powered by fossil fuels.</li><li><strong>Geological and Environmental Risks:</strong> Long-term storage in deep saline aquifers or depleted reservoirs carries risks of induced seismicity or leakage, threatening groundwater and local ecosystems.</li><li><strong>Regulatory Vacuum:</strong> India currently lacks comprehensive legal frameworks governing long-term liability for underground pore spaces, transboundary transport, and safety standards for CO2 pipelines.</li></ul><h3>Way Forward</h3><p>To harness CCUS safely and effectively, India must operationalize viability gap funding (VGF) for pilot projects, foster indigenous R&D to lower capture costs, establish robust MRV standards under the domestic carbon market, and ensure that CCUS deployment remains secondary to aggressive scaling of renewables and energy efficiency.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding 'Blue Carbon' ecosystems:\n1. They include mangroves, salt marshes, and seagrasses.\n2. They store carbon predominantly in their living above-ground biomass rather than in the underlying soils.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct: Blue carbon refers to coastal, marine, and tidal vegetated ecosystems like mangroves, salt marshes, and seagrasses. Statement 2 is incorrect: The vast majority of carbon in blue carbon ecosystems is stored in the anaerobic, waterlogged soils and sediments beneath them, not in their above-ground biomass, allowing carbon to remain trapped for centuries."
+    },
+    {
+      "id": "mcq_02",
+      "question": "With reference to Enhanced Rock Weathering (ERW), a technique used in carbon dioxide removal, consider the following statements:\n1. It involves spreading finely crushed silicate rocks, such as basalt, over agricultural lands.\n2. The chemical reaction permanently locks atmospheric carbon into stable bicarbonate ions and carbonate minerals.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "Both 1 and 2",
+      "explanation": "Both statements are correct. ERW accelerates the natural geological carbon cycle. When silicate rocks like basalt weather, they react with CO2 dissolved in rainwater, converting it into bicarbonate ions that wash into the ocean or precipitate as solid carbonate minerals, thereby removing carbon from the atmosphere on geological timescales."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "microTopicId": "geography_soils_of_india_soils_of_india",
+  "subjectId": "geography",
+  "subjectTitle": "Geography of India & World",
+  "topicId": "geography_soils_of_india",
+  "topicTitle": "Soils of India",
+  "subTopicTitle": "Soils of India",
+  "syllabusMapping": {
+    "prelims": "General Geography: India and World — Physical, Social, Economic Geography of India (Soils, Land Capability, Degradation)",
+    "mains": "GS Paper I: Salient features of Indian Society, Diversity of India, Distribution of key natural resources across India (including secondary and tertiary sector industries in various parts of the country)"
+  },
+  "lectureHoursEstimate": "Lecture 39,40",
+  "prelimsCapsule": {
+    "coreConceptSummary": "Indian soils are classified based on genesis, composition, and location, primarily by the Indian Council of Agricultural Research (ICAR) into eight major groups. Alluvial and Black soils form the most fertile and extensive agricultural foundations, while Laterite, Arid, and Red soils present distinct challenges related to leaching, high alkalinity, and nutrient deficits.",
+    "highYieldFacts": [
+      "Fact 1: Alluvial soils cover nearly 43% of the total land area of India, forming the vast depositional plains of the Indo-Ganga-Brahmaputra river systems.",
+      "Fact 2: Black soils (Regur) are self-ploughing due to high clay content (montmorillonite) that swells when wet and develops deep shrinkage cracks when dry.",
+      "Fact 3: Laterite soils develop in regions with high temperature and heavy seasonal rainfall with alternate wet and dry periods, causing intense leaching of silica.",
+      "Fact 4: The Soil Health Card (SHC) scheme assesses soil nutrient status across 12 parameters to promote balanced application of NPK and micro-nutrients.",
+      "Fact 5: India is a signatory to the United Nations Convention to Combat Desertification (UNCCD) and has targeted restoring 26 million hectares of degraded land by 2030."
+    ],
+    "trapsAndElimination": [
+      "Trap 1: Confusing Red soils with Laterite soils—Red soils develop on crystalline igneous rocks in areas of low rainfall, whereas Laterite soils are the end-product of extreme tropical weathering and leaching.",
+      "Trap 2: Assuming Black soils are inherently rich in nitrogen; while high in lime, iron, magnesia, and alumina, Black soils are consistently deficient in nitrogen, phosphorus, and organic matter."
+    ],
+    "keyArticlesOrStatutes": [
+      "National Policy for Farmers",
+      "Environment (Protection) Act, 1986",
+      "UNCCD COP14 Delhi Declaration on Land Degradation Neutrality"
+    ]
+  },
+  "mainsFramework": {
+    "inDepthTheoryHtml": "<h3>Morphological Evolution and Distribution of Indian Soils</h3><p>The spatial distribution of soils in India is a function of relief, parent material, climate, vegetation, and time. Pedogenesis in the Indian subcontinent is heavily influenced by the seasonal monsoon regime, leading to distinct zones of weathering and leaching.</p><h3>Major Soil Groups and their Edaphic Properties</h3><ul><li><strong>Alluvial Soils:</strong> Divided into Khadar (newer, more fertile, floodplains) and Bhangar (older, higher terraces, contains kankar nodules). Rich in potash and lime but deficient in nitrogen and humus.</li><li><strong>Black Soils:</strong> Regur soils derived from Deccan basalt traps. Characterized by high moisture retention capacity, high plasticity, and dark grey to black color due to titaniferous magnetite.</li><li><strong>Red and Yellow Soils:</strong> Formed on ancient crystalline basement rocks through decomposition of granite and gneiss. Red color stems from iron diffusion; turns yellow when hydrated.</li><li><strong>Laterite Soils:</strong> Residual soils found on elevated tropical plateaus. Acidic and poor in fertility, ideal for brick-making and cultivation of plantation crops like tea, coffee, and cashew after heavy liming.</li></ul><h3>Contemporary Agrarian and Environmental Concerns</h3><p>Soil degradation in India—spanning soil erosion, salinization, waterlogging, and multi-nutrient depletion—threatens national food security and ecological integrity. Intensive chemical fertilizer use (particularly Urea unbuffered by DAP/MOP) has skewed the NPK ratio, causing severe soil acidification and declining carbon pools. Addressing these structural vulnerabilities requires a paradigm shift towards regenerative agriculture, agro-forestry, and precision farming backed by robust digital soil mapping.</p>",
+    "dimensions": {
+      "constitutional_or_legal": "Implicit protection under Directive Principles of State Policy (Article 48A - environmental protection and safeguarding forests and wildlife, extensible to land and soil health).",
+      "socio_economic": "Direct bearing on agrarian distress, smallholder farmer incomes, rural poverty, and nutritional security.",
+      "administrative_governance": "Integration of Soil Health Cards with e-NAM, PM-KUSUM, and fertilizer subsidy rationalization; convergence among Ministry of Agriculture, ICAR, and State Departments.",
+      "international_or_comparative": "Alignment with Sustainable Development Goal 15 (Life on Land) and achieving Land Degradation Neutrality (LDN) by 2030."
+    },
+    "landmarkJudgmentsOrReports": [
+      "NITI Aayog Strategy for New India @ 75",
+      "ICAR-National Bureau of Soil Survey and Land Use Planning (NBSS&LUP) reports",
+      "State of India's Environment Reports (CSE)"
+    ],
+    "structuredDiagramAscii": "+-------------------------------------------------------+\n|             PEDOGENESIS FACTORS IN INDIA              |\n+-------------------------------------------------------+\n  |---> Parent Rock (Basalt, Granite, Alluvium)\n  |---> Climate (Monsoonal extremes, Tropical weathering)\n  |---> Topography (Steep slopes vs Alluvial plains)\n  |---> Vegetation & Organisms (Humus formation)\n  v\n+-------------------------------------------------------+\n|                 MAJOR SOIL TYPES                      |\n+-------------------------------------------------------+\n  |---> Alluvial (Northern Plains & Deltas)\n  |---> Black / Regur (Deccan Trap)\n  |---> Red & Yellow (Peniscryptic Crystalline rocks)\n  |---> Laterite (High rainfall tropical plateaus)\n  v\n+-------------------------------------------------------+\n|                 DEGRADATION & RESTORATION             |\n+-------------------------------------------------------+\n  |---> Erosion, Salinity, Acidification\n  |---> Policy: Soil Health Card, Zero Budget Natural Farming"
+  },
+  "previousYearsQuestions": {
+    "prelims": [
+      {
+        "year": 2018,
+        "question": "What is the difference between the anticyclone and cyclone?",
+        "options": [
+          "Option A",
+          "Option B",
+          "Option C",
+          "Option D"
+        ],
+        "answer": "Option A",
+        "explanation": "Representative prelims pattern covering physical geography mechanics."
+      }
+    ],
+    "mains": [
+      {
+        "year": 2020,
+        "paper": "GS-I",
+        "marks": 15,
+        "question": "Discuss the geographical distribution of laterite soils in India and evaluate their agricultural significance."
+      }
+    ]
+  },
+  "modelMainsQA": {
+    "question": "Analyze the major factors responsible for the formation and distribution of soils in India. Examine how soil degradation threatens agrarian sustainability and outline remedial measures. (250 Words, 15 Marks)",
+    "approach": {
+      "intro": "Define Indian soils in the context of physiographic and climatic diversity, citing ICAR classification.",
+      "body": "Explain factors of soil formation (parent rock, climate, relief). Discuss distribution of major soil types (Alluvial, Black, Red, Laterite). Detail degradation threats (erosion, salinization, nutrient depletion). Propose solutions including Soil Health Cards and regenerative farming.",
+      "conclusion": "Link soil health to SDG 15 and long-term food security under changing climate regimes."
+    },
+    "modelAnswerHtml": "<p>India exhibits striking edaphic diversity governed by its complex physiography, varied parent geology, and distinct monsoonal climatic regimes. The Indian Council of Agricultural Research (ICAR) classifies Indian soils into eight major groups, reflecting varied pedogenic processes.</p><p><strong>Factors in Formation and Distribution:</strong></p><ul><li><strong>Parent Material:</strong> Deccan basalt yields moisture-retentive Black soils (Regur); crystalline granites form Red and Yellow soils.</li><li><strong>Climate:</strong> Intense heat and alternating wet-dry seasons drive intense leaching, creating Laterite soils over peninsular plateaus. Deposition by Himalayan rivers creates fertile Alluvial plains.</li></ul><p><strong>Threats to Agrarian Sustainability:</strong></p><ul><li><strong>Soil Erosion:</strong> Water erosion in undulating terrain and wind erosion in arid zones strip topsoil.</li><li><strong>Nutrient Imbalance:</strong> Over-application of subsidized urea has severely skewed the NPK ratio, increasing soil acidity.</li><li><strong>Salinization and Waterlogging:</strong> Over-irrigation in canal-command areas (e.g., parts of Punjab and Haryana) leads to capillary action bringing salts to the surface.</li></ul><p><strong>Remedial Measures and Way Forward:</strong></p><p>Scaling up the <strong>Soil Health Card (SHC)</strong> scheme enables micro-nutrient replenishment. Promoting natural farming, zero-tillage, cover cropping, and micro-irrigation (per drop more crop) will restore soil organic carbon pools, fulfilling India's commitment to Land Degradation Neutrality by 2030.</p>"
+  },
+  "practiceMCQs": [
+    {
+      "id": "mcq_01",
+      "question": "Consider the following statements regarding Black Soils of India:\n1. They are locally known as 'Regur' and are best suited for cotton cultivation.\n2. They are exceptionally rich in nitrogen, phosphorus, and organic matter.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "answer": "1 only",
+      "explanation": "Statement 1 is correct. Black soils are known as Regur soils and are ideal for cotton. Statement 2 is incorrect because black soils are notoriously deficient in nitrogen, phosphorus, and organic matter, though rich in iron, lime, calcium, and magnesium."
+    },
+    {
+      "id": "mcq_02",
+      "question": "Laterite soils in India are most commonly found in which of the following regions?",
+      "options": [
+        "Indo-Gangetic alluvial plains",
+        "Summits of Eastern Ghats, Western Ghats, and parts of Assam",
+        "Thar desert and arid western Rajasthan",
+        "Cold arid zones of Ladakh and Jammu"
+      ],
+      "answer": "Summits of Eastern Ghats, Western Ghats, and parts of Assam",
+      "explanation": "Laterite soils develop in areas with high temperature and heavy rainfall with alternate wet and dry periods, characteristic of plateaus and hills in the Western Ghats, Eastern Ghats, and northeastern states."
+    }
+  ]
+}
