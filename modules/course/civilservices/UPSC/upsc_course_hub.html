@@ -10,6 +10,7 @@
     <meta name="apple-mobile-web-app-title" content="Elite Classes">
     <link rel="icon" type="image/png" href="../../../../favicon-32x32.png">
     <link rel="stylesheet" href="../../../../css/styles.css">
+    <script src="js/upscProgress.js"></script>
 
     <style>
         :root {
@@ -401,6 +402,23 @@
             white-space: nowrap;
             margin-left: 8px;
         }
+
+        .microtopic-card-link.completed-link {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+
+        .microtopic-card-link.completed-link:hover {
+            background: #dcfce7;
+            border-color: #86efac;
+            color: #15803d;
+        }
+
+        .microtopic-study-tag.done {
+            background: #dcfce7;
+            color: #15803d;
+            border-color: #86efac;
+        }
     </style>
 </head>
 
@@ -521,8 +539,8 @@
                             <span class="hub-stat-label">Micro-Topics Ready</span>
                         </div>
                         <div class="hub-stat-item">
-                            <span class="hub-stat-val">100%</span>
-                            <span class="hub-stat-label">Full Coverage</span>
+                            <span class="hub-stat-val" id="fs-stat-completed" style="color:#059669;">0 / 0 (0%)</span>
+                            <span class="hub-stat-label">Your Completed</span>
                         </div>
                     </div>
                 </div>
@@ -594,6 +612,21 @@
                 document.getElementById('stat-topics').innerText = CATALOG.metadata.totalTopics;
                 document.getElementById('stat-subtopics').innerText = CATALOG.metadata.totalSubtopics.toLocaleString();
 
+                // Compute overall learner progress
+                if (typeof UPSCProgressService !== 'undefined') {
+                    const overall = UPSCProgressService.getOverallStats(CATALOG);
+                    const pctEl = document.getElementById('total-progress-pct');
+                    const barEl = document.getElementById('total-progress-bar');
+                    if (pctEl) {
+                        pctEl.innerText = overall.completed > 0
+                            ? `Your Syllabus Progress: ${overall.completed} / ${overall.total} Micro-Topics Completed (${overall.pct}%)`
+                            : `1,436 / 1,436 Modules Synthesized (100% Syllabus Coverage)`;
+                    }
+                    if (barEl) {
+                        barEl.style.width = overall.completed > 0 ? `${overall.pct}%` : '100%';
+                    }
+                }
+
                 // Check URL params for deep link to subject
                 const p = new URLSearchParams(window.location.search);
                 const subjParam = p.get('subject');
@@ -617,6 +650,18 @@
                 const icon = SUBJECT_ICONS[subj.subjectId] || '📚';
                 const desc = SUBJECT_DESCRIPTIONS[subj.subjectId] || 'Comprehensive UPSC standard curriculum with in-depth notes, PYQs, and Model Mains Q&A.';
 
+                let subStats = { completed: 0, total: totalSub, pct: 0 };
+                if (typeof UPSCProgressService !== 'undefined') {
+                    subStats = UPSCProgressService.getSubjectStats(subj);
+                }
+
+                let badgeHtml = '<span class="subject-badge live">🟢 Active &amp; Live</span>';
+                if (subStats.pct === 100) {
+                    badgeHtml = '<span class="subject-badge" style="background:#d1fae5; color:#065f46; font-weight:800;">✓ Mastered</span>';
+                } else if (subStats.completed > 0) {
+                    badgeHtml = `<span class="subject-badge" style="background:#eff6ff; color:#1d4ed8; font-weight:800;">In Progress (${subStats.completed}/${subStats.total})</span>`;
+                }
+
                 const card = document.createElement('div');
                 card.className = 'subject-card';
                 card.onclick = () => openSubjectFullScreen(subj.subjectId, true);
@@ -624,7 +669,7 @@
                 card.innerHTML = `
                     <div>
                         <div class="subject-card-top">
-                            <span class="subject-badge live">🟢 Active &amp; Live</span>
+                            ${badgeHtml}
                             <span class="meta-pill">Prelims + Mains</span>
                         </div>
                         <h3 class="subject-card-title">${icon} ${subj.subjectTitle}</h3>
@@ -633,6 +678,15 @@
                             <span class="meta-pill">🏛️ ${subj.topics.length} Modules</span>
                             <span class="meta-pill">📘 ${totalSub} Micro-Topics</span>
                             <span class="meta-pill">🎯 PYQs Bank</span>
+                        </div>
+                        <div class="chapter-progress-box" style="margin-top:14px; margin-bottom:14px;">
+                            <div class="chapter-progress-labels">
+                                <span>Completion Progress</span>
+                                <span>${subStats.completed} / ${subStats.total} (${subStats.pct}%)</span>
+                            </div>
+                            <div class="chapter-progress-bar">
+                                <div class="chapter-progress-fill" style="width: ${subStats.pct}%;"></div>
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -671,7 +725,17 @@
             const totalSub = subj.topics.reduce((acc, t) => acc + (t.subtopics ? t.subtopics.length : 0), 0);
             document.getElementById('fs-stat-modules').innerText = subj.topics.length;
             document.getElementById('fs-stat-subtopics').innerText = totalSub;
-            document.getElementById('fs-modules-count').innerText = `${subj.topics.length} Modules (${totalSub} Micro-Topics)`;
+
+            let subStats = { completed: 0, total: totalSub, pct: 0 };
+            if (typeof UPSCProgressService !== 'undefined') {
+                subStats = UPSCProgressService.getSubjectStats(subj);
+            }
+            const compEl = document.getElementById('fs-stat-completed');
+            if (compEl) {
+                compEl.innerText = `${subStats.completed} / ${totalSub} (${subStats.pct}%)`;
+            }
+
+            document.getElementById('fs-modules-count').innerText = `${subj.topics.length} Modules (${subStats.completed}/${totalSub} Completed)`;
 
             renderSubjectModules(subj.topics);
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -686,6 +750,12 @@
                 card.className = 'chapter-card';
 
                 const subCount = topic.subtopics ? topic.subtopics.length : 0;
+                let topicStats = { completed: 0, total: subCount, pct: 0 };
+                if (typeof UPSCProgressService !== 'undefined') {
+                    topicStats = UPSCProgressService.getTopicStats(topic);
+                }
+                const isMastered = topicStats.completed === subCount && subCount > 0;
+
                 const remarksText = topic.remarks ? `<p class="chapter-desc" style="margin-bottom:12px;"><strong>Strategy / Notes:</strong> ${topic.remarks}</p>` : '';
                 const lecturesText = topic.lectures ? `<span class="meta-pill">⏱️ ${topic.lectures}</span>` : '';
 
@@ -693,26 +763,34 @@
                     <div>
                         <div class="chapter-card-top">
                             <span class="chapter-badge">Module ${String(idx + 1).padStart(2, '0')}</span>
-                            <span class="meta-pill" style="font-size:11px; background:#eff6ff; color:#1d4ed8; font-weight:700;">
-                                ${subCount} Micro-Topics Ready
+                            <span class="meta-pill" style="font-size:11px; ${isMastered ? 'background:#ecfdf5; color:#065f46;' : 'background:#eff6ff; color:#1d4ed8;'} font-weight:700;">
+                                ${isMastered ? '✓ ' : ''}${topicStats.completed} / ${subCount} Completed (${topicStats.pct}%)
                             </span>
                         </div>
                         <h3 class="chapter-title">${idx + 1}. ${topic.topicTitle}</h3>
                         ${remarksText}
-                        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px;">
+                        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
                             ${lecturesText}
                             <span class="meta-pill">🎯 Prelims Capsule</span>
                             <span class="meta-pill">📑 Mains Framework</span>
                             <span class="meta-pill">✍️ Model Mains Q&amp;A</span>
                         </div>
+                        <div class="chapter-progress-box" style="margin-bottom:12px;">
+                            <div class="chapter-progress-bar">
+                                <div class="chapter-progress-fill" style="width: ${topicStats.pct}%;"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="microtopic-grid">
-                        ${topic.subtopics.map(st => `
-                            <a href="upsc_topic_player.html?file=${encodeURIComponent(st.dataPath || '')}&subject=${CURRENT_SUBJECT.subjectId}&topic=${topic.topicId}&subtopic=${st.subTopicId}" class="microtopic-card-link">
-                                <span>&bull; ${st.subTopicTitle}</span>
-                                <span class="microtopic-study-tag">Study &rarr;</span>
-                            </a>
-                        `).join('')}
+                        ${topic.subtopics.map(st => {
+                            const isDone = typeof UPSCProgressService !== 'undefined' && UPSCProgressService.isCompleted(st.subTopicId);
+                            return `
+                                <a href="upsc_topic_player.html?file=${encodeURIComponent(st.dataPath || '')}&subject=${CURRENT_SUBJECT.subjectId}&topic=${topic.topicId}&subtopic=${st.subTopicId}" class="microtopic-card-link ${isDone ? 'completed-link' : ''}">
+                                    <span style="${isDone ? 'color:#15803d; font-weight:700;' : ''}">${isDone ? '✓ ' : '&bull; '}${st.subTopicTitle}</span>
+                                    <span class="microtopic-study-tag ${isDone ? 'done' : ''}">${isDone ? '✓ Done' : 'Study &rarr;'}</span>
+                                </a>
+                            `;
+                        }).join('')}
                     </div>
                 `;
                 container.appendChild(card);

@@ -10,6 +10,7 @@
     <meta name="apple-mobile-web-app-title" content="Elite Classes">
     <link rel="icon" type="image/png" href="../../../../favicon-32x32.png">
     <link rel="stylesheet" href="../../../../css/styles.css">
+    <script src="js/upscProgress.js"></script>
 
     <style>
         :root {
@@ -234,6 +235,90 @@
             font-weight: 700;
             white-space: nowrap;
             margin-left: 6px;
+        }
+
+        .subtopic-done-pill {
+            font-size: 9.5px;
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #86efac;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-weight: 700;
+            white-space: nowrap;
+            margin-left: 6px;
+        }
+
+        .sidebar-progress-box {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        /* Completion Action Buttons */
+        .btn-mark-complete {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            color: #475569;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-mark-complete:hover {
+            border-color: #059669;
+            color: #059669;
+            background: #ecfdf5;
+        }
+
+        .btn-mark-complete.completed {
+            background: #ecfdf5;
+            border-color: #10b981;
+            color: #065f46;
+        }
+
+        .btn-mark-complete.btn-large {
+            padding: 10px 22px;
+            font-size: 13.5px;
+            border-radius: 10px;
+        }
+
+        .btn-next-topic {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary);
+            border: 1.5px solid var(--primary);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 13.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-next-topic:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .completion-footer-card {
+            background: #ffffff;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 18px;
+            padding: 32px 24px;
+            text-align: center;
+            margin-top: 32px;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
         }
 
         /* RIGHT PANE: Study Content */
@@ -722,6 +807,15 @@
                     <span>🔍</span>
                     <input type="text" id="sidebarSearch" placeholder="Filter micro-topics..." oninput="handleSidebarSearch(this.value)">
                 </div>
+                <div class="sidebar-progress-box">
+                    <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:700; color:var(--text-dark); margin-bottom:5px;">
+                        <span>Subject Progress</span>
+                        <span id="sidebarProgressPct" style="color:var(--primary);">0 / 0 (0%)</span>
+                    </div>
+                    <div style="background:#e2e8f0; height:6px; border-radius:10px; overflow:hidden;">
+                        <div id="sidebarProgressBar" style="width:0%; height:100%; border-radius:10px; background:linear-gradient(90deg, #4338ca, #059669); transition:width 0.4s ease;"></div>
+                    </div>
+                </div>
             </div>
             <div class="sidebar-tree-container" id="sidebarTree">
                 <div style="text-align:center; padding:20px; color:#94a3b8; font-size:12px;">Loading syllabus modules...</div>
@@ -771,8 +865,14 @@
             <div class="topic-hero-clean">
                 <div class="topic-gradient-aura"></div>
                 <div style="position:relative; z-index:2;">
-                    <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#4338ca; margin-bottom:4px;" id="pageSubjectBadge">
-                        CIVIL SERVICES &bull; UPSC GS
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+                        <div style="font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#4338ca; margin-bottom:4px;" id="pageSubjectBadge">
+                            CIVIL SERVICES &bull; UPSC GS
+                        </div>
+                        <button id="btnMarkCompleteHero" class="btn-mark-complete" onclick="toggleCurrentCompletion()">
+                            <span id="markCompleteIconHero">○</span>
+                            <span id="markCompleteTextHero">Mark as Completed</span>
+                        </button>
                     </div>
                     <h1 class="topic-title" id="pageSubtopicTitle">Loading Micro-Topic Module...</h1>
                     <div style="font-size:13px; color:var(--text-muted); font-weight:500;" id="pageParentMeta">
@@ -886,6 +986,24 @@
                 <div id="practiceMcqList"></div>
             </section>
 
+            <!-- 6. TOPIC COMPLETION CELEBRATION CARD -->
+            <div class="completion-footer-card">
+                <div style="font-size:32px; margin-bottom:10px;">🎯</div>
+                <h3 style="font-size:18px; font-weight:800; color:var(--text-dark); margin:0 0 8px;">Finished this Micro-Topic?</h3>
+                <p style="font-size:13px; color:var(--text-muted); max-width:520px; margin:0 auto 20px; line-height:1.55;">
+                    Mark this micro-topic as completed to track your overall syllabus progress across all 16 UPSC core subjects and unlock next study milestones.
+                </p>
+                <div style="display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap;">
+                    <button id="btnMarkCompleteBottom" class="btn-mark-complete btn-large" onclick="toggleCurrentCompletion()">
+                        <span id="markCompleteIconBottom">○</span>
+                        <span id="markCompleteTextBottom">Mark as Completed</span>
+                    </button>
+                    <button id="btnNextTopic" class="btn-next-topic" onclick="goToNextSubtopic()">
+                        Next Micro-Topic &rarr;
+                    </button>
+                </div>
+            </div>
+
         </main>
     </div>
 
@@ -929,6 +1047,16 @@
             if (!subject) return;
 
             document.getElementById('sidebarSubjectName').innerText = `🏛️ ${subject.subjectTitle}`;
+
+            // Update Subject Progress in Sidebar Header
+            if (typeof UPSCProgressService !== 'undefined') {
+                const subStats = UPSCProgressService.getSubjectStats(subject);
+                const pctEl = document.getElementById('sidebarProgressPct');
+                const barEl = document.getElementById('sidebarProgressBar');
+                if (pctEl) pctEl.innerText = `${subStats.completed} / ${subStats.total} (${subStats.pct}%)`;
+                if (barEl) barEl.style.width = `${subStats.pct}%`;
+            }
+
             const container = document.getElementById('sidebarTree');
             container.innerHTML = '';
 
@@ -940,6 +1068,12 @@
                 group.id = `group-${top.topicId}`;
 
                 const subCount = top.subtopics ? top.subtopics.length : 0;
+                let topCompleted = 0;
+                if (typeof UPSCProgressService !== 'undefined') {
+                    const topStats = UPSCProgressService.getTopicStats(top);
+                    topCompleted = topStats.completed;
+                }
+                const isAllDone = topCompleted === subCount && subCount > 0;
 
                 group.innerHTML = `
                     <div class="topic-group-header" onclick="toggleTopicAccordion('${top.topicId}')">
@@ -947,18 +1081,24 @@
                             <span class="topic-arrow">▶</span>
                             <span>${idx + 1}. ${top.topicTitle}</span>
                         </div>
-                        <span style="font-size:10.5px; color:#94a3b8; font-weight:700;">${subCount}</span>
+                        <span style="font-size:10px; font-weight:700; ${isAllDone ? 'color:#059669;' : 'color:#94a3b8;'}">
+                            ${isAllDone ? '✓ ' : ''}${topCompleted}/${subCount}
+                        </span>
                     </div>
                     <div class="subtopics-list">
                         ${(top.subtopics || []).map(st => {
                             const isActive = st.subTopicId === activeSubtopicId;
+                            const isDone = typeof UPSCProgressService !== 'undefined' && UPSCProgressService.isCompleted(st.subTopicId);
                             return `
                                 <a href="javascript:void(0)" 
                                    onclick="switchSubtopic('${encodeURIComponent(st.dataPath || '')}', '${subject.subjectId}', '${top.topicId}', '${st.subTopicId}')" 
                                    class="subtopic-nav-link ${isActive ? 'active' : ''}" 
                                    id="sublink-${st.subTopicId}">
-                                    <span>&bull; ${st.subTopicTitle}</span>
-                                    ${isActive ? '<span class="subtopic-active-badge">Reading</span>' : ''}
+                                    <span style="${isDone ? 'color:#15803d; font-weight:700;' : ''}">${isDone ? '✓ ' : '&bull; '}${st.subTopicTitle}</span>
+                                    <div style="display:flex; align-items:center; gap:4px;">
+                                        ${isDone ? '<span class="subtopic-done-pill">✓ Done</span>' : ''}
+                                        ${isActive ? '<span class="subtopic-active-badge">Reading</span>' : ''}
+                                    </div>
                                 </a>
                             `;
                         }).join('')}
@@ -1217,6 +1357,11 @@
             document.getElementById('pageSubtopicTitle').innerText = d.subTopicTitle || '';
             document.getElementById('pageParentMeta').innerText = `${d.subjectTitle || ''} • ${d.topicTitle || ''}`;
 
+            // Update completion status in UI
+            if (typeof UPSCProgressService !== 'undefined') {
+                updateCompletionUI(UPSCProgressService.isCompleted(CURRENT_SUBTOPIC_ID));
+            }
+
             if (d.syllabusMapping) {
                 document.getElementById('badgePrelims').innerText = d.syllabusMapping.prelims || 'GS Prelims';
                 document.getElementById('badgeMains').innerText = d.syllabusMapping.mains || 'GS Mains';
@@ -1333,6 +1478,63 @@
 
             const exp = document.getElementById(expId);
             if (exp) exp.style.display = 'block';
+        }
+
+        // Completion & Navigation Handlers
+        function toggleCurrentCompletion() {
+            if (!CURRENT_SUBTOPIC_ID) return;
+            const params = getQueryParams();
+            const isDone = UPSCProgressService.toggleCompletion(CURRENT_SUBTOPIC_ID, params.subject, params.topic);
+            updateCompletionUI(isDone);
+            if (CURRENT_SUBJECT) {
+                renderSidebar(CURRENT_SUBJECT, CURRENT_TOPIC_ID, CURRENT_SUBTOPIC_ID);
+            }
+        }
+
+        function updateCompletionUI(isDone) {
+            const btnHero = document.getElementById('btnMarkCompleteHero');
+            const iconHero = document.getElementById('markCompleteIconHero');
+            const textHero = document.getElementById('markCompleteTextHero');
+
+            const btnBottom = document.getElementById('btnMarkCompleteBottom');
+            const iconBottom = document.getElementById('markCompleteIconBottom');
+            const textBottom = document.getElementById('markCompleteTextBottom');
+
+            if (isDone) {
+                if (btnHero) btnHero.classList.add('completed');
+                if (iconHero) iconHero.innerText = '✓';
+                if (textHero) textHero.innerText = 'Completed';
+
+                if (btnBottom) btnBottom.classList.add('completed');
+                if (iconBottom) iconBottom.innerText = '✓';
+                if (textBottom) textBottom.innerText = '✓ Completed (Click to Undo)';
+            } else {
+                if (btnHero) btnHero.classList.remove('completed');
+                if (iconHero) iconHero.innerText = '○';
+                if (textHero) textHero.innerText = 'Mark as Completed';
+
+                if (btnBottom) btnBottom.classList.remove('completed');
+                if (iconBottom) iconBottom.innerText = '○';
+                if (textBottom) textBottom.innerText = 'Mark as Completed';
+            }
+        }
+
+        function goToNextSubtopic() {
+            if (!CURRENT_SUBJECT || !CURRENT_SUBJECT.topics) return;
+            let allSubtopics = [];
+            CURRENT_SUBJECT.topics.forEach(t => {
+                (t.subtopics || []).forEach(st => {
+                    allSubtopics.push({ ...st, topicId: t.topicId });
+                });
+            });
+
+            const currentIndex = allSubtopics.findIndex(st => st.subTopicId === CURRENT_SUBTOPIC_ID);
+            if (currentIndex >= 0 && currentIndex < allSubtopics.length - 1) {
+                const next = allSubtopics[currentIndex + 1];
+                switchSubtopic(encodeURIComponent(next.dataPath || ''), CURRENT_SUBJECT.subjectId, next.topicId, next.subTopicId);
+            } else {
+                alert('🎉 Congratulations! You have completed all micro-topics in this subject curriculum!');
+            }
         }
 
         document.addEventListener('DOMContentLoaded', initPlayer);

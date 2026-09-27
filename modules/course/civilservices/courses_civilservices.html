@@ -175,7 +175,10 @@
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                     <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px; background:#1e1b4b; border-color:#3730a3; color:#ffffff;">UPSC CSE 2026/27</span>
+                    <div style="display:flex; gap:6px; align-items:center;">
+                        <span id="upsc-prog-badge" class="badge" style="display:none; font-size:10px; background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; font-weight:800;"></span>
+                        <span class="badge badge-primary" style="font-size:10.5px; background:#1e1b4b; border-color:#3730a3; color:#ffffff;">UPSC CSE 2026/27</span>
+                    </div>
                 </div>
                 <div style="font-size:18px; font-weight:800; color:var(--text); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
                     🏛️ UPSC Civil Services
@@ -247,7 +250,25 @@
             t.className = `toast show ${type}`;
             setTimeout(() => { t.className = 'toast'; }, 3000);
         }
+
+        // UPSC Progress Badge
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                if (typeof UPSCProgressService !== 'undefined') {
+                    const progMap = UPSCProgressService.getProgressMap();
+                    const completedCount = Object.keys(progMap).filter(k => progMap[k] && (progMap[k].completed || progMap[k].is_completed)).length;
+                    if (completedCount > 0) {
+                        const badge = document.getElementById('upsc-prog-badge');
+                        if (badge) {
+                            badge.innerText = `${completedCount} / 1,436 Completed`;
+                            badge.style.display = 'inline-block';
+                        }
+                    }
+                }
+            } catch(e) {}
+        });
     </script>
+    <script src="UPSC/js/upscProgress.js"></script>
 </body>
 
 </html>
