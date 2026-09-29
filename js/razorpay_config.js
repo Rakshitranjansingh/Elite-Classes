@@ -18,8 +18,16 @@
             this._scriptLoadingPromise = new Promise((resolve, reject) => {
                 const existingScript = document.querySelector('script[src*="checkout.razorpay.com"]');
                 if (existingScript) {
+                    if (window.Razorpay) {
+                        resolve(true);
+                        return;
+                    }
                     existingScript.addEventListener('load', () => resolve(true));
                     existingScript.addEventListener('error', () => reject(new Error('Failed to load Razorpay Checkout SDK')));
+                    setTimeout(() => {
+                        if (window.Razorpay) resolve(true);
+                        else reject(new Error('Razorpay SDK loading timeout'));
+                    }, 2500);
                     return;
                 }
 
@@ -51,13 +59,28 @@
                 }
             }
 
+            let storedKey = '';
+            try {
+                storedKey = localStorage.getItem('ec_razorpay_key_id') || '';
+                if (storedKey && (storedKey === 'rzp_test_placeholder' || storedKey.toLowerCase().includes('placeholder'))) {
+                    localStorage.removeItem('ec_razorpay_key_id');
+                    storedKey = '';
+                }
+            } catch (e) {}
+
+            const LIVE_DEFAULT_KEY = 'rzp_live_ThjCyikI4P88f5';
+
             if (!cfg) {
                 cfg = {
-                    razorpay_key_id: localStorage.getItem('ec_razorpay_key_id') || 'rzp_test_placeholder',
+                    razorpay_key_id: storedKey || LIVE_DEFAULT_KEY,
                     razorpay_enabled: localStorage.getItem('ec_razorpay_enabled') !== 'false',
                     donation_purpose: localStorage.getItem('ec_donation_purpose') || 'Voluntary Educational Support & Platform Maintenance Donation',
                     admin_upi_id: localStorage.getItem('ec_admin_upi_id') || '9911519237@upi'
                 };
+            }
+
+            if (!cfg.razorpay_key_id || cfg.razorpay_key_id.toLowerCase().includes('placeholder')) {
+                cfg.razorpay_key_id = LIVE_DEFAULT_KEY;
             }
 
             return {
@@ -133,13 +156,18 @@
             const cleanPhone = (candidatePhone || '').replace(/\D/g, '');
             const amountInPaise = Math.round(Number(amount) * 100);
 
+            let logoImage = undefined;
+            if (typeof window !== 'undefined' && window.location && window.location.origin) {
+                logoImage = window.location.origin + '/eliteLogo_crest.png';
+            }
+
             const options = {
                 key: rawKey,
                 amount: amountInPaise,
                 currency: 'INR',
                 name: 'Elite Classes',
                 description: config.donation_purpose || 'Voluntary Educational Support & Platform Maintenance Donation',
-                image: 'https://rakshitranjansingh.github.io/Elite-Classes/images/logo.png',
+                image: logoImage,
                 prefill: {
                     name: candidateName || '',
                     contact: cleanPhone ? '+91' + cleanPhone.slice(-10) : '',

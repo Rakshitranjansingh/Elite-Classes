@@ -130,13 +130,39 @@ const DBService = {
 
     async getPaymentConfig() {
         const cached = {
-            razorpay_key_id: localStorage.getItem('ec_razorpay_key_id') || 'rzp_test_placeholder',
+            razorpay_key_id: localStorage.getItem('ec_razorpay_key_id') || 'rzp_live_ThjCyikI4P88f5',
             razorpay_enabled: localStorage.getItem('ec_razorpay_enabled') !== 'false',
             donation_purpose: localStorage.getItem('ec_donation_purpose') || 'Voluntary Educational Support & Platform Maintenance Donation',
             admin_upi_id: localStorage.getItem('ec_admin_upi_id') || '9911519237@upi'
         };
 
-        if (!isSupabaseConnected()) return cached;
+        if (!localStorage.getItem('ec_razorpay_key_id') && cached.razorpay_key_id) {
+            try { localStorage.setItem('ec_razorpay_key_id', cached.razorpay_key_id); } catch(e) {}
+        }
+
+        if (!isSupabaseConnected()) {
+            if (typeof SUPABASE_URL !== 'undefined' && typeof SUPABASE_ANON_KEY !== 'undefined' && typeof fetch !== 'undefined') {
+                try {
+                    const res = await fetch(`${SUPABASE_URL}/rest/v1/coaching_settings?id=eq.coaching_main&select=razorpay_key_id,razorpay_enabled,donation_purpose,admin_upi_id`, {
+                        headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                    });
+                    if (res.ok) {
+                        const rows = await res.json();
+                        if (rows && rows[0] && rows[0].razorpay_key_id) {
+                            cached.razorpay_key_id = rows[0].razorpay_key_id;
+                            cached.razorpay_enabled = rows[0].razorpay_enabled !== false;
+                            cached.donation_purpose = rows[0].donation_purpose || cached.donation_purpose;
+                            cached.admin_upi_id = rows[0].admin_upi_id || cached.admin_upi_id;
+                            try {
+                                localStorage.setItem('ec_razorpay_key_id', cached.razorpay_key_id);
+                                localStorage.setItem('ec_razorpay_enabled', cached.razorpay_enabled.toString());
+                            } catch(e) {}
+                        }
+                    }
+                } catch(e) {}
+            }
+            return cached;
+        }
 
         try {
             const { data, error } = await supabaseClient

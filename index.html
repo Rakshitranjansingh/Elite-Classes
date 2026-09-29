@@ -1359,6 +1359,9 @@
         </nav>
 
         <div class="pub-nav-actions">
+            <button type="button" class="btn-portal-signup" style="background:linear-gradient(135deg, #059669, #047857); border:none; box-shadow:0 4px 12px rgba(5,150,105,0.35); font-weight:800;" onclick="openTestSeriesSubscribeModal('Civil Services')">
+                <span>⚡ Get Pass (₹299)</span>
+            </button>
             <button type="button" class="btn-portal-signin" id="nav-btn-signin" onclick="openPortalLoginModal()">
                 <span>Sign In</span>
             </button>
@@ -2502,6 +2505,21 @@
             }
             await initPublicPage();
             await checkGoogleAuthRedirect();
+
+            // Direct Pass / Subscription modal opener via URL parameters (e.g. ?action=subscribe&cls=Civil+Services)
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const action = urlParams.get('action');
+                const clsParam = urlParams.get('cls') || 'Civil Services';
+                const couponParam = urlParams.get('coupon') || '';
+                if (action === 'subscribe' || action === 'pass' || action === 'payment') {
+                    setTimeout(() => {
+                        openTestSeriesSubscribeModal(clsParam, couponParam);
+                    }, 250);
+                }
+            } catch (paramErr) {
+                console.warn('URL parameter parse warning:', paramErr);
+            }
         });
 
         async function initPublicPage() {
@@ -2958,10 +2976,11 @@
                                 showToast('Activation error. Please contact admin with your payment ID.', 'danger');
                             }
                         },
-                        onFailure: function (err) {
-                            submitBtn.disabled = false;
-                            updateTsPricingDisplay();
-                            showToast('Payment was not completed. You can try again or use the manual UPI QR code option.', 'danger');
+                        onFailure: async function (err) {
+                            console.warn('[SubscriberReg] Razorpay error or uncompleted, switching to UPI QR fallback:', err);
+                            showToast('Direct checkout unavailable. Switching to Instant UPI QR code...', 'warning');
+                            // Seamless automatic fallback to Scan & Pay UPI QR
+                            await handleSubscriberRegSubmit('manual_upi');
                         },
                         onDismiss: function () {
                             submitBtn.disabled = false;
