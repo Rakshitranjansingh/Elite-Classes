@@ -394,6 +394,87 @@ function saveSupabaseSettingsFromModal() {
     }
 }
 
+// Payment & Donation Gateway Modal Helpers
+async function openPaymentGatewayModal() {
+    let cfg = {
+        razorpay_key_id: localStorage.getItem('ec_razorpay_key_id') || 'rzp_test_placeholder',
+        razorpay_enabled: localStorage.getItem('ec_razorpay_enabled') !== 'false',
+        donation_purpose: localStorage.getItem('ec_donation_purpose') || 'Voluntary Educational Support & Platform Maintenance Donation',
+        admin_upi_id: localStorage.getItem('ec_admin_upi_id') || '9911519237@upi'
+    };
+
+    if (typeof DBService !== 'undefined' && typeof DBService.getPaymentConfig === 'function') {
+        try {
+            cfg = await DBService.getPaymentConfig();
+        } catch (e) {
+            console.warn('[Admin] Payment config fetch notice:', e);
+        }
+    }
+
+    const keyEl = document.getElementById('cfg-rzp-key');
+    const enabledEl = document.getElementById('cfg-rzp-enabled');
+    const purposeEl = document.getElementById('cfg-rzp-purpose');
+    const upiEl = document.getElementById('cfg-rzp-upi');
+
+    if (keyEl) keyEl.value = cfg.razorpay_key_id || '';
+    if (enabledEl) enabledEl.checked = cfg.razorpay_enabled !== false;
+    if (purposeEl) purposeEl.value = cfg.donation_purpose || '';
+    if (upiEl) upiEl.value = cfg.admin_upi_id || '';
+
+    openModal('paymentGatewayModal');
+}
+
+async function savePaymentGatewaySettingsFromModal() {
+    const keyEl = document.getElementById('cfg-rzp-key');
+    const enabledEl = document.getElementById('cfg-rzp-enabled');
+    const purposeEl = document.getElementById('cfg-rzp-purpose');
+    const upiEl = document.getElementById('cfg-rzp-upi');
+    const saveBtn = document.getElementById('btn-save-rzp-cfg');
+
+    const key = keyEl ? keyEl.value.trim() : '';
+    const enabled = enabledEl ? enabledEl.checked : true;
+    const purpose = purposeEl ? purposeEl.value.trim() : '';
+    const upi = upiEl ? upiEl.value.trim() : '';
+
+    if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.textContent = 'Saving Settings...';
+    }
+
+    try {
+        if (typeof DBService !== 'undefined' && typeof DBService.updatePaymentConfig === 'function') {
+            const res = await DBService.updatePaymentConfig({
+                razorpay_key_id: key,
+                razorpay_enabled: enabled,
+                donation_purpose: purpose,
+                admin_upi_id: upi
+            });
+
+            if (res && res.success) {
+                showToast('Payment & Donation gateway settings updated successfully!', 'success');
+                closeModal('paymentGatewayModal');
+            } else {
+                showToast('Failed to save settings: ' + ((res && res.error) || 'Unknown error'), 'danger');
+            }
+        } else {
+            localStorage.setItem('ec_razorpay_key_id', key);
+            localStorage.setItem('ec_razorpay_enabled', enabled.toString());
+            localStorage.setItem('ec_donation_purpose', purpose);
+            localStorage.setItem('ec_admin_upi_id', upi);
+            showToast('Payment gateway settings saved locally.', 'success');
+            closeModal('paymentGatewayModal');
+        }
+    } catch (e) {
+        console.error('Error saving payment gateway config:', e);
+        showToast('Error saving settings: ' + e.message, 'danger');
+    } finally {
+        if (saveBtn) {
+            saveBtn.disabled = false;
+            saveBtn.textContent = 'Save Gateway Settings →';
+        }
+    }
+}
+
 async function syncDataFromSupabase() {
     if (typeof isSupabaseConnected !== 'function' || !isSupabaseConnected()) return;
 

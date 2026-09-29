@@ -128,6 +128,78 @@ const DBService = {
         }
     },
 
+    async getPaymentConfig() {
+        const cached = {
+            razorpay_key_id: localStorage.getItem('ec_razorpay_key_id') || 'rzp_test_placeholder',
+            razorpay_enabled: localStorage.getItem('ec_razorpay_enabled') !== 'false',
+            donation_purpose: localStorage.getItem('ec_donation_purpose') || 'Voluntary Educational Support & Platform Maintenance Donation',
+            admin_upi_id: localStorage.getItem('ec_admin_upi_id') || '9911519237@upi'
+        };
+
+        if (!isSupabaseConnected()) return cached;
+
+        try {
+            const { data, error } = await supabaseClient
+                .from('coaching_settings')
+                .select('razorpay_key_id, razorpay_enabled, donation_purpose, admin_upi_id')
+                .eq('id', 'coaching_main')
+                .maybeSingle();
+
+            if (!error && data) {
+                const liveConfig = {
+                    razorpay_key_id: data.razorpay_key_id || cached.razorpay_key_id,
+                    razorpay_enabled: data.razorpay_enabled !== false,
+                    donation_purpose: data.donation_purpose || cached.donation_purpose,
+                    admin_upi_id: data.admin_upi_id || cached.admin_upi_id
+                };
+                try {
+                    localStorage.setItem('ec_razorpay_key_id', liveConfig.razorpay_key_id);
+                    localStorage.setItem('ec_razorpay_enabled', liveConfig.razorpay_enabled.toString());
+                    localStorage.setItem('ec_donation_purpose', liveConfig.donation_purpose);
+                    localStorage.setItem('ec_admin_upi_id', liveConfig.admin_upi_id);
+                } catch(e) {}
+                return liveConfig;
+            }
+        } catch (e) {
+            console.warn('[DBService] Fetch payment config fallback:', e);
+        }
+        return cached;
+    },
+
+    async updatePaymentConfig(newCfg) {
+        const payload = {};
+        if (newCfg.razorpay_key_id !== undefined) payload.razorpay_key_id = newCfg.razorpay_key_id.trim();
+        if (newCfg.razorpay_enabled !== undefined) payload.razorpay_enabled = !!newCfg.razorpay_enabled;
+        if (newCfg.donation_purpose !== undefined) payload.donation_purpose = newCfg.donation_purpose.trim();
+        if (newCfg.admin_upi_id !== undefined) payload.admin_upi_id = newCfg.admin_upi_id.trim();
+        payload.updated_at = new Date().toISOString();
+
+        // Update local cache
+        try {
+            if (payload.razorpay_key_id !== undefined) localStorage.setItem('ec_razorpay_key_id', payload.razorpay_key_id);
+            if (payload.razorpay_enabled !== undefined) localStorage.setItem('ec_razorpay_enabled', payload.razorpay_enabled.toString());
+            if (payload.donation_purpose !== undefined) localStorage.setItem('ec_donation_purpose', payload.donation_purpose);
+            if (payload.admin_upi_id !== undefined) localStorage.setItem('ec_admin_upi_id', payload.admin_upi_id);
+        } catch(e) {}
+
+        if (!isSupabaseConnected()) return { success: true, localOnly: true };
+
+        try {
+            const { error } = await supabaseClient
+                .from('coaching_settings')
+                .upsert({ id: 'coaching_main', ...payload });
+
+            if (error) {
+                console.error('[DBService] Error updating payment config in DB:', error);
+                return { success: false, error: error.message };
+            }
+            return { success: true };
+        } catch (e) {
+            console.error('[DBService] Exception updating payment config:', e);
+            return { success: false, error: e.message };
+        }
+    },
+
     // ---------------------------------------------------------
     // 2. UNIFIED WHATSAPP & PIN AUTHENTICATION
     // ---------------------------------------------------------
@@ -2904,18 +2976,19 @@ const DBService = {
             existingSub = localSubs.find(s => (s.phone || '').replace(/\D/g, '') === cleanPhone);
         }
 
-        const isCouponInstant = (regData.status === 'active') ||
-            ['ELITE30', 'WELCOME'].includes((regData.coupon_code || '').trim().toUpperCase());
+        const isCouponInstant = ['ELITE30', 'WELCOME'].includes((regData.coupon_code || '').trim().toUpperCase());
+        const isPaidActive = (regData.status === 'active' || regData.payment_method === 'RAZORPAY');
+        const isInstantActive = isCouponInstant || isPaidActive;
 
         if (existingSub) {
-            if (existingSub.status === 'active' && !isCouponInstant) {
+            if (existingSub.status === 'active' && !isInstantActive) {
                 return {
                     success: false,
                     alreadyActive: true,
                     subscriber: existingSub,
                     message: `An active Test Series Pass already exists for WhatsApp ${cleanPhone}. Please Sign In using your PIN.`
                 };
-            } else if (existingSub.status === 'pending_verification' && !isCouponInstant) {
+            } else if (existingSub.status === 'pending_verification' && !isInstantActive) {
                 return {
                     success: true,
                     isPending: true,
@@ -2933,12 +3006,20 @@ const DBService = {
 
         const isCivil = (regData.cls === 'Civil Services' || (regData.cls && regData.cls.toLowerCase().includes('civil')));
         const thirtyDaysLater = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+        const oneYearLater = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
         const defaultPlanName = isCivil
             ? (isCouponInstant ? 'Civil Services 30-Day Test User Pass (ELITE30 Offer)' : 'Civil Services Annual CBT Test Series Pass')
             : 'Annual CBT Test Series Pass';
 
         const defaultPlanAmount = isCouponInstant ? 0.00 : (isCivil ? 299.00 : 499.00);
+
+        const calculatedValidUntil = regData.valid_until 
+            ? regData.valid_until 
+            : (isPaidActive ? oneYearLater : (isCouponInstant ? thirtyDaysLater : null));
+
+        const defaultPaymentMethod = isPaidActive ? 'RAZORPAY' : (isCouponInstant ? ('COUPON_' + (regData.coupon_code || 'ELITE30')) : 'UPI');
+        const defaultPaymentRef = isPaidActive ? (regData.payment_ref || '') : (isCouponInstant ? ('DIRECT_COUPON_' + (regData.coupon_code || 'ELITE30')) : (regData.payment_ref || ''));
 
         const newSubscriber = {
             id: existingSub ? existingSub.id : ('ts_sub_' + Date.now()),
@@ -2950,12 +3031,12 @@ const DBService = {
             tracking_code: trackingCode,
             plan_name: regData.plan_name || defaultPlanName,
             plan_amount: regData.plan_amount !== undefined ? regData.plan_amount : defaultPlanAmount,
-            payment_method: isCouponInstant ? 'COUPON_ELITE30' : (regData.payment_method || 'UPI'),
-            payment_ref: isCouponInstant ? 'DIRECT_COUPON_ELITE30' : ((regData.payment_ref || '').trim()),
-            status: isCouponInstant ? 'active' : (regData.status || 'pending_verification'),
-            valid_until: isCouponInstant ? (regData.valid_until || thirtyDaysLater) : (regData.valid_until || null),
-            activated_at: isCouponInstant ? new Date().toISOString() : (regData.activated_at || null),
-            activated_by: isCouponInstant ? 'COUPON_ELITE30' : (regData.activated_by || null),
+            payment_method: regData.payment_method || defaultPaymentMethod,
+            payment_ref: ((regData.payment_ref || defaultPaymentRef) + '').trim(),
+            status: isInstantActive ? 'active' : (regData.status || 'pending_verification'),
+            valid_until: calculatedValidUntil,
+            activated_at: isInstantActive ? (regData.activated_at || new Date().toISOString()) : (regData.activated_at || null),
+            activated_by: regData.activated_by || (isPaidActive ? 'RAZORPAY_GATEWAY' : (isCouponInstant ? ('COUPON_' + (regData.coupon_code || 'ELITE30')) : null)),
             converted_at: null,
             created_at: existingSub && existingSub.created_at ? existingSub.created_at : new Date().toISOString()
         };

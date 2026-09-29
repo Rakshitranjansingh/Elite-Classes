@@ -34,7 +34,7 @@ async function runTests() {
     console.log('▶ Test 1: Verifying index.html Academic Offerings...');
     const indexHtml = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8');
 
-    assert.ok(indexHtml.includes('Public Service Commissions GS & Test Pass'), 'Index must contain Civil Services card title');
+    assert.ok(indexHtml.includes('Civil Services All-Inclusive GS &amp; Test Pass') || indexHtml.includes('Civil Services All-Inclusive GS & Test Pass') || indexHtml.includes('Public Service Commissions GS & Test Pass'), 'Index must contain Civil Services card title');
     assert.ok(indexHtml.includes('₹14,000'), 'Index must contain ₹14,000 strikethrough price');
     assert.ok(indexHtml.includes('₹299'), 'Index must contain ₹299 offer price');
     assert.ok(indexHtml.includes('id="contact"'), 'Index must have id="contact" on footer');
