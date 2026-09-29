@@ -132,7 +132,7 @@ const DBService = {
         const cached = {
             razorpay_key_id: localStorage.getItem('ec_razorpay_key_id') || 'rzp_live_ThjCyikI4P88f5',
             razorpay_enabled: localStorage.getItem('ec_razorpay_enabled') !== 'false',
-            donation_purpose: localStorage.getItem('ec_donation_purpose') || 'Voluntary Educational Support & Platform Maintenance Donation',
+            donation_purpose: localStorage.getItem('ec_donation_purpose') || 'Platform Maintenance & Educational Support Fee',
             admin_upi_id: localStorage.getItem('ec_admin_upi_id') || '9911519237@upi'
         };
 

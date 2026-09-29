@@ -94,15 +94,15 @@ async function runTests() {
     // Check script include
     assert.ok(indexHtml.includes('js/razorpay_config.js'), 'index.html must include js/razorpay_config.js');
     
-    // Check voluntary donation terminology
-    assert.ok(indexHtml.includes('Voluntary Educational Support') || indexHtml.includes('Voluntary Educational Donation'), 'Fee must be framed as voluntary educational support/donation');
-    assert.ok(indexHtml.includes('Instant Donation &amp; Auto-Activation') || indexHtml.includes('Instant Donation & Auto-Activation'), 'Must offer instant donation checkout button');
+    // Check support fee terminology
+    assert.ok(indexHtml.includes('Platform Support Fee') || indexHtml.includes('Support Fee'), 'Fee must be framed as platform support fee');
+    assert.ok(indexHtml.includes('Instant Payment &amp; Auto-Activation') || indexHtml.includes('Instant Payment & Auto-Activation'), 'Must offer instant payment checkout button');
     assert.ok(indexHtml.includes('Scan Manual UPI QR Code') || indexHtml.includes('Scan &amp; Pay UPI QR'), 'Must preserve fallback manual UPI QR option');
 
     // Check no real live secret keys are committed
     assert.ok(!indexHtml.includes('rzp_live_'), 'index.html must NOT contain hardcoded live razorpay keys');
     assert.ok(!indexHtml.includes('key_secret'), 'index.html must NOT contain any key_secret');
-    console.log('  ✔ index.html verified: clean of hardcoded secrets, framing fee as voluntary donation, dual checkout enabled');
+    console.log('  ✔ index.html verified: clean of hardcoded secrets, framing fee as support fee, dual checkout enabled');
 
     // -------------------------------------------------------------
     // Test 5: Verify admin_home.html Gateway Config Management

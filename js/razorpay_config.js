@@ -1,4 +1,4 @@
-/* Elite Classes — Dynamic Razorpay Payment & Educational Donation Gateway */
+/* Elite Classes — Dynamic Razorpay Payment & Support Fee Gateway */
 
 (function (window) {
     'use strict';
@@ -48,7 +48,7 @@
             return this._scriptLoadingPromise;
         },
 
-        // Fetch runtime payment & donation settings from DBService or localStorage
+        // Fetch runtime payment & support fee settings from DBService or localStorage
         async getActiveConfig() {
             let cfg = null;
             if (typeof DBService !== 'undefined' && typeof DBService.getPaymentConfig === 'function') {
@@ -74,7 +74,7 @@
                 cfg = {
                     razorpay_key_id: storedKey || LIVE_DEFAULT_KEY,
                     razorpay_enabled: localStorage.getItem('ec_razorpay_enabled') !== 'false',
-                    donation_purpose: localStorage.getItem('ec_donation_purpose') || 'Voluntary Educational Support & Platform Maintenance Donation',
+                    donation_purpose: localStorage.getItem('ec_donation_purpose') || 'Platform Maintenance & Educational Support Fee',
                     admin_upi_id: localStorage.getItem('ec_admin_upi_id') || '9911519237@upi'
                 };
             }
@@ -90,8 +90,8 @@
             };
         },
 
-        // Launch Razorpay donation checkout popup
-        async openDonationCheckout(params = {}) {
+        // Launch Razorpay support fee checkout popup
+        async openCheckout(params = {}) {
             const {
                 amount = 299,
                 candidateName = '',
@@ -115,7 +115,7 @@
                 const proceedWithSimulation = window.confirm(
                     `[Sandbox Evaluation Mode]\n\n` +
                     `Razorpay Key ID is currently set to placeholder ('${rawKey}').\n\n` +
-                    `Would you like to simulate a successful ₹${amount} Educational Donation and verify instant 365-day pass activation?\n\n` +
+                    `Would you like to simulate a successful ₹${amount} Support Fee payment and verify instant 365-day pass activation?\n\n` +
                     `(To connect real payments, paste your Razorpay Key ID in Admin Portal Settings!)`
                 );
 
@@ -166,7 +166,7 @@
                 amount: amountInPaise,
                 currency: 'INR',
                 name: 'Elite Classes',
-                description: config.donation_purpose || 'Voluntary Educational Support & Platform Maintenance Donation',
+                description: config.donation_purpose || 'Platform Maintenance & Educational Support Fee',
                 image: logoImage,
                 prefill: {
                     name: candidateName || '',
@@ -174,7 +174,7 @@
                     email: candidateEmail || ''
                 },
                 notes: {
-                    purpose: 'Voluntary Student Educational Donation & Server Support',
+                    purpose: 'Student Educational Support Fee & Server Maintenance',
                     curriculum: curriculum,
                     plan: planName,
                     tracking_code: trackingCode
@@ -213,6 +213,11 @@
                     onFailure(initErr);
                 }
             }
+        },
+
+        // Backwards compatibility alias
+        openDonationCheckout(params = {}) {
+            return this.openCheckout(params);
         }
     };
 

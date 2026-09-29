@@ -1886,7 +1886,7 @@
                 <div>
                     <div style="display:flex; align-items:center; gap:8px;">
                         <span style="background:rgba(255,255,255,0.2); padding:2px 8px; border-radius:6px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">⚡ Annual Access Pass</span>
-                        <span style="font-size:12px; font-weight:700; background:#fef08a; color:#854d0e; padding:2px 8px; border-radius:6px;" id="ts-header-price-badge">Voluntary Contribution</span>
+                        <span style="font-size:12px; font-weight:700; background:#fef08a; color:#854d0e; padding:2px 8px; border-radius:6px;" id="ts-header-price-badge">Support Fee</span>
                     </div>
                     <h3 class="custom-modal-title" style="color:#ffffff; margin-top:6px; font-size:18px;">Annual Pass &amp; Platform Support</h3>
                 </div>
@@ -1948,7 +1948,7 @@
 
                     <div id="ts-fee-box" style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:12px 14px; margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
                         <div>
-                            <div id="ts-fee-title" style="font-size:11.5px; font-weight:700; color:#15803d; text-transform:uppercase;">Voluntary Educational Donation</div>
+                            <div id="ts-fee-title" style="font-size:11.5px; font-weight:700; color:#15803d; text-transform:uppercase;">Platform Support Fee</div>
                             <div id="ts-fee-desc" style="font-size:12px; color:#334155;">Supports open learning &amp; server hosting • 1-Year Civil Services Access</div>
                         </div>
                         <div style="text-align:right;">
@@ -1960,7 +1960,7 @@
 
                     <div class="custom-modal-footer" style="padding:16px 0 0; background:transparent; border-top:none; margin-top:16px; display:flex; flex-direction:column; gap:10px;">
                         <button type="submit" id="ts-step1-btn" class="btn btn-primary" style="background:linear-gradient(135deg, #059669, #047857); border:none; padding:12px 16px; font-weight:800; font-size:14px; width:100%; box-shadow:0 8px 16px -4px rgba(5,150,105,0.4);">
-                            ⚡ Instant Donation &amp; Auto-Activation (₹299) &rarr;
+                            ⚡ Instant Payment &amp; Auto-Activation (₹299) &rarr;
                         </button>
                         <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
                             <button type="button" class="btn btn-outline" style="font-size:12px; padding:6px 14px;" onclick="closeModal('testSeriesSubscribeModal')">Cancel</button>
@@ -2701,7 +2701,7 @@
                 }
             } else if (isCivil) {
                 if (headerBadge) {
-                    headerBadge.textContent = 'Voluntary Support (₹299/Yr)';
+                    headerBadge.textContent = 'Support Fee (₹299/Yr)';
                     headerBadge.style.background = '#fef3c7';
                     headerBadge.style.color = '#92400e';
                 }
@@ -2713,14 +2713,14 @@
                     feeAmount.textContent = '₹299';
                     feeAmount.style.color = '#047857';
                 }
-                if (feeTitle) feeTitle.textContent = 'Voluntary Educational Donation / Platform Support';
+                if (feeTitle) feeTitle.textContent = 'Platform Support Fee';
                 if (feeDesc) feeDesc.textContent = '1-Year Unlimited Civil Services GS Curriculum & CBT Tests (Platform Support)';
                 if (feeBox) {
                     feeBox.style.background = '#ecfdf5';
                     feeBox.style.borderColor = '#a7f3d0';
                 }
                 if (submitBtn) {
-                    submitBtn.innerHTML = '⚡ Instant Donation &amp; Auto-Activation (₹299) &rarr;';
+                    submitBtn.innerHTML = '⚡ Instant Payment &amp; Auto-Activation (₹299) &rarr;';
                     submitBtn.style.background = 'linear-gradient(135deg, #059669, #047857)';
                 }
                 if (manualBtn) manualBtn.style.display = 'inline-block';
@@ -2729,7 +2729,7 @@
                 }
             } else {
                 if (headerBadge) {
-                    headerBadge.textContent = 'Voluntary Support (₹499/Yr)';
+                    headerBadge.textContent = 'Support Fee (₹499/Yr)';
                     headerBadge.style.background = '#fef08a';
                     headerBadge.style.color = '#854d0e';
                 }
@@ -2740,14 +2740,14 @@
                     feeAmount.textContent = '₹499';
                     feeAmount.style.color = '#15803d';
                 }
-                if (feeTitle) feeTitle.textContent = 'Voluntary Educational Donation / Platform Support';
+                if (feeTitle) feeTitle.textContent = 'Platform Support Fee';
                 if (feeDesc) feeDesc.textContent = '1-Year Unlimited CBT Chapter Tests & Board Assessments';
                 if (feeBox) {
                     feeBox.style.background = '#f0fdf4';
                     feeBox.style.borderColor = '#bbf7d0';
                 }
                 if (submitBtn) {
-                    submitBtn.innerHTML = '⚡ Instant Donation &amp; Auto-Activation (₹499) &rarr;';
+                    submitBtn.innerHTML = '⚡ Instant Payment &amp; Auto-Activation (₹499) &rarr;';
                     submitBtn.style.background = 'linear-gradient(135deg, #059669, #047857)';
                 }
                 if (manualBtn) manualBtn.style.display = 'inline-block';
@@ -2881,7 +2881,7 @@
                     valid_until: isCouponFree ? thirtyDaysLater : null
                 };
 
-                // 2. PRIMARY FLOW: INSTANT RAZORPAY DONATION CHECKOUT FOR PAID PASS
+                // 2. PRIMARY FLOW: INSTANT RAZORPAY SUPPORT FEE CHECKOUT FOR PAID PASS
                 if (mode === 'razorpay' && !isCouponFree && typeof RazorpayGateway !== 'undefined') {
                     const oneYearLater = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
                     submitBtn.disabled = true;
@@ -2925,7 +2925,7 @@
                                 }));
                                 localStorage.setItem('ec_last_activity', Date.now().toString());
 
-                                showToast(`🎉 ₹${planAmount} Educational Donation received! 365-Day Pass activated!`, 'success');
+                                showToast(`🎉 ₹${planAmount} Platform Support Fee received! 365-Day Pass activated!`, 'success');
 
                                 // Render Celebration Screen
                                 document.getElementById('ts-step-info').style.display = 'none';
@@ -2938,12 +2938,12 @@
                                     </div>
                                     <h3 style="font-size:20px; font-weight:800; color:#0f172a; margin:0 0 6px;">365-Day Annual Pass Activated!</h3>
                                     <p style="font-size:13px; color:#475569; line-height:1.5; margin:0 0 16px;">
-                                        Thank you for your educational support donation, <strong style="color:#0f172a;">${activeSub.name}</strong>! Your pass is active immediately with <strong>instant access</strong>.
+                                        Thank you for your platform support, <strong style="color:#0f172a;">${activeSub.name}</strong>! Your pass is active immediately with <strong>instant access</strong>.
                                     </p>
                                     <div style="background:#f0fdf4; border:1px solid #86efac; border-radius:12px; padding:14px; text-align:left; font-size:12.5px; margin-bottom:18px;">
                                         <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
                                             <span style="color:#166534;">Payment Method:</span>
-                                            <strong style="color:#15803d;">Razorpay (Online Donation)</strong>
+                                            <strong style="color:#15803d;">Razorpay (Online Payment)</strong>
                                         </div>
                                         <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
                                             <span style="color:#166534;">Payment ID:</span>

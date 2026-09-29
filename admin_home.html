@@ -225,7 +225,7 @@
                 <button class="btn btn-outline" onclick="navigateToView('testseries')">⚡ Test Series Control</button>
                 <button class="btn btn-outline" onclick="navigateToView('marks')">📝 Exam Marks & Results</button>
                 <button class="btn btn-outline" onclick="navigateToView('analytics')">📊 Student 360° Analytics</button>
-                <button class="btn btn-outline" onclick="openPaymentGatewayModal()" style="border-color:#059669; color:#047857; font-weight:700;">💳 Payment &amp; Donation Gateway</button>
+                <button class="btn btn-outline" onclick="openPaymentGatewayModal()" style="border-color:#059669; color:#047857; font-weight:700;">💳 Payment &amp; Support Gateway</button>
                 <button class="btn btn-outline" onclick="openModal('postNoticeModal')">📢 Post Announcement</button>
             </div>
         </section>
@@ -1511,9 +1511,9 @@
         <div class="modal" style="max-width:540px;">
             <div class="modal-header" style="background:linear-gradient(135deg, #065f46, #047857); color:#ffffff;">
                 <div>
-                    <span class="modal-title" style="color:#ffffff; font-size:17px;">💳 Online Payment &amp; Donation Gateway</span>
+                    <span class="modal-title" style="color:#ffffff; font-size:17px;">💳 Online Payment &amp; Support Fee Gateway</span>
                     <div style="font-size:11.5px; color:#a7f3d0; margin-top:2px;">
-                        Manage Razorpay runtime Key ID, donation framing &amp; UPI settings dynamically
+                        Manage Razorpay runtime Key ID, support fee framing &amp; UPI settings dynamically
                     </div>
                 </div>
                 <button class="modal-close" onclick="closeModal('paymentGatewayModal')" style="color:#ffffff;">✕</button>
@@ -1541,8 +1541,8 @@
                     </div>
 
                     <div class="form-group full">
-                        <label style="font-weight:700; color:#0f172a;">Donation Purpose / Cause Description</label>
-                        <input type="text" id="cfg-rzp-purpose" placeholder="Voluntary Educational Support & Platform Maintenance Donation">
+                        <label style="font-weight:700; color:#0f172a;">Payment Purpose / Support Fee Description</label>
+                        <input type="text" id="cfg-rzp-purpose" placeholder="Platform Maintenance &amp; Educational Support Fee">
                         <div style="font-size:11px; color:#64748b; margin-top:4px;">
                             This description appears on the student's Razorpay checkout screen and receipts.
                         </div>

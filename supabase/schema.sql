@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS coaching_settings (
     student_access_key VARCHAR(50) NOT NULL DEFAULT '123456',
     razorpay_key_id VARCHAR(100) DEFAULT 'rzp_test_placeholder',
     razorpay_enabled BOOLEAN DEFAULT TRUE,
-    donation_purpose VARCHAR(255) DEFAULT 'Voluntary Educational Support & Platform Maintenance Donation',
+    donation_purpose VARCHAR(255) DEFAULT 'Platform Maintenance & Educational Support Fee',
     admin_upi_id VARCHAR(100) DEFAULT '9911519237@upi',
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -21,7 +21,7 @@ ALTER TABLE coaching_settings
 ADD COLUMN IF NOT EXISTS student_access_key VARCHAR(50) NOT NULL DEFAULT '123456',
 ADD COLUMN IF NOT EXISTS razorpay_key_id VARCHAR(100) DEFAULT 'rzp_test_placeholder',
 ADD COLUMN IF NOT EXISTS razorpay_enabled BOOLEAN DEFAULT TRUE,
-ADD COLUMN IF NOT EXISTS donation_purpose VARCHAR(255) DEFAULT 'Voluntary Educational Support & Platform Maintenance Donation',
+ADD COLUMN IF NOT EXISTS donation_purpose VARCHAR(255) DEFAULT 'Platform Maintenance & Educational Support Fee',
 ADD COLUMN IF NOT EXISTS admin_upi_id VARCHAR(100) DEFAULT '9911519237@upi';
 
 -- 2. ACADEMIC CLASSES TABLE
@@ -475,7 +475,7 @@ CREATE POLICY "Public Read/Write testseries_subscriber_results" ON testseries_su
 -- INITIAL SEED DATA (SAFE FOR MULTIPLE RE-RUNS)
 -- =========================================================
 INSERT INTO coaching_settings (id, coaching_name, access_key, student_access_key, razorpay_key_id, razorpay_enabled, donation_purpose, admin_upi_id)
-VALUES ('coaching_main', 'Elite Classes', '987654', '123456', 'rzp_test_placeholder', true, 'Voluntary Educational Support & Platform Maintenance Donation', '9911519237@upi')
+VALUES ('coaching_main', 'Elite Classes', '987654', '123456', 'rzp_test_placeholder', true, 'Platform Maintenance & Educational Support Fee', '9911519237@upi')
 ON CONFLICT (id) DO UPDATE SET 
     access_key = EXCLUDED.access_key, 
     student_access_key = EXCLUDED.student_access_key,
