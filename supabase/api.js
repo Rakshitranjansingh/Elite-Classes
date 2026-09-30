@@ -2977,8 +2977,84 @@ const DBService = {
     },
 
     // =========================================================================
-    // 14. DEDICATED TEST SERIES SUBSCRIBERS MODULE API
     // =========================================================================
+    // 14. DEDICATED TEST SERIES SUBSCRIBERS MODULE API & COUPONS
+    // =========================================================================
+
+    async verifyCoupon(code, targetClass = '') {
+        const cleanCode = (code || '').trim().toUpperCase();
+        if (!cleanCode) {
+            return { valid: false, message: 'Please enter a coupon code.' };
+        }
+
+        let couponRecord = null;
+        if (isSupabaseConnected()) {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('coupons')
+                    .select('*')
+                    .eq('code', cleanCode)
+                    .eq('is_active', true)
+                    .maybeSingle();
+                if (!error && data) {
+                    couponRecord = data;
+                }
+            } catch (e) {
+                console.warn('[DBService] Fetch coupon from Supabase fallback:', e);
+            }
+        }
+
+        // Offline / default seed fallback
+        if (!couponRecord) {
+            const defaultCoupons = {
+                'SANTA150': {
+                    code: 'SANTA150',
+                    description: 'Special Access Offer — ₹150 for 6 Months Access',
+                    discount_type: 'fixed_price',
+                    fixed_price: 150.00,
+                    validity_days: 180,
+                    allowed_classes: null,
+                    is_active: true
+                },
+                'ELITE30': {
+                    code: 'ELITE30',
+                    description: 'Special 30-Day Direct Access Free Pass',
+                    discount_type: 'free_pass',
+                    fixed_price: 0.00,
+                    validity_days: 30,
+                    allowed_classes: null,
+                    is_active: true
+                },
+                'WELCOME': {
+                    code: 'WELCOME',
+                    description: 'Welcome 30-Day Direct Access Free Pass',
+                    discount_type: 'free_pass',
+                    fixed_price: 0.00,
+                    validity_days: 30,
+                    allowed_classes: null,
+                    is_active: true
+                }
+            };
+            couponRecord = defaultCoupons[cleanCode] || null;
+        }
+
+        if (!couponRecord || !couponRecord.is_active) {
+            return { valid: false, message: 'Invalid or expired coupon code.' };
+        }
+
+        // Check allowed classes if specified
+        if (couponRecord.allowed_classes && Array.isArray(couponRecord.allowed_classes) && couponRecord.allowed_classes.length > 0 && targetClass) {
+            const isAllowed = couponRecord.allowed_classes.some(c => c.toLowerCase() === targetClass.toLowerCase());
+            if (!isAllowed) {
+                return { valid: false, message: `Coupon ${cleanCode} is not applicable for ${targetClass}.` };
+            }
+        }
+
+        return {
+            valid: true,
+            coupon: couponRecord
+        };
+    },
 
     async createSubscriberRegistration(regData) {
         const cleanPhone = (regData.phone || '').replace(/\D/g, '');
@@ -3002,7 +3078,8 @@ const DBService = {
             existingSub = localSubs.find(s => (s.phone || '').replace(/\D/g, '') === cleanPhone);
         }
 
-        const isCouponInstant = ['ELITE30', 'WELCOME'].includes((regData.coupon_code || '').trim().toUpperCase());
+        const cleanCoupon = (regData.coupon_code || '').trim().toUpperCase();
+        const isCouponInstant = ['ELITE30', 'WELCOME'].includes(cleanCoupon);
         const isPaidActive = (regData.status === 'active' || regData.payment_method === 'RAZORPAY');
         const isInstantActive = isCouponInstant || isPaidActive;
 
@@ -3012,14 +3089,14 @@ const DBService = {
                     success: false,
                     alreadyActive: true,
                     subscriber: existingSub,
-                    message: `An active Test Series Pass already exists for WhatsApp ${cleanPhone}. Please Sign In using your PIN.`
+                    message: `An active Pass already exists for WhatsApp ${cleanPhone}. Please Sign In using your PIN.`
                 };
             } else if (existingSub.status === 'pending_verification' && !isInstantActive) {
                 return {
                     success: true,
                     isPending: true,
                     subscriber: existingSub,
-                    message: `Your Test Series enrollment is currently awaiting Admin payment verification.`
+                    message: `Your enrollment is currently awaiting Admin payment verification.`
                 };
             }
         }
@@ -3032,20 +3109,29 @@ const DBService = {
 
         const isCivil = (regData.cls === 'Civil Services' || (regData.cls && regData.cls.toLowerCase().includes('civil')));
         const thirtyDaysLater = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+        const sixMonthsLater = new Date(Date.now() + 180 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
         const oneYearLater = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
-        const defaultPlanName = isCivil
-            ? (isCouponInstant ? 'Civil Services 30-Day Test User Pass (ELITE30 Offer)' : 'Civil Services Annual CBT Test Series Pass')
-            : 'Annual CBT Test Series Pass';
+        let defaultPlanName = isCivil ? 'Elite Pass Pro' : 'Elite Pass';
+        let defaultPlanAmount = isCivil ? 499.00 : 299.00;
+        let defaultValidUntil = oneYearLater;
 
-        const defaultPlanAmount = isCouponInstant ? 0.00 : (isCivil ? 299.00 : 499.00);
+        if (cleanCoupon === 'SANTA150') {
+            defaultPlanName = (isCivil ? 'Elite Pass Pro' : 'Elite Pass') + ' (SANTA150 6-Month Offer)';
+            defaultPlanAmount = 150.00;
+            defaultValidUntil = sixMonthsLater;
+        } else if (isCouponInstant) {
+            defaultPlanName = (isCivil ? 'Elite Pass Pro' : 'Elite Pass') + ' (30-Day Free Pass)';
+            defaultPlanAmount = 0.00;
+            defaultValidUntil = thirtyDaysLater;
+        }
 
         const calculatedValidUntil = regData.valid_until 
             ? regData.valid_until 
-            : (isPaidActive ? oneYearLater : (isCouponInstant ? thirtyDaysLater : null));
+            : (cleanCoupon === 'SANTA150' ? sixMonthsLater : (isPaidActive ? defaultValidUntil : (isCouponInstant ? thirtyDaysLater : null)));
 
-        const defaultPaymentMethod = isPaidActive ? 'RAZORPAY' : (isCouponInstant ? ('COUPON_' + (regData.coupon_code || 'ELITE30')) : 'UPI');
-        const defaultPaymentRef = isPaidActive ? (regData.payment_ref || '') : (isCouponInstant ? ('DIRECT_COUPON_' + (regData.coupon_code || 'ELITE30')) : (regData.payment_ref || ''));
+        const defaultPaymentMethod = isPaidActive ? 'RAZORPAY' : (isCouponInstant ? ('COUPON_' + cleanCoupon) : 'UPI');
+        const defaultPaymentRef = isPaidActive ? (regData.payment_ref || '') : (isCouponInstant ? ('DIRECT_COUPON_' + cleanCoupon) : (regData.payment_ref || ''));
 
         const newSubscriber = {
             id: existingSub ? existingSub.id : ('ts_sub_' + Date.now()),
@@ -3062,7 +3148,7 @@ const DBService = {
             status: isInstantActive ? 'active' : (regData.status || 'pending_verification'),
             valid_until: calculatedValidUntil,
             activated_at: isInstantActive ? (regData.activated_at || new Date().toISOString()) : (regData.activated_at || null),
-            activated_by: regData.activated_by || (isPaidActive ? 'RAZORPAY_GATEWAY' : (isCouponInstant ? ('COUPON_' + (regData.coupon_code || 'ELITE30')) : null)),
+            activated_by: regData.activated_by || (isPaidActive ? 'RAZORPAY_GATEWAY' : (isCouponInstant ? ('COUPON_' + cleanCoupon) : null)),
             converted_at: null,
             created_at: existingSub && existingSub.created_at ? existingSub.created_at : new Date().toISOString()
         };

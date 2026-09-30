@@ -27,7 +27,7 @@ console.log('  ✔ supabase/api.js verified with live key');
 console.log('▶ Test 3: Verifying index.html payment points & failover...');
 const indexContent = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8');
 assert(indexContent.includes('action === \'subscribe\''), 'index.html must handle ?action=subscribe URL query');
-assert(indexContent.includes('⚡ Get Pass (₹299)'), 'index.html navbar must feature Get Pass button');
+assert(indexContent.includes('Get Elite Pass') || indexContent.includes('Get Pass'), 'index.html navbar must feature Get Pass button');
 assert(indexContent.includes('Switching to Instant UPI QR code'), 'index.html onFailure must notify user of seamless QR fallback');
 assert(indexContent.includes('await handleSubscriberRegSubmit(\'manual_upi\')'), 'index.html onFailure must auto-switch to manual_upi');
 console.log('  ✔ index.html verified: navbar CTA, ?action=subscribe listener, and automatic failover to UPI QR');

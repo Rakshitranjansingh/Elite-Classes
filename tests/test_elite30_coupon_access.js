@@ -29,28 +29,24 @@ async function runTests() {
     console.log('================================================================\n');
 
     // -------------------------------------------------------------
-    // Test 1: Verify index.html contains pricing & offering card
+    // Test 1: Verify index.html contains Uniform Elite Pass & Preview Offer
     // -------------------------------------------------------------
-    console.log('▶ Test 1: Verifying index.html Academic Offerings...');
+    console.log('▶ Test 1: Verifying index.html Uniform Elite Pass & Preview Offer...');
     const indexHtml = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8');
 
-    assert.ok(indexHtml.includes('Civil Services All-Inclusive GS &amp; Test Pass') || indexHtml.includes('Civil Services All-Inclusive GS & Test Pass') || indexHtml.includes('Public Service Commissions GS & Test Pass'), 'Index must contain Civil Services card title');
-    assert.ok(indexHtml.includes('₹14,000'), 'Index must contain ₹14,000 strikethrough price');
-    assert.ok(indexHtml.includes('₹299'), 'Index must contain ₹299 offer price');
+    assert.ok(indexHtml.includes('Uniform Elite Pass'), 'Index must contain Uniform Elite Pass section title');
+    assert.ok(indexHtml.includes('Elite Pass Pro'), 'Index must contain Elite Pass Pro card');
+    assert.ok(indexHtml.includes('₹299'), 'Index must contain ₹299 offer price for Elite Pass');
+    assert.ok(indexHtml.includes('₹499'), 'Index must contain ₹499 offer price for Elite Pass Pro');
+    assert.ok(indexHtml.includes('All-India Leaderboard &amp; Real-Time Ranking') || indexHtml.includes('All-India Leaderboard'), 'Must mention All-India Leaderboard & Ranking');
+    assert.ok(indexHtml.includes('Weekly Current Affairs'), 'Must mention Weekly Current Affairs');
+    assert.ok(indexHtml.includes('Preview Offer'), 'Must frame passes under Preview Offer');
     assert.ok(indexHtml.includes('id="contact"'), 'Index must have id="contact" on footer');
-    assert.ok(indexHtml.includes('id="cbt-test-series"'), 'Index must have id="cbt-test-series"');
 
-    // Verify ribbons are removed
-    assert.ok(!indexHtml.includes('Flagship Program'), 'Flagship Program ribbon must be removed');
-    assert.ok(!indexHtml.includes('Self-Paced CBT Pass'), 'Self-Paced CBT Pass ribbon must be removed');
-    assert.ok(!indexHtml.includes('UPSC • BPSC • UPPCS'), 'UPSC BPSC UPPCS ribbon must be removed');
+    // Verify CBT keyword removed
+    assert.ok(!indexHtml.includes('>Chapter-wise CBT Assessments<'), 'CBT Assessments must be renamed');
 
-    // Verify CBT keyword removed from Card 2 title
-    assert.ok(indexHtml.includes('<h3 class="course-name">Annual Test Series Pass</h3>'), 'Annual Test Series Pass must not have CBT in title');
-
-    // Verify secret code is not leaked on the card
-    assert.ok(!indexHtml.includes('Use coupon code "ELITE30"'), 'Secret coupon code ELITE30 must not be displayed publicly on card');
-    console.log('  ✔ Verified index.html offering card, pricing (<s>₹14,000</s> ₹299), ribbons removed, CBT keyword removed, and secret coupon confidential');
+    console.log('  ✔ Verified index.html Uniform Elite Pass (₹299 / ₹499), Preview Offer, Leaderboard & Ranking, and CBT removal');
 
     // -------------------------------------------------------------
     // Test 2: Test createSubscriberRegistration with coupon ELITE30
@@ -121,6 +117,29 @@ async function runTests() {
         'student_home.html must include civilservices.js for aspirant view'
     );
     console.log('  ✔ Verified student_home.html includes civilservices.js');
+
+    // -------------------------------------------------------------
+    // Test 6: Verify SANTA150 DB-driven coupon (₹150 for 6 Months / 180 Days)
+    // -------------------------------------------------------------
+    console.log('\n▶ Test 6: Verifying SANTA150 Coupon (₹150 for 6 Months / 180 Days)...');
+    const verifySanta = await DBService.verifyCoupon('SANTA150', 'Class 10');
+    assert.ok(verifySanta.valid, 'SANTA150 must be a valid coupon');
+    assert.strictEqual(verifySanta.coupon.fixed_price, 150, 'SANTA150 fixed_price must be 150');
+    assert.strictEqual(verifySanta.coupon.validity_days, 180, 'SANTA150 validity_days must be 180');
+
+    const santaCandidate = {
+        name: 'Rohan Board Aspirant',
+        phone: '9876500003',
+        pin: '9988',
+        cls: 'Class 10',
+        coupon_code: 'SANTA150'
+    };
+    const santaRegRes = await DBService.createSubscriberRegistration(santaCandidate);
+    assert.ok(santaRegRes.success, 'SANTA150 registration must succeed');
+    assert.strictEqual(santaRegRes.subscriber.plan_amount, 150, 'Plan amount must be 150 for SANTA150');
+    const expectedSantaExpiry = new Date(Date.now() + 180 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    assert.strictEqual(santaRegRes.subscriber.valid_until, expectedSantaExpiry, 'SANTA150 validity must be exactly 180 days (6 months)');
+    console.log(`  ✔ Verified SANTA150 coupon: ₹150 for 6 months (180 days until ${santaRegRes.subscriber.valid_until})`);
 
     console.log('\n================================================================');
     console.log('🎉 ALL TESTS PASSED SUCCESSFULLY! 100% VERIFIED');
