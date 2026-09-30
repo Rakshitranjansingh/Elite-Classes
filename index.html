@@ -140,6 +140,156 @@
             gap: 12px;
         }
 
+        /* NAV PROFILE DROPDOWN MENU */
+        .nav-profile-menu-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-nav-profile {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            color: #ffffff;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            outline: none;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-nav-profile:hover,
+        .btn-nav-profile.active {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: #38bdf8;
+            box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-nav-profile svg {
+            color: #e2e8f0;
+            transition: color 0.2s ease;
+        }
+
+        .btn-nav-profile:hover svg,
+        .btn-nav-profile.active svg {
+            color: #38bdf8;
+        }
+
+        .nav-profile-dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            width: 260px;
+            background: #0f172a;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 8px;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px) scale(0.96);
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+            z-index: 1100;
+        }
+
+        .nav-profile-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .profile-dropdown-header {
+            padding: 8px 12px 6px;
+        }
+
+        .profile-dropdown-title {
+            display: block;
+            font-size: 13px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.2px;
+        }
+
+        .profile-dropdown-sub {
+            display: block;
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
+        .profile-dropdown-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            margin: 6px 0;
+        }
+
+        .profile-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 9px 12px;
+            background: transparent;
+            border: none;
+            border-radius: 10px;
+            color: #e2e8f0;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.15s ease, color 0.15s ease;
+            box-sizing: border-box;
+        }
+
+        .profile-dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+        }
+
+        .profile-dropdown-item .dropdown-item-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #38bdf8;
+            flex-shrink: 0;
+        }
+
+        .profile-dropdown-item:hover .dropdown-item-icon {
+            background: rgba(56, 189, 248, 0.18);
+            color: #67e8f9;
+        }
+
+        .profile-dropdown-item.signup-item .dropdown-item-icon {
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+        }
+
+        .profile-dropdown-item.signup-item:hover .dropdown-item-icon {
+            background: rgba(16, 185, 129, 0.22);
+            color: #6ee7b7;
+        }
+
+        .dropdown-item-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+
+        .dropdown-item-desc {
+            font-size: 10.5px;
+            color: #94a3b8;
+            margin-top: 1px;
+        }
+
         .btn-portal-signin {
             background: rgba(255, 255, 255, 0.12);
             color: #ffffff;
@@ -1359,15 +1509,39 @@
         </nav>
 
         <div class="pub-nav-actions">
-            <button type="button" class="btn-portal-signup" style="background:linear-gradient(135deg, #059669, #047857); border:none; box-shadow:0 4px 12px rgba(5,150,105,0.35); font-weight:800;" onclick="openTestSeriesSubscribeModal('Class 10')">
-                <span>⚡ Get Elite Pass (₹299)</span>
-            </button>
-            <button type="button" class="btn-portal-signin" id="nav-btn-signin" onclick="openPortalLoginModal()">
-                <span>Sign In</span>
-            </button>
-            <button type="button" class="btn-portal-signup" id="nav-btn-signup" onclick="openStudentRegistrationModal()">
-                <span>Sign Up</span>
-            </button>
+            <div class="nav-profile-menu-container" id="nav-profile-menu-container">
+                <button type="button" class="btn-nav-profile" id="btn-nav-profile" onclick="toggleNavProfileDropdown(event)" aria-expanded="false" aria-label="Account Portal Menu" title="Sign In or Sign Up">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <div class="nav-profile-dropdown" id="nav-profile-dropdown">
+                    <div class="profile-dropdown-header">
+                        <span class="profile-dropdown-title">Account Portal</span>
+                        <span class="profile-dropdown-sub">Access your learning portal</span>
+                    </div>
+                    <div class="profile-dropdown-divider"></div>
+                    <button type="button" class="profile-dropdown-item" id="nav-btn-signin" onclick="openPortalLoginModal(); closeNavProfileDropdown();">
+                        <div class="dropdown-item-icon">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div>
+                            <div class="dropdown-item-label">Sign In</div>
+                            <div class="dropdown-item-desc">Access student, faculty or admin portal</div>
+                        </div>
+                    </button>
+                    <button type="button" class="profile-dropdown-item signup-item" id="nav-btn-signup" onclick="openStudentRegistrationModal(); closeNavProfileDropdown();">
+                        <div class="dropdown-item-icon">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M19 8v6M22 11h-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-width="2"/></svg>
+                        </div>
+                        <div>
+                            <div class="dropdown-item-label">Sign Up</div>
+                            <div class="dropdown-item-desc">New admission registration & pass</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -1502,7 +1676,7 @@
                         </div>
                     </div>
                     <button type="button" class="btn-upsc-subscribe-now" onclick="openTestSeriesSubscribeModal('Civil Services')">
-                        <span>🚀 Get Elite Pass Pro (₹499/yr) &rarr;</span>
+                        <span>🚀 Get Elite Pass Pro &rarr;</span>
                     </button>
                 </div>
             </div>
@@ -1555,19 +1729,19 @@
                         <div style="font-size:11.5px; font-weight:700; color:#15803d; text-transform:uppercase; margin-bottom:6px;">Preview Offer Pricing:</div>
                         <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#334155; margin-bottom:4px;">
                             <span>1 Year Access</span>
-                            <strong style="color:#0f172a; font-size:16px;">₹299</strong>
+                            <strong class="school-price-1y" style="color:#0f172a; font-size:16px;">₹299</strong>
                         </div>
                         <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#334155; margin-bottom:4px;">
                             <span>2 Years Access <span style="font-size:10.5px; color:#059669; font-weight:700;">(Save ₹99)</span></span>
-                            <strong style="color:#0f172a; font-size:16px;">₹499</strong>
+                            <strong class="school-price-2y" style="color:#0f172a; font-size:16px;">₹499</strong>
                         </div>
                         <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#334155;">
                             <span>3 Years Access <span style="font-size:10.5px; color:#059669; font-weight:700;">(Save ₹298)</span></span>
-                            <strong style="color:#0f172a; font-size:16px;">₹599</strong>
+                            <strong class="school-price-3y" style="color:#0f172a; font-size:16px;">₹599</strong>
                         </div>
                     </div>
                     <button type="button" class="btn-course-enroll" style="background:linear-gradient(135deg, #10b981, #059669); box-shadow:0 10px 20px -5px rgba(16,185,129,0.4);" onclick="openTestSeriesSubscribeModal('Class 10')">
-                        Get Elite Pass (₹299) →
+                        Get Elite Pass →
                     </button>
                 </div>
             </div>
@@ -1617,19 +1791,19 @@
                         <div style="font-size:11.5px; font-weight:700; color:#b45309; text-transform:uppercase; margin-bottom:6px;">Preview Offer Pricing:</div>
                         <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#334155; margin-bottom:4px;">
                             <span>1 Year Access</span>
-                            <strong style="color:#0f172a; font-size:16px;">₹499</strong>
+                            <strong class="civil-price-1y" style="color:#0f172a; font-size:16px;">₹499</strong>
                         </div>
                         <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#334155; margin-bottom:4px;">
                             <span>2 Years Access <span style="font-size:10.5px; color:#b45309; font-weight:700;">(Save ₹199)</span></span>
-                            <strong style="color:#0f172a; font-size:16px;">₹799</strong>
+                            <strong class="civil-price-2y" style="color:#0f172a; font-size:16px;">₹799</strong>
                         </div>
                         <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#334155;">
                             <span>3 Years Access <span style="font-size:10.5px; color:#b45309; font-weight:700;">(Save ₹498)</span></span>
-                            <strong style="color:#0f172a; font-size:16px;">₹999</strong>
+                            <strong class="civil-price-3y" style="color:#0f172a; font-size:16px;">₹999</strong>
                         </div>
                     </div>
                     <button type="button" class="btn-course-enroll" style="background:linear-gradient(135deg, #d97706, #b45309); box-shadow:0 10px 20px -5px rgba(217, 119, 6, 0.4);" onclick="openTestSeriesSubscribeModal('Civil Services')">
-                        Get Elite Pass Pro (₹499) →
+                        Get Elite Pass Pro →
                     </button>
                 </div>
             </div>
@@ -2507,6 +2681,74 @@
             if (input) input.type = input.type === 'password' ? 'text' : 'password';
         }
 
+        // Nav Profile Dropdown Menu Handlers
+        function toggleNavProfileDropdown(e) {
+            if (e) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
+            const dropdown = document.getElementById('nav-profile-dropdown');
+            const btn = document.getElementById('btn-nav-profile');
+            if (!dropdown || !btn) return;
+            const isShowing = dropdown.classList.contains('show');
+            if (isShowing) {
+                closeNavProfileDropdown();
+            } else {
+                dropdown.classList.add('show');
+                btn.classList.add('active');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        function closeNavProfileDropdown() {
+            const dropdown = document.getElementById('nav-profile-dropdown');
+            const btn = document.getElementById('btn-nav-profile');
+            if (dropdown) dropdown.classList.remove('show');
+            if (btn) {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        document.addEventListener('click', (e) => {
+            const container = document.getElementById('nav-profile-menu-container');
+            if (container && !container.contains(e.target)) {
+                closeNavProfileDropdown();
+            }
+        });
+
+        // Dynamic Database-Driven Pass Plans Cache
+        let activePassPlans = [];
+
+        async function loadPassPlansFromDB() {
+            try {
+                if (typeof DBService !== 'undefined' && typeof DBService.getPassPlans === 'function') {
+                    const plans = await DBService.getPassPlans();
+                    if (Array.isArray(plans) && plans.length > 0) {
+                        activePassPlans = plans;
+                        updatePricingCardsFromPlans(activePassPlans);
+                        if (typeof updateTsPricingDisplay === 'function') {
+                            updateTsPricingDisplay();
+                        }
+                    }
+                }
+            } catch (err) {
+                console.warn('Pass plans load warning:', err);
+            }
+        }
+
+        function updatePricingCardsFromPlans(plans) {
+            if (!Array.isArray(plans) || plans.length === 0) return;
+            plans.forEach(p => {
+                if (p.tier_code === 'elite_pass') {
+                    const el = document.querySelector(`.school-price-${p.duration_years}y`);
+                    if (el) el.textContent = '₹' + Math.round(p.price);
+                } else if (p.tier_code === 'elite_pass_pro') {
+                    const el = document.querySelector(`.civil-price-${p.duration_years}y`);
+                    if (el) el.textContent = '₹' + Math.round(p.price);
+                }
+            });
+        }
 
         // Initialize page, populate classes & load notices
         document.addEventListener('DOMContentLoaded', async () => {
@@ -2533,7 +2775,7 @@
         });
 
         async function initPublicPage() {
-            // Run class sync and live notices concurrently without blocking UI interactivity
+            // Run class sync, live notices, and pass plans concurrently without blocking UI interactivity
             Promise.allSettled([
                 (async () => {
                     if (typeof syncClassesFromDB === 'function') {
@@ -2546,7 +2788,8 @@
                         }
                     }
                 })(),
-                loadNoticeTicker()
+                loadNoticeTicker(),
+                loadPassPlansFromDB()
             ]).catch(e => console.warn('Background sync note:', e));
         }
 
@@ -2712,9 +2955,15 @@
                         </div>
                     `;
                 } else {
+                    const schoolPlans = activePassPlans.filter(p => p.tier_code === 'elite_pass') || [];
+                    const civilPlans = activePassPlans.filter(p => p.tier_code === 'elite_pass_pro') || [];
+
+                    const defaultSchoolTiers = [ { y: 1, p: 299, tag: 'Standard' }, { y: 2, p: 499, tag: 'Save ₹99' }, { y: 3, p: 599, tag: 'Best Value' } ];
+                    const defaultCivilTiers = [ { y: 1, p: 499, tag: 'Standard' }, { y: 2, p: 799, tag: 'Save ₹199' }, { y: 3, p: 999, tag: 'Best Value' } ];
+
                     const tiers = isCivil
-                        ? [ { y: 1, p: 499, tag: 'Standard' }, { y: 2, p: 799, tag: 'Save ₹199' }, { y: 3, p: 999, tag: 'Best Value' } ]
-                        : [ { y: 1, p: 299, tag: 'Standard' }, { y: 2, p: 499, tag: 'Save ₹99' }, { y: 3, p: 599, tag: 'Best Value' } ];
+                        ? (civilPlans.length >= 3 ? civilPlans.map(p => ({ y: p.duration_years, p: Math.round(p.price), tag: p.badge_text || (p.duration_years === 1 ? 'Standard' : (p.duration_years === 2 ? 'Save 25%' : 'Best Value')) })) : defaultCivilTiers)
+                        : (schoolPlans.length >= 3 ? schoolPlans.map(p => ({ y: p.duration_years, p: Math.round(p.price), tag: p.badge_text || (p.duration_years === 1 ? 'Standard' : (p.duration_years === 2 ? 'Save 20%' : 'Best Value')) })) : defaultSchoolTiers);
 
                     durationContainer.innerHTML = tiers.map(t => {
                         const isSelected = selectedTsYears === t.y;
@@ -2749,39 +2998,17 @@
                 currentPeriod = '30-Day Free Pass';
                 currentPlanName += ' (30-Day Free Pass)';
             } else if (isCivil) {
-                if (selectedTsYears === 2) {
-                    currentFee = 799;
-                    currentPeriod = '2-Year Access';
-                    currentPlanName = 'Elite Pass Pro (2 Years)';
-                    currentStrike = '₹28,000';
-                } else if (selectedTsYears === 3) {
-                    currentFee = 999;
-                    currentPeriod = '3-Year Access';
-                    currentPlanName = 'Elite Pass Pro (3 Years)';
-                    currentStrike = '₹42,000';
-                } else {
-                    currentFee = 499;
-                    currentPeriod = '1-Year Access';
-                    currentPlanName = 'Elite Pass Pro (1 Year)';
-                    currentStrike = '₹14,000';
-                }
+                const planMatch = activePassPlans.find(p => p.tier_code === 'elite_pass_pro' && p.duration_years === selectedTsYears);
+                currentFee = planMatch ? Math.round(planMatch.price) : (selectedTsYears === 2 ? 799 : (selectedTsYears === 3 ? 999 : 499));
+                currentStrike = planMatch && planMatch.original_price ? ('₹' + Math.round(planMatch.original_price)) : (selectedTsYears === 2 ? '₹25,000' : (selectedTsYears === 3 ? '₹35,000' : '₹14,000'));
+                currentPeriod = `${selectedTsYears}-Year Access`;
+                currentPlanName = selectedTsYears === 1 ? 'Elite Pass Pro' : `Elite Pass Pro (${selectedTsYears} Years)`;
             } else {
-                if (selectedTsYears === 2) {
-                    currentFee = 499;
-                    currentPeriod = '2-Year Access';
-                    currentPlanName = 'Elite Pass (2 Years)';
-                    currentStrike = '₹999';
-                } else if (selectedTsYears === 3) {
-                    currentFee = 599;
-                    currentPeriod = '3-Year Access';
-                    currentPlanName = 'Elite Pass (3 Years)';
-                    currentStrike = '₹1,499';
-                } else {
-                    currentFee = 299;
-                    currentPeriod = '1-Year Access';
-                    currentPlanName = 'Elite Pass (1 Year)';
-                    currentStrike = '₹499';
-                }
+                const planMatch = activePassPlans.find(p => p.tier_code === 'elite_pass' && p.duration_years === selectedTsYears);
+                currentFee = planMatch ? Math.round(planMatch.price) : (selectedTsYears === 2 ? 499 : (selectedTsYears === 3 ? 599 : 299));
+                currentStrike = planMatch && planMatch.original_price ? ('₹' + Math.round(planMatch.original_price)) : (selectedTsYears === 2 ? '₹1,899' : (selectedTsYears === 3 ? '₹2,799' : '₹999'));
+                currentPeriod = `${selectedTsYears}-Year Access`;
+                currentPlanName = selectedTsYears === 1 ? 'Elite Pass' : `Elite Pass (${selectedTsYears} Years)`;
             }
 
             if (headerBadge) {

@@ -2978,8 +2978,75 @@ const DBService = {
 
     // =========================================================================
     // =========================================================================
-    // 14. DEDICATED TEST SERIES SUBSCRIBERS MODULE API & COUPONS
+    // 14. DEDICATED PASS PLANS, TEST SERIES SUBSCRIBERS MODULE & COUPONS
     // =========================================================================
+
+    async getPassPlans() {
+        if (isSupabaseConnected()) {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('pass_plans')
+                    .select('*')
+                    .eq('is_active', true)
+                    .order('display_order', { ascending: true });
+                if (!error && Array.isArray(data) && data.length > 0) {
+                    return data;
+                }
+            } catch (e) {
+                console.warn('[DBService] Fetch pass plans from Supabase fallback:', e);
+            }
+        }
+
+        // Local storage / default fallback
+        try {
+            const localPlans = localStorage.getItem('ec_pass_plans');
+            if (localPlans) {
+                const parsed = JSON.parse(localPlans);
+                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+            }
+        } catch (e) {}
+
+        const defaultPlans = [
+            { id: 'elite_pass_1y', tier_code: 'elite_pass', tier_name: 'Elite Pass', target_group: 'School Foundation (Class 6-10)', duration_years: 1, duration_label: '1 Year', price: 299.00, original_price: 999.00, validity_days: 365, badge_text: 'Most Popular', is_popular: true, is_active: true, display_order: 1 },
+            { id: 'elite_pass_2y', tier_code: 'elite_pass', tier_name: 'Elite Pass', target_group: 'School Foundation (Class 6-10)', duration_years: 2, duration_label: '2 Years', price: 499.00, original_price: 1899.00, validity_days: 730, badge_text: 'Save 20%', is_popular: false, is_active: true, display_order: 2 },
+            { id: 'elite_pass_3y', tier_code: 'elite_pass', tier_name: 'Elite Pass', target_group: 'School Foundation (Class 6-10)', duration_years: 3, duration_label: '3 Years', price: 599.00, original_price: 2799.00, validity_days: 1095, badge_text: 'Best Value', is_popular: false, is_active: true, display_order: 3 },
+            { id: 'elite_pass_pro_1y', tier_code: 'elite_pass_pro', tier_name: 'Elite Pass Pro', target_group: 'Civil Services (UPSC & State PCS)', duration_years: 1, duration_label: '1 Year', price: 499.00, original_price: 14000.00, validity_days: 365, badge_text: 'Most Popular', is_popular: true, is_active: true, display_order: 4 },
+            { id: 'elite_pass_pro_2y', tier_code: 'elite_pass_pro', tier_name: 'Elite Pass Pro', target_group: 'Civil Services (UPSC & State PCS)', duration_years: 2, duration_label: '2 Years', price: 799.00, original_price: 25000.00, validity_days: 730, badge_text: 'Save 25%', is_popular: false, is_active: true, display_order: 5 },
+            { id: 'elite_pass_pro_3y', tier_code: 'elite_pass_pro', tier_name: 'Elite Pass Pro', target_group: 'Civil Services (UPSC & State PCS)', duration_years: 3, duration_label: '3 Years', price: 999.00, original_price: 35000.00, validity_days: 1095, badge_text: 'Best Value', is_popular: false, is_active: true, display_order: 6 }
+        ];
+        return defaultPlans;
+    },
+
+    async updatePassPlan(id, updates) {
+        if (!id) return { success: false, message: 'Plan ID required.' };
+        let updatedRecord = null;
+        if (isSupabaseConnected()) {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('pass_plans')
+                    .update({ ...updates, updated_at: new Date().toISOString() })
+                    .eq('id', id)
+                    .select()
+                    .maybeSingle();
+                if (!error && data) {
+                    updatedRecord = data;
+                }
+            } catch (e) {
+                console.warn('[DBService] updatePassPlan Supabase fallback:', e);
+            }
+        }
+
+        const plans = await this.getPassPlans();
+        const index = plans.findIndex(p => p.id === id);
+        if (index !== -1) {
+            plans[index] = { ...plans[index], ...updates, updated_at: new Date().toISOString() };
+        } else {
+            plans.push({ id, ...updates, updated_at: new Date().toISOString() });
+        }
+        localStorage.setItem('ec_pass_plans', JSON.stringify(plans));
+
+        return { success: true, plan: updatedRecord || plans.find(p => p.id === id) };
+    },
 
     async verifyCoupon(code, targetClass = '') {
         const cleanCode = (code || '').trim().toUpperCase();

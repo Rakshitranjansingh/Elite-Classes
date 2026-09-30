@@ -475,6 +475,84 @@ async function savePaymentGatewaySettingsFromModal() {
     }
 }
 
+// Pass Pricing Plans Admin Modal Helpers
+async function openPassPlansModal() {
+    let plans = [];
+    if (typeof DBService !== 'undefined' && typeof DBService.getPassPlans === 'function') {
+        try {
+            plans = await DBService.getPassPlans();
+        } catch (e) {
+            console.warn('[Admin] Pass plans fetch warning:', e);
+        }
+    }
+
+    const school1 = plans.find(p => p.id === 'elite_pass_1y');
+    const school2 = plans.find(p => p.id === 'elite_pass_2y');
+    const school3 = plans.find(p => p.id === 'elite_pass_3y');
+    const civil1 = plans.find(p => p.id === 'elite_pass_pro_1y');
+    const civil2 = plans.find(p => p.id === 'elite_pass_pro_2y');
+    const civil3 = plans.find(p => p.id === 'elite_pass_pro_3y');
+
+    const s1 = document.getElementById('cfg-plan-school-1y');
+    const s2 = document.getElementById('cfg-plan-school-2y');
+    const s3 = document.getElementById('cfg-plan-school-3y');
+    const c1 = document.getElementById('cfg-plan-civil-1y');
+    const c2 = document.getElementById('cfg-plan-civil-2y');
+    const c3 = document.getElementById('cfg-plan-civil-3y');
+
+    if (s1) s1.value = school1 ? Math.round(school1.price) : 299;
+    if (s2) s2.value = school2 ? Math.round(school2.price) : 499;
+    if (s3) s3.value = school3 ? Math.round(school3.price) : 599;
+    if (c1) c1.value = civil1 ? Math.round(civil1.price) : 499;
+    if (c2) c2.value = civil2 ? Math.round(civil2.price) : 799;
+    if (c3) c3.value = civil3 ? Math.round(civil3.price) : 999;
+
+    openModal('passPlansModal');
+}
+
+async function savePassPlansFromModal() {
+    const s1 = document.getElementById('cfg-plan-school-1y');
+    const s2 = document.getElementById('cfg-plan-school-2y');
+    const s3 = document.getElementById('cfg-plan-school-3y');
+    const c1 = document.getElementById('cfg-plan-civil-1y');
+    const c2 = document.getElementById('cfg-plan-civil-2y');
+    const c3 = document.getElementById('cfg-plan-civil-3y');
+    const saveBtn = document.getElementById('btn-save-pass-plans');
+
+    if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.textContent = 'Saving Plans...';
+    }
+
+    try {
+        const updates = [
+            { id: 'elite_pass_1y', price: parseFloat(s1?.value || 299) },
+            { id: 'elite_pass_2y', price: parseFloat(s2?.value || 499) },
+            { id: 'elite_pass_3y', price: parseFloat(s3?.value || 599) },
+            { id: 'elite_pass_pro_1y', price: parseFloat(c1?.value || 499) },
+            { id: 'elite_pass_pro_2y', price: parseFloat(c2?.value || 799) },
+            { id: 'elite_pass_pro_3y', price: parseFloat(c3?.value || 999) }
+        ];
+
+        if (typeof DBService !== 'undefined' && typeof DBService.updatePassPlan === 'function') {
+            for (const item of updates) {
+                await DBService.updatePassPlan(item.id, { price: item.price });
+            }
+        }
+
+        showToast('Pass pricing plans updated successfully!', 'success');
+        closeModal('passPlansModal');
+    } catch (e) {
+        console.error('Error saving pass plans:', e);
+        showToast('Error saving pass plans: ' + e.message, 'danger');
+    } finally {
+        if (saveBtn) {
+            saveBtn.disabled = false;
+            saveBtn.textContent = 'Save Pass Pricing Plans →';
+        }
+    }
+}
+
 async function syncDataFromSupabase() {
     if (typeof isSupabaseConnected !== 'function' || !isSupabaseConnected()) return;
 
