@@ -34,7 +34,7 @@ async function runTests() {
     console.log('▶ Test 1: Verifying index.html Uniform Elite Pass & Preview Offer...');
     const indexHtml = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8');
 
-    assert.ok(indexHtml.includes('Uniform Elite Pass'), 'Index must contain Uniform Elite Pass section title');
+    assert.ok(indexHtml.includes('<h2 class="section-title">Elite Pass</h2>'), 'Index must contain Elite Pass section title');
     assert.ok(indexHtml.includes('Elite Pass Pro'), 'Index must contain Elite Pass Pro card');
     assert.ok(indexHtml.includes('₹299'), 'Index must contain ₹299 offer price for Elite Pass');
     assert.ok(indexHtml.includes('₹499'), 'Index must contain ₹499 offer price for Elite Pass Pro');
