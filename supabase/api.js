@@ -3048,6 +3048,101 @@ const DBService = {
         return { success: true, plan: updatedRecord || plans.find(p => p.id === id) };
     },
 
+    async getCoupons() {
+        if (isSupabaseConnected()) {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('coupons')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+                if (!error && Array.isArray(data) && data.length > 0) {
+                    return data;
+                }
+            } catch (e) {
+                console.warn('[DBService] getCoupons Supabase fallback:', e);
+            }
+        }
+
+        try {
+            const local = JSON.parse(localStorage.getItem('ec_coupons') || '[]');
+            if (Array.isArray(local) && local.length > 0) return local;
+        } catch (e) {}
+
+        const defaultCoupons = [
+            {
+                code: 'SANTA150',
+                description: 'Special Access Offer — ₹150 for 6 Months Access',
+                discount_type: 'fixed_price',
+                fixed_price: 150.00,
+                validity_days: 180,
+                allowed_classes: null,
+                is_active: true
+            },
+            {
+                code: 'ELITE30',
+                description: 'Special 30-Day Direct Access Free Pass',
+                discount_type: 'free_pass',
+                fixed_price: 0.00,
+                validity_days: 30,
+                allowed_classes: null,
+                is_active: true
+            },
+            {
+                code: 'WELCOME',
+                description: 'Welcome 30-Day Direct Access Free Pass',
+                discount_type: 'free_pass',
+                fixed_price: 0.00,
+                validity_days: 30,
+                allowed_classes: null,
+                is_active: true
+            }
+        ];
+        return defaultCoupons;
+    },
+
+    async saveCoupon(couponData) {
+        if (!couponData || !couponData.code) return { success: false, message: 'Coupon code is required.' };
+        const cleanCode = couponData.code.trim().toUpperCase();
+        const payload = {
+            code: cleanCode,
+            description: couponData.description || `Coupon ${cleanCode}`,
+            discount_type: couponData.discount_type || 'fixed_price',
+            fixed_price: couponData.fixed_price !== undefined && couponData.fixed_price !== null ? Number(couponData.fixed_price) : null,
+            discount_amount: couponData.discount_amount !== undefined && couponData.discount_amount !== null ? Number(couponData.discount_amount) : null,
+            validity_days: couponData.validity_days ? Number(couponData.validity_days) : 365,
+            allowed_classes: couponData.allowed_classes || null,
+            is_active: couponData.is_active !== false,
+            updated_at: new Date().toISOString()
+        };
+
+        let updatedRecord = null;
+        if (isSupabaseConnected()) {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('coupons')
+                    .upsert([payload], { onConflict: 'code' })
+                    .select()
+                    .maybeSingle();
+                if (!error && data) {
+                    updatedRecord = data;
+                }
+            } catch (e) {
+                console.warn('[DBService] saveCoupon Supabase fallback:', e);
+            }
+        }
+
+        const list = await this.getCoupons();
+        const idx = list.findIndex(c => (c.code || '').toUpperCase() === cleanCode);
+        if (idx !== -1) {
+            list[idx] = { ...list[idx], ...payload };
+        } else {
+            list.unshift(payload);
+        }
+        localStorage.setItem('ec_coupons', JSON.stringify(list));
+
+        return { success: true, coupon: updatedRecord || payload };
+    },
+
     async verifyCoupon(code, targetClass = '') {
         const cleanCode = (code || '').trim().toUpperCase();
         if (!cleanCode) {
@@ -3071,7 +3166,17 @@ const DBService = {
             }
         }
 
-        // Offline / default seed fallback
+        // Offline / local cache fallback
+        if (!couponRecord) {
+            try {
+                const localCoupons = JSON.parse(localStorage.getItem('ec_coupons') || '[]');
+                if (Array.isArray(localCoupons)) {
+                    couponRecord = localCoupons.find(c => (c.code || '').trim().toUpperCase() === cleanCode && (c.is_active !== false)) || null;
+                }
+            } catch (e) {}
+        }
+
+        // Default seed fallback
         if (!couponRecord) {
             const defaultCoupons = {
                 'SANTA150': {
@@ -3146,9 +3251,21 @@ const DBService = {
         }
 
         const cleanCoupon = (regData.coupon_code || '').trim().toUpperCase();
-        const isCouponInstant = ['ELITE30', 'WELCOME'].includes(cleanCoupon);
+        let verifiedCoupon = null;
+        if (cleanCoupon) {
+            try {
+                const couponRes = await this.verifyCoupon(cleanCoupon, regData.cls);
+                if (couponRes && couponRes.valid && couponRes.coupon) {
+                    verifiedCoupon = couponRes.coupon;
+                }
+            } catch (e) {
+                console.warn('[DBService] verifyCoupon inside createSubscriberRegistration fallback:', e);
+            }
+        }
+
+        const isCouponFree = verifiedCoupon && (verifiedCoupon.discount_type === 'free_pass' || Number(verifiedCoupon.fixed_price) === 0);
         const isPaidActive = (regData.status === 'active' || regData.payment_method === 'RAZORPAY');
-        const isInstantActive = isCouponInstant || isPaidActive;
+        const isInstantActive = isCouponFree || isPaidActive;
 
         if (existingSub) {
             if (existingSub.status === 'active' && !isInstantActive) {
@@ -3175,30 +3292,40 @@ const DBService = {
         const trackingCode = `EC-TS${clsDigits}-${phoneLast4}`;
 
         const isCivil = (regData.cls === 'Civil Services' || (regData.cls && regData.cls.toLowerCase().includes('civil')));
-        const thirtyDaysLater = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-        const sixMonthsLater = new Date(Date.now() + 180 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+        const couponDays = (verifiedCoupon && verifiedCoupon.validity_days) ? Number(verifiedCoupon.validity_days) : 365;
+        const couponValidUntil = new Date(Date.now() + couponDays * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
         const oneYearLater = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
         let defaultPlanName = isCivil ? 'Elite Pass Pro' : 'Elite Pass';
         let defaultPlanAmount = isCivil ? 499.00 : 299.00;
         let defaultValidUntil = oneYearLater;
 
-        if (cleanCoupon === 'SANTA150') {
-            defaultPlanName = (isCivil ? 'Elite Pass Pro' : 'Elite Pass') + ' (SANTA150 6-Month Offer)';
-            defaultPlanAmount = 150.00;
-            defaultValidUntil = sixMonthsLater;
-        } else if (isCouponInstant) {
-            defaultPlanName = (isCivil ? 'Elite Pass Pro' : 'Elite Pass') + ' (30-Day Free Pass)';
-            defaultPlanAmount = 0.00;
-            defaultValidUntil = thirtyDaysLater;
+        if (verifiedCoupon) {
+            defaultValidUntil = couponValidUntil;
+            if (isCouponFree) {
+                defaultPlanName = `${isCivil ? 'Elite Pass Pro' : 'Elite Pass'} (${verifiedCoupon.code} Free Pass)`;
+                defaultPlanAmount = 0.00;
+            } else if (verifiedCoupon.discount_type === 'fixed_price' || (verifiedCoupon.fixed_price !== null && verifiedCoupon.fixed_price !== undefined)) {
+                defaultPlanAmount = Number(verifiedCoupon.fixed_price);
+                defaultPlanName = `${isCivil ? 'Elite Pass Pro' : 'Elite Pass'} (${verifiedCoupon.code} Offer)`;
+            } else if (verifiedCoupon.discount_type === 'percentage') {
+                const pct = Number(verifiedCoupon.discount_amount || 0);
+                defaultPlanAmount = Math.max(0, Math.round(defaultPlanAmount * (1 - pct / 100)));
+                defaultPlanName = `${isCivil ? 'Elite Pass Pro' : 'Elite Pass'} (${verifiedCoupon.code} ${pct}% Off)`;
+            } else if (verifiedCoupon.discount_type === 'fixed_discount') {
+                const disc = Number(verifiedCoupon.discount_amount || 0);
+                defaultPlanAmount = Math.max(0, Math.round(defaultPlanAmount - disc));
+                defaultPlanName = `${isCivil ? 'Elite Pass Pro' : 'Elite Pass'} (${verifiedCoupon.code} ₹${disc} Off)`;
+            }
         }
 
         const calculatedValidUntil = regData.valid_until 
             ? regData.valid_until 
-            : (cleanCoupon === 'SANTA150' ? sixMonthsLater : (isPaidActive ? defaultValidUntil : (isCouponInstant ? thirtyDaysLater : null)));
+            : (verifiedCoupon ? couponValidUntil : (isPaidActive ? defaultValidUntil : null));
 
-        const defaultPaymentMethod = isPaidActive ? 'RAZORPAY' : (isCouponInstant ? ('COUPON_' + cleanCoupon) : 'UPI');
-        const defaultPaymentRef = isPaidActive ? (regData.payment_ref || '') : (isCouponInstant ? ('DIRECT_COUPON_' + cleanCoupon) : (regData.payment_ref || ''));
+        const defaultPaymentMethod = isPaidActive ? 'RAZORPAY' : (isCouponFree ? ('COUPON_' + cleanCoupon) : 'UPI');
+        const defaultPaymentRef = isPaidActive ? (regData.payment_ref || '') : (isCouponFree ? ('DIRECT_COUPON_' + cleanCoupon) : (regData.payment_ref || ''));
+        const defaultActivatedBy = isPaidActive ? 'RAZORPAY_GATEWAY' : (isCouponFree ? ('COUPON_' + cleanCoupon) : null);
 
         const newSubscriber = {
             id: existingSub ? existingSub.id : ('ts_sub_' + Date.now()),
@@ -3215,7 +3342,7 @@ const DBService = {
             status: isInstantActive ? 'active' : (regData.status || 'pending_verification'),
             valid_until: calculatedValidUntil,
             activated_at: isInstantActive ? (regData.activated_at || new Date().toISOString()) : (regData.activated_at || null),
-            activated_by: regData.activated_by || (isPaidActive ? 'RAZORPAY_GATEWAY' : (isCouponInstant ? ('COUPON_' + cleanCoupon) : null)),
+            activated_by: regData.activated_by || defaultActivatedBy,
             converted_at: null,
             created_at: existingSub && existingSub.created_at ? existingSub.created_at : new Date().toISOString()
         };

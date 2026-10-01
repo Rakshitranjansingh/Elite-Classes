@@ -2913,7 +2913,24 @@
             updateTsPricingDisplay();
         }
 
-        function onTsClassChange() {
+        async function onTsClassChange() {
+            if (appliedTsCoupon) {
+                const clsSelect = document.getElementById('ts-class');
+                const selectedClass = clsSelect ? clsSelect.value : '';
+                const verifyRes = await DBService.verifyCoupon(appliedTsCoupon, selectedClass);
+                const statusEl = document.getElementById('ts-coupon-status');
+                if (!verifyRes || !verifyRes.valid) {
+                    appliedTsCoupon = '';
+                    appliedTsCouponData = null;
+                    if (statusEl) {
+                        statusEl.style.display = 'block';
+                        statusEl.style.color = '#ef4444';
+                        statusEl.textContent = (verifyRes && verifyRes.message) || '❌ Coupon not applicable for selected class.';
+                    }
+                } else {
+                    appliedTsCouponData = verifyRes.coupon;
+                }
+            }
             updateTsPricingDisplay();
         }
 
@@ -2938,20 +2955,77 @@
                 modalTitle.textContent = isCivil ? 'Elite Pass Pro Subscription' : 'Elite Pass Subscription';
             }
 
-            // Render Duration Selection Buttons
+            // Calculate base fees and periods from activePassPlans or defaults
+            let basePrice = 299;
+            let currentStrike = '₹999';
+            let currentPeriod = `${selectedTsYears}-Year Access`;
+            let basePlanName = isCivil ? 'Elite Pass Pro' : 'Elite Pass';
+            let currentPlanName = selectedTsYears === 1 ? basePlanName : `${basePlanName} (${selectedTsYears} Years)`;
+            let validityDays = selectedTsYears * 365;
+
+            if (isCivil) {
+                const planMatch = activePassPlans.find(p => p.tier_code === 'elite_pass_pro' && p.duration_years === selectedTsYears);
+                basePrice = planMatch ? Math.round(planMatch.price) : (selectedTsYears === 2 ? 799 : (selectedTsYears === 3 ? 999 : 499));
+                currentStrike = planMatch && planMatch.original_price ? ('₹' + Math.round(planMatch.original_price)) : (selectedTsYears === 2 ? '₹25,000' : (selectedTsYears === 3 ? '₹35,000' : '₹14,000'));
+            } else {
+                const planMatch = activePassPlans.find(p => p.tier_code === 'elite_pass' && p.duration_years === selectedTsYears);
+                basePrice = planMatch ? Math.round(planMatch.price) : (selectedTsYears === 2 ? 499 : (selectedTsYears === 3 ? 599 : 299));
+                currentStrike = planMatch && planMatch.original_price ? ('₹' + Math.round(planMatch.original_price)) : (selectedTsYears === 2 ? '₹1,899' : (selectedTsYears === 3 ? '₹2,799' : '₹999'));
+            }
+
+            let currentFee = basePrice;
+
+            if (appliedTsCouponData) {
+                const c = appliedTsCouponData;
+                validityDays = Number(c.validity_days) || 365;
+
+                if (validityDays === 30) {
+                    currentPeriod = (c.discount_type === 'free_pass' || Number(c.fixed_price) === 0) ? '30-Day Free Pass' : '30-Day Access';
+                } else if (validityDays % 365 === 0) {
+                    const yrs = validityDays / 365;
+                    currentPeriod = `${yrs}-Year Access`;
+                } else if (validityDays % 30 === 0) {
+                    const mos = Math.round(validityDays / 30);
+                    currentPeriod = `${mos}-Month Access`;
+                } else {
+                    currentPeriod = `${validityDays}-Day Access`;
+                }
+
+                if (c.discount_type === 'free_pass' || (c.fixed_price !== null && c.fixed_price !== undefined && Number(c.fixed_price) === 0)) {
+                    currentFee = 0;
+                    currentStrike = isCivil ? '₹14,000' : '₹499';
+                    currentPlanName = `${basePlanName} (${c.code} Free Pass)`;
+                } else if (c.discount_type === 'fixed_price' || (c.fixed_price !== null && c.fixed_price !== undefined)) {
+                    currentFee = Math.max(0, Math.round(Number(c.fixed_price)));
+                    currentStrike = isCivil ? '₹14,000' : '₹499';
+                    currentPlanName = `${basePlanName} (${c.code} Offer)`;
+                } else if (c.discount_type === 'percentage') {
+                    const pct = Number(c.discount_amount || 0);
+                    currentFee = Math.max(0, Math.round(basePrice * (1 - pct / 100)));
+                    currentPlanName = `${basePlanName} (${c.code} ${pct}% Off)`;
+                } else if (c.discount_type === 'fixed_discount') {
+                    const disc = Number(c.discount_amount || 0);
+                    currentFee = Math.max(0, Math.round(basePrice - disc));
+                    currentPlanName = `${basePlanName} (${c.code} ₹${disc} Off)`;
+                }
+            }
+
+            // Render Duration Selection Buttons or Active Coupon Banner
             if (durationContainer) {
-                if (appliedTsCouponData && appliedTsCouponData.code === 'SANTA150') {
+                if (appliedTsCouponData) {
+                    const isFree = (currentFee === 0);
+                    const borderClr = isFree ? '#d97706' : '#16a34a';
+                    const bgClr = isFree ? '#fffbeb' : '#f0fdf4';
+                    const titleClr = isFree ? '#b45309' : '#15803d';
+                    const subClr = isFree ? '#78350f' : '#166534';
+                    const icon = isFree ? '✨' : '🎁';
+                    const descMsg = appliedTsCouponData.description 
+                        || (isFree ? `${currentPeriod} • Full Access Free Pass` : `${currentPeriod} • Flat ₹${currentFee} Only`);
+
                     durationContainer.innerHTML = `
-                        <div style="grid-column:1/-1; padding:10px 14px; background:#f0fdf4; border:2px solid #16a34a; border-radius:10px; text-align:center;">
-                            <div style="font-weight:800; font-size:13.5px; color:#15803d;">🎁 SANTA150 Preview Offer Active</div>
-                            <div style="font-size:12px; color:#166534; margin-top:2px;">6 Months Full Access • Flat ₹150 Only</div>
-                        </div>
-                    `;
-                } else if (appliedTsCouponData && (appliedTsCouponData.code === 'ELITE30' || appliedTsCouponData.code === 'WELCOME')) {
-                    durationContainer.innerHTML = `
-                        <div style="grid-column:1/-1; padding:10px 14px; background:#fffbeb; border:2px solid #d97706; border-radius:10px; text-align:center;">
-                            <div style="font-weight:800; font-size:13.5px; color:#b45309;">✨ 30-Day Free Access Active</div>
-                            <div style="font-size:12px; color:#78350f; margin-top:2px;">Full Access • ₹0 Free Pass</div>
+                        <div style="grid-column:1/-1; padding:10px 14px; background:${bgClr}; border:2px solid ${borderClr}; border-radius:10px; text-align:center;">
+                            <div style="font-weight:800; font-size:13.5px; color:${titleClr};">${icon} ${appliedTsCouponData.code} Preview Offer Active</div>
+                            <div style="font-size:12px; color:${subClr}; margin-top:2px; font-weight:600;">${descMsg}</div>
                         </div>
                     `;
                 } else {
@@ -2981,36 +3055,6 @@
                 }
             }
 
-            // Calculate fees and periods
-            let currentFee = 299;
-            let currentStrike = '₹999';
-            let currentPeriod = '1-Year Access';
-            let currentPlanName = isCivil ? 'Elite Pass Pro' : 'Elite Pass';
-
-            if (appliedTsCouponData && appliedTsCouponData.code === 'SANTA150') {
-                currentFee = 150;
-                currentStrike = isCivil ? '₹14,000' : '₹499';
-                currentPeriod = '6-Month Access';
-                currentPlanName += ' (SANTA150 6-Month Offer)';
-            } else if (appliedTsCouponData && (appliedTsCouponData.code === 'ELITE30' || appliedTsCouponData.code === 'WELCOME')) {
-                currentFee = 0;
-                currentStrike = isCivil ? '₹14,000' : '₹499';
-                currentPeriod = '30-Day Free Pass';
-                currentPlanName += ' (30-Day Free Pass)';
-            } else if (isCivil) {
-                const planMatch = activePassPlans.find(p => p.tier_code === 'elite_pass_pro' && p.duration_years === selectedTsYears);
-                currentFee = planMatch ? Math.round(planMatch.price) : (selectedTsYears === 2 ? 799 : (selectedTsYears === 3 ? 999 : 499));
-                currentStrike = planMatch && planMatch.original_price ? ('₹' + Math.round(planMatch.original_price)) : (selectedTsYears === 2 ? '₹25,000' : (selectedTsYears === 3 ? '₹35,000' : '₹14,000'));
-                currentPeriod = `${selectedTsYears}-Year Access`;
-                currentPlanName = selectedTsYears === 1 ? 'Elite Pass Pro' : `Elite Pass Pro (${selectedTsYears} Years)`;
-            } else {
-                const planMatch = activePassPlans.find(p => p.tier_code === 'elite_pass' && p.duration_years === selectedTsYears);
-                currentFee = planMatch ? Math.round(planMatch.price) : (selectedTsYears === 2 ? 499 : (selectedTsYears === 3 ? 599 : 299));
-                currentStrike = planMatch && planMatch.original_price ? ('₹' + Math.round(planMatch.original_price)) : (selectedTsYears === 2 ? '₹1,899' : (selectedTsYears === 3 ? '₹2,799' : '₹999'));
-                currentPeriod = `${selectedTsYears}-Year Access`;
-                currentPlanName = selectedTsYears === 1 ? 'Elite Pass' : `Elite Pass (${selectedTsYears} Years)`;
-            }
-
             if (headerBadge) {
                 headerBadge.textContent = 'Preview Offer';
                 headerBadge.style.background = '#fef08a';
@@ -3037,7 +3081,7 @@
             }
             if (submitBtn) {
                 if (currentFee === 0) {
-                    submitBtn.innerHTML = '🚀 Activate 30-Day Free Pass Instantly →';
+                    submitBtn.innerHTML = `🚀 Activate ${currentPeriod} Instantly →`;
                     submitBtn.style.background = 'linear-gradient(135deg, #d97706, #b45309)';
                 } else {
                     submitBtn.innerHTML = `⚡ Instant Payment &amp; Auto-Activation (₹${currentFee}) &rarr;`;
@@ -3077,12 +3121,19 @@
                     if (statusEl) {
                         statusEl.style.display = 'block';
                         statusEl.style.color = '#15803d';
-                        if (appliedTsCoupon === 'SANTA150') {
-                            statusEl.innerHTML = '🎉 Coupon <strong>SANTA150</strong> Applied! ₹150 for 6 Months access unlocked.';
-                        } else if (appliedTsCoupon === 'ELITE30' || appliedTsCoupon === 'WELCOME') {
-                            statusEl.innerHTML = '🎉 Coupon <strong>' + appliedTsCoupon + '</strong> Applied! 30-Day direct test user access unlocked (₹0 fee).';
+                        const c = verifyRes.coupon;
+                        const isFree = (c.discount_type === 'free_pass' || (c.fixed_price !== null && c.fixed_price !== undefined && Number(c.fixed_price) === 0));
+                        const days = Number(c.validity_days) || 365;
+                        const periodStr = days === 30 ? '30 Days' : (days % 365 === 0 ? `${days / 365} Year${days > 365 ? 's' : ''}` : (days % 30 === 0 ? `${Math.round(days / 30)} Months` : `${days} Days`));
+
+                        if (c.description) {
+                            statusEl.innerHTML = `🎉 Coupon <strong>${c.code}</strong> Applied! ${c.description}`;
+                        } else if (isFree) {
+                            statusEl.innerHTML = `🎉 Coupon <strong>${c.code}</strong> Applied! ${periodStr} Free Pass unlocked (₹0 fee).`;
+                        } else if (c.fixed_price !== null && c.fixed_price !== undefined) {
+                            statusEl.innerHTML = `🎉 Coupon <strong>${c.code}</strong> Applied! Flat ₹${Math.round(Number(c.fixed_price))} for ${periodStr} access unlocked.`;
                         } else {
-                            statusEl.innerHTML = '🎉 Coupon <strong>' + appliedTsCoupon + '</strong> Applied! ' + (verifyRes.message || 'Special offer applied.');
+                            statusEl.innerHTML = `🎉 Coupon <strong>${c.code}</strong> Applied! Special offer applied.`;
                         }
                     }
                 } else {
@@ -3179,54 +3230,51 @@
             }
 
             const isCivil = (cls === 'Civil Services' || (cls && cls.toLowerCase().includes('civil')));
-            let currentFee = 299;
-            let currentPeriod = '1-Year Access';
-            let currentPlanName = isCivil ? 'Elite Pass Pro' : 'Elite Pass';
-            let validityDays = 365;
+            let basePrice = 299;
+            let validityDays = selectedTsYears * 365;
+            let currentPeriod = `${selectedTsYears}-Year Access`;
+            let basePlanName = isCivil ? 'Elite Pass Pro' : 'Elite Pass';
+            let currentPlanName = selectedTsYears === 1 ? basePlanName : `${basePlanName} (${selectedTsYears} Years)`;
 
-            if (appliedTsCouponData && appliedTsCouponData.code === 'SANTA150') {
-                currentFee = 150;
-                currentPeriod = '6-Month Access';
-                currentPlanName += ' (SANTA150 6-Month Offer)';
-                validityDays = 180;
-            } else if (appliedTsCouponData && (appliedTsCouponData.code === 'ELITE30' || appliedTsCouponData.code === 'WELCOME')) {
-                currentFee = 0;
-                currentPeriod = '30-Day Free Pass';
-                currentPlanName += ' (30-Day Free Pass)';
-                validityDays = 30;
-            } else if (isCivil) {
-                if (selectedTsYears === 2) {
-                    currentFee = 799;
-                    currentPeriod = '2-Year Access';
-                    currentPlanName = 'Elite Pass Pro (2 Years)';
-                    validityDays = 730;
-                } else if (selectedTsYears === 3) {
-                    currentFee = 999;
-                    currentPeriod = '3-Year Access';
-                    currentPlanName = 'Elite Pass Pro (3 Years)';
-                    validityDays = 1095;
-                } else {
-                    currentFee = 499;
-                    currentPeriod = '1-Year Access';
-                    currentPlanName = 'Elite Pass Pro (1 Year)';
-                    validityDays = 365;
-                }
+            if (isCivil) {
+                const planMatch = activePassPlans.find(p => p.tier_code === 'elite_pass_pro' && p.duration_years === selectedTsYears);
+                basePrice = planMatch ? Math.round(planMatch.price) : (selectedTsYears === 2 ? 799 : (selectedTsYears === 3 ? 999 : 499));
             } else {
-                if (selectedTsYears === 2) {
-                    currentFee = 499;
-                    currentPeriod = '2-Year Access';
-                    currentPlanName = 'Elite Pass (2 Years)';
-                    validityDays = 730;
-                } else if (selectedTsYears === 3) {
-                    currentFee = 599;
-                    currentPeriod = '3-Year Access';
-                    currentPlanName = 'Elite Pass (3 Years)';
-                    validityDays = 1095;
+                const planMatch = activePassPlans.find(p => p.tier_code === 'elite_pass' && p.duration_years === selectedTsYears);
+                basePrice = planMatch ? Math.round(planMatch.price) : (selectedTsYears === 2 ? 499 : (selectedTsYears === 3 ? 599 : 299));
+            }
+
+            let currentFee = basePrice;
+            if (appliedTsCouponData) {
+                const c = appliedTsCouponData;
+                validityDays = Number(c.validity_days) || 365;
+
+                if (validityDays === 30) {
+                    currentPeriod = (c.discount_type === 'free_pass' || Number(c.fixed_price) === 0) ? '30-Day Free Pass' : '30-Day Access';
+                } else if (validityDays % 365 === 0) {
+                    const yrs = validityDays / 365;
+                    currentPeriod = `${yrs}-Year Access`;
+                } else if (validityDays % 30 === 0) {
+                    const mos = Math.round(validityDays / 30);
+                    currentPeriod = `${mos}-Month Access`;
                 } else {
-                    currentFee = 299;
-                    currentPeriod = '1-Year Access';
-                    currentPlanName = 'Elite Pass (1 Year)';
-                    validityDays = 365;
+                    currentPeriod = `${validityDays}-Day Access`;
+                }
+
+                if (c.discount_type === 'free_pass' || (c.fixed_price !== null && c.fixed_price !== undefined && Number(c.fixed_price) === 0)) {
+                    currentFee = 0;
+                    currentPlanName = `${basePlanName} (${c.code} Free Pass)`;
+                } else if (c.discount_type === 'fixed_price' || (c.fixed_price !== null && c.fixed_price !== undefined)) {
+                    currentFee = Math.max(0, Math.round(Number(c.fixed_price)));
+                    currentPlanName = `${basePlanName} (${c.code} Offer)`;
+                } else if (c.discount_type === 'percentage') {
+                    const pct = Number(c.discount_amount || 0);
+                    currentFee = Math.max(0, Math.round(basePrice * (1 - pct / 100)));
+                    currentPlanName = `${basePlanName} (${c.code} ${pct}% Off)`;
+                } else if (c.discount_type === 'fixed_discount') {
+                    const disc = Number(c.discount_amount || 0);
+                    currentFee = Math.max(0, Math.round(basePrice - disc));
+                    currentPlanName = `${basePlanName} (${c.code} ₹${disc} Off)`;
                 }
             }
 
@@ -3235,7 +3283,7 @@
             const planName = currentPlanName;
 
             submitBtn.disabled = true;
-            submitBtn.textContent = isCouponFree ? 'Activating 30-Day Free Pass...' : 'Processing...';
+            submitBtn.textContent = isCouponFree ? `Activating ${currentPeriod}...` : 'Processing...';
 
             try {
                 // Generate tracking code: e.g. EC-TS-CIVIL-9237 or EC-TS10-9237
@@ -3399,14 +3447,14 @@
                             <div style="width:64px; height:64px; border-radius:50%; background:#fef3c7; color:#b45309; font-size:32px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; box-shadow:0 4px 14px rgba(217,119,6,0.25);">
                                 🎉
                             </div>
-                            <h3 style="font-size:20px; font-weight:800; color:#0f172a; margin:0 0 6px;">30-Day Direct Access Activated!</h3>
+                            <h3 style="font-size:20px; font-weight:800; color:#0f172a; margin:0 0 6px;">${currentPeriod} Activated!</h3>
                             <p style="font-size:13px; color:#475569; line-height:1.5; margin:0 0 16px;">
                                 Welcome, <strong style="color:#0f172a;">${activeSub.name}</strong>! Your pass is active immediately with <strong>no admin confirmation needed</strong>.
                             </p>
                             <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:12px; padding:14px; text-align:left; font-size:12.5px; margin-bottom:18px;">
                                 <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
                                     <span style="color:#78350f;">Offer Pass:</span>
-                                    <strong style="color:#b45309;">${appliedTsCoupon} (30 Days Free)</strong>
+                                    <strong style="color:#b45309;">${appliedTsCoupon || 'PROMO'} (${currentPeriod})</strong>
                                 </div>
                                 <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
                                     <span style="color:#78350f;">Valid Until:</span>
