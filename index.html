@@ -2991,22 +2991,24 @@
                     currentPeriod = `${validityDays}-Day Access`;
                 }
 
-                if (c.discount_type === 'free_pass' || (c.fixed_price !== null && c.fixed_price !== undefined && Number(c.fixed_price) === 0)) {
+                if (c.discount_type === 'free_pass' || (c.discount_type === 'fixed_price' && Number(c.fixed_price) === 0)) {
                     currentFee = 0;
                     currentStrike = isCivil ? '₹14,000' : '₹499';
                     currentPlanName = `${basePlanName} (${c.code} Free Pass)`;
-                } else if (c.discount_type === 'fixed_price' || (c.fixed_price !== null && c.fixed_price !== undefined)) {
-                    currentFee = Math.max(0, Math.round(Number(c.fixed_price)));
-                    currentStrike = isCivil ? '₹14,000' : '₹499';
-                    currentPlanName = `${basePlanName} (${c.code} Offer)`;
                 } else if (c.discount_type === 'percentage') {
                     const pct = Number(c.discount_amount || 0);
                     currentFee = Math.max(0, Math.round(basePrice * (1 - pct / 100)));
+                    currentStrike = '₹' + basePrice;
                     currentPlanName = `${basePlanName} (${c.code} ${pct}% Off)`;
                 } else if (c.discount_type === 'fixed_discount') {
                     const disc = Number(c.discount_amount || 0);
                     currentFee = Math.max(0, Math.round(basePrice - disc));
+                    currentStrike = '₹' + basePrice;
                     currentPlanName = `${basePlanName} (${c.code} ₹${disc} Off)`;
+                } else if (c.discount_type === 'fixed_price' && c.fixed_price !== null && c.fixed_price !== undefined) {
+                    currentFee = Math.max(0, Math.round(Number(c.fixed_price)));
+                    currentStrike = isCivil ? '₹14,000' : '₹' + basePrice;
+                    currentPlanName = `${basePlanName} (${c.code} Offer)`;
                 }
             }
 
@@ -3261,12 +3263,9 @@
                     currentPeriod = `${validityDays}-Day Access`;
                 }
 
-                if (c.discount_type === 'free_pass' || (c.fixed_price !== null && c.fixed_price !== undefined && Number(c.fixed_price) === 0)) {
+                if (c.discount_type === 'free_pass' || (c.discount_type === 'fixed_price' && Number(c.fixed_price) === 0)) {
                     currentFee = 0;
                     currentPlanName = `${basePlanName} (${c.code} Free Pass)`;
-                } else if (c.discount_type === 'fixed_price' || (c.fixed_price !== null && c.fixed_price !== undefined)) {
-                    currentFee = Math.max(0, Math.round(Number(c.fixed_price)));
-                    currentPlanName = `${basePlanName} (${c.code} Offer)`;
                 } else if (c.discount_type === 'percentage') {
                     const pct = Number(c.discount_amount || 0);
                     currentFee = Math.max(0, Math.round(basePrice * (1 - pct / 100)));
@@ -3275,6 +3274,9 @@
                     const disc = Number(c.discount_amount || 0);
                     currentFee = Math.max(0, Math.round(basePrice - disc));
                     currentPlanName = `${basePlanName} (${c.code} ₹${disc} Off)`;
+                } else if (c.discount_type === 'fixed_price' && c.fixed_price !== null && c.fixed_price !== undefined) {
+                    currentFee = Math.max(0, Math.round(Number(c.fixed_price)));
+                    currentPlanName = `${basePlanName} (${c.code} Offer)`;
                 }
             }
 
