@@ -13,54 +13,71 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../../../../../css/styles.css">
     <style>
-        .topic-card { background:#fff; border-radius:16px; border:1px solid var(--border); padding:0; overflow:hidden; transition:all 0.2s ease; box-shadow:0 2px 8px rgba(0,0,0,0.03); }
-        .topic-card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.07); }
-        .topic-header { padding:16px 18px 12px; border-bottom:1px solid #f1f5f9; }
-        .test-row { display:flex; align-items:center; justify-content:space-between; padding:10px 18px; border-bottom:1px solid #f8fafc; gap:12px; }
+        .topic-card { background:#ffffff; border-radius:12px; border:1px solid var(--border); overflow:hidden; transition:all 0.18s ease; box-shadow:0 1px 4px rgba(0,0,0,0.03); }
+        .topic-card:hover { border-color:#cbd5e1; box-shadow:0 4px 14px rgba(0,0,0,0.06); }
+        .topic-header { padding:12px 14px; background:#f8fafc; border-bottom:1px solid #f1f5f9; }
+        .test-row { display:flex; align-items:center; justify-content:space-between; padding:9px 14px; border-bottom:1px solid #f8fafc; }
         .test-row:last-child { border-bottom:none; }
-        .test-label { font-size:11.5px; font-weight:700; padding:3px 10px; border-radius:20px; white-space:nowrap; }
-        .label-a { background:#dcfce7; color:#15803d; }
-        .label-b { background:#fef9c3; color:#854d0e; }
-        .label-c { background:#fce7f3; color:#9d174d; }
-        .meta-pill { font-size:10.5px; font-weight:700; padding:2px 7px; border-radius:6px; background:#f1f5f9; color:#475569; }
-        .topic-num { width:28px; height:28px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; }
+        .topic-num { width:22px; height:22px; border-radius:6px; display:inline-flex; align-items:center; justify-content:center; font-size:10.5px; font-weight:800; flex-shrink:0; }
     </style>
 </head>
-<body style="background:var(--bg); padding:16px; max-width:1100px; margin:0 auto; font-family:'Plus Jakarta Sans',sans-serif;">
+<body style="background:var(--bg); margin:0; font-family:'Plus Jakarta Sans',sans-serif;">
 
-    <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-        <a href="../../../../../../../student_home.html" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit;" title="Return to Student Portal">
-            <img src="../../../../../../../eliteLogo_crest.png" alt="Elite Classes" class="brand-logo-icon" style="width:30px; height:30px;">
-            <div>
-                <div style="font-size:13.5px; font-weight:800; color:var(--text);">Elite Classes</div>
-                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Committed to success</div>
-            </div>
-        </a>
-        <a href="../../upsc_testseries_hub.html" class="btn btn-outline btn-sm" style="text-decoration:none; font-size:11.5px; padding:4px 10px;">← UPSC Hub</a>
-    </header>
-
-    <div style="background:undefined; color:#fff; border-radius:20px; padding:24px 28px; margin-bottom:20px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-            <div>
-                <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#fcd34d; margin-bottom:4px;">UPSC Prelims &bull; GS-I &bull; Ancient History of India</div>
-                <h1 style="font-size:22px; font-weight:800; margin:0 0 6px; color:#fff;">Ancient History of India — Chapter-Wise Tests</h1>
-                <p style="font-size:13px; color:rgba(255,255,255,0.8); margin:0;">13 Topics &times; 3 Tests Each = 39 Assessments &bull; 20 Questions per Test &bull; UPSC Marking (+4 / &minus;1.33)</p>
-            </div>
-            <div style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:14px; padding:12px 18px; text-align:right;">
-                <div style="font-size:10.5px; color:#fcd34d; font-weight:700;">ACTIVE CANDIDATE</div>
-                <div style="font-size:14px; font-weight:800; color:#fff;" id="active-student-pill">Loading...</div>
+    <!-- STICKY FIXED HEADER -->
+    <header class="app-header-sticky">
+        <div class="top-banner">
+            <a href="../../../../../../../student_home.html" class="brand-wrapper" style="text-decoration:none; color:inherit; cursor:pointer;" title="Return to Student Portal">
+                <img src="../../../../../../../eliteLogo_crest.png" onerror="this.onerror=null; this.src='../../../../../../../favicon-32x32.png';" alt="Elite Classes" class="brand-logo-icon">
+                <div>
+                    <div class="brand-text">Elite Classes</div>
+                    <div class="brand-sub">Committed to success</div>
+                </div>
+            </a>
+            <div style="display:flex; align-items:center; gap:8px;">
+                <a href="../../upsc_testseries_hub.html" class="btn btn-outline btn-sm" style="text-decoration:none; font-size:12px; font-weight:700;">← UPSC Hub</a>
+                <a href="../../../../../../../student_home.html" class="btn btn-primary btn-sm" style="font-size:12px; font-weight:700;">Student Portal</a>
             </div>
         </div>
-    </div>
+    </header>
 
-    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px;">
-        <span style="background:#dcfce7; color:#15803d; padding:4px 12px; border-radius:20px; font-size:11.5px; font-weight:700;">&#x1F7E2; Part A: Easy &amp; Moderate</span>
-        <span style="background:#fef9c3; color:#854d0e; padding:4px 12px; border-radius:20px; font-size:11.5px; font-weight:700;">&#x1F7E1; Part B: Hard &amp; Tricky</span>
-        <span style="background:#fce7f3; color:#9d174d; padding:4px 12px; border-radius:20px; font-size:11.5px; font-weight:700;">&#x1F534; Part C: UPSC Synthesis &amp; PYQ</span>
-        <span style="background:#f1f5f9; color:#475569; padding:4px 12px; border-radius:20px; font-size:11.5px; font-weight:700;">20Q &bull; 30 Mins &bull; 80 Marks</span>
-    </div>
+    <main class="main-content" style="max-width:1100px; margin:0 auto; padding:20px 16px 60px;">
 
-    <div id="topics-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:16px;"></div>
+        <!-- HERO BANNER -->
+        <div style="background:linear-gradient(135deg, #78350f 0%, #451a03 100%); color:#ffffff; border-radius:18px; padding:24px 28px; margin-bottom:18px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
+                <div>
+                    <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#fcd34d; margin-bottom:4px;">UPSC Prelims &bull; GS-I &bull; Ancient History of India</div>
+                    <h1 style="font-size:22px; font-weight:800; margin:0 0 6px; color:#ffffff;">Ancient History of India</h1>
+                    <p style="font-size:13px; color:rgba(255,255,255,0.85); margin:0;">13 Topics &bull; 39 Assessments &bull; 20Q &bull; 30 Mins &bull; UPSC Marking (+4 / &minus;1.33)</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.22); border-radius:12px; padding:10px 16px; text-align:right;">
+                    <div style="font-size:10px; color:#fcd34d; font-weight:700; letter-spacing:0.5px;">ACTIVE CANDIDATE</div>
+                    <div style="font-size:14px; font-weight:800; color:#ffffff;" id="active-student-pill">Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS & SEARCH BAR -->
+        <div style="background:#ffffff; border:1px solid var(--border); border-radius:12px; padding:12px 18px; margin-bottom:18px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; box-shadow:0 2px 6px rgba(0,0,0,0.02);">
+            <div style="display:flex; align-items:center; gap:14px;">
+                <div style="display:flex; align-items:baseline; gap:6px;">
+                    <span style="font-size:18px; font-weight:800; color:var(--text);"><span id="stat-completed">0</span> / <span id="stat-total">39</span></span>
+                    <span style="font-size:11.5px; font-weight:600; color:var(--text-muted);">Tests Completed</span>
+                </div>
+                <span id="stat-pct" style="font-size:11.5px; font-weight:800; padding:2px 8px; border-radius:12px; background:#eff6ff; color:#1d4ed8;">0%</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px; flex:1; justify-content:flex-end; min-width:240px;">
+                <div style="width:140px; height:7px; background:#f1f5f9; border-radius:999px; overflow:hidden;">
+                    <div id="stat-bar" style="height:100%; width:0%; background:linear-gradient(90deg, #2563eb, #059669); border-radius:999px; transition:width 0.4s ease;"></div>
+                </div>
+                <input type="text" id="topic-search" placeholder="Search topics..." oninput="filterTopics(this.value)" style="padding:6px 12px; border-radius:8px; border:1px solid var(--border); font-size:12px; width:170px; font-family:inherit; outline:none;">
+            </div>
+        </div>
+
+        <!-- TOPICS GRID -->
+        <div id="topics-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:14px;"></div>
+
+    </main>
 
     <div class="toast" id="app-toast">
         <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-width="2.5"/></svg>
@@ -124,10 +141,10 @@
         var TOPICS = [
             { num:1, title:'Pre-Historic Period', slug:'pre_historic_period' },
             { num:2, title:'Indus valley civilization', slug:'indus_valley_civilization' },
-            { num:3, title:'Vedic culture: Rig-Vedic and Post-Vedic Age', slug:'vedic_culture_rig_vedic_and_post_vedic_age' },
+            { num:3, title:'Vedic culture: Rig-Vedic & Post-Vedic Age', slug:'vedic_culture_rig_vedic_and_post_vedic_age' },
             { num:4, title:'Emergence of Mahajanapadas', slug:'emergence_of_mahajanapadas' },
             { num:5, title:'Pre Mauryan Empire', slug:'pre_mauryan_empire' },
-            { num:6, title:'Pre-Mauryan and Invasions', slug:'pre_mauryan_and_invasions' },
+            { num:6, title:'Pre-Mauryan & Invasions', slug:'pre_mauryan_and_invasions' },
             { num:7, title:'Mauryan empire', slug:'mauryan_empire' },
             { num:8, title:'Post Mauryan Development', slug:'post_mauryan_development' },
             { num:9, title:'The Sangam age', slug:'the_sangam_age' },
@@ -137,9 +154,9 @@
             { num:13, title:'Southern India During 300 AD to 750 AD', slug:'southern_india_during_300_ad_to_750_ad' }
         ];
         var TESTS_META = [
-            { part:'A', label:'Part A: Easy & Moderate', labelClass:'label-a', icon:'🟢' },
-            { part:'B', label:'Part B: Hard & Tricky', labelClass:'label-b', icon:'🟡' },
-            { part:'C', label:'Part C: UPSC Synthesis & PYQ', labelClass:'label-c', icon:'🔴' }
+            { part:'A', label:'Test 1' },
+            { part:'B', label:'Test 2' },
+            { part:'C', label:'Test 3' }
         ];
 
         function getTestId(topicNum, part) {
@@ -162,15 +179,6 @@
             if (!t || !m) return;
             m.textContent = msg; t.className = 'toast show ' + type;
             setTimeout(function(){ t.className = 'toast'; }, 3000);
-        }
-        function enrollInTest(testId) {
-            if (['inactive','disabled'].indexOf(getTestStatus(testId)) !== -1) { showToast('Locked by faculty.','danger'); return; }
-            studentCbtData.enrolled = studentCbtData.enrolled || {};
-            studentCbtData.enrolled[testId] = true;
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
-            showToast('Enrolled! Launching...', 'success');
-            renderTopics();
-            setTimeout(function(){ launchTest(testId); }, 400);
         }
         function launchTest(testId) {
             if (['inactive','disabled'].indexOf(getTestStatus(testId)) !== -1) { showToast('Locked by faculty.','danger'); return; }
@@ -198,42 +206,82 @@
                 showToast('Review engine not loaded.', 'danger');
             }
         }
+        function updateStats() {
+            var completedCount = 0;
+            var total = TOPICS.length * 3;
+            TOPICS.forEach(function(t) {
+                TESTS_META.forEach(function(tm) {
+                    var testId = getTestId(t.num, tm.part);
+                    if (studentCbtData.attempts && studentCbtData.attempts[testId]) {
+                        completedCount++;
+                    }
+                });
+            });
+            var pct = total > 0 ? Math.round((completedCount / total) * 100) : 0;
+            var elComp = document.getElementById('stat-completed');
+            var elTot = document.getElementById('stat-total');
+            var elPct = document.getElementById('stat-pct');
+            var elBar = document.getElementById('stat-bar');
+            if (elComp) elComp.textContent = completedCount;
+            if (elTot) elTot.textContent = total;
+            if (elPct) elPct.textContent = pct + '%';
+            if (elBar) elBar.style.width = pct + '%';
+        }
+        function filterTopics(query) {
+            var q = (query || '').toLowerCase().trim();
+            var cards = document.querySelectorAll('.topic-card');
+            TOPICS.forEach(function(topic, i) {
+                var card = cards[i];
+                if (!card) return;
+                var match = !q || topic.title.toLowerCase().indexOf(q) !== -1 || String(topic.num) === q;
+                card.style.display = match ? '' : 'none';
+            });
+        }
         function renderTopics() {
             studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{},"attempts":{}}');
             studentCbtData.enrolled = studentCbtData.enrolled || {};
             studentCbtData.attempts = studentCbtData.attempts || {};
+            updateStats();
+
             var grid = document.getElementById('topics-grid');
             grid.innerHTML = TOPICS.map(function(topic) {
-                var numStr = String(topic.num).padStart(2,'0');
                 var rows = TESTS_META.map(function(tm) {
                     var testId = getTestId(topic.num, tm.part);
                     var status = getTestStatus(testId);
                     var isInactive = (status === 'inactive' || status === 'disabled');
-                    var isEnrolled = !!(studentCbtData.enrolled && studentCbtData.enrolled[testId]);
                     var attempt = studentCbtData.attempts && studentCbtData.attempts[testId];
                     var testObj = getRegisteredTest(testId);
                     var hasData = !!(testObj && testObj.questions && testObj.questions.length > 0);
-                    var badge = '', action = '';
+                    var action = '';
                     if (isInactive) {
-                        badge = '<span style="font-size:10px;color:#94a3b8;font-weight:600;">&#x1F512; Locked</span>';
-                        action = '<button disabled style="padding:4px 14px;border-radius:8px;background:#f1f5f9;border:none;color:#94a3b8;font-size:11px;font-weight:700;cursor:not-allowed;">Locked</button>';
+                        action = '<button disabled style="padding:4px 12px;border-radius:6px;background:#f1f5f9;border:none;color:#94a3b8;font-size:11.5px;font-weight:600;cursor:not-allowed;">Locked</button>';
                     } else if (!hasData) {
-                        badge = '<span style="font-size:10px;color:#d97706;font-weight:600;">&#x23F3; Loading</span>';
-                        action = '<button disabled style="padding:4px 14px;border-radius:8px;background:#fef3c7;border:none;color:#92400e;font-size:11px;font-weight:700;">Loading...</button>';
+                        action = '<button disabled style="padding:4px 12px;border-radius:6px;background:#fef3c7;border:none;color:#92400e;font-size:11.5px;font-weight:600;">Loading...</button>';
                     } else if (attempt) {
                         var pct = attempt.pct !== undefined ? attempt.pct : Math.round(((attempt.score||0)/80)*100);
-                        badge = '<span style="font-size:10px;font-weight:700;color:' + (pct>=50?'#15803d':'#dc2626') + ';">' + (attempt.score||0) + '/80 (' + pct + '%)</span>';
-                        action = '<div style="display:flex;gap:6px;"><button data-testid="' + testId + '" onclick="reviewTest(this.getAttribute(\'data-testid\'))" style="padding:4px 10px;border-radius:8px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;font-size:11px;font-weight:700;cursor:pointer;">Review</button><button data-testid="' + testId + '" onclick="launchTest(this.getAttribute(\'data-testid\'))" style="padding:4px 10px;border-radius:8px;background:var(--primary);border:none;color:#fff;font-size:11px;font-weight:700;cursor:pointer;">Retake</button></div>';
-                    } else if (isEnrolled) {
-                        badge = '<span style="font-size:10px;color:#2563eb;font-weight:700;">&#x25CF; Ready</span>';
-                        action = '<button data-testid="' + testId + '" onclick="launchTest(this.getAttribute(\'data-testid\'))" style="padding:4px 14px;border-radius:8px;background:var(--primary);border:none;color:#fff;font-size:11px;font-weight:700;cursor:pointer;">&#x1F680; Start</button>';
+                        action = '<div style="display:flex;align-items:center;gap:6px;">' +
+                            '<span style="font-size:11.5px;font-weight:700;color:' + (pct>=50?'#15803d':'#dc2626') + ';margin-right:2px;">' + (attempt.score||0) + '/80</span>' +
+                            '<button data-testid="' + testId + '" onclick="reviewTest(this.getAttribute(\'data-testid\'))" class="btn btn-outline btn-sm" style="padding:3px 8px;font-size:11px;font-weight:700;">Review</button>' +
+                            '<button data-testid="' + testId + '" onclick="launchTest(this.getAttribute(\'data-testid\'))" class="btn btn-outline btn-sm" style="padding:3px 8px;font-size:11px;font-weight:700;">Restart</button>' +
+                            '</div>';
                     } else {
-                        badge = '<span style="font-size:10px;color:#15803d;font-weight:600;">Available</span>';
-                        action = '<button data-testid="' + testId + '" onclick="launchTest(this.getAttribute(\'data-testid\'))" style="padding:4px 14px;border-radius:8px;background:var(--primary);border:none;color:#fff;font-size:11px;font-weight:700;cursor:pointer;">&#x1F680; Start</button>';
+                        action = '<button data-testid="' + testId + '" onclick="launchTest(this.getAttribute(\'data-testid\'))" class="btn btn-primary btn-sm" style="padding:3px 14px;font-size:11.5px;font-weight:700;">Start</button>';
                     }
-                    return '<div class="test-row"><div style="display:flex;align-items:center;gap:8px;flex:1;"><span class="test-label ' + tm.labelClass + '">' + tm.icon + ' ' + tm.label + '</span><span class="meta-pill">20Q &bull; 30m</span></div><div style="display:flex;align-items:center;gap:8px;">' + badge + action + '</div></div>';
+                    return '<div class="test-row">' +
+                        '<span style="font-size:12.5px;font-weight:700;color:var(--text);">' + tm.label + '</span>' +
+                        '<div>' + action + '</div>' +
+                        '</div>';
                 }).join('');
-                return '<div class="topic-card"><div class="topic-header"><div style="display:flex;align-items:center;gap:8px;"><span class="topic-num" style="background:undefined;color:#fcd34d;">' + topic.num + '</span><div style="font-size:14px;font-weight:800;color:var(--text);">' + topic.title + '</div></div></div>' + rows + '</div>';
+
+                return '<div class="topic-card">' +
+                    '<div class="topic-header">' +
+                        '<div style="display:flex;align-items:center;gap:8px;">' +
+                            '<span class="topic-num" style="background:#78350f;color:#ffffff;">' + topic.num + '</span>' +
+                            '<div style="font-size:13.5px;font-weight:700;color:var(--text);line-height:1.3;">' + topic.title + '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    rows +
+                    '</div>';
             }).join('');
         }
         async function syncCloudTestStatuses() {
