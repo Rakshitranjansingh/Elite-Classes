@@ -283,25 +283,25 @@ const CBTPlayer = {
                     </div>
                 </div>
 
-                <!-- LAYER 2: TIMER & PROCTOR (LEFT) & FINISH & SUBMIT (RIGHT) -->
+                <!-- LAYER 2: TIMER & STRIKES (LEFT) & SUBMIT (RIGHT) -->
                 <div style="background:#0b1329; color:#ffffff; padding:6px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.12); gap:10px;">
                     <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
                         <!-- TIMER -->
                         <div style="background:rgba(239, 68, 68, 0.18); border:1px solid rgba(239, 68, 68, 0.4); padding:4px 12px; border-radius:16px; display:flex; align-items:center; gap:6px; flex-shrink:0;">
-                            <span style="font-size:11px; color:#fca5a5; font-weight:800; letter-spacing:0.5px;">⏱️ TIME LEFT:</span>
+                            <span style="font-size:12px;">⏱️</span>
                             <span id="cbt-header-timer" style="font-size:14px; font-weight:800; font-family:'Courier New', monospace; color:#fef2f2; letter-spacing:1px;">00:00:00</span>
                         </div>
 
-                        <!-- PROCTOR STATUS BADGE -->
+                        <!-- STRIKE STATUS BADGE -->
                         <div id="cbt-proctor-pill" style="background:rgba(16, 185, 129, 0.15); border:1px solid rgba(16, 185, 129, 0.4); padding:4px 10px; border-radius:16px; display:flex; align-items:center; gap:6px; font-size:11px; font-weight:700; color:#6ee7b7;">
-                            <span>🛡️ PROCTOR:</span>
-                            <span id="cbt-proctor-strikes" style="color:#ffffff;">0/3 Strikes</span>
+                            <span style="font-size:12px;">🛡️</span>
+                            <span id="cbt-proctor-strikes" style="color:#ffffff;">Strike 0/3</span>
                         </div>
                     </div>
 
-                    <!-- FINISH & SUBMIT -->
+                    <!-- SUBMIT -->
                     <button onclick="CBTPlayer.confirmSubmit()" style="background:#ef4444; color:#ffffff; border:none; padding:6px 14px; border-radius:8px; font-weight:800; font-size:12px; cursor:pointer; display:inline-flex; align-items:center; gap:5px; box-shadow:0 2px 4px rgba(239,68,68,0.3); flex-shrink:0;">
-                        <span>✓ Finish & Submit</span>
+                        <span>✓ Submit</span>
                     </button>
                 </div>
 
@@ -664,7 +664,7 @@ const CBTPlayer = {
         const badge = document.getElementById('cbt-proctor-strikes');
         const pill = document.getElementById('cbt-proctor-pill');
         if (!badge) return;
-        badge.textContent = `${this.proctorStrikes}/${this.maxProctorStrikes} Strikes`;
+        badge.textContent = `Strike ${this.proctorStrikes}/${this.maxProctorStrikes}`;
         if (pill) {
             if (this.proctorStrikes === 0) {
                 pill.style.background = 'rgba(16, 185, 129, 0.15)';
