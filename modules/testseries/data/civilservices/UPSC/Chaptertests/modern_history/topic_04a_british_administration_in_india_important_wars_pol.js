@@ -20,7 +20,7 @@ const UPSC_MODERN_HISTORY_T04A = {
     passing_marks: 40,
     negative_marking: 1.33,
     questions_count: 20,
-    status: 'inactive',
+    status: 'published',
     difficulty_level: 'easy_moderate',
     difficulty_breakdown: {
                 "easy": 10,

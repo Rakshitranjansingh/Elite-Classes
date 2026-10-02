@@ -20,7 +20,7 @@ const UPSC_INDIAN_SOCIETY_T01C = {
     passing_marks: 40,
     negative_marking: 1.33,
     questions_count: 20,
-    status: 'inactive',
+    status: 'published',
     difficulty_level: 'very_hard',
     difficulty_breakdown: {
                 "easy": 0,

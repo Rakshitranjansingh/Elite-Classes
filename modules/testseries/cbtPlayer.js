@@ -165,11 +165,16 @@ const CBTPlayer = {
         }
 
         // Security Gate: Launch-time DevTools detection (DPI & Sidebar aware)
+        const isLocalDev = typeof window !== 'undefined' && window.location && (
+            window.location.hostname === 'localhost' || 
+            window.location.hostname === '127.0.0.1' || 
+            window.location.protocol === 'file:'
+        );
         const dpr = window.devicePixelRatio || 1;
         const devDiffX = Math.abs(window.outerWidth - window.innerWidth);
         const devDiffY = Math.abs(window.outerHeight - window.innerHeight);
-        const threshold = Math.max(220, Math.round(180 * dpr));
-        if (devDiffX > threshold || devDiffY > threshold) {
+        const threshold = Math.max(240, Math.round(200 * dpr));
+        if (!isLocalDev && (devDiffX > threshold || devDiffY > threshold)) {
             alert('🛑 Security Alert: Developer Tools / Inspect Element is currently open.\n\nPlease close Developer Tools and refresh to proceed to the examination.');
             return;
         }
@@ -801,6 +806,9 @@ const CBTPlayer = {
     openModal() {
         const modal = document.getElementById('cbt-engine-overlay');
         if (!modal) return;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+
         const rawTitle = (this.activeTest && this.activeTest.title) ? this.activeTest.title : 'Assessment';
         const cleanTitle = rawTitle.replace(/\s*[\?–—\-]?\s*Part\s+[ABC].*$/i, '').replace(/\s*\?+$/, '').trim();
         document.getElementById('cbt-header-title').textContent = cleanTitle;
@@ -818,6 +826,7 @@ const CBTPlayer = {
         this.cleanupProctoringAndSecurity();
         const modal = document.getElementById('cbt-engine-overlay');
         if (modal) modal.style.display = 'none';
+        document.body.style.overflow = '';
     },
 
     renderQuestion() {

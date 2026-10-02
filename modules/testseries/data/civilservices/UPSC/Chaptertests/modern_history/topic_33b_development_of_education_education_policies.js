@@ -20,7 +20,7 @@ const UPSC_MODERN_HISTORY_T33B = {
     passing_marks: 40,
     negative_marking: 1.33,
     questions_count: 20,
-    status: 'inactive',
+    status: 'published',
     difficulty_level: 'hard_tricky',
     difficulty_breakdown: {
                 "easy": 0,

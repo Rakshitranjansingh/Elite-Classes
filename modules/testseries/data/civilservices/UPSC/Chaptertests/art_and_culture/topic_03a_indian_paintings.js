@@ -20,7 +20,7 @@ const UPSC_ART_AND_CULTURE_T03A = {
     passing_marks: 40,
     negative_marking: 1.33,
     questions_count: 20,
-    status: 'inactive',
+    status: 'published',
     difficulty_level: 'easy_moderate',
     difficulty_breakdown: {
                 "easy": 10,
