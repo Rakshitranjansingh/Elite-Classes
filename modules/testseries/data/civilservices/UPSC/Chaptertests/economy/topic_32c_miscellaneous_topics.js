@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian & World Economy
  * Topic    : Miscellaneous Topics
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_economy_t32c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ECONOMY_T32C = {
     id: 'ts_upsc_economy_t32c',
-    title: 'Miscellaneous Topics ? Part C: UPSC Synthesis & PYQ',
+    title: 'Miscellaneous Topics',
     cls: 'Civil Services',
     subject: 'Indian & World Economy',
     exam: 'UPSC Prelims',

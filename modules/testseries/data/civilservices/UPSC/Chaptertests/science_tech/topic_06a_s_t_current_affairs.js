@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Science & Technology
  * Topic    : S&T Current Affairs
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_science_tech_t06a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_SCIENCE_TECH_T06A = {
     id: 'ts_upsc_science_tech_t06a',
-    title: 'S&T Current Affairs ? Part A: Easy & Moderate',
+    title: 'S&T Current Affairs',
     cls: 'Civil Services',
     subject: 'Science & Technology',
     exam: 'UPSC Prelims',

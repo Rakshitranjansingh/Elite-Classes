@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Polity & Governance
  * Topic    : The Preamble
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_polity_t06b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_POLITY_T06B = {
     id: 'ts_upsc_polity_t06b',
-    title: 'The Preamble ? Part B: Hard & Tricky',
+    title: 'The Preamble',
     cls: 'Civil Services',
     subject: 'Indian Polity & Governance',
     exam: 'UPSC Prelims',

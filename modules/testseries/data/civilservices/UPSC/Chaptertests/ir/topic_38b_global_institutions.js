@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : International Relations & Global Affairs
  * Topic    : Global Institutions
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_ir_t38b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_IR_T38B = {
     id: 'ts_upsc_ir_t38b',
-    title: 'Global Institutions ? Part B: Hard & Tricky',
+    title: 'Global Institutions',
     cls: 'Civil Services',
     subject: 'International Relations & Global Affairs',
     exam: 'UPSC Prelims',

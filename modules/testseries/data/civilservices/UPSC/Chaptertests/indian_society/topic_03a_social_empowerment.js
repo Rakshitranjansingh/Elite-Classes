@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Society
  * Topic    : Social empowerment
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_indian_society_t03a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_INDIAN_SOCIETY_T03A = {
     id: 'ts_upsc_indian_society_t03a',
-    title: 'Social empowerment ? Part A: Easy & Moderate',
+    title: 'Social empowerment',
     cls: 'Civil Services',
     subject: 'Indian Society',
     exam: 'UPSC Prelims',

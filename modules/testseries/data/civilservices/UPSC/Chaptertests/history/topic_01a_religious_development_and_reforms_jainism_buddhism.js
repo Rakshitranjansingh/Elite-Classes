@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : History (General)
  * Topic    : Religious development and reforms : Jainism & Buddhism
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_history_t01a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_HISTORY_T01A = {
     id: 'ts_upsc_history_t01a',
-    title: 'Religious development and reforms : Jainism & Buddhism ? Part A: Easy & Moderate',
+    title: 'Religious development and reforms : Jainism & Buddhism',
     cls: 'Civil Services',
     subject: 'History (General)',
     exam: 'UPSC Prelims',

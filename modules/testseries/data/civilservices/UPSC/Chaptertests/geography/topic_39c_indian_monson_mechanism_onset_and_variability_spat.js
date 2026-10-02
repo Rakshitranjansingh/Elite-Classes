@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Indian Monson: Mechanism, onset and variability; spatial and temporal variations
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_geography_t39c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T39C = {
     id: 'ts_upsc_geography_t39c',
-    title: 'Indian Monson: Mechanism, onset and variability; spatial and temporal variations ? Part C: UPSC Synthesis & PYQ',
+    title: 'Indian Monson: Mechanism, onset and variability; spatial and temporal variations',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

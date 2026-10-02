@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Art & Culture
  * Topic    : Martial arts in India
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_art_and_culture_t13b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ART_AND_CULTURE_T13B = {
     id: 'ts_upsc_art_and_culture_t13b',
-    title: 'Martial arts in India ? Part B: Hard & Tricky',
+    title: 'Martial arts in India',
     cls: 'Civil Services',
     subject: 'Indian Art & Culture',
     exam: 'UPSC Prelims',

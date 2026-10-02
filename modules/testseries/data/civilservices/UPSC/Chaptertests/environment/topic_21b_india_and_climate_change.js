@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Environment & Ecology
  * Topic    : India and climate change
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_environment_t21b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ENVIRONMENT_T21B = {
     id: 'ts_upsc_environment_t21b',
-    title: 'India and climate change ? Part B: Hard & Tricky',
+    title: 'India and climate change',
     cls: 'Civil Services',
     subject: 'Environment & Ecology',
     exam: 'UPSC Prelims',

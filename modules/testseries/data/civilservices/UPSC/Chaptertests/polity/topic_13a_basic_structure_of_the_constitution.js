@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Polity & Governance
  * Topic    : Basic structure of the Constitution
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_polity_t13a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_POLITY_T13A = {
     id: 'ts_upsc_polity_t13a',
-    title: 'Basic structure of the Constitution ? Part A: Easy & Moderate',
+    title: 'Basic structure of the Constitution',
     cls: 'Civil Services',
     subject: 'Indian Polity & Governance',
     exam: 'UPSC Prelims',

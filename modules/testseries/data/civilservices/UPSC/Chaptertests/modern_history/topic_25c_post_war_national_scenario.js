@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Modern History of India
  * Topic    : Post-war national scenario
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_modern_history_t25c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MODERN_HISTORY_T25C = {
     id: 'ts_upsc_modern_history_t25c',
-    title: 'Post-war national scenario ? Part C: UPSC Synthesis & PYQ',
+    title: 'Post-war national scenario',
     cls: 'Civil Services',
     subject: 'Modern History of India',
     exam: 'UPSC Prelims',

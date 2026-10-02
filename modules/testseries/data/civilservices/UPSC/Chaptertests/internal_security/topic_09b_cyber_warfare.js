@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Internal Security & Border Management
  * Topic    : Cyber Warfare
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_internal_security_t09b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_INTERNAL_SECURITY_T09B = {
     id: 'ts_upsc_internal_security_t09b',
-    title: 'Cyber Warfare ? Part B: Hard & Tricky',
+    title: 'Cyber Warfare',
     cls: 'Civil Services',
     subject: 'Internal Security & Border Management',
     exam: 'UPSC Prelims',

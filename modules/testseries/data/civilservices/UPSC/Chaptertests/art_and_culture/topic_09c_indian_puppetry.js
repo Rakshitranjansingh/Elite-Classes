@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Art & Culture
  * Topic    : Indian Puppetry
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_art_and_culture_t09c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ART_AND_CULTURE_T09C = {
     id: 'ts_upsc_art_and_culture_t09c',
-    title: 'Indian Puppetry ? Part C: UPSC Synthesis & PYQ',
+    title: 'Indian Puppetry',
     cls: 'Civil Services',
     subject: 'Indian Art & Culture',
     exam: 'UPSC Prelims',

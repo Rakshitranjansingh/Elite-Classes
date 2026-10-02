@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Internal Security & Border Management
  * Topic    : Various Security Forces and their Mandate
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_internal_security_t14b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_INTERNAL_SECURITY_T14B = {
     id: 'ts_upsc_internal_security_t14b',
-    title: 'Various Security Forces and their Mandate ? Part B: Hard & Tricky',
+    title: 'Various Security Forces and their Mandate',
     cls: 'Civil Services',
     subject: 'Internal Security & Border Management',
     exam: 'UPSC Prelims',

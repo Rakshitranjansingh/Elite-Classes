@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Polity & Governance
  * Topic    : Elections in India
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_polity_t49c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_POLITY_T49C = {
     id: 'ts_upsc_polity_t49c',
-    title: 'Elections in India ? Part C: UPSC Synthesis & PYQ',
+    title: 'Elections in India',
     cls: 'Civil Services',
     subject: 'Indian Polity & Governance',
     exam: 'UPSC Prelims',

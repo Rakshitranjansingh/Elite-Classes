@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Modern History of India
  * Topic    : Simon commission and Simon boycotts Movement (1927-29)
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_modern_history_t19c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MODERN_HISTORY_T19C = {
     id: 'ts_upsc_modern_history_t19c',
-    title: 'Simon commission and Simon boycotts Movement (1927-29) ? Part C: UPSC Synthesis & PYQ',
+    title: 'Simon commission and Simon boycotts Movement (1927-29)',
     cls: 'Civil Services',
     subject: 'Modern History of India',
     exam: 'UPSC Prelims',

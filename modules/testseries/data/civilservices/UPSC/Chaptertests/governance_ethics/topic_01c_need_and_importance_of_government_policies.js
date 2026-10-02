@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Governance, Social Justice & Ethics
  * Topic    : Need and importance of Government Policies
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_governance_ethics_t01c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GOVERNANCE_ETHICS_T01C = {
     id: 'ts_upsc_governance_ethics_t01c',
-    title: 'Need and importance of Government Policies ? Part C: UPSC Synthesis & PYQ',
+    title: 'Need and importance of Government Policies',
     cls: 'Civil Services',
     subject: 'Governance, Social Justice & Ethics',
     exam: 'UPSC Prelims',

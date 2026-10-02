@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Environment & Ecology
  * Topic    : ENVIRONMENT Current Affairs
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_environment_t28c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ENVIRONMENT_T28C = {
     id: 'ts_upsc_environment_t28c',
-    title: 'ENVIRONMENT Current Affairs ? Part C: UPSC Synthesis & PYQ',
+    title: 'ENVIRONMENT Current Affairs',
     cls: 'Civil Services',
     subject: 'Environment & Ecology',
     exam: 'UPSC Prelims',

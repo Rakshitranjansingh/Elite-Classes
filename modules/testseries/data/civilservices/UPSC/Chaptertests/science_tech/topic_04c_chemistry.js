@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Science & Technology
  * Topic    : Chemistry
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_science_tech_t04c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_SCIENCE_TECH_T04C = {
     id: 'ts_upsc_science_tech_t04c',
-    title: 'Chemistry ? Part C: UPSC Synthesis & PYQ',
+    title: 'Chemistry',
     cls: 'Civil Services',
     subject: 'Science & Technology',
     exam: 'UPSC Prelims',

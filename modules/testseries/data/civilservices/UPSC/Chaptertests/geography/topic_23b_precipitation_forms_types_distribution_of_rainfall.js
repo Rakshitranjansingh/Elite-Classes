@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Precipitation – Forms & Types, Distribution of rainfall
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_geography_t23b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T23B = {
     id: 'ts_upsc_geography_t23b',
-    title: 'Precipitation – Forms & Types, Distribution of rainfall ? Part B: Hard & Tricky',
+    title: 'Precipitation – Forms & Types, Distribution of rainfall',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

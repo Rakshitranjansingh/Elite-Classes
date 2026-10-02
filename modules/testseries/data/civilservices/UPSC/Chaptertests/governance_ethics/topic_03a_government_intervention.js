@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Governance, Social Justice & Ethics
  * Topic    : Government intervention
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_governance_ethics_t03a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GOVERNANCE_ETHICS_T03A = {
     id: 'ts_upsc_governance_ethics_t03a',
-    title: 'Government intervention ? Part A: Easy & Moderate',
+    title: 'Government intervention',
     cls: 'Civil Services',
     subject: 'Governance, Social Justice & Ethics',
     exam: 'UPSC Prelims',

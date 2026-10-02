@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Polity & Governance
  * Topic    : Scheduled and Tribal Areas
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_polity_t30c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_POLITY_T30C = {
     id: 'ts_upsc_polity_t30c',
-    title: 'Scheduled and Tribal Areas ? Part C: UPSC Synthesis & PYQ',
+    title: 'Scheduled and Tribal Areas',
     cls: 'Civil Services',
     subject: 'Indian Polity & Governance',
     exam: 'UPSC Prelims',

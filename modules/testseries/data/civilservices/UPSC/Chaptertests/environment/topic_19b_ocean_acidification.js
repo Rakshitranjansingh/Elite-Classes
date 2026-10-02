@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Environment & Ecology
  * Topic    : Ocean Acidification
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_environment_t19b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ENVIRONMENT_T19B = {
     id: 'ts_upsc_environment_t19b',
-    title: 'Ocean Acidification ? Part B: Hard & Tricky',
+    title: 'Ocean Acidification',
     cls: 'Civil Services',
     subject: 'Environment & Ecology',
     exam: 'UPSC Prelims',

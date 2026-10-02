@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Polity & Governance
  * Topic    : Development process and related organizations
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_polity_t42a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_POLITY_T42A = {
     id: 'ts_upsc_polity_t42a',
-    title: 'Development process and related organizations ? Part A: Easy & Moderate',
+    title: 'Development process and related organizations',
     cls: 'Civil Services',
     subject: 'Indian Polity & Governance',
     exam: 'UPSC Prelims',

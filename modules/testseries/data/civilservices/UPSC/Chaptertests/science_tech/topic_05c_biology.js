@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Science & Technology
  * Topic    : Biology
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_science_tech_t05c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_SCIENCE_TECH_T05C = {
     id: 'ts_upsc_science_tech_t05c',
-    title: 'Biology ? Part C: UPSC Synthesis & PYQ',
+    title: 'Biology',
     cls: 'Civil Services',
     subject: 'Science & Technology',
     exam: 'UPSC Prelims',

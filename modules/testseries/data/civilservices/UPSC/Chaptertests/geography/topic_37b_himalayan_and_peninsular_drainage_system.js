@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Himalayan and Peninsular Drainage system
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_geography_t37b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T37B = {
     id: 'ts_upsc_geography_t37b',
-    title: 'Himalayan and Peninsular Drainage system ? Part B: Hard & Tricky',
+    title: 'Himalayan and Peninsular Drainage system',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

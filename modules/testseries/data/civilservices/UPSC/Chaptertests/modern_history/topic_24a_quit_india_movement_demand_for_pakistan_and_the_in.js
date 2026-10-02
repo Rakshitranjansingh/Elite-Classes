@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Modern History of India
  * Topic    : Quit India Movement, demand for Pakistan and the INA
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_modern_history_t24a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MODERN_HISTORY_T24A = {
     id: 'ts_upsc_modern_history_t24a',
-    title: 'Quit India Movement, demand for Pakistan and the INA ? Part A: Easy & Moderate',
+    title: 'Quit India Movement, demand for Pakistan and the INA',
     cls: 'Civil Services',
     subject: 'Modern History of India',
     exam: 'UPSC Prelims',

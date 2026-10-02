@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Art & Culture
  * Topic    : Progress of Literature in India
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_art_and_culture_t14a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ART_AND_CULTURE_T14A = {
     id: 'ts_upsc_art_and_culture_t14a',
-    title: 'Progress of Literature in India ? Part A: Easy & Moderate',
+    title: 'Progress of Literature in India',
     cls: 'Civil Services',
     subject: 'Indian Art & Culture',
     exam: 'UPSC Prelims',

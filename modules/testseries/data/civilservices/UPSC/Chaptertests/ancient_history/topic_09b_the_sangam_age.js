@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Ancient History of India
  * Topic    : The Sangam age
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_ancient_history_t09b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ANCIENT_HISTORY_T09B = {
     id: 'ts_upsc_ancient_history_t09b',
-    title: 'The Sangam age ? Part B: Hard & Tricky',
+    title: 'The Sangam age',
     cls: 'Civil Services',
     subject: 'Ancient History of India',
     exam: 'UPSC Prelims',

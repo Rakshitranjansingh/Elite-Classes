@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Internal Security & Border Management
  * Topic    : Security Challenges in Border Areas
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_internal_security_t07c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_INTERNAL_SECURITY_T07C = {
     id: 'ts_upsc_internal_security_t07c',
-    title: 'Security Challenges in Border Areas ? Part C: UPSC Synthesis & PYQ',
+    title: 'Security Challenges in Border Areas',
     cls: 'Civil Services',
     subject: 'Internal Security & Border Management',
     exam: 'UPSC Prelims',

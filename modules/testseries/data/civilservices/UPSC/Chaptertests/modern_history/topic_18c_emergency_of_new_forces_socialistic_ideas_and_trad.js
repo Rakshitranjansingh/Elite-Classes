@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Modern History of India
  * Topic    : Emergency of new forces: Socialistic Ideas and Trade Unionism/Labour and Peasant organisations
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_modern_history_t18c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MODERN_HISTORY_T18C = {
     id: 'ts_upsc_modern_history_t18c',
-    title: 'Emergency of new forces: Socialistic Ideas and Trade Unionism/Labour and Peasant organisations ? Part C: UPSC Synthesis & PYQ',
+    title: 'Emergency of new forces: Socialistic Ideas and Trade Unionism/Labour and Peasant organisations',
     cls: 'Civil Services',
     subject: 'Modern History of India',
     exam: 'UPSC Prelims',

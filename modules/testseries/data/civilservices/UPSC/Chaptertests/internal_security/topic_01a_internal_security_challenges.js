@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Internal Security & Border Management
  * Topic    : Internal Security Challenges
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_internal_security_t01a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_INTERNAL_SECURITY_T01A = {
     id: 'ts_upsc_internal_security_t01a',
-    title: 'Internal Security Challenges ? Part A: Easy & Moderate',
+    title: 'Internal Security Challenges',
     cls: 'Civil Services',
     subject: 'Internal Security & Border Management',
     exam: 'UPSC Prelims',

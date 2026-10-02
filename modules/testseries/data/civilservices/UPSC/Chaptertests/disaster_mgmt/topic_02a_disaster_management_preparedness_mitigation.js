@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Disaster Management & Resilience
  * Topic    : Disaster Management, Preparedness & Mitigation
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_disaster_mgmt_t02a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_DISASTER_MGMT_T02A = {
     id: 'ts_upsc_disaster_mgmt_t02a',
-    title: 'Disaster Management, Preparedness & Mitigation ? Part A: Easy & Moderate',
+    title: 'Disaster Management, Preparedness & Mitigation',
     cls: 'Civil Services',
     subject: 'Disaster Management & Resilience',
     exam: 'UPSC Prelims',

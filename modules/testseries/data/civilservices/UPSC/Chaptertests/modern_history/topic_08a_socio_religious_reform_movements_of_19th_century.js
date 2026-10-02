@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Modern History of India
  * Topic    : Socio – Religious Reform Movements of 19th Century
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_modern_history_t08a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MODERN_HISTORY_T08A = {
     id: 'ts_upsc_modern_history_t08a',
-    title: 'Socio – Religious Reform Movements of 19th Century ? Part A: Easy & Moderate',
+    title: 'Socio – Religious Reform Movements of 19th Century',
     cls: 'Civil Services',
     subject: 'Modern History of India',
     exam: 'UPSC Prelims',

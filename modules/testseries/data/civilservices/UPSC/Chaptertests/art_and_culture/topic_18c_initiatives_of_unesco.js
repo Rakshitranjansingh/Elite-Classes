@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Art & Culture
  * Topic    : Initiatives of UNESCO
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_art_and_culture_t18c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ART_AND_CULTURE_T18C = {
     id: 'ts_upsc_art_and_culture_t18c',
-    title: 'Initiatives of UNESCO ? Part C: UPSC Synthesis & PYQ',
+    title: 'Initiatives of UNESCO',
     cls: 'Civil Services',
     subject: 'Indian Art & Culture',
     exam: 'UPSC Prelims',

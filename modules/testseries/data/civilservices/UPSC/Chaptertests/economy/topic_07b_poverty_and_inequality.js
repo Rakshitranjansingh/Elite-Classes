@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian & World Economy
  * Topic    : Poverty and Inequality
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_economy_t07b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ECONOMY_T07B = {
     id: 'ts_upsc_economy_t07b',
-    title: 'Poverty and Inequality ? Part B: Hard & Tricky',
+    title: 'Poverty and Inequality',
     cls: 'Civil Services',
     subject: 'Indian & World Economy',
     exam: 'UPSC Prelims',

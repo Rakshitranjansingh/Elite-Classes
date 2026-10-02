@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Medieval History of India
  * Topic    : Tripartite Struggle and Imperial Cholas
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_medieval_history_t01c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MEDIEVAL_HISTORY_T01C = {
     id: 'ts_upsc_medieval_history_t01c',
-    title: 'Tripartite Struggle and Imperial Cholas ? Part C: UPSC Synthesis & PYQ',
+    title: 'Tripartite Struggle and Imperial Cholas',
     cls: 'Civil Services',
     subject: 'Medieval History of India',
     exam: 'UPSC Prelims',

@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Drainage system and patterns
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_geography_t14c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T14C = {
     id: 'ts_upsc_geography_t14c',
-    title: 'Drainage system and patterns ? Part C: UPSC Synthesis & PYQ',
+    title: 'Drainage system and patterns',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

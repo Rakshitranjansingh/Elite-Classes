@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Environment & Ecology
  * Topic    : Climate change
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_environment_t16a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ENVIRONMENT_T16A = {
     id: 'ts_upsc_environment_t16a',
-    title: 'Climate change ? Part A: Easy & Moderate',
+    title: 'Climate change',
     cls: 'Civil Services',
     subject: 'Environment & Ecology',
     exam: 'UPSC Prelims',

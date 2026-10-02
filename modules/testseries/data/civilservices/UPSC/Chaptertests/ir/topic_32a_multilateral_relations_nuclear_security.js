@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : International Relations & Global Affairs
  * Topic    : Multilateral Relations - Nuclear Security
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_ir_t32a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_IR_T32A = {
     id: 'ts_upsc_ir_t32a',
-    title: 'Multilateral Relations - Nuclear Security ? Part A: Easy & Moderate',
+    title: 'Multilateral Relations - Nuclear Security',
     cls: 'Civil Services',
     subject: 'International Relations & Global Affairs',
     exam: 'UPSC Prelims',

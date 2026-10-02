@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Governance, Social Justice & Ethics
  * Topic    : Effective Implementation
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_governance_ethics_t02b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GOVERNANCE_ETHICS_T02B = {
     id: 'ts_upsc_governance_ethics_t02b',
-    title: 'Effective Implementation ? Part B: Hard & Tricky',
+    title: 'Effective Implementation',
     cls: 'Civil Services',
     subject: 'Governance, Social Justice & Ethics',
     exam: 'UPSC Prelims',

@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Science & Technology
  * Topic    : Physics
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_science_tech_t02c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_SCIENCE_TECH_T02C = {
     id: 'ts_upsc_science_tech_t02c',
-    title: 'Physics ? Part C: UPSC Synthesis & PYQ',
+    title: 'Physics',
     cls: 'Civil Services',
     subject: 'Science & Technology',
     exam: 'UPSC Prelims',

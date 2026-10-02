@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Medieval History of India
  * Topic    : Delhi Sultanate: Political, Administration, Art And Culture
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_medieval_history_t03b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MEDIEVAL_HISTORY_T03B = {
     id: 'ts_upsc_medieval_history_t03b',
-    title: 'Delhi Sultanate: Political, Administration, Art And Culture ? Part B: Hard & Tricky',
+    title: 'Delhi Sultanate: Political, Administration, Art And Culture',
     cls: 'Civil Services',
     subject: 'Medieval History of India',
     exam: 'UPSC Prelims',

@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian & World Economy
  * Topic    : Basic Economic Concepts
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_economy_t01a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ECONOMY_T01A = {
     id: 'ts_upsc_economy_t01a',
-    title: 'Basic Economic Concepts ? Part A: Easy & Moderate',
+    title: 'Basic Economic Concepts',
     cls: 'Civil Services',
     subject: 'Indian & World Economy',
     exam: 'UPSC Prelims',

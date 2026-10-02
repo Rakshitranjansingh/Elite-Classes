@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Ancient History of India
  * Topic    : Mauryan empire
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_ancient_history_t07a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ANCIENT_HISTORY_T07A = {
     id: 'ts_upsc_ancient_history_t07a',
-    title: 'Mauryan empire ? Part A: Easy & Moderate',
+    title: 'Mauryan empire',
     cls: 'Civil Services',
     subject: 'Ancient History of India',
     exam: 'UPSC Prelims',

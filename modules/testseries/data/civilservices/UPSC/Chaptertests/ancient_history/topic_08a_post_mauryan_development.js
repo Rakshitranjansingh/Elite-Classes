@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Ancient History of India
  * Topic    : Post Mauryan Development
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_ancient_history_t08a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ANCIENT_HISTORY_T08A = {
     id: 'ts_upsc_ancient_history_t08a',
-    title: 'Post Mauryan Development ? Part A: Easy & Moderate',
+    title: 'Post Mauryan Development',
     cls: 'Civil Services',
     subject: 'Ancient History of India',
     exam: 'UPSC Prelims',

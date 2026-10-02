@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Governance, Social Justice & Ethics
  * Topic    : Need and importance of Government Policies
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_governance_ethics_t01b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GOVERNANCE_ETHICS_T01B = {
     id: 'ts_upsc_governance_ethics_t01b',
-    title: 'Need and importance of Government Policies ? Part B: Hard & Tricky',
+    title: 'Need and importance of Government Policies',
     cls: 'Civil Services',
     subject: 'Governance, Social Justice & Ethics',
     exam: 'UPSC Prelims',

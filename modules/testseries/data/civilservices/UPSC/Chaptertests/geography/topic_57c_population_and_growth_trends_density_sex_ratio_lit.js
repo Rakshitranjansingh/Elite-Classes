@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Population and Growth trends – density, sex ratio, literacy, tribes and racial groups in India
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_geography_t57c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T57C = {
     id: 'ts_upsc_geography_t57c',
-    title: 'Population and Growth trends – density, sex ratio, literacy, tribes and racial groups in India ? Part C: UPSC Synthesis & PYQ',
+    title: 'Population and Growth trends – density, sex ratio, literacy, tribes and racial groups in India',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

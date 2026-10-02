@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Study of different continents – Physiography, Agricultural region, resources etc.
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_geography_t27b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T27B = {
     id: 'ts_upsc_geography_t27b',
-    title: 'Study of different continents – Physiography, Agricultural region, resources etc. ? Part B: Hard & Tricky',
+    title: 'Study of different continents – Physiography, Agricultural region, resources etc.',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

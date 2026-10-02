@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Polity & Governance
  * Topic    : Role of media, social audit, e-governance, citizens charters, and role of civil services
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_polity_t44a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_POLITY_T44A = {
     id: 'ts_upsc_polity_t44a',
-    title: 'Role of media, social audit, e-governance, citizens charters, and role of civil services ? Part A: Easy & Moderate',
+    title: 'Role of media, social audit, e-governance, citizens charters, and role of civil services',
     cls: 'Civil Services',
     subject: 'Indian Polity & Governance',
     exam: 'UPSC Prelims',

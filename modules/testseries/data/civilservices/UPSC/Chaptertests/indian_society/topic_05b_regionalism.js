@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Society
  * Topic    : Regionalism
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_indian_society_t05b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_INDIAN_SOCIETY_T05B = {
     id: 'ts_upsc_indian_society_t05b',
-    title: 'Regionalism ? Part B: Hard & Tricky',
+    title: 'Regionalism',
     cls: 'Civil Services',
     subject: 'Indian Society',
     exam: 'UPSC Prelims',

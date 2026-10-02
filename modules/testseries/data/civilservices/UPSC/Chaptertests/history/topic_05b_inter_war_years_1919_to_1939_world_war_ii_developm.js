@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : History (General)
  * Topic    : Inter-War Years (1919 To 1939), World War-II, Development In Middle East
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_history_t05b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_HISTORY_T05B = {
     id: 'ts_upsc_history_t05b',
-    title: 'Inter-War Years (1919 To 1939), World War-II, Development In Middle East ? Part B: Hard & Tricky',
+    title: 'Inter-War Years (1919 To 1939), World War-II, Development In Middle East',
     cls: 'Civil Services',
     subject: 'History (General)',
     exam: 'UPSC Prelims',

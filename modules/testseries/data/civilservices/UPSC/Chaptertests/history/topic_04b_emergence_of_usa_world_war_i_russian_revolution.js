@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : History (General)
  * Topic    : Emergence of USA, World War-I, Russian Revolution
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_history_t04b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_HISTORY_T04B = {
     id: 'ts_upsc_history_t04b',
-    title: 'Emergence of USA, World War-I, Russian Revolution ? Part B: Hard & Tricky',
+    title: 'Emergence of USA, World War-I, Russian Revolution',
     cls: 'Civil Services',
     subject: 'History (General)',
     exam: 'UPSC Prelims',

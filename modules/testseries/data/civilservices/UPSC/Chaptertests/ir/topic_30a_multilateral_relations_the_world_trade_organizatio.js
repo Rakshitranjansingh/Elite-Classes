@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : International Relations & Global Affairs
  * Topic    : Multilateral Relations - The World Trade Organization
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_ir_t30a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_IR_T30A = {
     id: 'ts_upsc_ir_t30a',
-    title: 'Multilateral Relations - The World Trade Organization ? Part A: Easy & Moderate',
+    title: 'Multilateral Relations - The World Trade Organization',
     cls: 'Civil Services',
     subject: 'International Relations & Global Affairs',
     exam: 'UPSC Prelims',

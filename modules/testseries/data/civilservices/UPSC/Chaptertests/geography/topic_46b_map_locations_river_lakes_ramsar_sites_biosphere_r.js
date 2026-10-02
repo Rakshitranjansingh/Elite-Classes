@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Map locations – River, lakes, Ramsar sites, Biosphere Reserves, wildlife Sanctuaries and National parks etc.
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_geography_t46b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T46B = {
     id: 'ts_upsc_geography_t46b',
-    title: 'Map locations – River, lakes, Ramsar sites, Biosphere Reserves, wildlife Sanctuaries and National parks etc. ? Part B: Hard & Tricky',
+    title: 'Map locations – River, lakes, Ramsar sites, Biosphere Reserves, wildlife Sanctuaries and National parks etc.',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

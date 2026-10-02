@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : External forces & their impact – weathering, Erosion & landforms thus developed/Geomorphic processes.
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_geography_t13c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T13C = {
     id: 'ts_upsc_geography_t13c',
-    title: 'External forces & their impact – weathering, Erosion & landforms thus developed/Geomorphic processes. ? Part C: UPSC Synthesis & PYQ',
+    title: 'External forces & their impact – weathering, Erosion & landforms thus developed/Geomorphic processes.',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

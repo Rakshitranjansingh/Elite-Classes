@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian & World Economy
  * Topic    : Agriculture and allied sectors
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_economy_t25c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ECONOMY_T25C = {
     id: 'ts_upsc_economy_t25c',
-    title: 'Agriculture and allied sectors ? Part C: UPSC Synthesis & PYQ',
+    title: 'Agriculture and allied sectors',
     cls: 'Civil Services',
     subject: 'Indian & World Economy',
     exam: 'UPSC Prelims',

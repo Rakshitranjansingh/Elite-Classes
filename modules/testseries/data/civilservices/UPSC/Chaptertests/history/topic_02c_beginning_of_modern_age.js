@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : History (General)
  * Topic    : Beginning of Modern Age
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_history_t02c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_HISTORY_T02C = {
     id: 'ts_upsc_history_t02c',
-    title: 'Beginning of Modern Age ? Part C: UPSC Synthesis & PYQ',
+    title: 'Beginning of Modern Age',
     cls: 'Civil Services',
     subject: 'History (General)',
     exam: 'UPSC Prelims',

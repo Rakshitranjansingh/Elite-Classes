@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : International Relations & Global Affairs
  * Topic    : Bilateral and Multilateral Relations
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_ir_t29c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_IR_T29C = {
     id: 'ts_upsc_ir_t29c',
-    title: 'Bilateral and Multilateral Relations ? Part C: UPSC Synthesis & PYQ',
+    title: 'Bilateral and Multilateral Relations',
     cls: 'Civil Services',
     subject: 'International Relations & Global Affairs',
     exam: 'UPSC Prelims',

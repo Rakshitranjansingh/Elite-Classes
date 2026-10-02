@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Landform development – First order (continental drift theory, sea floor spreading, plate tectonics theory), Second order (Mountains, Plateaus, Plains & other landforms)
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_geography_t11a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T11A = {
     id: 'ts_upsc_geography_t11a',
-    title: 'Landform development – First order (continental drift theory, sea floor spreading, plate tectonics theory), Second order (Mountains, Plateaus, Plains & other landforms) ? Part A: Easy & Moderate',
+    title: 'Landform development – First order (continental drift theory, sea floor spreading, plate tectonics theory), Second order (Mountains, Plateaus, Plains & other landforms)',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

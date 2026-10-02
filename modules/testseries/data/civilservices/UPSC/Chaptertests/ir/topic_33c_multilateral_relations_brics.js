@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : International Relations & Global Affairs
  * Topic    : Multilateral Relations - BRICS
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_ir_t33c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_IR_T33C = {
     id: 'ts_upsc_ir_t33c',
-    title: 'Multilateral Relations - BRICS ? Part C: UPSC Synthesis & PYQ',
+    title: 'Multilateral Relations - BRICS',
     cls: 'Civil Services',
     subject: 'International Relations & Global Affairs',
     exam: 'UPSC Prelims',

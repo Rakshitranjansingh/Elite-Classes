@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Medieval History of India
  * Topic    : The Marathas
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_medieval_history_t07a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MEDIEVAL_HISTORY_T07A = {
     id: 'ts_upsc_medieval_history_t07a',
-    title: 'The Marathas ? Part A: Easy & Moderate',
+    title: 'The Marathas',
     cls: 'Civil Services',
     subject: 'Medieval History of India',
     exam: 'UPSC Prelims',

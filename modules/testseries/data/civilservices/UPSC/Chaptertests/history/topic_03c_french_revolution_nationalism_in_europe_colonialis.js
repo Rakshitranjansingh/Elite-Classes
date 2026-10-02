@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : History (General)
  * Topic    : French Revolution, Nationalism in Europe, Colonialism and Imperialism
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_history_t03c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_HISTORY_T03C = {
     id: 'ts_upsc_history_t03c',
-    title: 'French Revolution, Nationalism in Europe, Colonialism and Imperialism ? Part C: UPSC Synthesis & PYQ',
+    title: 'French Revolution, Nationalism in Europe, Colonialism and Imperialism',
     cls: 'Civil Services',
     subject: 'History (General)',
     exam: 'UPSC Prelims',

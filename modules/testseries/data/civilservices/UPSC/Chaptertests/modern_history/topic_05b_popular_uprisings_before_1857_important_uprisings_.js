@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Modern History of India
  * Topic    : Popular Uprisings before 1857: Important uprisings, Tribal and Peasant Movement
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_modern_history_t05b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MODERN_HISTORY_T05B = {
     id: 'ts_upsc_modern_history_t05b',
-    title: 'Popular Uprisings before 1857: Important uprisings, Tribal and Peasant Movement ? Part B: Hard & Tricky',
+    title: 'Popular Uprisings before 1857: Important uprisings, Tribal and Peasant Movement',
     cls: 'Civil Services',
     subject: 'Modern History of India',
     exam: 'UPSC Prelims',

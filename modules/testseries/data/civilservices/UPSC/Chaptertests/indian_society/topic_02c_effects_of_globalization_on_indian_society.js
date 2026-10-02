@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Society
  * Topic    : Effects of globalization on Indian society
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_indian_society_t02c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_INDIAN_SOCIETY_T02C = {
     id: 'ts_upsc_indian_society_t02c',
-    title: 'Effects of globalization on Indian society ? Part C: UPSC Synthesis & PYQ',
+    title: 'Effects of globalization on Indian society',
     cls: 'Civil Services',
     subject: 'Indian Society',
     exam: 'UPSC Prelims',

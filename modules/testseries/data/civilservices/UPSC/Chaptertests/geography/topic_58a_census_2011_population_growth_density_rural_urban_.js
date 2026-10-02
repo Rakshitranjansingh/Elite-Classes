@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Census 2011 Population growth, density, rural urban composition, distribution of tribal population.
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_geography_t58a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T58A = {
     id: 'ts_upsc_geography_t58a',
-    title: 'Census 2011 Population growth, density, rural urban composition, distribution of tribal population. ? Part A: Easy & Moderate',
+    title: 'Census 2011 Population growth, density, rural urban composition, distribution of tribal population.',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

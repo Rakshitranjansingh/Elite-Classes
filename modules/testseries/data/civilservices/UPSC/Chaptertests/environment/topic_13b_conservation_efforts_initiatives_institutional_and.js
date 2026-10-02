@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Environment & Ecology
  * Topic    : Conservation Efforts; Initiatives, Institutional and Organizational mechanisms
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_environment_t13b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ENVIRONMENT_T13B = {
     id: 'ts_upsc_environment_t13b',
-    title: 'Conservation Efforts; Initiatives, Institutional and Organizational mechanisms ? Part B: Hard & Tricky',
+    title: 'Conservation Efforts; Initiatives, Institutional and Organizational mechanisms',
     cls: 'Civil Services',
     subject: 'Environment & Ecology',
     exam: 'UPSC Prelims',

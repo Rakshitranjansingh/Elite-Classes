@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Medieval History of India
  * Topic    : Mughal Empire: Political, Administration, Art and Culture
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_medieval_history_t06a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MEDIEVAL_HISTORY_T06A = {
     id: 'ts_upsc_medieval_history_t06a',
-    title: 'Mughal Empire: Political, Administration, Art and Culture ? Part A: Easy & Moderate',
+    title: 'Mughal Empire: Political, Administration, Art and Culture',
     cls: 'Civil Services',
     subject: 'Medieval History of India',
     exam: 'UPSC Prelims',

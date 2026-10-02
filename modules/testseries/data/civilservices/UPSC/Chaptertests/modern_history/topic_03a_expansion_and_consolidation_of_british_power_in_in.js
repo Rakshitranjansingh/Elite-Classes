@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Modern History of India
  * Topic    : Expansion and Consolidation of British Power in India (Contd.)
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_modern_history_t03a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MODERN_HISTORY_T03A = {
     id: 'ts_upsc_modern_history_t03a',
-    title: 'Expansion and Consolidation of British Power in India (Contd.) ? Part A: Easy & Moderate',
+    title: 'Expansion and Consolidation of British Power in India (Contd.)',
     cls: 'Civil Services',
     subject: 'Modern History of India',
     exam: 'UPSC Prelims',

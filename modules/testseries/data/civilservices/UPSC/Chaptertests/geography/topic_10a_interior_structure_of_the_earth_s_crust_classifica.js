@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Interior structure of the earth's crust, classification of rocks, landforms, Earthquakes, Volcanoes
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_geography_t10a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T10A = {
     id: 'ts_upsc_geography_t10a',
-    title: 'Interior structure of the earth\'s crust, classification of rocks, landforms, Earthquakes, Volcanoes ? Part A: Easy & Moderate',
+    title: 'Interior structure of the earth\'s crust, classification of rocks, landforms, Earthquakes, Volcanoes',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

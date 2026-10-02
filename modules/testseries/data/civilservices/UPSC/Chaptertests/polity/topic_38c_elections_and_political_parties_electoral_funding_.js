@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Polity & Governance
  * Topic    : Elections and political parties, Electoral Funding, Voting, Recent Development, Electoral polities, Representation of People's Act and working of the political system since Independence.
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_polity_t38c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_POLITY_T38C = {
     id: 'ts_upsc_polity_t38c',
-    title: 'Elections and political parties, Electoral Funding, Voting, Recent Development, Electoral polities, Representation of People\'s Act and working of the political system since Independence. ? Part C: UPSC Synthesis & PYQ',
+    title: 'Elections and political parties, Electoral Funding, Voting, Recent Development, Electoral polities, Representation of People\'s Act and working of the political system since Independence.',
     cls: 'Civil Services',
     subject: 'Indian Polity & Governance',
     exam: 'UPSC Prelims',

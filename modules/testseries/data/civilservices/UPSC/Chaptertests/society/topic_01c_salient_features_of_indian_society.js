@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Society & Salient Features
  * Topic    : Salient features of Indian society
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_society_t01c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_SOCIETY_T01C = {
     id: 'ts_upsc_society_t01c',
-    title: 'Salient features of Indian society ? Part C: UPSC Synthesis & PYQ',
+    title: 'Salient features of Indian society',
     cls: 'Civil Services',
     subject: 'Indian Society & Salient Features',
     exam: 'UPSC Prelims',

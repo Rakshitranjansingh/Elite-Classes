@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Polity & Governance
  * Topic    : Statutory, Regulatory and various Quasi-Judicial Bodies
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_polity_t48a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_POLITY_T48A = {
     id: 'ts_upsc_polity_t48a',
-    title: 'Statutory, Regulatory and various Quasi-Judicial Bodies ? Part A: Easy & Moderate',
+    title: 'Statutory, Regulatory and various Quasi-Judicial Bodies',
     cls: 'Civil Services',
     subject: 'Indian Polity & Governance',
     exam: 'UPSC Prelims',

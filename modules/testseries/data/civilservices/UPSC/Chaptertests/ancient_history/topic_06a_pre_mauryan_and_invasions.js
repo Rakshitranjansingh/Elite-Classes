@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Ancient History of India
  * Topic    : Pre-Mauryan and Invasions
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_ancient_history_t06a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ANCIENT_HISTORY_T06A = {
     id: 'ts_upsc_ancient_history_t06a',
-    title: 'Pre-Mauryan and Invasions ? Part A: Easy & Moderate',
+    title: 'Pre-Mauryan and Invasions',
     cls: 'Civil Services',
     subject: 'Ancient History of India',
     exam: 'UPSC Prelims',

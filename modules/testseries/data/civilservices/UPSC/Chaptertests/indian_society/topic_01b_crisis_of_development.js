@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Society
  * Topic    : Crisis of development
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_indian_society_t01b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_INDIAN_SOCIETY_T01B = {
     id: 'ts_upsc_indian_society_t01b',
-    title: 'Crisis of development ? Part B: Hard & Tricky',
+    title: 'Crisis of development',
     cls: 'Civil Services',
     subject: 'Indian Society',
     exam: 'UPSC Prelims',

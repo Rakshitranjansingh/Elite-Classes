@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Ancient History of India
  * Topic    : Gupta age
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_ancient_history_t10a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ANCIENT_HISTORY_T10A = {
     id: 'ts_upsc_ancient_history_t10a',
-    title: 'Gupta age ? Part A: Easy & Moderate',
+    title: 'Gupta age',
     cls: 'Civil Services',
     subject: 'Ancient History of India',
     exam: 'UPSC Prelims',

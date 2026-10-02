@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Disaster Management & Resilience
  * Topic    : Natural & Man-Made Disasters
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_disaster_mgmt_t01b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_DISASTER_MGMT_T01B = {
     id: 'ts_upsc_disaster_mgmt_t01b',
-    title: 'Natural & Man-Made Disasters ? Part B: Hard & Tricky',
+    title: 'Natural & Man-Made Disasters',
     cls: 'Civil Services',
     subject: 'Disaster Management & Resilience',
     exam: 'UPSC Prelims',

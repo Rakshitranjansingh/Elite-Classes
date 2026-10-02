@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : History (General)
  * Topic    : Emergence of USA, World War-I, Russian Revolution
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_history_t04a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_HISTORY_T04A = {
     id: 'ts_upsc_history_t04a',
-    title: 'Emergence of USA, World War-I, Russian Revolution ? Part A: Easy & Moderate',
+    title: 'Emergence of USA, World War-I, Russian Revolution',
     cls: 'Civil Services',
     subject: 'History (General)',
     exam: 'UPSC Prelims',

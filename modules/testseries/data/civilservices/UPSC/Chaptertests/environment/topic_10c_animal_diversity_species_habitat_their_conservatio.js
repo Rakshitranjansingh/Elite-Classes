@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Environment & Ecology
  * Topic    : Animal diversity – SPECIES, Habitat & their conservation
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_environment_t10c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ENVIRONMENT_T10C = {
     id: 'ts_upsc_environment_t10c',
-    title: 'Animal diversity – SPECIES, Habitat & their conservation ? Part C: UPSC Synthesis & PYQ',
+    title: 'Animal diversity – SPECIES, Habitat & their conservation',
     cls: 'Civil Services',
     subject: 'Environment & Ecology',
     exam: 'UPSC Prelims',

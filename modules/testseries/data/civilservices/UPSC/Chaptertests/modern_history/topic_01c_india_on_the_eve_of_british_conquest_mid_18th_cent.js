@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Modern History of India
  * Topic    : India on the Eve of British Conquest: Mid-18th Century India
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_modern_history_t01c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_MODERN_HISTORY_T01C = {
     id: 'ts_upsc_modern_history_t01c',
-    title: 'India on the Eve of British Conquest: Mid-18th Century India ? Part C: UPSC Synthesis & PYQ',
+    title: 'India on the Eve of British Conquest: Mid-18th Century India',
     cls: 'Civil Services',
     subject: 'Modern History of India',
     exam: 'UPSC Prelims',

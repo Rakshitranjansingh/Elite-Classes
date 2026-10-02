@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Northern Mountains, Plains of India, Peninsular Plateau and Islands of India.
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_geography_t36b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T36B = {
     id: 'ts_upsc_geography_t36b',
-    title: 'Northern Mountains, Plains of India, Peninsular Plateau and Islands of India. ? Part B: Hard & Tricky',
+    title: 'Northern Mountains, Plains of India, Peninsular Plateau and Islands of India.',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

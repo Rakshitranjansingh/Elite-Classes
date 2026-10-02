@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Environment & Ecology
  * Topic    : Conservation Efforts; Initiatives, Institutional and Organizational mechanisms
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_environment_t13a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ENVIRONMENT_T13A = {
     id: 'ts_upsc_environment_t13a',
-    title: 'Conservation Efforts; Initiatives, Institutional and Organizational mechanisms ? Part A: Easy & Moderate',
+    title: 'Conservation Efforts; Initiatives, Institutional and Organizational mechanisms',
     cls: 'Civil Services',
     subject: 'Environment & Ecology',
     exam: 'UPSC Prelims',

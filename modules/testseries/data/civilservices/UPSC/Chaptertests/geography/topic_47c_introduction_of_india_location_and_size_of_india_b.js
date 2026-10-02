@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Introduction of India – Location and size of India; boundaries with different countries. Coastline of India. Tropic of cancer and Indian standard time (IST)
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_geography_t47c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T47C = {
     id: 'ts_upsc_geography_t47c',
-    title: 'Introduction of India – Location and size of India; boundaries with different countries. Coastline of India. Tropic of cancer and Indian standard time (IST) ? Part C: UPSC Synthesis & PYQ',
+    title: 'Introduction of India – Location and size of India; boundaries with different countries. Coastline of India. Tropic of cancer and Indian standard time (IST)',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

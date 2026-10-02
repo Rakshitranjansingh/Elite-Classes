@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : History (General)
  * Topic    : Cold War, Post Cold-War World, Communism, Socialism and Capitalism
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_history_t06b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_HISTORY_T06B = {
     id: 'ts_upsc_history_t06b',
-    title: 'Cold War, Post Cold-War World, Communism, Socialism and Capitalism ? Part B: Hard & Tricky',
+    title: 'Cold War, Post Cold-War World, Communism, Socialism and Capitalism',
     cls: 'Civil Services',
     subject: 'History (General)',
     exam: 'UPSC Prelims',

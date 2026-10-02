@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Internal forces & their impact – Volcanoes, Earthquakes, Folding, Faulting, Isostasy
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_geography_t12b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T12B = {
     id: 'ts_upsc_geography_t12b',
-    title: 'Internal forces & their impact – Volcanoes, Earthquakes, Folding, Faulting, Isostasy ? Part B: Hard & Tricky',
+    title: 'Internal forces & their impact – Volcanoes, Earthquakes, Folding, Faulting, Isostasy',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',

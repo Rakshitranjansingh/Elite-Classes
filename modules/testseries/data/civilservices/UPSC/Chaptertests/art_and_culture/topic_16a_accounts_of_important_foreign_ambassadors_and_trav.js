@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Art & Culture
  * Topic    : Accounts of Important Foreign Ambassadors and Travellers
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_art_and_culture_t16a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ART_AND_CULTURE_T16A = {
     id: 'ts_upsc_art_and_culture_t16a',
-    title: 'Accounts of Important Foreign Ambassadors and Travellers ? Part A: Easy & Moderate',
+    title: 'Accounts of Important Foreign Ambassadors and Travellers',
     cls: 'Civil Services',
     subject: 'Indian Art & Culture',
     exam: 'UPSC Prelims',

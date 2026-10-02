@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian & World Economy
  * Topic    : External Sector – Forex Reserves, External Debt, Trade Balance.
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_economy_t16c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ECONOMY_T16C = {
     id: 'ts_upsc_economy_t16c',
-    title: 'External Sector – Forex Reserves, External Debt, Trade Balance. ? Part C: UPSC Synthesis & PYQ',
+    title: 'External Sector – Forex Reserves, External Debt, Trade Balance.',
     cls: 'Civil Services',
     subject: 'Indian & World Economy',
     exam: 'UPSC Prelims',

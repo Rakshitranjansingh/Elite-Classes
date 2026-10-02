@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Polity & Governance
  * Topic    : Appointment to various Constitutional posts, powers, functions and responsibilities of various Constitutional Bodies
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_polity_t47c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_POLITY_T47C = {
     id: 'ts_upsc_polity_t47c',
-    title: 'Appointment to various Constitutional posts, powers, functions and responsibilities of various Constitutional Bodies ? Part C: UPSC Synthesis & PYQ',
+    title: 'Appointment to various Constitutional posts, powers, functions and responsibilities of various Constitutional Bodies',
     cls: 'Civil Services',
     subject: 'Indian Polity & Governance',
     exam: 'UPSC Prelims',

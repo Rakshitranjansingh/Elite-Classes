@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Ancient History of India
  * Topic    : Vedic culture: Rig-Vedic and Post-Vedic Age
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_ancient_history_t03b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_ANCIENT_HISTORY_T03B = {
     id: 'ts_upsc_ancient_history_t03b',
-    title: 'Vedic culture: Rig-Vedic and Post-Vedic Age ? Part B: Hard & Tricky',
+    title: 'Vedic culture: Rig-Vedic and Post-Vedic Age',
     cls: 'Civil Services',
     subject: 'Ancient History of India',
     exam: 'UPSC Prelims',

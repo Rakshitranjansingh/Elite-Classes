@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Society & Salient Features
  * Topic    : Salient features of Indian society
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_society_t01b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_SOCIETY_T01B = {
     id: 'ts_upsc_society_t01b',
-    title: 'Salient features of Indian society ? Part B: Hard & Tricky',
+    title: 'Salient features of Indian society',
     cls: 'Civil Services',
     subject: 'Indian Society & Salient Features',
     exam: 'UPSC Prelims',

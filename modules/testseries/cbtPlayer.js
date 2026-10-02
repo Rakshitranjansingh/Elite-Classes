@@ -801,8 +801,9 @@ const CBTPlayer = {
     openModal() {
         const modal = document.getElementById('cbt-engine-overlay');
         if (!modal) return;
-        modal.style.display = 'flex';
-        document.getElementById('cbt-header-title').textContent = this.activeTest.title;
+        const rawTitle = (this.activeTest && this.activeTest.title) ? this.activeTest.title : 'Assessment';
+        const cleanTitle = rawTitle.replace(/\s*[\?–—\-]?\s*Part\s+[ABC].*$/i, '').replace(/\s*\?+$/, '').trim();
+        document.getElementById('cbt-header-title').textContent = cleanTitle;
         document.getElementById('cbt-header-subtitle').textContent = `${this.activeTest.cls} ${this.activeTest.subject} • ${this.activeTest.questions.length} Questions`;
         document.getElementById('cbt-header-student-name').textContent = this.student.name;
 
@@ -1413,7 +1414,7 @@ const CBTPlayer = {
                         <span style="font-size:20px;">🔍</span>
                         <div>
                             <div style="font-size:15px; font-weight:800; color:#fff;">Test Analysis & Detailed Solutions</div>
-                            <div style="font-size:11.5px; color:#94a3b8;">${testObj.title} • Candidate: <b>${student.name}</b></div>
+                            <div style="font-size:11.5px; color:#94a3b8;">${(testObj.title || 'Assessment').replace(/\s*[\?–—\-]?\s*Part\s+[ABC].*$/i, '').replace(/\s*\?+$/, '').trim()} • Candidate: <b>${student.name}</b></div>
                         </div>
                     </div>
                     <button onclick="document.getElementById('cbt-review-modal-overlay').style.display='none';" style="background:#1e293b; color:#fff; border:1px solid #334155; width:32px; height:32px; border-radius:50%; font-size:15px; font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center;">✕</button>

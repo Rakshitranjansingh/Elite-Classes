@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Society
  * Topic    : Crisis of development
- * Test     : Part C: UPSC Synthesis & PYQ
+ * Test     : Test 3
  * ID       : ts_upsc_indian_society_t01c
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_INDIAN_SOCIETY_T01C = {
     id: 'ts_upsc_indian_society_t01c',
-    title: 'Crisis of development ? Part C: UPSC Synthesis & PYQ',
+    title: 'Crisis of development',
     cls: 'Civil Services',
     subject: 'Indian Society',
     exam: 'UPSC Prelims',

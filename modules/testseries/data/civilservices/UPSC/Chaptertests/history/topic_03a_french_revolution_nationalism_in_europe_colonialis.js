@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : History (General)
  * Topic    : French Revolution, Nationalism in Europe, Colonialism and Imperialism
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_history_t03a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_HISTORY_T03A = {
     id: 'ts_upsc_history_t03a',
-    title: 'French Revolution, Nationalism in Europe, Colonialism and Imperialism ? Part A: Easy & Moderate',
+    title: 'French Revolution, Nationalism in Europe, Colonialism and Imperialism',
     cls: 'Civil Services',
     subject: 'History (General)',
     exam: 'UPSC Prelims',

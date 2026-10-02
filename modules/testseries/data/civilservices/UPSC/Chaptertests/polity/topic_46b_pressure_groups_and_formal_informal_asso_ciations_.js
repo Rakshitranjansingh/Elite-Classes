@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : Indian Polity & Governance
  * Topic    : Pressure groups and formal/ informal asso-ciations and their role in the Polity
- * Test     : Part B: Hard & Tricky
+ * Test     : Test 2
  * ID       : ts_upsc_polity_t46b
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_POLITY_T46B = {
     id: 'ts_upsc_polity_t46b',
-    title: 'Pressure groups and formal/ informal asso-ciations and their role in the Polity ? Part B: Hard & Tricky',
+    title: 'Pressure groups and formal/ informal asso-ciations and their role in the Polity',
     cls: 'Civil Services',
     subject: 'Indian Polity & Governance',
     exam: 'UPSC Prelims',

@@ -1,8 +1,8 @@
 /**
- * Elite Classes ? UPSC Chapter Test Series
+ * Elite Classes — UPSC Chapter Test Series
  * Subject  : World & Indian Geography
  * Topic    : Water resources Availability and potential : Lakes, rivers, dams, power and irrigation projects , wetlands and interlinking of rivers
- * Test     : Part A: Easy & Moderate
+ * Test     : Test 1
  * ID       : ts_upsc_geography_t53a
  * Format   : 20 Questions | 30 Mins | 80 Marks | UPSC Negative Marking
  * Standard : UPSC Prelims Level
@@ -11,7 +11,7 @@
 
 const UPSC_GEOGRAPHY_T53A = {
     id: 'ts_upsc_geography_t53a',
-    title: 'Water resources Availability and potential : Lakes, rivers, dams, power and irrigation projects , wetlands and interlinking of rivers ? Part A: Easy & Moderate',
+    title: 'Water resources Availability and potential : Lakes, rivers, dams, power and irrigation projects , wetlands and interlinking of rivers',
     cls: 'Civil Services',
     subject: 'World & Indian Geography',
     exam: 'UPSC Prelims',
