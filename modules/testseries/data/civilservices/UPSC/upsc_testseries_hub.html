@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSC Prelims Test Series — Chapter-Wise Assessments | Elite Classes</title>
+    <meta name="description" content="UPSC Prelims chapter-wise topic tests across 16 GS subjects. 329 topics x 3 tests = 987 assessments. UPSC marking scheme.">
+    <meta name="apple-mobile-web-app-title" content="Elite Classes">
+    <link rel="icon" type="image/png" href="../../../../../favicon-32x32.png">
+    <link rel="apple-touch-icon" href="../../../../../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../../css/styles.css">
+    <style>
+        .subject-card { background:#fff; border-radius:16px; border:1px solid var(--border); padding:20px; transition:all 0.22s ease; box-shadow:0 2px 8px rgba(0,0,0,0.03); cursor:pointer; text-decoration:none; display:block; color:inherit; }
+        .subject-card:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(0,0,0,0.08); border-color:var(--primary); }
+        .subject-card.locked { opacity:0.6; cursor:not-allowed; pointer-events:none; }
+        .gs-badge { font-size:10px; font-weight:800; padding:2px 8px; border-radius:20px; text-transform:uppercase; letter-spacing:0.5px; }
+        .gs1 { background:#fef3c7; color:#92400e; }
+        .gs2 { background:#dbeafe; color:#1e40af; }
+        .gs3 { background:#dcfce7; color:#166534; }
+        .progress-bar-track { background:#f1f5f9; border-radius:999px; height:5px; margin-top:10px; overflow:hidden; }
+        .progress-bar-fill { height:100%; border-radius:999px; }
+        .tag { background:#f1f5f9; color:#475569; font-size:10px; font-weight:700; padding:2px 7px; border-radius:6px; }
+        .coming-soon { font-size:11px; font-weight:700; padding:4px 10px; border-radius:8px; text-align:center; margin-top:4px; }
+    </style>
+</head>
+<body style="background:var(--bg); padding:16px; max-width:1200px; margin:0 auto; font-family:'Plus Jakarta Sans', sans-serif;">
+
+    <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <a href="../../../../../student_home.html" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit;" title="Return to Student Portal">
+            <img src="../../../../../eliteLogo_crest.png" alt="Elite Classes" class="brand-logo-icon" style="width:30px; height:30px;">
+            <div>
+                <div style="font-size:13.5px; font-weight:800; color:var(--text);">Elite Classes</div>
+                <div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Committed to success</div>
+            </div>
+        </a>
+        <a href="../testseries_civilservices.html" class="btn btn-outline btn-sm" style="text-decoration:none; font-size:11.5px; padding:4px 10px;">← Civil Services Hub</a>
+    </header>
+
+    <div style="background:linear-gradient(135deg,#1e3a5f,#0f172a); color:#fff; border-radius:20px; padding:28px 32px; margin-bottom:22px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+            <div>
+                <div style="font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#93c5fd; margin-bottom:6px;">UPSC CSE Prelims - Chapter-Wise Test Series</div>
+                <h1 style="font-size:26px; font-weight:800; margin:0 0 8px; color:#fff;">UPSC Prelims Topic-Wise Mock Tests</h1>
+                <p style="font-size:13px; color:#cbd5e1; margin:0 0 12px; max-width:620px;">329 Topics across 16 GS Subjects - 3 Tests per Topic - 20 Questions Each - UPSC Marking (+4 / -1.33)</p>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <span style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); padding:4px 12px; border-radius:20px; font-size:11.5px; font-weight:700; color:#e2e8f0;">16 Subjects</span>
+                    <span style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); padding:4px 12px; border-radius:20px; font-size:11.5px; font-weight:700; color:#e2e8f0;">329 Topics</span>
+                    <span style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); padding:4px 12px; border-radius:20px; font-size:11.5px; font-weight:700; color:#e2e8f0;">987 Assessments</span>
+                    <span style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); padding:4px 12px; border-radius:20px; font-size:11.5px; font-weight:700; color:#fcd34d;">UPSC Marking Scheme</span>
+                </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:14px; padding:14px 20px; text-align:right;">
+                <div style="font-size:10px; color:#94a3b8; font-weight:700; text-transform:uppercase; margin-bottom:4px;">ACTIVE CANDIDATE</div>
+                <div style="font-size:15px; font-weight:800; color:#fff;" id="active-student-pill">Loading...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GS-I -->
+    <div style="margin-bottom:8px; font-size:11.5px; font-weight:800; color:#92400e; text-transform:uppercase; letter-spacing:1px;">
+        <span style="background:#fef3c7; padding:3px 12px; border-radius:20px;">GS Paper I - History, Art, Geography &amp; Society</span>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; margin-bottom:24px;">
+
+        <a href="Chaptertests/ancient_history/ancient_history_upsc.html" class="subject-card" id="card-ancient_history">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F3BA;</span>
+                <span class="gs-badge gs1">GS-I</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Ancient History of India</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">13 Topics - 39 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Prehistoric Period</span><span class="tag">IVC</span><span class="tag">Vedic Age</span><span class="tag">Mauryan Empire</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-ancient_history" style="width:0%; background:#d97706;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-ancient_history">0 / 39 Completed</div>
+        </a>
+
+        <a href="Chaptertests/medieval_history/medieval_history_upsc.html" class="subject-card" id="card-medieval_history">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F54C;</span><span class="gs-badge gs1">GS-I</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Medieval History of India</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">7 Topics - 21 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Delhi Sultanate</span><span class="tag">Mughal Empire</span><span class="tag">Bhakti Movement</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-medieval_history" style="width:0%; background:#b45309;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-medieval_history">0 / 21 Completed</div>
+        </a>
+
+        <a href="Chaptertests/modern_history/modern_history_upsc.html" class="subject-card" id="card-modern_history">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F1EE;&#x1F1F3;</span><span class="gs-badge gs1">GS-I</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Modern History of India</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">34 Topics - 102 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">British Rule</span><span class="tag">Independence Movement</span><span class="tag">Partition</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-modern_history" style="width:0%; background:#059669;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-modern_history">0 / 102 Completed</div>
+        </a>
+
+        <a href="Chaptertests/art_and_culture/art_and_culture_upsc.html" class="subject-card" id="card-art_and_culture">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F3A8;</span><span class="gs-badge gs1">GS-I</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Art &amp; Culture</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">19 Topics - 57 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Architecture</span><span class="tag">Dance &amp; Music</span><span class="tag">Painting</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-art_and_culture" style="width:0%; background:#7c3aed;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-art_and_culture">0 / 57 Completed</div>
+        </a>
+
+        <a href="Chaptertests/geography/geography_upsc.html" class="subject-card" id="card-geography">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F30F;</span><span class="gs-badge gs1">GS-I</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">World &amp; Indian Geography</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">64 Topics - 192 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Physical Geography</span><span class="tag">Indian Geography</span><span class="tag">Climatology</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-geography" style="width:0%; background:#d97706;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-geography">0 / 192 Completed</div>
+        </a>
+
+        <a href="Chaptertests/history/history_upsc.html" class="subject-card" id="card-history">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F4DC;</span><span class="gs-badge gs1">GS-I</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">World &amp; Thematic History</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">6 Topics - 18 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Renaissance</span><span class="tag">Revolutions</span><span class="tag">World Wars</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-history" style="width:0%; background:#b45309;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-history">0 / 18 Completed</div>
+        </a>
+
+        <a href="Chaptertests/society/society_upsc.html" class="subject-card" id="card-society">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F91D;</span><span class="gs-badge gs1">GS-I</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Society</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">1 Topic - 3 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Salient Features</span><span class="tag">Diversity</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-society" style="width:0%; background:#6d28d9;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-society">0 / 3 Completed</div>
+        </a>
+    </div>
+
+    <!-- GS-II -->
+    <div style="margin-bottom:8px; font-size:11.5px; font-weight:800; color:#1e40af; text-transform:uppercase; letter-spacing:1px;">
+        <span style="background:#dbeafe; padding:3px 12px; border-radius:20px;">GS Paper II - Polity, Governance &amp; International Relations</span>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; margin-bottom:24px;">
+
+        <a href="Chaptertests/polity/polity_upsc.html" class="subject-card" id="card-polity">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F3DB;</span><span class="gs-badge gs2">GS-II</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Indian Polity &amp; Governance</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">52 Topics - 156 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Constitution</span><span class="tag">Parliament</span><span class="tag">Judiciary</span><span class="tag">Federalism</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-polity" style="width:0%; background:#2563eb;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-polity">0 / 156 Completed</div>
+        </a>
+
+        <a href="Chaptertests/governance_ethics/governance_ethics_upsc.html" class="subject-card" id="card-governance_ethics">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F3E2;</span><span class="gs-badge gs2">GS-II</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Governance, Ethics &amp; Social Justice</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">6 Topics - 18 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Govt Policies</span><span class="tag">Ethics</span><span class="tag">Integrity</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-governance_ethics" style="width:0%; background:#2563eb;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-governance_ethics">0 / 18 Completed</div>
+        </a>
+
+        <a href="Chaptertests/ir/ir_upsc.html" class="subject-card" id="card-ir">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F310;</span><span class="gs-badge gs2">GS-II</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">International Relations</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">39 Topics - 117 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Foreign Policy</span><span class="tag">Bilateral Relations</span><span class="tag">UN &amp; Multilateral</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-ir" style="width:0%; background:#2563eb;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-ir">0 / 117 Completed</div>
+        </a>
+
+        <a href="Chaptertests/indian_society/indian_society_upsc.html" class="subject-card" id="card-indian_society">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F1EE;&#x1F1F3;</span><span class="gs-badge gs2">GS-II</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Indian Society</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">5 Topics - 15 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Globalization</span><span class="tag">Empowerment</span><span class="tag">Regionalism</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-indian_society" style="width:0%; background:#2563eb;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-indian_society">0 / 15 Completed</div>
+        </a>
+    </div>
+
+    <!-- GS-III -->
+    <div style="margin-bottom:8px; font-size:11.5px; font-weight:800; color:#166534; text-transform:uppercase; letter-spacing:1px;">
+        <span style="background:#dcfce7; padding:3px 12px; border-radius:20px;">GS Paper III - Economy, Environment, Science &amp; Disaster</span>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; margin-bottom:24px;">
+
+        <a href="Chaptertests/economy/economy_upsc.html" class="subject-card" id="card-economy">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F4C8;</span><span class="gs-badge gs3">GS-III</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Indian &amp; World Economy</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">32 Topics - 96 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">GDP &amp; Growth</span><span class="tag">Banking</span><span class="tag">Agriculture</span><span class="tag">Trade</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-economy" style="width:0%; background:#16a34a;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-economy">0 / 96 Completed</div>
+        </a>
+
+        <a href="Chaptertests/environment/environment_upsc.html" class="subject-card" id="card-environment">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F33F;</span><span class="gs-badge gs3">GS-III</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Environment &amp; Ecology</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">29 Topics - 87 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Biodiversity</span><span class="tag">Climate Change</span><span class="tag">Wildlife</span><span class="tag">Pollution</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-environment" style="width:0%; background:#16a34a;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-environment">0 / 87 Completed</div>
+        </a>
+
+        <a href="Chaptertests/science_tech/science_tech_upsc.html" class="subject-card" id="card-science_tech">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F52C;</span><span class="gs-badge gs3">GS-III</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Science &amp; Technology</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">6 Topics - 18 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Space Tech</span><span class="tag">Biotechnology</span><span class="tag">Defence Tech</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-science_tech" style="width:0%; background:#16a34a;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-science_tech">0 / 18 Completed</div>
+        </a>
+
+        <a href="Chaptertests/internal_security/internal_security_upsc.html" class="subject-card" id="card-internal_security">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F6E1;</span><span class="gs-badge gs3">GS-III</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Internal Security &amp; Border Mgmt</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">14 Topics - 42 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Terrorism</span><span class="tag">Cyber Security</span><span class="tag">Insurgency</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-internal_security" style="width:0%; background:#16a34a;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-internal_security">0 / 42 Completed</div>
+        </a>
+
+        <a href="Chaptertests/disaster_mgmt/disaster_mgmt_upsc.html" class="subject-card" id="card-disaster_mgmt">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <span style="font-size:24px;">&#x1F198;</span><span class="gs-badge gs3">GS-III</span>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px;">Disaster Management</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">2 Topics - 6 Assessments</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+                <span class="tag">Natural Disasters</span><span class="tag">Mitigation &amp; Preparedness</span>
+            </div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="prog-disaster_mgmt" style="width:0%; background:#16a34a;"></div></div>
+            <div style="font-size:10px; color:var(--text-muted); font-weight:600; margin-top:4px;" id="prog-label-disaster_mgmt">0 / 6 Completed</div>
+        </a>
+    </div>
+
+    <div class="toast" id="app-toast">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-width="2.5"/></svg>
+        <span id="toast-msg"></span>
+    </div>
+
+    <script>
+        let activeStudent = null;
+        try { activeStudent = JSON.parse(localStorage.getItem('ec_active_student')); } catch(e){}
+        activeStudent = activeStudent || { id: localStorage.getItem('ec_student_id') || 'st_guest', name: localStorage.getItem('ec_student_name') || 'UPSC Aspirant' };
+        document.getElementById('active-student-pill').textContent = activeStudent.name;
+
+        const SUBJECT_TOTALS = { ancient_history:39, medieval_history:21, modern_history:102, art_and_culture:57, geography:192, history:18, society:3, polity:156, governance_ethics:18, ir:117, indian_society:15, economy:96, environment:87, science_tech:18, internal_security:42, disaster_mgmt:6 };
+
+        function updateProgress() {
+            const storageKey = 'ec_cbt_enrollment_' + activeStudent.id;
+            let cbtData = {};
+            try { cbtData = JSON.parse(localStorage.getItem(storageKey) || '{}'); } catch(e){}
+            const attempts = cbtData.attempts || {};
+            Object.keys(SUBJECT_TOTALS).forEach(function(subj) {
+                const total = SUBJECT_TOTALS[subj];
+                const done = Object.keys(attempts).filter(function(k){ return k.startsWith('ts_upsc_' + subj); }).length;
+                const pct = Math.min(100, Math.round((done / total) * 100));
+                const bar = document.getElementById('prog-' + subj);
+                const label = document.getElementById('prog-label-' + subj);
+                if (bar) bar.style.width = pct + '%';
+                if (label) label.textContent = done + ' / ' + total + ' Completed';
+            });
+        }
+
+        const AVAILABLE_SUBJECTS = [
+            'ancient_history', 'medieval_history', 'modern_history', 'art_and_culture', 
+            'geography', 'history', 'society', 'polity', 'governance_ethics', 'ir', 
+            'indian_society', 'economy', 'environment', 'science_tech', 'internal_security', 'disaster_mgmt'
+        ];
+        AVAILABLE_SUBJECTS.forEach(function(subj) {
+            const card = document.getElementById('card-' + subj);
+            if (card) card.classList.remove('locked');
+        });
+
+        document.addEventListener('DOMContentLoaded', updateProgress);
+    </script>
+</body>
+</html>
