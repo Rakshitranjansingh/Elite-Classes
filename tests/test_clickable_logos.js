@@ -49,14 +49,14 @@ const filesToCheck = [
     'modules/testseries/data/class10/geography/geography_10.html',
     'modules/testseries/data/class10/politics/politics_10.html',
     'modules/testseries/data/class10/economics/economics_10.html',
-    'modules/testseries/data/civilservices/polity/polity_civil.html',
-    'modules/testseries/data/civilservices/chemistry/chemistry_civil.html',
-    'modules/testseries/data/civilservices/history/history_civil.html',
-    'modules/testseries/data/civilservices/geography/geography_civil.html',
-    'modules/testseries/data/civilservices/physics/physics_civil.html',
-    'modules/testseries/data/civilservices/economy/economy_civil.html',
-    'modules/testseries/data/civilservices/biology/biology_civil.html',
-    'modules/testseries/data/civilservices/csat/csat_civil.html',
+    'modules/testseries/data/civilservices/testseries_civilservices.html',
+    'modules/testseries/data/civilservices/UPSC/upsc_testseries_hub.html',
+    'modules/testseries/data/civilservices/UPSC/Chaptertests/polity/polity_upsc.html',
+    'modules/testseries/data/civilservices/UPSC/Chaptertests/geography/geography_upsc.html',
+    'modules/testseries/data/civilservices/UPSC/Chaptertests/economy/economy_upsc.html',
+    'modules/testseries/data/civilservices/UPSC/Chaptertests/modern_history/modern_history_upsc.html',
+    'modules/testseries/data/civilservices/UPSC/Chaptertests/environment/environment_upsc.html',
+    'modules/testseries/data/civilservices/UPSC/Chaptertests/ir/ir_upsc.html',
     'modules/testseries/subject_portal.html',
     'modules/testseries/testseries.html'
 ];
@@ -75,8 +75,10 @@ for (const relPath of filesToCheck) {
 
     // Check that header contains a clickable anchor wrapping the logo/brand linking to student_home.html
     const hasClickableLogo = (
-        html.includes('href="../../../../student_home.html"') ||
+        html.includes('href="../../../../../../../student_home.html"') ||
+        html.includes('href="../../../../../../student_home.html"') ||
         html.includes('href="../../../../../student_home.html"') ||
+        html.includes('href="../../../../student_home.html"') ||
         html.includes('href="../../../student_home.html"') ||
         html.includes('href="../../student_home.html"') ||
         html.includes('href="student_home.html"')

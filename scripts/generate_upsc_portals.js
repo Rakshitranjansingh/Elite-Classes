@@ -1,4 +1,4 @@
-﻿/**
+/**
  * generate_upsc_portals.js
  * Generates subject portal HTML files for UPSC Test Series
  * Usage: node scripts/generate_upsc_portals.js [--subject <id>] [--all]
@@ -34,7 +34,7 @@ function slugify(str) {
 
 function generatePortalHtml(subjectId, topics, meta) {
   const totalTests = topics.length * 3;
-  const backPath = '../../../../../../';
+  const backPath = '../../../../../../../';
 
   // Script tags for all topic JS files
   const scriptTags = topics.map(t => {

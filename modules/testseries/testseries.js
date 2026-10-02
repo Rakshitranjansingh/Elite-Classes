@@ -433,7 +433,7 @@ function getCivilServicesSubjectCardsHtml() {
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                     <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">8 Chapters</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">156 Tests</span>
                 </div>
                 <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
                     ⚖️ Indian Polity & Governance
@@ -443,13 +443,13 @@ function getCivilServicesSubjectCardsHtml() {
                 </p>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
                     <span class="badge badge-outline">GS Paper II</span>
-                    <span class="badge badge-outline">400 Marks / Test</span>
-                    <span class="badge badge-outline">-1.0 Negative</span>
+                    <span class="badge badge-outline">52 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
                 </div>
             </div>
             <div>
-                <a href="modules/testseries/data/civilservices/polity/polity_civil.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
-                    Open Polity Tests →
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/polity/polity_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Polity Tests (156) →
                 </a>
             </div>
         </div>
@@ -459,23 +459,23 @@ function getCivilServicesSubjectCardsHtml() {
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                     <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">8 Chapters</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">102 Tests</span>
                 </div>
                 <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
-                    🏛️ Indian History & Freedom Movement
+                    🏛️ Modern History of India
                 </h3>
                 <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
-                    Ancient, Medieval & Modern Indian History, Gandhian Era, and Post-Independence Consolidation.
+                    British Rule, Indian National Movement, Freedom Struggle, Gandhian Era & Partition.
                 </p>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
                     <span class="badge badge-outline">GS Paper I</span>
-                    <span class="badge badge-outline">400 Marks / Test</span>
-                    <span class="badge badge-outline">-1.0 Negative</span>
+                    <span class="badge badge-outline">34 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
                 </div>
             </div>
             <div>
-                <a href="modules/testseries/data/civilservices/history/history_civil.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
-                    Open History Tests →
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/modern_history/modern_history_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open History Tests (102) →
                 </a>
             </div>
         </div>
@@ -485,23 +485,23 @@ function getCivilServicesSubjectCardsHtml() {
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                     <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">8 Chapters</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">192 Tests</span>
                 </div>
                 <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
-                    🌐 Geography & Environment
+                    🌐 World & Indian Geography
                 </h3>
                 <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
-                    Physical Geography, Climatology, Indian Rivers, Ecology, Biodiversity & Climate Action.
+                    Geomorphology, Climatology, Oceanography, Indian Rivers, Resources & Regional Mapping.
                 </p>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
-                    <span class="badge badge-outline">GS Paper I & III</span>
-                    <span class="badge badge-outline">400 Marks / Test</span>
-                    <span class="badge badge-outline">-1.0 Negative</span>
+                    <span class="badge badge-outline">GS Paper I</span>
+                    <span class="badge badge-outline">64 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
                 </div>
             </div>
             <div>
-                <a href="modules/testseries/data/civilservices/geography/geography_civil.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
-                    Open Geography Tests →
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/geography/geography_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Geography Tests (192) →
                 </a>
             </div>
         </div>
@@ -511,152 +511,153 @@ function getCivilServicesSubjectCardsHtml() {
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                     <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">6 Chapters</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">96 Tests</span>
                 </div>
                 <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
-                    📈 Indian Economy & Development
+                    📈 Indian & World Economy
                 </h3>
                 <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
                     National Income, Fiscal & Monetary Policies, Indian Banking, Budgeting, and Foreign Trade.
                 </p>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
                     <span class="badge badge-outline">GS Paper III</span>
-                    <span class="badge badge-outline">400 Marks / Test</span>
-                    <span class="badge badge-outline">-1.0 Negative</span>
+                    <span class="badge badge-outline">32 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
                 </div>
             </div>
             <div>
-                <a href="modules/testseries/data/civilservices/economy/economy_civil.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
-                    Open Economy Tests →
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/economy/economy_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Economy Tests (96) →
                 </a>
             </div>
         </div>
 
-        <!-- CARD 5: CSAT -->
-        <div class="card cbt-card" data-subject="CSAT" data-class="Civil Services" data-title="CSAT Aptitude Reasoning Reading Comprehension Data Interpretation Quant" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+        <!-- CARD 5: ENVIRONMENT -->
+        <div class="card cbt-card" data-subject="Environment" data-class="Civil Services" data-title="Environment Ecology Biodiversity Climate Change National Parks Pollution" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                     <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-purple" style="font-size:10.5px;">6 Chapters</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">87 Tests</span>
                 </div>
                 <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
-                    📐 CSAT: Aptitude & Reasoning
+                    🌿 Environment & Ecology
                 </h3>
                 <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
-                    Reading Comprehension, Logical Reasoning, Analytical Ability, and Quantitative Problem Solving.
+                    Biodiversity Hotspots, Protected Areas, Climate Action, UNFCCC & Wildlife Protection.
                 </p>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
-                    <span class="badge badge-outline">Prelims Paper II</span>
-                    <span class="badge badge-outline">Qualifying Speed</span>
-                    <span class="badge badge-outline">Accuracy Focus</span>
+                    <span class="badge badge-outline">GS Paper III</span>
+                    <span class="badge badge-outline">29 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
                 </div>
             </div>
             <div>
-                <a href="modules/testseries/data/civilservices/csat/csat_civil.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
-                    Open CSAT Tests →
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/environment/environment_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Environment Tests (87) →
                 </a>
             </div>
         </div>
 
-        <!-- CARD 6: PHYSICS -->
-        <div class="card cbt-card" data-subject="Physics" data-class="Civil Services" data-title="Physics General Science Mechanics Thermodynamics Optics Electricity Magnetism Nuclear" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+        <!-- CARD 6: INTERNATIONAL RELATIONS -->
+        <div class="card cbt-card" data-subject="IR" data-class="Civil Services" data-title="International Relations Foreign Policy Bilateral Multilateral UN Quad BRICS" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                     <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">6 Chapters</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">117 Tests</span>
                 </div>
                 <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
-                    ⚛️ General Science: Physics
+                    🌐 International Relations
                 </h3>
                 <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
-                    Mechanics, Thermodynamics, Optics, Wave Theory, Electricity, Magnetism & Nuclear Energy.
+                    Indian Foreign Policy, Bilateral Ties, Global Summits, Multilateral Treaties & Geopolitics.
                 </p>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
-                    <span class="badge badge-outline">General Science</span>
-                    <span class="badge badge-outline">400 Marks / Test</span>
-                    <span class="badge badge-outline">-1.0 Negative</span>
+                    <span class="badge badge-outline">GS Paper II</span>
+                    <span class="badge badge-outline">39 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
                 </div>
             </div>
             <div>
-                <a href="modules/testseries/data/civilservices/physics/physics_civil.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
-                    Open Physics Tests →
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/ir/ir_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open IR Tests (117) →
                 </a>
             </div>
         </div>
 
-        <!-- CARD 7: CHEMISTRY -->
-        <div class="card cbt-card" data-subject="Chemistry" data-class="Civil Services" data-title="Chemistry General Science Periodic Table Bonding Acids Bases Metallurgy Polymers" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+        <!-- CARD 7: ART & CULTURE -->
+        <div class="card cbt-card" data-subject="ArtCulture" data-class="Civil Services" data-title="Art Culture Architecture Dance Music Painting Literature UNESCO Heritage" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                     <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">6 Chapters</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">57 Tests</span>
                 </div>
                 <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
-                    🧪 General Science: Chemistry
+                    🎨 Indian Art & Culture
                 </h3>
                 <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
-                    Periodic Trends, Chemical Bonding, Acids & Bases, Metallurgy, Polymers & Applied Chemistry.
+                    Temple Architecture, Classical Dances, Music, Folk Paintings, Literature & UNESCO Sites.
                 </p>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
-                    <span class="badge badge-outline">General Science</span>
-                    <span class="badge badge-outline">400 Marks / Test</span>
-                    <span class="badge badge-outline">-1.0 Negative</span>
+                    <span class="badge badge-outline">GS Paper I</span>
+                    <span class="badge badge-outline">19 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
                 </div>
             </div>
             <div>
-                <a href="modules/testseries/data/civilservices/chemistry/chemistry_civil.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
-                    Open Chemistry Tests →
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/art_and_culture/art_and_culture_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Art & Culture Tests (57) →
                 </a>
             </div>
         </div>
 
-        <!-- CARD 8: BIOLOGY -->
-        <div class="card cbt-card" data-subject="Biology" data-class="Civil Services" data-title="Biology General Science Cell Genetics Human Physiology Diseases Plant Biotechnology" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+        <!-- CARD 8: SCIENCE & TECH -->
+        <div class="card cbt-card" data-subject="ScienceTech" data-class="Civil Services" data-title="Science Technology Space ISRO Biotechnology CRISPR Nanotechnology Defense Quantum" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                     <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
-                    <span class="badge badge-primary" style="font-size:10.5px;">7 Chapters</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">18 Tests</span>
                 </div>
                 <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
-                    🧬 General Science: Biology
+                    🔬 Science & Technology
                 </h3>
                 <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
-                    Cell Biology, Genetics, Human Physiology, Immunology, Diseases, Plant Systems & Biotechnology.
+                    Space Missions, Biotechnology, CRISPR-Cas9, Nanotech, Quantum Tech, 5G & Defense Systems.
                 </p>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
-                    <span class="badge badge-outline">General Science</span>
-                    <span class="badge badge-outline">400 Marks / Test</span>
-                    <span class="badge badge-outline">-1.0 Negative</span>
+                    <span class="badge badge-outline">GS Paper III</span>
+                    <span class="badge badge-outline">6 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
                 </div>
             </div>
             <div>
-                <a href="modules/testseries/data/civilservices/biology/biology_civil.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
-                    Open Biology Tests →
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/science_tech/science_tech_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Science & Tech Tests (18) →
                 </a>
             </div>
         </div>
 
-        <!-- CARD 9: CIVIL SERVICES MASTER LEADERSHIP HUB -->
-        <div class="card cbt-card" data-subject="All" data-class="Civil Services" data-title="Civil Services Leadership Hub Overall Ranks Podium Achievers Test Series Hub" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:2px dashed #f59e0b; background:linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);">
+        <!-- CARD 9: UPSC MASTER TEST HUB -->
+        <div class="card cbt-card" data-subject="All" data-class="Civil Services" data-title="Civil Services Leadership Hub UPSC Master Test Series 16 Subjects 987 Tests" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:2px dashed #f59e0b; background:linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);">
             <div>
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                     <span class="badge badge-warning" style="font-size:10.5px; color:#b45309;">🏆 Master Hub</span>
-                    <span class="badge badge-purple" style="font-size:10.5px;">GS Leaderboard</span>
+                    <span class="badge badge-purple" style="font-size:10.5px;">16 Subjects • 987 Tests</span>
                 </div>
                 <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
-                    👑 Civil Services Leadership Hub
+                    👑 Complete UPSC Prelims Test Hub
                 </h3>
                 <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
-                    Access overall multi-subject rankings, compare percentile scores, and explore top achiever podiums across all GS and CSAT assessments.
+                    Explore all 16 General Studies subjects across 329 topics, 987 chapter tests, official UPSC marking, and dynamic candidate progress tracking.
                 </p>
                 <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
-                    <span class="badge badge-outline">Cross-Subject Ranks</span>
-                    <span class="badge badge-outline">Podium Analytics</span>
+                    <span class="badge badge-outline">16 GS Subjects</span>
+                    <span class="badge badge-outline">987 Assessments</span>
+                    <span class="badge badge-outline">All Topics</span>
                 </div>
             </div>
             <div>
-                <a href="modules/testseries/data/civilservices/testseries_civilservices.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block; background:#f59e0b; border-color:#f59e0b; color:#0f172a;">
-                    View Master Hub & Podium →
+                <a href="modules/testseries/data/civilservices/UPSC/upsc_testseries_hub.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block; background:#f59e0b; border-color:#f59e0b; color:#0f172a;">
+                    Launch UPSC Master Hub (987 Tests) →
                 </a>
             </div>
         </div>
