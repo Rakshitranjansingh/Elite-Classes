@@ -70,7 +70,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="../../../../../../../supabase/config.js"></script>
     <script src="../../../../../../../supabase/api.js"></script>
-    <script src="../../../../cbtPlayer.js"></script>
+    <script src="../../../../../../../modules/testseries/cbtPlayer.js"></script>
 
     <script src="topic_01a_need_and_importance_of_government_policies.js"></script>
     <script src="topic_01b_need_and_importance_of_government_policies.js"></script>
@@ -124,7 +124,9 @@
             var localTests = JSON.parse(localStorage.getItem('ec_test_series') || '[]');
             var meta = localTests.find(function(t){ return t.id === testId; });
             if (meta && meta.status) return meta.status;
-            return (testId === 'ts_upsc_governance_ethics_t01a') ? 'published' : 'inactive';
+            var testObj = getRegisteredTest(testId);
+            if (testObj && (testObj.status === 'disabled' || testObj.status === 'draft')) return testObj.status;
+            return 'published';
         }
         function showToast(msg, type) {
             type = type || 'success';
@@ -134,30 +136,39 @@
             setTimeout(function(){ t.className = 'toast'; }, 3000);
         }
         function enrollInTest(testId) {
-            if (['inactive','disabled'].indexOf(getTestStatus(testId)) !== -1) { showToast('Locked by admin.','danger'); return; }
+            if (['inactive','disabled'].indexOf(getTestStatus(testId)) !== -1) { showToast('Locked by faculty.','danger'); return; }
             studentCbtData.enrolled = studentCbtData.enrolled || {};
             studentCbtData.enrolled[testId] = true;
             localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
             showToast('Enrolled! Launching...', 'success');
             renderTopics();
-            setTimeout(function(){ launchTest(testId); }, 600);
+            setTimeout(function(){ launchTest(testId); }, 400);
         }
         function launchTest(testId) {
-            if (['inactive','disabled'].indexOf(getTestStatus(testId)) !== -1) { showToast('Locked by admin.','danger'); return; }
+            if (['inactive','disabled'].indexOf(getTestStatus(testId)) !== -1) { showToast('Locked by faculty.','danger'); return; }
             var testObj = getRegisteredTest(testId);
             if (!testObj || !testObj.questions || !testObj.questions.length) { showToast('Content loading, try again.','danger'); return; }
+            studentCbtData.enrolled = studentCbtData.enrolled || {};
+            studentCbtData.enrolled[testId] = true;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(studentCbtData));
             if (typeof CBTPlayer !== 'undefined' && CBTPlayer.launch) {
                 CBTPlayer.launch(testObj, activeStudent, function(res){
                     studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{},"attempts":{}}');
                     renderTopics();
                     if (res && res.score !== undefined) showToast('Score: ' + res.score + '/80 (' + (res.percentage||0) + '%)');
                 });
+            } else {
+                showToast('CBT Player engine not loaded.', 'danger');
             }
         }
         function reviewTest(testId) {
             var testObj = getRegisteredTest(testId) || { id: testId };
             var attempt = studentCbtData.attempts && studentCbtData.attempts[testId];
-            if (typeof CBTPlayer !== 'undefined' && CBTPlayer.openReview) CBTPlayer.openReview(testObj, activeStudent, attempt);
+            if (typeof CBTPlayer !== 'undefined' && CBTPlayer.openReview) {
+                CBTPlayer.openReview(testObj, activeStudent, attempt);
+            } else {
+                showToast('Review engine not loaded.', 'danger');
+            }
         }
         function renderTopics() {
             studentCbtData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"enrolled":{},"attempts":{}}');
@@ -184,13 +195,13 @@
                     } else if (attempt) {
                         var pct = attempt.pct !== undefined ? attempt.pct : Math.round(((attempt.score||0)/80)*100);
                         badge = '<span style="font-size:10px;font-weight:700;color:' + (pct>=50?'#15803d':'#dc2626') + ';">' + (attempt.score||0) + '/80 (' + pct + '%)</span>';
-                        action = '<div style="display:flex;gap:6px;"><button onclick="reviewTest('' + testId + '')" style="padding:4px 10px;border-radius:8px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;font-size:11px;font-weight:700;cursor:pointer;">Review</button><button onclick="launchTest('' + testId + '')" style="padding:4px 10px;border-radius:8px;background:var(--primary);border:none;color:#fff;font-size:11px;font-weight:700;cursor:pointer;">Retake</button></div>';
+                        action = '<div style="display:flex;gap:6px;"><button data-testid="' + testId + '" onclick="reviewTest(this.getAttribute(\'data-testid\'))" style="padding:4px 10px;border-radius:8px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;font-size:11px;font-weight:700;cursor:pointer;">Review</button><button data-testid="' + testId + '" onclick="launchTest(this.getAttribute(\'data-testid\'))" style="padding:4px 10px;border-radius:8px;background:var(--primary);border:none;color:#fff;font-size:11px;font-weight:700;cursor:pointer;">Retake</button></div>';
                     } else if (isEnrolled) {
                         badge = '<span style="font-size:10px;color:#2563eb;font-weight:700;">&#x25CF; Ready</span>';
-                        action = '<button onclick="launchTest('' + testId + '')" style="padding:4px 14px;border-radius:8px;background:var(--primary);border:none;color:#fff;font-size:11px;font-weight:700;cursor:pointer;">&#x1F680; Start</button>';
+                        action = '<button data-testid="' + testId + '" onclick="launchTest(this.getAttribute(\'data-testid\'))" style="padding:4px 14px;border-radius:8px;background:var(--primary);border:none;color:#fff;font-size:11px;font-weight:700;cursor:pointer;">&#x1F680; Start</button>';
                     } else {
-                        badge = '<span style="font-size:10px;color:#64748b;font-weight:600;">Not Enrolled</span>';
-                        action = '<button onclick="enrollInTest('' + testId + '')" style="padding:4px 14px;border-radius:8px;background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d;font-size:11px;font-weight:700;cursor:pointer;">&#x1F4DD; Enroll</button>';
+                        badge = '<span style="font-size:10px;color:#15803d;font-weight:600;">Available</span>';
+                        action = '<button data-testid="' + testId + '" onclick="launchTest(this.getAttribute(\'data-testid\'))" style="padding:4px 14px;border-radius:8px;background:var(--primary);border:none;color:#fff;font-size:11px;font-weight:700;cursor:pointer;">&#x1F680; Start</button>';
                     }
                     return '<div class="test-row"><div style="display:flex;align-items:center;gap:8px;flex:1;"><span class="test-label ' + tm.labelClass + '">' + tm.icon + ' ' + tm.label + '</span><span class="meta-pill">20Q &bull; 30m</span></div><div style="display:flex;align-items:center;gap:8px;">' + badge + action + '</div></div>';
                 }).join('');

@@ -636,6 +636,214 @@ function getCivilServicesSubjectCardsHtml() {
             </div>
         </div>
 
+        <!-- CARD 9: ANCIENT HISTORY -->
+        <div class="card cbt-card" data-subject="History" data-class="Civil Services" data-title="Ancient History India IVC Vedic Mauryas Guptas Buddhism Jainism" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">39 Tests</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    🏺 Ancient History of India
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Prehistoric Period, Indus Valley Civilization, Vedic Age, Mauryan Empire & Guptas.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">GS Paper I</span>
+                    <span class="badge badge-outline">13 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/ancient_history/ancient_history_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Ancient History Tests (39) →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 10: MEDIEVAL HISTORY -->
+        <div class="card cbt-card" data-subject="History" data-class="Civil Services" data-title="Medieval History India Delhi Sultanate Mughals Vijayanagara Bhakti Sufi" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">21 Tests</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    🕌 Medieval History of India
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Delhi Sultanate, Mughal Empire, Vijayanagara Empire, Bhakti & Sufi Movements.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">GS Paper I</span>
+                    <span class="badge badge-outline">7 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/medieval_history/medieval_history_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Medieval History Tests (21) →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 11: INTERNAL SECURITY -->
+        <div class="card cbt-card" data-subject="InternalSecurity" data-class="Civil Services" data-title="Internal Security Border Management Cyber Terrorism Defense Reforms" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">42 Tests</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    🛡️ Internal Security & Border Mgmt
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Border Challenges, Cyber Warfare, Counter-Terrorism, Money Laundering & Police Reforms.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">GS Paper III</span>
+                    <span class="badge badge-outline">14 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/internal_security/internal_security_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Internal Security Tests (42) →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 12: GOVERNANCE & ETHICS -->
+        <div class="card cbt-card" data-subject="Polity" data-class="Civil Services" data-title="Governance Ethics Social Justice Welfare Transparency Citizen Charters" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">18 Tests</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    🏢 Governance, Ethics & Social Justice
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Govt Policies, Transparency, Citizen Charters, Social Audits, E-Governance & Ethics.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">GS Paper II</span>
+                    <span class="badge badge-outline">6 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/governance_ethics/governance_ethics_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Governance Tests (18) →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 13: WORLD & THEMATIC HISTORY -->
+        <div class="card cbt-card" data-subject="History" data-class="Civil Services" data-title="World History Industrial Revolution World Wars Decolonisation Enlightenment" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">18 Tests</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    📜 World & Thematic History
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Industrial Revolution, World Wars, Decolonisation, Enlightenment & Political Philosophies.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">GS Paper I</span>
+                    <span class="badge badge-outline">6 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/history/history_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open History Tests (18) →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 14: INDIAN SOCIETY -->
+        <div class="card cbt-card" data-subject="Society" data-class="Civil Services" data-title="Indian Society Women Empowerment Urbanisation Globalisation Communalism" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">15 Tests</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    🤝 Indian Society & Social Issues
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Role of Women, Population Dynamics, Poverty, Urbanization, Globalization & Communalism.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">GS Paper II</span>
+                    <span class="badge badge-outline">5 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/indian_society/indian_society_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Indian Society Tests (15) →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 15: DISASTER MANAGEMENT -->
+        <div class="card cbt-card" data-subject="Environment" data-class="Civil Services" data-title="Disaster Management NDMA Resilience Mitigation Cyclones Floods" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">6 Tests</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    🆘 Disaster Management & Resilience
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Disaster Vulnerability, NDMA Guidelines, Early Warning Systems & Climate Resilience.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">GS Paper III</span>
+                    <span class="badge badge-outline">2 Topics</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/disaster_mgmt/disaster_mgmt_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Disaster Mgmt Tests (6) →
+                </a>
+            </div>
+        </div>
+
+        <!-- CARD 16: SOCIETY SALIENT FEATURES -->
+        <div class="card cbt-card" data-subject="Society" data-class="Civil Services" data-title="Society Diversity India Cultural Pluralism Family Structure" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:1px solid var(--border); transition:transform 0.2s, box-shadow 0.2s;">
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span class="badge badge-success" style="font-size:10.5px;">🟢 Active & Live</span>
+                    <span class="badge badge-primary" style="font-size:10.5px;">3 Tests</span>
+                </div>
+                <h3 style="font-size:17px; font-weight:800; color:var(--text); margin:0 0 6px; display:flex; align-items:center; gap:8px;">
+                    🌍 Society & Salient Features
+                </h3>
+                <p style="font-size:12.5px; color:var(--text-muted); margin:0 0 12px; line-height:1.5;">
+                    Salient Features of Indian Society, Diversity of India, Family Structures & Cultural Pluralism.
+                </p>
+                <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:11px; color:var(--text-muted);">
+                    <span class="badge badge-outline">GS Paper I</span>
+                    <span class="badge badge-outline">1 Topic</span>
+                    <span class="badge badge-outline">+4 / -1.33 Marking</span>
+                </div>
+            </div>
+            <div>
+                <a href="modules/testseries/data/civilservices/UPSC/Chaptertests/society/society_upsc.html" class="btn btn-primary btn-sm" style="text-decoration:none; font-weight:700; width:100%; text-align:center; padding:9px 12px; display:block;">
+                    Open Society Tests (3) →
+                </a>
+            </div>
+        </div>
+
         <!-- CARD 9: UPSC MASTER TEST HUB -->
         <div class="card cbt-card" data-subject="All" data-class="Civil Services" data-title="Civil Services Leadership Hub UPSC Master Test Series 16 Subjects 987 Tests" style="padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border:2px dashed #f59e0b; background:linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);">
             <div>

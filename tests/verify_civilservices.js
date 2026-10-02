@@ -1,12 +1,17 @@
 const fs = require('fs');
 const assert = require('assert');
 
-const subjects = ['polity', 'history', 'geography', 'economy', 'csat', 'physics', 'chemistry', 'biology'];
+const subjects = [
+    'ancient_history', 'art_and_culture', 'disaster_mgmt', 'economy',
+    'environment', 'geography', 'governance_ethics', 'history',
+    'indian_society', 'internal_security', 'ir', 'medieval_history',
+    'modern_history', 'polity', 'science_tech', 'society'
+];
 
 subjects.forEach(sub => {
-    // 1. Check test series portal
-    const testPortalPath = `modules/testseries/data/civilservices/${sub}/${sub}_civil.html`;
-    assert(fs.existsSync(testPortalPath), `Missing test portal for ${sub}: ${testPortalPath}`);
+    // 1. Check UPSC test series portal
+    const testPortalPath = `modules/testseries/data/civilservices/UPSC/Chaptertests/${sub}/${sub}_upsc.html`;
+    assert(fs.existsSync(testPortalPath), `Missing UPSC test portal for ${sub}: ${testPortalPath}`);
 });
 
 // Check master course hub & test hub
